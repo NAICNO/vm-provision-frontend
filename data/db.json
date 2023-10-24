@@ -1,0 +1,74 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "Introduction to Software Development",
+      "description": "Learn the fundamentals of software engineering, including programming, algorithms, and problem-solving. This is a great starting point for aspiring software engineers.",
+      "author": "John Doe",
+      "img": "https://picsum.photos/100/100?image=1"
+    },
+    {
+      "id": 2,
+      "title": "Web Development with JavaScript",
+      "description": "Explore the world of web development using JavaScript. Build interactive and dynamic websites and gain valuable skills for modern software engineering.",
+      "author": "Jane Smith",
+      "img": "https://picsum.photos/100/100?image=2"
+    },
+    {
+      "id": 3,
+      "title": "Data Structures and Algorithms Mastery",
+      "description": "Dive deep into data structures and algorithms, essential for efficient software development. Sharpen your problem-solving abilities and excel in software engineering interviews.",
+      "author": "Robert Johnson",
+      "img": "https://picsum.photos/100/100?image=3"
+    },
+    {
+      "id": 4,
+      "title": "Mobile App Development with React Native",
+      "description": "Learn how to develop cross-platform mobile applications using React Native. Acquire skills in app development, user interfaces, and mobile software engineering.",
+      "author": "Ella Davis",
+      "img": "https://picsum.photos/100/100?image=4"
+    },
+    {
+      "id": 5,
+      "title": "Cloud Computing and DevOps",
+      "description": "Explore cloud computing and DevOps practices for scalable and reliable software engineering. Learn to deploy, manage, and scale applications in the cloud.",
+      "author": "James Anderson",
+      "img": "https://picsum.photos/100/100?image=5"
+    },
+    {
+      "id": 6,
+      "title": "Software Architecture and Design Patterns",
+      "description": "Master software architecture and design patterns to create robust and maintainable software systems. Essential knowledge for software engineering professionals.",
+      "author": "Sarah White",
+      "img": "https://picsum.photos/100/100?image=6"
+    },
+    {
+      "id": 7,
+      "title": "Cybersecurity and Ethical Hacking",
+      "description": "Delve into the world of cybersecurity and ethical hacking. Protect software systems and networks from security threats in the field of software engineering.",
+      "author": "Michael Brown",
+      "img": "https://picsum.photos/100/100?image=7"
+    },
+    {
+      "id": 8,
+      "title": "Database Management and SQL",
+      "description": "Become proficient in database management and SQL. Acquire skills to design and maintain databases, crucial for software engineering projects.",
+      "author": "Emily Lewis",
+      "img": "https://picsum.photos/100/100?image=8"
+    },
+    {
+      "id": 9,
+      "title": "Agile Software Development Practices",
+      "description": "Explore Agile methodologies and best practices in software development. Learn to adapt and deliver software efficiently, a key aspect of modern software engineering.",
+      "author": "Daniel Wilson",
+      "img": "https://picsum.photos/100/100?image=9"
+    },
+    {
+      "id": 10,
+      "title": "Machine Learning and AI Applications",
+      "description": "Discover machine learning and AI applications in software engineering. Build intelligent systems and stay at the forefront of technology in software development.",
+      "author": "Olivia Martinez",
+      "img": "https://picsum.photos/100/100?image=10"
+    }
+  ]
+}
