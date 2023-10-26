@@ -1,58 +1,79 @@
-import { Form, redirect } from 'react-router-dom'
 import {
   Box,
-  FormControl,
-  FormLabel,
-  FormHelperText,
   Input,
-  Textarea,
-  Button,
-  Checkbox
+  Card, CardHeader, Heading, CardBody, useRadioGroup, SimpleGrid, useToast, Button, Flex, Text
 } from '@chakra-ui/react'
+import MachineTypeRadioItem from '../components/MachineTypeRadioItem.tsx'
+import { machineTypes } from '../constants/MachineInfo.ts'
 
 export default function Create() {
+
+  const toast = useToast()
+
+  const handleChange = (value: string) => {
+    toast({
+      title: `${ value } selected`,
+      status: 'success',
+      duration: 2000,
+    })
+  }
+
+  const { value, getRadioProps, getRootProps } = useRadioGroup({
+    // defaultValue: avatars[0].name,
+    onChange: handleChange,
+  })
+
+  const group = getRootProps()
+
+
   return (
-    <Box maxW="480px">
-      <Form method="post" action="/create">
-        <FormControl isRequired mb="40px">
-          <FormLabel>Item name:</FormLabel>
-          <Input type="text" name="title"/>
-          <FormHelperText>Enter a descriptive item name.</FormHelperText>
-        </FormControl>
+    <Box maxW="800px">
+      <Card mb="20px">
+        <CardBody>
+          <Heading as="h3" size="sm" pb="20px">
+            Name your virtual machine
+          </Heading>
+          <Input placeholder="Virtual machine name"/>
+        </CardBody>
+      </Card>
 
-        <FormControl mb="40px">
-          <FormLabel>Item description:</FormLabel>
-          <Textarea
-            placeholder="Enter a detailed description ..."
-            name="description"
-          />
-        </FormControl>
+      <Card mb="20px">
+        <CardHeader>
+          <Heading as="h3" size="sm" mb="10px">
+            SSH key pair
+          </Heading>
+          <Text>We will generate an SSH key pair for you.</Text>
+        </CardHeader>
+        <CardBody>
 
-        <FormControl display="flex" alignItems="center" mb="40px">
-          <Checkbox
-            name="isPriority"
-            colorScheme="purple"
-            size="lg"
-          />
-          <FormLabel mb="0" ml="10px">Make a priority item</FormLabel>
-        </FormControl>
+        </CardBody>
+      </Card>
 
-        <Button type="submit">submit</Button>
-      </Form>
+      <Card>
+        <CardHeader>
+          <Heading as="h3" size="sm">
+            Select a virtual machine type
+          </Heading>
+        </CardHeader>
+        <CardBody>
+          <SimpleGrid spacing={ 5 } minChildWidth="180px" { ...group }>
+            { machineTypes.map((machineType) => {
+              const radioProps = getRadioProps({ value: machineType.name })
+              return (
+                <MachineTypeRadioItem
+                  key={ machineType.name }
+                  machineType={ machineType }
+                  radioProps={ radioProps }
+                />
+              )
+            }) }
+          </SimpleGrid>
+          <Flex justifyContent="flex-end" mr="20px" mb="20px">
+            <Button colorScheme="blue">Create Virtual Machine</Button>
+          </Flex>
+        </CardBody>
+      </Card>
     </Box>
   )
 }
 
-export const createAction = async ({ request } ) => {
-  const data = await request.formData()
-
-  const task = {
-    title: data.get('title'),
-    description: data.get('description'),
-    isPriority: data.get('isPriority') === '',
-  }
-
-  console.log(task)
-
-  return redirect('/')
-}
