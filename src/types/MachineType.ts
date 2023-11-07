@@ -1,5 +1,5 @@
-interface MachineType {
-  id: number;
+export interface MachineType {
+  id: string;
   name: string;
   description: string;
   os: string;
