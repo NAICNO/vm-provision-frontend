@@ -8,35 +8,28 @@ import {
   HStack,
   Spacer,
   Text,
-  useToast
 } from '@chakra-ui/react'
-import { TimeIcon } from '@chakra-ui/icons'
 import { useAuth } from '../hooks/useAuth.tsx'
-import { useNavigate } from 'react-router-dom'
+import {
+  AUTH_END_SESSION_URL,
+  AUTH_LOGOUT_REDIRECT_URL,
+} from '../constants/Constants.ts'
 
 export default function Navbar() {
 
-  const navigate = useNavigate()
-  const {user, logout} = useAuth()
+  const {authState} = useAuth()
 
-  const toast = useToast()
+  const user = authState.user
 
-  const logOutAndToast = async () => {
-    logout()
-    showToast()
-    navigate('/')
+  const buildLogoutUrl = () => {
+    const idToken = authState.idToken
+
+    const url = `${AUTH_END_SESSION_URL}?id_token_hint=${idToken}&post_logout_redirect_uri=${AUTH_LOGOUT_REDIRECT_URL}`
+    return encodeURI(url)
   }
 
-  const showToast = () => {
-    toast({
-      title: 'Account logged out',
-      description: 'You have successfully logged out of your account.',
-      status: 'success',
-      duration: 1000,
-      isClosable: true,
-      position: 'top',
-      icon: <TimeIcon/>
-    })
+  const logOutAndToast = () => {
+    window.location.href = buildLogoutUrl()
   }
 
   return (
@@ -48,15 +41,15 @@ export default function Navbar() {
 
       <HStack spacing="20px">
         <Flex>
-          <Avatar name={user.firstName}>
+          <Avatar name={user?.name}>
             <AvatarBadge boxSize="1em" bg="green"/>
           </Avatar>
           <Box ml="3">
             <Text fontWeight="bold">
-              {user.firstName} {user.lastName}
+              {user?.name}
             </Text>
             <Text fontSize="sm">
-              {user.email}
+              {user?.email}
             </Text>
           </Box>
         </Flex>

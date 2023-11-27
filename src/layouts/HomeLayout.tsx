@@ -4,9 +4,9 @@ import { useAuth } from '../hooks/useAuth.tsx'
 
 export default function HomeLayout() {
 
-  const {user} = useAuth()
+  const {authState} = useAuth()
 
-  if (user) {
+  if (authState.isAuthenticated) {
     return <Navigate to="/dashboard" replace/>
   }
 

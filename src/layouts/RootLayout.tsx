@@ -1,14 +1,18 @@
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar.tsx'
 import { Grid, GridItem } from '@chakra-ui/react'
 import Sidebar from '../components/Sidebar.tsx'
 import { useAuth } from '../hooks/useAuth.tsx'
 
 export default function RootLayout() {
-  const {user} = useAuth()
-  if (!user) {
-    return <Navigate to="/"/>
+
+  const {authState} = useAuth()
+  const location = useLocation()
+
+  if (!authState.isAuthenticated) {
+    return <Navigate to="/" state={{from: location}} replace/>
   }
+
   return (
     <Grid templateColumns="repeat(6, 1fr)" bg="gray.50">
       <GridItem

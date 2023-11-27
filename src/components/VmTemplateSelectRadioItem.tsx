@@ -16,14 +16,15 @@ import {
   useRadio,
   UseRadioProps
 } from '@chakra-ui/react'
+import { VmTemplate } from '../types/VmTemplate.ts'
 
 // Proptypes for MachineTypeRadioItem
 interface MachineTypeRadioItemProps {
   radioProps: UseRadioProps
-  machineType: MachineType
+  vmTemplate: VmTemplate
 }
 
-export default function MachineTypeRadioItem({machineType, radioProps}: MachineTypeRadioItemProps) {
+export default function VmTemplateSelectRadioItem({vmTemplate, radioProps}: MachineTypeRadioItemProps) {
 
   const {
     state,
@@ -63,7 +64,7 @@ export default function MachineTypeRadioItem({machineType, radioProps}: MachineT
                   <Circle size="15px" borderWidth="2px" borderColor="gray.400"/>
               }
               <Heading as="h3" size="xs" ml="10px">
-                {machineType.name}
+                {vmTemplate.templateName}
               </Heading>
             </Flex>
           </Box>
@@ -73,19 +74,19 @@ export default function MachineTypeRadioItem({machineType, radioProps}: MachineT
             <Table size="sm">
               <Tbody>
                 <Tr>
-                  <Td><Text as="b">{machineType.vcpu}</Text></Td>
+                  <Td><Text as="b">{vmTemplate.cpu}</Text></Td>
                   <Td>vCPUs</Td>
                 </Tr>
                 <Tr>
-                  <Td><Text as="b">{machineType.memory} GB</Text></Td>
+                  <Td><Text as="b">{vmTemplate.ram} GB</Text></Td>
                   <Td>memory</Td>
                 </Tr>
                 <Tr>
-                  <Td><Text as="b">{machineType.storage} GB</Text></Td>
+                  <Td><Text as="b">{vmTemplate.storage} GB</Text></Td>
                   <Td>storage</Td>
                 </Tr>
                 <Tr>
-                  <Td whiteSpace="normal"><Text as="b" noOfLines={2}>{machineType.os}</Text></Td>
+                  <Td whiteSpace="normal"><Text as="b" noOfLines={2}>{vmTemplate.os}</Text></Td>
                   <Td>OS</Td>
                 </Tr>
               </Tbody>

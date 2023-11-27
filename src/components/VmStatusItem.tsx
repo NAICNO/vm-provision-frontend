@@ -21,30 +21,33 @@ import { Icon, InfoIcon, QuestionOutlineIcon } from '@chakra-ui/icons'
 import { GrServer } from 'react-icons/gr'
 import { MdDelete, MdPlayCircleOutline, MdStopCircle } from 'react-icons/md'
 import { IoMdInformationCircleOutline } from 'react-icons/io'
-import { MachineStatus } from '../types/MachineStatus.ts'
-import { MachineStatusInfo } from '../types/MachineStatusInfo.ts'
+import { VmStatus } from '../types/VmStatus.ts'
+import { Vm } from '../types/Vm.ts'
+import { mapStringToVirtualMachineStatus } from '../util'
 
 
-export default function MachineStatusItem(machineStatus: MachineStatusInfo) {
+export default function VmStatusItem(vm: Vm) {
+
+  const status = mapStringToVirtualMachineStatus(vm.status)
 
   return (
-    <Card key={machineStatus.id}>
+    <Card key={vm.vmId} maxWidth="400px">
       <CardBody>
         <Box>
           <HStack align="start">
             <Icon h={10} w={10} as={GrServer}/>
             <VStack align="start">
-              <Heading as={'h3'} size={'sm'}>{machineStatus.name}</Heading>
+              <Heading as={'h3'} size={'sm'}>{vm.vmName}</Heading>
               {
-                machineStatus.ip &&
-                <Heading as={'h3'} size={'xs'}>IP: {machineStatus.ip}</Heading>
+                vm.ipv4Address &&
+                <Heading as={'h3'} size={'xs'}>IP: {vm.ipv4Address}</Heading>
               }
             </VStack>
             <Spacer/>
-            <Box color={getStatusTextColor(machineStatus.status)}>
+            <Box color={getStatusTextColor(status)}>
               <Box display="flex" alignItems="center">
-                <StatusIcon status={machineStatus.status}/>
-                <Text ml="5px" fontSize="sm" as="b">{getStatusText(machineStatus.status)}</Text>
+                <StatusIcon status={status}/>
+                <Text ml="5px" fontSize="sm" as="b">{getStatusText(status)}</Text>
               </Box>
             </Box>
           </HStack>
@@ -53,19 +56,23 @@ export default function MachineStatusItem(machineStatus: MachineStatusInfo) {
               <Tbody>
                 <Tr>
                   <Td>vCPUs</Td>
-                  <Td><Text>{machineStatus.vcpu}</Text></Td>
+                  <Td><Text>{vm.vmTemplate.cpu}</Text></Td>
                 </Tr>
                 <Tr>
                   <Td>memory</Td>
-                  <Td><Text>{machineStatus.memory} GB</Text></Td>
+                  <Td><Text>{vm.vmTemplate.ram} GB</Text></Td>
                 </Tr>
                 <Tr>
                   <Td>storage</Td>
-                  <Td><Text>{machineStatus.storage} GB</Text></Td>
+                  <Td><Text>{vm.vmTemplate.storage} GB</Text></Td>
                 </Tr>
                 <Tr>
                   <Td>OS</Td>
-                  <Td whiteSpace="normal"><Text noOfLines={2}>{machineStatus.os}</Text></Td>
+                  <Td whiteSpace="normal">
+                    <Text noOfLines={2}>
+                      {vm.vmTemplate.os}
+                    </Text>
+                  </Td>
                 </Tr>
               </Tbody>
             </Table>
@@ -74,17 +81,23 @@ export default function MachineStatusItem(machineStatus: MachineStatusInfo) {
       </CardBody>
       <CardFooter mt="-20px">
         <HStack w="full">
-          <IconButton colorScheme="gray" icon={<InfoIcon/>} aria-label={'Info'}/>
+          <IconButton
+            colorScheme="gray"
+            icon={<InfoIcon/>}
+            aria-label={'Info'}
+            onClick={() => {
+            }}
+          />
           <Spacer/>
           {
-            machineStatus.status !== MachineStatus.PROVISIONING &&
+            vm.status !== VmStatus.PROVISIONING &&
             <Button
-              leftIcon={<Icon color={'white'} as={getButtonIcon(machineStatus.status)}/>}
+              leftIcon={<Icon color={'white'} as={getButtonIcon(status)}/>}
               variant={'solid'}
-              colorScheme={getButtonColor(machineStatus.status)}
+              colorScheme={getButtonColor(status)}
               size="sm"
             >
-              {getButtonText(machineStatus.status)}
+              {getButtonText(status)}
             </Button>
           }
         </HStack>
@@ -93,78 +106,78 @@ export default function MachineStatusItem(machineStatus: MachineStatusInfo) {
   )
 }
 
-function getStatusText(status: MachineStatus) {
+function getStatusText(status: VmStatus) {
   switch (status) {
-  case MachineStatus.STOPPED:
+  case VmStatus.STOPPED:
     return 'Stopped'
-  case MachineStatus.RUNNING:
+  case VmStatus.RUNNING:
     return 'Running'
-  case MachineStatus.PROVISIONING:
+  case VmStatus.PROVISIONING:
     return 'Creating'
   default:
     return 'Unknown'
   }
 }
 
-function getStatusTextColor(status: MachineStatus) {
+function getStatusTextColor(status: VmStatus) {
   switch (status) {
-  case MachineStatus.STOPPED:
+  case VmStatus.STOPPED:
     return 'red.400'
-  case MachineStatus.RUNNING:
+  case VmStatus.RUNNING:
     return 'green.400'
-  case MachineStatus.PROVISIONING:
+  case VmStatus.PROVISIONING:
     return 'blue.400'
   default:
     return 'gray'
   }
 }
 
-function getButtonText(status: MachineStatus) {
+function getButtonText(status: VmStatus) {
   switch (status) {
-  case MachineStatus.STOPPED:
+  case VmStatus.STOPPED:
     return 'Delete'
-  case MachineStatus.RUNNING:
+  case VmStatus.RUNNING:
     return 'Stop'
-  case MachineStatus.PROVISIONING:
+  case VmStatus.PROVISIONING:
     return ''
   default:
     return 'Unknown'
   }
 }
 
-function getButtonIcon(status: MachineStatus) {
+function getButtonIcon(status: VmStatus) {
   switch (status) {
-  case MachineStatus.STOPPED:
+  case VmStatus.STOPPED:
     return MdDelete
-  case MachineStatus.RUNNING:
+  case VmStatus.RUNNING:
     return MdStopCircle
-  case MachineStatus.PROVISIONING:
+  case VmStatus.PROVISIONING:
     return QuestionOutlineIcon
   default:
     return QuestionOutlineIcon
   }
 }
 
-function getButtonColor(status: MachineStatus) {
+function getButtonColor(status: VmStatus) {
   switch (status) {
-  case MachineStatus.STOPPED:
+  case VmStatus.STOPPED:
     return 'red'
-  case MachineStatus.RUNNING:
+  case VmStatus.RUNNING:
     return 'orange'
-  case MachineStatus.PROVISIONING:
+  case VmStatus.PROVISIONING:
     return 'blue'
   default:
     return 'gray'
   }
 }
 
-function StatusIcon({status}: { status: MachineStatus }) {
+function StatusIcon({status}: { status: VmStatus }) {
   switch (status) {
-  case MachineStatus.STOPPED:
+  case VmStatus.STOPPED:
     return <Icon as={MdStopCircle}/>
-  case MachineStatus.RUNNING:
+  case VmStatus.RUNNING:
     return <Icon as={MdPlayCircleOutline}/>
-  case MachineStatus.PROVISIONING:
+  case VmStatus.PROVISIONING:
     return <CircularProgress isIndeterminate size="15px" color="blue.400"/>
   default:
     return <Icon as={IoMdInformationCircleOutline}/>
