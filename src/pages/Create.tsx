@@ -99,7 +99,6 @@ export default function Create() {
     if (result) {
       setSshKeyPairGenerateResult(result)
     }
-    console.log('sshKeyId', result)
     onClose()
   }
   const handleVmNameChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -125,7 +124,7 @@ export default function Create() {
 
 
   return (
-    <Box maxW="800px">
+    <Box maxW="880px">
       <Card mb="20px">
         <CardBody>
           <FormControl isInvalid={!isVmNameValid} isRequired>
@@ -191,7 +190,7 @@ export default function Create() {
           </Heading>
         </CardHeader>
         <CardBody>
-          <SimpleGrid spacing={5} minChildWidth="180px" {...group}>
+          <SimpleGrid spacing={5} minChildWidth="200px" {...group}>
             {isLoadingVmTemplates ?
               skeletonVmTemplateItems.map((_, key) => {
                 return (

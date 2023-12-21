@@ -1,6 +1,5 @@
 import {
   Avatar,
-  AvatarBadge,
   Box,
   Button,
   Flex,
@@ -41,9 +40,7 @@ export default function Navbar() {
 
       <HStack spacing="20px">
         <Flex>
-          <Avatar name={user?.name}>
-            <AvatarBadge boxSize="1em" bg="green"/>
-          </Avatar>
+          <Avatar name={user?.name}/>
           <Box ml="3">
             <Text fontWeight="bold">
               {user?.name}

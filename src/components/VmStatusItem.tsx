@@ -7,7 +7,7 @@ import {
   CircularProgress,
   Heading,
   HStack,
-  IconButton,
+  Image,
   Spacer,
   Table,
   TableContainer,
@@ -17,18 +17,18 @@ import {
   Tr,
   VStack
 } from '@chakra-ui/react'
-import { Icon, InfoIcon, QuestionOutlineIcon } from '@chakra-ui/icons'
+import { Icon, InfoOutlineIcon, QuestionOutlineIcon } from '@chakra-ui/icons'
 import { GrServer } from 'react-icons/gr'
 import { MdDelete, MdPlayCircleOutline, MdStopCircle } from 'react-icons/md'
 import { IoMdInformationCircleOutline } from 'react-icons/io'
-import { VmStatus } from '../types/VmStatus.ts'
 import { Vm } from '../types/Vm.ts'
-import { mapStringToVirtualMachineStatus } from '../util'
+import { VmStatusType } from '../types/VmStatusType.ts'
+import { getVmStatusText, getVmStatusTextColor } from '../util'
 
 
-export default function VmStatusItem(vm: Vm) {
+export default function VmStatusTypeItem(vm: Vm) {
 
-  const status = mapStringToVirtualMachineStatus(vm.status)
+  const status = vm.status
 
   return (
     <Card key={vm.vmId} maxWidth="400px">
@@ -44,10 +44,10 @@ export default function VmStatusItem(vm: Vm) {
               }
             </VStack>
             <Spacer/>
-            <Box color={getStatusTextColor(status)}>
+            <Box color={getVmStatusTextColor(status)}>
               <Box display="flex" alignItems="center">
                 <StatusIcon status={status}/>
-                <Text ml="5px" fontSize="sm" as="b">{getStatusText(status)}</Text>
+                <Text ml="5px" fontSize="sm" as="b">{getVmStatusText(status)}</Text>
               </Box>
             </Box>
           </HStack>
@@ -81,16 +81,18 @@ export default function VmStatusItem(vm: Vm) {
       </CardBody>
       <CardFooter mt="-20px">
         <HStack w="full">
-          <IconButton
-            colorScheme="gray"
-            icon={<InfoIcon/>}
-            aria-label={'Info'}
-            onClick={() => {
-            }}
-          />
+          <Image src="nrec.svg" width={20}/>
           <Spacer/>
+          <Button
+            leftIcon={<InfoOutlineIcon/>}
+            variant={'solid'}
+            colorScheme={getButtonColor(status)}
+            size="sm"
+          >
+            Info
+          </Button>
           {
-            vm.status !== VmStatus.PROVISIONING &&
+            vm.status !== VmStatusType.PROVISIONING &&
             <Button
               leftIcon={<Icon color={'white'} as={getButtonIcon(status)}/>}
               variant={'solid'}
@@ -106,78 +108,52 @@ export default function VmStatusItem(vm: Vm) {
   )
 }
 
-function getStatusText(status: VmStatus) {
+function getButtonText(status: VmStatusType) {
   switch (status) {
-  case VmStatus.STOPPED:
-    return 'Stopped'
-  case VmStatus.RUNNING:
-    return 'Running'
-  case VmStatus.PROVISIONING:
-    return 'Creating'
-  default:
-    return 'Unknown'
-  }
-}
-
-function getStatusTextColor(status: VmStatus) {
-  switch (status) {
-  case VmStatus.STOPPED:
-    return 'red.400'
-  case VmStatus.RUNNING:
-    return 'green.400'
-  case VmStatus.PROVISIONING:
-    return 'blue.400'
-  default:
-    return 'gray'
-  }
-}
-
-function getButtonText(status: VmStatus) {
-  switch (status) {
-  case VmStatus.STOPPED:
+  case VmStatusType.STOPPED:
     return 'Delete'
-  case VmStatus.RUNNING:
+  case VmStatusType.RUNNING:
     return 'Stop'
-  case VmStatus.PROVISIONING:
+  case VmStatusType.PROVISIONING:
     return ''
   default:
     return 'Unknown'
   }
 }
 
-function getButtonIcon(status: VmStatus) {
+function getButtonIcon(status: VmStatusType) {
   switch (status) {
-  case VmStatus.STOPPED:
+  case VmStatusType.STOPPED:
     return MdDelete
-  case VmStatus.RUNNING:
+  case VmStatusType.RUNNING:
     return MdStopCircle
-  case VmStatus.PROVISIONING:
+  case VmStatusType.PROVISIONING:
     return QuestionOutlineIcon
   default:
     return QuestionOutlineIcon
   }
 }
 
-function getButtonColor(status: VmStatus) {
+function getButtonColor(status: VmStatusType) {
   switch (status) {
-  case VmStatus.STOPPED:
+  case VmStatusType.STOPPED:
     return 'red'
-  case VmStatus.RUNNING:
+  case VmStatusType.RUNNING:
     return 'orange'
-  case VmStatus.PROVISIONING:
+  case VmStatusType.PROVISIONING:
     return 'blue'
   default:
     return 'gray'
   }
 }
 
-function StatusIcon({status}: { status: VmStatus }) {
+function StatusIcon({status}: { status: VmStatusType }) {
   switch (status) {
-  case VmStatus.STOPPED:
+  case VmStatusType.STOPPED:
     return <Icon as={MdStopCircle}/>
-  case VmStatus.RUNNING:
+  case VmStatusType.RUNNING:
     return <Icon as={MdPlayCircleOutline}/>
-  case VmStatus.PROVISIONING:
+  case VmStatusType.PROVISIONING:
     return <CircularProgress isIndeterminate size="15px" color="blue.400"/>
   default:
     return <Icon as={IoMdInformationCircleOutline}/>

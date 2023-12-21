@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar.tsx'
 import { Grid, GridItem } from '@chakra-ui/react'
 import Sidebar from '../components/Sidebar.tsx'
 import { useAuth } from '../hooks/useAuth.tsx'
+import { useEffect } from 'react'
+import * as WebSocketUtils from '../util/WebSoketUtil.ts'
 
 export default function RootLayout() {
 
@@ -12,6 +14,21 @@ export default function RootLayout() {
   if (!authState.isAuthenticated) {
     return <Navigate to="/" state={{from: location}} replace/>
   }
+
+  useEffect(() => {
+    if (authState.isAuthenticated) {
+      const userId = authState.user?.user
+      if (userId) {
+        WebSocketUtils.initializeSocket(userId)
+      }
+      console.log('isAuthenticated', authState.user)
+    }
+    return () => {
+      WebSocketUtils.closeSocket()
+    }
+
+
+  }, [])
 
   return (
     <Grid templateColumns="repeat(6, 1fr)" bg="gray.50">

@@ -89,6 +89,10 @@ export default function VmTemplateSelectRadioItem({vmTemplate, radioProps}: Mach
                   <Td whiteSpace="normal"><Text as="b" noOfLines={2}>{vmTemplate.os}</Text></Td>
                   <Td>OS</Td>
                 </Tr>
+                <Tr>
+                  <Td><Text as="b">{vmTemplate.provider.providerName}</Text></Td>
+                  <Td>Provider</Td>
+                </Tr>
               </Tbody>
             </Table>
           </TableContainer>

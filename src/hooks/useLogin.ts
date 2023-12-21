@@ -10,7 +10,6 @@ const fetchToken = async (axios: AxiosInstance, state: string, code: string, non
 }
 
 export const useFetchTokens = (state: string, code: string, nonce: string) => {
-  console.log('useFetchToken', state, code, nonce)
   const axios = useAxios(false)
   return useQuery<FetchTokenResponse>(
     {
