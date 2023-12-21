@@ -1,8 +1,6 @@
 import {
   CheckCircleIcon,
-  EmailIcon,
   InfoIcon,
-  PhoneIcon,
   WarningTwoIcon
 } from '@chakra-ui/icons'
 import {
@@ -15,8 +13,14 @@ import {
   ListItem,
   ListIcon
 } from '@chakra-ui/react'
+import { useAuth } from '../hooks/useAuth.tsx'
+import { MdAlternateEmail, MdPerson } from 'react-icons/md'
 
 export default function Profile() {
+
+  const {authState} = useAuth()
+  const {user} = authState
+
   return (
     <Tabs mt="40px" p="20px" variant="enclosed" colorScheme="blue">
       <TabList>
@@ -28,15 +32,12 @@ export default function Profile() {
         <TabPanel>
           <List spacing={ 4 }>
             <ListItem>
-              Ashen Wijesiri
+              <ListIcon as={ MdPerson }/>
+              {`${user?.name}`}
             </ListItem>
             <ListItem>
-              <ListIcon as={ EmailIcon }/>
-              Email: ashenw@uio.no
-            </ListItem>
-            <ListItem>
-              <ListIcon as={ PhoneIcon }/>
-              93424766
+              <ListIcon as={ MdAlternateEmail }/>
+              Email: {`${user?.email}`}
             </ListItem>
           </List>
         </TabPanel>

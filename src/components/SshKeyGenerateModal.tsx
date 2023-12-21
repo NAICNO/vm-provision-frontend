@@ -86,13 +86,13 @@ export default function SshKeyGenerateModal({isOpen, onClose}: SshKeyGenerateMod
   const onSuccessCreateSshKey = (privateKey: SshPrivateKey) => {
     setPrivateKey(privateKey)
     nextStep()
-    console.log('privateKey', privateKey)
   }
   const onErrorCreateSshKey = (error: Error) => {
     console.log('error creating ssh key', error)
+    //TODO: Add error message
   }
 
-  const {mutate, isLoading} = useCreateSshKey(onSuccessCreateSshKey, onErrorCreateSshKey)
+  const {mutate, isPending} = useCreateSshKey(onSuccessCreateSshKey, onErrorCreateSshKey)
 
   const handleFileNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFileName(e.target.value)
@@ -133,10 +133,10 @@ export default function SshKeyGenerateModal({isOpen, onClose}: SshKeyGenerateMod
             </ModalBody>
 
             <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={handleOnCreateSshKey} isLoading={isLoading}>
+              <Button colorScheme="blue" mr={3} onClick={handleOnCreateSshKey} isLoading={isPending}>
                 Create key pair
               </Button>
-              <Button onClick={handleClose} isDisabled={isLoading}>Cancel</Button>
+              <Button onClick={handleClose} isDisabled={isPending}>Cancel</Button>
             </ModalFooter>
           </>
         )}

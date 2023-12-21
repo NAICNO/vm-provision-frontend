@@ -22,8 +22,6 @@ export const useFetchMyVms = () => {
     {
       queryKey: [QueryKeys.VMS],
       queryFn: () => fetchMyVms(axios),
-      gcTime: 0,
-      placeholderData: [],
     }
   )
 }

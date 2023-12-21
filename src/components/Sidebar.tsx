@@ -6,7 +6,7 @@ export default function Sidebar() {
   return (
     <List color="white" fontSize="1.2em" spacing="4">
       <ListItem>
-        <NavLink to={ '/' }>
+        <NavLink to={ '' }>
           <ListIcon as={CalendarIcon} color="white" />
           Dashboard
         </NavLink>

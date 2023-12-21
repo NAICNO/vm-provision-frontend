@@ -30,7 +30,7 @@ export function getAxiosInstance(): AxiosInstance {
   })
 }
 
-export function getAxios(authContext: AuthContextType) {
+export function getAxios(authContext?: AuthContextType) {
   const axiosInstance = getAxiosInstance()
 
   // Add a request interceptor

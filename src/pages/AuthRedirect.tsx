@@ -35,8 +35,6 @@ export default function AuthRedirect() {
       const refreshToken = data.refreshToken as string
 
       setAuthInfo(data.idToken, accessToken, refreshToken, user)
-
-      console.log('data', data)
     }
   }, [data])
 

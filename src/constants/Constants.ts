@@ -1,6 +1,6 @@
 
 export const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
-
+export const SOCKET_ENDPOINT = import.meta.env.VITE_SOCKET_ENDPOINT
 export const AUTH_URL = import.meta.env.VITE_AUTH_URL
 export const AUTH_END_SESSION_URL = import.meta.env.VITE_AUTH_END_SESSION_URL
 export const AUTH_CLIENT_ID = import.meta.env.VITE_CLIENT_ID
