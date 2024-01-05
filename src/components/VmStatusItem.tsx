@@ -8,34 +8,55 @@ import {
   Heading,
   HStack,
   Image,
+  Progress,
   Spacer,
   Table,
-  TableContainer,
+  TableContainer, Tag,
   Tbody,
   Td,
   Text,
-  Tr,
+  Tr, useColorMode,
   VStack
 } from '@chakra-ui/react'
 import { Icon, InfoOutlineIcon, QuestionOutlineIcon } from '@chakra-ui/icons'
-import { GrServer } from 'react-icons/gr'
 import { MdDelete, MdPlayCircleOutline, MdStopCircle } from 'react-icons/md'
+import { PiComputerTower } from 'react-icons/pi'
 import { IoMdInformationCircleOutline } from 'react-icons/io'
+import moment, { Duration } from 'moment'
+
 import { Vm } from '../types/Vm.ts'
 import { VmStatusType } from '../types/VmStatusType.ts'
-import { getVmStatusText, getVmStatusTextColor } from '../util'
+import { getProviderLogo, getVmStatusText, getVmStatusTextColor } from '../util'
 
 
 export default function VmStatusTypeItem(vm: Vm) {
 
+  const {colorMode} = useColorMode()
+
+  const providerName = vm.vmTemplate.provider.providerName
+
+  const providerImage = getProviderLogo(providerName, colorMode)
+
   const status = vm.status
+
+  const remainingTime = getRemainingTime(vm)
+  const remainingTimeText = getRemainingTimeText(remainingTime)
+  const remainingTimePercentage = getRemainingTimePercentage(remainingTime, moment.duration(vm.duration, 'hours'))
+  const remainingTimeColor = getRemainingTimeColor(remainingTimePercentage)
 
   return (
     <Card key={vm.vmId} maxWidth="400px">
+      <Progress
+        value={remainingTimePercentage > 0 ? remainingTimePercentage : 0}
+        borderTopRadius="6px"
+        height="5px"
+        colorScheme={remainingTimeColor}
+        max={100}
+        min={0}/>
       <CardBody>
         <Box>
           <HStack align="start">
-            <Icon h={10} w={10} as={GrServer}/>
+            <Icon h={12} w={12} as={PiComputerTower}/>
             <VStack align="start">
               <Heading as={'h3'} size={'sm'}>{vm.vmName}</Heading>
               {
@@ -44,12 +65,22 @@ export default function VmStatusTypeItem(vm: Vm) {
               }
             </VStack>
             <Spacer/>
-            <Box color={getVmStatusTextColor(status)}>
-              <Box display="flex" alignItems="center">
-                <StatusIcon status={status}/>
-                <Text ml="5px" fontSize="sm" as="b">{getVmStatusText(status)}</Text>
+            <VStack spacing={1}>
+              <Box color={getVmStatusTextColor(status)} alignSelf={'end'}>
+                <Box display="flex" alignItems="center">
+                  <StatusIcon status={status}/>
+                  <Text ml="5px" fontSize="sm" as="b">{getVmStatusText(status)}</Text>
+                </Box>
               </Box>
-            </Box>
+              {
+                vm.startedAt &&
+                <Box>
+                  <Tag variant="solid" colorScheme={remainingTimeColor}>
+                    {remainingTimeText}
+                  </Tag>
+                </Box>
+              }
+            </VStack>
           </HStack>
           <TableContainer mt="20px">
             <Table size="sm">
@@ -81,7 +112,9 @@ export default function VmStatusTypeItem(vm: Vm) {
       </CardBody>
       <CardFooter mt="-20px">
         <HStack w="full">
-          <Image src="nrec.svg" width={20}/>
+          <Tag size="lg" colorScheme="gray" borderRadius="full">
+            <Image src={providerImage} width={20}/>
+          </Tag>
           <Spacer/>
           <Button
             leftIcon={<InfoOutlineIcon/>}
@@ -106,6 +139,45 @@ export default function VmStatusTypeItem(vm: Vm) {
       </CardFooter>
     </Card>
   )
+}
+
+function getRemainingTime(vm: Vm): Duration {
+  if (vm.startedAt) {
+    const startedAt = moment(vm.startedAt)
+    const duration = moment.duration(vm.duration, 'hours')
+    const endTime = startedAt.add(duration)
+    return moment.duration(endTime.diff(moment()))
+  } else {
+    return moment.duration(0)
+  }
+}
+
+function getRemainingTimePercentage(remainingTime: Duration, totalDuration: Duration): number {
+  const totalDurationSeconds = totalDuration.asSeconds()
+  const remainingTimeSeconds = remainingTime.asSeconds()
+  return remainingTimeSeconds / totalDurationSeconds * 100
+}
+
+function getRemainingTimeText(remainingTime: Duration): string {
+  let remainingTimeText = 'Expired'
+  if (remainingTime.asSeconds() > 0) {
+    remainingTimeText = remainingTime.humanize() + ' remaining'
+  }
+  return remainingTimeText
+}
+
+function getRemainingTimeColor(percentage: number): string {
+
+  if (percentage > 75) {
+    return 'green'
+  } else if (percentage > 50) {
+    return 'yellow'
+  } else if (percentage > 25) {
+    return 'orange'
+  } else {
+    return 'red'
+  }
+
 }
 
 function getButtonText(status: VmStatusType) {

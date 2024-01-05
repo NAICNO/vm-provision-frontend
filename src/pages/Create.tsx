@@ -1,18 +1,31 @@
 import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
   Box,
-  Input,
-  Card,
-  CardHeader,
-  Heading,
-  CardBody,
-  useRadioGroup,
-  SimpleGrid,
-  useToast,
   Button,
+  Card,
+  CardBody,
   Flex,
+  FormControl,
+  FormErrorMessage,
+  FormHelperText,
+  FormLabel,
+  Heading,
+  HStack,
+  Input,
+  SimpleGrid,
+  Slider,
+  SliderFilledTrack,
+  SliderMark,
+  SliderThumb,
+  SliderTrack,
   Text,
+  Tooltip,
   useDisclosure,
-  FormControl, FormLabel, FormHelperText, FormErrorMessage, Alert, AlertIcon, AlertTitle, AlertDescription
+  useRadioGroup,
+  useToast,
 } from '@chakra-ui/react'
 import VmTemplateSelectRadioItem from '../components/VmTemplateSelectRadioItem.tsx'
 import { AddIcon } from '@chakra-ui/icons'
@@ -26,19 +39,35 @@ import { VmCreationRequestResult } from '../types/VmCreationRequestResult.ts'
 import { VmCreationRequest } from '../types/VmCreationRequest.ts'
 import VmTemplateSkeleton from '../components/VmTemplateSkeleton.tsx'
 import { useNavigate } from 'react-router-dom'
+import VmProviderSelectRadioItem from '../components/VmProviderSelectRadioItem.tsx'
+import VmProviderSmallSkeleton from '../components/VmProviderSmallSkeleton.tsx'
+import { VmTemplate } from '../types/VmTemplate.ts'
 
 const skeletonVmTemplateItems = [1, 2, 3, 4, 5, 6]
+const skeletonVmProviderItems = [1, 2]
+
+// Find all unique vm providers - filter by vm provider id
+const findVmProviders = (vmTemplates: VmTemplate[]) => {
+  return vmTemplates.map(template => template.provider)
+    .filter((provider, index, array) =>
+      array.findIndex(p => p.providerId === provider.providerId) === index)
+}
 
 export default function Create() {
 
   const toast = useToast()
   const navigate = useNavigate()
 
+  const [durationValue, setDurationValue] = useState(6)
+  const [showDurationTooltip, setShowDurationTooltip] = useState(false)
+
   const {
     data: vmTemplates
     , error,
     isLoading: isLoadingVmTemplates
   } = useFetchVmTemplates()
+
+  const vmProviders = findVmProviders(vmTemplates || [])
 
   const onSuccessCreationRequest = (result: VmCreationRequestResult) => {
     console.log('result', result)
@@ -80,12 +109,22 @@ export default function Create() {
     setVmTemplateId(value)
   }
 
-  const {getRadioProps, getRootProps} = useRadioGroup({
-    // defaultValue: avatars[0].name,
+  const handleVmProviderChange = (value: string) => {
+    setVmProviderId(value)
+  }
+
+  const {getRadioProps: getVmProviderRadioProps, getRootProps: getVmProvidersRootProps} = useRadioGroup({
+    defaultValue: vmProviders[0]?.providerId || '',
+    onChange: handleVmProviderChange,
+  })
+
+  const vmProvidersGroup = getVmProvidersRootProps()
+
+  const {getRadioProps: getVmTemplateRadioProps, getRootProps: getVmTemplatesRootProps} = useRadioGroup({
     onChange: handleVmTemplateChange,
   })
 
-  const group = getRootProps()
+  const vmTemplatesGroup = getVmTemplatesRootProps()
 
   const [vmName, setVmName] = useState<string>('')
   const [isVmNameValid, setIsVmNameValid] = useState<boolean>(true)
@@ -93,8 +132,10 @@ export default function Create() {
   const [sshKeyPairGenerateResult, setSshKeyPairGenerateResult] = useState<SshKeyPairGenerateResult | undefined>(undefined)
   const {isOpen, onOpen, onClose} = useDisclosure()
 
+  const [vmProviderId, setVmProviderId] = useState<string>(vmProviders[0]?.providerId || '')
   const [vmTemplateId, setVmTemplateId] = useState<string>('')
 
+  const filterVmTemplatesByProviderId = vmTemplates?.filter((vmTemplate) => vmTemplate.provider.providerId === vmProviderId)
   const handleModalClose = (result?: SshKeyPairGenerateResult) => {
     if (result) {
       setSshKeyPairGenerateResult(result)
@@ -111,12 +152,14 @@ export default function Create() {
     return VM_NAME_VALIDATION_REGEX.test(name)
   }
 
+
   const handleCreateVm = () => {
     if (sshKeyPairGenerateResult) {
       const vmCreationRequest: VmCreationRequest = {
         vmName: vmName,
         sshKeyId: sshKeyPairGenerateResult.keyId,
         vmTemplateId: vmTemplateId,
+        duration: durationValue
       }
       mutate(vmCreationRequest)
     }
@@ -125,7 +168,7 @@ export default function Create() {
 
   return (
     <Box maxW="880px">
-      <Card mb="20px">
+      <Card mb="15px">
         <CardBody>
           <FormControl isInvalid={!isVmNameValid} isRequired>
             <FormLabel fontWeight={'bold'}>
@@ -148,9 +191,9 @@ export default function Create() {
         </CardBody>
       </Card>
 
-      <Card mb="20px">
+      <Card mb="15px">
         <CardBody>
-          <Heading as="h3" size="sm" pb="20px">
+          <Heading as="h3" size="sm" pb="15px">
             SSH key pair
           </Heading>
           {
@@ -183,22 +226,96 @@ export default function Create() {
         </CardBody>
       </Card>
 
+      <Card mb="15px">
+        <CardBody mb="15px">
+          <Heading as="h3" size="sm" pb="15px">
+            Duration
+          </Heading>
+          <Text>Select the duration of the virtual machine.</Text>
+          <HStack w="full" mt="10px">
+            <Slider
+              id="slider"
+              maxW={550}
+              marginLeft={5}
+              defaultValue={durationValue}
+              min={1}
+              max={48}
+              onChange={(v) => setDurationValue(v)}
+              onMouseEnter={() => setShowDurationTooltip(true)}
+              onMouseLeave={() => setShowDurationTooltip(false)}
+            >
+              <SliderMark value={1} mt="1" ml="-2.5" fontSize="sm">
+                1
+              </SliderMark>
+              <SliderMark value={12} mt="1" ml="-2.5" fontSize="sm">
+                12
+              </SliderMark>
+              <SliderMark value={24} mt="1" ml="-2.5" fontSize="sm">
+                24
+              </SliderMark>
+              <SliderMark value={36} mt="1" ml="-2.5" fontSize="sm">
+                36
+              </SliderMark>
+              <SliderMark value={48} mt="1" ml="-2.5" fontSize="sm">
+                48
+              </SliderMark>
+              <SliderTrack>
+                <SliderFilledTrack/>
+              </SliderTrack>
+              <Tooltip
+                hasArrow
+                color="white"
+                placement="top"
+                isOpen={showDurationTooltip}
+                label={`${durationValue}`}
+              >
+                <SliderThumb/>
+              </Tooltip>
+            </Slider>
+            <Text
+              ml="30px"
+              fontSize="l"
+              fontWeight="bold"
+            >
+              {durationValue === 1 ? '1 hour' : `${durationValue} hours`}
+            </Text>
+          </HStack>
+        </CardBody>
+      </Card>
+
       <Card>
-        <CardHeader>
-          <Heading as="h3" size="sm">
+        <CardBody>
+          <Heading as="h3" size="sm" pb="20px">
             Select a virtual machine type
           </Heading>
-        </CardHeader>
-        <CardBody>
-          <SimpleGrid spacing={5} minChildWidth="200px" {...group}>
+          <HStack spacing={5} mb="20px" {...vmProvidersGroup}>
+            {isLoadingVmTemplates ?
+              skeletonVmProviderItems.map((_, key) => {
+                return (
+                  <VmProviderSmallSkeleton key={key}/>
+                )
+              })
+              : vmProviders?.map((vmProvider) => {
+                const radioProps = getVmProviderRadioProps({value: vmProvider.providerId})
+                return (
+                  <VmProviderSelectRadioItem
+                    key={vmProvider.providerId}
+                    vmProvider={vmProvider}
+                    radioProps={radioProps}
+                  />
+                )
+              })}
+          </HStack>
+
+          <SimpleGrid spacing={5} minChildWidth="200px" {...vmTemplatesGroup}>
             {isLoadingVmTemplates ?
               skeletonVmTemplateItems.map((_, key) => {
                 return (
                   <VmTemplateSkeleton key={key}/>
                 )
               })
-              : vmTemplates?.map((vmTemplate) => {
-                const radioProps = getRadioProps({value: vmTemplate.templateId})
+              : filterVmTemplatesByProviderId?.map((vmTemplate) => {
+                const radioProps = getVmTemplateRadioProps({value: vmTemplate.templateId})
                 return (
                   <VmTemplateSelectRadioItem
                     key={vmTemplate.templateId}
@@ -219,7 +336,10 @@ export default function Create() {
           </Flex>
         </CardBody>
       </Card>
+
+      <Card>
+
+      </Card>
     </Box>
   )
 }
-

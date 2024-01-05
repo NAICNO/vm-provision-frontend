@@ -1,4 +1,5 @@
 import { VmStatusType } from '../types/VmStatusType.ts'
+import { ColorMode } from '@chakra-ui/react'
 
 export function toTitleCase(str: string): string {
   return str.replace(/\w\S*/g, function (txt: string): string {
@@ -58,4 +59,22 @@ export function getVmStatusTextColor(status: VmStatusType) {
     return 'gray'
   }
   return color
+}
+
+export const getProviderLogo = (provider: string, colorMode: ColorMode) => {
+  if (colorMode === 'dark') {
+    switch (provider) {
+    case 'NREC':
+      return '/nrec-vertical-light.svg'
+    case 'Google Cloud':
+      return '/google-cloud-light.svg'
+    }
+  } else {
+    switch (provider) {
+    case 'NREC':
+      return '/nrec-vertical-dark.svg'
+    case 'Google Cloud':
+      return '/google-cloud.svg'
+    }
+  }
 }

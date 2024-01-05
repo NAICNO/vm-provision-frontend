@@ -8,6 +8,8 @@ export interface Vm {
   ipv4Address: string
   ipv6Address: string
   vmTemplate: VmTemplate
+  duration: number
+  startedAt: Date
   createdAt: Date
   updatedAt: Date
 }

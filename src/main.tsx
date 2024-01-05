@@ -7,6 +7,7 @@ import * as Sentry from '@sentry/react'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { AuthProvider } from './hooks/useAuth.tsx'
+import theme from './theme.ts'
 
 const queryClient = new QueryClient()
 
@@ -29,7 +30,7 @@ Sentry.init({
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <App/>

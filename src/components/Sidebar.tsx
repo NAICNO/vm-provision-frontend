@@ -4,22 +4,22 @@ import { AtSignIcon, CalendarIcon, EditIcon } from '@chakra-ui/icons'
 
 export default function Sidebar() {
   return (
-    <List color="white" fontSize="1.2em" spacing="4">
+    <List fontSize="1.2em" spacing="4">
       <ListItem>
         <NavLink to={ '' }>
-          <ListIcon as={CalendarIcon} color="white" />
+          <ListIcon as={CalendarIcon} />
           Dashboard
         </NavLink>
       </ListItem>
       <ListItem>
         <NavLink to={ 'create' }>
-          <ListIcon as={EditIcon} color="white" />
+          <ListIcon as={EditIcon}/>
           Create
         </NavLink>
       </ListItem>
       <ListItem>
         <NavLink to={ 'profile' }>
-          <ListIcon as={AtSignIcon} color="white" />
+          <ListIcon as={AtSignIcon} />
           Profile
         </NavLink>
       </ListItem>

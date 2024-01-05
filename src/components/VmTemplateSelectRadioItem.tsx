@@ -36,19 +36,18 @@ export default function VmTemplateSelectRadioItem({vmTemplate, radioProps}: Mach
   const isChecked = state.isChecked
 
   return (
-    <Box
+    <Card
       as="label" {...htmlProps}
       cursor="pointer"
       borderWidth="2px"
       borderRadius="lg"
       overflow="hidden"
-      borderColor={isChecked ? 'blue.400' : 'gray.300'}
+      borderColor={isChecked ? 'blue.400' : 'gray.50'}
       transitionDuration="500ms"
     >
       <input {...getInputProps({})} hidden/>
-      <Card
+      <Box
         {...getRadioProps()}
-        bg={isChecked ? 'blue.50' : 'transparent'}
       >
         <CardHeader>
           <Box>
@@ -89,15 +88,11 @@ export default function VmTemplateSelectRadioItem({vmTemplate, radioProps}: Mach
                   <Td whiteSpace="normal"><Text as="b" noOfLines={2}>{vmTemplate.os}</Text></Td>
                   <Td>OS</Td>
                 </Tr>
-                <Tr>
-                  <Td><Text as="b">{vmTemplate.provider.providerName}</Text></Td>
-                  <Td>Provider</Td>
-                </Tr>
               </Tbody>
             </Table>
           </TableContainer>
         </CardBody>
-      </Card>
-    </Box>
+      </Box>
+    </Card>
   )
 }

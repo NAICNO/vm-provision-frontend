@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import {
-  Button,
   SimpleGrid
 } from '@chakra-ui/react'
 

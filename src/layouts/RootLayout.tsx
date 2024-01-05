@@ -1,6 +1,6 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar.tsx'
-import { Grid, GridItem } from '@chakra-ui/react'
+import { Grid, GridItem, useColorMode } from '@chakra-ui/react'
 import Sidebar from '../components/Sidebar.tsx'
 import { useAuth } from '../hooks/useAuth.tsx'
 import { useEffect } from 'react'
@@ -14,6 +14,11 @@ export default function RootLayout() {
   if (!authState.isAuthenticated) {
     return <Navigate to="/" state={{from: location}} replace/>
   }
+
+  const colorMode = useColorMode()
+
+  const mainGridItemBackgroundColor = colorMode.colorMode === 'light' ? 'gray.50' : 'gray.800'
+  const sidebarBackgroundColor = colorMode.colorMode === 'light' ? 'gray.100' : 'gray.700'
 
   useEffect(() => {
     if (authState.isAuthenticated) {
@@ -31,22 +36,31 @@ export default function RootLayout() {
   }, [])
 
   return (
-    <Grid templateColumns="repeat(6, 1fr)" bg="gray.50">
+    <Grid
+      templateAreas={'"header header" "nav main" '}
+      gridTemplateRows={'100px 1fr'}
+      gridTemplateColumns={'200px 1fr'}
+      h="100px"
+      gap="1"
+      minH="100vh"
+    >
+      <GridItem paddingX="40px" paddingY="20px" area={'header'} boxShadow={'md'}>
+        <Navbar/>
+      </GridItem>
       <GridItem
-        as="aside"
-        colSpan={{base: 6, lg: 2, xl: 1}}
-        bg="blue.700"
-        minHeight={{lg: '100vh'}}
-        p={{base: '20px', lg: '30px'}}
+        pl="20px"
+        pt="20px"
+        area={'nav'}
+        bg={sidebarBackgroundColor}
       >
         <Sidebar/>
       </GridItem>
       <GridItem
-        as="main"
-        colSpan={{base: 6, lg: 4, xl: 5}}
-        p="40px"
+        paddingX="20px"
+        paddingY="20px"
+        area={'main'}
+        bg={mainGridItemBackgroundColor}
       >
-        <Navbar/>
         <Outlet/>
       </GridItem>
     </Grid>

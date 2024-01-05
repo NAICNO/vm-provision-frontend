@@ -4,21 +4,25 @@ import {
   Button,
   Flex,
   Heading,
-  HStack,
+  HStack, IconButton,
   Spacer,
   Text,
+  useColorMode,
 } from '@chakra-ui/react'
 import { useAuth } from '../hooks/useAuth.tsx'
 import {
   AUTH_END_SESSION_URL,
   AUTH_LOGOUT_REDIRECT_URL,
 } from '../constants/Constants.ts'
+import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 export default function Navbar() {
 
   const {authState} = useAuth()
 
   const user = authState.user
+
+  const {colorMode, toggleColorMode} = useColorMode()
 
   const buildLogoutUrl = () => {
     const idToken = authState.idToken
@@ -37,7 +41,12 @@ export default function Navbar() {
         VM Provisioning
       </Heading>
       <Spacer/>
-
+      <IconButton
+        mr="20px"
+        aria-label='switch theme'
+        icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+        onClick={toggleColorMode}
+      />
       <HStack spacing="20px">
         <Flex>
           <Avatar name={user?.name}/>

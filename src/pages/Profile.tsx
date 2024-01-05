@@ -22,12 +22,11 @@ export default function Profile() {
   const {user} = authState
 
   return (
-    <Tabs mt="40px" p="20px" variant="enclosed" colorScheme="blue">
+    <Tabs variant="enclosed">
       <TabList>
         <Tab _selected={ { color: 'white', bg: 'blue.400' } }>Account Info</Tab>
-        <Tab _selected={ { color: 'white', bg: 'blue.400' } }>Task History</Tab>
+        <Tab _selected={ { color: 'white', bg: 'blue.400' } }>Activity History</Tab>
       </TabList>
-
       <TabPanels py="10px">
         <TabPanel>
           <List spacing={ 4 }>
