@@ -85,7 +85,7 @@ export default function VmTemplateSelectRadioItem({vmTemplate, radioProps}: Mach
                   <Td>storage</Td>
                 </Tr>
                 <Tr>
-                  <Td whiteSpace="normal"><Text as="b" noOfLines={2}>{vmTemplate.os}</Text></Td>
+                  <Td whiteSpace="normal"><Text as="b" noOfLines={2} title={vmTemplate.os}>{vmTemplate.os}</Text></Td>
                   <Td>OS</Td>
                 </Tr>
               </Tbody>

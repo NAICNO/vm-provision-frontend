@@ -27,6 +27,7 @@ import moment, { Duration } from 'moment'
 import { Vm } from '../types/Vm.ts'
 import { VmStatusType } from '../types/VmStatusType.ts'
 import { getProviderLogo, getVmStatusText, getVmStatusTextColor } from '../util'
+import { statusColorMap } from '../util'
 
 
 export default function VmStatusTypeItem(vm: Vm) {
@@ -113,7 +114,7 @@ export default function VmStatusTypeItem(vm: Vm) {
       <CardFooter mt="-20px">
         <HStack w="full">
           <Tag size="lg" colorScheme="gray" borderRadius="full">
-            <Image src={providerImage} width={20}/>
+            <Image src={providerImage} height="20px"/>
           </Tag>
           <Spacer/>
           <Button
@@ -220,13 +221,14 @@ function getButtonColor(status: VmStatusType) {
 }
 
 function StatusIcon({status}: { status: VmStatusType }) {
+  const color = statusColorMap[status]
   switch (status) {
   case VmStatusType.STOPPED:
     return <Icon as={MdStopCircle}/>
   case VmStatusType.RUNNING:
     return <Icon as={MdPlayCircleOutline}/>
   case VmStatusType.PROVISIONING:
-    return <CircularProgress isIndeterminate size="15px" color="blue.400"/>
+    return <CircularProgress isIndeterminate size="15px" color={color}/>
   default:
     return <Icon as={IoMdInformationCircleOutline}/>
   }

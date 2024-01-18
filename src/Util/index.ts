@@ -17,17 +17,18 @@ export function generateRandomString(): string {
 
 const statusTextMap = {
   [VmStatusType.UNKNOWN]: 'Unknown',
-  [VmStatusType.TO_BE_PROVISIONED]: 'Pending',
-  [VmStatusType.PLANNING]: 'Pending',
-  [VmStatusType.PLANNING_COMPLETED]: 'Pending',
+  [VmStatusType.TO_BE_PROVISIONED]: 'Pending Creation',
+  [VmStatusType.PLANNING]: 'Creating',
+  [VmStatusType.PLANNING_COMPLETED]: 'Creating',
   [VmStatusType.PROVISIONING]: 'Creating',
   [VmStatusType.PROVISIONING_COMPLETED]: 'Created',
   [VmStatusType.PROVISIONING_FAILED]: 'Creation Failed',
   [VmStatusType.RUNNING]: 'Running',
   [VmStatusType.STOPPED]: 'Stopped',
   [VmStatusType.SHUTDOWN]: 'Shutdown',
-  [VmStatusType.DESTROYING]: 'Destroying',
-  [VmStatusType.DESTROYED]: 'Destroyed',
+  [VmStatusType.TO_BE_DESTROYED]: 'Pending Deletion',
+  [VmStatusType.DESTROYING]: 'Deleting',
+  [VmStatusType.DESTROYED]: 'Deleted',
 }
 
 export function getVmStatusText(status: VmStatusType) {
@@ -38,7 +39,7 @@ export function getVmStatusText(status: VmStatusType) {
   return text
 }
 
-const statusColorMap = {
+export const statusColorMap = {
   [VmStatusType.UNKNOWN]: 'gray',
   [VmStatusType.TO_BE_PROVISIONED]: 'gray',
   [VmStatusType.PLANNING]: 'gray',

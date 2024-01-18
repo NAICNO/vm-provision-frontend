@@ -105,26 +105,6 @@ export default function Create() {
     }
   }, [error])
 
-  const handleVmTemplateChange = (value: string) => {
-    setVmTemplateId(value)
-  }
-
-  const handleVmProviderChange = (value: string) => {
-    setVmProviderId(value)
-  }
-
-  const {getRadioProps: getVmProviderRadioProps, getRootProps: getVmProvidersRootProps} = useRadioGroup({
-    defaultValue: vmProviders[0]?.providerId || '',
-    onChange: handleVmProviderChange,
-  })
-
-  const vmProvidersGroup = getVmProvidersRootProps()
-
-  const {getRadioProps: getVmTemplateRadioProps, getRootProps: getVmTemplatesRootProps} = useRadioGroup({
-    onChange: handleVmTemplateChange,
-  })
-
-  const vmTemplatesGroup = getVmTemplatesRootProps()
 
   const [vmName, setVmName] = useState<string>('')
   const [isVmNameValid, setIsVmNameValid] = useState<boolean>(true)
@@ -134,6 +114,29 @@ export default function Create() {
 
   const [vmProviderId, setVmProviderId] = useState<string>(vmProviders[0]?.providerId || '')
   const [vmTemplateId, setVmTemplateId] = useState<string>('')
+
+  // Vm provider
+  const handleVmProviderChange = (value: string) => {
+    setVmProviderId(value)
+  }
+
+  const {getRadioProps: getVmProviderRadioProps, getRootProps: getVmProvidersRootProps} = useRadioGroup({
+    defaultValue: vmProviderId,
+    onChange: handleVmProviderChange,
+  })
+
+  const vmProvidersGroup = getVmProvidersRootProps()
+
+  // Vm templates
+  const handleVmTemplateChange = (value: string) => {
+    setVmTemplateId(value)
+  }
+
+  const {getRadioProps: getVmTemplateRadioProps, getRootProps: getVmTemplatesRootProps} = useRadioGroup({
+    onChange: handleVmTemplateChange,
+  })
+
+  const vmTemplatesGroup = getVmTemplatesRootProps()
 
   const filterVmTemplatesByProviderId = vmTemplates?.filter((vmTemplate) => vmTemplate.provider.providerId === vmProviderId)
   const handleModalClose = (result?: SshKeyPairGenerateResult) => {

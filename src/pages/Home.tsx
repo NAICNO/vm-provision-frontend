@@ -7,6 +7,7 @@ import {
   AUTH_URL
 } from '../constants/Constants.ts'
 import { generateRandomString } from '../util'
+import EducloudIcon from '../components/EducloudIcon.tsx'
 
 export default function Home() {
   const generateState = () => {
@@ -39,14 +40,16 @@ export default function Home() {
     <Container maxW="xl" height="100vh" centerContent>
       <Center height="100%">
         <VStack spacing={6} width="100%" maxW="md" padding="4">
-          <Heading>Welcome</Heading>
-          {/*<Link to="/login">*/}
-          {/*  <Button width="full" colorScheme="blue" mt={4}>*/}
-          {/*    Log In*/}
-          {/*  </Button>*/}
-          {/*</Link>*/}
-          <Button width="full" colorScheme="blue" mt={4} onClick={handleLogin}>
-            Log In
+          <Heading as="h2" size="lg">Log in to your account</Heading>
+          <Button
+            width="full"
+            colorScheme="gray"
+            mt={4}
+            onClick={handleLogin}
+            variant={'outline'}
+            leftIcon={<EducloudIcon/>}
+          >
+            Continue with Educloud
           </Button>
         </VStack>
       </Center>
