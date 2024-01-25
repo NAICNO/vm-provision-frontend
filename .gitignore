@@ -137,3 +137,6 @@ sketch
 .env.sentry-build-plugin
 
 .env
+.env.production
+
+dist

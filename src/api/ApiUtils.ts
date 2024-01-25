@@ -34,6 +34,7 @@ export function getAxios(authContext?: AuthContextType) {
   const axiosInstance = getAxiosInstance()
 
   // Add a request interceptor
+  // @ts-ignore
   axiosInstance.interceptors.request.use(async (config: { headers: { Authorization: string } }) => {
     if (authContext) {
       const {accessToken} = authContext.authState
@@ -51,7 +52,7 @@ export function getAxios(authContext?: AuthContextType) {
   axiosInstance.interceptors.response.use(
     response => response,
     async (error: AxiosError) => {
-      const originalRequest: AxiosRequestConfig & { _retry: boolean } = error.config
+      const originalRequest: AxiosRequestConfig & { _retry: boolean } | any = error.config
 
       if (error.response?.status === 401 && !originalRequest._retry) {
         if (isRefreshing) {
@@ -72,12 +73,12 @@ export function getAxios(authContext?: AuthContextType) {
 
         try {
           // Replace 'refreshToken()' with your token refresh logic
-          const updatedTokens = await refreshTokenFromBackend(authContext.authState.refreshToken)
+          const updatedTokens = await refreshTokenFromBackend(authContext?.authState.refreshToken || undefined)
           const user = jwtDecode(updatedTokens.idToken as string) as User
           const updatedIdToken = updatedTokens.idToken as string
           const updatedAccessToken = updatedTokens.accessToken as string
           const updatedRefreshToken = updatedTokens.refreshToken as string
-          authContext.setAuthInfo(updatedIdToken, updatedAccessToken, updatedRefreshToken, user)
+          authContext?.setAuthInfo(updatedIdToken, updatedAccessToken, updatedRefreshToken, user)
 
           const newToken = updatedTokens.accessToken
           axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + newToken
@@ -98,7 +99,7 @@ export function getAxios(authContext?: AuthContextType) {
   return axiosInstance
 }
 
-export const refreshTokenFromBackend = async (refreshToken: string | null) => {
+export const refreshTokenFromBackend = async (refreshToken: string | undefined) => {
   const axiosInstance = getAxiosInstance()
 
   try {
