@@ -140,3 +140,4 @@ sketch
 .env.production
 
 dist
+.vercel
