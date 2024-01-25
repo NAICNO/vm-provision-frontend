@@ -43,12 +43,7 @@ export default function Home() {
     const state = generateState()
     const nonce = generateNonce()
 
-    const url = `${AUTH_URL}?client_id=${AUTH_CLIENT_ID}
-    &redirect_uri=${AUTH_REDIRECT_URL}
-    &response_type=${AUTH_RESPONSE_TYPE}
-    &scope=${AUTH_OPEN_ID_SCOPES}
-    &state=${state}
-    &nonce=${nonce}`
+    const url = `${AUTH_URL}?client_id=${AUTH_CLIENT_ID}&redirect_uri=${AUTH_REDIRECT_URL}&response_type=${AUTH_RESPONSE_TYPE}&scope=${AUTH_OPEN_ID_SCOPES}&state=${state}&nonce=${nonce}`
 
     return encodeURI(url)
   }
