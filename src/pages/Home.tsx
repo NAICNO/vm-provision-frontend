@@ -25,7 +25,7 @@ export default function Home() {
 
   const {colorMode, toggleColorMode} = useColorMode()
 
-  const naicLogo = colorMode === 'light' ? 'naic/naic_logo_horizontal_dark.svg' : 'naic/naic_logo_horizontal_light.svg'
+  const naicLogo = colorMode === 'light' ? 'images/naic/naic_logo_horizontal_dark.svg' : 'images/naic/naic_logo_horizontal_light.svg'
 
   const generateState = () => {
     return generateRandomString()
