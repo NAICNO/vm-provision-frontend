@@ -1,4 +1,4 @@
-
+export const APP_NAME = import.meta.env.VITE_APP_NAME
 export const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
 export const SOCKET_ENDPOINT = import.meta.env.VITE_SOCKET_ENDPOINT
 export const AUTH_URL = import.meta.env.VITE_AUTH_URL

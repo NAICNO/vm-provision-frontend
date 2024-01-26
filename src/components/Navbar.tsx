@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react'
 import { useAuth } from '../hooks/useAuth.tsx'
 import {
+  APP_NAME,
   AUTH_END_SESSION_URL,
   AUTH_LOGOUT_REDIRECT_URL,
 } from '../constants/Constants.ts'
@@ -38,7 +39,7 @@ export default function Navbar() {
   return (
     <Flex as="nav" p="10px" mb="60px" alignItems="center">
       <Heading as="h1">
-        VM Provisioning
+        {APP_NAME}
       </Heading>
       <Spacer/>
       <IconButton

@@ -1,6 +1,6 @@
-# VM Provisioning - Frontend
+# NAIC Orchestrator - Frontend
 
-Front end application for VM Provisioning
+Front end application for NAIC Orchestrator
 
 ### Run locally
 

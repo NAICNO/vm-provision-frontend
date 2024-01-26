@@ -11,6 +11,7 @@ import {
   CardBody, Flex, IconButton, useColorMode
 } from '@chakra-ui/react'
 import {
+  APP_NAME,
   AUTH_CLIENT_ID,
   AUTH_OPEN_ID_SCOPES,
   AUTH_REDIRECT_URL,
@@ -67,7 +68,7 @@ export default function Home() {
                 mb={4}
               />
               <Heading size={{base: 'md', md: 'lg'}}>
-                Self Service VM Portal
+                {APP_NAME}
               </Heading>
               <Text size={{base: 'sm', md: 'md'}}>
                 Log in to your account
