@@ -59,6 +59,7 @@ export function getVmStatusTextColor(status: VmStatusType) {
   if (color === undefined) {
     return 'gray'
   }
+
   return color
 }
 
@@ -66,16 +67,16 @@ export const getProviderLogo = (provider: string, colorMode: ColorMode) => {
   if (colorMode === 'dark') {
     switch (provider) {
     case 'NREC':
-      return 'images/nrec-vertical-light.svg'
+      return '/images/nrec-vertical-light.svg'
     case 'Google Cloud':
-      return 'images/google-cloud-light.svg'
+      return '/images/google-cloud-light.svg'
     }
   } else {
     switch (provider) {
     case 'NREC':
-      return 'images/nrec-vertical-dark.svg'
+      return '/images/nrec-vertical-dark.svg'
     case 'Google Cloud':
-      return 'images/google-cloud.svg'
+      return '/images/google-cloud.svg'
     }
   }
 }
