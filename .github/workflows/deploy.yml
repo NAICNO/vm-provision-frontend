@@ -20,11 +20,13 @@ jobs:
 
     - name: Build React App
       run: |
+        echo "${{ secrets.DOT_ENV }}" > .env.production
+        echo "${{ secrets.DOT_ENV_SENTRY }}" > .env.sentry-build-plugin
         yarn
         yarn build
 
     - name: Deploy to Nginx
-      uses: easingthemes/ssh-deploy@mail
+      uses: easingthemes/ssh-deploy@main
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         SOURCE: "dist/"
