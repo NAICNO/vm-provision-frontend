@@ -3,7 +3,7 @@ name: Deploy to Nginx
 on:
   push:
     branches:
-      - master
+      - my-ip
 
 jobs:
   build-and-deploy:
