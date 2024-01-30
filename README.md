@@ -1,5 +1,7 @@
 # NAIC Orchestrator - Frontend
 
+[![Build](https://github.com/NAICNO/vm-provision-frontend/actions/workflows/deploy.yml/badge.svg)](https://github.com/NAICNO/vm-provision-frontend/actions/workflows/deploy.yml)
+
 Front end application for NAIC Orchestrator
 
 ### Run locally
