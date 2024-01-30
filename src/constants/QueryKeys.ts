@@ -1,4 +1,5 @@
 const QueryKeys = {
+  MY_IP: 'MY_IP',
   SSH_KEYS: 'SSH_KEYS',
   VMS: 'VMS',
   VM_TEMPLATES: 'VM_TEMPLATES',

@@ -3,4 +3,5 @@ export interface VmCreationRequest {
   vmTemplateId: string
   sshKeyId: string
   duration: number
+  ipRanges: string[]
 }

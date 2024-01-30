@@ -6,7 +6,7 @@ import {
   Box,
   Button,
   Card,
-  CardBody,
+  CardBody, Checkbox, CheckboxGroup,
   Flex,
   FormControl,
   FormErrorMessage,
@@ -20,7 +20,7 @@ import {
   SliderFilledTrack,
   SliderMark,
   SliderThumb,
-  SliderTrack,
+  SliderTrack, Spinner, Stack,
   Text,
   Tooltip,
   useDisclosure,
@@ -31,7 +31,7 @@ import VmTemplateSelectRadioItem from '../components/VmTemplateSelectRadioItem.t
 import { AddIcon } from '@chakra-ui/icons'
 import SshKeyGenerateModal from '../components/SshKeyGenerateModal.tsx'
 import { ChangeEvent, useEffect, useState } from 'react'
-import { VM_NAME_VALIDATION_REGEX } from '../constants/Constants.ts'
+import { ALLOWED_IP_RANGES, VM_NAME_VALIDATION_REGEX } from '../constants/Constants.ts'
 import { useFetchVmTemplates } from '../hooks/useFetchVm.ts'
 import { SshKeyPairGenerateResult } from '../types/SshKeyPairGenerateResult.ts'
 import { useCreateVmCreationRequest } from '../hooks/useCreateVm.ts'
@@ -42,6 +42,7 @@ import { useNavigate } from 'react-router-dom'
 import VmProviderSelectRadioItem from '../components/VmProviderSelectRadioItem.tsx'
 import VmProviderSmallSkeleton from '../components/VmProviderSmallSkeleton.tsx'
 import { VmTemplate } from '../types/VmTemplate.ts'
+import { useFetchMyIp } from '../hooks/useFetchMyIp.ts'
 
 const skeletonVmTemplateItems = [1, 2, 3, 4, 5, 6]
 const skeletonVmProviderItems = [1, 2]
@@ -68,6 +69,14 @@ export default function Create() {
   } = useFetchVmTemplates()
 
   const vmProviders = findVmProviders(vmTemplates || [])
+
+  const {data: myIpInfo, isLoading: isLoadingMyIp} = useFetchMyIp()
+
+  const [selectedIpRanges, setSelectedIpRanges] = useState<string[]>([])
+
+  // Handle the change event
+  const handleIpRangesCheckboxChange = (values: string[]) => setSelectedIpRanges(values)
+
 
   const onSuccessCreationRequest = (result: VmCreationRequestResult) => {
     console.log('result', result)
@@ -162,7 +171,8 @@ export default function Create() {
         vmName: vmName,
         sshKeyId: sshKeyPairGenerateResult.keyId,
         vmTemplateId: vmTemplateId,
-        duration: durationValue
+        duration: durationValue,
+        ipRanges: selectedIpRanges,
       }
       mutate(vmCreationRequest)
     }
@@ -285,7 +295,32 @@ export default function Create() {
           </HStack>
         </CardBody>
       </Card>
-
+      <Card mb="15px">
+        <CardBody mb="15px">
+          <Heading as="h3" size="sm" pb="15px">
+            Access
+          </Heading>
+          <Text>Select networks where you want to access the virtual machine via SSH.</Text>
+          <HStack w="full" mt="10px">
+            <CheckboxGroup onChange={handleIpRangesCheckboxChange}>
+              <Stack>
+                {
+                  ALLOWED_IP_RANGES.map((ipRange, index) => {
+                    return (
+                      <Checkbox key={index} value={ipRange.ipRange}>
+                        {ipRange.name} ({ipRange.ipRange})
+                      </Checkbox>
+                    )
+                  })
+                }
+                <Checkbox key={'your-ip'} value={myIpInfo?.ip + '/32'} isDisabled={isLoadingMyIp || !myIpInfo}>
+                  Your IP {isLoadingMyIp ? <Spinner size='xs'/> : `(${myIpInfo?.ip}/32)`}
+                </Checkbox>
+              </Stack>
+            </CheckboxGroup>
+          </HStack>
+        </CardBody>
+      </Card>
       <Card>
         <CardBody>
           <Heading as="h3" size="sm" pb="20px">
@@ -332,7 +367,7 @@ export default function Create() {
             <Button
               colorScheme="blue"
               onClick={handleCreateVm}
-              isDisabled={!(isVmNameValid && !!vmTemplateId && !!sshKeyPairGenerateResult)}
+              isDisabled={!(isVmNameValid && !!vmTemplateId && !!sshKeyPairGenerateResult && selectedIpRanges.length > 0)}
             >
               Create Virtual Machine
             </Button>
