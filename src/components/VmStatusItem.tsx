@@ -46,7 +46,7 @@ export default function VmStatusTypeItem(vm: Vm) {
   const remainingTimeColor = getRemainingTimeColor(remainingTimePercentage)
 
   return (
-    <Card key={vm.vmId} maxWidth="400px">
+    <Card key={vm.vmId} minWidth="350px">
       <Progress
         value={remainingTimePercentage > 0 ? remainingTimePercentage : 0}
         borderTopRadius="6px"
@@ -126,7 +126,7 @@ export default function VmStatusTypeItem(vm: Vm) {
             Info
           </Button>
           {
-            vm.status !== VmStatusType.PROVISIONING &&
+            vm.status === VmStatusType.PROVISIONING_COMPLETED &&
             <Button
               leftIcon={<Icon color={'white'} as={getButtonIcon(status)}/>}
               variant={'solid'}

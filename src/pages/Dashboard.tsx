@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import {
-  SimpleGrid
+  Grid,
+  GridItem,
 } from '@chakra-ui/react'
 
 import { useFetchMyVms } from '../hooks/useFetchVm.ts'
@@ -37,20 +38,28 @@ export default function Dashboard() {
     }
   }, [socket])
 
+  if (!isLoading && myVms && myVms.length === 0) {
+    return (
+      <NoVmItemsPlaceholder/>
+    )
+  }
+
   return (
-    <>
-      <SimpleGrid spacing={5} minChildWidth="300px">
-        {
-          isLoading ?
-            vmStatusSkeletons.map((_, index) => (
-              <VmStatusItemSkeleton key={index}/>
-            ))
-            :
-            myVms && myVms.length > 0 ? myVms?.map((vm: Vm) => (
-              <VmStatusItem key={vm.vmId} {...vm}/>
-            )) : <NoVmItemsPlaceholder/>
-        }
-      </SimpleGrid>
-    </>
+    <Grid templateColumns="repeat(auto-fill, minmax(350px, 1fr))" gap={6}>
+      {
+        isLoading ?
+          vmStatusSkeletons.map((_, index) => (
+            <GridItem key={index}>
+              <VmStatusItemSkeleton/>
+            </GridItem>
+          ))
+          :
+          myVms?.map((vm: Vm) => (
+            <GridItem key={vm.vmId}>
+              <VmStatusItem {...vm}/>
+            </GridItem>
+          ))
+      }
+    </Grid>
   )
 }

@@ -17,7 +17,7 @@ import {
 
 export default function VmStatusItemSkeleton() {
   return (
-    <Card maxWidth="400px">
+    <Card maxWidth="350px">
       <CardBody>
         <Box>
           <HStack align="start">

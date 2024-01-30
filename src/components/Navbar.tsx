@@ -4,7 +4,7 @@ import {
   Button,
   Flex,
   Heading,
-  HStack, IconButton,
+  HStack, IconButton, Image,
   Spacer,
   Text,
   useColorMode,
@@ -16,6 +16,7 @@ import {
   AUTH_LOGOUT_REDIRECT_URL,
 } from '../constants/Constants.ts'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { NavLink } from 'react-router-dom'
 
 export default function Navbar() {
 
@@ -24,6 +25,8 @@ export default function Navbar() {
   const user = authState.user
 
   const {colorMode, toggleColorMode} = useColorMode()
+
+  const naicLogo = colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'
 
   const buildLogoutUrl = () => {
     const idToken = authState.idToken
@@ -37,15 +40,25 @@ export default function Navbar() {
   }
 
   return (
-    <Flex as="nav" p="10px" mb="60px" alignItems="center">
-      <Heading as="h1">
-        {APP_NAME}
-      </Heading>
+    <Flex as="nav" paddingY="10px" mb="60px" alignItems="center">
+      <NavLink to={''}>
+        <Flex alignItems={'center'}>
+          <Image
+            src={naicLogo}
+            alt="NAIC logo"
+            width="80px"
+            mr="20px"
+          />
+          <Heading as="h1">
+            {APP_NAME}
+          </Heading>
+        </Flex>
+      </NavLink>
       <Spacer/>
       <IconButton
         mr="20px"
-        aria-label='switch theme'
-        icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+        aria-label="switch theme"
+        icon={colorMode === 'light' ? <MoonIcon/> : <SunIcon/>}
         onClick={toggleColorMode}
       />
       <HStack spacing="20px">
