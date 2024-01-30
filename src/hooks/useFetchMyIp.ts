@@ -4,7 +4,7 @@ import QueryKeys from '../constants/QueryKeys.ts'
 import { MyIp } from '../types/MyIp.ts'
 
 const fetchMyIp = async () => {
-  const response = await axios.get('https://api.myip.com')
+  const response = await axios.get('https://api.ipify.org/?format=json')
   return response.data
 }
 
