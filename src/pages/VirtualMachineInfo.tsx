@@ -210,7 +210,7 @@ export default function VirtualMachineInfo() {
                 </Tr>
                 <Tr>
                   <Td>Started at</Td>
-                  <Td>{moment(vm.startedAt).format('LLL')}</Td>
+                  <Td>{vm.startedAt ? moment(vm.startedAt).format('LLL') : 'N/A'}</Td>
                 </Tr>
               </Tbody>
             </Table>
