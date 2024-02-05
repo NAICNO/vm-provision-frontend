@@ -48,6 +48,7 @@ export default function Navbar() {
             alt="NAIC logo"
             width="80px"
             mr="20px"
+            mb="5px"
           />
           <Heading as="h1">
             {APP_NAME}

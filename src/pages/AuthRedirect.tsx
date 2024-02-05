@@ -2,16 +2,21 @@ import {
   VStack,
   Heading,
   Container,
-  Center,
+  Center, useToast, Spinner,
 } from '@chakra-ui/react'
+import * as Sentry from '@sentry/react'
+
 import { useAuth } from '../hooks/useAuth.tsx'
 import { useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { Navigate, useSearchParams } from 'react-router-dom'
 import { useFetchTokens } from '../hooks/useLogin.ts'
 import { jwtDecode } from 'jwt-decode'
 import { User } from '../types/AuthState.ts'
 
 export default function AuthRedirect() {
+
+  const toast = useToast()
+  const toastId = 'error-toast-id'
 
   const {setAuthInfo} = useAuth()
 
@@ -21,7 +26,7 @@ export default function AuthRedirect() {
   const code = searchParams.get('code') || ''
   const nonce = localStorage.getItem('nonce') || ''
 
-  const {refetch, data} = useFetchTokens(state, code, nonce)
+  const {refetch, data, error: fetchError} = useFetchTokens(state, code, nonce)
 
 
   useEffect(() => {
@@ -38,10 +43,26 @@ export default function AuthRedirect() {
     }
   }, [data])
 
+  if (fetchError) {
+    Sentry.captureException(fetchError )
+    if (!toast.isActive(toastId)) {
+      toast({
+        title: 'Cannot login',
+        description: 'Please try again.',
+        status: 'warning',
+        duration: 5000,
+        isClosable: true,
+      })
+    }
+
+    return <Navigate to="/" replace/>
+  }
+
   return (
     <Container maxW="xl" height="100vh" centerContent>
       <Center height="100%">
         <VStack spacing={6} width="100%" maxW="md" padding="4">
+          <Spinner speed="1s" size="lg"/>
           <Heading>Logging in....</Heading>
         </VStack>
       </Center>

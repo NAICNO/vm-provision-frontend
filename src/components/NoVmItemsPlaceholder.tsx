@@ -22,7 +22,7 @@ export default function NoVmItemsPlaceholder() {
           <Text align="center" color="gray.500">
             You currently have no virtual machines. Create a new VM to get started.
           </Text>
-          <Button colorScheme="blue" size="md" onClick={() => navigate('create')}>Create VM</Button>
+          <Button colorScheme="blue" size="md" onClick={() => navigate('/create')}>Create VM</Button>
         </VStack>
       </CardBody>
     </Card>

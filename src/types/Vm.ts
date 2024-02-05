@@ -1,5 +1,6 @@
 import { VmStatusType } from './VmStatusType.ts'
 import { VmTemplate } from './VmTemplate.ts'
+import { PublicKey } from './PublicKey.ts'
 
 export interface Vm {
   vmId: string
@@ -8,6 +9,7 @@ export interface Vm {
   ipv4Address: string
   ipv6Address: string
   vmTemplate: VmTemplate
+  publicKey: PublicKey
   duration: number
   startedAt: Date
   createdAt: Date

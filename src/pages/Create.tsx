@@ -20,7 +20,7 @@ import {
   SliderFilledTrack,
   SliderMark,
   SliderThumb,
-  SliderTrack, Spinner, Stack,
+  SliderTrack, Spacer, Spinner, Stack,
   Text,
   Tooltip,
   useDisclosure,
@@ -223,6 +223,9 @@ export default function Create() {
             ) : (
               <>
                 <Text>We will generate an SSH key pair for you.</Text>
+                <Text as="em">You need this key to login to your virtual machine. Please save this file in a safe
+                  place.</Text>
+                <br/>
                 <Button
                   rightIcon={<AddIcon/>}
                   colorScheme="blue"
@@ -314,7 +317,7 @@ export default function Create() {
                   })
                 }
                 <Checkbox key={'your-ip'} value={myIpInfo?.ip + '/32'} isDisabled={isLoadingMyIp || !myIpInfo}>
-                  Your IP {isLoadingMyIp ? <Spinner size='xs'/> : `(${myIpInfo?.ip}/32)`}
+                  Your IP {isLoadingMyIp ? <Spinner size="xs"/> : `(${myIpInfo?.ip}/32)`}
                 </Checkbox>
               </Stack>
             </CheckboxGroup>

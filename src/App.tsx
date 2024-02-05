@@ -6,18 +6,20 @@ import Profile from './pages/Profile.tsx'
 import Home from './pages/Home.tsx'
 import HomeLayout from './layouts/HomeLayout.tsx'
 import AuthRedirect from './pages/AuthRedirect.tsx'
+import VirtualMachineInfo from './pages/VirtualMachineInfo.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route element={<HomeLayout/>}>
-        <Route path="/" element={<Home/>}/>
+        <Route index element={<Home/>}/>
         <Route path="/auth/callback" element={<AuthRedirect/>}/>
       </Route>
-      <Route path="/dashboard" element={<RootLayout/>}>
-        <Route index element={<Dashboard/>}/>
+      <Route element={<RootLayout/>}>
+        <Route path="dashboard" element={<Dashboard/>}/>
         <Route path="create" element={<Create/>}/>
         <Route path="profile" element={<Profile/>}/>
+        <Route path="vm/:vmId" element={<VirtualMachineInfo/>}/>
       </Route>
     </Route>
   )

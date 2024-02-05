@@ -1,4 +1,5 @@
 import { VmProvider } from './VmProvider.ts'
+import { VmMetadata } from './VmMetadata.ts'
 
 export interface VmTemplate {
   templateId: string
@@ -9,6 +10,7 @@ export interface VmTemplate {
   storage: number
   os: string
   description: string
+  metadata: VmMetadata
   createdAt: Date
   updatedAt: Date
 }

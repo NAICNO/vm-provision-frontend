@@ -39,7 +39,7 @@ export default function RootLayout() {
     <Grid
       templateAreas={'"header header" "nav main" '}
       gridTemplateRows={'100px 1fr'}
-      gridTemplateColumns={'200px 1fr'}
+      gridTemplateColumns={'250px 1fr'}
       h="100px"
       gap="1"
       minH="100vh"
@@ -48,7 +48,7 @@ export default function RootLayout() {
         <Navbar/>
       </GridItem>
       <GridItem
-        pl="20px"
+        px="20px"
         pt="20px"
         area={'nav'}
         bg={sidebarBackgroundColor}

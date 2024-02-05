@@ -1,5 +1,7 @@
 import { VmStatusType } from '../types/VmStatusType.ts'
 import { ColorMode } from '@chakra-ui/react'
+import { Vm } from '../types/Vm.ts'
+import moment, { Duration } from 'moment/moment'
 
 export function toTitleCase(str: string): string {
   return str.replace(/\w\S*/g, function (txt: string): string {
@@ -78,5 +80,42 @@ export const getProviderLogo = (provider: string, colorMode: ColorMode) => {
     case 'Google Cloud':
       return '/images/google-cloud.svg'
     }
+  }
+}
+
+export const getVmRemainingTime = (vm: Vm): Duration => {
+  if (vm.startedAt && vm.status === VmStatusType.RUNNING) {
+    const startedAt = moment(vm.startedAt)
+    const duration = moment.duration(vm.duration, 'hours')
+    const endTime = startedAt.add(duration)
+    return moment.duration(endTime.diff(moment()))
+  } else {
+    return moment.duration(0)
+  }
+}
+
+export const getVmRemainingTimePercentage = (remainingTime: Duration, totalDuration: Duration): number => {
+  const totalDurationSeconds = totalDuration.asSeconds()
+  const remainingTimeSeconds = remainingTime.asSeconds()
+  return remainingTimeSeconds / totalDurationSeconds * 100
+}
+
+export const getVmRemainingTimeText = (remainingTime: Duration): string => {
+  let remainingTimeText = 'Expired'
+  if (remainingTime.asSeconds() > 0) {
+    remainingTimeText = remainingTime.humanize() + ' remaining'
+  }
+  return remainingTimeText
+}
+
+export const getVmRemainingTimeColor = (percentage: number): string => {
+  if (percentage > 75) {
+    return 'green'
+  } else if (percentage > 50) {
+    return 'yellow'
+  } else if (percentage > 25) {
+    return 'orange'
+  } else {
+    return 'red'
   }
 }

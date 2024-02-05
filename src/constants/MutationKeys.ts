@@ -1,6 +1,7 @@
 const MutationKeys = {
   SSH_KEYS: 'SSH_KEYS',
   VM_CREATION_REQUESTS: 'VM_CREATION_REQUESTS',
+  VM_DELETION_REQUESTS: 'VM_DELETION_REQUESTS',
 }
 
 export default MutationKeys

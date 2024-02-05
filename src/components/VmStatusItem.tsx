@@ -4,7 +4,6 @@ import {
   Card,
   CardBody,
   CardFooter,
-  CircularProgress,
   Heading,
   HStack,
   Image,
@@ -18,16 +17,23 @@ import {
   Tr, useColorMode,
   VStack
 } from '@chakra-ui/react'
-import { Icon, InfoOutlineIcon, QuestionOutlineIcon } from '@chakra-ui/icons'
-import { MdDelete, MdPlayCircleOutline, MdStopCircle } from 'react-icons/md'
+import { Icon, InfoOutlineIcon } from '@chakra-ui/icons'
 import { PiComputerTower } from 'react-icons/pi'
-import { IoMdInformationCircleOutline } from 'react-icons/io'
-import moment, { Duration } from 'moment'
+import moment from 'moment'
+import { Link } from 'react-router-dom'
 
 import { Vm } from '../types/Vm.ts'
 import { VmStatusType } from '../types/VmStatusType.ts'
-import { getProviderLogo, getVmStatusText, getVmStatusTextColor } from '../util'
-import { statusColorMap } from '../util'
+import {
+  getProviderLogo,
+  getVmRemainingTime,
+  getVmRemainingTimeColor,
+  getVmRemainingTimePercentage,
+  getVmRemainingTimeText,
+  getVmStatusText,
+  getVmStatusTextColor
+} from '../util'
+import { VmStatusIcon } from './VmStatusIcon.tsx'
 
 
 export default function VmStatusTypeItem(vm: Vm) {
@@ -40,10 +46,12 @@ export default function VmStatusTypeItem(vm: Vm) {
 
   const status = vm.status
 
-  const remainingTime = getRemainingTime(vm)
-  const remainingTimeText = getRemainingTimeText(remainingTime)
-  const remainingTimePercentage = getRemainingTimePercentage(remainingTime, moment.duration(vm.duration, 'hours'))
-  const remainingTimeColor = getRemainingTimeColor(remainingTimePercentage)
+  const remainingTime = getVmRemainingTime(vm)
+  const remainingTimeText = getVmRemainingTimeText(remainingTime)
+  const remainingTimePercentage = getVmRemainingTimePercentage(remainingTime, moment.duration(vm.duration, 'hours'))
+  const remainingTimeColor = getVmRemainingTimeColor(remainingTimePercentage)
+
+  const shouldShowRemainingTime = vm.startedAt && vm.status === VmStatusType.RUNNING
 
   return (
     <Card key={vm.vmId} minWidth="350px">
@@ -61,7 +69,7 @@ export default function VmStatusTypeItem(vm: Vm) {
             <VStack align="start">
               <Heading as={'h3'} size={'sm'}>{vm.vmName}</Heading>
               {
-                vm.ipv4Address &&
+                vm.ipv4Address && vm.status === VmStatusType.RUNNING &&
                 <Heading as={'h3'} size={'xs'}>IP: {vm.ipv4Address}</Heading>
               }
             </VStack>
@@ -69,12 +77,12 @@ export default function VmStatusTypeItem(vm: Vm) {
             <VStack spacing={1}>
               <Box color={getVmStatusTextColor(status)} alignSelf={'end'}>
                 <Box display="flex" alignItems="center">
-                  <StatusIcon status={status}/>
+                  <VmStatusIcon status={status}/>
                   <Text ml="5px" fontSize="sm" as="b">{getVmStatusText(status)}</Text>
                 </Box>
               </Box>
               {
-                vm.startedAt &&
+                shouldShowRemainingTime &&
                 <Box>
                   <Tag variant="solid" colorScheme={remainingTimeColor}>
                     {remainingTimeText}
@@ -122,89 +130,15 @@ export default function VmStatusTypeItem(vm: Vm) {
             variant={'solid'}
             colorScheme={getButtonColor(status)}
             size="sm"
+            as={Link}
+            to={'/vm/' + vm.vmId}
           >
             Info
           </Button>
-          {
-            vm.status === VmStatusType.PROVISIONING_COMPLETED &&
-            <Button
-              leftIcon={<Icon color={'white'} as={getButtonIcon(status)}/>}
-              variant={'solid'}
-              colorScheme={getButtonColor(status)}
-              size="sm"
-            >
-              {getButtonText(status)}
-            </Button>
-          }
         </HStack>
       </CardFooter>
     </Card>
   )
-}
-
-function getRemainingTime(vm: Vm): Duration {
-  if (vm.startedAt) {
-    const startedAt = moment(vm.startedAt)
-    const duration = moment.duration(vm.duration, 'hours')
-    const endTime = startedAt.add(duration)
-    return moment.duration(endTime.diff(moment()))
-  } else {
-    return moment.duration(0)
-  }
-}
-
-function getRemainingTimePercentage(remainingTime: Duration, totalDuration: Duration): number {
-  const totalDurationSeconds = totalDuration.asSeconds()
-  const remainingTimeSeconds = remainingTime.asSeconds()
-  return remainingTimeSeconds / totalDurationSeconds * 100
-}
-
-function getRemainingTimeText(remainingTime: Duration): string {
-  let remainingTimeText = 'Expired'
-  if (remainingTime.asSeconds() > 0) {
-    remainingTimeText = remainingTime.humanize() + ' remaining'
-  }
-  return remainingTimeText
-}
-
-function getRemainingTimeColor(percentage: number): string {
-
-  if (percentage > 75) {
-    return 'green'
-  } else if (percentage > 50) {
-    return 'yellow'
-  } else if (percentage > 25) {
-    return 'orange'
-  } else {
-    return 'red'
-  }
-
-}
-
-function getButtonText(status: VmStatusType) {
-  switch (status) {
-  case VmStatusType.STOPPED:
-    return 'Delete'
-  case VmStatusType.RUNNING:
-    return 'Stop'
-  case VmStatusType.PROVISIONING:
-    return ''
-  default:
-    return 'Unknown'
-  }
-}
-
-function getButtonIcon(status: VmStatusType) {
-  switch (status) {
-  case VmStatusType.STOPPED:
-    return MdDelete
-  case VmStatusType.RUNNING:
-    return MdStopCircle
-  case VmStatusType.PROVISIONING:
-    return QuestionOutlineIcon
-  default:
-    return QuestionOutlineIcon
-  }
 }
 
 function getButtonColor(status: VmStatusType) {
@@ -212,24 +146,10 @@ function getButtonColor(status: VmStatusType) {
   case VmStatusType.STOPPED:
     return 'red'
   case VmStatusType.RUNNING:
-    return 'orange'
-  case VmStatusType.PROVISIONING:
     return 'blue'
+  case VmStatusType.PROVISIONING:
+    return 'orange'
   default:
     return 'gray'
-  }
-}
-
-function StatusIcon({status}: { status: VmStatusType }) {
-  const color = statusColorMap[status]
-  switch (status) {
-  case VmStatusType.STOPPED:
-    return <Icon as={MdStopCircle}/>
-  case VmStatusType.RUNNING:
-    return <Icon as={MdPlayCircleOutline}/>
-  case VmStatusType.PROVISIONING:
-    return <CircularProgress isIndeterminate size="15px" color={color}/>
-  default:
-    return <Icon as={IoMdInformationCircleOutline}/>
   }
 }
