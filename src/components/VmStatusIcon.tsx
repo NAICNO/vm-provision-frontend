@@ -14,6 +14,8 @@ export const VmStatusIcon = ({status}: { status: VmStatusType }) => {
     return <Icon as={MdPlayCircleOutline}/>
   case VmStatusType.PROVISIONING:
     return <CircularProgress isIndeterminate size="15px" color={color}/>
+  case VmStatusType.DESTROYING:
+    return <CircularProgress isIndeterminate size="15px" color={color}/>
   default:
     return <Icon as={IoMdInformationCircleOutline}/>
   }
