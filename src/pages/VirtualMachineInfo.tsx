@@ -115,6 +115,7 @@ export default function VirtualMachineInfo() {
   const username = vm.vmTemplate.metadata.username
   const remainingTime = getVmRemainingTime(vm)
   const remainingTimeText = getVmRemainingTimeText(remainingTime)
+  const ipAddress = vm.ipv4Address || '<ip-address>'
 
   return (
     <Box maxW="700px">
@@ -223,7 +224,6 @@ export default function VirtualMachineInfo() {
                 </Text>
               </>
               :
-
               <>
                 <Heading as="h4" size="md" mb="15px">
                   Follow instructions below to access your virtual machine.
@@ -237,7 +237,7 @@ export default function VirtualMachineInfo() {
                   </ListItem>
                   <ListItem>
                     <Text>Login to your virtual machine</Text>
-                    <CodeSnippet code={`ssh ${username}@${vm.ipv4Address} -i ${publicKeyName}.pem`}/>
+                    <CodeSnippet code={`ssh ${username}@${ipAddress} -i ${publicKeyName}.pem`}/>
                     <Text>Please note that during you first login it may take few moments to load the software module
                       setup.</Text>
                   </ListItem>
@@ -295,7 +295,6 @@ export default function VirtualMachineInfo() {
           </ModalFooter>
         </ModalContent>
       </Modal>
-
     </Box>
   )
 }
