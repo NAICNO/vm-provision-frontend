@@ -20,7 +20,7 @@ import {
   SliderFilledTrack,
   SliderMark,
   SliderThumb,
-  SliderTrack, Spacer, Spinner, Stack,
+  SliderTrack, Spinner, Stack,
   Text,
   Tooltip,
   useDisclosure,
