@@ -86,6 +86,11 @@ export default function VirtualMachineInfo() {
     onCloseModal()
   }
 
+  const closeModal = () => {
+    setIsDeleteDisabled(true)
+    onCloseModal()
+  }
+
   const {mutate} = useVmDeletionRequest(onSuccessDeletionRequest, onErrorDeletionRequest)
 
   if (!vmId) {
@@ -291,7 +296,7 @@ export default function VirtualMachineInfo() {
             <Button colorScheme="red" mr={3} onClick={requestDeletionVirtualMachine} isDisabled={isDeleteDisabled}>
               Delete
             </Button>
-            <Button variant="ghost" onClick={onCloseModal}>Cancel</Button>
+            <Button variant="ghost" onClick={closeModal}>Cancel</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

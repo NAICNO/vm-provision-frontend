@@ -20,7 +20,7 @@ import {
   SliderFilledTrack,
   SliderMark,
   SliderThumb,
-  SliderTrack, Spinner, Stack,
+  SliderTrack, Spacer, Spinner, Stack,
   Text,
   Tooltip,
   useDisclosure,
@@ -69,6 +69,7 @@ export default function Create() {
   } = useFetchVmTemplates()
 
   const vmProviders = findVmProviders(vmTemplates || [])
+  const [isAdvancedView, setIsAdvancedView] = useState<boolean>(false)
 
   const {data: myIpInfo, isLoading: isLoadingMyIp} = useFetchMyIp()
 
@@ -98,7 +99,7 @@ export default function Create() {
     })
   }
 
-  const {mutate} = useCreateVmCreationRequest(onSuccessCreationRequest, onErrorCreationRequest)
+  const {mutate, isPending} = useCreateVmCreationRequest(onSuccessCreationRequest, onErrorCreationRequest)
 
   // TODO: Handle loading state
 
@@ -147,7 +148,9 @@ export default function Create() {
 
   const vmTemplatesGroup = getVmTemplatesRootProps()
 
-  const filterVmTemplatesByProviderId = vmTemplates?.filter((vmTemplate) => vmTemplate.provider.providerId === vmProviderId)
+  const filterVmTemplatesByProviderId = vmTemplates
+    ?.filter((vmTemplate) => vmTemplate.provider.providerId === vmProviderId)
+    .filter((vmTemplate) => vmTemplate.metadata.tags.includes('advanced') === isAdvancedView)
   const handleModalClose = (result?: SshKeyPairGenerateResult) => {
     if (result) {
       setSshKeyPairGenerateResult(result)
@@ -346,6 +349,14 @@ export default function Create() {
                   />
                 )
               })}
+            <Spacer/>
+            <Checkbox
+              mr="20px"
+              isChecked={isAdvancedView}
+              onChange={() => setIsAdvancedView(!isAdvancedView)}
+            >
+              Advanced view
+            </Checkbox>
           </HStack>
 
           <SimpleGrid spacing={5} minChildWidth="200px" {...vmTemplatesGroup}>
@@ -366,20 +377,19 @@ export default function Create() {
                 )
               })}
           </SimpleGrid>
+          <Checkbox disabled mt="30px">
+            I want to submit jobs to Fox from this VM
+          </Checkbox>
           <Flex justifyContent="flex-end" mt="20px">
             <Button
               colorScheme="blue"
               onClick={handleCreateVm}
-              isDisabled={!(isVmNameValid && !!vmTemplateId && !!sshKeyPairGenerateResult && selectedIpRanges.length > 0)}
+              isDisabled={!(isVmNameValid && !!vmTemplateId && !!sshKeyPairGenerateResult && selectedIpRanges.length > 0 && !isPending)}
             >
               Create Virtual Machine
             </Button>
           </Flex>
         </CardBody>
-      </Card>
-
-      <Card>
-
       </Card>
     </Box>
   )

@@ -34,6 +34,9 @@ export default function VmTemplateSelectRadioItem({vmTemplate, radioProps}: Mach
   } = useRadio(radioProps)
 
   const isChecked = state.isChecked
+  const isAdvancedView = vmTemplate.metadata.tags.includes('advanced')
+
+  const header = isAdvancedView ? vmTemplate.templateName : vmTemplate.description
 
   return (
     <Card
@@ -44,6 +47,7 @@ export default function VmTemplateSelectRadioItem({vmTemplate, radioProps}: Mach
       overflow="hidden"
       borderColor={isChecked ? 'blue.400' : 'gray.50'}
       transitionDuration="500ms"
+      maxW="400px"
     >
       <input {...getInputProps({})} hidden/>
       <Box
@@ -63,35 +67,37 @@ export default function VmTemplateSelectRadioItem({vmTemplate, radioProps}: Mach
                   <Circle size="15px" borderWidth="2px" borderColor="gray.400"/>
               }
               <Heading as="h3" size="xs" ml="10px">
-                {vmTemplate.templateName}
+                {header}
               </Heading>
             </Flex>
           </Box>
         </CardHeader>
-        <CardBody mt="-20px">
-          <TableContainer>
-            <Table size="sm">
-              <Tbody>
-                <Tr>
-                  <Td><Text as="b">{vmTemplate.cpu}</Text></Td>
-                  <Td>vCPUs</Td>
-                </Tr>
-                <Tr>
-                  <Td><Text as="b">{vmTemplate.ram} GB</Text></Td>
-                  <Td>memory</Td>
-                </Tr>
-                <Tr>
-                  <Td><Text as="b">{vmTemplate.storage} GB</Text></Td>
-                  <Td>storage</Td>
-                </Tr>
-                <Tr>
-                  <Td whiteSpace="normal"><Text as="b" noOfLines={2} title={vmTemplate.os}>{vmTemplate.os}</Text></Td>
-                  <Td>OS</Td>
-                </Tr>
-              </Tbody>
-            </Table>
-          </TableContainer>
-        </CardBody>
+        { isAdvancedView &&
+          <CardBody mt="-20px">
+            <TableContainer>
+              <Table size="sm">
+                <Tbody>
+                  <Tr>
+                    <Td><Text as="b">{vmTemplate.cpu}</Text></Td>
+                    <Td>vCPUs</Td>
+                  </Tr>
+                  <Tr>
+                    <Td><Text as="b">{vmTemplate.ram} GB</Text></Td>
+                    <Td>memory</Td>
+                  </Tr>
+                  <Tr>
+                    <Td><Text as="b">{vmTemplate.storage} GB</Text></Td>
+                    <Td>storage</Td>
+                  </Tr>
+                  <Tr>
+                    <Td whiteSpace="normal"><Text as="b" noOfLines={2} title={vmTemplate.os}>{vmTemplate.os}</Text></Td>
+                    <Td>OS</Td>
+                  </Tr>
+                </Tbody>
+              </Table>
+            </TableContainer>
+          </CardBody>
+        }
       </Box>
     </Card>
   )
