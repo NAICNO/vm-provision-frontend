@@ -52,6 +52,7 @@ const findVmProviders = (vmTemplates: VmTemplate[]) => {
   return vmTemplates.map(template => template.provider)
     .filter((provider, index, array) =>
       array.findIndex(p => p.providerId === provider.providerId) === index)
+    .sort((a, b) => b.providerName.localeCompare(a.providerName))
 }
 
 export default function Create() {

@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { Vm } from '../types/Vm.ts'
 import useAxios from './useAxios.ts'
 import { AxiosInstance } from 'axios'
@@ -49,4 +49,13 @@ export const useFetchVmTemplates = () => {
       queryFn: () => fetchVmTemplates(axios),
     }
   )
+}
+
+export const usePrefetchVmTemplates = async () => {
+  const queryClient = useQueryClient()
+  const axios = useAxios(true)
+  await queryClient.prefetchQuery({
+    queryKey: [QueryKeys.VM_TEMPLATES],
+    queryFn: () => fetchVmTemplates(axios),
+  })
 }

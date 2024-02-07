@@ -4,7 +4,7 @@ import {
   GridItem,
 } from '@chakra-ui/react'
 
-import { useFetchMyVms } from '../hooks/useFetchVm.ts'
+import { useFetchMyVms, usePrefetchVmTemplates } from '../hooks/useFetchVm.ts'
 import VmStatusItem from '../components/VmStatusItem.tsx'
 import { Vm } from '../types/Vm.ts'
 import VmStatusItemSkeleton from '../components/VmStatusItemSkeleton.tsx'
@@ -25,7 +25,7 @@ export default function Dashboard() {
   } = useFetchMyVms()
 
   const queryClient = useQueryClient()
-
+  usePrefetchVmTemplates()
   const socket = WebSocketUtils.getSocket()
 
   useEffect(() => {
