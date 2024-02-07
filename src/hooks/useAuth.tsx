@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
-import AuthContextType, { AuthState, User } from '../types/AuthState.ts'
+import AuthContextType, { AuthInfo, AuthState } from '../types/AuthState.ts'
 
 const AuthContext = createContext<AuthContextType | null>(null)
 
@@ -12,14 +12,25 @@ export const AuthProvider = ({children}: { children: ReactNode }) => {
     isAuthenticated: false,
   })
 
-  const setAuthInfo = (idToken: string, accessToken: string, refreshToken: string, user: User) => {
-    setAuthState({
-      idToken,
-      accessToken,
-      refreshToken,
-      user: user,
-      isAuthenticated: accessToken != null,
-    })
+  const setAuthInfo = (authInfo: AuthInfo | null) => {
+    if (authInfo) {
+      const {idToken, accessToken, refreshToken, user} = authInfo
+      setAuthState({
+        idToken,
+        accessToken,
+        refreshToken,
+        user,
+        isAuthenticated: authInfo.accessToken != null,
+      })
+    } else {
+      setAuthState({
+        idToken: null,
+        accessToken: null,
+        refreshToken: null,
+        user: null,
+        isAuthenticated: false,
+      })
+    }
   }
 
   return (

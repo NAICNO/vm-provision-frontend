@@ -35,16 +35,17 @@ export default function AuthRedirect() {
 
   useEffect(() => {
     if (data?.idToken) {
-      const user = jwtDecode(data.idToken) as User
+      const idToken = data.idToken as string
+      const user = jwtDecode(idToken) as User
       const accessToken = data.accessToken as string
       const refreshToken = data.refreshToken as string
 
-      setAuthInfo(data.idToken, accessToken, refreshToken, user)
+      setAuthInfo({idToken, accessToken, refreshToken, user})
     }
   }, [data])
 
   if (fetchError) {
-    Sentry.captureException(fetchError )
+    Sentry.captureException(fetchError)
     if (!toast.isActive(toastId)) {
       toast({
         title: 'Cannot login',

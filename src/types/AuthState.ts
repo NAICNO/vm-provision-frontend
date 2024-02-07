@@ -1,6 +1,13 @@
 export default interface AuthContextType {
   authState: AuthState
-  setAuthInfo: (idToken: string, accessToken: string,  refreshToken : string, user: User) => void
+  setAuthInfo: (authInfo: AuthInfo | null) => void
+}
+
+export interface AuthInfo {
+  idToken: string
+  accessToken: string
+  refreshToken: string
+  user: User
 }
 
 export interface AuthState {

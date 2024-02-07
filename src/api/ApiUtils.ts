@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios'
 import { API_ENDPOINT, AUTH_OPEN_ID_SCOPES } from '../constants/Constants.ts'
-import AuthContextType, { User } from '../types/AuthState.ts'
+import AuthContextType, { AuthInfo, User } from '../types/AuthState.ts'
 import AxiosQueueItem from '../types/AxiosQueueItem.ts'
 import FetchTokenResponse from '../types/FetchTokenResponse.ts'
 import { jwtDecode } from 'jwt-decode'
@@ -78,7 +78,14 @@ export function getAxios(authContext?: AuthContextType) {
           const updatedIdToken = updatedTokens.idToken as string
           const updatedAccessToken = updatedTokens.accessToken as string
           const updatedRefreshToken = updatedTokens.refreshToken as string
-          authContext?.setAuthInfo(updatedIdToken, updatedAccessToken, updatedRefreshToken, user)
+
+          const authInfo: AuthInfo = {
+            idToken: updatedIdToken,
+            accessToken: updatedAccessToken,
+            refreshToken: updatedRefreshToken,
+            user
+          }
+          authContext?.setAuthInfo(authInfo)
 
           const newToken = updatedTokens.accessToken
           axiosInstance.defaults.headers.common['Authorization'] = 'Bearer ' + newToken
