@@ -17,7 +17,7 @@ import {
   Tr, useColorMode,
   VStack
 } from '@chakra-ui/react'
-import { Icon, InfoOutlineIcon } from '@chakra-ui/icons'
+import { Icon, InfoOutlineIcon, QuestionOutlineIcon } from '@chakra-ui/icons'
 import { PiComputerTower } from 'react-icons/pi'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
@@ -52,6 +52,9 @@ export default function VmStatusTypeItem(vm: Vm) {
   const remainingTimeColor = getVmRemainingTimeColor(remainingTimePercentage)
 
   const shouldShowRemainingTime = vm.startedAt && vm.status === VmStatusType.RUNNING
+
+  const infoButtonText = status === VmStatusType.DESTROYED ? 'Info' : 'Help'
+  const infoButtonIcon = status === VmStatusType.DESTROYED ? <InfoOutlineIcon/> : <QuestionOutlineIcon/>
 
   return (
     <Card key={vm.vmId} minWidth="350px">
@@ -126,14 +129,14 @@ export default function VmStatusTypeItem(vm: Vm) {
           </Tag>
           <Spacer/>
           <Button
-            leftIcon={<InfoOutlineIcon/>}
+            leftIcon={infoButtonIcon}
             variant={'solid'}
             colorScheme={getButtonColor(status)}
             size="sm"
             as={Link}
             to={'/vm/' + vm.vmId}
           >
-            Info
+            {infoButtonText}
           </Button>
         </HStack>
       </CardFooter>

@@ -156,27 +156,34 @@ export default function VirtualMachineInfo() {
                   <Td>IP address</Td>
                   <Td>
                     <HStack>
-                      <Text
-                        {...(isVmDestroyingOrDestroyed && {as: 'del'})}
-                      >
-                        {vm.ipv4Address}
-                      </Text>
-                      <CopyIcon
-                        ml="10px"
-                        onClick={() =>
-                          navigator.clipboard.writeText(vm.ipv4Address)
-                            .then(() => {
-                              toast({
-                                description: 'IP address copied to clipboard',
-                                status: 'success',
-                                duration: 2000,
-                                isClosable: true,
-                              })
-                            })}
-                        aria-label={'copy'}
-                        opacity="0.4" // Reduced opacity
-                        _hover={{opacity: 1}} // Full opacity on hover
-                      />
+                      {
+                        vm.ipv4Address ?
+                          <>
+                            <Text
+                              {...(isVmDestroyingOrDestroyed && {as: 'del'})}
+                            >
+                              {vm.ipv4Address}
+                            </Text>
+                            <CopyIcon
+                              ml="10px"
+                              onClick={() =>
+                                navigator.clipboard.writeText(vm.ipv4Address)
+                                  .then(() => {
+                                    toast({
+                                      description: 'IP address copied to clipboard',
+                                      status: 'success',
+                                      duration: 2000,
+                                      isClosable: true,
+                                    })
+                                  })}
+                              aria-label={'copy'}
+                              opacity="0.4" // Reduced opacity
+                              _hover={{opacity: 1}} // Full opacity on hover
+                            />
+                          </>
+                          :
+                          <Text>N/A</Text>
+                      }
                     </HStack>
                   </Td>
                 </Tr>

@@ -57,7 +57,7 @@ export default function Home() {
   return (
     <Flex direction="column" minHeight="100vh"> {/* Full viewport height and flex column */}
 
-      <Container as="main" flex="1" maxW="lg" py={{base: '12', md: '24'}} px={{base: '0', sm: '8'}}>
+      <Container as="main" flex="1" maxW="lg" py={{base: '18', md: '44'}} px={{base: '0', sm: '8'}}>
         <Card>
           <CardBody>
             <VStack spacing={6} width="100%" maxW="md" padding="4">
