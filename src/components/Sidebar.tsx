@@ -1,20 +1,24 @@
 import {
+  Avatar,
   Box,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
   DrawerHeader,
-  DrawerOverlay,
+  DrawerOverlay, HStack,
   List,
   ListIcon,
-  ListItem,
+  ListItem, Spacer, Text,
   useBreakpointValue,
-  useColorMode,
+  useColorMode, VStack,
 } from '@chakra-ui/react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { AtSignIcon, EditIcon } from '@chakra-ui/icons'
 import { FiGrid } from 'react-icons/fi'
+import { useAuth } from '../hooks/useAuth.tsx'
+import { LogOutButton } from './LogOutButton.tsx'
+import { LightDarkModeButton } from './LightDarkModeButton.tsx'
 
 const sidebarItems = [
   {
@@ -44,6 +48,9 @@ export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
   const location = useLocation()
   const {colorMode} = useColorMode()
   const isDrawer = useBreakpointValue({base: true, md: false})
+
+  const {authState} = useAuth()
+  const user = authState.user
 
 
   const hoverBgColor = colorMode === 'light' ? 'gray.200' : 'blue.500'
@@ -78,6 +85,32 @@ export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
             <DrawerHeader>Menu</DrawerHeader>
             <DrawerBody>
               <SideBarContent/>
+              <VStack
+                pt="50px"
+                spacing={{base: '10px', md: '10px', lg: '20px'}}
+                alignItems={'start'}
+              >
+                <HStack>
+                  <Avatar
+                    size={'sm'}
+                    name={user?.name}
+                  />
+                  <Box>
+                    <Text fontWeight="bold" fontSize={'sm'}>
+                      {user?.name}
+                    </Text>
+                    <Text fontSize={'xs'}>
+                      {user?.email}
+                    </Text>
+                  </Box>
+                </HStack>
+                <HStack w={'100%'} pt="10px">
+                  <LogOutButton/>
+                  <Spacer/>
+                  <LightDarkModeButton/>
+                </HStack>
+
+              </VStack>
             </DrawerBody>
           </DrawerContent>
         </Drawer>

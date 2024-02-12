@@ -1,10 +1,9 @@
 import {
   Avatar,
   Box,
-  Button,
   Flex,
   Heading,
-  HStack, IconButton, Image,
+  HStack, IconButton, Image, Show,
   Spacer,
   Text,
   useColorMode,
@@ -12,11 +11,11 @@ import {
 import { useAuth } from '../hooks/useAuth.tsx'
 import {
   APP_NAME,
-  AUTH_END_SESSION_URL,
-  AUTH_LOGOUT_REDIRECT_URL,
 } from '../constants/Constants.ts'
-import { HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { HamburgerIcon } from '@chakra-ui/icons'
 import { NavLink } from 'react-router-dom'
+import { LogOutButton } from './LogOutButton.tsx'
+import { LightDarkModeButton } from './LightDarkModeButton.tsx'
 
 interface AppHeaderProps {
   opOpenSidebarDrawer: () => void
@@ -28,20 +27,10 @@ export default function AppHeader({opOpenSidebarDrawer}: AppHeaderProps) {
 
   const user = authState.user
 
-  const {colorMode, toggleColorMode} = useColorMode()
+  const {colorMode} = useColorMode()
 
   const naicLogo = colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'
 
-  const buildLogoutUrl = () => {
-    const idToken = authState.idToken
-
-    const url = `${AUTH_END_SESSION_URL}?id_token_hint=${idToken}&post_logout_redirect_uri=${AUTH_LOGOUT_REDIRECT_URL}`
-    return encodeURI(url)
-  }
-
-  const logOutAndToast = () => {
-    window.location.href = buildLogoutUrl()
-  }
 
   return (
     <Flex
@@ -73,37 +62,28 @@ export default function AppHeader({opOpenSidebarDrawer}: AppHeaderProps) {
         </Flex>
       </NavLink>
       <Spacer/>
-      <HStack
-        spacing={{base: '10px', md: '10px', lg: '20px'}}
-        display={{base: 'none', md: 'flex'}}
-        alignItems={'center'}
-      >
-        <IconButton
-          size={{md: 'sm', lg: 'md'}}
-          aria-label="switch theme"
-          icon={colorMode === 'light' ? <MoonIcon/> : <SunIcon/>}
-          onClick={toggleColorMode}
-        />
-        <Avatar
-          size={{md: 'sm', lg: 'md'}}
-          name={user?.name}
-        />
-        <Box>
-          <Text fontWeight="bold" fontSize={{md: 'sm', lg: 'md'}}>
-            {user?.name}
-          </Text>
-          <Text fontSize={{md: 'xs', lg: 'md'}}>
-            {user?.email}
-          </Text>
-        </Box>
-        <Button
-          colorScheme="red"
-          size={{md: 'sm', lg: 'md'}}
-          onClick={logOutAndToast}
+      <Show above={'base'}>
+        <HStack
+          spacing={{base: '10px', md: '10px', lg: '20px'}}
+          display={{base: 'none', md: 'flex'}}
+          alignItems={'center'}
         >
-          Log out
-        </Button>
-      </HStack>
+          <LightDarkModeButton/>
+          <Avatar
+            size={{md: 'sm', lg: 'md'}}
+            name={user?.name}
+          />
+          <Box>
+            <Text fontWeight="bold" fontSize={{md: 'sm', lg: 'md'}}>
+              {user?.name}
+            </Text>
+            <Text fontSize={{md: 'xs', lg: 'md'}}>
+              {user?.email}
+            </Text>
+          </Box>
+          <LogOutButton/>
+        </HStack>
+      </Show>
     </Flex>
   )
 }
