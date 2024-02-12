@@ -1,6 +1,6 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import Navbar from '../components/Navbar.tsx'
-import { Grid, GridItem, useColorMode } from '@chakra-ui/react'
+import AppHeader from '../components/AppHeader.tsx'
+import { Grid, GridItem, useColorMode, useDisclosure } from '@chakra-ui/react'
 import Sidebar from '../components/Sidebar.tsx'
 import { useAuth } from '../hooks/useAuth.tsx'
 import { useEffect } from 'react'
@@ -10,6 +10,9 @@ export default function RootLayout() {
 
   const {authState} = useAuth()
   const location = useLocation()
+
+  const {isOpen: isDrawerOpen, onOpen: onOpenDrawer, onClose: onCloseDrawer} = useDisclosure()
+
 
   if (!authState.isAuthenticated) {
     return <Navigate to="/" state={{from: location}} replace/>
@@ -37,23 +40,37 @@ export default function RootLayout() {
 
   return (
     <Grid
-      templateAreas={'"header header" "nav main" '}
-      gridTemplateRows={'100px 1fr'}
-      gridTemplateColumns={'250px 1fr'}
-      h="100px"
+      templateAreas={{
+        base: '"header" "main"',
+        md: '"header header" "nav main"',
+      }}
+      gridTemplateRows={{
+        base: '60px 1fr',
+        md: '100px 1fr',
+      }}
+      gridTemplateColumns={{
+        base: '1fr',
+        md: '250px 1fr',
+      }}
       gap="1"
-      minH="100vh"
+      h="100vh"
     >
-      <GridItem paddingX="40px" paddingY="20px" area={'header'} boxShadow={'md'}>
-        <Navbar/>
+      <GridItem
+        px={{base: '20px', md: '40px'}}
+        py={{base: '10px', md: '20px'}}
+        area={'header'}
+        boxShadow={'md'}
+      >
+        <AppHeader opOpenSidebarDrawer={onOpenDrawer}/>
       </GridItem>
       <GridItem
         px="20px"
         pt="20px"
         area={'nav'}
         bg={sidebarBackgroundColor}
+        display={{base: isDrawerOpen ? 'block' : 'none', md: 'block'}}
       >
-        <Sidebar/>
+        <Sidebar isDrawerOpen={isDrawerOpen} onCloseDrawer={onCloseDrawer}/>
       </GridItem>
       <GridItem
         paddingX="20px"

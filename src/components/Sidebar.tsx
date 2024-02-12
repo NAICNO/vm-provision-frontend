@@ -1,4 +1,17 @@
-import { Box, List, ListIcon, ListItem, useColorMode } from '@chakra-ui/react'
+import {
+  Box,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  List,
+  ListIcon,
+  ListItem,
+  useBreakpointValue,
+  useColorMode,
+} from '@chakra-ui/react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { AtSignIcon, EditIcon } from '@chakra-ui/icons'
 import { FiGrid } from 'react-icons/fi'
@@ -21,18 +34,25 @@ const sidebarItems = [
   }
 ]
 
-export default function Sidebar() {
+interface SidebarProps {
+  onCloseDrawer: () => void
+  isDrawerOpen: boolean
+}
+
+export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
 
   const location = useLocation()
   const {colorMode} = useColorMode()
+  const isDrawer = useBreakpointValue({base: true, md: false})
+
 
   const hoverBgColor = colorMode === 'light' ? 'gray.200' : 'blue.500'
   const activeBgColor = colorMode === 'light' ? 'gray.300' : 'blue.600'
 
   const isActive = (path: string) => location.pathname === path
 
-  return (
-    <List fontSize="1.2em" spacing="1">
+  const SideBarContent = () => (
+    <List fontSize={{base: '1em', md: '1.2em'}} spacing="1">
       {sidebarItems.map((item, index) => (
         <SidebarItem
           key={index}
@@ -42,31 +62,52 @@ export default function Sidebar() {
           isActive={isActive(item.path)}
           hoverBgColor={hoverBgColor}
           activeBgColor={activeBgColor}
+          onCloseDrawer={onCloseDrawer}
         />
       ))}
     </List>
   )
+
+  return (
+    <>
+      {isDrawer ?
+        <Drawer isOpen={isDrawerOpen} placement="left" onClose={onCloseDrawer}>
+          <DrawerOverlay/>
+          <DrawerContent>
+            <DrawerCloseButton/>
+            <DrawerHeader>Menu</DrawerHeader>
+            <DrawerBody>
+              <SideBarContent/>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
+        :
+        <SideBarContent/>
+      }
+    </>
+  )
+
 }
 
-const SidebarItem = ({path, text, icon, isActive, hoverBgColor, activeBgColor}: {
+const SidebarItem = ({path, text, icon, isActive, hoverBgColor, activeBgColor, onCloseDrawer}: {
   path: string,
   text: string,
   icon: any,
   isActive: boolean,
   hoverBgColor: string,
-  activeBgColor: string
+  activeBgColor: string,
+  onCloseDrawer: () => void
 }) => {
   return (
     <Box>
-      <NavLink to={path}>
+      <NavLink to={path} onClick={onCloseDrawer}>
         <ListItem
           _hover={{bg: hoverBgColor}}
           bg={isActive ? activeBgColor : 'transparent'}
-          px="16px"
+          px={{base: '12px', md: '16px'}}
           py="8px"
           borderRadius="md"
         >
-
           <ListIcon as={icon}/>
           {text}
         </ListItem>
