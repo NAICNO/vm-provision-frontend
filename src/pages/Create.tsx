@@ -35,7 +35,6 @@ import { ALLOWED_IP_RANGES, VM_NAME_VALIDATION_REGEX } from '../constants/Consta
 import { useFetchVmTemplates } from '../hooks/useFetchVm.ts'
 import { SshKeyPairGenerateResult } from '../types/SshKeyPairGenerateResult.ts'
 import { useCreateVmCreationRequest } from '../hooks/useCreateVm.ts'
-import { VmCreationRequestResult } from '../types/VmCreationRequestResult.ts'
 import { VmCreationRequest } from '../types/VmCreationRequest.ts'
 import VmTemplateSkeleton from '../components/VmTemplateSkeleton.tsx'
 import { useNavigate } from 'react-router-dom'
@@ -80,7 +79,7 @@ export default function Create() {
   const handleIpRangesCheckboxChange = (values: string[]) => setSelectedIpRanges(values)
 
 
-  const onSuccessCreationRequest = (result: VmCreationRequestResult) => {
+  const onSuccessCreationRequest = () => {
     toast({
       title: 'Virtual machine creation request sent',
       description: 'Please wait for the virtual machine to be created.',

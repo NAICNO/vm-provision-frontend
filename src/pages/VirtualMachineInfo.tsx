@@ -40,7 +40,6 @@ import moment from 'moment'
 import CodeSnippet from '../components/CodeSnippet.tsx'
 import { useState } from 'react'
 import { useVmDeletionRequest } from '../hooks/useDeleteVm.ts'
-import { VmDeletionRequestResult } from '../types/VmDeletionRequestResult.ts'
 import { VmDeletionRequest } from '../types/VmDeletionRequest.ts'
 import { useQueryClient } from '@tanstack/react-query'
 import QueryKeys from '../constants/QueryKeys.ts'
@@ -61,7 +60,7 @@ export default function VirtualMachineInfo() {
   const [isDeleteDisabled, setIsDeleteDisabled] = useState<boolean>(true)
 
 
-  const onSuccessDeletionRequest = (result: VmDeletionRequestResult) => {
+  const onSuccessDeletionRequest = () => {
     toast({
       title: 'Virtual machine is scheduled for deletion.',
       status: 'success',
@@ -276,7 +275,7 @@ export default function VirtualMachineInfo() {
       </Card>
       <Modal isOpen={isOpen} onClose={onCloseModal} closeOnOverlayClick={false}>
         <ModalOverlay/>
-        <ModalContent maxW="95vw">
+        <ModalContent maxW={{base: '95vw', md: '50vw'}}>
           <ModalHeader>Delete Virtual Machine</ModalHeader>
           <ModalBody>
             <Text>
