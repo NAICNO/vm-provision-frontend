@@ -81,7 +81,6 @@ export default function Create() {
 
 
   const onSuccessCreationRequest = (result: VmCreationRequestResult) => {
-    console.log('result', result)
     toast({
       title: 'Virtual machine creation request sent',
       description: 'Please wait for the virtual machine to be created.',
@@ -101,8 +100,6 @@ export default function Create() {
   }
 
   const {mutate, isPending} = useCreateVmCreationRequest(onSuccessCreationRequest, onErrorCreationRequest)
-
-  // TODO: Handle loading state
 
   // Handle error state
   useEffect(() => {

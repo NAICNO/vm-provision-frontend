@@ -29,7 +29,6 @@ export default function RootLayout() {
       if (userId) {
         WebSocketUtils.initializeSocket(userId)
       }
-      console.log('isAuthenticated', authState.user)
     }
     return () => {
       WebSocketUtils.closeSocket()

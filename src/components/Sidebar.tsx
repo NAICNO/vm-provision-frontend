@@ -119,7 +119,6 @@ export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
       }
     </>
   )
-
 }
 
 const SidebarItem = ({path, text, icon, isActive, hoverBgColor, activeBgColor, onCloseDrawer}: {

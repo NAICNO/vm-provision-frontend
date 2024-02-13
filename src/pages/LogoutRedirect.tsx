@@ -17,7 +17,7 @@ export default function LogoutRedirect() {
   const {setAuthInfo} = useAuth()
 
 
-  localStorage.clear()
+  localStorage.removeItem('nonce')
 
   useEffect(() => {
 

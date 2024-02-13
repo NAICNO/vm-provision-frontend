@@ -10,13 +10,15 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
-  ModalOverlay, Text
+  ModalOverlay, Text, useToast
 } from '@chakra-ui/react'
 import { ChangeEvent, useEffect, useState } from 'react'
+import { DownloadIcon } from '@chakra-ui/icons'
+import * as Sentry from '@sentry/react'
+
 import { FILE_NAME_VALIDATION_REGEX } from '../constants/Constants.ts'
 import { useCreateSshKey } from '../hooks/useCreateSshKeyPair.ts'
 import { SshPrivateKey } from '../types/SshPrivateKey.ts'
-import { DownloadIcon } from '@chakra-ui/icons'
 import { SshKeyPairGenerateResult } from '../types/SshKeyPairGenerateResult.ts'
 
 interface SshKeyGenerateModalProps {
@@ -32,6 +34,8 @@ export default function SshKeyGenerateModal({isOpen, onClose}: SshKeyGenerateMod
   const [fileName, setFileName] = useState<string>('')
   const [isFileNameValid, setIsFileNameValid] = useState<boolean>(true)
   const [privateKey, setPrivateKey] = useState<SshPrivateKey>()
+
+  const toast = useToast()
 
 
   useEffect(() => {
@@ -56,9 +60,9 @@ export default function SshKeyGenerateModal({isOpen, onClose}: SshKeyGenerateMod
   }
 
   const handleClose = () => {
-    if(!privateKey || !privateKey?.keyId){
+    if (!privateKey || !privateKey?.keyId) {
       onClose(undefined)
-    }else {
+    } else {
       const result: SshKeyPairGenerateResult = {
         keyName: fileName,
         keyId: privateKey.keyId,
@@ -88,8 +92,21 @@ export default function SshKeyGenerateModal({isOpen, onClose}: SshKeyGenerateMod
     nextStep()
   }
   const onErrorCreateSshKey = (error: Error) => {
-    console.log('error creating ssh key', error)
-    //TODO: Add error message
+    toast({
+      title: 'Error creating SSH key',
+      description: 'Please try again.',
+      status: 'error',
+      duration: 5000,
+      isClosable: true,
+    })
+    Sentry.captureException(
+      error,
+      {
+        tags: {
+          message: 'SshKeyGenerateModal - onErrorCreateSshKey'
+        }
+      }
+    )
   }
 
   const {mutate, isPending} = useCreateSshKey(onSuccessCreateSshKey, onErrorCreateSshKey)

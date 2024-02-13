@@ -62,7 +62,6 @@ export default function VirtualMachineInfo() {
 
 
   const onSuccessDeletionRequest = (result: VmDeletionRequestResult) => {
-    console.log('result', result)
     toast({
       title: 'Virtual machine is scheduled for deletion.',
       status: 'success',
@@ -109,7 +108,6 @@ export default function VirtualMachineInfo() {
 
   const {data: vm, isLoading} = useFetchVm(vmId)
 
-  console.log('vm', vm)
   if (isLoading || !vm) {
     return <VirtualMachineInfoSkeleton/>
   }
@@ -123,19 +121,19 @@ export default function VirtualMachineInfo() {
   const ipAddress = vm.ipv4Address || '<ip-address>'
 
   return (
-    <Box maxW="700px">
+    <Box maxW={{base: '100%', md: '700px'}} px={{base: '4', md: '8'}}>
       <Card padding="20px">
-        <HStack mb="30px">
+        <HStack mb={{base: '20px', md: '30px'}}>
           <IconButton
             isRound={true}
-            icon={<ArrowBackIcon boxSize={6}/>}
+            icon={<ArrowBackIcon boxSize={{base: 4, md: 6}}/>}
             aria-label="Back"
             as={Link}
             to={'/'}
           />
           <Heading
             as="h1"
-            size="lg"
+            size={{base: 'md', md: 'lg'}}
             ml="10px"
           >
             {vm.vmName}
@@ -145,7 +143,7 @@ export default function VirtualMachineInfo() {
           <Text>
             {vm.vmTemplate.description}
           </Text>
-          <TableContainer my="20px">
+          <TableContainer my="20px" overflowX="auto">
             <Table variant="simple">
               <Tbody>
                 <Tr>
@@ -237,7 +235,7 @@ export default function VirtualMachineInfo() {
               </>
               :
               <>
-                <Heading as="h4" size="md" mb="15px">
+                <Heading as="h4" size={{base: 'sm', md: 'md'}} mb="15px">
                   Follow instructions below to access your virtual machine.
                 </Heading>
                 <OrderedList>
@@ -256,7 +254,7 @@ export default function VirtualMachineInfo() {
                 </OrderedList>
 
                 <Divider my="20px"/>
-                <Heading as="h4" size="md" mb="15px">
+                <Heading as="h4" size={{base: 'sm', md: 'md'}} mb="15px">
                   Delete your virtual machine
                 </Heading>
                 <Text as="em">
@@ -276,16 +274,16 @@ export default function VirtualMachineInfo() {
           }
         </VStack>
       </Card>
-      <Modal isOpen={isOpen} onClose={onCloseModal} isCentered closeOnOverlayClick={false}>
+      <Modal isOpen={isOpen} onClose={onCloseModal} closeOnOverlayClick={false}>
         <ModalOverlay/>
-        <ModalContent>
+        <ModalContent maxW="95vw">
           <ModalHeader>Delete Virtual Machine</ModalHeader>
           <ModalBody>
             <Text>
               Are you sure you want to delete the virtual machine?
             </Text>
             <Text mt="10px">
-              Please type 'delete' to confirm.
+              {'Please type \'delete\' to confirm.'}
             </Text>
             <Input
               mt="10px"

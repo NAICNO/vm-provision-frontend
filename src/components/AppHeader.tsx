@@ -3,19 +3,18 @@ import {
   Box,
   Flex,
   Heading,
-  HStack, IconButton, Image, Show,
+  HStack, Image, Show,
   Spacer,
   Text,
   useColorMode,
 } from '@chakra-ui/react'
-import { useAuth } from '../hooks/useAuth.tsx'
-import {
-  APP_NAME,
-} from '../constants/Constants.ts'
-import { HamburgerIcon } from '@chakra-ui/icons'
 import { NavLink } from 'react-router-dom'
+
+import { useAuth } from '../hooks/useAuth.tsx'
+import { APP_NAME } from '../constants/Constants.ts'
 import { LogOutButton } from './LogOutButton.tsx'
 import { LightDarkModeButton } from './LightDarkModeButton.tsx'
+import { HamburgerButton } from './HamburgerButton.tsx'
 
 interface AppHeaderProps {
   opOpenSidebarDrawer: () => void
@@ -31,7 +30,6 @@ export default function AppHeader({opOpenSidebarDrawer}: AppHeaderProps) {
 
   const naicLogo = colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'
 
-
   return (
     <Flex
       as="header"
@@ -40,13 +38,7 @@ export default function AppHeader({opOpenSidebarDrawer}: AppHeaderProps) {
       align="center"
       wrap="wrap"
     >
-      <IconButton
-        display={{base: 'inline-flex', md: 'none'}}
-        mr="20px"
-        icon={<HamburgerIcon/>}
-        onClick={opOpenSidebarDrawer}
-        aria-label="Open menu"
-      />
+      <HamburgerButton opOpenSidebarDrawer={opOpenSidebarDrawer}/>
       <NavLink to={''}>
         <Flex alignItems={'center'}>
           <Image
