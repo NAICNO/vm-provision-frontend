@@ -44,6 +44,7 @@ import { VmDeletionRequest } from '../types/VmDeletionRequest.ts'
 import { useQueryClient } from '@tanstack/react-query'
 import QueryKeys from '../constants/QueryKeys.ts'
 import { VmStatusIcon } from '../components/VmStatusIcon.tsx'
+import { useArchiveVm } from '../hooks/useArchiveVm.ts'
 
 export default function VirtualMachineInfo() {
 
@@ -89,7 +90,31 @@ export default function VirtualMachineInfo() {
     onCloseModal()
   }
 
-  const {mutate} = useVmDeletionRequest(onSuccessDeletionRequest, onErrorDeletionRequest)
+  const {mutate: requestDelete} = useVmDeletionRequest(onSuccessDeletionRequest, onErrorDeletionRequest)
+
+  const onSuccessArchive = () => {
+    toast({
+      title: 'Virtual machine is archived.',
+      status: 'success',
+      duration: 5000,
+    })
+    queryClient.invalidateQueries({queryKey: [QueryKeys.VM, vmId]})
+    setTimeout(() => {
+      navigate('/')
+    }, 1000)
+  }
+
+  const onErrorArchive = (error: Error) => {
+
+    toast({
+      title: 'Error archiving virtual machine',
+      description: error.message || 'Please try again later.',
+      status: 'error',
+      duration: 2000,
+    })
+  }
+
+  const {mutate: archiveVm} = useArchiveVm(onSuccessArchive, onErrorArchive)
 
   if (!vmId) {
     return (
@@ -101,7 +126,7 @@ export default function VirtualMachineInfo() {
     const request: VmDeletionRequest = {
       vmId: vmId
     }
-    mutate(request)
+    requestDelete(request)
     setIsDeleteDisabled(true)
   }
 
@@ -113,6 +138,7 @@ export default function VirtualMachineInfo() {
 
   const vmStatus = vm.status
   const isVmDestroyingOrDestroyed = [VmStatusType.DESTROYED, VmStatusType.DESTROYING, VmStatusType.TO_BE_DESTROYED].includes(vmStatus)
+  const isVmDestroyed = vmStatus === VmStatusType.DESTROYED
   const publicKeyName = vm.publicKey.name
   const username = vm.vmTemplate.metadata.username
   const remainingTime = getVmRemainingTime(vm)
@@ -271,11 +297,32 @@ export default function VirtualMachineInfo() {
                 </Button>
               </>
           }
+          {
+            isVmDestroyed &&
+            <>
+              <Divider my="20px"/>
+              <Heading as="h4" size={{base: 'sm', md: 'md'}} mb="15px">
+                Archive your virtual machine
+              </Heading>
+              <Text>
+                {'You can archive the virtual machine here.'}
+              </Text>
+              <Text>{'To view the list archived virtual machines, click on the \'Archived Virtual Machines\' link in your profile.'}
+              </Text>
+              <Button
+                colorScheme="blue"
+                mt="10px"
+                onClick={() => archiveVm({vmId})}
+              >
+                Archive Virtual Machine
+              </Button>
+            </>
+          }
         </VStack>
       </Card>
       <Modal isOpen={isOpen} onClose={onCloseModal} closeOnOverlayClick={false}>
         <ModalOverlay/>
-        <ModalContent maxW={{base: '95vw', md: '50vw'}}>
+        <ModalContent maxW={{base: '95vw', md: '40vw'}}>
           <ModalHeader>Delete Virtual Machine</ModalHeader>
           <ModalBody>
             <Text>
