@@ -1,7 +1,7 @@
-import { VmStatusType } from '../types/VmStatusType.ts'
-import { ColorMode } from '@chakra-ui/react'
-import { Vm } from '../types/Vm.ts'
-import moment, { Duration } from 'moment/moment'
+import {VmStatusType} from '../types/VmStatusType.ts'
+import {ColorMode} from '@chakra-ui/react'
+import {Vm} from '../types/Vm.ts'
+import moment, {Duration} from 'moment/moment'
 
 export function toTitleCase(str: string): string {
   return str.replace(/\w\S*/g, function (txt: string): string {
@@ -72,6 +72,8 @@ export const getProviderLogo = (provider: string, colorMode: ColorMode) => {
       return '/images/nrec-vertical-light.svg'
     case 'Google Cloud':
       return '/images/google-cloud-light.svg'
+    case 'Azure':
+      return '/images/azure.svg'
     }
   } else {
     switch (provider) {
@@ -79,6 +81,8 @@ export const getProviderLogo = (provider: string, colorMode: ColorMode) => {
       return '/images/nrec-vertical-dark.svg'
     case 'Google Cloud':
       return '/images/google-cloud.svg'
+    case 'Azure':
+      return '/images/azure.svg'
     }
   }
 }

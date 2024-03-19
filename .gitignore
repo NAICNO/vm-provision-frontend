@@ -138,6 +138,7 @@ sketch
 
 .env
 .env.production
+.env.production.old
 
 dist
 .vercel
