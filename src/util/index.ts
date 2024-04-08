@@ -23,7 +23,7 @@ const statusTextMap = {
   [VmStatusType.PLANNING]: 'Creating',
   [VmStatusType.PLANNING_COMPLETED]: 'Creating',
   [VmStatusType.PROVISIONING]: 'Creating',
-  [VmStatusType.PROVISIONING_COMPLETED]: 'Created',
+  [VmStatusType.PROVISIONING_COMPLETED]: 'Created. Starting to Initialize',
   [VmStatusType.PROVISIONING_FAILED]: 'Creation Failed',
   [VmStatusType.INITIALIZING]: 'Initializing',
   [VmStatusType.RUNNING]: 'Running',
