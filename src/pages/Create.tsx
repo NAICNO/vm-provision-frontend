@@ -183,6 +183,9 @@ export default function Create() {
     }
   }
 
+  const enableCreateButton = isVmNameValid && !!vmTemplateId && !!sshKeyPairGenerateResult
+    && selectedIpRanges.length > 0 && !isPending && hasQuotaAvailable
+
 
   return (
     <Box maxW="880px">
@@ -392,7 +395,7 @@ export default function Create() {
               <Button
                 colorScheme="blue"
                 onClick={handleCreateVm}
-                isDisabled={!(isVmNameValid && !!vmTemplateId && !!sshKeyPairGenerateResult && selectedIpRanges.length > 0 && !isPending )}
+                isDisabled={!enableCreateButton}
               >
                 Create Virtual Machine
               </Button>
