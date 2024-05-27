@@ -36,7 +36,7 @@ import {
 import { VmStatusIcon } from './VmStatusIcon.tsx'
 
 
-export default function VmStatusTypeItem(vm: Vm) {
+export default function VmStatusItem(vm: Vm) {
 
   const {colorMode} = useColorMode()
 

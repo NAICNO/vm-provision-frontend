@@ -3,6 +3,10 @@ import {ColorMode} from '@chakra-ui/react'
 import {Vm} from '../types/Vm.ts'
 import moment, {Duration} from 'moment/moment'
 
+export function getNaicLogo(colorMode: ColorMode): string {
+  return colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'
+}
+
 export function toTitleCase(str: string): string {
   return str.replace(/\w\S*/g, function (txt: string): string {
     return txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase()

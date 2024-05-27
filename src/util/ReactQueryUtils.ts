@@ -2,7 +2,7 @@ import { Vm } from '../types/Vm.ts'
 import { QueryClient } from '@tanstack/react-query'
 import QueryKeys from '../constants/QueryKeys.ts'
 
-export const updateProvisioningStatus = async (vmUpdate: any, queryClient: QueryClient) => {
+export const updateProvisioningStatus = async (vmUpdate: Partial<Vm>, queryClient: QueryClient) => {
   queryClient.setQueryData([QueryKeys.VMS],
     (oldVms: Vm[] | undefined) => {
       if (oldVms) {

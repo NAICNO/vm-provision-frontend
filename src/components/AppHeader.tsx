@@ -38,7 +38,7 @@ export default function AppHeader({opOpenSidebarDrawer}: AppHeaderProps) {
       align="center"
       wrap="wrap"
     >
-      <HamburgerButton opOpenSidebarDrawer={opOpenSidebarDrawer}/>
+      <HamburgerButton openSidebarDrawer={opOpenSidebarDrawer}/>
       <NavLink to={''}>
         <Flex alignItems={'center'}>
           <Image

@@ -1,0 +1,177 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`VmStatusIcon > renders correctly when status is DESTROYING 1`] = `
+<div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  class="chakra-progress css-tkxeva"
+  data-indeterminate=""
+  role="progressbar"
+>
+  <svg
+    class="css-13h0dgk"
+    viewBox="0 0 100 100"
+  >
+    <circle
+      class="chakra-progress__track css-1bhxzgy"
+      cx="50"
+      cy="50"
+      r="42"
+      stroke-width="10px"
+    />
+    <circle
+      class="chakra-progress__indicator css-13335ec"
+      cx="50"
+      cy="50"
+      r="42"
+      stroke-width="10px"
+    />
+  </svg>
+</div>
+`;
+
+exports[`VmStatusIcon > renders correctly when status is INITIALIZING 1`] = `
+<div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  class="chakra-progress css-tkxeva"
+  data-indeterminate=""
+  role="progressbar"
+>
+  <svg
+    class="css-13h0dgk"
+    viewBox="0 0 100 100"
+  >
+    <circle
+      class="chakra-progress__track css-1bhxzgy"
+      cx="50"
+      cy="50"
+      r="42"
+      stroke-width="10px"
+    />
+    <circle
+      class="chakra-progress__indicator css-1uqby31"
+      cx="50"
+      cy="50"
+      r="42"
+      stroke-width="10px"
+    />
+  </svg>
+</div>
+`;
+
+exports[`VmStatusIcon > renders correctly when status is PROVISIONING 1`] = `
+<div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  class="chakra-progress css-tkxeva"
+  data-indeterminate=""
+  role="progressbar"
+>
+  <svg
+    class="css-13h0dgk"
+    viewBox="0 0 100 100"
+  >
+    <circle
+      class="chakra-progress__track css-1bhxzgy"
+      cx="50"
+      cy="50"
+      r="42"
+      stroke-width="10px"
+    />
+    <circle
+      class="chakra-progress__indicator css-15ohgeg"
+      cx="50"
+      cy="50"
+      r="42"
+      stroke-width="10px"
+    />
+  </svg>
+</div>
+`;
+
+exports[`VmStatusIcon > renders correctly when status is PROVISIONING_COMPLETED 1`] = `
+<svg
+  class="chakra-icon css-13otjrl"
+  fill="currentColor"
+  focusable="false"
+  height="1em"
+  stroke="currentColor"
+  stroke-width="0"
+  viewBox="0 0 512 512"
+  width="1em"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M256 90c44.3 0 86 17.3 117.4 48.6C404.7 170 422 211.7 422 256s-17.3 86-48.6 117.4C342 404.7 300.3 422 256 422s-86-17.3-117.4-48.6C107.3 342 90 300.3 90 256s17.3-86 48.6-117.4C170 107.3 211.7 90 256 90m0-42C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48z"
+  />
+  <path
+    d="M277 360h-42V235h42v125zm0-166h-42v-42h42v42z"
+  />
+</svg>
+`;
+
+exports[`VmStatusIcon > renders correctly when status is RUNNING 1`] = `
+<svg
+  class="chakra-icon css-13otjrl"
+  fill="currentColor"
+  focusable="false"
+  height="1em"
+  stroke="currentColor"
+  stroke-width="0"
+  viewBox="0 0 24 24"
+  width="1em"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M0 0h24v24H0z"
+    fill="none"
+  />
+  <path
+    d="m10 16.5 6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+  />
+</svg>
+`;
+
+exports[`VmStatusIcon > renders correctly when status is STOPPED 1`] = `
+<svg
+  class="chakra-icon css-13otjrl"
+  fill="currentColor"
+  focusable="false"
+  height="1em"
+  stroke="currentColor"
+  stroke-width="0"
+  viewBox="0 0 24 24"
+  width="1em"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M0 0h24v24H0z"
+    fill="none"
+  />
+  <path
+    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4 14H8V8h8v8z"
+  />
+</svg>
+`;
+
+exports[`VmStatusIcon > renders default icon for unknown status 1`] = `
+<svg
+  class="chakra-icon css-13otjrl"
+  fill="currentColor"
+  focusable="false"
+  height="1em"
+  stroke="currentColor"
+  stroke-width="0"
+  viewBox="0 0 512 512"
+  width="1em"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M256 90c44.3 0 86 17.3 117.4 48.6C404.7 170 422 211.7 422 256s-17.3 86-48.6 117.4C342 404.7 300.3 422 256 422s-86-17.3-117.4-48.6C107.3 342 90 300.3 90 256s17.3-86 48.6-117.4C170 107.3 211.7 90 256 90m0-42C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48z"
+  />
+  <path
+    d="M277 360h-42V235h42v125zm0-166h-42v-42h42v42z"
+  />
+</svg>
+`;
