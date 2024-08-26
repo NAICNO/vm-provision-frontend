@@ -6,6 +6,7 @@ export const AUTH_END_SESSION_URL = import.meta.env.VITE_AUTH_END_SESSION_URL
 export const AUTH_CLIENT_ID = import.meta.env.VITE_CLIENT_ID
 export const AUTH_REDIRECT_URL = import.meta.env.VITE_REDIRECT_URL
 export const AUTH_LOGOUT_REDIRECT_URL = import.meta.env.VITE_LOGOUT_REDIRECT_URL
+export const SENTRY_DSN= import.meta.env.VITE_SENTRY_DSN
 export const AUTH_RESPONSE_TYPE = 'code'
 export const AUTH_OPEN_ID_SCOPES = 'openid profile email'
 
