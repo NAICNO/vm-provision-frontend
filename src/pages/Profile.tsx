@@ -1,15 +1,17 @@
 import {
-  Tabs,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel,
+  Button,
   List,
+  ListIcon,
   ListItem,
-  ListIcon
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
 } from '@chakra-ui/react'
 import { useAuth } from '../hooks/useAuth.tsx'
 import { MdAlternateEmail, MdPerson } from 'react-icons/md'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 export default function Profile() {
 
@@ -19,18 +21,30 @@ export default function Profile() {
   return (
     <Tabs variant="enclosed">
       <TabList>
-        <Tab _selected={ { color: 'white', bg: 'blue.400' } }>Account Info</Tab>
+        <Tab _selected={{color: 'white', bg: 'blue.400'}}>Account Info</Tab>
       </TabList>
       <TabPanels py="10px">
         <TabPanel>
-          <List spacing={ 4 }>
+          <List spacing={4}>
             <ListItem>
-              <ListIcon as={ MdPerson }/>
+              <ListIcon as={MdPerson}/>
               {`${user?.name}`}
             </ListItem>
             <ListItem>
-              <ListIcon as={ MdAlternateEmail }/>
+              <ListIcon as={MdAlternateEmail}/>
               Email: {`${user?.email}`}
+            </ListItem>
+            <ListItem>
+              <Button
+                as="a"
+                target="_blank"
+                href="https://research.educloud.no/user/settings"
+                colorScheme="blue"
+                size="sm"
+                rightIcon={<ExternalLinkIcon/>}
+              >
+                Change Password
+              </Button>
             </ListItem>
           </List>
         </TabPanel>
