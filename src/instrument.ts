@@ -12,7 +12,7 @@ import { SENTRY_DSN } from './constants/Constants.ts'
 Sentry.init({
   dsn: SENTRY_DSN,
   integrations: [
-    // See docs for support of different versions of variation of react router
+    // See docs for support of different versions of variation of React router
     // https://docs.sentry.io/platforms/javascript/guides/react/configuration/integrations/react-router/
     Sentry.reactRouterV6BrowserTracingIntegration({
       useEffect,

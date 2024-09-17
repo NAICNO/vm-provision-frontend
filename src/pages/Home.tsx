@@ -105,7 +105,7 @@ export default function Home() {
       <Box as="footer" py={{base: '4', md: '6'}} mt="8" textAlign="center">
         <Text fontSize={{base: 'sm', md: 'md'}}>
           Visit our main website at{' '}
-          <Link href="http://www.naic.no" isExternal color="blue.500">
+          <Link href="https://www.naic.no" isExternal color="blue.500">
             www.naic.no
           </Link>
         </Text>
