@@ -2,19 +2,20 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import AppHeader from '../components/AppHeader.tsx'
 import { Grid, GridItem, useColorMode, useDisclosure } from '@chakra-ui/react'
 import Sidebar from '../components/Sidebar.tsx'
-import { useAuth } from '../hooks/useAuth.tsx'
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import * as WebSocketUtils from '../util/WebSoketUtil.ts'
+import { AuthContext } from '../context/AuthContext.tsx'
 
 export default function RootLayout() {
 
-  const {authState} = useAuth()
+  const { isAuthenticated, user } = useContext(AuthContext)
+
   const location = useLocation()
 
   const {isOpen: isDrawerOpen, onOpen: onOpenDrawer, onClose: onCloseDrawer} = useDisclosure()
 
 
-  if (!authState.isAuthenticated) {
+  if (!isAuthenticated) {
     return <Navigate to="/" state={{from: location}} replace/>
   }
 
@@ -24,8 +25,8 @@ export default function RootLayout() {
   const sidebarBackgroundColor = colorMode.colorMode === 'light' ? 'gray.100' : 'gray.700'
 
   useEffect(() => {
-    if (authState.isAuthenticated) {
-      const userId = authState.user?.user
+    if (isAuthenticated) {
+      const userId = user?.userId
       if (userId) {
         WebSocketUtils.initializeSocket(userId)
       }
@@ -33,7 +34,6 @@ export default function RootLayout() {
     return () => {
       WebSocketUtils.closeSocket()
     }
-
 
   }, [])
 

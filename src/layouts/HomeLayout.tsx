@@ -1,12 +1,17 @@
 import { Navigate, Outlet } from 'react-router-dom'
 import { Box } from '@chakra-ui/react'
-import { useAuth } from '../hooks/useAuth.tsx'
+import { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext.tsx'
 
 export default function HomeLayout() {
 
-  const {authState} = useAuth()
+  const { isAuthenticated, loading} = useContext(AuthContext)
 
-  if (authState.isAuthenticated) {
+  if(loading) {
+    return <div>Loading...</div>
+  }
+
+  if (isAuthenticated) {
     return <Navigate to="/dashboard" replace/>
   }
 

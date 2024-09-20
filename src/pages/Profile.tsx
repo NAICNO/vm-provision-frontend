@@ -9,14 +9,14 @@ import {
   TabPanels,
   Tabs,
 } from '@chakra-ui/react'
-import { useAuth } from '../hooks/useAuth.tsx'
 import { MdAlternateEmail, MdPerson } from 'react-icons/md'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
+import { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext.tsx'
 
 export default function Profile() {
 
-  const {authState} = useAuth()
-  const {user} = authState
+  const { user } = useContext(AuthContext)
 
   return (
     <Tabs variant="enclosed">

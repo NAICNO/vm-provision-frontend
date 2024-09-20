@@ -10,11 +10,12 @@ import {
 } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom'
 
-import { useAuth } from '../hooks/useAuth.tsx'
 import { APP_NAME } from '../constants/Constants.ts'
 import { LogOutButton } from './LogOutButton.tsx'
 import { LightDarkModeButton } from './LightDarkModeButton.tsx'
 import { HamburgerButton } from './HamburgerButton.tsx'
+import { AuthContext } from '../context/AuthContext.tsx'
+import { useContext } from 'react'
 
 interface AppHeaderProps {
   opOpenSidebarDrawer: () => void
@@ -22,9 +23,7 @@ interface AppHeaderProps {
 
 export default function AppHeader({opOpenSidebarDrawer}: AppHeaderProps) {
 
-  const {authState} = useAuth()
-
-  const user = authState.user
+  const { user } = useContext(AuthContext)
 
   const {colorMode} = useColorMode()
 
@@ -63,11 +62,11 @@ export default function AppHeader({opOpenSidebarDrawer}: AppHeaderProps) {
           <LightDarkModeButton/>
           <Avatar
             size={{md: 'sm', lg: 'md'}}
-            name={user?.name}
+            name={user?.firstName}
           />
           <Box>
             <Text fontWeight="bold" fontSize={{md: 'sm', lg: 'md'}}>
-              {user?.name}
+              {user?.firstName} {user?.lastName}
             </Text>
             <Text fontSize={{md: 'xs', lg: 'md'}}>
               {user?.email}
