@@ -16,7 +16,6 @@ import {
 import { NavLink, useLocation } from 'react-router-dom'
 import { AtSignIcon, EditIcon } from '@chakra-ui/icons'
 import { FiGrid } from 'react-icons/fi'
-import { useAuth } from '../hooks/useAuth.tsx'
 import { LogOutButton } from './LogOutButton.tsx'
 import { LightDarkModeButton } from './LightDarkModeButton.tsx'
 
@@ -48,10 +47,6 @@ export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
   const location = useLocation()
   const {colorMode} = useColorMode()
   const isDrawer = useBreakpointValue({base: true, md: false})
-
-  const {authState} = useAuth()
-  const user = authState.user
-
 
   const hoverBgColor = colorMode === 'light' ? 'gray.200' : 'blue.500'
   const activeBgColor = colorMode === 'light' ? 'gray.300' : 'blue.600'
@@ -93,14 +88,14 @@ export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
                 <HStack>
                   <Avatar
                     size={'sm'}
-                    name={user?.name}
+                    name={'user?.name'}
                   />
                   <Box>
                     <Text fontWeight="bold" fontSize={'sm'}>
-                      {user?.name}
+                      {'user?.name'}
                     </Text>
                     <Text fontSize={'xs'}>
-                      {user?.email}
+                      {'user?.email'}
                     </Text>
                   </Box>
                 </HStack>

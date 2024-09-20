@@ -12,47 +12,19 @@ import {
 } from '@chakra-ui/react'
 import {
   APP_NAME,
-  AUTH_CLIENT_ID,
-  AUTH_OPEN_ID_SCOPES,
-  AUTH_REDIRECT_URL,
-  AUTH_RESPONSE_TYPE,
-  AUTH_URL
 } from '../constants/Constants.ts'
-import { generateRandomString } from '../util'
 import EducloudIcon from '../components/EducloudIcon.tsx'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext.tsx'
 
 export default function Home() {
+
+  const { login } = useContext(AuthContext)
 
   const {colorMode, toggleColorMode} = useColorMode()
 
   const naicLogo = colorMode === 'light' ? '/images/naic/naic_logo_horizontal_dark.svg' : '/images/naic/naic_logo_horizontal_light.svg'
-
-  const generateState = () => {
-    return generateRandomString()
-  }
-
-  const generateNonce = () => {
-    const nonce = generateRandomString()
-    localStorage.setItem('nonce', nonce)
-    return nonce
-  }
-
-
-  const buildAuthUrl = () => {
-
-    const state = generateState()
-    const nonce = generateNonce()
-
-    const url = `${AUTH_URL}?client_id=${AUTH_CLIENT_ID}&redirect_uri=${AUTH_REDIRECT_URL}&response_type=${AUTH_RESPONSE_TYPE}&scope=${AUTH_OPEN_ID_SCOPES}&state=${state}&nonce=${nonce}`
-
-    return encodeURI(url)
-  }
-
-  const handleLogin = async () => {
-    // await userManager.signinRedirect()
-    window.location.href = buildAuthUrl()
-  }
 
   return (
     <Flex direction="column" minHeight="100vh"> {/* Full viewport height and flex column */}
@@ -90,7 +62,7 @@ export default function Home() {
                 <Button
                   width="full"
                   colorScheme="gray"
-                  onClick={handleLogin}
+                  onClick={login}
                   variant={'outline'}
                   leftIcon={<EducloudIcon/>}
                   size={{base: 'md', md: 'lg'}}

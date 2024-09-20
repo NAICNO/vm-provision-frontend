@@ -2,62 +2,47 @@ import {
   VStack,
   Heading,
   Container,
-  Center, useToast, Spinner,
+  Center,
+  Spinner,
 } from '@chakra-ui/react'
-import * as Sentry from '@sentry/react'
 
-import { useAuth } from '../hooks/useAuth.tsx'
-import { useEffect } from 'react'
-import { Navigate, useSearchParams } from 'react-router-dom'
-import { useFetchTokens } from '../hooks/useLogin.ts'
-import { jwtDecode } from 'jwt-decode'
-import { User } from '../types/AuthState.ts'
+import { useContext, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import queryString from 'query-string'
+import { AuthContext } from '../context/AuthContext.tsx'
+import axiosInstance from '../api/ApiUtils.ts'
 
 export default function AuthRedirect() {
 
-  const toast = useToast()
-  const toastId = 'error-toast-id'
-
-  const {setAuthInfo} = useAuth()
-
-  const [searchParams] = useSearchParams()
-
-  const state = searchParams.get('state') || ''
-  const code = searchParams.get('code') || ''
-  const nonce = localStorage.getItem('nonce') || ''
-
-  const {refetch, data, error: fetchError} = useFetchTokens(state, code, nonce)
-
+  const location = useLocation()
+  const {setAuthenticated, setUser} = useContext(AuthContext)
 
   useEffect(() => {
-    refetch()
+
+    const {code, state} = queryString.parse(location.search)
+
+    const storedState = localStorage.getItem('oidc_state')
+    const storedNonce = localStorage.getItem('oidc_nonce') || ''
+
+    if (state !== storedState) {
+      console.error('State does not match')
+      return
+    }
+
+    axiosInstance
+      .post('auth/authenticate', {code, state, nonce: storedNonce})
+      .then((response) => {
+        setAuthenticated(true)
+        setUser(response.data.user)
+      })
+      .catch((error) => {
+        console.error('Error logging in:', error)
+        setAuthenticated(false)
+        setUser(null)
+      })
+
   }, [])
 
-  useEffect(() => {
-    if (data?.idToken) {
-      const idToken = data.idToken as string
-      const user = jwtDecode(idToken) as User
-      const accessToken = data.accessToken as string
-      const refreshToken = data.refreshToken as string
-
-      setAuthInfo({idToken, accessToken, refreshToken, user})
-    }
-  }, [data])
-
-  if (fetchError) {
-    Sentry.captureException(fetchError)
-    if (!toast.isActive(toastId)) {
-      toast({
-        title: 'Cannot login',
-        description: 'Please try again.',
-        status: 'warning',
-        duration: 5000,
-        isClosable: true,
-      })
-    }
-
-    return <Navigate to="/" replace/>
-  }
 
   return (
     <Container maxW="xl" height="100vh" centerContent>

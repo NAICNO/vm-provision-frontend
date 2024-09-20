@@ -2,33 +2,26 @@ import {
   VStack,
   Heading,
   Container,
-  Center, Spinner, useToast,
+  Center,
+  Spinner,
 } from '@chakra-ui/react'
 
-import { useAuth } from '../hooks/useAuth.tsx'
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext.tsx'
 
 export default function LogoutRedirect() {
 
+  const { setAuthenticated, setUser } = useContext(AuthContext)
+
   const navigation = useNavigate()
-  const toast = useToast()
 
-  const {setAuthInfo} = useAuth()
-
-
-  localStorage.removeItem('nonce')
+  localStorage.clear()
 
   useEffect(() => {
 
-    setAuthInfo(null)
-
-    toast({
-      title: 'Successfully logged out.',
-      status: 'info',
-      duration: 1000,
-      position: 'top',
-    })
+    setAuthenticated(false)
+    setUser(null)
 
     setTimeout(() => {
       navigation('/', {replace: true})
