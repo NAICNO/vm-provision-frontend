@@ -1,4 +1,4 @@
-import { Navigate, Outlet, useLocation } from 'react-router-dom'
+import { Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import AppHeader from '../components/AppHeader.tsx'
 import { Grid, GridItem, useColorMode, useDisclosure } from '@chakra-ui/react'
 import Sidebar from '../components/Sidebar.tsx'
@@ -11,9 +11,13 @@ export default function RootLayout() {
   const { isAuthenticated, user } = useContext(AuthContext)
 
   const location = useLocation()
+  const navigate = useNavigate()
 
   const {isOpen: isDrawerOpen, onOpen: onOpenDrawer, onClose: onCloseDrawer} = useDisclosure()
 
+  const onClickAvatar = () => {
+    navigate('/profile')
+  }
 
   if (!isAuthenticated) {
     return <Navigate to="/" state={{from: location}} replace/>
@@ -60,7 +64,7 @@ export default function RootLayout() {
         area={'header'}
         boxShadow={'md'}
       >
-        <AppHeader opOpenSidebarDrawer={onOpenDrawer}/>
+        <AppHeader onOpenSidebarDrawer={onOpenDrawer} onClickAvatar={onClickAvatar}/>
       </GridItem>
       <GridItem
         px="20px"

@@ -18,12 +18,13 @@ import { AuthContext } from '../context/AuthContext.tsx'
 import { useContext } from 'react'
 
 interface AppHeaderProps {
-  opOpenSidebarDrawer: () => void
+  onOpenSidebarDrawer: () => void
+  onClickAvatar: () => void
 }
 
-export default function AppHeader({opOpenSidebarDrawer}: AppHeaderProps) {
+export default function AppHeader({onOpenSidebarDrawer, onClickAvatar}: AppHeaderProps) {
 
-  const { user } = useContext(AuthContext)
+  const {user} = useContext(AuthContext)
 
   const {colorMode} = useColorMode()
 
@@ -37,7 +38,7 @@ export default function AppHeader({opOpenSidebarDrawer}: AppHeaderProps) {
       align="center"
       wrap="wrap"
     >
-      <HamburgerButton openSidebarDrawer={opOpenSidebarDrawer}/>
+      <HamburgerButton openSidebarDrawer={onOpenSidebarDrawer}/>
       <NavLink to={''}>
         <Flex alignItems={'center'}>
           <Image
@@ -63,6 +64,8 @@ export default function AppHeader({opOpenSidebarDrawer}: AppHeaderProps) {
           <Avatar
             size={{md: 'sm', lg: 'md'}}
             name={user?.firstName}
+            onClick={onClickAvatar}
+            cursor={'pointer'}
           />
           <Box>
             <Text fontWeight="bold" fontSize={{md: 'sm', lg: 'md'}}>
