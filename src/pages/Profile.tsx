@@ -28,7 +28,7 @@ export default function Profile() {
           <List spacing={4}>
             <ListItem>
               <ListIcon as={MdPerson}/>
-              {`${user?.name}`}
+              {`${user?.firstName} ${user?.lastName}`}
             </ListItem>
             <ListItem>
               <ListIcon as={MdAlternateEmail}/>
