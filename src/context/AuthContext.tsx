@@ -44,7 +44,11 @@ export const AuthContext = createContext<AuthContextProps>({
   },
 })
 
-export const AuthProvider: React.FC = ({children}) => {
+interface AuthProviderProps {
+  children: React.ReactNode;
+}
+
+export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   const [isAuthenticated, setAuthenticated] = useState<boolean>(false)
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
