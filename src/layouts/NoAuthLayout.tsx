@@ -1,0 +1,72 @@
+import { Outlet } from 'react-router-dom'
+import {
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Image,
+  useColorMode,
+} from '@chakra-ui/react'
+import { APP_NAME } from '../constants/Constants.ts'
+
+export default function NoAuthLayout() {
+
+  const {colorMode} = useColorMode()
+
+  const mainGridItemBackgroundColor = colorMode === 'light' ? 'gray.50' : 'gray.800'
+
+  const naicLogo = colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'
+
+  return (
+    <Grid
+      templateAreas={{
+        base: '"header" "main"',
+      }}
+      gridTemplateRows={{
+        base: '60px 1fr',
+        md: '100px 1fr',
+      }}
+      gridTemplateColumns={{
+        base: '1fr',
+      }}
+      gap="1"
+      h="100vh"
+    >
+      <GridItem
+        px={{base: '20px', md: '40px'}}
+        py={{base: '10px', md: '20px'}}
+        area={'header'}
+        boxShadow={'md'}
+      >
+        <Flex
+          as="header"
+          py={{base: '0px', md: '10px'}}
+          mb={{base: '0px', md: '60px'}}
+          align="center"
+          wrap="wrap"
+        >
+          <Flex alignItems={'center'}>
+            <Image
+              src={naicLogo}
+              alt="NAIC logo"
+              w={{base: '60px', md: '80px'}}
+              mr="20px"
+              mb="5px"
+            />
+            <Heading as="h1" size={{base: 'md', md: 'xl'}}>
+              {APP_NAME}
+            </Heading>
+          </Flex>
+        </Flex>
+      </GridItem>
+      <GridItem
+        paddingX="20px"
+        paddingY="20px"
+        area={'main'}
+        bg={mainGridItemBackgroundColor}
+      >
+        <Outlet/>
+      </GridItem>
+    </Grid>
+  )
+}

@@ -8,14 +8,19 @@ import HomeLayout from './layouts/HomeLayout.tsx'
 import AuthRedirect from './pages/AuthRedirect.tsx'
 import VirtualMachineInfo from './pages/VirtualMachineInfo.tsx'
 import LogoutRedirect from './pages/LogoutRedirect.tsx'
+import NoAuthLayout from './layouts/NoAuthLayout.tsx'
+import ProfileStatus from './pages/ProfileStatus.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
+      <Route element={<NoAuthLayout/>}>
+        <Route path="/auth/callback" element={<AuthRedirect/>}/>
+        <Route path="/profile-status" element={<ProfileStatus/>}/>
+        <Route path="/auth/logout" element={<LogoutRedirect/>}/>
+      </Route>
       <Route element={<HomeLayout/>}>
         <Route index element={<Home/>}/>
-        <Route path="/auth/callback" element={<AuthRedirect/>}/>
-        <Route path="/auth/logout" element={<LogoutRedirect/>}/>
       </Route>
       <Route element={<RootLayout/>}>
         <Route path="dashboard" element={<Dashboard/>}/>

@@ -8,14 +8,14 @@ import {
   AUTH_URL
 } from '../constants/Constants.ts'
 import axiosInstance from '../api/ApiUtils.ts'
-import { generateRandomString } from '../util'
+import { base64UrlEncode, generateRandomString } from '../util'
 import queryString from 'query-string'
 
 interface User {
   userId: string,
   email: string,
   username: string,
-  firstName:string,
+  firstName: string,
   lastName: string,
   userType: string,
 }
@@ -28,6 +28,7 @@ interface AuthContextProps {
   loading: boolean;
   login: () => void;
   logout: () => void;
+  reauthenticate: () => void;
 }
 
 export const AuthContext = createContext<AuthContextProps>({
@@ -41,6 +42,8 @@ export const AuthContext = createContext<AuthContextProps>({
   login: () => {
   },
   logout: () => {
+  },
+  reauthenticate: () => {
   },
 })
 
@@ -72,12 +75,20 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   }, [])
 
   const login = () => {
-    const state = generateRandomString()
+    const stateValue = generateRandomString()
     const nonce = generateRandomString()
 
     // Store state and nonce in localStorage to verify later
-    localStorage.setItem('oidc_state', state)
+    localStorage.setItem('oidc_state', stateValue)
     localStorage.setItem('oidc_nonce', nonce)
+
+    // Regular state without re-authentication flag
+    const authState = JSON.stringify({
+      isReauth: false,
+      state: stateValue,
+    })
+
+    const encodedState = base64UrlEncode(authState)
 
     const params = {
       response_type: AUTH_RESPONSE_TYPE,
@@ -85,7 +96,36 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
       client_id: AUTH_CLIENT_ID,
       redirect_uri: AUTH_REDIRECT_URL,
       nonce: nonce,
-      state: state,
+      state: encodedState,
+    }
+
+    window.location.href = `${AUTH_URL}?${queryString.stringify(params)}`
+  }
+
+  const reauthenticate = () => {
+    const stateValue = generateRandomString()
+    const nonce = generateRandomString()
+
+    // Store state and nonce in localStorage
+    localStorage.setItem('oidc_state', stateValue)
+    localStorage.setItem('oidc_nonce', nonce)
+
+    // Include re-authentication flag in state
+    const reauthState = JSON.stringify({
+      isReauth: true,
+      state: stateValue,
+    })
+
+    const encodedState = base64UrlEncode(reauthState)
+
+    const params = {
+      response_type: AUTH_RESPONSE_TYPE,
+      scope: AUTH_OPEN_ID_SCOPES,
+      client_id: AUTH_CLIENT_ID,
+      redirect_uri: AUTH_REDIRECT_URL,
+      nonce: nonce,
+      state: encodedState,
+      prompt: 'login',
     }
 
     window.location.href = `${AUTH_URL}?${queryString.stringify(params)}`
@@ -105,7 +145,16 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
 
   return (
     <AuthContext.Provider
-      value={{isAuthenticated, setAuthenticated, user, setUser, loading, login, logout}}
+      value={{
+        isAuthenticated,
+        setAuthenticated,
+        user,
+        setUser,
+        loading,
+        login,
+        logout,
+        reauthenticate
+      }}
     >
       {children}
     </AuthContext.Provider>
