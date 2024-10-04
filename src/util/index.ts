@@ -1,7 +1,7 @@
-import {VmStatusType} from '../types/VmStatusType.ts'
-import {ColorMode} from '@chakra-ui/react'
-import {Vm} from '../types/Vm.ts'
-import moment, {Duration} from 'moment/moment'
+import { VmStatusType } from '../types/VmStatusType.ts'
+import { ColorMode } from '@chakra-ui/react'
+import { Vm } from '../types/Vm.ts'
+import moment, { Duration } from 'moment/moment'
 
 export function getNaicLogo(colorMode: ColorMode): string {
   return colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'
@@ -128,4 +128,26 @@ export const getVmRemainingTimeColor = (percentage: number): string => {
   } else {
     return 'red'
   }
+}
+
+export const base64UrlEncode = (str: string): string => {
+  return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (_, p1) =>
+    String.fromCharCode(parseInt(p1, 16))
+  ))
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=+$/, '')
+}
+
+export const base64UrlDecode = (str: string): string => {
+  str = str.replace(/-/g, '+').replace(/_/g, '/')
+  while (str.length % 4) {
+    str += '='
+  }
+  const decoded = atob(str)
+  return decodeURIComponent(
+    Array.prototype.map
+      .call(decoded, (c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+      .join('')
+  )
 }
