@@ -1,7 +1,7 @@
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
+
 import { Vm } from '../types/Vm.ts'
 import QueryKeys from '../constants/QueryKeys.ts'
-import { FetchVmTemplatesResponse } from '../types/FetchVmTemplatesResponse.ts'
 import axiosInstance from '../api/ApiUtils.ts'
 
 
@@ -12,11 +12,6 @@ const fetchMyVms = async () => {
 
 const fetchVm = async (id: string) => {
   const response = await axiosInstance.get(`/vm/${id}`)
-  return response.data
-}
-
-const fetchVmTemplates = async () => {
-  const response = await axiosInstance.get('/vm/templates')
   return response.data
 }
 
@@ -36,21 +31,4 @@ export const useFetchVm = (id: string) => {
       queryFn: () => fetchVm(id),
     }
   )
-}
-
-export const useFetchVmTemplates = () => {
-  return useQuery<FetchVmTemplatesResponse>(
-    {
-      queryKey: [QueryKeys.VM_TEMPLATES],
-      queryFn: () => fetchVmTemplates(),
-    }
-  )
-}
-
-export const usePrefetchVmTemplates = async () => {
-  const queryClient = useQueryClient()
-  await queryClient.prefetchQuery({
-    queryKey: [QueryKeys.VM_TEMPLATES],
-    queryFn: () => fetchVmTemplates(),
-  })
 }

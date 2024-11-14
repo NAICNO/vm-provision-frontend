@@ -11,6 +11,7 @@ export interface VmTemplate {
   os: string
   description: string
   metadata: VmMetadata
+  enabled: boolean
   createdAt: Date
   updatedAt: Date
 }

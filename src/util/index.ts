@@ -151,3 +151,10 @@ export const base64UrlDecode = (str: string): string => {
       .join('')
   )
 }
+
+export const isUserAdmin = (userType?: string): boolean => {
+  if (!userType) {
+    return false
+  }
+  return userType === 'ADMIN' || userType === 'SUPER_ADMIN'
+}

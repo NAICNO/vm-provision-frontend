@@ -4,7 +4,10 @@ const QueryKeys = {
   VMS: 'VMS',
   VM: 'VM',
   VM_TEMPLATES: 'VM_TEMPLATES',
+  VM_TEMPLATE: 'VM_TEMPLATE',
   TOKEN_FETCH_INFO: 'TOKEN_FETCH_INFO',
+  VM_PROVIDERS: 'VM_PROVIDERS',
+  VM_PROVIDER: 'VM_PROVIDER',
 }
 
 export default QueryKeys

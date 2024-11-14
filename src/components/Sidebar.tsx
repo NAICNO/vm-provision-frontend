@@ -1,6 +1,6 @@
 import {
-  Avatar,
-  Box,
+  Avatar, Badge,
+  Box, Divider,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -14,28 +14,13 @@ import {
   useColorMode, VStack,
 } from '@chakra-ui/react'
 import { NavLink, useLocation } from 'react-router-dom'
-import { AtSignIcon, EditIcon } from '@chakra-ui/icons'
-import { FiGrid } from 'react-icons/fi'
 import { LogOutButton } from './LogOutButton.tsx'
 import { LightDarkModeButton } from './LightDarkModeButton.tsx'
-
-const sidebarItems = [
-  {
-    path: '/dashboard',
-    text: 'Dashboard',
-    icon: FiGrid
-  },
-  {
-    path: '/create',
-    text: 'Create',
-    icon: EditIcon
-  },
-  {
-    path: '/profile',
-    text: 'Profile',
-    icon: AtSignIcon
-  }
-]
+import { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext.tsx'
+import { ADMIN_SIDEBAR_ITEMS, DEFAULT_SIDEBAR_BOTTOM_ITEMS, DEFAULT_SIDEBAR_TOP_ITEMS } from '../constants/Constants.ts'
+import { isUserAdmin } from '../util'
+import { SidebarItem } from '../types/SIdebarItem.ts'
 
 interface SidebarProps {
   onCloseDrawer: () => void
@@ -44,24 +29,35 @@ interface SidebarProps {
 
 export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
 
-  const location = useLocation()
+  const {user} = useContext(AuthContext)
   const {colorMode} = useColorMode()
+
+  const isAdmin = isUserAdmin(user?.userType)
+
   const isDrawer = useBreakpointValue({base: true, md: false})
 
   const hoverBgColor = colorMode === 'light' ? 'gray.200' : 'blue.500'
   const activeBgColor = colorMode === 'light' ? 'gray.300' : 'blue.600'
 
-  const isActive = (path: string) => location.pathname === path
+  const seperator: SidebarItem = {type: 'separator'}
+
+  const sidebarItems = [
+    ...DEFAULT_SIDEBAR_TOP_ITEMS,
+    seperator,
+    ...(isAdmin ? [...ADMIN_SIDEBAR_ITEMS, seperator] : []),
+    ...DEFAULT_SIDEBAR_BOTTOM_ITEMS
+  ]
 
   const SideBarContent = () => (
     <List fontSize={{base: '1em', md: '1.2em'}} spacing="1">
       {sidebarItems.map((item, index) => (
-        <SidebarItem
+        <SidebarItemComponent
           key={index}
+          type={item.type}
           path={item.path}
+          matches={item.matches}
           text={item.text}
           icon={item.icon}
-          isActive={isActive(item.path)}
           hoverBgColor={hoverBgColor}
           activeBgColor={activeBgColor}
           onCloseDrawer={onCloseDrawer}
@@ -88,16 +84,19 @@ export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
                 <HStack>
                   <Avatar
                     size={'sm'}
-                    name={'user?.name'}
+                    name={user?.firstName}
                   />
                   <Box>
                     <Text fontWeight="bold" fontSize={'sm'}>
-                      {'user?.name'}
+                      {user?.firstName} {user?.lastName}
                     </Text>
                     <Text fontSize={'xs'}>
-                      {'user?.email'}
+                      {user?.email}
                     </Text>
                   </Box>
+                  {(user?.userType === 'ADMIN' || user?.userType == 'SUPER_ADMIN') &&
+                    <Badge mt={'4px'} alignSelf={'start'} colorScheme="orange">{user?.userType}</Badge>
+                  }
                 </HStack>
                 <HStack w={'100%'} pt="10px">
                   <LogOutButton/>
@@ -116,29 +115,52 @@ export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
   )
 }
 
-const SidebarItem = ({path, text, icon, isActive, hoverBgColor, activeBgColor, onCloseDrawer}: {
-  path: string,
-  text: string,
+const SidebarItemComponent = ({
+  type,
+  path = '',
+  matches = '',
+  text = '',
+  icon,
+  hoverBgColor,
+  activeBgColor,
+  onCloseDrawer
+}: {
+  type: string,
+  path: string | undefined,
+  matches: string | undefined,
+  text: string | undefined,
   icon: any,
-  isActive: boolean,
   hoverBgColor: string,
   activeBgColor: string,
   onCloseDrawer: () => void
 }) => {
-  return (
-    <Box>
-      <NavLink to={path} onClick={onCloseDrawer}>
-        <ListItem
-          _hover={{bg: hoverBgColor}}
-          bg={isActive ? activeBgColor : 'transparent'}
-          px={{base: '12px', md: '16px'}}
-          py="8px"
-          borderRadius="md"
-        >
-          <ListIcon as={icon}/>
-          {text}
-        </ListItem>
-      </NavLink>
-    </Box>
-  )
+
+  if (type === 'separator') {
+    return <Divider pt="10px"/>
+  } else {
+
+    const location = useLocation()
+    const {pathname} = location
+
+    const isActive = (path: string) => {
+      return pathname.includes(path)
+    }
+
+    return (
+      <Box>
+        <NavLink to={path} onClick={onCloseDrawer}>
+          <ListItem
+            _hover={{bg: hoverBgColor}}
+            bg={isActive(matches) ? activeBgColor : 'transparent'}
+            px={{base: '12px', md: '10px'}}
+            py="6px"
+            borderRadius="md"
+          >
+            <ListIcon as={icon}/>
+            {text}
+          </ListItem>
+        </NavLink>
+      </Box>
+    )
+  }
 }

@@ -66,6 +66,11 @@ export default function Profile() {
 
   const {mutate: deleteAccount, isPending} = useCreateDeleteAccountRequest(onSuccessDeleteRequest, onErrorDeleteRequest)
 
+  const items = [
+    {icon: MdPerson, text: `${user?.firstName} ${user?.lastName}`},
+    {icon: MdAlternateEmail, text: `Email: ${user?.email}`},
+  ]
+
   return (
     <>
       <Tabs variant="enclosed">
@@ -75,14 +80,12 @@ export default function Profile() {
         <TabPanels py="10px">
           <TabPanel>
             <List spacing={4}>
-              <ListItem>
-                <ListIcon as={MdPerson}/>
-                {`${user?.firstName} ${user?.lastName}`}
-              </ListItem>
-              <ListItem>
-                <ListIcon as={MdAlternateEmail}/>
-                Email: {`${user?.email}`}
-              </ListItem>
+              {items.map((item, index) => (
+                <ListItem key={index}>
+                  <ListIcon as={item.icon}/>
+                  {item.text}
+                </ListItem>
+              ))}
               <ListItem>
                 <HStack spacing={4}>
                   <Button

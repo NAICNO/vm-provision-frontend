@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Badge,
   Box,
   Flex,
   Heading,
@@ -75,6 +76,10 @@ export default function AppHeader({onOpenSidebarDrawer, onClickAvatar}: AppHeade
               {user?.email}
             </Text>
           </Box>
+          {
+            (user?.userType === 'ADMIN' || user?.userType == 'SUPER_ADMIN') &&
+            <Badge mt={'4px'} alignSelf={'start'} colorScheme="orange">{user?.userType}</Badge>
+          }
           <LogOutButton/>
         </HStack>
       </Show>

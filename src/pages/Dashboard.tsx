@@ -4,7 +4,8 @@ import {
   GridItem,
 } from '@chakra-ui/react'
 
-import { useFetchMyVms, usePrefetchVmTemplates } from '../hooks/useFetchVm.ts'
+import { useFetchMyVms } from '../hooks/useFetchVm.ts'
+import { usePrefetchVmTemplates } from '../hooks/useFetchVmTamplates.ts'
 import VmStatusItem from '../components/VmStatusItem.tsx'
 import { Vm } from '../types/Vm.ts'
 import VmStatusItemSkeleton from '../components/VmStatusItemSkeleton.tsx'

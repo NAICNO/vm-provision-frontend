@@ -10,14 +10,23 @@ import VirtualMachineInfo from './pages/VirtualMachineInfo.tsx'
 import LogoutRedirect from './pages/LogoutRedirect.tsx'
 import NoAuthLayout from './layouts/NoAuthLayout.tsx'
 import ProfileStatus from './pages/ProfileStatus.tsx'
+import DefaultErrorPage from './pages/DefaultErrorPage.tsx'
+import VmTemplatesPage from './pages/VmTemplatesPage.tsx'
+import AdminLayoutWrapper from './layouts/AdminLayoutWrapper.tsx'
+import ProvidersListPage from './pages/ProvidersListPage.tsx'
+import PrivacyPolicy from './pages/PrivacyPolicy.tsx'
+import Help from './pages/Help.tsx'
+import TermsOfService from './pages/TermsOfService.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
+    <Route errorElement={<DefaultErrorPage/>}>
       <Route element={<NoAuthLayout/>}>
         <Route path="/auth/callback" element={<AuthRedirect/>}/>
         <Route path="/profile-status" element={<ProfileStatus/>}/>
         <Route path="/auth/logout" element={<LogoutRedirect/>}/>
+        <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
+        <Route path="/terms-of-service" element={<TermsOfService/>}/>
       </Route>
       <Route element={<HomeLayout/>}>
         <Route index element={<Home/>}/>
@@ -27,6 +36,11 @@ const router = createBrowserRouter(
         <Route path="create" element={<Create/>}/>
         <Route path="profile" element={<Profile/>}/>
         <Route path="vm/:vmId" element={<VirtualMachineInfo/>}/>
+        <Route path="help" element={<Help/>}/>
+        <Route path="admin" element={<AdminLayoutWrapper/>}>
+          <Route path="providers" element={<ProvidersListPage/>}/>
+          <Route path="vm-templates" element={<VmTemplatesPage/>}/>
+        </Route>
       </Route>
     </Route>
   )

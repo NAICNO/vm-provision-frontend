@@ -136,7 +136,7 @@ sketch
 # Sentry Config File
 .env.sentry-build-plugin
 
-.env
+prod.env
 .env.production
 .env.production.old
 

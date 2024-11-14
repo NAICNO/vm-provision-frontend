@@ -4,10 +4,9 @@ import {
   Text, Button,
 } from '@chakra-ui/react'
 import queryString from 'query-string'
-import { AuthContext } from '../context/AuthContext.tsx'
-import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-type Status = 'disabled' | 'pending-deletion'
+type Status = 'disabled' | 'pending-deletion' | 'not-a-member'
 
 const TEXT_CONTENT: Record<Status, { title: string, message: string }> = {
   disabled: {
@@ -17,12 +16,16 @@ const TEXT_CONTENT: Record<Status, { title: string, message: string }> = {
   'pending-deletion': {
     title: 'Your account is pending deletion',
     message: 'Your account is currently pending deletion and will be permanently removed from our system. During this time, you will not be able to login.',
+  },
+  'not-a-member': {
+    title: 'You are not a member of NAIC Educloud Project (project ID: EC232)',
+    message: 'Please contact project administrator (sabryr@uio.no) to get access to the project.',
   }
 }
 
 export default function ProfileStatus() {
 
-  const { logout } = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const {status} = queryString.parse(location.search)
 
@@ -32,12 +35,12 @@ export default function ProfileStatus() {
 
   return (
     <VStack spacing={6} padding="4">
-      <Heading as='h3' size={'md'}>{statusContent.title}</Heading>
+      <Heading as="h3" size={'md'}>{statusContent.title}</Heading>
       <Text>{statusContent.message}</Text>
       <Button
         variant={'outline'}
         size={{base: 'md', md: 'lg'}}
-        onClick={logout}
+        onClick={() => navigate('/')}
       >
         Home Page
       </Button>
