@@ -37,7 +37,7 @@ export default function Home() {
         as="main"
         flex="1"
         maxW={{base: '90%', md: 'lg', lg: 'xl'}}
-        py={{base: '18', md: '24', lg: '32'}}
+        py={{base: '18', md: '24', lg: '24'}}
         px={{base: '4', sm: '8', lg: '12'}}
       >
         <Card>
