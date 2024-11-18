@@ -148,7 +148,7 @@ const PrivacyPolicy = () => {
         Email: <Link href="mailto:contact@naic.no" color="teal.500">contact@naic.no</Link>
       </Text>
       <Text fontSize={textSize} mb={marginY}>
-        Address: Address: Ole-Johan Dahl&apos;s House, Gaustadalléen 23B, 0373 Oslo
+        Address: Ole-Johan Dahl&apos;s House, Gaustadalléen 23B, 0373 Oslo
       </Text>
       <Text fontSize={textSize} mb={marginY}>
         By using NAIC Orchestrator, you acknowledge that you have read and understood this Privacy Policy and agree to
