@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
         Privacy Policy for NAIC Orchestrator
       </Heading>
       <Text fontSize={textSize} color="gray.500" mb={marginY} textAlign="center">
-        Effective Date: November 13, 2024
+        Effective Date: November 18, 2024
       </Text>
 
       <Heading as="h2" size={subheadingSize} mt={marginY} mb={marginY}>
@@ -53,6 +53,12 @@ const PrivacyPolicy = () => {
         <ListItem>
           <Text as="span" fontWeight="bold">VM Configuration Data:</Text> Details about the virtual machines you create,
           such as configurations and deployment preferences.
+        </ListItem>
+        <ListItem>
+          <Text as="span" fontWeight="bold">Resource Usage Monitoring:</Text> We will collect anonymized data about how
+          many resources are used during operations performed in the VMs. This information will be presented to the VM
+          owner, and we will use it in the decision-making process to determine optimal resource needs for similar
+          operations.
         </ListItem>
       </List>
 
@@ -113,7 +119,7 @@ const PrivacyPolicy = () => {
         Please note that we do not provide an option for users to obtain a copy of their data.
       </Text>
       <Text fontSize={textSize} mb={marginY}>
-        To exercise these rights, please contact us at
+        To exercise these rights, please contact us at{' '}
         <Link
           href="mailto:contact@naic.no"
           color="teal.500">
