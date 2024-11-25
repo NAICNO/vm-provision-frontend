@@ -1,5 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {
+  Box,
+  Checkbox,
+  Flex,
   Grid,
   GridItem,
 } from '@chakra-ui/react'
@@ -20,10 +23,15 @@ const vmStatusSkeletons = [1, 2, 3, 4, 5, 6]
 
 export default function Dashboard() {
 
+  const [showArchived, setShowArchived] = useState<boolean>(false)
+
   const {
-    data: myVms,
+    data: myVms = [],
     isLoading,
   } = useFetchMyVms()
+
+  const filteredVms = showArchived ? myVms : myVms?.filter(vm => !vm?.metadata?.archived)
+  const hasArchivedVms = myVms?.some(vm => vm?.metadata?.archived)
 
   const queryClient = useQueryClient()
   usePrefetchVmTemplates()
@@ -39,28 +47,33 @@ export default function Dashboard() {
     }
   }, [socket])
 
-  if (!isLoading && myVms && myVms.length === 0) {
+  if (!isLoading && filteredVms && filteredVms.length === 0) {
     return (
-      <NoVmItemsPlaceholder/>
+      <NoVmItemsPlaceholder hasArchivedVms={hasArchivedVms} showArchivedVms={() => setShowArchived(true)}/>
     )
   }
 
   return (
-    <Grid templateColumns="repeat(auto-fill, minmax(350px, 1fr))" gap={6}>
-      {
-        isLoading ?
-          vmStatusSkeletons.map((_, index) => (
-            <GridItem key={index}>
-              <VmStatusItemSkeleton/>
-            </GridItem>
-          ))
-          :
-          myVms?.map((vm: Vm) => (
-            <GridItem key={vm.vmId}>
-              <VmStatusItem {...vm}/>
-            </GridItem>
-          ))
-      }
-    </Grid>
+    <Box>
+      <Flex justifyContent={'flex-end'} mb={2}>
+        <Checkbox isChecked={showArchived} onChange={(e) => setShowArchived(e.target.checked)}>Show Archived</Checkbox>
+      </Flex>
+      <Grid templateColumns="repeat(auto-fill, minmax(350px, 1fr))" gap={6}>
+        {
+          isLoading ?
+            vmStatusSkeletons.map((_, index) => (
+              <GridItem key={index}>
+                <VmStatusItemSkeleton/>
+              </GridItem>
+            ))
+            :
+            filteredVms?.map((vm: Vm) => (
+              <GridItem key={vm.vmId}>
+                <VmStatusItem {...vm}/>
+              </GridItem>
+            ))
+        }
+      </Grid>
+    </Box>
   )
 }

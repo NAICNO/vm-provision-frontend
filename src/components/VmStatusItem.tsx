@@ -56,6 +56,8 @@ export default function VmStatusItem(vm: Vm) {
   const infoButtonText = status === VmStatusType.DESTROYED ? 'Info' : 'Help'
   const infoButtonIcon = status === VmStatusType.DESTROYED ? <InfoOutlineIcon/> : <QuestionOutlineIcon/>
 
+  const isVmArchived = vm?.metadata?.archived || false
+
   return (
     <Card key={vm.vmId} minWidth="350px">
       <Progress
@@ -78,12 +80,16 @@ export default function VmStatusItem(vm: Vm) {
             </VStack>
             <Spacer/>
             <VStack spacing={1}>
-              <Box color={getVmStatusTextColor(status)} alignSelf={'end'}>
-                <Box display="flex" alignItems="center">
-                  <VmStatusIcon status={status}/>
-                  <Text ml="5px" fontSize="sm" as="b">{getVmStatusText(status)}</Text>
-                </Box>
-              </Box>
+              {
+                isVmArchived ? <Tag colorScheme="green">Archived</Tag> :
+
+                  <Box color={getVmStatusTextColor(status)} alignSelf={'end'}>
+                    <Box display="flex" alignItems="center">
+                      <VmStatusIcon status={status}/>
+                      <Text ml="5px" fontSize="sm" as="b">{getVmStatusText(status)}</Text>
+                    </Box>
+                  </Box>
+              }
               {
                 shouldShowRemainingTime &&
                 <Box>

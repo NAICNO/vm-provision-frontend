@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 import {
   Flex,
   Grid,
@@ -45,18 +45,20 @@ export default function NoAuthLayout() {
           align="center"
           wrap="wrap"
         >
-          <Flex alignItems={'center'}>
-            <Image
-              src={naicLogo}
-              alt="NAIC logo"
-              w={{base: '60px', md: '80px'}}
-              mr="20px"
-              mb="5px"
-            />
-            <Heading as="h1" size={{base: 'md', md: 'xl'}}>
-              {APP_NAME}
-            </Heading>
-          </Flex>
+          <NavLink to={''}>
+            <Flex alignItems={'center'}>
+              <Image
+                src={naicLogo}
+                alt="NAIC logo"
+                w={{base: '60px', md: '80px'}}
+                mr="20px"
+                mb="5px"
+              />
+              <Heading as="h1" size={{base: 'md', md: 'xl'}}>
+                {APP_NAME}
+              </Heading>
+            </Flex>
+          </NavLink>
         </Flex>
       </GridItem>
       <GridItem

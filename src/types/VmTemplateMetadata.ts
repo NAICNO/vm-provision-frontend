@@ -1,4 +1,4 @@
-export interface VmMetadata {
+export interface VmTemplateMetadata {
   username: string
   tags: string[]
 }

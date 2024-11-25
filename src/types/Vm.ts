@@ -11,9 +11,14 @@ export interface Vm {
   vmTemplate: VmTemplate
   publicKey: PublicKey
   duration: number
+  metadata?: VmMetadata
   startedAt: Date
   createdAt: Date
   updatedAt: Date
+}
+
+export interface VmMetadata {
+  archived?: boolean
 }
 
 

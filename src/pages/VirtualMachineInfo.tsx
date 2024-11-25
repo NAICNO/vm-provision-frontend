@@ -307,7 +307,7 @@ export default function VirtualMachineInfo() {
               <Text>
                 {'You can archive the virtual machine here.'}
               </Text>
-              <Text>{'To view the list archived virtual machines, click on the \'Archived Virtual Machines\' link in your profile.'}
+              <Text>{'To view the list archived virtual machines, click on the \'Show Archived\' checkbox in the dashboard.'}
               </Text>
               <Button
                 colorScheme="blue"
