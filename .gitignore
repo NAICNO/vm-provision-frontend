@@ -136,9 +136,8 @@ sketch
 # Sentry Config File
 .env.sentry-build-plugin
 
-prod.env
-.env.production
-.env.production.old
+.env*
 
 dist
 .vercel
+.npmrc
