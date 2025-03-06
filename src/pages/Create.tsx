@@ -340,10 +340,10 @@ export default function Create() {
         </Card>
         <Card>
           <CardBody>
-            <Heading as="h3" size="sm" pb="20px">
-              Select a virtual machine type
+            <Heading as="h3" size="sm" pb="8">
+              Select a provider and a virtual machine type
             </Heading>
-            <HStack spacing={5} mb="20px" {...vmProvidersGroup}>
+            <HStack spacing={6} mb="2" {...vmProvidersGroup}>
               {isLoadingVmTemplates ?
                 skeletonVmProviderItems.map((_, key) => {
                   return (
@@ -360,6 +360,8 @@ export default function Create() {
                     />
                   )
                 })}
+            </HStack>
+            <HStack mb={6}>
               <Spacer/>
               <Checkbox
                 mr="20px"
@@ -369,8 +371,7 @@ export default function Create() {
                 Advanced view
               </Checkbox>
             </HStack>
-
-            <SimpleGrid spacing={5} minChildWidth="200px" {...vmTemplatesGroup}>
+            <SimpleGrid spacing={6} minChildWidth="200px" {...vmTemplatesGroup}>
               {isLoadingVmTemplates ?
                 skeletonVmTemplateItems.map((_, key) => {
                   return (
@@ -388,9 +389,12 @@ export default function Create() {
                   )
                 })}
             </SimpleGrid>
-            <Checkbox disabled mt="30px">
-              I want to submit jobs to Fox from this VM
-            </Checkbox>
+            {/*<Checkbox disabled mt="30px">*/}
+            {/*  Set up <Link href='https://www.eessi.io/'>EESSI software stack</Link> on this VM*/}
+            {/*</Checkbox>*/}
+            {/*<Checkbox disabled mt="30px">*/}
+            {/*  I want to submit jobs to Fox from this VM*/}
+            {/*</Checkbox>*/}
             <Flex justifyContent="flex-end" mt="20px">
               <Button
                 colorScheme="blue"

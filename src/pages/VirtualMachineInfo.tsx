@@ -22,11 +22,11 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalBody, ModalFooter, Input, useColorMode, Image
+  ModalBody, ModalFooter, Input, useColorMode, Image, ListIcon, List, Link as ChakraLink
 } from '@chakra-ui/react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { useFetchVm } from '../hooks/useFetchVm.ts'
-import { ArrowBackIcon, CopyIcon } from '@chakra-ui/icons'
+import { ArrowBackIcon, CopyIcon, ExternalLinkIcon } from '@chakra-ui/icons'
 import VirtualMachineInfoSkeleton from '../components/VirtualMachineInfoSkeleton.tsx'
 import { VmStatusType } from '../types/VmStatusType.ts'
 import {
@@ -45,6 +45,7 @@ import { useQueryClient } from '@tanstack/react-query'
 import QueryKeys from '../constants/QueryKeys.ts'
 import { VmStatusIcon } from '../components/VmStatusIcon.tsx'
 import { useArchiveVm } from '../hooks/useArchiveVm.ts'
+import { MdCheckCircle } from 'react-icons/md'
 
 export default function VirtualMachineInfo() {
 
@@ -248,6 +249,21 @@ export default function VirtualMachineInfo() {
                   <Td>Started at</Td>
                   <Td>{vm.startedAt ? moment(vm.startedAt).format('LLL') : 'N/A'}</Td>
                 </Tr>
+                <Tr>
+                  <Td>You can access this VM from</Td>
+                  <Td>
+                    <List>
+                      {
+                        vm.ipRanges.map((ipRange, index) => (
+                          <ListItem key={index}>
+                            <ListIcon as={MdCheckCircle} color="green.500"/>
+                            {ipRange}
+                          </ListItem>
+                        ))
+                      }
+                    </List>
+                  </Td>
+                </Tr>
               </Tbody>
             </Table>
           </TableContainer>
@@ -277,6 +293,16 @@ export default function VirtualMachineInfo() {
                       setup.</Text>
                   </ListItem>
                 </OrderedList>
+
+                <Divider my="20px"/>
+                <Heading as="h4" size={{base: 'sm', md: 'md'}} mb="15px">
+                  Having trouble accessing your virtual machine?
+                </Heading>
+                <Text>
+                  If you are having trouble accessing your virtual machine,
+                  please follow our <ChakraLink
+                  href="/help/ssh-troubleshoot" color="teal.500" isExternal>troubleshooting guide<ExternalLinkIcon mx="2px"/></ChakraLink>
+                </Text>
 
                 <Divider my="20px"/>
                 <Heading as="h4" size={{base: 'sm', md: 'md'}} mb="15px">

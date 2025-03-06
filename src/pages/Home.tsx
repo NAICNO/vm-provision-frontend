@@ -16,10 +16,10 @@ import {
   HStack
 } from '@chakra-ui/react'
 import { APP_NAME } from '../constants/Constants.ts'
-import EducloudIcon from '../components/EducloudIcon.tsx'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext.tsx'
+import FeideIcon from '../components/FeideIcon.tsx'
 
 export default function Home() {
 
@@ -38,7 +38,7 @@ export default function Home() {
         flex="1"
         maxW={{base: '90%', md: 'lg', lg: 'xl'}}
         py={{base: '18', md: '24', lg: '24'}}
-        px={{base: '4', sm: '8', lg: '12'}}
+        px={{base: '4', sm: '6', lg: '6'}}
       >
         <Card>
           <CardBody>
@@ -68,11 +68,12 @@ export default function Home() {
                   colorScheme="gray"
                   onClick={login}
                   variant={'outline'}
-                  leftIcon={<EducloudIcon/>}
+                  leftIcon={<FeideIcon boxSize="20px" color="#1f4698" />}
                   size={{base: 'md', md: 'lg'}}
                 >
-                  Continue with Educloud
+                  Continue with Feide
                 </Button>
+                <Text color={'gray.500'} as='i' fontSize={'sm'}>Please click the <Text as='b'>MyAccessID / Feide</Text> link on the next page</Text>
               </VStack>
             </Center>
           </CardBody>

@@ -32,13 +32,14 @@ export default function VmProviderSelectRadioItem({vmProvider, radioProps}: Prov
       as="label" {...htmlProps}
       cursor="pointer"
       borderRadius="full"
-      transitionDuration="500ms"
+      transitionDuration="100ms"
       size={'lg'}
       key={vmProvider.providerId}
       variant={isChecked ? 'solid' : 'outline'}
       colorScheme="teal"
+      height={12}
       sx={{
-        ...(colorMode === 'light' && {backgroundColor: isChecked ? 'teal.300' : 'white'}),
+        ...(colorMode === 'light' && {backgroundColor: isChecked ? 'gray.300' : 'white'}),
       }}
     >
       <input {...getInputProps({})} hidden/>
@@ -46,6 +47,7 @@ export default function VmProviderSelectRadioItem({vmProvider, radioProps}: Prov
         {...getRadioProps()}
       >
         <Image
+          alt={vmProvider.providerName}
           src={providerImage}
           objectFit={'contain'}
           height="20px"

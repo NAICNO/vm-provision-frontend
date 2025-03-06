@@ -17,16 +17,19 @@ import ProvidersListPage from './pages/ProvidersListPage.tsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.tsx'
 import Help from './pages/Help.tsx'
 import TermsOfService from './pages/TermsOfService.tsx'
+import HelpSSH from './pages/HelpSSH.tsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route errorElement={<DefaultErrorPage/>}>
       <Route element={<NoAuthLayout/>}>
         <Route path="/auth/callback" element={<AuthRedirect/>}/>
+        <Route path="/kcauth/callback" element={<AuthRedirect/>}/>
         <Route path="/profile-status" element={<ProfileStatus/>}/>
         <Route path="/auth/logout" element={<LogoutRedirect/>}/>
         <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="/terms-of-service" element={<TermsOfService/>}/>
+        <Route path="help/ssh-troubleshoot" element={<HelpSSH/>}/>
       </Route>
       <Route element={<HomeLayout/>}>
         <Route index element={<Home/>}/>

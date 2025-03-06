@@ -188,8 +188,9 @@ exports[`VmStatusTypeItem > renders correctly with a DESTROYED status 1`] = `
           class="css-1ehzxp"
         >
           <img
+            alt="Azure"
             class="chakra-image css-1pg8bi"
-            src="/images/azure.svg"
+            src="/images/default-logo.svg"
           />
         </span>
         <div

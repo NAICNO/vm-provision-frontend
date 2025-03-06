@@ -5,9 +5,9 @@ import { AuthContext } from '../context/AuthContext.tsx'
 
 export default function HomeLayout() {
 
-  const { isAuthenticated, loading} = useContext(AuthContext)
+  const {isAuthenticated, loading} = useContext(AuthContext)
 
-  if(loading) {
+  if (loading) {
     return <div>Loading...</div>
   }
 
