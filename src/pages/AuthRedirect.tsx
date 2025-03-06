@@ -20,7 +20,6 @@ export default function AuthRedirect() {
     axiosInstance
       .get('auth/status')
       .then((response) => {
-        console.log(response)
         setAuthenticated(true)
         setUser(response.data.user)
         navigate('/dashboard')
@@ -36,7 +35,6 @@ export default function AuthRedirect() {
           const route = responseData.route
           const routeParam = responseData.routeParam
           if (routeParam) {
-            console.log(route, routeParam)
             navigate(`/${route}?status=${routeParam?.status}`)
           } else {
             navigate(`/${route}`)
