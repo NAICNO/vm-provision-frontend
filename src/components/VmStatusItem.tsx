@@ -131,7 +131,7 @@ export default function VmStatusItem(vm: Vm) {
       <CardFooter mt="-20px">
         <HStack w="full">
           <Tag size="lg" colorScheme="gray" borderRadius="full">
-            <Image src={providerImage} height="20px"/>
+            <Image src={providerImage} height="20px" alt={vm.vmTemplate.provider.providerName}/>
           </Tag>
           <Spacer/>
           <Button

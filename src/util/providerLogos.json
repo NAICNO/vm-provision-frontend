@@ -1,0 +1,22 @@
+{
+  "NREC": {
+    "light": "/images/nrec-vertical-dark.svg",
+    "dark": "/images/nrec-vertical-light.svg"
+  },
+  "NREC UiO": {
+    "light": "/images/nrec-uio-vertical-dark.svg",
+    "dark": "/images/nrec-uio-vertical-light.svg"
+  },
+  "NREC UiB": {
+    "light": "/images/nrec-uib-vertical-dark.svg",
+    "dark": "/images/nrec-uib-vertical-light2.svg"
+  },
+  "Google Cloud": {
+    "light": "/images/google-cloud.svg",
+    "dark": "/images/google-cloud-light.svg"
+  },
+  "Azure": {
+    "light": "/images/azure.svg",
+    "dark": "/images/azure.svg"
+  }
+}

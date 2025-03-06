@@ -25,7 +25,14 @@ export default defineConfig(({mode}) => ({
   },
 
   build: {
-    sourcemap: true
-  },
+    sourcemap: false,
+    minify: mode === 'production',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
+  }
 
 }))

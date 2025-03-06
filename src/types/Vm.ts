@@ -11,6 +11,7 @@ export interface Vm {
   vmTemplate: VmTemplate
   publicKey: PublicKey
   duration: number
+  ipRanges: string[]
   metadata?: VmMetadata
   startedAt: Date
   createdAt: Date

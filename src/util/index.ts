@@ -1,7 +1,9 @@
+import moment, { Duration } from 'moment/moment'
+
 import { VmStatusType } from '../types/VmStatusType.ts'
 import { ColorMode } from '@chakra-ui/react'
 import { Vm } from '../types/Vm.ts'
-import moment, { Duration } from 'moment/moment'
+import providerLogos from './providerLogos.json'
 
 export function getNaicLogo(colorMode: ColorMode): string {
   return colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'
@@ -71,26 +73,8 @@ export function getVmStatusTextColor(status: VmStatusType) {
   return color
 }
 
-export const getProviderLogo = (provider: string, colorMode: ColorMode) => {
-  if (colorMode === 'dark') {
-    switch (provider) {
-    case 'NREC':
-      return '/images/nrec-vertical-light.svg'
-    case 'Google Cloud':
-      return '/images/google-cloud-light.svg'
-    case 'Azure':
-      return '/images/azure.svg'
-    }
-  } else {
-    switch (provider) {
-    case 'NREC':
-      return '/images/nrec-vertical-dark.svg'
-    case 'Google Cloud':
-      return '/images/google-cloud.svg'
-    case 'Azure':
-      return '/images/azure.svg'
-    }
-  }
+export const getProviderLogo = (provider: string, colorMode: 'light' | 'dark') => {
+  return providerLogos[provider]?.[colorMode] || '/images/default-logo.svg'
 }
 
 export const getVmRemainingTime = (vm: Vm): Duration => {

@@ -13,7 +13,7 @@ export default function NoAuthLayout() {
 
   const {colorMode} = useColorMode()
 
-  const mainGridItemBackgroundColor = colorMode === 'light' ? 'gray.50' : 'gray.800'
+  const mainGridItemBackgroundColor = colorMode === 'light' ? 'white' : 'gray.800'
 
   const naicLogo = colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'
 
