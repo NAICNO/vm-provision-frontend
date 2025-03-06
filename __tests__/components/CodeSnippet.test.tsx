@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent, waitFor } from '@testing-library/react'
 import CodeSnippet from '../../src/components/CodeSnippet.tsx'
 import { beforeAll } from 'vitest'
 import { userEvent } from '@testing-library/user-event'
@@ -41,8 +41,15 @@ describe('CodeSnippet', () => {
     const {getByText} = render(<CodeSnippet code="Test code"/>)
     const copyButton = getByText('Copy')
     fireEvent.click(copyButton)
-    expect(getByText('Copied')).toBeInTheDocument()
-    expect(navigator.clipboard.readText()).resolves.toEqual('Test code')
 
+    await waitFor(() => {
+      expect(getByText('Copied')).toBeInTheDocument()
+    })
+
+    // Wait for the clipboard content to update
+    await waitFor(async () => {
+      const clipboardText = await navigator.clipboard.readText()
+      expect(clipboardText).toEqual('Test code')
+    })
   })
 })
