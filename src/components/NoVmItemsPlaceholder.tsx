@@ -7,7 +7,7 @@ import {
   Icon, Button, Link
 } from '@chakra-ui/react'
 import { FaServer } from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 
 interface NoVmItemsPlaceholderProps {
   hasArchivedVms: boolean

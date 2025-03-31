@@ -9,7 +9,7 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/react'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router'
 
 import { APP_NAME } from '../constants/Constants.ts'
 import { LogOutButton } from './LogOutButton.tsx'

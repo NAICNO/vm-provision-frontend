@@ -72,7 +72,7 @@ const HelpPage = () => {
       </Heading>
       <Text fontSize={textSize} mb={marginY}>
         If you need further assistance, please reach out to our support team at <Link
-        href="https://www.naic.no/english/naic-support-desk/" color="teal.500" isExternal>NAIC Support
+          href="https://www.naic.no/english/naic-support-desk/" color="teal.500" isExternal>NAIC Support
         Desk<ExternalLinkIcon mx="2px"/></Link>.
       </Text>
       <Text fontSize={textSize} mb={marginY}>

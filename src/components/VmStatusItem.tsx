@@ -20,7 +20,7 @@ import {
 import { Icon, InfoOutlineIcon, QuestionOutlineIcon } from '@chakra-ui/icons'
 import { PiComputerTower } from 'react-icons/pi'
 import moment from 'moment'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 import { Vm } from '../types/Vm.ts'
 import { VmStatusType } from '../types/VmStatusType.ts'

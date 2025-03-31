@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router'
 import { Box } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext.tsx'

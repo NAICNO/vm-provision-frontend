@@ -198,6 +198,7 @@ exports[`VmStatusTypeItem > renders correctly with a DESTROYED status 1`] = `
         />
         <a
           class="chakra-button css-4xx2wk"
+          data-discover="true"
           href="/vm/123"
         >
           <span

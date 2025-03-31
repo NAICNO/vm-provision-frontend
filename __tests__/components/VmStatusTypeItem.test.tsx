@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import VmStatusItem from '../../src/components/VmStatusItem'
 import { VmStatusType } from '../../src/types/VmStatusType.ts'
 import moment from 'moment'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router'
 
 // Setup mock for the util module
 vi.mock('../util', () => ({
