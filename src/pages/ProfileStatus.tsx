@@ -4,7 +4,7 @@ import {
   Text, Button,
 } from '@chakra-ui/react'
 import queryString from 'query-string'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 
 type Status = 'disabled' | 'pending-deletion' | 'not-a-member'
 

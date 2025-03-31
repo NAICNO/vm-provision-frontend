@@ -5,7 +5,7 @@ import {
   matchRoutes,
   useLocation,
   useNavigationType,
-} from 'react-router-dom'
+} from 'react-router'
 
 import { SENTRY_DSN } from './constants/Constants.ts'
 

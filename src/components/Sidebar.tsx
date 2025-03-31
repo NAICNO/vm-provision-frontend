@@ -13,7 +13,7 @@ import {
   useBreakpointValue,
   useColorMode, VStack,
 } from '@chakra-ui/react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router'
 import { LogOutButton } from './LogOutButton.tsx'
 import { LightDarkModeButton } from './LightDarkModeButton.tsx'
 import { useContext } from 'react'

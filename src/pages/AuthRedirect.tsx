@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react'
 
 import { useContext, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { AuthContext } from '../context/AuthContext.tsx'
 import axiosInstance from '../api/ApiUtils.ts'
 

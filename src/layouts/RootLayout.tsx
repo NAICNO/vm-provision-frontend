@@ -1,4 +1,4 @@
-import { Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Navigate, Outlet, useLocation, useNavigate } from 'react-router'
 import AppHeader from '../components/AppHeader.tsx'
 import { Grid, GridItem, useColorMode, useDisclosure } from '@chakra-ui/react'
 import Sidebar from '../components/Sidebar.tsx'

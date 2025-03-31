@@ -24,7 +24,7 @@ import {
   ModalHeader,
   ModalBody, ModalFooter, Input, useColorMode, Image, ListIcon, List, Link as ChakraLink
 } from '@chakra-ui/react'
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useNavigate, useParams } from 'react-router'
 import { useFetchVm } from '../hooks/useFetchVm.ts'
 import { ArrowBackIcon, CopyIcon, ExternalLinkIcon } from '@chakra-ui/icons'
 import VirtualMachineInfoSkeleton from '../components/VirtualMachineInfoSkeleton.tsx'
@@ -301,7 +301,7 @@ export default function VirtualMachineInfo() {
                 <Text>
                   If you are having trouble accessing your virtual machine,
                   please follow our <ChakraLink
-                  href="/help/ssh-troubleshoot" color="teal.500" isExternal>troubleshooting guide<ExternalLinkIcon mx="2px"/></ChakraLink>
+                    href="/help/ssh-troubleshoot" color="teal.500" isExternal>troubleshooting guide<ExternalLinkIcon mx="2px"/></ChakraLink>
                 </Text>
 
                 <Divider my="20px"/>

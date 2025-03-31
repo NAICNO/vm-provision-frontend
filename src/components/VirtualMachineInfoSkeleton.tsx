@@ -13,7 +13,7 @@ import {
   Tr,
 } from '@chakra-ui/react'
 import { ArrowBackIcon } from '@chakra-ui/icons'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 export default function VirtualMachineInfoSkeleton() {
   return (
