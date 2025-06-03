@@ -52,6 +52,10 @@ export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
     const location = useLocation()
     const {pathname} = location
 
+    const isActive = (path: string) => {
+      return pathname.includes(path)
+    }
+
     return (
       <List.Root variant={'plain'} fontSize={{base: '1em', md: '1.2em'}} gap="1">
         {
