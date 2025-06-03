@@ -47,50 +47,53 @@ export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
     ...DEFAULT_SIDEBAR_BOTTOM_ITEMS
   ]
 
-  const SideBarContent = () => (
-    <List.Root variant={'plain'} fontSize={{base: '1em', md: '1.2em'}} gap="1">
-      {
-        sidebarItems.map((item, index) => {
-          if (item.type === 'separator') {
+  const SideBarContent = () => {
+
+    const location = useLocation()
+    const {pathname} = location
+
+    return (
+      <List.Root variant={'plain'} fontSize={{base: '1em', md: '1.2em'}} gap="1">
+        {
+          sidebarItems.map((item, index) => {
+            if (item.type === 'separator') {
+              return (
+                <List.Item key={index}>
+                  <Separator variant={'solid'}/>
+                </List.Item>
+              )
+            }
+
+            const isActive = (path: string) => {
+              return pathname.includes(path)
+            }
             return (
-              <List.Item key={index}>
-                <Separator variant={'solid'}/>
+              <List.Item
+                key={index}
+              >
+                <NavLink to={item.path} onClick={onCloseDrawer} style={{width: '100%', display: 'block'}}>
+                  <Box
+                    _hover={{bg: hoverBgColor}}
+                    bg={isActive(item.matches) ? activeBgColor : 'transparent'}
+                    px={{base: '12px', md: '10px'}}
+                    py="6px"
+                    width="100%"
+                    borderRadius="md"
+                  >
+                    <List.Indicator asChild>
+                      {React.createElement(item.icon)}
+                    </List.Indicator>
+                    {item.text}
+                  </Box>
+                </NavLink>
+
               </List.Item>
             )
-          }
-
-          const location = useLocation()
-          const {pathname} = location
-
-          const isActive = (path: string) => {
-            return pathname.includes(path)
-          }
-          return (
-            <List.Item
-              key={index}
-            >
-              <NavLink to={item.path} onClick={onCloseDrawer} style={{width: '100%', display: 'block'}}>
-                <Box
-                  _hover={{bg: hoverBgColor}}
-                  bg={isActive(item.matches) ? activeBgColor : 'transparent'}
-                  px={{base: '12px', md: '10px'}}
-                  py="6px"
-                  width="100%"
-                  borderRadius="md"
-                >
-                  <List.Indicator asChild>
-                    {React.createElement(item.icon)}
-                  </List.Indicator>
-                  {item.text}
-                </Box>
-              </NavLink>
-
-            </List.Item>
-          )
-        })
-      }
-    </List.Root>
-  )
+          })
+        }
+      </List.Root>
+    )
+  }
 
   const handleOpenChange = (event) => {
     if (!event.open) {
