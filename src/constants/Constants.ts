@@ -1,5 +1,4 @@
-import { FiGrid } from 'react-icons/fi'
-import { AtSignIcon, EditIcon } from '@chakra-ui/icons'
+import { FiAtSign, FiEdit, FiGrid } from 'react-icons/fi'
 import { SidebarItem } from '../types/SIdebarItem.ts'
 import { GoProjectTemplate } from 'react-icons/go'
 import { BsClouds } from 'react-icons/bs'
@@ -38,14 +37,14 @@ export const DEFAULT_SIDEBAR_TOP_ITEMS: SidebarItem[] = [
     path: '/create',
     matches: '/create',
     text: 'Create',
-    icon: EditIcon
+    icon: FiEdit
   },
   {
     type: 'link',
     path: '/profile',
     matches: '/profile',
     text: 'Profile',
-    icon: AtSignIcon
+    icon: FiAtSign
   },
 ]
 

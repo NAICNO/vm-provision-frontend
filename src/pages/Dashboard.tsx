@@ -56,7 +56,18 @@ export default function Dashboard() {
   return (
     <Box>
       <Flex justifyContent={'flex-end'} mb={2}>
-        <Checkbox isChecked={showArchived} onChange={(e) => setShowArchived(e.target.checked)}>Show Archived</Checkbox>
+        <Checkbox.Root
+          checked={showArchived}
+          onCheckedChange={(e) => setShowArchived(!!e.checked)}
+          colorPalette={'blue'}
+          variant="subtle"
+        >
+          <Checkbox.HiddenInput />
+          <Checkbox.Control/>
+          <Checkbox.Label>
+            Show Archived
+          </Checkbox.Label>
+        </Checkbox.Root>
       </Flex>
       <Grid templateColumns="repeat(auto-fill, minmax(350px, 1fr))" gap={6}>
         {

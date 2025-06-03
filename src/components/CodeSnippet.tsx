@@ -1,11 +1,12 @@
-import { Button, useClipboard, Box, Flex, useColorMode } from '@chakra-ui/react'
+import { Button, useClipboard, Box, Flex } from '@chakra-ui/react'
+import { useColorMode } from './ui/color-mode'
 
 interface CodeSnippetProps {
   code: string;
 }
 
 const CodeSnippet = ({code}: CodeSnippetProps) => {
-  const {hasCopied, onCopy} = useClipboard(code)
+  const clipboard = useClipboard({defaultValue: code})
   const {colorMode} = useColorMode()
 
   const bgColor = {light: 'gray.100', dark: 'gray.600'}
@@ -26,8 +27,8 @@ const CodeSnippet = ({code}: CodeSnippetProps) => {
           <code>{code}</code>
         </pre>
       </Box>
-      <Button colorScheme="teal" size="xs" onClick={onCopy} ml={4}>
-        {hasCopied ? 'Copied' : 'Copy'}
+      <Button size="xs" onClick={clipboard.copy} ml={4}>
+        {clipboard.copied ? 'Copied' : 'Copy'}
       </Button>
     </Flex>
   )

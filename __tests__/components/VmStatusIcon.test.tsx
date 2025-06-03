@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
-import { render } from '@testing-library/react'
 import { VmStatusIcon } from '../../src/components/VmStatusIcon'
 import { VmStatusType } from '../../src/types/VmStatusType'
+import { render } from '../test-utils'
 
 describe('VmStatusIcon', () => {
   it('renders correctly when status is STOPPED', () => {

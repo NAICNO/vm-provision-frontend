@@ -47,8 +47,8 @@ export default function AuthRedirect() {
   return (
     <Container maxW="xl" height="100vh" centerContent>
       <Center height="100%">
-        <VStack spacing={6} width="100%" maxW="md" padding="4">
-          <Spinner speed="1s" size="lg"/>
+        <VStack gap={6} width="100%" maxW="md" padding="4">
+          <Spinner gap="1s" size="lg"/>
           <Heading>Logging in....</Heading>
         </VStack>
       </Center>

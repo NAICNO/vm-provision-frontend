@@ -1,7 +1,9 @@
-import { render, fireEvent, waitFor } from '@testing-library/react'
-import CodeSnippet from '../../src/components/CodeSnippet.tsx'
 import { beforeAll } from 'vitest'
 import { userEvent } from '@testing-library/user-event'
+import { fireEvent, waitFor } from '@testing-library/react'
+
+import CodeSnippet from '../../src/components/CodeSnippet.tsx'
+import { render } from '../test-utils'
 
 describe('CodeSnippet', () => {
   let user: ReturnType<typeof userEvent.setup>

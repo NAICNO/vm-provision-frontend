@@ -3,7 +3,6 @@ import {
   Heading,
   Text,
   List,
-  ListItem,
   Link,
   useBreakpointValue,
 } from '@chakra-ui/react'
@@ -41,26 +40,26 @@ const PrivacyPolicy = () => {
       <Text fontSize={textSize} mb={marginY}>
         We collect the following types of information:
       </Text>
-      <List styleType="disc" pl={5} fontSize={textSize} mb={marginY}>
-        <ListItem>
+      <List.Root pl={5} fontSize={textSize} mb={marginY}>
+        <List.Item>
           <Text as="span" fontWeight="bold">Personal Information:</Text> When you register or interact with our service,
           we may collect personal details such as your name, email address, and contact information.
-        </ListItem>
-        <ListItem>
+        </List.Item>
+        <List.Item>
           <Text as="span" fontWeight="bold">Usage Data:</Text> We gather information on how you access and use the
           service, including your IP address and activity logs.
-        </ListItem>
-        <ListItem>
+        </List.Item>
+        <List.Item>
           <Text as="span" fontWeight="bold">VM Configuration Data:</Text> Details about the virtual machines you create,
           such as configurations and deployment preferences.
-        </ListItem>
-        <ListItem>
+        </List.Item>
+        <List.Item>
           <Text as="span" fontWeight="bold">Resource Usage Monitoring:</Text> We will collect anonymized data about how
           many resources are used during operations performed in the VMs. This information will be presented to the VM
           owner, and we will use it in the decision-making process to determine optimal resource needs for similar
           operations.
-        </ListItem>
-      </List>
+        </List.Item>
+      </List.Root>
 
       <Heading as="h2" size={subheadingSize} mt={marginY} mb={marginY}>
         3. How We Use Your Information
@@ -68,12 +67,12 @@ const PrivacyPolicy = () => {
       <Text fontSize={textSize} mb={marginY}>
         We use the collected information to:
       </Text>
-      <List styleType="disc" pl={5} fontSize={textSize} mb={marginY}>
-        <ListItem>Provide and maintain the NAIC Orchestrator service.</ListItem>
-        <ListItem>Improve and personalize your user experience.</ListItem>
-        <ListItem>Communicate with you regarding updates, security alerts, and administrative messages.</ListItem>
-        <ListItem>Monitor and analyze usage to enhance service performance and security.</ListItem>
-      </List>
+      <List.Root pl={5} fontSize={textSize} mb={marginY}>
+        <List.Item>Provide and maintain the NAIC Orchestrator service.</List.Item>
+        <List.Item>Improve and personalize your user experience.</List.Item>
+        <List.Item>Communicate with you regarding updates, security alerts, and administrative messages.</List.Item>
+        <List.Item>Monitor and analyze usage to enhance service performance and security.</List.Item>
+      </List.Root>
 
       <Heading as="h2" size={subheadingSize} mt={marginY} mb={marginY}>
         4. Data Sharing and Disclosure
@@ -82,18 +81,18 @@ const PrivacyPolicy = () => {
         We do not sell, rent, or intentionally share your personal information with third parties. However, please be
         aware that:
       </Text>
-      <List styleType="disc" pl={5} fontSize={textSize} mb={marginY}>
-        <ListItem>
+      <List.Root pl={5} fontSize={textSize} mb={marginY}>
+        <List.Item>
           <Text as="span" fontWeight="bold">Cloud Service Providers:</Text> The VMs you create are deployed on
           third-party cloud platforms. While we do not intentionally share your personal information with these
           providers, the nature of the service means that certain data may be processed by them as part of the VM
           deployment and operation.
-        </ListItem>
-        <ListItem>
+        </List.Item>
+        <List.Item>
           <Text as="span" fontWeight="bold">Legal Obligations:</Text> We may disclose your information if required by
           law or to protect our rights and safety.
-        </ListItem>
-      </List>
+        </List.Item>
+      </List.Root>
 
       <Heading as="h2" size={subheadingSize} mt={marginY} mb={marginY}>
         5. Data Security
@@ -110,11 +109,11 @@ const PrivacyPolicy = () => {
       <Text fontSize={textSize} mb={marginY}>
         You have the right to:
       </Text>
-      <List styleType="disc" pl={5} fontSize={textSize} mb={marginY}>
-        <ListItem>Request correction of any inaccuracies in your personal data.</ListItem>
-        <ListItem>Request deletion of your personal data, subject to legal obligations.</ListItem>
-        <ListItem>Object to or restrict the processing of your data.</ListItem>
-      </List>
+      <List.Root pl={5} fontSize={textSize} mb={marginY}>
+        <List.Item>Request correction of any inaccuracies in your personal data.</List.Item>
+        <List.Item>Request deletion of your personal data, subject to legal obligations.</List.Item>
+        <List.Item>Object to or restrict the processing of your data.</List.Item>
+      </List.Root>
       <Text fontSize={textSize} mb={marginY}>
         Please note that we do not provide an option for users to obtain a copy of their data.
       </Text>

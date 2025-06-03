@@ -2,25 +2,19 @@ import {
   Box,
   Button,
   Card,
-  CardBody,
-  CardFooter,
   Heading,
-  HStack,
+  HStack, Icon,
   Image,
   Progress,
   Spacer,
-  Table,
-  TableContainer, Tag,
-  Tbody,
-  Td,
+  Table, Tag,
   Text,
-  Tr, useColorMode,
   VStack
 } from '@chakra-ui/react'
-import { Icon, InfoOutlineIcon, QuestionOutlineIcon } from '@chakra-ui/icons'
 import { PiComputerTower } from 'react-icons/pi'
 import moment from 'moment'
 import { Link } from 'react-router'
+import { IoMdHelpCircleOutline, IoMdInformationCircleOutline } from 'react-icons/io'
 
 import { Vm } from '../types/Vm.ts'
 import { VmStatusType } from '../types/VmStatusType.ts'
@@ -34,7 +28,7 @@ import {
   getVmStatusTextColor
 } from '../util'
 import { VmStatusIcon } from './VmStatusIcon.tsx'
-
+import { useColorMode } from './ui/color-mode.tsx'
 
 export default function VmStatusItem(vm: Vm) {
 
@@ -54,34 +48,39 @@ export default function VmStatusItem(vm: Vm) {
   const shouldShowRemainingTime = vm.startedAt && vm.status === VmStatusType.RUNNING
 
   const infoButtonText = status === VmStatusType.DESTROYED ? 'Info' : 'Help'
-  const infoButtonIcon = status === VmStatusType.DESTROYED ? <InfoOutlineIcon/> : <QuestionOutlineIcon/>
+  const infoButtonIcon = status === VmStatusType.DESTROYED ? <IoMdInformationCircleOutline/> : <IoMdHelpCircleOutline/>
 
   const isVmArchived = vm?.metadata?.archived || false
 
   return (
-    <Card key={vm.vmId} minWidth="350px">
-      <Progress
+    <Card.Root key={vm.vmId} minWidth="350px">
+      <Progress.Root
         value={remainingTimePercentage > 0 ? remainingTimePercentage : 0}
-        borderTopRadius="6px"
-        height="5px"
-        colorScheme={remainingTimeColor}
+        colorPalette={remainingTimeColor}
         max={100}
-        min={0}/>
-      <CardBody>
+        min={0}
+      >
+        <Progress.Track>
+          <Progress.Range />
+        </Progress.Track>
+      </Progress.Root>
+      <Card.Body>
         <Box>
           <HStack align="start">
-            <Icon h={12} w={12} as={PiComputerTower}/>
+            <Icon h={12} w={12}>
+              <PiComputerTower/>
+            </Icon>
             <VStack align="start">
-              <Heading as={'h3'} size={'sm'}>{vm.vmName}</Heading>
+              <Heading as={'h3'} size={'md'}>{vm.vmName}</Heading>
               {
                 vm.ipv4Address && vm.status === VmStatusType.RUNNING &&
-                <Heading as={'h3'} size={'xs'}>IP: {vm.ipv4Address}</Heading>
+                <Heading as={'h3'} size={'md'}>IP: {vm.ipv4Address}</Heading>
               }
             </VStack>
             <Spacer/>
-            <VStack spacing={1}>
+            <VStack gap={1}>
               {
-                isVmArchived ? <Tag colorScheme="green">Archived</Tag> :
+                isVmArchived ? <Tag.Root colorPalette="green">Archived</Tag.Root> :
 
                   <Box color={getVmStatusTextColor(status)} alignSelf={'end'}>
                     <Box display="flex" alignItems="center">
@@ -93,60 +92,66 @@ export default function VmStatusItem(vm: Vm) {
               {
                 shouldShowRemainingTime &&
                 <Box>
-                  <Tag variant="solid" colorScheme={remainingTimeColor}>
+                  <Tag.Root variant="solid" colorPalette={remainingTimeColor}>
                     {remainingTimeText}
-                  </Tag>
+                  </Tag.Root>
                 </Box>
               }
             </VStack>
           </HStack>
-          <TableContainer mt="20px">
-            <Table size="sm">
-              <Tbody>
-                <Tr>
-                  <Td>vCPUs</Td>
-                  <Td><Text>{vm.vmTemplate.cpu}</Text></Td>
-                </Tr>
-                <Tr>
-                  <Td>memory</Td>
-                  <Td><Text>{vm.vmTemplate.ram} GB</Text></Td>
-                </Tr>
-                <Tr>
-                  <Td>storage</Td>
-                  <Td><Text>{vm.vmTemplate.storage} GB</Text></Td>
-                </Tr>
-                <Tr>
-                  <Td>OS</Td>
-                  <Td whiteSpace="normal">
-                    <Text noOfLines={2}>
+          <Table.ScrollArea mt="20px">
+            <Table.Root size="sm">
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell>vCPUs</Table.Cell>
+                  <Table.Cell><Text>{vm.vmTemplate.cpu}</Text></Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>memory</Table.Cell>
+                  <Table.Cell><Text>{vm.vmTemplate.ram} GB</Text></Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>storage</Table.Cell>
+                  <Table.Cell><Text>{vm.vmTemplate.storage} GB</Text></Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>OS</Table.Cell>
+                  <Table.Cell whiteSpace="normal">
+                    <Text lineClamp="2">
                       {vm.vmTemplate.os}
                     </Text>
-                  </Td>
-                </Tr>
-              </Tbody>
-            </Table>
-          </TableContainer>
+                  </Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table.Root>
+          </Table.ScrollArea>
         </Box>
-      </CardBody>
-      <CardFooter mt="-20px">
+      </Card.Body>
+      <Card.Footer>
         <HStack w="full">
-          <Tag size="lg" colorScheme="gray" borderRadius="full">
-            <Image src={providerImage} height="20px" alt={vm.vmTemplate.provider.providerName}/>
-          </Tag>
+          <Tag.Root size="lg" colorPalette="gray" borderRadius="full">
+            <Tag.Label>
+              <Image src={providerImage} height={'25px'} fit="contain" alt={vm.vmTemplate.provider.providerName}/>
+            </Tag.Label>
+          </Tag.Root>
           <Spacer/>
           <Button
-            leftIcon={infoButtonIcon}
-            variant={'solid'}
-            colorScheme={getButtonColor(status)}
+            asChild
+            variant="surface"
+            colorPalette={getButtonColor(status)}
             size="sm"
-            as={Link}
-            to={'/vm/' + vm.vmId}
+            gap="2"
           >
-            {infoButtonText}
+            <Link to={`/vm/${vm.vmId}`}>
+              <Icon>
+                {infoButtonIcon}
+              </Icon>
+              <Text>{infoButtonText}</Text>
+            </Link>
           </Button>
         </HStack>
-      </CardFooter>
-    </Card>
+      </Card.Footer>
+    </Card.Root>
   )
 }
 

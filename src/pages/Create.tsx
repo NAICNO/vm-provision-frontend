@@ -1,34 +1,29 @@
 import {
   Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
   Box,
   Button,
   Card,
-  CardBody, Checkbox, CheckboxGroup,
+  Checkbox,
+  CheckboxGroup,
+  Em,
+  Field,
   Flex,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  FormLabel,
-  Heading,
   HStack,
+  Heading,
+  Image,
   Input,
+  RadioCard,
+  RadioCardValueChangeDetails,
   SimpleGrid,
   Slider,
-  SliderFilledTrack,
-  SliderMark,
-  SliderThumb,
-  SliderTrack, Spacer, Spinner, Stack,
+  Spacer,
+  Spinner,
+  Stack,
   Text,
-  Tooltip,
-  useDisclosure,
-  useRadioGroup,
-  useToast, VStack,
+  VStack,
+  useDisclosure, SliderValueChangeDetails,
 } from '@chakra-ui/react'
 import VmTemplateSelectRadioItem from '../components/VmTemplateSelectRadioItem.tsx'
-import { AddIcon } from '@chakra-ui/icons'
 import SshKeyGenerateModal from '../components/SshKeyGenerateModal.tsx'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { ALLOWED_IP_RANGES, VM_NAME_VALIDATION_REGEX } from '../constants/Constants.ts'
@@ -38,11 +33,14 @@ import { useCreateVmCreationRequest } from '../hooks/useCreateVm.ts'
 import { VmCreationRequest } from '../types/VmCreationRequest.ts'
 import VmTemplateSkeleton from '../components/VmTemplateSkeleton.tsx'
 import { useNavigate } from 'react-router'
-import VmProviderSelectRadioItem from '../components/VmProviderSelectRadioItem.tsx'
 import VmProviderSmallSkeleton from '../components/VmProviderSmallSkeleton.tsx'
 import { VmTemplate } from '../types/VmTemplate.ts'
 import { useFetchMyIp } from '../hooks/useFetchMyIp.ts'
 import VmQuotaAlert from '../components/VmQuotaAlert.tsx'
+import { MdAdd } from 'react-icons/md'
+import { toaster } from '../components/ui/toaster.tsx'
+import { getProviderLogo } from '../util'
+import { useColorMode } from '../components/ui/color-mode.tsx'
 
 const skeletonVmTemplateItems = [1, 2, 3, 4, 5, 6]
 const skeletonVmProviderItems = [1, 2]
@@ -57,11 +55,11 @@ const findVmProviders = (vmTemplates: VmTemplate[]) => {
 
 export default function Create() {
 
-  const toast = useToast()
   const navigate = useNavigate()
 
   const [durationValue, setDurationValue] = useState(6)
-  const [showDurationTooltip, setShowDurationTooltip] = useState(false)
+
+  const colorMode = useColorMode()
 
   const {
     data: fetchVmTemplatesResponse,
@@ -83,22 +81,27 @@ export default function Create() {
   // Handle the change event
   const handleIpRangesCheckboxChange = (values: string[]) => setSelectedIpRanges(values)
 
+  const handleDurationSliderChange = (details: SliderValueChangeDetails) => {
+    const value = details.value[0]
+    setDurationValue(value)
+  }
+
 
   const onSuccessCreationRequest = () => {
-    toast({
+    toaster.create({
       title: 'Virtual machine creation request sent',
       description: 'Please wait for the virtual machine to be created.',
-      status: 'success',
+      type: 'success',
       duration: 2000,
     })
     navigate('/dashboard')
   }
 
   const onErrorCreationRequest = (error: Error) => {
-    toast({
+    toaster.create({
       title: 'Error creating virtual machine',
       description: error.message || 'Please try again later.',
-      status: 'error',
+      type: 'error',
       duration: 2000,
     })
   }
@@ -108,10 +111,10 @@ export default function Create() {
   // Handle error state
   useEffect(() => {
     if (error) {
-      toast({
+      toaster.create({
         title: 'Error fetching virtual machine templates',
         description: 'Please try again later.',
-        status: 'error',
+        type: 'error',
         duration: 2000,
       })
     }
@@ -122,33 +125,20 @@ export default function Create() {
   const [isVmNameValid, setIsVmNameValid] = useState<boolean>(true)
 
   const [sshKeyPairGenerateResult, setSshKeyPairGenerateResult] = useState<SshKeyPairGenerateResult | undefined>(undefined)
-  const {isOpen, onOpen, onClose} = useDisclosure()
+  const {open, onOpen, onClose} = useDisclosure()
 
   const [vmProviderId, setVmProviderId] = useState<string>(vmProviders[0]?.providerId || '')
   const [vmTemplateId, setVmTemplateId] = useState<string>('')
 
   // Vm provider
-  const handleVmProviderChange = (value: string) => {
-    setVmProviderId(value)
+  const handleVmProviderChange = ( changeDetails: RadioCardValueChangeDetails) => {
+    setVmProviderId(changeDetails.value  || '')
   }
-
-  const {getRadioProps: getVmProviderRadioProps, getRootProps: getVmProvidersRootProps} = useRadioGroup({
-    defaultValue: vmProviderId,
-    onChange: handleVmProviderChange,
-  })
-
-  const vmProvidersGroup = getVmProvidersRootProps()
 
   // Vm templates
-  const handleVmTemplateChange = (value: string) => {
-    setVmTemplateId(value)
+  const handleVmTemplateChange = (changeDetails: RadioCardValueChangeDetails) => {
+    setVmTemplateId(changeDetails.value || '')
   }
-
-  const {getRadioProps: getVmTemplateRadioProps, getRootProps: getVmTemplatesRootProps} = useRadioGroup({
-    onChange: handleVmTemplateChange,
-  })
-
-  const vmTemplatesGroup = getVmTemplatesRootProps()
 
   const filterVmTemplatesByProviderId = vmTemplates
     ?.filter((vmTemplate) => vmTemplate.provider.providerId === vmProviderId)
@@ -186,209 +176,255 @@ export default function Create() {
   const enableCreateButton = isVmNameValid && !!vmTemplateId && !!sshKeyPairGenerateResult
     && selectedIpRanges.length > 0 && !isPending && hasQuotaAvailable
 
+  const marks = [
+    {value: 1, label: '1 hour'},
+    {value: 12, label: '12 hours'},
+    {value: 24, label: '1 day'},
+    {value: 36, label: '1.5 days'},
+    {value: 48, label: '2 days'},
+  ]
+
 
   return (
     <Box maxW="880px">
-      <VStack align="stretch" spacing={4}>
+      <VStack align="stretch" gap={4}>
         {
           quota &&
           <VmQuotaAlert quota={quota}/>
         }
-        <Card>
-          <CardBody>
-            <FormControl isInvalid={!isVmNameValid} isRequired>
-              <FormLabel fontWeight={'bold'}>
+        <Card.Root>
+          <Card.Body>
+            <Field.Root invalid={!isVmNameValid} required>
+              <Field.Label fontWeight={'bold'}>
                 Name your virtual machine
-              </FormLabel>
+              </Field.Label>
               <Input
                 type="text"
                 placeholder={'Virtual machine name'}
                 value={vmName}
                 onChange={handleVmNameChange}
+                colorPalette={'blue'}
               />
               {isVmNameValid ? (
-                <FormHelperText>
+                <Field.HelperText>
                   Valid characters: A-Z, a-z, 0-9, hyphen (-), period (.) and underscore (_).
-                </FormHelperText>
+                </Field.HelperText>
               ) : (
-                <FormErrorMessage>Valid name is required.</FormErrorMessage>
+                <Field.ErrorText>Valid name is required.</Field.ErrorText>
               )}
-            </FormControl>
-          </CardBody>
-        </Card>
+            </Field.Root>
+          </Card.Body>
+        </Card.Root>
 
-        <Card>
-          <CardBody>
+        <Card.Root>
+          <Card.Body>
             <Heading as="h3" size="sm" pb="15px">
               SSH key pair
             </Heading>
             {
               sshKeyPairGenerateResult ? (
-                <Alert status="success">
-                  <AlertIcon/>
+                <Alert.Root status="success">
+                  <Alert.Indicator/>
                   <Box>
-                    <AlertTitle>SSH key pair generated!</AlertTitle>
-                    <AlertDescription>
+                    <Alert.Title>SSH key pair generated!</Alert.Title>
+                    <Alert.Description>
                       Key Name: {sshKeyPairGenerateResult.keyName}
-                    </AlertDescription>
+                    </Alert.Description>
                   </Box>
-                </Alert>
+                </Alert.Root>
               ) : (
                 <>
                   <Text>We will generate an SSH key pair for you.</Text>
-                  <Text as="em">You need this key to login to your virtual machine. Please save this file in a safe
-                    place.</Text>
+                  <Em>You need this key to login to your virtual machine. Please save this file in a safe
+                    place.</Em>
                   <br/>
                   <Button
-                    rightIcon={<AddIcon/>}
-                    colorScheme="blue"
-                    variant="link"
-                    pt="15px"
+                    variant="surface"
                     onClick={onOpen}
-                    isDisabled={!hasQuotaAvailable}
+                    disabled={!hasQuotaAvailable}
+                    width="fit-content"
+                    colorPalette={'blue'}
                   >
-                    Create New
+                    <MdAdd/> Create New
                   </Button>
                 </>
               )
             }
-            <SshKeyGenerateModal isOpen={isOpen} onClose={handleModalClose}/>
-          </CardBody>
-        </Card>
+            <SshKeyGenerateModal isOpen={open} onClose={handleModalClose}/>
+          </Card.Body>
+        </Card.Root>
 
-        <Card>
-          <CardBody mb="15px">
+        <Card.Root>
+          <Card.Body mb="15px">
             <Heading as="h3" size="sm" pb="15px">
               Duration
             </Heading>
             <Text>Select the duration of the virtual machine.</Text>
-            <HStack w="full" mt="10px">
-              <Slider
-                id="slider"
-                maxW={550}
-                marginLeft={5}
-                defaultValue={durationValue}
-                min={1}
-                max={48}
-                onChange={(v) => setDurationValue(v)}
-                onMouseEnter={() => setShowDurationTooltip(true)}
-                onMouseLeave={() => setShowDurationTooltip(false)}
-              >
-                <SliderMark value={1} mt="1" ml="-2.5" fontSize="sm">
-                  1
-                </SliderMark>
-                <SliderMark value={12} mt="1" ml="-2.5" fontSize="sm">
-                  12
-                </SliderMark>
-                <SliderMark value={24} mt="1" ml="-2.5" fontSize="sm">
-                  24
-                </SliderMark>
-                <SliderMark value={36} mt="1" ml="-2.5" fontSize="sm">
-                  36
-                </SliderMark>
-                <SliderMark value={48} mt="1" ml="-2.5" fontSize="sm">
-                  48
-                </SliderMark>
-                <SliderTrack>
-                  <SliderFilledTrack/>
-                </SliderTrack>
-                <Tooltip
-                  hasArrow
-                  color="white"
-                  placement="top"
-                  isOpen={showDurationTooltip}
-                  label={`${durationValue}`}
-                >
-                  <SliderThumb/>
-                </Tooltip>
-              </Slider>
-              <Text
-                ml="30px"
-                fontSize="l"
-                fontWeight="bold"
-              >
-                {durationValue === 1 ? '1 hour' : `${durationValue} hours`}
-              </Text>
-            </HStack>
-          </CardBody>
-        </Card>
-        <Card>
-          <CardBody mb="15px">
+            <Slider.Root
+              defaultValue={[durationValue]}
+              min={1}
+              max={48}
+              maxW={550}
+              onValueChange={(v) => handleDurationSliderChange(v)}
+              colorPalette={'blue'}
+              pt={2}
+            >
+              <HStack wrap="nowrap">
+                <Slider.Control>
+                  <Slider.Track>
+                    <Slider.Range/>
+                  </Slider.Track>
+                  <Slider.Thumb index={0}>
+                    <Slider.DraggingIndicator
+                      layerStyle="fill.solid"
+                      top="6"
+                      rounded="sm"
+                      px="1.5"
+                    >
+                    </Slider.DraggingIndicator>
+                  </Slider.Thumb>
+                  <Slider.Marks marks={marks}/>
+                </Slider.Control>
+                <Box w="70px" ml="30px">
+                  <Text fontWeight="bold">
+                    {durationValue === 1 ? '1 hour' : `${durationValue} hours`}
+                  </Text>
+                </Box>
+              </HStack>
+            </Slider.Root>
+
+          </Card.Body>
+        </Card.Root>
+
+        <Card.Root>
+          <Card.Body mb="15px">
             <Heading as="h3" size="sm" pb="15px">
               Access
             </Heading>
             <Text>Select networks where you want to access the virtual machine via SSH.</Text>
             <HStack w="full" mt="10px">
-              <CheckboxGroup onChange={handleIpRangesCheckboxChange}>
+              <CheckboxGroup onValueChange={handleIpRangesCheckboxChange}>
                 <Stack>
                   {
                     ALLOWED_IP_RANGES.map((ipRange, index) => {
                       return (
-                        <Checkbox key={index} value={ipRange.ipRange}>
-                          {ipRange.name} ({ipRange.ipRange})
-                        </Checkbox>
+                        <Checkbox.Root key={index} value={ipRange.ipRange} colorPalette={'blue'}>
+                          <Checkbox.HiddenInput/>
+                          <Checkbox.Control/>
+                          <Checkbox.Label>
+                            {ipRange.name} ({ipRange.ipRange})
+                          </Checkbox.Label>
+                        </Checkbox.Root>
                       )
                     })
                   }
-                  <Checkbox key={'your-ip'} value={myIpInfo?.ip + '/32'} isDisabled={isLoadingMyIp || !myIpInfo}>
-                    Your IP {isLoadingMyIp ? <Spinner size="xs"/> : `(${myIpInfo?.ip}/32)`}
-                  </Checkbox>
+                  <Checkbox.Root key={'your-ip'} value={myIpInfo?.ip + '/32'} disabled={isLoadingMyIp || !myIpInfo}>
+                    <Checkbox.HiddenInput/>
+                    <Checkbox.Control/>
+                    <Checkbox.Label>
+                      Your IP {isLoadingMyIp ? <Spinner size="xs"/> : `(${myIpInfo?.ip}/32)`}
+                    </Checkbox.Label>
+                  </Checkbox.Root>
                 </Stack>
               </CheckboxGroup>
             </HStack>
-          </CardBody>
-        </Card>
-        <Card>
-          <CardBody>
+          </Card.Body>
+        </Card.Root>
+        <Card.Root>
+          <Card.Body>
             <Heading as="h3" size="sm" pb="8">
               Select a provider and a virtual machine type
             </Heading>
-            <HStack spacing={6} mb="2" {...vmProvidersGroup}>
+            <HStack gap={6} mb="2">
               {isLoadingVmTemplates ?
                 skeletonVmProviderItems.map((_, key) => {
                   return (
                     <VmProviderSmallSkeleton key={key}/>
                   )
                 })
-                : vmProviders?.map((vmProvider) => {
-                  const radioProps = getVmProviderRadioProps({value: vmProvider.providerId})
-                  return (
-                    <VmProviderSelectRadioItem
-                      key={vmProvider.providerId}
-                      vmProvider={vmProvider}
-                      radioProps={radioProps}
-                    />
-                  )
-                })}
+                : <RadioCard.Root
+                  orientation="horizontal"
+                  align="center"
+                  justify="center"
+                  maxW="lg"
+                  defaultValue={vmProviders[0]?.providerId || ''}
+                  colorPalette={'blue'}
+                  onValueChange={handleVmProviderChange}
+                >
+                  <HStack align="stretch">
+                    {vmProviders.map((vmProvider) => (
+                      <RadioCard.Item key={vmProvider.providerId} value={vmProvider.providerId} borderRadius="full">
+                        <RadioCard.ItemHiddenInput/>
+                        <RadioCard.ItemControl>
+                          <Image
+                            alt={vmProvider.providerName}
+                            src={getProviderLogo(vmProvider.providerName, colorMode.colorMode)}
+                            objectFit="contain"
+                            height="20px"
+                          />
+                        </RadioCard.ItemControl>
+                      </RadioCard.Item>
+                    ))}
+                  </HStack>
+                </RadioCard.Root>
+              }
             </HStack>
+
             <HStack mb={6}>
               <Spacer/>
-              <Checkbox
+              <Checkbox.Root
                 mr="20px"
-                isChecked={isAdvancedView}
+                colorPalette={'blue'}
+                checked={isAdvancedView}
                 onChange={() => setIsAdvancedView(!isAdvancedView)}
               >
-                Advanced view
-              </Checkbox>
+                <Checkbox.HiddenInput/>
+                <Checkbox.Control/>
+                <Checkbox.Label>
+                  Advanced view
+                </Checkbox.Label>
+              </Checkbox.Root>
             </HStack>
-            <SimpleGrid spacing={6} minChildWidth="200px" {...vmTemplatesGroup}>
-              {isLoadingVmTemplates ?
-                skeletonVmTemplateItems.map((_, key) => {
-                  return (
-                    <VmTemplateSkeleton key={key}/>
-                  )
-                })
-                : filterVmTemplatesByProviderId?.map((vmTemplate) => {
-                  const radioProps = getVmTemplateRadioProps({value: vmTemplate.templateId})
-                  return (
-                    <VmTemplateSelectRadioItem
-                      key={vmTemplate.templateId}
-                      vmTemplate={vmTemplate}
-                      radioProps={radioProps}
-                    />
-                  )
-                })}
-            </SimpleGrid>
+
+            {isLoadingVmTemplates ?
+              skeletonVmTemplateItems.map((_, key) => {
+                return (
+                  <VmTemplateSkeleton key={key}/>
+                )
+              })
+              :
+              <RadioCard.Root colorPalette={'blue'} onValueChange={handleVmTemplateChange}>
+                <SimpleGrid gap={6} minChildWidth="300px">
+                  {filterVmTemplatesByProviderId?.map((vmTemplate) => (
+                    <RadioCard.Item key={vmTemplate.templateId} value={vmTemplate.templateId}>
+                      <RadioCard.ItemHiddenInput/>
+                      <RadioCard.ItemControl>
+                        <RadioCard.ItemContent>
+                          <RadioCard.ItemText>{isAdvancedView ? vmTemplate.templateName : vmTemplate.description}</RadioCard.ItemText>
+                          {isAdvancedView && (
+                            <RadioCard.ItemDescription>
+                              {vmTemplate.description}
+                            </RadioCard.ItemDescription>
+                          )}
+                        </RadioCard.ItemContent>
+                        <RadioCard.ItemIndicator/>
+                      </RadioCard.ItemControl>
+                      {isAdvancedView && (
+                        <RadioCard.ItemAddon>
+                          <VmTemplateSelectRadioItem vmTemplate={vmTemplate}/>
+                        </RadioCard.ItemAddon>
+                      )}
+                    </RadioCard.Item>
+                  ))}
+                </SimpleGrid>
+              </RadioCard.Root>
+              // filterVmTemplatesByProviderId?.map((vmTemplate) => {
+              //   return (
+              //     <  Box/>
+              //   )
+              // })
+            }
+
             {/*<Checkbox disabled mt="30px">*/}
             {/*  Set up <Link href='https://www.eessi.io/'>EESSI software stack</Link> on this VM*/}
             {/*</Checkbox>*/}
@@ -397,15 +433,15 @@ export default function Create() {
             {/*</Checkbox>*/}
             <Flex justifyContent="flex-end" mt="20px">
               <Button
-                colorScheme="blue"
+                colorPalette={'blue'}
                 onClick={handleCreateVm}
-                isDisabled={!enableCreateButton}
+                disabled={!enableCreateButton}
               >
                 Create Virtual Machine
               </Button>
             </Flex>
-          </CardBody>
-        </Card>
+          </Card.Body>
+        </Card.Root>
       </VStack>
     </Box>
   )

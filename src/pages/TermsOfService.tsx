@@ -41,7 +41,7 @@ const TermsOfService = () => {
       <Text fontSize={textSize} mb={marginY}>
         NAIC Orchestrator enables users to create and manage virtual machines (VMs) across multiple cloud platforms. The
         service is accessible via{' '}
-        <Link href="https://orchestrator.naic.no" color="teal.500" isExternal>
+        <Link href="https://orchestrator.naic.no" color="teal.500" target="_blank">
           orchestrator.naic.no
         </Link>.
       </Text>
@@ -70,7 +70,7 @@ const TermsOfService = () => {
         <ListItem>
           <Text as="span" fontWeight="bold">Privacy:</Text> As the account owner, you are responsible for the data you
           make available with the virtual machines. The virtual machines should not hold or process data beyond category
-          yellow.{' '}(<Link href="https://www.uio.no/english/services/it/security/lsis/data-classes.html" color="teal.500" isExternal>
+          yellow.{' '}(<Link href="https://www.uio.no/english/services/it/security/lsis/data-classes.html" color="teal.500" target="_blank">
           https://www.uio.no/english/services/it/security/lsis/data-classes.html</Link>)
         </ListItem>
       </List>
@@ -132,11 +132,11 @@ const TermsOfService = () => {
       <List styleType="disc" pl={5} fontSize={textSize} mb={marginY}>
         <ListItem>
           For services that use the European Environment for Scientific Software Installations (EESSI), visit{' '}
-          <Link href="https://www.eessi.io/docs/" color="teal.500" isExternal>EESSI Documentation</Link>.
+          <Link href="https://www.eessi.io/docs/" color="teal.500" target="_blank">EESSI Documentation</Link>.
         </ListItem>
         <ListItem>
           For NIRD data service, visit{' '}
-          <Link href="https://www.sigma2.no/nird-research-data-archive-preservation-plan" color="teal.500" isExternal>
+          <Link href="https://www.sigma2.no/nird-research-data-archive-preservation-plan" color="teal.500" target="_blank">
             NIRD Research Data Archive Preservation Plan
           </Link>.
         </ListItem>

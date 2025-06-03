@@ -7,10 +7,10 @@ import {
   HStack, Image, Show,
   Spacer,
   Text,
-  useColorMode,
 } from '@chakra-ui/react'
 import { NavLink } from 'react-router'
 
+import { useColorMode } from './ui/color-mode.tsx'
 import { APP_NAME } from '../constants/Constants.ts'
 import { LogOutButton } from './LogOutButton.tsx'
 import { LightDarkModeButton } from './LightDarkModeButton.tsx'
@@ -49,25 +49,28 @@ export default function AppHeader({onOpenSidebarDrawer, onClickAvatar}: AppHeade
             mr="20px"
             mb="5px"
           />
-          <Heading as="h1" size={{base: 'md', md: 'xl'}}>
+          <Heading as={'h1'} size={{base: 'xl', md: '4xl'}}>
             {APP_NAME}
           </Heading>
         </Flex>
       </NavLink>
       <Spacer/>
-      <Show above={'base'}>
+      <Show when={'base'}>
         <HStack
-          spacing={{base: '10px', md: '10px', lg: '20px'}}
+          gap={{base: '10px', md: '10px', lg: '20px'}}
           display={{base: 'none', md: 'flex'}}
           alignItems={'center'}
         >
           <LightDarkModeButton/>
-          <Avatar
-            size={{md: 'sm', lg: 'md'}}
-            name={user?.firstName}
+          <Avatar.Root
+            size={{base: 'sm', md: 'md'}}
             onClick={onClickAvatar}
             cursor={'pointer'}
-          />
+            variant={'solid'}
+            colorPalette={'blue'}
+          >
+            <Avatar.Fallback name={user?.firstName}/>
+          </Avatar.Root>
           <Box>
             <Text fontWeight="bold" fontSize={{md: 'sm', lg: 'md'}}>
               {user?.firstName} {user?.lastName}
@@ -78,7 +81,7 @@ export default function AppHeader({onOpenSidebarDrawer, onClickAvatar}: AppHeade
           </Box>
           {
             (user?.userType === 'ADMIN' || user?.userType == 'SUPER_ADMIN') &&
-            <Badge mt={'4px'} alignSelf={'start'} colorScheme="orange">{user?.userType}</Badge>
+            <Badge mt={'4px'} alignSelf={'start'} colorPalette="orange">{user?.userType}</Badge>
           }
           <LogOutButton/>
         </HStack>

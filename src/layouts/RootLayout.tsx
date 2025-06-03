@@ -1,10 +1,11 @@
 import { Navigate, Outlet, useLocation, useNavigate } from 'react-router'
 import AppHeader from '../components/AppHeader.tsx'
-import { Grid, GridItem, useColorMode, useDisclosure } from '@chakra-ui/react'
+import { Grid, GridItem, useDisclosure } from '@chakra-ui/react'
 import Sidebar from '../components/Sidebar.tsx'
 import { useContext, useEffect } from 'react'
 import * as WebSocketUtils from '../util/WebSoketUtil.ts'
 import { AuthContext } from '../context/AuthContext.tsx'
+import { useColorMode } from '../components/ui/color-mode.tsx'
 
 export default function RootLayout() {
 
@@ -13,7 +14,7 @@ export default function RootLayout() {
   const location = useLocation()
   const navigate = useNavigate()
 
-  const {isOpen: isDrawerOpen, onOpen: onOpenDrawer, onClose: onCloseDrawer} = useDisclosure()
+  const {open: isDrawerOpen, onOpen: onOpenDrawer, onClose: onCloseDrawer} = useDisclosure()
 
   const onClickAvatar = () => {
     navigate('/profile')
@@ -26,7 +27,7 @@ export default function RootLayout() {
   const colorMode = useColorMode()
 
   const mainGridItemBackgroundColor = colorMode.colorMode === 'light' ? 'white' : 'gray.800'
-  const sidebarBackgroundColor = colorMode.colorMode === 'light' ? 'gray.100' : 'gray.700'
+  const sidebarBackgroundColor = colorMode.colorMode === 'light' ? 'blue.50' : 'blue.900'
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -53,7 +54,7 @@ export default function RootLayout() {
       }}
       gridTemplateColumns={{
         base: '1fr',
-        md: '250px 1fr',
+        md: '200px 1fr',
       }}
       gap="1"
       h="100vh"

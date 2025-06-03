@@ -1,17 +1,11 @@
 import {
   Box,
   Card,
-  CardBody,
-  CardHeader,
   Flex,
   Skeleton,
   SkeletonCircle,
   SkeletonText,
   Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Tr,
 } from '@chakra-ui/react'
 
 export default function VmTemplateSkeleton() {
@@ -24,36 +18,36 @@ export default function VmTemplateSkeleton() {
       borderColor={'gray.300'}
       transitionDuration="500ms"
     >
-      <Card bg="transparent">
-        <CardHeader>
+      <Card.Root bg="transparent">
+        <Card.Header>
           <Box>
             <Flex>
               <SkeletonCircle size="15px"/>
               <Skeleton ml="10px" height="15px" width="60%"/>
             </Flex>
           </Box>
-        </CardHeader>
-        <CardBody mt="-25px">
-          <TableContainer>
-            <Table size="sm">
-              <Tbody>
-                <Tr>
-                  <Td><SkeletonText mt="4" noOfLines={1}/></Td>
-                </Tr>
-                <Tr>
-                  <Td><SkeletonText mt="4" noOfLines={1}/></Td>
-                </Tr>
-                <Tr>
-                  <Td><SkeletonText mt="4" noOfLines={1}/></Td>
-                </Tr>
-                <Tr>
-                  <Td><SkeletonText mt="4" noOfLines={1}/></Td>
-                </Tr>
-              </Tbody>
-            </Table>
-          </TableContainer>
-        </CardBody>
-      </Card>
+        </Card.Header>
+        <Card.Body mt="-25px">
+          <Table.ScrollArea>
+            <Table.Root size="sm">
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell><SkeletonText mt="4" noOfLines={1}/></Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell><SkeletonText mt="4" noOfLines={1}/></Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell><SkeletonText mt="4" noOfLines={1}/></Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell><SkeletonText mt="4" noOfLines={1}/></Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table.Root>
+          </Table.ScrollArea>
+        </Card.Body>
+      </Card.Root>
     </Box>
   )
 }
