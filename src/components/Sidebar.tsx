@@ -64,9 +64,6 @@ export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
               )
             }
 
-            const isActive = (path: string) => {
-              return pathname.includes(path)
-            }
             return (
               <List.Item
                 key={index}
