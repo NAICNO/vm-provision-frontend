@@ -5,9 +5,9 @@ import {
   GridItem,
   Heading,
   Image,
-  useColorMode,
 } from '@chakra-ui/react'
 import { APP_NAME } from '../constants/Constants.ts'
+import { useColorMode } from '../components/ui/color-mode.tsx'
 
 export default function NoAuthLayout() {
 
@@ -54,7 +54,7 @@ export default function NoAuthLayout() {
                 mr="20px"
                 mb="5px"
               />
-              <Heading as="h1" size={{base: 'md', md: 'xl'}}>
+              <Heading as={'h1'} size={{base: 'xl', md: '4xl'}}>
                 {APP_NAME}
               </Heading>
             </Flex>

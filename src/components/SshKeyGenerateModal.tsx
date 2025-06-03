@@ -1,21 +1,14 @@
 import {
   Box,
-  Button,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
+  Button, Dialog, Field,
   Input,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay, Text, useToast
+  Text,
 } from '@chakra-ui/react'
 import { ChangeEvent, useEffect, useState } from 'react'
-import { DownloadIcon } from '@chakra-ui/icons'
+import { FiDownload } from 'react-icons/fi'
 import * as Sentry from '@sentry/react'
 
+import { toaster } from './ui/toaster.tsx'
 import { FILE_NAME_VALIDATION_REGEX } from '../constants/Constants.ts'
 import { useCreateSshKey } from '../hooks/useCreateSshKeyPair.ts'
 import { SshPrivateKey } from '../types/SshPrivateKey.ts'
@@ -34,9 +27,6 @@ export default function SshKeyGenerateModal({isOpen, onClose}: SshKeyGenerateMod
   const [fileName, setFileName] = useState<string>('')
   const [isFileNameValid, setIsFileNameValid] = useState<boolean>(true)
   const [privateKey, setPrivateKey] = useState<SshPrivateKey>()
-
-  const toast = useToast()
-
 
   useEffect(() => {
     // Reset state when modal is closed
@@ -92,12 +82,12 @@ export default function SshKeyGenerateModal({isOpen, onClose}: SshKeyGenerateMod
     nextStep()
   }
   const onErrorCreateSshKey = (error: Error) => {
-    toast({
+    toaster.create({
       title: 'Error creating SSH key',
       description: 'Please try again.',
-      status: 'error',
+      type: 'error',
       duration: 5000,
-      isClosable: true,
+      closable: true,
     })
     Sentry.captureException(
       error,
@@ -121,78 +111,92 @@ export default function SshKeyGenerateModal({isOpen, onClose}: SshKeyGenerateMod
     return FILE_NAME_VALIDATION_REGEX.test(name)
   }
 
+
+  const handleOpenChange = (event) => {
+    if (!event.open) {
+      handleClose()
+    }
+  }
+
   return (
-    <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={() => handleClose()}>
-      <ModalOverlay/>
-      <ModalContent>
-        {step === 1 && (
-          <>
-            <ModalHeader>Create a new SSH key pair</ModalHeader>
-            <ModalBody pb={6}>
-              <Text pb="10px">We will create an SSH key pair for you.</Text>
-              <Text pb="10px">We will keep the public key, and you can download the private key for later use.</Text>
+    <Dialog.Root closeOnInteractOutside={false} open={isOpen} onOpenChange={handleOpenChange} placement={'top'}>
+      <Dialog.Backdrop/>
+      <Dialog.Positioner>
+        <Dialog.Content>
+          {step === 1 && (
+            <>
+              <Dialog.Header>
+                <Dialog.Title>Create a new SSH key pair</Dialog.Title>
+              </Dialog.Header>
+              <Dialog.Body pb={6}>
+                <Text pb="10px">We will create an SSH key pair for you.</Text>
+                <Text pb="10px">We will keep the public key, and you can download the private key for later use.</Text>
 
-              <FormControl isInvalid={!isFileNameValid} isRequired>
-                <Input
-                  type="text"
-                  placeholder={'Key pair name'}
-                  value={fileName}
-                  onChange={handleFileNameChange}
-                />
-                {isFileNameValid ? (
-                  <FormHelperText>
-                    Should be at least two characters, underscores, or hyphens.
-                  </FormHelperText>
-                ) : (
-                  <FormErrorMessage>Valid file name is required.</FormErrorMessage>
-                )}
-              </FormControl>
-            </ModalBody>
+                <Field.Root invalid={!isFileNameValid} required>
+                  <Input
+                    type="text"
+                    placeholder={'Key pair name'}
+                    value={fileName}
+                    onChange={handleFileNameChange}
+                  />
+                  {isFileNameValid ? (
+                    <Field.HelperText>
+                      Should be at least two characters, underscores, or hyphens.
+                    </Field.HelperText>
+                  ) : (
+                    <Field.ErrorText>Valid file name is required.</Field.ErrorText>
+                  )}
+                </Field.Root>
+              </Dialog.Body>
 
-            <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={handleOnCreateSshKey} isLoading={isPending}>
-                Create key pair
-              </Button>
-              <Button onClick={handleClose} isDisabled={isPending}>Cancel</Button>
-            </ModalFooter>
-          </>
-        )}
-        {step === 2 && (
-          <>
-            <ModalHeader>SSH key pair created!</ModalHeader>
-            <ModalBody pb={6}>
-              <Text pb="10px">We have saved the public key with us. Download your private key below.</Text>
-              <Text pb="10px" as="b" color="red.600">You can only download this private key once.</Text>
-              <Box
-                mt="10px"
-                borderTop="2px dotted lightgray"
-                borderBottom="2px dotted lightgray"
-              >
-                <Button
-                  leftIcon={<DownloadIcon/>}
-                  color="orange.500"
-                  variant="link"
-                  pt="10px"
-                  pb="10px"
-                  onClick={handleDownloadPrivateKey}
-                >
-                  Download private key
+              <Dialog.Footer>
+                <Button colorPalette={'blue'} mr={3} onClick={handleOnCreateSshKey} loading={isPending}>
+                  Create key pair
                 </Button>
-              </Box>
-            </ModalBody>
+                <Button colorPalette={'gray'} variant={'subtle'} onClick={handleClose} disabled={isPending}>Cancel</Button>
+              </Dialog.Footer>
+            </>
+          )}
+          {step === 2 && (
+            <>
+              <Dialog.Header>
+                <Dialog.Title>
+                  SSH key pair created!
+                </Dialog.Title>
+              </Dialog.Header>
+              <Dialog.Body pb={6}>
+                <Text pb="10px">We have saved the public key with us. Download your private key below.</Text>
+                <Text pb="10px" as="b" color="red.600">You can only download this private key once.</Text>
+                <Box
+                  mt="10px"
+                  borderTop="2px dotted lightgray"
+                  borderBottom="2px dotted lightgray"
+                >
+                  <Button
+                    color="orange.500"
+                    variant="outline"
+                    pt="10px"
+                    pb="10px"
+                    onClick={handleDownloadPrivateKey}
+                  >
+                    <FiDownload/> Download private key
+                  </Button>
+                </Box>
+              </Dialog.Body>
 
-            <ModalFooter>
-              <Button
-                isDisabled={!hasDownloadedKey}
-                colorScheme="blue"
-                onClick={handleClose}
-              >
-                Okay
-              </Button>
-            </ModalFooter>
-          </>
-        )}
-      </ModalContent>
-    </Modal>
+              <Dialog.Footer>
+                <Button
+                  disabled={!hasDownloadedKey}
+                  colorPalette="blue"
+                  onClick={handleClose}
+                >
+                  Okay
+                </Button>
+              </Dialog.Footer>
+            </>
+          )}
+        </Dialog.Content>
+      </Dialog.Positioner>
+    </Dialog.Root>
   )
 }

@@ -1,8 +1,8 @@
-import { HamburgerIcon } from '@chakra-ui/icons'
 import { IconButton } from '@chakra-ui/react'
+import { RxHamburgerMenu } from 'react-icons/rx'
 
 interface HamburgerButtonProps {
-    openSidebarDrawer: () => void
+  openSidebarDrawer: () => void
 }
 
 export const HamburgerButton = ({openSidebarDrawer}: HamburgerButtonProps) => {
@@ -10,9 +10,10 @@ export const HamburgerButton = ({openSidebarDrawer}: HamburgerButtonProps) => {
     <IconButton
       display={{base: 'inline-flex', md: 'none'}}
       mr="20px"
-      icon={<HamburgerIcon/>}
       onClick={openSidebarDrawer}
       aria-label="Open menu"
-    />
+    >
+      <RxHamburgerMenu/>
+    </IconButton>
   )
 }

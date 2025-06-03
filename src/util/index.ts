@@ -1,9 +1,9 @@
 import moment, { Duration } from 'moment/moment'
 
 import { VmStatusType } from '../types/VmStatusType.ts'
-import { ColorMode } from '@chakra-ui/react'
 import { Vm } from '../types/Vm.ts'
 import providerLogos from './providerLogos.json'
+import { ColorMode } from '../components/ui/color-mode.tsx'
 
 export function getNaicLogo(colorMode: ColorMode): string {
   return colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'
@@ -53,15 +53,15 @@ export const statusColorMap = {
   [VmStatusType.TO_BE_PROVISIONED]: 'gray',
   [VmStatusType.PLANNING]: 'gray',
   [VmStatusType.PLANNING_COMPLETED]: 'gray',
-  [VmStatusType.PROVISIONING]: 'blue.400',
-  [VmStatusType.PROVISIONING_COMPLETED]: 'blue.400',
+  [VmStatusType.PROVISIONING]: 'blue',
+  [VmStatusType.PROVISIONING_COMPLETED]: 'blue',
   [VmStatusType.PROVISIONING_FAILED]: 'red',
-  [VmStatusType.INITIALIZING]: 'green.400',
-  [VmStatusType.RUNNING]: 'green.400',
-  [VmStatusType.STOPPED]: 'red.400',
-  [VmStatusType.SHUTDOWN]: 'red.600',
-  [VmStatusType.DESTROYING]: 'orange.400',
-  [VmStatusType.DESTROYED]: 'gray.600',
+  [VmStatusType.INITIALIZING]: 'green',
+  [VmStatusType.RUNNING]: 'green',
+  [VmStatusType.STOPPED]: 'red',
+  [VmStatusType.SHUTDOWN]: 'red',
+  [VmStatusType.DESTROYING]: 'orange',
+  [VmStatusType.DESTROYED]: 'gray',
 }
 
 export function getVmStatusTextColor(status: VmStatusType) {

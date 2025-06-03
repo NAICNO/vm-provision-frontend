@@ -1,5 +1,7 @@
-import { MoonIcon, SunIcon } from '@chakra-ui/icons'
-import { IconButton, useColorMode } from '@chakra-ui/react'
+import { IconButton } from '@chakra-ui/react'
+import { FiMoon, FiSun } from 'react-icons/fi'
+
+import { useColorMode } from './ui/color-mode'
 
 export const LightDarkModeButton = () => {
 
@@ -9,8 +11,12 @@ export const LightDarkModeButton = () => {
     <IconButton
       size={{base: 'sm', md: 'sm', lg: 'md'}}
       aria-label="switch theme"
-      icon={colorMode === 'light' ? <MoonIcon/> : <SunIcon/>}
       onClick={toggleColorMode}
-    />
+      variant={'outline'}
+    >
+      {
+        colorMode === 'light' ? <FiMoon/> : <FiSun/>
+      }
+    </IconButton>
   )
 }

@@ -1,26 +1,48 @@
-import {VmStatusType} from '../types/VmStatusType.ts'
-import {statusColorMap} from '../util'
-import {Icon} from '@chakra-ui/icons'
-import {MdPlayCircleOutline, MdStopCircle} from 'react-icons/md'
-import {CircularProgress} from '@chakra-ui/react'
-import {IoMdInformationCircleOutline} from 'react-icons/io'
+import { VmStatusType } from '../types/VmStatusType.ts'
+import { statusColorMap } from '../util'
+import { MdPlayCircleOutline, MdStopCircle } from 'react-icons/md'
+import { ProgressCircle, Icon } from '@chakra-ui/react'
+import { IoMdInformationCircleOutline } from 'react-icons/io'
 
 export const VmStatusIcon = ({status}: { status: VmStatusType }) => {
   const color = statusColorMap[status]
   switch (status) {
   case VmStatusType.STOPPED:
-    return <Icon as={MdStopCircle}/>
+    return <Icon>
+      <MdStopCircle/>
+    </Icon>
   case VmStatusType.RUNNING:
-    return <Icon as={MdPlayCircleOutline}/>
+    return <Icon size="lg">
+      <MdPlayCircleOutline/>
+    </Icon>
   case VmStatusType.PROVISIONING:
-    return <CircularProgress isIndeterminate size="15px" color={color}/>
+    return <ProgressCircle.Root value={null} size="xs" colorPalette={color}>
+      <ProgressCircle.Circle>
+        <ProgressCircle.Track/>
+        <ProgressCircle.Range/>
+      </ProgressCircle.Circle>
+    </ProgressCircle.Root>
   case VmStatusType.PROVISIONING_COMPLETED:
-    return <Icon as={IoMdInformationCircleOutline}/>
+    return <Icon>
+      <IoMdInformationCircleOutline/>
+    </Icon>
   case VmStatusType.INITIALIZING:
-    return <CircularProgress isIndeterminate size="15px" color={color}/>
+    return <ProgressCircle.Root value={null} size="xs" colorPalette={color}>
+      <ProgressCircle.Circle>
+        <ProgressCircle.Track/>
+        <ProgressCircle.Range/>
+      </ProgressCircle.Circle>
+    </ProgressCircle.Root>
   case VmStatusType.DESTROYING:
-    return <CircularProgress isIndeterminate size="15px" color={color}/>
+    return <ProgressCircle.Root value={null} size="xs" colorPalette={color}>
+      <ProgressCircle.Circle>
+        <ProgressCircle.Track/>
+        <ProgressCircle.Range/>
+      </ProgressCircle.Circle>
+    </ProgressCircle.Root>
   default:
-    return <Icon as={IoMdInformationCircleOutline}/>
+    return <Icon>
+      <IoMdInformationCircleOutline/>
+    </Icon>
   }
 }

@@ -5,7 +5,7 @@ const DefaultErrorPage = () => {
   const navigate = useNavigate()
 
   return (
-    <VStack spacing={6} padding="4">
+    <VStack gap={6} padding="4">
       <Heading as="h3" size={'md'}></Heading>
       <Text>Page not found!</Text>
       <Button

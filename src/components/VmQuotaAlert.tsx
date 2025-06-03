@@ -1,4 +1,4 @@
-import { Alert, AlertIcon } from '@chakra-ui/react'
+import { Alert } from '@chakra-ui/react'
 import { Quota } from '../types/FetchVmTemplatesResponse.ts'
 
 interface VmQuotaAlertProps {
@@ -10,10 +10,10 @@ const VmQuotaAlert = ({quota}: VmQuotaAlertProps) => {
     return null
   }
   return (
-    <Alert status="warning">
-      <AlertIcon/>
-      You have reached your quota of {quota.allocatedQuota} VMs. Please delete some VM(s) to create new ones.
-    </Alert>
+    <Alert.Root status="warning" role="alert">
+      <Alert.Indicator/>
+      <Alert.Title>You have reached your quota of {quota.allocatedQuota} VMs. Please delete some VM(s) to create new ones.</Alert.Title>
+    </Alert.Root>
   )
 }
 

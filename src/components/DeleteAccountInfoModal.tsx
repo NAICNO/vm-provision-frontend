@@ -1,12 +1,9 @@
 import {
-  Button, ListItem,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  Text, UnorderedList, VStack
+  Button,
+  Dialog,
+  List,
+  Text,
+  VStack
 } from '@chakra-ui/react'
 
 interface DeleteAccountInfoModalProps {
@@ -18,39 +15,39 @@ interface DeleteAccountInfoModalProps {
 const DeleteAccountInfoModal = ({isOpen, onClose, reauthenticateToDelete}: DeleteAccountInfoModalProps) => {
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} isCentered>
-      <ModalOverlay/>
-      <ModalContent maxW={{base: '95vw', md: '40vw'}}>
-        <ModalHeader>Delete Your Account Permanently</ModalHeader>
-        <ModalBody>
-          <VStack alignItems={'start'} spacing={4}>
+    <Dialog.Root open={isOpen} onOpenChange={onClose} placement={'center'}>
+      <Dialog.Backdrop />
+      <Dialog.Content maxW={{base: '95vw', md: '40vw'}}>
+        <Dialog.Header>Delete Your Account Permanently</Dialog.Header>
+        <Dialog.Body>
+          <VStack alignItems={'start'} gap={4}>
             <Text>
               You are about to permanently delete your account. This action <Text as="b">cannot be undone.</Text>
             </Text>
             <Text>
               By deleting your account:
             </Text>
-            <UnorderedList spacing={2}>
-              <ListItem>
+            <List.Root as={'ul'} gap={2}>
+              <List.Item>
                 <Text>
                   <Text as="b">Personal Data Erasure:</Text> All your personal data, including profile information and
                   settings, will be permanently removed from our systems.
                 </Text>
-              </ListItem>
-              <ListItem>
+              </List.Item>
+              <List.Item>
                 <Text as="b">Provisioned VMs Termination:</Text> Any virtual machines (VMs) you have provisioned will be
                 terminated
                 immediately. <Text as="b">All data on these VMs will be lost.</Text>
-              </ListItem>
-              <ListItem>
+              </List.Item>
+              <List.Item>
                 <Text as="b">Loss of Access:</Text> You will lose access to all services and features associated with
                 your
                 account.
-              </ListItem>
-              <ListItem>
+              </List.Item>
+              <List.Item>
                 <Text as="b">SSH Keys Deletion:</Text> Your SSH keys and any associated credentials will be deleted.
-              </ListItem>
-            </UnorderedList>
+              </List.Item>
+            </List.Root>
 
             <Text as="i">Please note that certain data may be retained as required by applicable laws and
               regulations.</Text>
@@ -60,15 +57,15 @@ const DeleteAccountInfoModal = ({isOpen, onClose, reauthenticateToDelete}: Delet
 
             <Text>To proceed with deleting your account, please confirm your decision below.</Text>
           </VStack>
-        </ModalBody>
-        <ModalFooter>
-          <Button colorScheme="red" mr={3} onClick={reauthenticateToDelete}>
+        </Dialog.Body>
+        <Dialog.Footer>
+          <Button colorPalette="red" mr={3} onClick={reauthenticateToDelete}>
             Delete Account
           </Button>
           <Button variant="ghost" onClick={onClose}>Cancel</Button>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
+        </Dialog.Footer>
+      </Dialog.Content>
+    </Dialog.Root>
   )
 }
 

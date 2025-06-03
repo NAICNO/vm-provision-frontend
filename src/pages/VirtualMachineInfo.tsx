@@ -1,32 +1,25 @@
 import {
   Box,
   Card,
+  Clipboard,
   Heading,
   HStack,
   IconButton,
   Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Tr,
   VStack,
   Text,
   Button,
-  useToast,
-  OrderedList,
-  ListItem,
+  List,
   Code,
-  Divider,
   useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody, ModalFooter, Input, useColorMode, Image, ListIcon, List, Link as ChakraLink
+  Input,
+  Image,
+  Link as ChakraLink,
+  Separator,
+  Dialog, Portal, DialogOpenChangeDetails
 } from '@chakra-ui/react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router'
 import { useFetchVm } from '../hooks/useFetchVm.ts'
-import { ArrowBackIcon, CopyIcon, ExternalLinkIcon } from '@chakra-ui/icons'
 import VirtualMachineInfoSkeleton from '../components/VirtualMachineInfoSkeleton.tsx'
 import { VmStatusType } from '../types/VmStatusType.ts'
 import {
@@ -46,6 +39,10 @@ import QueryKeys from '../constants/QueryKeys.ts'
 import { VmStatusIcon } from '../components/VmStatusIcon.tsx'
 import { useArchiveVm } from '../hooks/useArchiveVm.ts'
 import { MdCheckCircle } from 'react-icons/md'
+import { FiArrowLeft } from 'react-icons/fi'
+import { LuExternalLink } from 'react-icons/lu'
+import { useColorMode } from '../components/ui/color-mode.tsx'
+import { Toaster, toaster } from '../components/ui/toaster.tsx'
 
 export default function VirtualMachineInfo() {
 
@@ -56,16 +53,21 @@ export default function VirtualMachineInfo() {
   const navigate = useNavigate()
 
   const {colorMode} = useColorMode()
-  const toast = useToast()
-  const {isOpen, onOpen, onClose: onCloseModal} = useDisclosure()
+  const {open, onOpen, onClose: onCloseModal} = useDisclosure()
 
   const [isDeleteDisabled, setIsDeleteDisabled] = useState<boolean>(true)
 
+  const handleOnOpenChange = (changeDetails: DialogOpenChangeDetails) => {
+    if (!changeDetails.open) {
+      onCloseModal()
+    }
+  }
+
 
   const onSuccessDeletionRequest = () => {
-    toast({
+    toaster.create({
       title: 'Virtual machine is scheduled for deletion.',
-      status: 'success',
+      type: 'success',
       duration: 5000,
     })
     setIsDeleteDisabled(true)
@@ -77,10 +79,10 @@ export default function VirtualMachineInfo() {
   }
 
   const onErrorDeletionRequest = (error: Error) => {
-    toast({
+    toaster.create({
       title: 'Error deleting virtual machine',
       description: error.message || 'Please try again later.',
-      status: 'error',
+      type: 'error',
       duration: 2000,
     })
     onCloseModal()
@@ -94,9 +96,9 @@ export default function VirtualMachineInfo() {
   const {mutate: requestDelete} = useVmDeletionRequest(onSuccessDeletionRequest, onErrorDeletionRequest)
 
   const onSuccessArchive = () => {
-    toast({
+    toaster.create({
       title: 'Virtual machine is archived.',
-      status: 'success',
+      type: 'success',
       duration: 5000,
     })
     queryClient.invalidateQueries({queryKey: [QueryKeys.VM, vmId]})
@@ -107,10 +109,10 @@ export default function VirtualMachineInfo() {
 
   const onErrorArchive = (error: Error) => {
 
-    toast({
+    toaster.create({
       title: 'Error archiving virtual machine',
       description: error.message || 'Please try again later.',
-      status: 'error',
+      type: 'error',
       duration: 2000,
     })
   }
@@ -148,15 +150,19 @@ export default function VirtualMachineInfo() {
 
   return (
     <Box maxW={{base: '100%', md: '700px'}} px={{base: '4', md: '8'}}>
-      <Card padding="20px">
+      <Card.Root padding="20px">
         <HStack mb={{base: '20px', md: '30px'}}>
           <IconButton
-            isRound={true}
-            icon={<ArrowBackIcon boxSize={{base: 4, md: 6}}/>}
+            variant={'outline'}
+            colorPalette={'blue'}
+            rounded="full"
+            size={{base: 'sm', md: 'md'}}
             aria-label="Back"
-            as={Link}
-            to={'/'}
-          />
+          >
+            <Link to={'/'}>
+              <FiArrowLeft/>
+            </Link>
+          </IconButton>
           <Heading
             as="h1"
             size={{base: 'md', md: 'lg'}}
@@ -169,16 +175,16 @@ export default function VirtualMachineInfo() {
           <Text>
             {vm.vmTemplate.description}
           </Text>
-          <TableContainer my="20px" overflowX="auto">
-            <Table variant="simple">
-              <Tbody>
-                <Tr>
-                  <Td>Name</Td>
-                  <Td>{vm.vmName}</Td>
-                </Tr>
-                <Tr>
-                  <Td>IP address</Td>
-                  <Td>
+          <Table.ScrollArea my="20px" overflowX="auto">
+            <Table.Root>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell>Name</Table.Cell>
+                  <Table.Cell>{vm.vmName}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>IP address</Table.Cell>
+                  <Table.Cell>
                     <HStack>
                       {
                         vm.ipv4Address ?
@@ -188,51 +194,47 @@ export default function VirtualMachineInfo() {
                             >
                               {vm.ipv4Address}
                             </Text>
-                            <CopyIcon
-                              ml="10px"
-                              onClick={() =>
-                                navigator.clipboard.writeText(vm.ipv4Address)
-                                  .then(() => {
-                                    toast({
-                                      description: 'IP address copied to clipboard',
-                                      status: 'success',
-                                      duration: 2000,
-                                      isClosable: true,
-                                    })
-                                  })}
-                              aria-label={'copy'}
-                              opacity="0.4" // Reduced opacity
-                              _hover={{opacity: 1}} // Full opacity on hover
-                            />
+                            <Clipboard.Root value={vm.ipv4Address}>
+                              <Clipboard.Trigger asChild>
+                                <IconButton variant="surface" size="xs">
+                                  <Clipboard.Indicator/>
+                                </IconButton>
+                              </Clipboard.Trigger>
+                            </Clipboard.Root>
                           </>
                           :
                           <Text>N/A</Text>
                       }
                     </HStack>
-                  </Td>
-                </Tr>
-                <Tr>
-                  <Td>Provider</Td>
-                  <Td><Image src={getProviderLogo(vm.vmTemplate.provider.providerName, colorMode)} height="20px"/></Td>
-                </Tr>
-                <Tr>
-                  <Td>Status</Td>
-                  <Td>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Provider</Table.Cell>
+                  <Table.Cell>
+                    <Image
+                      src={getProviderLogo(vm.vmTemplate.provider.providerName, colorMode)}
+                      height="20px"
+                    />
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Status</Table.Cell>
+                  <Table.Cell>
                     <Box color={getVmStatusTextColor(vmStatus)} alignSelf={'end'}>
                       <Box display="flex" alignItems="center">
                         <VmStatusIcon status={vmStatus}/>
                         <Text ml="5px">{getVmStatusText(vmStatus)}</Text>
                       </Box>
                     </Box>
-                  </Td>
-                </Tr>
-                <Tr>
-                  <Td>Requested duration</Td>
-                  <Td>{vm.duration === 1 ? '1 hour' : `${vm.duration} hours`}</Td>
-                </Tr>
-                <Tr>
-                  <Td>Remaining duration</Td>
-                  <Td>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Requested duration</Table.Cell>
+                  <Table.Cell>{vm.duration === 1 ? '1 hour' : `${vm.duration} hours`}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Remaining duration</Table.Cell>
+                  <Table.Cell>
                     {
                       vmStatus === VmStatusType.RUNNING ?
                         <Text>
@@ -243,30 +245,30 @@ export default function VirtualMachineInfo() {
                           N/A
                         </Text>
                     }
-                  </Td>
-                </Tr>
-                <Tr>
-                  <Td>Started at</Td>
-                  <Td>{vm.startedAt ? moment(vm.startedAt).format('LLL') : 'N/A'}</Td>
-                </Tr>
-                <Tr>
-                  <Td>You can access this VM from</Td>
-                  <Td>
-                    <List>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Started at</Table.Cell>
+                  <Table.Cell>{vm.startedAt ? moment(vm.startedAt).format('LLL') : 'N/A'}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>You can access this VM from</Table.Cell>
+                  <Table.Cell>
+                    <List.Root variant={'plain'}>
                       {
                         vm.ipRanges.map((ipRange, index) => (
-                          <ListItem key={index}>
-                            <ListIcon as={MdCheckCircle} color="green.500"/>
+                          <List.Item key={index}>
+                            <List.Indicator as={MdCheckCircle} color="green.500"/>
                             {ipRange}
-                          </ListItem>
+                          </List.Item>
                         ))
                       }
-                    </List>
-                  </Td>
-                </Tr>
-              </Tbody>
-            </Table>
-          </TableContainer>
+                    </List.Root>
+                  </Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table.Root>
+          </Table.ScrollArea>
           {
             isVmDestroyingOrDestroyed ?
               <>
@@ -279,32 +281,34 @@ export default function VirtualMachineInfo() {
                 <Heading as="h4" size={{base: 'sm', md: 'md'}} mb="15px">
                   Follow instructions below to access your virtual machine.
                 </Heading>
-                <OrderedList>
-                  <ListItem>
+                <List.Root>
+                  <List.Item>
                     <Text>When you created the virtual machine, you downloaded the private key of the keypair. The name
                       downloaded file is <Code>{publicKeyName}.pem</Code>.</Text>
                     <Text>Use the command below to restrict the access to the private key.</Text>
                     <CodeSnippet code={`chmod 0600 ${publicKeyName}.pem`}/>
-                  </ListItem>
-                  <ListItem>
+                  </List.Item>
+                  <List.Item>
                     <Text>Login to your virtual machine</Text>
                     <CodeSnippet code={`ssh ${username}@${ipAddress} -i ${publicKeyName}.pem`}/>
                     <Text>Please note that during you first login it may take few moments to load the software module
                       setup.</Text>
-                  </ListItem>
-                </OrderedList>
+                  </List.Item>
+                </List.Root>
 
-                <Divider my="20px"/>
+                <Separator my="20px"/>
                 <Heading as="h4" size={{base: 'sm', md: 'md'}} mb="15px">
                   Having trouble accessing your virtual machine?
                 </Heading>
                 <Text>
                   If you are having trouble accessing your virtual machine,
                   please follow our <ChakraLink
-                    href="/help/ssh-troubleshoot" color="teal.500" isExternal>troubleshooting guide<ExternalLinkIcon mx="2px"/></ChakraLink>
+                  href="/help/ssh-troubleshoot"
+                  color="teal.500" target="_blank">troubleshooting guide<LuExternalLink/>
+                </ChakraLink>
                 </Text>
 
-                <Divider my="20px"/>
+                <Separator my="20px"/>
                 <Heading as="h4" size={{base: 'sm', md: 'md'}} mb="15px">
                   Delete your virtual machine
                 </Heading>
@@ -315,7 +319,7 @@ export default function VirtualMachineInfo() {
                   Please make sure to backup your data before deleting the virtual machine.
                 </Text>
                 <Button
-                  colorScheme="red"
+                  colorPalette="red"
                   mt="10px"
                   onClick={onOpen}
                 >
@@ -326,7 +330,7 @@ export default function VirtualMachineInfo() {
           {
             isVmDestroyed &&
             <>
-              <Divider my="20px"/>
+              <Separator my="20px"/>
               <Heading as="h4" size={{base: 'sm', md: 'md'}} mb="15px">
                 Archive your virtual machine
               </Heading>
@@ -336,7 +340,7 @@ export default function VirtualMachineInfo() {
               <Text>{'To view the list archived virtual machines, click on the \'Show Archived\' checkbox in the dashboard.'}
               </Text>
               <Button
-                colorScheme="blue"
+                colorPalette="blue"
                 mt="10px"
                 onClick={() => archiveVm({vmId})}
               >
@@ -345,38 +349,45 @@ export default function VirtualMachineInfo() {
             </>
           }
         </VStack>
-      </Card>
-      <Modal isOpen={isOpen} onClose={onCloseModal} closeOnOverlayClick={false}>
-        <ModalOverlay/>
-        <ModalContent maxW={{base: '95vw', md: '40vw'}}>
-          <ModalHeader>Delete Virtual Machine</ModalHeader>
-          <ModalBody>
-            <Text>
-              Are you sure you want to delete the virtual machine?
-            </Text>
-            <Text mt="10px">
-              {'Please type \'delete\' to confirm.'}
-            </Text>
-            <Input
-              mt="10px"
-              size="md"
-              onChange={(e) => {
-                if (e.target.value === 'delete') {
-                  setIsDeleteDisabled(false)
-                } else {
-                  setIsDeleteDisabled(true)
-                }
-              }}
-            />
-          </ModalBody>
-          <ModalFooter>
-            <Button colorScheme="red" mr={3} onClick={requestDeletionVirtualMachine} isDisabled={isDeleteDisabled}>
-              Delete
-            </Button>
-            <Button variant="ghost" onClick={closeModal}>Cancel</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      </Card.Root>
+      <Dialog.Root open={open} onOpenChange={handleOnOpenChange} closeOnInteractOutside={false}>
+        <Portal>
+          <Dialog.Backdrop/>
+          <Dialog.Positioner>
+            <Dialog.Content maxW={{base: '95vw', md: '40vw'}}>
+              <Dialog.Header>
+                <Dialog.Title>Delete Virtual Machine</Dialog.Title>
+              </Dialog.Header>
+              <Dialog.Body>
+                <Text>
+                  Are you sure you want to delete the virtual machine?
+                </Text>
+                <Text mt="10px">
+                  {'Please type \'delete\' to confirm.'}
+                </Text>
+                <Input
+                  mt="10px"
+                  size="md"
+                  onChange={(e) => {
+                    if (e.target.value === 'delete') {
+                      setIsDeleteDisabled(false)
+                    } else {
+                      setIsDeleteDisabled(true)
+                    }
+                  }}
+                />
+              </Dialog.Body>
+              <Dialog.Footer>
+                <Button colorPalette="red" mr={3} onClick={requestDeletionVirtualMachine} disabled={isDeleteDisabled}>
+                  Delete
+                </Button>
+                <Button variant="outline" onClick={closeModal}>Cancel</Button>
+              </Dialog.Footer>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </Portal>
+      </Dialog.Root>
+      <Toaster/>
     </Box>
   )
 }

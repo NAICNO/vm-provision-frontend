@@ -7,7 +7,7 @@ export const LogOutButton = () => {
 
   return(
     <Button
-      colorScheme="red"
+      colorPalette={'red'}
       size={{ base: 'sm',  md: 'sm', lg: 'md'}}
       onClick={logout}
     >

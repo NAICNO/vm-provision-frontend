@@ -108,11 +108,11 @@ describe('getVmStatusTextColor', () => {
   })
 
   it('returns correct color for PROVISIONING status', () => {
-    expect(getVmStatusTextColor(VmStatusType.PROVISIONING)).toBe('blue.400')
+    expect(getVmStatusTextColor(VmStatusType.PROVISIONING)).toBe('blue')
   })
 
   it('returns correct color for PROVISIONING_COMPLETED status', () => {
-    expect(getVmStatusTextColor(VmStatusType.PROVISIONING_COMPLETED)).toBe('blue.400')
+    expect(getVmStatusTextColor(VmStatusType.PROVISIONING_COMPLETED)).toBe('blue')
   })
 
   it('returns correct color for PROVISIONING_FAILED status', () => {
@@ -120,27 +120,27 @@ describe('getVmStatusTextColor', () => {
   })
 
   it('returns correct color for INITIALIZING status', () => {
-    expect(getVmStatusTextColor(VmStatusType.INITIALIZING)).toBe('green.400')
+    expect(getVmStatusTextColor(VmStatusType.INITIALIZING)).toBe('green')
   })
 
   it('returns correct color for RUNNING status', () => {
-    expect(getVmStatusTextColor(VmStatusType.RUNNING)).toBe('green.400')
+    expect(getVmStatusTextColor(VmStatusType.RUNNING)).toBe('green')
   })
 
   it('returns correct color for STOPPED status', () => {
-    expect(getVmStatusTextColor(VmStatusType.STOPPED)).toBe('red.400')
+    expect(getVmStatusTextColor(VmStatusType.STOPPED)).toBe('red')
   })
 
   it('returns correct color for SHUTDOWN status', () => {
-    expect(getVmStatusTextColor(VmStatusType.SHUTDOWN)).toBe('red.600')
+    expect(getVmStatusTextColor(VmStatusType.SHUTDOWN)).toBe('red')
   })
 
   it('returns correct color for DESTROYING status', () => {
-    expect(getVmStatusTextColor(VmStatusType.DESTROYING)).toBe('orange.400')
+    expect(getVmStatusTextColor(VmStatusType.DESTROYING)).toBe('orange')
   })
 
   it('returns correct color for DESTROYED status', () => {
-    expect(getVmStatusTextColor(VmStatusType.DESTROYED)).toBe('gray.600')
+    expect(getVmStatusTextColor(VmStatusType.DESTROYED)).toBe('gray')
   })
 })
 

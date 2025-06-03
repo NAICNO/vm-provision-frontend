@@ -1,15 +1,9 @@
 import {
   Card,
-  CardBody,
-  CardHeader,
   Flex,
   Heading,
   Table,
-  TableContainer,
-  Tbody,
-  Td,
   Text,
-  Tr,
 } from '@chakra-ui/react'
 
 import { VmTemplate } from '../types/VmTemplate'
@@ -20,59 +14,59 @@ interface VmTemplateDetailItemProps {
 
 const VmTemplateDetailItem = ({vmTemplate}: VmTemplateDetailItemProps) => {
   return (
-    <Card borderRadius="lg" variant='outline'>
-      <CardHeader>
+    <Card.Root borderRadius="lg" variant='outline'>
+      <Card.Header>
         <Flex alignItems="center">
           <Heading as="h3" size="md" ml="10px">
             {vmTemplate.templateName}
           </Heading>
         </Flex>
-      </CardHeader>
-      <CardBody>
-        <TableContainer>
-          <Table size="sm">
-            <Tbody>
-              <Tr>
-                <Td><Text as="b">Template ID:</Text></Td>
-                <Td>{vmTemplate.templateId}</Td>
-              </Tr>
-              <Tr>
-                <Td><Text as="b">CPU:</Text></Td>
-                <Td>{vmTemplate.cpu} vCPUs</Td>
-              </Tr>
-              <Tr>
-                <Td><Text as="b">RAM:</Text></Td>
-                <Td>{vmTemplate.ram} GB</Td>
-              </Tr>
-              <Tr>
-                <Td><Text as="b">Storage:</Text></Td>
-                <Td>{vmTemplate.storage} GB</Td>
-              </Tr>
-              <Tr>
-                <Td><Text as="b">OS:</Text></Td>
-                <Td>{vmTemplate.os}</Td>
-              </Tr>
-              <Tr>
-                <Td><Text as="b">Description:</Text></Td>
-                <Td>{vmTemplate.description}</Td>
-              </Tr>
-              <Tr>
-                <Td><Text as="b">Created At:</Text></Td>
-                <Td>{vmTemplate.createdAt.toString()}</Td>
-              </Tr>
-              <Tr>
-                <Td><Text as="b">Updated At:</Text></Td>
-                <Td>{vmTemplate.updatedAt.toString()}</Td>
-              </Tr>
-              <Tr>
-                <Td><Text as="b">Metadata:</Text></Td>
-                <Td>{JSON.stringify(vmTemplate.metadata)}</Td>
-              </Tr>
-            </Tbody>
-          </Table>
-        </TableContainer>
-      </CardBody>
-    </Card>
+      </Card.Header>
+      <Card.Body>
+        <Table.ScrollArea>
+          <Table.Root size="sm">
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell><Text as="b">Template ID:</Text></Table.Cell>
+                <Table.Cell>{vmTemplate.templateId}</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell><Text as="b">CPU:</Text></Table.Cell>
+                <Table.Cell>{vmTemplate.cpu} vCPUs</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell><Text as="b">RAM:</Text></Table.Cell>
+                <Table.Cell>{vmTemplate.ram} GB</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell><Text as="b">Storage:</Text></Table.Cell>
+                <Table.Cell>{vmTemplate.storage} GB</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell><Text as="b">OS:</Text></Table.Cell>
+                <Table.Cell>{vmTemplate.os}</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell><Text as="b">Description:</Text></Table.Cell>
+                <Table.Cell>{vmTemplate.description}</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell><Text as="b">Created At:</Text></Table.Cell>
+                <Table.Cell>{vmTemplate.createdAt.toString()}</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell><Text as="b">Updated At:</Text></Table.Cell>
+                <Table.Cell>{vmTemplate.updatedAt.toString()}</Table.Cell>
+              </Table.Row>
+              <Table.Row>
+                <Table.Cell><Text as="b">Metadata:</Text></Table.Cell>
+                <Table.Cell>{JSON.stringify(vmTemplate.metadata)}</Table.Cell>
+              </Table.Row>
+            </Table.Body>
+          </Table.Root>
+        </Table.ScrollArea>
+      </Card.Body>
+    </Card.Root>
   )
 }
 

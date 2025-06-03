@@ -1,24 +1,18 @@
 import {
   Box,
   Card,
-  CardBody,
-  CardFooter,
   HStack,
   VStack,
   Spacer,
   Table,
-  TableContainer,
-  Tbody,
-  Tr,
-  Td,
   Skeleton,
   SkeletonCircle,
 } from '@chakra-ui/react'
 
 export default function VmStatusItemSkeleton() {
   return (
-    <Card maxWidth="350px">
-      <CardBody>
+    <Card.Root maxWidth="350px">
+      <Card.Body>
         <Box>
           <HStack align="start">
             <SkeletonCircle size="10"/>
@@ -27,33 +21,33 @@ export default function VmStatusItemSkeleton() {
               <Skeleton height="15px" width="100px"/>
             </VStack>
           </HStack>
-          <TableContainer mt="20px">
-            <Table size="sm">
-              <Tbody>
-                <Tr>
-                  <Td><Skeleton height="15px"/></Td>
-                </Tr>
-                <Tr>
-                  <Td><Skeleton height="15px"/></Td>
-                </Tr>
-                <Tr>
-                  <Td><Skeleton height="15px"/></Td>
-                </Tr>
-                <Tr>
-                  <Td><Skeleton height="15px"/></Td>
-                </Tr>
-              </Tbody>
-            </Table>
-          </TableContainer>
+          <Table.ScrollArea mt="20px">
+            <Table.Root size="sm">
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell><Skeleton height="15px"/></Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell><Skeleton height="15px"/></Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell><Skeleton height="15px"/></Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell><Skeleton height="15px"/></Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table.Root>
+          </Table.ScrollArea>
         </Box>
-      </CardBody>
-      <CardFooter mt="-20px">
+      </Card.Body>
+      <Card.Footer mt="-20px">
         <HStack w="full">
           <Skeleton height="40px" width="40px"/>
           <Spacer/>
           <Skeleton height="40px" width="80px"/>
         </HStack>
-      </CardFooter>
-    </Card>
+      </Card.Footer>
+    </Card.Root>
   )
 }

@@ -1,12 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { ChakraProvider } from '@chakra-ui/react'
+import { fireEvent, screen } from '@testing-library/react'
+
 import { HamburgerButton } from '../../src/components/HamburgerButton'
+import { render } from '../test-utils'
 
 const renderComponent = () => {
   return render(
-    <ChakraProvider>
-      <HamburgerButton openSidebarDrawer={mockOpenSidebarDrawer} />
-    </ChakraProvider>
+    <HamburgerButton openSidebarDrawer={mockOpenSidebarDrawer}/>
   )
 }
 const mockOpenSidebarDrawer = vi.fn()

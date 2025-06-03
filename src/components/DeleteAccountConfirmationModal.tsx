@@ -1,12 +1,7 @@
 import {
   Button,
   Input,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
+  Dialog,
   Text
 } from '@chakra-ui/react'
 import { useState } from 'react'
@@ -23,11 +18,11 @@ const DeleteAccountConfirmationModal = ({isOpen, onClose, deleteAccount, isLoadi
   const [isDeleteDisabled, setIsDeleteDisabled] = useState(true)
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} closeOnOverlayClick={false}>
-      <ModalOverlay/>
-      <ModalContent maxW={{base: '95vw', md: '40vw'}}>
-        <ModalHeader>Delete Your Account Permanently</ModalHeader>
-        <ModalBody>
+    <Dialog.Root open={isOpen} onOpenChange={onClose} closeOnInteractOutside={false}>
+      <Dialog.Backdrop />
+      <Dialog.Content maxW={{base: '95vw', md: '40vw'}}>
+        <Dialog.Header>Delete Your Account Permanently</Dialog.Header>
+        <Dialog.Body>
           <Text>
             You are about to <Text as="b">permanently delete your account.</Text> This action is <Text as="b">irreversible
             and cannot be undone.</Text>
@@ -46,21 +41,21 @@ const DeleteAccountConfirmationModal = ({isOpen, onClose, deleteAccount, isLoadi
               }
             }}
           />
-        </ModalBody>
-        <ModalFooter>
+        </Dialog.Body>
+        <Dialog.Footer>
           <Button
-            colorScheme="red"
+            colorPalette="red"
             mr={3}
             onClick={deleteAccount}
-            isDisabled={isDeleteDisabled}
-            isLoading={isLoading}
+            disabled={isDeleteDisabled}
+            loading={isLoading}
           >
             Delete
           </Button>
           <Button variant="ghost" onClick={onClose}>Cancel</Button>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
+        </Dialog.Footer>
+      </Dialog.Content>
+    </Dialog.Root>
   )
 }
 

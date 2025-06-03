@@ -34,7 +34,7 @@ export default function ProfileStatus() {
   const statusContent = TEXT_CONTENT[validStatus]
 
   return (
-    <VStack spacing={6} padding="4">
+    <VStack gap={6} padding="4">
       <Heading as="h3" size={'md'}>{statusContent.title}</Heading>
       <Text>{statusContent.message}</Text>
       <Button
