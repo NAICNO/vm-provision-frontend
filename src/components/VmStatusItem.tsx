@@ -198,6 +198,7 @@ const AppsList = ({vm}: { vm: Vm }) => {
       </HStack>
     )
   }
+  return null;
 }
 
 
