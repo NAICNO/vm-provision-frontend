@@ -22,7 +22,7 @@ const CodeSnippet = ({code}: CodeSnippetProps) => {
       bg={bgColor[colorMode]}
       borderColor={borderColor[colorMode]}
     >
-      <Box flex="1" overflowX="auto">
+      <Box flex="1" overflowX="auto" whiteSpace="pre-wrap" wordBreak="break-all">
         <pre>
           <code>{code}</code>
         </pre>
