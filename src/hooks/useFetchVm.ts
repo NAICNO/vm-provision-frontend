@@ -25,11 +25,12 @@ export const useFetchMyVms = () => {
   )
 }
 
-export const useFetchVm = (id: string) => {
+export const useFetchVm = (id: string, refetchInterval?: number) => {
   return useQuery<Vm>(
     {
       queryKey: [QueryKeys.VM, id],
       queryFn: () => fetchVm(id),
+      refetchInterval: refetchInterval ?? false
     }
   )
 }

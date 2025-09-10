@@ -3,11 +3,13 @@ import {
   Button,
   Card,
   Heading,
-  HStack, Icon,
+  HStack,
+  Icon,
   Image,
   Progress,
   Spacer,
-  Table, Tag,
+  Table,
+  Tag,
   Text,
   VStack
 } from '@chakra-ui/react'
@@ -16,7 +18,7 @@ import moment from 'moment'
 import { Link } from 'react-router'
 import { IoMdHelpCircleOutline, IoMdInformationCircleOutline } from 'react-icons/io'
 
-import { Vm } from '../types/Vm.ts'
+import { Vm, VmMetadata } from '../types/Vm.ts'
 import { VmStatusType } from '../types/VmStatusType.ts'
 import {
   getProviderLogo,
@@ -29,6 +31,8 @@ import {
 } from '../util'
 import { VmStatusIcon } from './VmStatusIcon.tsx'
 import { useColorMode } from './ui/color-mode.tsx'
+import { SiJupyter } from 'react-icons/si'
+import { Tooltip } from './ui/tooltip.tsx'
 
 export default function VmStatusItem(vm: Vm) {
 
@@ -61,7 +65,7 @@ export default function VmStatusItem(vm: Vm) {
         min={0}
       >
         <Progress.Track>
-          <Progress.Range />
+          <Progress.Range/>
         </Progress.Track>
       </Progress.Root>
       <Card.Body>
@@ -135,6 +139,7 @@ export default function VmStatusItem(vm: Vm) {
             </Tag.Label>
           </Tag.Root>
           <Spacer/>
+          <AppsList vm={vm}/>
           <Button
             asChild
             variant="surface"
@@ -167,3 +172,43 @@ function getButtonColor(status: VmStatusType) {
     return 'gray'
   }
 }
+
+const AppsList = ({vm}: { vm: Vm }) => {
+  const vmMeta = vm.metadata || {} as VmMetadata
+  if (vmMeta.applications && vmMeta.applications.length > 0) {
+    return (
+      <HStack gap={1} mr={2}>
+        {vmMeta.applications.map((app) => {
+          const appName = app.name
+          const appInfo = applicationsInfo[appName]
+          if (!appInfo) return null
+          const AppIcon = appInfo.icon
+          return (
+            <Tooltip content={appInfo.name} key={appName}>
+              <Icon
+                color={'orange'}
+                size={'md'}
+                aria-label={appInfo['aria-label']}
+              >
+                <AppIcon/>
+              </Icon>
+            </Tooltip>
+          )
+        })}
+      </HStack>
+    )
+  }
+  return null;
+}
+
+
+const applicationsInfo = {
+  'jupyter-notebook': {
+    name: 'Jupyter Notebook',
+    'aria-label': 'jupyter-notebook',
+    colorPalette: 'orange',
+    icon: SiJupyter,
+  }
+}
+
+

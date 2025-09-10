@@ -1,22 +1,26 @@
 import {
   Box,
+  Button,
   Card,
   Clipboard,
-  Heading,
-  HStack,
-  IconButton,
-  Table,
-  VStack,
-  Text,
-  Button,
-  List,
   Code,
-  useDisclosure,
-  Input,
+  Dialog,
+  DialogOpenChangeDetails,
+  HStack,
+  Heading,
+  Icon,
+  IconButton,
   Image,
+  Input,
   Link as ChakraLink,
+  List,
+  Portal,
+  ProgressCircle,
   Separator,
-  Dialog, Portal, DialogOpenChangeDetails
+  Table,
+  Text,
+  VStack,
+  useDisclosure,
 } from '@chakra-ui/react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router'
 import { useFetchVm } from '../hooks/useFetchVm.ts'
@@ -43,6 +47,7 @@ import { FiArrowLeft } from 'react-icons/fi'
 import { LuExternalLink } from 'react-icons/lu'
 import { useColorMode } from '../components/ui/color-mode.tsx'
 import { Toaster, toaster } from '../components/ui/toaster.tsx'
+import { SiJupyter } from 'react-icons/si'
 
 export default function VirtualMachineInfo() {
 
@@ -133,7 +138,7 @@ export default function VirtualMachineInfo() {
     setIsDeleteDisabled(true)
   }
 
-  const {data: vm, isLoading} = useFetchVm(vmId)
+  const {data: vm, isLoading} = useFetchVm(vmId, 10000)
 
   if (isLoading || !vm) {
     return <VirtualMachineInfoSkeleton/>
@@ -147,6 +152,9 @@ export default function VirtualMachineInfo() {
   const remainingTime = getVmRemainingTime(vm)
   const remainingTimeText = getVmRemainingTimeText(remainingTime)
   const ipAddress = vm.ipv4Address || '<ip-address>'
+
+  const jupyterToken = vm.metadata?.applications?.find(app => app.name === 'jupyter-notebook')?.token || ''
+  const jupyterUrl = `http://${vm.ipv4Address}:8008/?token=${jupyterToken}`
 
   return (
     <Box maxW={{base: '100%', md: '700px'}} px={{base: '4', md: '8'}}>
@@ -278,10 +286,76 @@ export default function VirtualMachineInfo() {
               </>
               :
               <>
-                <Heading as="h4" size={{base: 'sm', md: 'md'}} mb="15px">
+                {jupyterToken && (
+                  <>
+
+                    {(vm.status === VmStatusType.PROVISIONING ||
+                      vm.status === VmStatusType.PROVISIONING_COMPLETED ||
+                      vm.status === VmStatusType.INITIALIZING) && (
+                      <>
+                        <HStack>
+                          <ProgressCircle.Root value={null} colorPalette={'orange'} size={'xs'}>
+                            <ProgressCircle.Circle>
+                              <ProgressCircle.Track/>
+                              <ProgressCircle.Range/>
+                            </ProgressCircle.Circle>
+                          </ProgressCircle.Root>
+                          <Text>We are setting up Jupyter Notebook. Once done you will be able to access it
+                            below.</Text>
+                        </HStack>
+                      </>
+                    )
+                    }
+                    {vm.status === VmStatusType.RUNNING && (
+
+                      <>
+                        <Heading as="h4" size={{base: 'sm', md: 'md'}} mb="15px">
+                          <Icon
+                            color={'orange'}
+                            size={'md'}
+                            mr={2}
+                          >
+                            <SiJupyter/>
+                          </Icon>You have Jupyter Notebook installed on your virtual machine
+                        </Heading>
+                        <List.Root unstyled={true} w="full">
+                          <List.Item>
+                            <Text flex="1" minW="0" w="full" display="block" whiteSpace="normal" wordBreak="break-word"
+                                  overflowWrap="anywhere">You can access Jupyter Notebook by clicking the button below
+                              or by
+                              copying the URL to your
+                              browser.</Text>
+                            <Button
+                              asChild
+                              mt="10px"
+                              colorPalette="orange"
+                            >
+                              <ChakraLink
+                                href={jupyterUrl} target="_blank"
+                              >
+                                Open Jupyter Notebook <LuExternalLink style={{marginLeft: '5px'}}/>
+                              </ChakraLink>
+
+                            </Button>
+                            <Text mt="10px">Or copy and paste the URL below to your browser:</Text>
+                            <CodeSnippet code={jupyterUrl}/>
+                            <Text mt="10px"><Text fontWeight="bold">Note:</Text> It may take few minutes after the VM is
+                              running before Jupyter
+                              Notebook is
+                              accessible.</Text>
+
+                          </List.Item>
+
+                        </List.Root>
+                      </>
+                    )}
+                  </>
+                )}
+
+                <Heading as="h4" size={{base: 'sm', md: 'md'}} my="15px">
                   Follow instructions below to access your virtual machine.
                 </Heading>
-                <List.Root>
+                <List.Root unstyled={true}>
                   <List.Item>
                     <Text>When you created the virtual machine, you downloaded the private key of the keypair. The name
                       downloaded file is <Code>{publicKeyName}.pem</Code>.</Text>
@@ -302,10 +376,13 @@ export default function VirtualMachineInfo() {
                 </Heading>
                 <Text>
                   If you are having trouble accessing your virtual machine,
-                  please follow our <ChakraLink
-                  href="/help/ssh-troubleshoot"
-                  color="teal.500" target="_blank">troubleshooting guide<LuExternalLink/>
-                </ChakraLink>
+                  please follow our
+                  <ChakraLink
+                    href="/help/ssh-troubleshoot"
+                    color="teal.500" target="_blank"
+                  >
+                    troubleshooting guide<LuExternalLink/>
+                  </ChakraLink>
                 </Text>
 
                 <Separator my="20px"/>

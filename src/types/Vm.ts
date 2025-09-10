@@ -20,6 +20,10 @@ export interface Vm {
 
 export interface VmMetadata {
   archived?: boolean
+  applications?: VmApplication[]
 }
 
-
+export interface VmApplication {
+  name: string
+  [key: string]: any
+}
