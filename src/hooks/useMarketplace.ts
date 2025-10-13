@@ -1,0 +1,90 @@
+import { useMutation, useQuery } from '@tanstack/react-query'
+import QueryKeys from '../constants/QueryKeys.ts'
+import {
+  Customer, CustomerRequest, customersCreate,
+  marketplaceCategoriesList, MarketplaceCategory, marketplaceProviderOfferingsCreate,
+  marketplaceResourceOfferingsList, marketplaceServiceProvidersCreate,
+  marketplaceServiceProvidersList,
+  marketplaceServiceProvidersOfferingsList, OfferingCreate, OfferingCreateRequest, ProviderOffering,
+  ServiceProvider,
+} from 'waldur-js-client'
+import { OnErrorCallback, OnSuccessCallback } from '../types/ReactQueryCallback.ts'
+import MutationKeys from '../constants/MutationKeys.ts'
+import customerOfferingList from '../components/organization/CustomerOfferingList.tsx'
+
+
+export const useFetchCustomerServiceProvider = (customerUuid: string) => {
+  return useQuery<ServiceProvider[] | undefined, Error>({
+    queryKey: [QueryKeys.W_CUSTOMER_SERVICE_PROVIDER, customerUuid],
+    queryFn: async (): Promise<ServiceProvider[] | undefined> => {
+      console.log('going to fetch service providers for customer', customerUuid)
+      const response = await marketplaceServiceProvidersList({
+        query: { customer_uuid: customerUuid },
+      })
+      // Ensure the declared return type matches the actual value (can be undefined if empty)
+      return response.data && response.data.length ? response.data : undefined
+    },
+    // Only run the query if customerUuid is provided
+    enabled: !!customerUuid,
+  })
+}
+
+
+export const useFetchCustomerOfferings = (serviceProviderUuid: string) => {
+  return useQuery<ProviderOffering[] | undefined, Error>(
+    {
+      queryKey: [QueryKeys.W_MARKETPLACE_OFFERINGS, serviceProviderUuid],
+      queryFn: async (): Promise<ProviderOffering[] | undefined> => {
+        const response = await marketplaceServiceProvidersOfferingsList({
+          path: {uuid: serviceProviderUuid},
+        })
+
+        console.log('useFetchCustomerOfferings response', response)
+        return response.data && response.data.length ? response.data : undefined
+      },
+      enabled: !!serviceProviderUuid // Only run the query if customerUuid is provided
+    }
+  )
+}
+
+export const useFetchMarketplaceCategories = () => {
+  return useQuery<MarketplaceCategory[], Error>({
+    queryKey: [QueryKeys.W_MARKETPLACE_CATEGORIES],
+    queryFn: async (): Promise<MarketplaceCategory[]> => {
+      const response = await marketplaceCategoriesList()
+      return response.data || []
+    },
+  })
+}
+
+export const useFetchMarketplaceOfferingTypes = () => {
+  return useQuery({
+    queryKey: ['MARKETPLACE_OFFERING_TYPES'],
+    queryFn: async (): Promise<string[]> => {
+      const response = await marketplaceResourceOfferingsList()
+      return response.data
+    },
+  })
+}
+
+export const useCreateOffering = (
+  onSuccess: OnSuccessCallback<OfferingCreate>,
+  onError: OnErrorCallback<Error>
+) => {
+  return useMutation<OfferingCreate, Error, OfferingCreateRequest>({
+    mutationKey: [MutationKeys.W_CREATE_CUSTOMER],
+    mutationFn: async (offeringCreateRequest) => {
+      const result = await marketplaceProviderOfferingsCreate({
+        body: offeringCreateRequest
+      })
+
+      console.log('useCreateOfferingResult', result)
+      if (result.error) {
+        throw result.error // Handle the error properly
+      }
+      return result.data
+    },
+    onSuccess: (result) => onSuccess(result),
+    onError: (error) => onError(error),
+  })
+}

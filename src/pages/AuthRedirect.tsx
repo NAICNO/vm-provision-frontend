@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import {
   VStack,
   Heading,
@@ -5,42 +6,40 @@ import {
   Center,
   Spinner,
 } from '@chakra-ui/react'
-
-import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router'
-import { AuthContext } from '../context/AuthContext.tsx'
-import axiosInstance from '../api/ApiUtils.ts'
+import { User, usersMeRetrieve } from 'waldur-js-client'
+
+import { useAuth } from '../context/AuthContext.tsx'
+import { setWaldurApiConfig } from '../api/ApiUtils.ts'
 
 export default function AuthRedirect() {
 
+  const {setToken, setUser, setAuthenticated} = useAuth()
+
   const navigate = useNavigate()
-  const {setAuthenticated, setUser} = useContext(AuthContext)
 
   useEffect(() => {
-    axiosInstance
-      .get('auth/status')
-      .then((response) => {
-        setAuthenticated(true)
-        setUser(response.data.user)
-        navigate('/dashboard')
-      })
-      .catch((error) => {
-        console.error('Error logging in:', error)
-        setAuthenticated(false)
-        setUser(null)
+    const params = new URLSearchParams(window.location.search)
+    const token = params.get('token')
+    console.log('Token', token)
+    if (token) {
+      setToken(token)
+      localStorage.setItem('authToken', token)
+      setWaldurApiConfig(token)
 
-        const errorResponse = error.response
-        const responseData = errorResponse.data
-        if (errorResponse.status === 403) {
-          const route = responseData.route
-          const routeParam = responseData.routeParam
-          if (routeParam) {
-            navigate(`/${route}?status=${routeParam?.status}`)
-          } else {
-            navigate(`/${route}`)
-          }
-        }
-      })
+      usersMeRetrieve()
+        .then((response) => {
+          console.log('AuthRedirect/Me:', response)
+          setAuthenticated(true)
+          setUser(response.data as User)
+        })
+        .catch((error) => {
+          console.error('AuthRedirect: Error checking auth status:', error)
+          setAuthenticated(false)
+          setUser(null)
+        })
+    }
+    navigate('/select-organization')
   }, [])
 
 

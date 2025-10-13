@@ -21,6 +21,7 @@ export const useFetchMyVms = () => {
       queryKey: [QueryKeys.VMS],
       queryFn: () => fetchMyVms(),
       refetchInterval: 8000,
+      enabled:false,
     }
   )
 }

@@ -17,6 +17,7 @@ import { LightDarkModeButton } from './LightDarkModeButton.tsx'
 import { HamburgerButton } from './HamburgerButton.tsx'
 import { AuthContext } from '../context/AuthContext.tsx'
 import { useContext } from 'react'
+import { getUserTypeText } from '../util'
 
 interface AppHeaderProps {
   onOpenSidebarDrawer: () => void
@@ -30,6 +31,8 @@ export default function AppHeader({onOpenSidebarDrawer, onClickAvatar}: AppHeade
   const {colorMode} = useColorMode()
 
   const naicLogo = colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'
+
+  const userType = getUserTypeText(user)
 
   return (
     <Flex
@@ -69,19 +72,18 @@ export default function AppHeader({onOpenSidebarDrawer, onClickAvatar}: AppHeade
             variant={'solid'}
             colorPalette={'blue'}
           >
-            <Avatar.Fallback name={user?.firstName}/>
+            <Avatar.Fallback name={user?.full_name}/>
           </Avatar.Root>
           <Box>
             <Text fontWeight="bold" fontSize={{md: 'sm', lg: 'md'}}>
-              {user?.firstName} {user?.lastName}
+              {user?.full_name}
             </Text>
             <Text fontSize={{md: 'xs', lg: 'md'}}>
               {user?.email}
             </Text>
           </Box>
           {
-            (user?.userType === 'ADMIN' || user?.userType == 'SUPER_ADMIN') &&
-            <Badge mt={'4px'} alignSelf={'start'} colorPalette="orange">{user?.userType}</Badge>
+            <Badge mt={'4px'} alignSelf={'start'} colorPalette="orange">{userType}</Badge>
           }
           <LogOutButton/>
         </HStack>

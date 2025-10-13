@@ -9,7 +9,7 @@ import { useColorMode } from '../components/ui/color-mode.tsx'
 
 export default function RootLayout() {
 
-  const { isAuthenticated, user } = useContext(AuthContext)
+  const { isAuthenticated } = useContext(AuthContext)
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -29,18 +29,18 @@ export default function RootLayout() {
   const mainGridItemBackgroundColor = colorMode.colorMode === 'light' ? 'white' : 'gray.800'
   const sidebarBackgroundColor = colorMode.colorMode === 'light' ? 'blue.50' : 'blue.900'
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      const userId = user?.userId
-      if (userId) {
-        WebSocketUtils.initializeSocket(userId)
-      }
-    }
-    return () => {
-      WebSocketUtils.closeSocket()
-    }
-
-  }, [])
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     const userId = user?.userId
+  //     if (userId) {
+  //       WebSocketUtils.initializeSocket(userId)
+  //     }
+  //   }
+  //   return () => {
+  //     WebSocketUtils.closeSocket()
+  //   }
+  //
+  // }, [])
 
   return (
     <Grid

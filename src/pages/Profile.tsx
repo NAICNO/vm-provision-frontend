@@ -1,48 +1,44 @@
 import { useContext } from 'react'
 import {
-  Link,
-  List,
+  For,
   Tabs,
-  Text,
 } from '@chakra-ui/react'
-import { MdAlternateEmail, MdPerson } from 'react-icons/md'
+
 import { AuthContext } from '../context/AuthContext.tsx'
+import UserAuditLogs from '../components/profile/UserAuditLogs.tsx'
+import SSHKeys from '../components/profile/SSHKeys.tsx'
+import AccountInfo from '../components/profile/AccountInfo.tsx'
+
+const tabs = [
+  {value: 'account-info', label: 'Account Info'},
+  {value: 'ssh-keys', label: 'SSH Keys'},
+  {value: 'notifications', label: 'Notifications'},
+  {value: 'permission-requests', label: 'Permission Requests'},
+  {value: 'audit-logs', label: 'Audit Logs'},
+]
 
 export default function Profile() {
 
   const {user} = useContext(AuthContext)
 
-  const items = [
-    {icon: MdPerson, text: `${user?.firstName} ${user?.lastName}`},
-    {icon: MdAlternateEmail, text: `Email: ${user?.email}`},
-  ]
-
   return (
     <>
-      <Tabs.Root defaultValue={'account-info'} variant="outline">
+      <Tabs.Root defaultValue={'account-info'} colorPalette={'blue'} variant={'outline'}>
         <Tabs.List>
-          <Tabs.Trigger _selected={{color: 'white', bg: 'blue.400'}} value={'account-info'}>Account Info</Tabs.Trigger>
+          <For each={tabs}>
+            {(tab, index) =>
+              <Tabs.Trigger value={tab.value} key={index}>{tab.label}</Tabs.Trigger>
+            }
+          </For>
         </Tabs.List>
-
         <Tabs.Content value={'account-info'}>
-          <List.Root gap={4} variant={'plain'}>
-            {items.map((item, index) => (
-              <List.Item key={index}>
-                <List.Indicator as={item.icon}/>
-                {item.text}
-              </List.Item>
-            ))}
-            <List.Item>
-              <Text>
-                To delete your account, please contact support at{' '}
-                <Link
-                  href="mailto:support@naic.no"
-                  color="teal.500">
-                  support@naic.no
-                </Link>
-              </Text>
-            </List.Item>
-          </List.Root>
+          <AccountInfo user={user}/>
+        </Tabs.Content>
+        <Tabs.Content value={'ssh-keys'}>
+          <SSHKeys/>
+        </Tabs.Content>
+        <Tabs.Content value={'audit-logs'}>
+          <UserAuditLogs/>
         </Tabs.Content>
       </Tabs.Root>
     </>

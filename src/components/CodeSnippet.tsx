@@ -1,16 +1,15 @@
-import { Button, useClipboard, Box, Flex } from '@chakra-ui/react'
-import { useColorMode } from './ui/color-mode'
+import { useColorMode } from './ui/color-mode.tsx'
+import { Box, Clipboard, Flex, IconButton } from '@chakra-ui/react'
 
 interface CodeSnippetProps {
   code: string;
 }
 
 const CodeSnippet = ({code}: CodeSnippetProps) => {
-  const clipboard = useClipboard({defaultValue: code})
-  const {colorMode} = useColorMode()
+  const { colorMode } = useColorMode()
 
-  const bgColor = {light: 'gray.100', dark: 'gray.600'}
-  const borderColor = {light: 'gray.300', dark: 'gray.600'}
+  const bgColor = colorMode === 'light' ? 'gray.100' : 'gray.600'
+  const borderColor = colorMode === 'light' ? 'gray.300' : 'gray.600'
 
   return (
     <Flex
@@ -19,17 +18,21 @@ const CodeSnippet = ({code}: CodeSnippetProps) => {
       rounded="lg"
       p={4}
       my={4}
-      bg={bgColor[colorMode]}
-      borderColor={borderColor[colorMode]}
+      bg={bgColor}
+      borderColor={borderColor}
     >
       <Box flex="1" overflowX="auto" whiteSpace="pre-wrap" wordBreak="break-all">
         <pre>
           <code>{code}</code>
         </pre>
       </Box>
-      <Button size="xs" onClick={clipboard.copy} ml={4}>
-        {clipboard.copied ? 'Copied' : 'Copy'}
-      </Button>
+      <Clipboard.Root value={code}>
+        <Clipboard.Trigger asChild>
+          <IconButton variant="surface" size="xs">
+            <Clipboard.Indicator />
+          </IconButton>
+        </Clipboard.Trigger>
+      </Clipboard.Root>
     </Flex>
   )
 }

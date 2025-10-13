@@ -19,7 +19,8 @@ import {
   PrivacyPolicy,
   Help,
   TermsOfService,
-  HelpSSH
+  HelpSSH,
+  TestPage,
 } from './pages'
 
 import {
@@ -28,19 +29,29 @@ import {
   NoAuthLayout,
   AdminLayoutWrapper
 } from './layouts'
+import SelectOrganization from './pages/SelectOrganization.tsx'
+import CreateOrganization from './pages/CreateOrganization.tsx'
+import SelectProject from './pages/SelectProject.tsx'
+import AddProject from './pages/CreateProject.tsx'
+import { ViewOrganization } from './pages/ViewOrganization.tsx'
+import EditOrganization from './pages/EditOrganization.tsx'
+import CreateOffering from './pages/CreateOffering.tsx'
+import ViewEditOffering from './pages/ViewEditOffering.tsx'
 
 const routes: RouteObject[] = [
   {
     element: <NoAuthLayout/>,
     errorElement: <DefaultErrorPage/>,
     children: [
-      {path: '/auth/callback', element: <AuthRedirect/>},
-      {path: '/kcauth/callback', element: <AuthRedirect/>},
+      {path: '/oauth_login_completed/keycloak', element: <AuthRedirect/>},
+
+
       {path: '/profile-status', element: <ProfileStatus/>},
       {path: '/auth/logout', element: <LogoutRedirect/>},
       {path: '/privacy-policy', element: <PrivacyPolicy/>},
       {path: '/terms-of-service', element: <TermsOfService/>},
-      {path: '/help/ssh-troubleshoot', element: <HelpSSH/>}
+      {path: 'help/ssh-troubleshoot', element: <HelpSSH/>},
+      {path: '/test', element: <TestPage/>},
     ]
   },
   {
@@ -54,6 +65,17 @@ const routes: RouteObject[] = [
     element: <RootLayout/>,
     errorElement: <DefaultErrorPage/>,
     children: [
+      {path: 'select-organization', element: <SelectOrganization/>},
+      {path: 'add-organization', element: <CreateOrganization/>},
+      {path: 'org/:orgId/:tab?', element: <ViewOrganization/>},
+      {path: 'org/:orgId/edit', element: <EditOrganization/>},
+      {path: 'org/:orgId/select-project', element: <SelectProject/>},
+      {path: 'org/:orgId/add-project', element: <AddProject/>},
+
+      {path: 'org/:orgId/:serviceProviderId/create-offering', element: <CreateOffering/>},
+      {path: 'org/:orgId/:serviceProviderId/offering/:offeringId', element: <ViewEditOffering/>},
+
+
       {path: 'dashboard', element: <Dashboard/>},
       {path: 'create', element: <Create/>},
       {path: 'profile', element: <Profile/>},

@@ -17,7 +17,17 @@ export default defineConfig(({mode}) => ({
   ],
 
   server: {
+    host: '0.0.0.0',
     port: 8080,
+    allowedHosts: ['naic.thaulow.co'],
+    // proxy: {
+    //   '/api': {
+    //     target: 'https://cloud.thaulow.co',
+    //     changeOrigin: true,
+    //     secure: false,
+    //     rewrite: (path) => path.replace(/^\/api/, ''),
+    //   },
+    // },
   },
 
   esbuild: {

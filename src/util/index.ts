@@ -4,6 +4,7 @@ import { VmStatusType } from '../types/VmStatusType.ts'
 import { Vm } from '../types/Vm.ts'
 import providerLogos from './providerLogos.json'
 import { ColorMode } from '../components/ui/color-mode.tsx'
+import { User } from 'waldur-js-client'
 
 export function getNaicLogo(colorMode: ColorMode): string {
   return colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'
@@ -141,4 +142,15 @@ export const isUserAdmin = (userType?: string): boolean => {
     return false
   }
   return userType === 'ADMIN' || userType === 'SUPER_ADMIN'
+}
+
+export const getUserTypeText = (user?: User): string => {
+  if (!user) {
+    return 'Unknown'
+  }
+  return user?.is_staff ? 'Staff' : user?.is_support ? 'Support' : 'User'
+}
+
+export const formatToDate = (date: Date | string): string => {
+  return moment(date).locale('en').format('DD-MMM-YYYY')
 }

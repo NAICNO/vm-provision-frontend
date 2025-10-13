@@ -1,5 +1,7 @@
 import axios from 'axios'
-import { API_ENDPOINT } from '../constants/Constants.ts'
+import { client } from 'waldur-js-client/client.gen'
+
+import { API_ENDPOINT, WALDUR_API_ENDPOINT } from '../constants/Constants.ts'
 
 const axiosInstance = axios.create({
   baseURL: API_ENDPOINT,
@@ -20,5 +22,13 @@ axiosInstance.interceptors.response.use(
     return Promise.reject(error)
   }
 )
+
+export function setWaldurApiConfig(token: string) {
+  client.setConfig({
+    auth: () => `Token ${token}`,
+    baseUrl: WALDUR_API_ENDPOINT,
+    throwOnError: true,
+  })
+}
 
 export default axiosInstance
