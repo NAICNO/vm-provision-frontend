@@ -8,11 +8,15 @@ export const APP_NAME = import.meta.env.VITE_APP_NAME
 export const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
 export const SOCKET_ENDPOINT = import.meta.env.VITE_SOCKET_ENDPOINT
 export const AUTH_URL = import.meta.env.VITE_AUTH_URL
-export const AUTH_CLIENT_ID = import.meta.env.VITE_CLIENT_ID
-export const AUTH_REDIRECT_URL = import.meta.env.VITE_REDIRECT_URL
-export const SENTRY_DSN= import.meta.env.VITE_SENTRY_DSN
-export const AUTH_RESPONSE_TYPE = 'code'
-export const AUTH_OPEN_ID_SCOPES = 'openid profile email projects groups'
+export const SENTRY_DSN = import.meta.env.VITE_SENTRY_DSN
+
+export const API_KEY = import.meta.env.VITE_FIREBASE_API_KEY
+export const AUTH_DOMAIN = import.meta.env.VITE_FIREBASE_AUTH_DOMAIN
+export const PROJECT_ID = import.meta.env.VITE_FIREBASE_PROJECT_ID
+export const STORAGE_BUCKET = import.meta.env.VITE_FIREBASE_STORAGE_BUCKET
+export const MESSAGE_SENDER_ID = import.meta.env.VITE_FIREBASE_MESSAGE_SENDER_ID
+export const APP_ID = import.meta.env.VITE_FIREBASE_APP_ID
+export const MEASUREMENT_ID = import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 
 export const VM_NAME_VALIDATION_REGEX = /^[A-Za-z0-9\-._]+$/ // alphanumeric, underscore, hyphen, dot
 

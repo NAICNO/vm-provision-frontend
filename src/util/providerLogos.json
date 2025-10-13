@@ -9,7 +9,7 @@
   },
   "NREC UiB": {
     "light": "/images/nrec-uib-vertical-dark.svg",
-    "dark": "/images/nrec-uib-vertical-light2.svg"
+    "dark": "/images/nrec-uib-vertical-light.svg"
   },
   "Google Cloud": {
     "light": "/images/google-cloud.svg",
@@ -18,5 +18,9 @@
   "Azure": {
     "light": "/images/azure.svg",
     "dark": "/images/azure.svg"
+  },
+  "IBM Cloud": {
+    "light": "/images/ibm-cloud.svg",
+    "dark": "/images/ibm-cloud-light.svg"
   }
 }

@@ -131,8 +131,8 @@ export default function Create() {
   const [vmTemplateId, setVmTemplateId] = useState<string>('')
 
   // Vm provider
-  const handleVmProviderChange = ( changeDetails: RadioCardValueChangeDetails) => {
-    setVmProviderId(changeDetails.value  || '')
+  const handleVmProviderChange = (changeDetails: RadioCardValueChangeDetails) => {
+    setVmProviderId(changeDetails.value || '')
   }
 
   // Vm templates
@@ -356,12 +356,20 @@ export default function Create() {
                       <RadioCard.Item key={vmProvider.providerId} value={vmProvider.providerId} borderRadius="full">
                         <RadioCard.ItemHiddenInput/>
                         <RadioCard.ItemControl>
-                          <Image
-                            alt={vmProvider.providerName}
-                            src={getProviderLogo(vmProvider.providerName, colorMode.colorMode)}
-                            objectFit="contain"
-                            height="20px"
-                          />
+                          <RadioCard.ItemContent>
+                            <Flex
+                              align="center"
+                              justify="center"
+                              h="10px"
+                              w="100px"
+                            >
+                              <Image
+                                alt={vmProvider.providerName}
+                                src={getProviderLogo(vmProvider.providerName, colorMode.colorMode)}
+                                objectFit="contain"
+                              />
+                            </Flex>
+                          </RadioCard.ItemContent>
                         </RadioCard.ItemControl>
                       </RadioCard.Item>
                     ))}

@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react'
 import { APP_NAME } from '../constants/Constants.ts'
 import { useColorMode } from '../components/ui/color-mode.tsx'
+import RemoteConfigBanner from '../components/RemoteConfigBanner.tsx'
 
 export default function NoAuthLayout() {
 
@@ -20,11 +21,11 @@ export default function NoAuthLayout() {
   return (
     <Grid
       templateAreas={{
-        base: '"header" "main"',
+        base: '"banner" "header" "main"',
       }}
       gridTemplateRows={{
-        base: '60px 1fr',
-        md: '100px 1fr',
+        base: 'auto 60px 1fr',
+        md: 'auto 100px 1fr',
       }}
       gridTemplateColumns={{
         base: '1fr',
@@ -32,6 +33,9 @@ export default function NoAuthLayout() {
       gap="1"
       h="100vh"
     >
+      <GridItem area={'banner'}>
+        <RemoteConfigBanner />
+      </GridItem>
       <GridItem
         px={{base: '20px', md: '40px'}}
         py={{base: '10px', md: '20px'}}

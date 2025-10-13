@@ -42,7 +42,7 @@ const HelpPage = () => {
         <List.Item>
           <Text as="span" fontWeight="bold">What cloud platforms are supported?</Text>
           <Text>
-            NAIC Orchestrator supports multiple cloud platforms including NREC, AWS, Google Cloud, and Azure. Additional
+            NAIC Orchestrator supports multiple cloud platforms including NREC, AWS, Google Cloud, IBM Cloud and Azure. Additional
             platforms may be available based on your organization’s configuration.
           </Text>
         </List.Item>

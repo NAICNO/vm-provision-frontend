@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Card,
+  Flex,
   Heading,
   HStack,
   Icon,
@@ -135,7 +136,19 @@ export default function VmStatusItem(vm: Vm) {
         <HStack w="full">
           <Tag.Root size="lg" colorPalette="gray" borderRadius="full">
             <Tag.Label>
-              <Image src={providerImage} height={'25px'} fit="contain" alt={vm.vmTemplate.provider.providerName}/>
+              <Flex
+                align="center"
+                justify="center"
+                h="40px"
+                p="5px"
+              >
+                <Image
+                  src={providerImage}
+                  height={'25px'}
+                  fit="contain"
+                  alt={vm.vmTemplate.provider.providerName}
+                />
+              </Flex>
             </Tag.Label>
           </Tag.Root>
           <Spacer/>
@@ -198,7 +211,7 @@ const AppsList = ({vm}: { vm: Vm }) => {
       </HStack>
     )
   }
-  return null;
+  return null
 }
 
 

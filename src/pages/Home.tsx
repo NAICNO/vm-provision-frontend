@@ -18,6 +18,7 @@ import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext.tsx'
 import FeideIcon from '../components/FeideIcon.tsx'
 import { FiMoon, FiSun } from 'react-icons/fi'
+
 import { useColorMode } from '../components/ui/color-mode.tsx'
 
 export default function Home() {
@@ -29,11 +30,9 @@ export default function Home() {
     ? '/images/naic/naic_logo_horizontal_dark.svg'
     : '/images/naic/naic_logo_horizontal_light.svg'
 
-  console.log('colorMode', colorMode)
 
   return (
     <Flex direction="column" minHeight="100vh"> {/* Full viewport height and flex column */}
-
       <Container
         as="main"
         flex="1"
