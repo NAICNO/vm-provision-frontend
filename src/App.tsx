@@ -40,7 +40,7 @@ const routes: RouteObject[] = [
       {path: '/auth/logout', element: <LogoutRedirect/>},
       {path: '/privacy-policy', element: <PrivacyPolicy/>},
       {path: '/terms-of-service', element: <TermsOfService/>},
-      {path: 'help/ssh-troubleshoot', element: <HelpSSH/>}
+      {path: '/help/ssh-troubleshoot', element: <HelpSSH/>}
     ]
   },
   {

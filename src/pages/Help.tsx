@@ -4,31 +4,31 @@ import {
   Text,
   List,
   Link,
-  useBreakpointValue,
 } from '@chakra-ui/react'
 import { LuExternalLink } from 'react-icons/lu'
 
 const HelpPage = () => {
-  // Responsive padding, heading sizes, and font sizes
-  const paddingX = useBreakpointValue({base: 4, md: 10})
-  const headingSize = useBreakpointValue({base: 'lg', md: 'xl'})
-  const subheadingSize = useBreakpointValue({base: 'md', md: 'lg'})
-  const textSize = useBreakpointValue({base: 'sm', md: 'md'})
-  const marginY = useBreakpointValue({base: 3, md: 5})
+  const responsiveStyles = {
+    paddingX: {base: 4, md: 10} as const,
+    h1Size: {base: 'lg', md: 'xl'} as const,
+    h2Size: {base: 'md', md: 'lg'} as const,
+    textSize: {base: 'sm', md: 'md'} as const,
+    marginY: {base: 3, md: 5} as const,
+  }
 
   return (
-    <Box maxW="800px" px={paddingX} py={5} alignItems={'start'}>
-      <Heading as="h1" size={headingSize} mb={marginY}>
+    <Box maxW="800px" px={responsiveStyles.paddingX} py={5} alignItems={'start'}>
+      <Heading as="h1" size={responsiveStyles.h1Size} mb={responsiveStyles.marginY}>
         Help and Support
       </Heading>
-      <Text fontSize={textSize} color="gray.500" mb={marginY}>
+      <Text fontSize={responsiveStyles.textSize} color="gray.500" mb={responsiveStyles.marginY}>
         Get help and find answers to common questions
       </Text>
 
-      <Heading as="h2" size={subheadingSize} mt={marginY} mb={marginY}>
+      <Heading as="h2" size={responsiveStyles.h2Size} mt={responsiveStyles.marginY} mb={responsiveStyles.marginY}>
         Frequently Asked Questions
       </Heading>
-      <List.Root pl={5} fontSize={textSize} mb={marginY} gap={4}>
+      <List.Root as="ul" pl={5} fontSize={responsiveStyles.textSize} mb={responsiveStyles.marginY} gap={4}>
         <List.Item>
           <Text as="span" fontWeight="bold">What is the NAIC Orchestrator?</Text>
           <Text>The NAIC Orchestrator is a cloud management platform that allows you to manage and deploy virtual
@@ -52,29 +52,29 @@ const HelpPage = () => {
         </List.Item>
       </List.Root>
 
-      <Heading as="h2" size={subheadingSize} mt={marginY} mb={marginY}>
+      <Heading as="h2" size={responsiveStyles.h2Size} mt={responsiveStyles.marginY} mb={responsiveStyles.marginY}>
         Additional Resources
       </Heading>
-      <List.Root styleType="disc" pl={5} fontSize={textSize} mb={marginY}>
+      <List.Root as="ul" listStyle="disc" pl={5} fontSize={responsiveStyles.textSize} mb={responsiveStyles.marginY}>
         <List.Item>
           <Link href="/privacy-policy" color="teal.500" target="_blank">Privacy Policy <LuExternalLink /></Link> -
           Information on how we protect your data.
         </List.Item>
         <List.Item>
           <Link href="/terms-of-service" color="teal.500" target="_blank">Terms of Service <LuExternalLink
-            /></Link> - Details on our service terms and
+          /></Link> - Details on our service terms and
           user responsibilities.
         </List.Item>
       </List.Root>
-      <Heading as="h2" size={subheadingSize} mt={marginY} mb={marginY}>
+      <Heading as="h2" size={responsiveStyles.h2Size} mt={responsiveStyles.marginY} mb={responsiveStyles.marginY}>
         Contact Support
       </Heading>
-      <Text fontSize={textSize} mb={marginY}>
+      <Text fontSize={responsiveStyles.textSize} mb={responsiveStyles.marginY}>
         If you need further assistance, please reach out to our support team at <Link
           href="https://www.naic.no/english/naic-support-desk/" color="teal.500" target="_blank">NAIC Support
         Desk<LuExternalLink/></Link>.
       </Text>
-      <Text fontSize={textSize} mb={marginY}>
+      <Text fontSize={responsiveStyles.textSize} mb={responsiveStyles.marginY}>
         Email: <Link href="mailto:support@naic.no" color="teal.500">support@naic.no</Link>
       </Text>
     </Box>
