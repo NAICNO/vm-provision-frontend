@@ -22,5 +22,9 @@
   "IBM Cloud": {
     "light": "/images/ibm-cloud.svg",
     "dark": "/images/ibm-cloud-light.svg"
+  },
+  "Nscale": {
+    "light": "/images/nscale.svg",
+    "dark": "/images/nscale-light.svg"
   }
 }
