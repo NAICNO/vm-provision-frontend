@@ -56,6 +56,7 @@ export default function VmStatusItem(vm: Vm) {
   const infoButtonIcon = status === VmStatusType.DESTROYED ? <IoMdInformationCircleOutline/> : <IoMdHelpCircleOutline/>
 
   const isVmArchived = vm?.metadata?.archived || false
+  const isBareMetal = vm?.vmTemplate?.metadata.type === 'bare-metal'
 
   return (
     <Card.Root key={vm.vmId} minWidth="350px">
@@ -75,11 +76,19 @@ export default function VmStatusItem(vm: Vm) {
             <Icon h={12} w={12}>
               <PiComputerTower/>
             </Icon>
-            <VStack align="start">
+            <VStack align="start" gap={0}>
               <Heading as={'h3'} size={'md'}>{vm.vmName}</Heading>
+              {isBareMetal && (
+                <Tag.Root size="sm" colorPalette="blue" variant="solid">
+                  <Tag.Label>Bare Metal Machine</Tag.Label>
+                </Tag.Root>
+              )}
               {
-                vm.ipv4Address && vm.status === VmStatusType.RUNNING &&
-                <Heading as={'h3'} size={'md'}>IP: {vm.ipv4Address}</Heading>
+                [VmStatusType.PLANNING_COMPLETED, VmStatusType.INITIALIZING, VmStatusType.RUNNING].includes(vm.status) && (
+                  vm.ipv4Address ?
+                    <Heading as={'h3'} size={'md'}>IP: {vm.ipv4Address}</Heading> :
+                    <Text fontSize={'sm'} color={'gray.500'}>Awaiting IP...</Text>
+                )
               }
             </VStack>
             <Spacer/>
@@ -91,6 +100,13 @@ export default function VmStatusItem(vm: Vm) {
                     <Box display="flex" alignItems="center">
                       <VmStatusIcon status={status}/>
                       <Text ml="5px" fontSize="sm" as="b">{getVmStatusText(status)}</Text>
+                      {isBareMetal && (status === VmStatusType.PROVISIONING_COMPLETED || status === VmStatusType.INITIALIZING) && (
+                        <Tooltip content={'This is a bare metal machine. Initialization can take up to 20 minutes.'}>
+                          <Icon color="orange.500" fontSize="2xl" cursor="pointer" ml={1}>
+                            <IoMdInformationCircleOutline/>
+                          </Icon>
+                        </Tooltip>
+                      )}
                     </Box>
                   </Box>
               }

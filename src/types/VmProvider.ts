@@ -4,4 +4,6 @@ export interface VmProvider {
   description: string
   createdAt: Date
   updatedAt: Date
+  enabled: boolean
+  displayOrder: number
 }

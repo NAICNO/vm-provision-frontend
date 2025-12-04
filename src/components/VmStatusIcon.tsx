@@ -23,9 +23,12 @@ export const VmStatusIcon = ({status}: { status: VmStatusType }) => {
       </ProgressCircle.Circle>
     </ProgressCircle.Root>
   case VmStatusType.PROVISIONING_COMPLETED:
-    return <Icon>
-      <IoMdInformationCircleOutline/>
-    </Icon>
+    return <ProgressCircle.Root value={null} size="xs" colorPalette={color}>
+      <ProgressCircle.Circle>
+        <ProgressCircle.Track/>
+        <ProgressCircle.Range/>
+      </ProgressCircle.Circle>
+    </ProgressCircle.Root>
   case VmStatusType.INITIALIZING:
     return <ProgressCircle.Root value={null} size="xs" colorPalette={color}>
       <ProgressCircle.Circle>

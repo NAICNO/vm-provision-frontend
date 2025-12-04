@@ -151,7 +151,7 @@ export default function VirtualMachineInfo() {
   const username = vm.vmTemplate.metadata.username
   const remainingTime = getVmRemainingTime(vm)
   const remainingTimeText = getVmRemainingTimeText(remainingTime)
-  const ipAddress = vm.ipv4Address || '<ip-address>'
+  const ipAddress = vm.ipv4Address
 
   const jupyterToken = vm.metadata?.applications?.find(app => app.name === 'jupyter-notebook')?.token || ''
   const jupyterUrl = `http://${vm.ipv4Address}:8008/?token=${jupyterToken}`
@@ -355,20 +355,34 @@ export default function VirtualMachineInfo() {
                 <Heading as="h4" size={{base: 'sm', md: 'md'}} my="15px">
                   Follow instructions below to access your virtual machine.
                 </Heading>
-                <List.Root unstyled={true}>
-                  <List.Item>
-                    <Text>When you created the virtual machine, you downloaded the private key of the keypair. The name
-                      downloaded file is <Code>{publicKeyName}.pem</Code>.</Text>
-                    <Text>Use the command below to restrict the access to the private key.</Text>
-                    <CodeSnippet code={`chmod 0600 ${publicKeyName}.pem`}/>
-                  </List.Item>
-                  <List.Item>
-                    <Text>Login to your virtual machine</Text>
-                    <CodeSnippet code={`ssh ${username}@${ipAddress} -i ${publicKeyName}.pem`}/>
-                    <Text>Please note that during you first login it may take few moments to load the software module
-                      setup.</Text>
-                  </List.Item>
-                </List.Root>
+                {
+                  ipAddress ? (
+                    <List.Root unstyled={true}>
+                      <List.Item>
+                        <Text>When you created the virtual machine, you downloaded the private key of the keypair. The name
+                          downloaded file is <Code>{publicKeyName}.pem</Code>.</Text>
+                        <Text>Use the command below to restrict the access to the private key.</Text>
+                        <CodeSnippet code={`chmod 0600 ${publicKeyName}.pem`}/>
+                      </List.Item>
+                      <List.Item>
+                        <Text>Login to your virtual machine</Text>
+                        <CodeSnippet code={`ssh ${username}@${ipAddress} -i ${publicKeyName}.pem`}/>
+                        <Text>Please note that during you first login it may take few moments to load the software module
+                          setup.</Text>
+                      </List.Item>
+                    </List.Root>
+                  ) : (
+                    <HStack p="20px" bg="gray.50" _dark={{bg: 'gray.800'}} borderRadius="md">
+                      <ProgressCircle.Root value={null} colorPalette={'blue'} size={'sm'}>
+                        <ProgressCircle.Circle>
+                          <ProgressCircle.Track/>
+                          <ProgressCircle.Range/>
+                        </ProgressCircle.Circle>
+                      </ProgressCircle.Root>
+                      <Text>Waiting for IP address to be assigned... SSH access will be available shortly.</Text>
+                    </HStack>
+                  )
+                }
 
                 <Separator my="20px"/>
                 <Heading as="h4" size={{base: 'sm', md: 'md'}} mb="15px">
