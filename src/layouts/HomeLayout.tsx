@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router'
-import { Box } from '@chakra-ui/react'
+import { Box, Center, Spinner } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext.tsx'
 import RemoteConfigBanner from '../components/RemoteConfigBanner.tsx'
@@ -9,7 +9,11 @@ export default function HomeLayout() {
   const {isAuthenticated, loading} = useContext(AuthContext)
 
   if (loading) {
-    return <div>Loading...</div>
+    return (
+      <Center h="100vh">
+        <Spinner size="lg" color="blue.500" />
+      </Center>
+    )
   }
 
   if (isAuthenticated) {
