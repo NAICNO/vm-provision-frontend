@@ -58,7 +58,7 @@ describe('getVmStatusText', () => {
   })
 
   it('returns correct text for PROVISIONING_COMPLETED status', () => {
-    expect(getVmStatusText(VmStatusType.PROVISIONING_COMPLETED)).toBe('Created. Starting to Initialize')
+    expect(getVmStatusText(VmStatusType.PROVISIONING_COMPLETED)).toBe('Initializing')
   })
 
   it('returns correct text for PROVISIONING_FAILED status', () => {
