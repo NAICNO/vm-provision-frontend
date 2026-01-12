@@ -42,7 +42,7 @@ function renderAppHeader() {
   )
 }
 
-describe('AppHeader', () => {
+describe.skip('AppHeader', () => {
 
   it('renders without crashing', () => {
     renderAppHeader()
@@ -63,4 +63,4 @@ describe('AppHeader', () => {
     expect(opOpenSidebarDrawer).toHaveBeenCalled()
   })
 
-}, {skip: true})
+})
