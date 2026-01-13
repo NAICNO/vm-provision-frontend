@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
-import QueryKeys from '../constants/QueryKeys.ts'
+import QueryKeys from '../../constants/QueryKeys.ts'
 import {
   Customer, CustomerRequest, customersCreate,
   marketplaceCategoriesList, MarketplaceCategory, marketplaceProviderOfferingsCreate,
@@ -8,9 +8,8 @@ import {
   marketplaceServiceProvidersOfferingsList, OfferingCreate, OfferingCreateRequest, ProviderOffering,
   ServiceProvider,
 } from 'waldur-js-client'
-import { OnErrorCallback, OnSuccessCallback } from '../types/ReactQueryCallback.ts'
-import MutationKeys from '../constants/MutationKeys.ts'
-import customerOfferingList from '../components/organization/CustomerOfferingList.tsx'
+import { OnErrorCallback, OnSuccessCallback } from '../../types/ReactQueryCallback.ts'
+import MutationKeys from '../../constants/MutationKeys.ts'
 
 
 export const useFetchCustomerServiceProvider = (customerUuid: string) => {

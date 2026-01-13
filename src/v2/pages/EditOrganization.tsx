@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router'
 import { useFetchCustomer, useSetCustomerAsServiceProvider, useUpdateCustomer } from '../hooks/useCustomer.ts'
-import { BasicOrganizationAddSchema, OrganizationEditSchema } from '../util/FormValidationSchema.ts'
+import { BasicOrganizationAddSchema, OrganizationEditSchema } from '../../util/FormValidationSchema.ts'
 import { Form, Formik } from 'formik'
 import {
   Button,
@@ -11,8 +11,8 @@ import {
   VStack,
   Fieldset as ChakraFieldset,
 } from '@chakra-ui/react'
-import { FormField } from '../components/form/FormField.tsx'
-import { toaster } from '../components/ui/toaster.tsx'
+import { FormField } from '../../components/form/FormField.tsx'
+import { toaster } from '../../components/ui/toaster.tsx'
 
 const EditOrganization = () => {
 

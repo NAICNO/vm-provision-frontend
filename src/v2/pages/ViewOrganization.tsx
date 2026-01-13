@@ -84,7 +84,7 @@ export const ViewOrganization = () => {
 
   const handleTabChange = (details: ValueChangeDetails) => {
 
-    navigate(`/org/${orgId}/${ details.value}`, {replace: true})
+    navigate(`/v2/org/${orgId}/${ details.value}`, {replace: true})
   }
 
   return (
@@ -141,7 +141,7 @@ export const ViewOrganization = () => {
         </Card.Body>
         <Card.Footer>
           <Button variant="outline">
-            <ReactRouterLink to={`/org/${orgId}/edit`}>
+            <ReactRouterLink to={`/v2/org/${orgId}/edit`}>
               Edit Organization
             </ReactRouterLink>
           </Button>

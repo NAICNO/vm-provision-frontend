@@ -57,7 +57,7 @@ const SelectProject = () => {
           </EmptyState.Description>
         </VStack>
         <Button colorPalette="blue" asChild>
-          <ReactRouterLink to={`/org/${orgId}/add-project`}>
+          <ReactRouterLink to={`/v2/org/${orgId}/add-project`}>
             <MdAdd/> Add Project
           </ReactRouterLink>
         </Button>
@@ -73,7 +73,7 @@ const SelectProject = () => {
         <Heading size="2xl">Select a project</Heading>
         <Spacer/>
         <Button colorPalette="blue" asChild alignSelf="flex-end" mb="4" variant="outline">
-          <ReactRouterLink to={`/org/${orgId}/add-project`}>
+          <ReactRouterLink to={`/v2/org/${orgId}/add-project`}>
             <MdAdd/> Add Project
           </ReactRouterLink>
         </Button>
@@ -97,8 +97,12 @@ const SelectProject = () => {
               <Card.Description>{project.description}</Card.Description>
             </Card.Body>
             <Card.Footer justifyContent="flex-end">
-              <Button variant="outline">View</Button>
-              <Button>Select</Button>
+              <Button variant="outline" asChild>
+                <ReactRouterLink to={`/v2/project/${project.uuid}/view`}>View</ReactRouterLink>
+              </Button>
+              <Button asChild>
+                <ReactRouterLink to={`/v2/project/${project.uuid}/select`}>Select</ReactRouterLink>
+              </Button>
             </Card.Footer>
           </Card.Root>
         ))}

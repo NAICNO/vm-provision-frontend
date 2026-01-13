@@ -1,4 +1,4 @@
-import { useCreateSshKey, useDeleteSshKey, useFetchSshKeys } from '../../hooks/useSshKeys.ts'
+import { useCreateSshKey, useDeleteSshKey, useFetchSshKeys } from '../../v2/hooks/useSshKeys.ts'
 import { useEffect, useState } from 'react'
 import { SshKey, SshKeyRequest } from 'waldur-js-client'
 import {

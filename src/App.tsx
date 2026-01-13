@@ -20,7 +20,6 @@ import {
   Help,
   TermsOfService,
   HelpSSH,
-  TestPage,
 } from './pages'
 
 import {
@@ -29,14 +28,19 @@ import {
   NoAuthLayout,
   AdminLayoutWrapper
 } from './layouts'
-import SelectOrganization from './pages/SelectOrganization.tsx'
-import CreateOrganization from './pages/CreateOrganization.tsx'
-import SelectProject from './pages/SelectProject.tsx'
-import AddProject from './pages/CreateProject.tsx'
-import { ViewOrganization } from './pages/ViewOrganization.tsx'
-import EditOrganization from './pages/EditOrganization.tsx'
-import CreateOffering from './pages/CreateOffering.tsx'
-import ViewEditOffering from './pages/ViewEditOffering.tsx'
+
+// V2 (Waldur) imports
+import {
+  SelectOrganization,
+  CreateOrganization,
+  ViewOrganization,
+  EditOrganization,
+  SelectProject,
+  CreateProject,
+  CreateOffering,
+  ViewEditOffering,
+  TestPage,
+} from './v2/pages'
 
 const routes: RouteObject[] = [
   {
@@ -51,7 +55,6 @@ const routes: RouteObject[] = [
       {path: '/privacy-policy', element: <PrivacyPolicy/>},
       {path: '/terms-of-service', element: <TermsOfService/>},
       {path: 'help/ssh-troubleshoot', element: <HelpSSH/>},
-      {path: '/test', element: <TestPage/>},
     ]
   },
   {
@@ -65,17 +68,18 @@ const routes: RouteObject[] = [
     element: <RootLayout/>,
     errorElement: <DefaultErrorPage/>,
     children: [
-      {path: 'select-organization', element: <SelectOrganization/>},
-      {path: 'add-organization', element: <CreateOrganization/>},
-      {path: 'org/:orgId/:tab?', element: <ViewOrganization/>},
-      {path: 'org/:orgId/edit', element: <EditOrganization/>},
-      {path: 'org/:orgId/select-project', element: <SelectProject/>},
-      {path: 'org/:orgId/add-project', element: <AddProject/>},
+      // V2 (Waldur) routes - Organization & Project Management
+      {path: 'v2/select-organization', element: <SelectOrganization/>},
+      {path: 'v2/add-organization', element: <CreateOrganization/>},
+      {path: 'v2/org/:orgId/:tab?', element: <ViewOrganization/>},
+      {path: 'v2/org/:orgId/edit', element: <EditOrganization/>},
+      {path: 'v2/org/:orgId/select-project', element: <SelectProject/>},
+      {path: 'v2/org/:orgId/add-project', element: <CreateProject/>},
+      {path: 'v2/org/:orgId/:serviceProviderId/create-offering', element: <CreateOffering/>},
+      {path: 'v2/org/:orgId/:serviceProviderId/offering/:offeringId', element: <ViewEditOffering/>},
+      {path: 'v2/test', element: <TestPage/>},
 
-      {path: 'org/:orgId/:serviceProviderId/create-offering', element: <CreateOffering/>},
-      {path: 'org/:orgId/:serviceProviderId/offering/:offeringId', element: <ViewEditOffering/>},
-
-
+      // V1 (Original API) routes - VM Management
       {path: 'dashboard', element: <Dashboard/>},
       {path: 'create', element: <Create/>},
       {path: 'profile', element: <Profile/>},

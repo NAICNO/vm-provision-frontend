@@ -4,7 +4,7 @@ import { AgGridReact } from 'ag-grid-react'
 import { OfferingState, ServiceProvider } from 'waldur-js-client'
 
 import { useFetchCustomerOfferings } from '../../hooks/useMarketplace.ts'
-import { agGridTheme } from '../../theme.ts'
+import { agGridTheme } from '../../../theme.ts'
 import { Link as ReactRouterLink } from 'react-router'
 import { MdAdd } from 'react-icons/md'
 

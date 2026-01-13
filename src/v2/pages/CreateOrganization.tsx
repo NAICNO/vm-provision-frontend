@@ -10,11 +10,11 @@ import {
 } from '@chakra-ui/react'
 import { useCreateCustomer } from '../hooks/useCustomer.ts'
 import { useNavigate } from 'react-router'
-import { toaster } from '../components/ui/toaster.tsx'
+import { toaster } from '../../components/ui/toaster.tsx'
 import { Form, Formik, } from 'formik'
-import { BasicOrganizationAddSchema, } from '../util/FormValidationSchema.ts'
-import { NavigateBackButton } from '../components/NavigateBackButton.tsx'
-import { FormField } from '../components/form/FormField.tsx'
+import { BasicOrganizationAddSchema, } from '../../util/FormValidationSchema.ts'
+import { NavigateBackButton } from '../../components/NavigateBackButton.tsx'
+import { FormField } from '../../components/form/FormField.tsx'
 
 
 const CreateOrganization = () => {

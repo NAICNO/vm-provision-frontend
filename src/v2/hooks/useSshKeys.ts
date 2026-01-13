@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
-import QueryKeys from '../constants/QueryKeys.ts'
+import QueryKeys from '../../constants/QueryKeys.ts'
 import {
   keysCreate,
   keysDestroy,
@@ -8,8 +8,8 @@ import {
   SshKey,
   SshKeyRequest,
 } from 'waldur-js-client'
-import { OnErrorCallback, OnSuccessCallback } from '../types/ReactQueryCallback.ts'
-import MutationKeys from '../constants/MutationKeys.ts'
+import { OnErrorCallback, OnSuccessCallback } from '../../types/ReactQueryCallback.ts'
+import MutationKeys from '../../constants/MutationKeys.ts'
 
 export const useFetchSshKeys = () => {
   return useQuery<SshKey[], Error>(

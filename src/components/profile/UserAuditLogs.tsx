@@ -1,4 +1,4 @@
-import { useFetchEvents } from '../../hooks/useEvents.ts'
+import { useFetchEvents } from '../../v2/hooks/useEvents.ts'
 import { Box, Collapsible, DataList, For, Icon, Table } from '@chakra-ui/react'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 import moment from 'moment'

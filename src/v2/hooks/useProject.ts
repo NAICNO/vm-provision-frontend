@@ -1,9 +1,9 @@
 import { Project, ProjectRequest, projectsCreate, projectsList } from 'waldur-js-client'
 import { useMutation, useQuery } from '@tanstack/react-query'
 
-import QueryKeys from '../constants/QueryKeys.ts'
-import { OnErrorCallback, OnSuccessCallback } from '../types/ReactQueryCallback.ts'
-import MutationKeys from '../constants/MutationKeys.ts'
+import QueryKeys from '../../constants/QueryKeys.ts'
+import { OnErrorCallback, OnSuccessCallback } from '../../types/ReactQueryCallback.ts'
+import MutationKeys from '../../constants/MutationKeys.ts'
 
 export const useFetchProjects = (orgId: string | undefined) => {
   return useQuery(

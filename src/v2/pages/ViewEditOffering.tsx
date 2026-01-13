@@ -9,16 +9,16 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react'
-import { NavigateBackButton } from '../components/NavigateBackButton.tsx'
+import { NavigateBackButton } from '../../components/NavigateBackButton.tsx'
 import { Field, FieldProps, Form, Formik } from 'formik'
-import { BasicProjectAddSchema, CreateOfferingSchema, isRequired } from '../util/FormValidationSchema.ts'
+import { BasicProjectAddSchema, CreateOfferingSchema, isRequired } from '../../util/FormValidationSchema.ts'
 import { OfferingCreate, OfferingCreateRequest } from 'waldur-js-client'
 import { useNavigate, useParams } from 'react-router'
 import { useFetchCustomer } from '../hooks/useCustomer.ts'
 import { useCreateOffering, useFetchMarketplaceCategories } from '../hooks/useMarketplace.ts'
-import { OPENSTACK_TENANT_TYPE } from '../constants/Constants.ts'
-import { toaster } from '../components/ui/toaster.tsx'
-import { NativeSelectRoot, NativeSelectField } from '../components/ui/native-select.tsx'
+import { OPENSTACK_TENANT_TYPE } from '../../constants/Constants.ts'
+import { toaster } from '../../components/ui/toaster.tsx'
+import { NativeSelectRoot, NativeSelectField } from '../../components/ui/native-select.tsx'
 
 const ViewEditOffering = () => {
 

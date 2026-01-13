@@ -39,7 +39,7 @@ export default function AuthRedirect() {
           setUser(null)
         })
     }
-    navigate('/select-organization')
+    navigate('/v2/select-organization')
   }, [])
 
 

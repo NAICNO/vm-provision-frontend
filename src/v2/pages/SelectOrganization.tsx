@@ -20,7 +20,7 @@ import { MdAdd } from 'react-icons/md'
 import { Link as ReactRouterLink } from 'react-router'
 
 import { useFetchCustomers } from '../hooks/useCustomer.ts'
-import { formatToDate } from '../util'
+import { formatToDate } from '../../util'
 
 const SelectOrganization = () => {
 
@@ -62,7 +62,7 @@ const SelectOrganization = () => {
           </EmptyState.Description>
         </VStack>
         <Button colorPalette="blue" asChild>
-          <ReactRouterLink to={'/add-organization'}>
+          <ReactRouterLink to={'/v2/add-organization'}>
             <MdAdd/>Add Organization
           </ReactRouterLink>
         </Button>
@@ -77,7 +77,7 @@ const SelectOrganization = () => {
         <Heading size="xl">Select an organization</Heading>
         <Spacer/>
         <Button colorPalette="blue" asChild alignSelf="flex-end" mb="4" variant="outline">
-          <ReactRouterLink to={'/add-organization'}>
+          <ReactRouterLink to={'/v2/add-organization'}>
             <MdAdd/> Add Organization
           </ReactRouterLink>
         </Button>
@@ -121,12 +121,12 @@ const SelectOrganization = () => {
             </Card.Body>
             <Card.Footer justifyContent="flex-end">
               <Button variant="outline">
-                <ReactRouterLink to={`/org/${customer.uuid}`}>
+                <ReactRouterLink to={`/v2/org/${customer.uuid}`}>
                   View
                 </ReactRouterLink>
               </Button>
               <Button>
-                <ReactRouterLink to={`/org/${customer.uuid}/select-project`}>
+                <ReactRouterLink to={`/v2/org/${customer.uuid}/select-project`}>
                   Select
                 </ReactRouterLink>
               </Button>

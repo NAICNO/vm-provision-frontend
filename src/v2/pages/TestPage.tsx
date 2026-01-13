@@ -5,7 +5,7 @@ import axios from 'axios'
 
 import { client } from 'waldur-js-client/client.gen'
 import { usersList, usersMeRetrieve } from 'waldur-js-client'
-import { WALDUR_API_ENDPOINT } from '../constants/Constants.ts'
+import { WALDUR_API_ENDPOINT } from '../../constants/Constants.ts'
 
 function useFetchUrl(url: string, token: string) {
   const axiosInstance = axios.create({

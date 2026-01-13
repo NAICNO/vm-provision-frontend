@@ -10,10 +10,10 @@ import {
   Card,
 } from '@chakra-ui/react'
 import { useNavigate, useParams } from 'react-router'
-import { toaster } from '../components/ui/toaster.tsx'
+import { toaster } from '../../components/ui/toaster.tsx'
 import { Form, Formik, Field, FieldProps } from 'formik'
-import { BasicProjectAddSchema, isRequired } from '../util/FormValidationSchema.ts'
-import { NavigateBackButton } from '../components/NavigateBackButton.tsx'
+import { BasicProjectAddSchema, isRequired } from '../../util/FormValidationSchema.ts'
+import { NavigateBackButton } from '../../components/NavigateBackButton.tsx'
 import { useCreateProject } from '../hooks/useProject.ts'
 import { useFetchCustomer } from '../hooks/useCustomer.ts'
 import { ProjectRequest } from 'waldur-js-client'

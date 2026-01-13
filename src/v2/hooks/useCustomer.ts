@@ -7,10 +7,10 @@ import {
   customersRetrieve, customersUpdate,
   customersUsersList, CustomerUser, marketplaceServiceProvidersCreate, ServiceProvider
 } from 'waldur-js-client'
-import MutationKeys from '../constants/MutationKeys.ts'
-import { OnErrorCallback, OnSuccessCallback } from '../types/ReactQueryCallback.ts'
-import QueryKeys from '../constants/QueryKeys.ts'
-import mutationKeys from '../constants/MutationKeys.ts'
+import MutationKeys from '../../constants/MutationKeys.ts'
+import { OnErrorCallback, OnSuccessCallback } from '../../types/ReactQueryCallback.ts'
+import QueryKeys from '../../constants/QueryKeys.ts'
+import mutationKeys from '../../constants/MutationKeys.ts'
 
 export const useFetchCustomers = () => {
   return useQuery(

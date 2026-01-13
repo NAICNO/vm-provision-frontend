@@ -16,7 +16,7 @@ export default function HomeLayout() {
   }
 
   if (isAuthenticated) {
-    return <Navigate to="/select-organization" replace/>
+    return <Navigate to="/v2/select-organization" replace/>
   }
 
   return (
