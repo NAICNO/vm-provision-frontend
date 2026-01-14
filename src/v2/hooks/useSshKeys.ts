@@ -4,10 +4,12 @@ import {
   keysCreate,
   keysDestroy,
   keysList,
-  keysRetrieve,
+  keysRetrieve
+} from '../../client/sdk.gen'
+import type {
   SshKey,
-  SshKeyRequest,
-} from 'waldur-js-client'
+  SshKeyRequest
+} from '../../client/types.gen'
 import { OnErrorCallback, OnSuccessCallback } from '../../types/ReactQueryCallback.ts'
 import MutationKeys from '../../constants/MutationKeys.ts'
 

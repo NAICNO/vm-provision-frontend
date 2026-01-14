@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import { Badge, Box, Button, Text } from '@chakra-ui/react'
 import { AgGridReact } from 'ag-grid-react'
-import { OfferingState, ServiceProvider } from 'waldur-js-client'
+import type { OfferingState, ServiceProvider } from '../../../client/types.gen'
 
 import { useFetchCustomerOfferings } from '../../hooks/useMarketplace.ts'
 import { agGridTheme } from '../../../theme.ts'

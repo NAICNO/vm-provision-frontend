@@ -1,6 +1,6 @@
 import { useCreateSshKey, useDeleteSshKey, useFetchSshKeys } from '../../v2/hooks/useSshKeys.ts'
 import { useEffect, useState } from 'react'
-import { SshKey, SshKeyRequest } from 'waldur-js-client'
+import type { SshKey, SshKeyRequest } from '../../client/types.gen'
 import {
   Box,
   Button,

@@ -1,4 +1,5 @@
-import { Project, ProjectRequest, projectsCreate, projectsList } from 'waldur-js-client'
+import { projectsCreate, projectsList } from '../../client/sdk.gen'
+import type { Project, ProjectRequest } from '../../client/types.gen'
 import { useMutation, useQuery } from '@tanstack/react-query'
 
 import QueryKeys from '../../constants/QueryKeys.ts'

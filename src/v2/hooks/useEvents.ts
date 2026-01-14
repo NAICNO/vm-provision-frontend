@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { Event, eventsList } from 'waldur-js-client'
+import { eventsList } from '../../client/sdk.gen'
+import type { Event } from '../../client/types.gen'
 import QueryKeys from '../../constants/QueryKeys.ts'
 
 export const useFetchEvents = (orgId?: string) => {

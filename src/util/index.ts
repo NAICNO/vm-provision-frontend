@@ -4,7 +4,7 @@ import { VmStatusType } from '../types/VmStatusType.ts'
 import { Vm } from '../types/Vm.ts'
 import providerLogos from './providerLogos.json'
 import { ColorMode } from '../components/ui/color-mode.tsx'
-import { User } from 'waldur-js-client'
+import type { User } from '../client/types.gen'
 
 export function getNaicLogo(colorMode: ColorMode): string {
   return colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'

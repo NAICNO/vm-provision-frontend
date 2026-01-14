@@ -16,7 +16,7 @@ import { BasicProjectAddSchema, isRequired } from '../../util/FormValidationSche
 import { NavigateBackButton } from '../../components/NavigateBackButton.tsx'
 import { useCreateProject } from '../hooks/useProject.ts'
 import { useFetchCustomer } from '../hooks/useCustomer.ts'
-import { ProjectRequest } from 'waldur-js-client'
+import type { ProjectRequest } from '../../client/types.gen'
 
 
 const CreateProject = () => {

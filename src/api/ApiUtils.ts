@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { client } from 'waldur-js-client/client.gen'
+import { client } from '../client/client.gen'
 
 import { API_ENDPOINT, WALDUR_API_ENDPOINT } from '../constants/Constants.ts'
 
@@ -26,7 +26,7 @@ axiosInstance.interceptors.response.use(
 export function setWaldurApiConfig(token: string) {
   client.setConfig({
     auth: () => `Token ${token}`,
-    baseUrl: WALDUR_API_ENDPOINT,
+    baseURL: WALDUR_API_ENDPOINT,
     throwOnError: true,
   })
 }

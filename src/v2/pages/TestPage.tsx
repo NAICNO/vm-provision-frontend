@@ -3,8 +3,8 @@ import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
-import { client } from 'waldur-js-client/client.gen'
-import { usersList, usersMeRetrieve } from 'waldur-js-client'
+import { client } from '../../client/client.gen'
+import { usersList, usersMeRetrieve } from '../../client/sdk.gen'
 import { WALDUR_API_ENDPOINT } from '../../constants/Constants.ts'
 
 function useFetchUrl(url: string, token: string) {
@@ -40,7 +40,7 @@ const TestPage = () => {
   const test = async () => {
     client.setConfig({
       auth: () => 'Token c03aae6dae02a66aebcf5fe28ffa3856e3fe28fd',
-      baseUrl: WALDUR_API_ENDPOINT,
+      baseURL: WALDUR_API_ENDPOINT,
       throwOnError: true,
       // querySerializer,
     })

@@ -1350,13 +1350,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hey-api/client-fetch@npm:^0.8.3":
-  version: 0.8.4
-  resolution: "@hey-api/client-fetch@npm:0.8.4"
-  checksum: 10c0/59bee33649664594ebe2b8f3686e6a79844f89f54c8fde9bb5879e5f76e797b63219734c3720f917398524237b7b6e56210dff2006f7b4bcb4890f4220e7e2bd
-  languageName: node
-  linkType: hard
-
 "@hey-api/codegen-core@npm:^0.5.2":
   version: 0.5.2
   resolution: "@hey-api/codegen-core@npm:0.5.2"
@@ -9133,7 +9126,6 @@ __metadata:
     typescript: "npm:^5.9.3"
     vite: "npm:7.3.1"
     vitest: "npm:^4.0.16"
-    waldur-js-client: "npm:^1.0.3"
     yup: "npm:^1.6.1"
   languageName: unknown
   linkType: soft
@@ -9144,15 +9136,6 @@ __metadata:
   dependencies:
     xml-name-validator: "npm:^5.0.0"
   checksum: 10c0/8712774c1aeb62dec22928bf1cdfd11426c2c9383a1a63f2bcae18db87ca574165a0fbe96b312b73652149167ac6c7f4cf5409f2eb101d9c805efe0e4bae798b
-  languageName: node
-  linkType: hard
-
-"waldur-js-client@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "waldur-js-client@npm:1.0.3"
-  dependencies:
-    "@hey-api/client-fetch": "npm:^0.8.3"
-  checksum: 10c0/26c684034c393b982c038526a19790c9491e22157eba89715559f25645f9b3a74bd4829935eb99820ef2a1e4f7b0c1a0ea13203040ec3d424ee4b10e0ef4e5f2
   languageName: node
   linkType: hard
 

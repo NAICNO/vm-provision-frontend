@@ -6,7 +6,7 @@ import {
   Card,
   Avatar, Stack, SkeletonCircle, Skeleton, SkeletonText, HStack, Heading, Spacer,
 } from '@chakra-ui/react'
-import { Project } from 'waldur-js-client'
+import type { Project } from '../../client/types.gen'
 import { GoProject } from 'react-icons/go'
 import { MdAdd } from 'react-icons/md'
 import { Link as ReactRouterLink, useParams } from 'react-router'

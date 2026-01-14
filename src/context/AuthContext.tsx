@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { User, usersMeRetrieve } from 'waldur-js-client'
+import { usersMeRetrieve } from '../client/sdk.gen'
+import type { User } from '../client/types.gen'
 
 import {
   API_ENDPOINT,

@@ -7,7 +7,8 @@ import {
   Spinner,
 } from '@chakra-ui/react'
 import { useNavigate } from 'react-router'
-import { User, usersMeRetrieve } from 'waldur-js-client'
+import { usersMeRetrieve } from '../client/sdk.gen'
+import type { User } from '../client/types.gen'
 
 import { useAuth } from '../context/AuthContext.tsx'
 import { setWaldurApiConfig } from '../api/ApiUtils.ts'

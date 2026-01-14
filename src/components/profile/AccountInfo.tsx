@@ -1,4 +1,4 @@
-import { User } from 'waldur-js-client'
+import type { User } from '../../client/types.gen'
 import { MdAlternateEmail, MdDateRange, MdGroup, MdPerson, MdPhone } from 'react-icons/md'
 import moment from 'moment/moment'
 import { getUserTypeText } from '../../util'

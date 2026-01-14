@@ -1,16 +1,21 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 import {
-  Customer,
-  CustomerRequest,
   customersCreate,
   customersList,
-  customersRetrieve, customersUpdate,
-  customersUsersList, CustomerUser, marketplaceServiceProvidersCreate, ServiceProvider
-} from 'waldur-js-client'
+  customersRetrieve,
+  customersUpdate,
+  customersUsersList,
+  marketplaceServiceProvidersCreate
+} from '../../client/sdk.gen'
+import type {
+  Customer,
+  CustomerRequest,
+  CustomerUser,
+  ServiceProvider
+} from '../../client/types.gen'
 import MutationKeys from '../../constants/MutationKeys.ts'
 import { OnErrorCallback, OnSuccessCallback } from '../../types/ReactQueryCallback.ts'
 import QueryKeys from '../../constants/QueryKeys.ts'
-import mutationKeys from '../../constants/MutationKeys.ts'
 
 export const useFetchCustomers = () => {
   return useQuery(

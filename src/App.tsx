@@ -1,7 +1,9 @@
 import {
   createBrowserRouter,
   RouterProvider,
-  RouteObject
+  RouteObject,
+  Navigate,
+  Outlet
 } from 'react-router'
 
 import {
@@ -29,7 +31,7 @@ import {
   AdminLayoutWrapper
 } from './layouts'
 
-// V2 (Waldur) imports
+// V2 (Waldur) imports - Pages
 import {
   SelectOrganization,
   CreateOrganization,
@@ -41,6 +43,12 @@ import {
   ViewEditOffering,
   TestPage,
 } from './v2/pages'
+
+// V2 (Waldur) imports - New
+import VmDashboard from './v2/pages/VmDashboard'
+import { OrganizationProvider } from './v2/context/OrganizationContext'
+import { OrgLayoutWrapper } from './v2/layouts/OrgLayoutWrapper'
+import V2Layout from './v2/layouts/V2Layout'
 
 const routes: RouteObject[] = [
   {
@@ -64,22 +72,78 @@ const routes: RouteObject[] = [
       {index: true, element: <Home/>}
     ]
   },
+  // V2 (Waldur) routes with dedicated layout
+  {
+    element: <OrganizationProvider><V2Layout /></OrganizationProvider>,
+    errorElement: <DefaultErrorPage />,
+    children: [
+      {
+        path: 'v2',
+        children: [
+          {
+            index: true,
+            element: <Navigate to="select-organization" replace />
+          },
+          {
+            path: 'select-organization',
+            element: <SelectOrganization/>
+          },
+          {
+            path: 'add-organization',
+            element: <CreateOrganization/>
+          },
+          {
+            path: 'org/:orgId',
+            element: <OrgLayoutWrapper />,
+            children: [
+              {
+                index: true,
+                element: <Navigate to="vms" replace />
+              },
+              {
+                path: 'vms',
+                element: <VmDashboard />
+              },
+              // Existing organization management routes
+              {
+                path: ':tab',
+                element: <ViewOrganization/>
+              },
+              {
+                path: 'edit',
+                element: <EditOrganization/>
+              },
+              {
+                path: 'select-project',
+                element: <SelectProject/>
+              },
+              {
+                path: 'add-project',
+                element: <CreateProject/>
+              },
+              {
+                path: ':serviceProviderId/create-offering',
+                element: <CreateOffering/>
+              },
+              {
+                path: ':serviceProviderId/offering/:offeringId',
+                element: <ViewEditOffering/>
+              },
+            ]
+          },
+          {
+            path: 'test',
+            element: <TestPage/>
+          },
+        ]
+      },
+    ]
+  },
+  // V1 (Original API) routes - VM Management
   {
     element: <RootLayout/>,
     errorElement: <DefaultErrorPage/>,
     children: [
-      // V2 (Waldur) routes - Organization & Project Management
-      {path: 'v2/select-organization', element: <SelectOrganization/>},
-      {path: 'v2/add-organization', element: <CreateOrganization/>},
-      {path: 'v2/org/:orgId/:tab?', element: <ViewOrganization/>},
-      {path: 'v2/org/:orgId/edit', element: <EditOrganization/>},
-      {path: 'v2/org/:orgId/select-project', element: <SelectProject/>},
-      {path: 'v2/org/:orgId/add-project', element: <CreateProject/>},
-      {path: 'v2/org/:orgId/:serviceProviderId/create-offering', element: <CreateOffering/>},
-      {path: 'v2/org/:orgId/:serviceProviderId/offering/:offeringId', element: <ViewEditOffering/>},
-      {path: 'v2/test', element: <TestPage/>},
-
-      // V1 (Original API) routes - VM Management
       {path: 'dashboard', element: <Dashboard/>},
       {path: 'create', element: <Create/>},
       {path: 'profile', element: <Profile/>},

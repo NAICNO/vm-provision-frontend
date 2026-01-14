@@ -12,7 +12,7 @@ import {
 import { NavigateBackButton } from '../../components/NavigateBackButton.tsx'
 import { Field, FieldProps, Form, Formik } from 'formik'
 import { BasicProjectAddSchema, CreateOfferingSchema, isRequired } from '../../util/FormValidationSchema.ts'
-import { OfferingCreate, OfferingCreateRequest } from 'waldur-js-client'
+import type { OfferingCreate, OfferingCreateRequest } from '../../client/types.gen'
 import { useNavigate, useParams } from 'react-router'
 import { useFetchCustomer } from '../hooks/useCustomer.ts'
 import { useCreateOffering, useFetchMarketplaceCategories } from '../hooks/useMarketplace.ts'

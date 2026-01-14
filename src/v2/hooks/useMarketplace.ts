@@ -1,13 +1,23 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 import QueryKeys from '../../constants/QueryKeys.ts'
 import {
-  Customer, CustomerRequest, customersCreate,
-  marketplaceCategoriesList, MarketplaceCategory, marketplaceProviderOfferingsCreate,
-  marketplaceResourceOfferingsList, marketplaceServiceProvidersCreate,
+  customersCreate,
+  marketplaceCategoriesList,
+  marketplaceProviderOfferingsCreate,
+  marketplaceResourceOfferingsList,
+  marketplaceServiceProvidersCreate,
   marketplaceServiceProvidersList,
-  marketplaceServiceProvidersOfferingsList, OfferingCreate, OfferingCreateRequest, ProviderOffering,
-  ServiceProvider,
-} from 'waldur-js-client'
+  marketplaceServiceProvidersOfferingsList
+} from '../../client/sdk.gen'
+import type {
+  Customer,
+  CustomerRequest,
+  MarketplaceCategory,
+  OfferingCreate,
+  OfferingCreateRequest,
+  ProviderOffering,
+  ServiceProvider
+} from '../../client/types.gen'
 import { OnErrorCallback, OnSuccessCallback } from '../../types/ReactQueryCallback.ts'
 import MutationKeys from '../../constants/MutationKeys.ts'
 

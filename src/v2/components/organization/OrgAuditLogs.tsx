@@ -8,7 +8,7 @@ import {
 import { AgGridReact } from 'ag-grid-react'
 import type { ColDef, ICellRendererParams } from 'ag-grid-community'
 import moment from 'moment'
-import { Event } from 'waldur-js-client'
+import type { Event } from '../../../client/types.gen'
 import { MdKeyboardArrowRight } from 'react-icons/md'
 
 import { useFetchEvents } from '../../hooks/useEvents.ts'

@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import QueryKeys from '../../constants/QueryKeys.ts'
-import { configurationRetrieve, } from 'waldur-js-client'
+import { configurationRetrieve } from '../../client/sdk.gen'
 
 export const useFetchConfiguration = () => {
   return useQuery(

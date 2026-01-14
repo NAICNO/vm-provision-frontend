@@ -1,5 +1,6 @@
 import {
   Button,
+  Container,
   Fieldset as ChakraFieldset,
   Textarea,
   VStack,
@@ -13,7 +14,6 @@ import { useNavigate } from 'react-router'
 import { toaster } from '../../components/ui/toaster.tsx'
 import { Form, Formik, } from 'formik'
 import { BasicOrganizationAddSchema, } from '../../util/FormValidationSchema.ts'
-import { NavigateBackButton } from '../../components/NavigateBackButton.tsx'
 import { FormField } from '../../components/form/FormField.tsx'
 
 
@@ -23,20 +23,17 @@ const CreateOrganization = () => {
     toaster.create({
       title: 'Organization created successfully',
       type: 'success',
-      duration: 5000,
+      duration: 3000,
     })
-    setTimeout(() => {
-      navigate(-1) // Go back to previous page
-    }, 1000)
+    navigate('/v2/select-organization')
   }
 
   const onErrorCreate = (error: Error) => {
-
     toaster.create({
       title: 'Error creating organization',
       description: error.message || 'Please try again later.',
       type: 'error',
-      duration: 2000,
+      duration: 5000,
     })
   }
 
@@ -44,140 +41,127 @@ const CreateOrganization = () => {
 
   const navigate = useNavigate()
 
-  const handleCancel = () => {
-    navigate(-1) // Go back to previous page
+  const handleCancel = (isDirty: boolean) => {
+    if (isDirty && !window.confirm('You have unsaved changes. Are you sure you want to leave?')) {
+      return
+    }
+    navigate('/v2/select-organization')
   }
 
   return (
-    <Box maxW="2xl" mx="auto" p={6}>
-      <HStack alignItems="start">
-        <Box mt={2} mr={2}>
-          <NavigateBackButton/>
+    <Container maxW="4xl" py={8}>
+      <VStack gap={6} align="stretch">
+        <Box>
+          <Text fontSize="3xl" fontWeight="bold">
+            Add New Organization
+          </Text>
+          <Text color="fg.muted">
+            Create a new organization to manage resources and users
+          </Text>
         </Box>
-        <VStack gap={6} align="stretch">
-          <Box>
-            <Text fontSize="3xl" fontWeight="bold">
-              Add New Organization
-            </Text>
-            <Text color="gray.600">
-              Create a new organization to manage resources and users
-            </Text>
-          </Box>
 
-          <Formik
-            initialValues={{
-              name: '',
-              abbreviation: '',
-              email: '',
-              phone: '',
-              contact_details: ''
-            }}
-            enableReinitialize={true}
-            validateOnBlur={true}
-            validationSchema={BasicOrganizationAddSchema}
-            onSubmit={(values) => {
-              console.log(values)
-              mutate(values)
-            }}
-          >
-            {({
-              isValid,
-              submitForm,
-              values,
-              resetForm,
-            }) => (
-              <Form>
-                <Card.Root>
-                  <Card.Body>
-                    <ChakraFieldset.Root size="lg">
-                      <VStack gap={5}>
-                        <FormField
-                          name={'name'}
-                          label={'Organization Name'}
-                          value={values.name}
-                          placeholder={'Enter organization name'}
-                          helperText={'This will be the primary name for your organization'}
-                          schema={BasicOrganizationAddSchema}
-                        />
+        <Formik
+          initialValues={{
+            name: '',
+            abbreviation: '',
+            email: '',
+            phone: '',
+            contact_details: ''
+          }}
+          enableReinitialize={true}
+          validateOnBlur={true}
+          validationSchema={BasicOrganizationAddSchema}
+          onSubmit={(values) => {
+            mutate(values)
+          }}
+        >
+          {({
+            isValid,
+            submitForm,
+            values,
+            dirty,
+          }) => (
+            <Form>
+              <Card.Root>
+                <Card.Body>
+                  <ChakraFieldset.Root size="lg">
+                    <VStack gap={5}>
+                      <FormField
+                        name={'name'}
+                        label={'Organization Name'}
+                        value={values.name}
+                        placeholder={'Enter organization name'}
+                        helperText={'This will be the primary name for your organization'}
+                        schema={BasicOrganizationAddSchema}
+                      />
 
-                        <FormField
-                          name={'abbreviation'}
-                          label={'Abbreviation'}
-                          value={values.abbreviation}
-                          placeholder={'Enter abbreviation (e.g., ACME)'}
-                          helperText={'Short form of the organization name (optional)'}
-                          schema={BasicOrganizationAddSchema}
-                        />
+                      <FormField
+                        name={'abbreviation'}
+                        label={'Abbreviation'}
+                        value={values.abbreviation}
+                        placeholder={'Enter abbreviation (e.g., ACME)'}
+                        helperText={'Short form of the organization name (optional)'}
+                        schema={BasicOrganizationAddSchema}
+                      />
 
-                        <FormField
-                          name={'email'}
-                          label={'Email'}
-                          value={values.email}
-                          placeholder={'Enter email address'}
-                          helperText={'Primary contact email for the organization'}
-                          schema={BasicOrganizationAddSchema}
-                        />
+                      <FormField
+                        name={'email'}
+                        label={'Email'}
+                        value={values.email}
+                        placeholder={'Enter email address'}
+                        helperText={'Primary contact email for the organization'}
+                        schema={BasicOrganizationAddSchema}
+                      />
 
-                        <FormField
-                          name={'phone'}
-                          label={'Phone'}
-                          value={values.phone}
-                          placeholder={'Enter phone number'}
-                          helperText={'Contact phone number for the organization'}
-                          schema={BasicOrganizationAddSchema}
-                        />
+                      <FormField
+                        name={'phone'}
+                        label={'Phone'}
+                        value={values.phone}
+                        placeholder={'Enter phone number'}
+                        helperText={'Contact phone number for the organization'}
+                        schema={BasicOrganizationAddSchema}
+                      />
 
-                        <FormField
-                          name={'contact_details'}
-                          label={'Contact Details'}
-                          value={values.contact_details}
-                          placeholder={'Enter contact details'}
-                          helperText={'Additional contact information for the organization (optional)'}
-                          Control={Textarea}
-                          inputProps={{rows: 4, resize: 'vertical'}}
-                          schema={BasicOrganizationAddSchema}
-                        />
+                      <FormField
+                        name={'contact_details'}
+                        label={'Contact Details'}
+                        value={values.contact_details}
+                        placeholder={'Enter contact details'}
+                        helperText={'Additional contact information for the organization (optional)'}
+                        Control={Textarea}
+                        inputProps={{rows: 4, resize: 'vertical'}}
+                        schema={BasicOrganizationAddSchema}
+                      />
 
-                      </VStack>
-                    </ChakraFieldset.Root>
+                    </VStack>
+                  </ChakraFieldset.Root>
 
-                    <Text>
-                      Error messages will appear here if any fields are invalid.
-                    </Text>
-
-                    <HStack gap={4} mt={8} justify="flex-end">
-                      <Button
-                        variant="outline"
-                        onClick={() => resetForm()}
-                        type="button"
-                      >
-                        Reset
-                      </Button>
-                      <Button
-                        variant="outline"
-                        onClick={handleCancel}
-                        type="button"
-                      >
-                        Cancel
-                      </Button>
-                      <Button
-                        colorPalette="blue"
-                        loading={isPending}
-                        onClick={submitForm}
-                        disabled={!isValid || isPending}
-                        loadingText="Creating..."
-                      >
-                        Create Organization
-                      </Button>
-                    </HStack>
-                  </Card.Body>
-                </Card.Root>
-              </Form>
-            )}
-          </Formik>
-        </VStack>
-      </HStack>
-    </Box>
+                  <HStack gap={3} mt={6} justify="flex-end">
+                    <Button
+                      variant="outline"
+                      onClick={() => handleCancel(dirty)}
+                      type="button"
+                      disabled={isPending}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      colorPalette="blue"
+                      loading={isPending}
+                      onClick={submitForm}
+                      disabled={!isValid || isPending}
+                      loadingText="Creating..."
+                    >
+                      Create Organization
+                    </Button>
+                  </HStack>
+                </Card.Body>
+              </Card.Root>
+            </Form>
+          )}
+        </Formik>
+      </VStack>
+    </Container>
   )
 }
 
