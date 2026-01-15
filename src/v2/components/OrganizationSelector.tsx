@@ -12,15 +12,15 @@ import { useOrganizationContext } from '../context/OrganizationContext'
 import { useFetchCustomers } from '../hooks/useCustomer'
 
 export default function OrganizationSelector() {
-  const { selectedOrg, setSelectedOrg } = useOrganizationContext()
+  const { selectedOrg, selectOrganization } = useOrganizationContext()
   const navigate = useNavigate()
   const { data: customers, isLoading: customersLoading } = useFetchCustomers()
 
   const handleOrganizationSelect = (orgUuid: string) => {
     const org = customers?.find(c => c.uuid === orgUuid)
     if (org) {
-      setSelectedOrg(org)
-      navigate(`/v2/org/${org.uuid}/view`)
+      selectOrganization(org)
+      navigate(`/v2/org/${org.uuid}/vms`)
     }
   }
 

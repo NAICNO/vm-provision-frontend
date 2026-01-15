@@ -20,7 +20,7 @@ import { useColorMode } from '../../components/ui/color-mode'
 import { ColorModeButton } from '../../components/ui/color-mode'
 import { getUserTypeText } from '../../util'
 import { APP_NAME } from '../../constants/Constants'
-import OrganizationBreadcrumbs from './OrganizationBreadcrumbs'
+import Breadcrumbs from './Breadcrumbs'
 import OrganizationSelector from './OrganizationSelector'
 
 export default function OrganizationHeader() {
@@ -111,7 +111,7 @@ export default function OrganizationHeader() {
                   <Menu.Positioner>
                     <Menu.Content minW="200px">
                       <Menu.Item value="profile" asChild>
-                        <Link to="/profile">
+                        <Link to="/v2/profile">
                           <LuUser />
                           <Box flex="1">Profile</Box>
                         </Link>
@@ -134,7 +134,7 @@ export default function OrganizationHeader() {
         </VStack>
       </Container>
       
-      <OrganizationBreadcrumbs />
+      <Breadcrumbs />
     </Box>
   )
 }

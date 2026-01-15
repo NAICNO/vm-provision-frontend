@@ -171,7 +171,7 @@ const SelectOrganization = () => {
               </Card.Body>
               <Card.Footer justifyContent="flex-end" gap={2}>
                 <Button variant="outline" asChild>
-                  <ReactRouterLink to={`/v2/org/${customer.uuid}`}>
+                  <ReactRouterLink to={`/v2/org/${customer.uuid}/view`}>
                     View Details
                   </ReactRouterLink>
                 </Button>

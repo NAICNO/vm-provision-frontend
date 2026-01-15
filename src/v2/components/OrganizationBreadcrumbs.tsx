@@ -1,5 +1,5 @@
 import { Box, Container, HStack, Text } from '@chakra-ui/react'
-import { LuBuilding2, LuChevronRight, LuPlus, LuServer } from 'react-icons/lu'
+import { LuBuilding2, LuChevronRight, LuPlus, LuServer, LuUser } from 'react-icons/lu'
 import { Link, useLocation } from 'react-router'
 import { useOrganizationContext } from '../context/OrganizationContext'
 
@@ -17,6 +17,15 @@ function generateBreadcrumbs(
 
   // Organization selection page has no breadcrumbs
   if (pathname === '/v2/select-organization') {
+    return breadcrumbs
+  }
+
+  // Handle profile page
+  if (pathname === '/v2/profile') {
+    breadcrumbs.push({
+      label: 'Profile',
+      icon: <LuUser size={16} />,
+    })
     return breadcrumbs
   }
 
