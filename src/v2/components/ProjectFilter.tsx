@@ -1,4 +1,4 @@
-import { MenuContent, MenuItem, MenuRoot, MenuTrigger, Button } from '@chakra-ui/react'
+import { Menu, Button, Portal } from '@chakra-ui/react'
 import { LuChevronDown, LuCheck, LuLayoutGrid } from 'react-icons/lu'
 import { useState, useEffect, useMemo } from 'react'
 import type { Resource } from '../../client/types.gen'
@@ -51,36 +51,40 @@ export const ProjectFilter = ({ resources, onFilterChange, organizationUuid }: P
   }
 
   return (
-    <MenuRoot>
-      <MenuTrigger asChild>
+    <Menu.Root>
+      <Menu.Trigger asChild>
         <Button variant="outline" size="md">
           <LuLayoutGrid />
           {buttonLabel}
           <LuChevronDown />
         </Button>
-      </MenuTrigger>
-      <MenuContent minW="200px">
-        {/* All Projects option */}
-        <MenuItem
-          value="all"
-          onClick={() => setSelectedProjectUuid(null)}
-        >
-          {!selectedProjectUuid && <LuCheck />}
-          All Projects ({resources.length})
-        </MenuItem>
+      </Menu.Trigger>
+      <Portal>
+        <Menu.Positioner>
+          <Menu.Content minW="200px">
+            {/* All Projects option */}
+            <Menu.Item
+              value="all"
+              onClick={() => setSelectedProjectUuid(null)}
+            >
+              {!selectedProjectUuid && <LuCheck />}
+            All Projects ({resources.length})
+            </Menu.Item>
 
-        {/* Individual project options */}
-        {projects.map((project) => (
-          <MenuItem
-            key={project.uuid}
-            value={project.uuid}
-            onClick={() => setSelectedProjectUuid(project.uuid)}
-          >
-            {selectedProjectUuid === project.uuid && <LuCheck />}
-            {project.name} ({project.vmCount})
-          </MenuItem>
-        ))}
-      </MenuContent>
-    </MenuRoot>
+            {/* Individual project options */}
+            {projects.map((project) => (
+              <Menu.Item
+                key={project.uuid}
+                value={project.uuid}
+                onClick={() => setSelectedProjectUuid(project.uuid)}
+              >
+                {selectedProjectUuid === project.uuid && <LuCheck />}
+                {project.name} ({project.vmCount})
+              </Menu.Item>
+            ))}
+          </Menu.Content>
+        </Menu.Positioner>
+      </Portal>
+    </Menu.Root>
   )
 }

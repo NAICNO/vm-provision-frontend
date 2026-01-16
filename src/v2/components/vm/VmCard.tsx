@@ -1,56 +1,49 @@
-import { Card, Text, Badge, HStack, VStack, Button, Skeleton } from '@chakra-ui/react'
-import { LuServer, LuPlay, LuPause, LuRotateCw, LuTrash2 } from 'react-icons/lu'
+import { Card, Text, HStack, VStack, Button, Skeleton } from '@chakra-ui/react'
+import { LuServer, LuPlay, LuRotateCw } from 'react-icons/lu'
+import { Tooltip } from '../../../components/ui/tooltip'
 import type { Resource } from '../../../client/types.gen'
-import { useState } from 'react'
+import { VmStateIndicator } from './VmStateIndicator'
+import { useOpenstackInstance } from '../../hooks/useOpenstackInstance'
+import { useStartVm, usePullVm } from '../../hooks/useVmActions'
+import { useNavigate } from 'react-router'
+import { useOrganizationContext } from '../../context/OrganizationContext'
 
 interface VmCardProps {
   resource: Resource
-  onAction?: (action: string, resourceUuid: string) => void
 }
 
 /**
- * VM Card component - displays individual VM resource information
+ * VM Card component - displays individual VM resource information with actions
  */
-export const VmCard = ({ resource, onAction }: VmCardProps) => {
-  const [isLoading, setIsLoading] = useState(false)
+export const VmCard = ({ resource }: VmCardProps) => {
+  const navigate = useNavigate()
+  const { selectedOrg } = useOrganizationContext()
+  const { data: instance, isLoading: isLoadingInstance, error: instanceError } = useOpenstackInstance(resource.scope)
+  const startVm = useStartVm()
+  const pullVm = usePullVm()
 
-  const getStateColor = (state?: string) => {
-    switch (state) {
-    case 'OK':
-      return 'green'
-    case 'Creating':
-      return 'blue'
-    case 'Updating':
-      return 'cyan'
-    case 'Terminating':
-      return 'orange'
-    case 'Erred':
-      return 'red'
-    default:
-      return 'gray'
+  const handleViewDetails = () => {
+    if (selectedOrg?.uuid && resource.uuid) {
+      navigate(`/v2/org/${selectedOrg.uuid}/vms/${resource.uuid}`)
     }
   }
 
-  const getStateBadge = (state?: string) => {
-    const color = getStateColor(state)
-    return (
-      <Badge colorPalette={color} variant="solid">
-        {state || 'Unknown'}
-      </Badge>
-    )
-  }
-
-  const handleAction = async (action: string) => {
-    if (!resource.uuid) return
-    setIsLoading(true)
-    try {
-      await onAction?.(action, resource.uuid)
-    } finally {
-      setIsLoading(false)
+  const handleStart = () => {
+    if (instance?.uuid) {
+      startVm.mutate(instance.uuid)
     }
   }
 
-  const canPerformActions = resource.state === 'OK'
+  const handleSync = () => {
+    if (instance?.uuid) {
+      pullVm.mutate(instance.uuid)
+    }
+  }
+
+  // Check if we should show action buttons
+  const showActionButtons = resource.state === 'OK' && resource.scope
+  const canStart = instance?.runtime_state === 'SHUTOFF' || instance?.runtime_state === 'SUSPENDED'
+  const isActionPending = startVm.isPending || pullVm.isPending
 
   return (
     <Card.Root>
@@ -69,27 +62,70 @@ export const VmCard = ({ resource, onAction }: VmCardProps) => {
                 </Text>
               </VStack>
             </HStack>
-            {getStateBadge(resource.state)}
+            <VmStateIndicator resource={resource} instance={instance} />
           </HStack>
 
           {/* Details */}
           <VStack align="stretch" gap={2} fontSize="sm">
+            {/* CPU/RAM/Disk - Priority information */}
+            {(instance?.cores || instance?.ram || instance?.disk) && (
+              <HStack justify="space-between">
+                <Text color="fg.muted">Resources:</Text>
+                <Text fontWeight="medium" fontSize="xs">
+                  {instance.cores ? `${instance.cores} vCPU` : ''}
+                  {instance.cores && instance.ram ? ' • ' : ''}
+                  {instance.ram ? `${(instance.ram / 1024).toFixed(0)} GB RAM` : ''}
+                  {(instance.cores || instance.ram) && instance.disk ? ' • ' : ''}
+                  {instance.disk ? `${(instance.disk / 1024).toFixed(0)} GB Disk` : ''}
+                </Text>
+              </HStack>
+            )}
+            {resource.offering_name && (
+              <HStack justify="space-between">
+                <Text color="fg.muted">Offering:</Text>
+                <Text fontWeight="medium" lineClamp={1}>{resource.offering_name}</Text>
+              </HStack>
+            )}
             {resource.plan_name && (
               <HStack justify="space-between">
                 <Text color="fg.muted">Plan:</Text>
                 <Text fontWeight="medium">{resource.plan_name}</Text>
               </HStack>
             )}
-            {resource.offering_name && (
+            {instance?.flavor_name && (
               <HStack justify="space-between">
-                <Text color="fg.muted">Offering:</Text>
-                <Text fontWeight="medium">{resource.offering_name}</Text>
+                <Text color="fg.muted">Flavor:</Text>
+                <Text fontWeight="medium">{instance.flavor_name}</Text>
               </HStack>
             )}
-            {resource.backend_id && (
+            {instance?.image_name && (
               <HStack justify="space-between">
-                <Text color="fg.muted">Backend ID:</Text>
-                <Text fontFamily="mono" fontSize="xs">{resource.backend_id}</Text>
+                <Text color="fg.muted">Image:</Text>
+                <Text fontWeight="medium" lineClamp={1}>{instance.image_name}</Text>
+              </HStack>
+            )}
+            {instance?.internal_ips && instance.internal_ips.length > 0 && (
+              <HStack justify="space-between">
+                <Text color="fg.muted">Internal IP:</Text>
+                <Text fontFamily="mono" fontSize="xs">{instance.internal_ips[0]}</Text>
+              </HStack>
+            )}
+            {instance?.external_ips && instance.external_ips.length > 0 && (
+              <HStack justify="space-between">
+                <Text color="fg.muted">External IP:</Text>
+                <Text fontFamily="mono" fontSize="xs">{instance.external_ips[0]}</Text>
+              </HStack>
+            )}
+            {resource.limits && (
+              <HStack justify="space-between">
+                <Text color="fg.muted">Resources:</Text>
+                <Text fontWeight="medium" fontSize="xs">
+                  {resource.limits.cpu ? `${resource.limits.cpu} vCPU` : ''}
+                  {resource.limits.cpu && resource.limits.ram ? ' • ' : ''}
+                  {resource.limits.ram ? `${(resource.limits.ram / 1024).toFixed(0)} GB RAM` : ''}
+                  {(resource.limits.cpu || resource.limits.ram) && resource.limits.storage ? ' • ' : ''}
+                  {resource.limits.storage ? `${(resource.limits.storage / 1024).toFixed(0)} GB Storage` : ''}
+                </Text>
               </HStack>
             )}
             {resource.created && (
@@ -100,44 +136,57 @@ export const VmCard = ({ resource, onAction }: VmCardProps) => {
             )}
           </VStack>
 
-          {/* Action Buttons - Phase 3 */}
-          <HStack gap={2} justify="end">
+          {/* Action Buttons */}
+          <HStack gap={2} justify="space-between" width="full">
+            {showActionButtons ? (
+              isLoadingInstance ? (
+                <HStack gap={2}>
+                  <Skeleton width="40px" height="32px" />
+                  <Skeleton width="40px" height="32px" />
+                </HStack>
+              ) : instance ? (
+                <HStack gap={2}>
+                  {canStart && (
+                    <Tooltip content="Start VM">
+                      <Button
+                        size="sm"
+                        colorPalette="green"
+                        onClick={handleStart}
+                        disabled={isActionPending}
+                        loading={startVm.isPending}
+                      >
+                        <LuPlay />
+                      </Button>
+                    </Tooltip>
+                  )}
+                  <Tooltip content="Sync with OpenStack">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={handleSync}
+                      disabled={isActionPending}
+                      loading={pullVm.isPending}
+                    >
+                      <LuRotateCw />
+                    </Button>
+                  </Tooltip>
+                </HStack>
+              ) : instanceError ? (
+                <Text fontSize="xs" color="red.600">Failed to load actions</Text>
+              ) : null
+            ) : resource.state === 'Creating' ? (
+              <Text fontSize="xs" color="blue.600">VM is being created...</Text>
+            ) : resource.state === 'Terminating' ? (
+              <Text fontSize="xs" color="orange.600">VM is terminating...</Text>
+            ) : (
+              <Text fontSize="xs" color="fg.muted">Actions unavailable</Text>
+            )}
             <Button
               size="sm"
               variant="outline"
-              disabled={!canPerformActions || isLoading}
-              onClick={() => handleAction('start')}
-              title="Start VM (Coming in Phase 3)"
+              onClick={handleViewDetails}
             >
-              <LuPlay />
-            </Button>
-            <Button
-              size="sm"
-              variant="outline"
-              disabled={!canPerformActions || isLoading}
-              onClick={() => handleAction('stop')}
-              title="Stop VM (Coming in Phase 3)"
-            >
-              <LuPause />
-            </Button>
-            <Button
-              size="sm"
-              variant="outline"
-              disabled={!canPerformActions || isLoading}
-              onClick={() => handleAction('restart')}
-              title="Restart VM (Coming in Phase 3)"
-            >
-              <LuRotateCw />
-            </Button>
-            <Button
-              size="sm"
-              variant="outline"
-              colorPalette="red"
-              disabled={!canPerformActions || isLoading}
-              onClick={() => handleAction('terminate')}
-              title="Terminate VM (Coming in Phase 3)"
-            >
-              <LuTrash2 />
+              Details
             </Button>
           </HStack>
         </VStack>
@@ -169,11 +218,13 @@ export const VmCardSkeleton = () => {
             <Skeleton width="100%" height="20px" />
             <Skeleton width="100%" height="20px" />
           </VStack>
-          <HStack gap={2} justify="end">
-            <Skeleton width="40px" height="32px" />
-            <Skeleton width="40px" height="32px" />
-            <Skeleton width="40px" height="32px" />
-            <Skeleton width="40px" height="32px" />
+          <HStack gap={2} justify="space-between">
+            <Skeleton width="80px" height="32px" />
+            <HStack gap={2}>
+              <Skeleton width="40px" height="32px" />
+              <Skeleton width="40px" height="32px" />
+              <Skeleton width="40px" height="32px" />
+            </HStack>
           </HStack>
         </VStack>
       </Card.Body>

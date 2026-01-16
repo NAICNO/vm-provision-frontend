@@ -2,8 +2,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   RouteObject,
-  Navigate,
-  Outlet
+  Navigate
 } from 'react-router'
 
 import {
@@ -42,10 +41,11 @@ import {
   CreateOffering,
   ViewEditOffering,
   TestPage,
+  VmDashboard,
+  VmDetails,
 } from './v2/pages'
 
 // V2 (Waldur) imports - New
-import VmDashboard from './v2/pages/VmDashboard'
 import V2Profile from './v2/pages/Profile'
 import { OrganizationProvider } from './v2/context/OrganizationContext'
 import { OrgLayoutWrapper } from './v2/layouts/OrgLayoutWrapper'
@@ -112,6 +112,10 @@ const routes: RouteObject[] = [
               {
                 path: 'vms',
                 element: <VmDashboard />
+              },
+              {
+                path: 'vms/:resourceUuid',
+                element: <VmDetails />
               },
               // Existing organization management routes
               {

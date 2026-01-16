@@ -1,6 +1,6 @@
 import { Box, Container, Breadcrumb, HStack } from '@chakra-ui/react'
 import { LuBuilding2, LuChevronRight, LuPlus, LuServer, LuUser } from 'react-icons/lu'
-import { Link as ReactRouterLink, useLocation } from 'react-router'
+import { Link as ReactRouterLink, useLocation, useParams } from 'react-router'
 import { useOrganizationContext } from '../context/OrganizationContext'
 
 interface BreadcrumbItem {
@@ -117,6 +117,21 @@ function generateBreadcrumbs(
     path: `/v2/org/${orgId}/vms`,
     icon: <LuBuilding2 size={16} />,
   })
+
+  // Check for VM details page (must be before other checks)
+  const vmDetailsMatch = pathname.match(/^\/v2\/org\/[^/]+\/vms\/([^/]+)/)
+  if (vmDetailsMatch) {
+    breadcrumbs.push({
+      label: 'VMs',
+      path: `/v2/org/${orgId}/vms`,
+      icon: <LuServer size={16} />,
+    })
+    breadcrumbs.push({
+      label: 'VM Details',
+      icon: <LuServer size={16} />,
+    })
+    return breadcrumbs
+  }
 
   // Check for organization detail tabs first
   const tabLabel = getTabFromPath(pathname, ORG_DETAIL_TABS)
