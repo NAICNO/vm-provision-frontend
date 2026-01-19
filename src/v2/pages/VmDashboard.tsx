@@ -12,6 +12,7 @@ import {
   Container,
   Input,
   InputGroup,
+  SimpleGrid,
 } from '@chakra-ui/react'
 import { useOrganizationContext } from '../context/OrganizationContext'
 import { useOrganization } from '../hooks/useOrganization'
@@ -20,6 +21,10 @@ import { useOrgVmResources, calculateResourceStats } from '../hooks/useOrgVmReso
 import { VmList } from '../components/vm/VmList'
 import { ProjectFilter } from '../components/ProjectFilter'
 import { useState, useMemo } from 'react'
+import { useCustomerCredits, useCustomerProjectCredits } from '../hooks/useCredits'
+import { CreditBalanceCard } from '../components/credits/CreditBalanceCard'
+import { ProjectCreditSummary } from '../components/credits/ProjectCreditSummary'
+import { calculateTotalCustomerCredits, calculateCustomerCreditConsumption } from '../util/creditUtils'
 
 /**
  * VM Dashboard - Phase 2 implementation
@@ -29,12 +34,20 @@ export default function VmDashboard() {
   const { selectedOrg } = useOrganizationContext()
   const { data: organization, isLoading: isLoadingOrg } = useOrganization(selectedOrg?.uuid)
   const { data: resources = [], isLoading: isLoadingResources } = useOrgVmResources(selectedOrg?.uuid)
+  
+  // Fetch credits data
+  const { data: customerCredits = [], isLoading: isLoadingCustomerCredits } = useCustomerCredits(selectedOrg?.uuid)
+  const { data: projectCredits = [], isLoading: isLoadingProjectCredits } = useCustomerProjectCredits(selectedOrg?.uuid)
 
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedProjectUuid, setSelectedProjectUuid] = useState<string | null>(null)
 
   // Calculate stats
   const stats = useMemo(() => calculateResourceStats(resources), [resources])
+  
+  // Calculate aggregated customer credits (if multiple credit allocations exist)
+  const totalCustomerCreditValue = useMemo(() => calculateTotalCustomerCredits(customerCredits), [customerCredits])
+  const totalCustomerConsumption = useMemo(() => calculateCustomerCreditConsumption(customerCredits), [customerCredits])
 
   // Filter resources by project and search query
   const filteredResources = useMemo(() => {
@@ -91,6 +104,39 @@ export default function VmDashboard() {
             <LuPlus /> Create VM
           </Button>
         </HStack>
+
+        {/* Credits Section */}
+        {!isLoadingCustomerCredits && !isLoadingProjectCredits && (
+          <SimpleGrid columns={{ base: 1, xl: 2 }} gap={6} width="full">
+            {/* Customer Credits - Show aggregate if multiple, individual if one */}
+            {customerCredits.length > 0 && (
+              <CreditBalanceCard
+                credit={customerCredits[0]}
+                type="customer"
+                showRequestButton={false}
+                aggregateTotal={customerCredits.length > 1 ? totalCustomerCreditValue : undefined}
+                aggregateConsumption={customerCredits.length > 1 ? totalCustomerConsumption : undefined}
+                creditCount={customerCredits.length}
+              />
+            )}
+
+            {/* Project Credits Summary */}
+            {projectCredits.length > 0 && (
+              <ProjectCreditSummary
+                projectCredits={projectCredits}
+                onProjectClick={(projectUuid) => setSelectedProjectUuid(projectUuid)}
+              />
+            )}
+          </SimpleGrid>
+        )}
+
+        {/* Loading Skeletons for Credits */}
+        {(isLoadingCustomerCredits || isLoadingProjectCredits) && (
+          <SimpleGrid columns={{ base: 1, xl: 2 }} gap={6} width="full">
+            <Skeleton height="300px" />
+            <Skeleton height="300px" />
+          </SimpleGrid>
+        )}
 
         {/* Stats Cards */}
         <HStack gap={4} width="full" wrap="wrap">

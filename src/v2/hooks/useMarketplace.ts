@@ -3,6 +3,7 @@ import QueryKeys from '../../constants/QueryKeys.ts'
 import {
   customersCreate,
   marketplaceCategoriesList,
+  marketplacePlansRetrieve,
   marketplaceProviderOfferingsCreate,
   marketplaceResourceOfferingsList,
   marketplaceServiceProvidersCreate,
@@ -16,6 +17,7 @@ import type {
   OfferingCreate,
   OfferingCreateRequest,
   ProviderOffering,
+  ProviderPlanDetails,
   ServiceProvider
 } from '../../client/types.gen'
 import { OnErrorCallback, OnSuccessCallback } from '../../types/ReactQueryCallback.ts'
@@ -95,5 +97,23 @@ export const useCreateOffering = (
     },
     onSuccess: (result) => onSuccess(result),
     onError: (error) => onError(error),
+  })
+}
+
+export const useFetchPlanDetails = (planUuid: string | undefined) => {
+  return useQuery<ProviderPlanDetails | undefined, Error>({
+    queryKey: [QueryKeys.W_PLAN_DETAILS, planUuid],
+    queryFn: async (): Promise<ProviderPlanDetails | undefined> => {
+      if (!planUuid) return undefined
+      
+      const response = await marketplacePlansRetrieve({
+        path: { uuid: planUuid },
+      })
+      
+      console.log('useFetchPlanDetails response:', response.data)
+      return response.data
+    },
+    enabled: !!planUuid,
+    staleTime: 5 * 60 * 1000, // 5 minutes - pricing rarely changes
   })
 }

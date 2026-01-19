@@ -9,17 +9,21 @@ import {
   Skeleton,
   Stack,
   Code,
+  Box,
+  Badge,
 } from '@chakra-ui/react'
 import { useParams, useNavigate } from 'react-router'
 import { useResource } from '../hooks/useMarketplaceResource'
 import { useOpenstackInstance } from '../hooks/useOpenstackInstance'
 import { usePullVm } from '../hooks/useVmActions'
+import { useFetchPlanDetails } from '../hooks/useMarketplace'
 import { VmStateIndicator } from '../components/vm/VmStateIndicator'
 import { VmActionButtons } from '../components/vm/VmActionButtons'
 import { Tooltip } from '../../components/ui/tooltip'
 import { LuArrowLeft, LuServer, LuHardDrive, LuNetwork, LuClock, LuTag, LuKey, LuShield, LuTriangle, LuUsers, LuRotateCw } from 'react-icons/lu'
 import { Button } from '@chakra-ui/react'
 import moment from 'moment'
+import { ResourceUsageCard } from '../components/credits/ResourceUsageCard'
 
 /**
  * VmDetails Page - Phase 3 implementation
@@ -31,6 +35,7 @@ export default function VmDetails() {
 
   const { data: resource, isLoading: isLoadingResource } = useResource(resourceUuid)
   const { data: instance, isLoading: isLoadingInstance } = useOpenstackInstance(resource?.scope)
+  const { data: planDetails, isLoading: isLoadingPlan } = useFetchPlanDetails(resource?.plan_uuid)
   const pullVm = usePullVm()
 
   const isLoading = isLoadingResource || isLoadingInstance
@@ -240,6 +245,14 @@ export default function VmDetails() {
 
           {/* Right Column */}
           <VStack gap={4}>
+            {/* VM Cost Estimate */}
+            <ResourceUsageCard
+              instance={instance}
+              plan={planDetails}
+              isLoading={isLoadingInstance || isLoadingPlan}
+              resourceName={vmName}
+            />
+            
             {/* SSH & Security */}
             {instance && (
               <Card.Root width="full">
