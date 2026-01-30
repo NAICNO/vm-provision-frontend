@@ -47,7 +47,7 @@ export const useFetchCustomerOfferings = (serviceProviderUuid: string) => {
       queryKey: [QueryKeys.W_MARKETPLACE_OFFERINGS, serviceProviderUuid],
       queryFn: async (): Promise<ProviderOffering[] | undefined> => {
         const response = await marketplaceServiceProvidersOfferingsList({
-          path: {uuid: serviceProviderUuid},
+          path: {service_provider_uuid: serviceProviderUuid},
         })
 
         console.log('useFetchCustomerOfferings response', response)

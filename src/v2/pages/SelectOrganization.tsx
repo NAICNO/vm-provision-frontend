@@ -25,15 +25,25 @@ import { useEffect } from 'react'
 
 import { useFetchCustomers } from '../hooks/useCustomer.ts'
 import { useOrganizationContext } from '../context/OrganizationContext'
+import { useAuth } from '../../context/AuthContext'
 import { formatToDate } from '../../util'
 
 const SelectOrganization = () => {
 
   const {data, isPending} = useFetchCustomers()
   const { selectOrganization } = useOrganizationContext()
+  const { user } = useAuth()
   const navigate = useNavigate()
 
   const customers: Customer[] = data || []
+  const isStaff = user?.is_staff ?? false
+
+  // Redirect to no-access page if user has no organizations and is not staff
+  useEffect(() => {
+    if (!isPending && customers.length === 0 && !isStaff) {
+      navigate('/v2/no-access')
+    }
+  }, [isPending, customers.length, isStaff, navigate])
 
   // Auto-select if user has only one organization
   // useEffect(() => {
@@ -95,14 +105,18 @@ const SelectOrganization = () => {
             <VStack textAlign="center">
               <EmptyState.Title fontSize="2xl">No Organizations Found</EmptyState.Title>
               <EmptyState.Description fontSize="md">
-                You don&apos;t have access to any organizations yet. Create a new organization to get started.
+                {isStaff 
+                  ? 'Create a new organization to get started.'
+                  : 'You don\'t have access to any organizations yet. Please contact an administrator.'}
               </EmptyState.Description>
             </VStack>
-            <Button colorPalette="blue" size="lg" asChild>
-              <ReactRouterLink to={'/v2/add-organization'}>
-                <MdAdd /> Create Organization
-              </ReactRouterLink>
-            </Button>
+            {isStaff && (
+              <Button colorPalette="blue" size="lg" asChild>
+                <ReactRouterLink to={'/v2/add-organization'}>
+                  <MdAdd /> Create Organization
+                </ReactRouterLink>
+              </Button>
+            )}
           </EmptyState.Content>
         </EmptyState.Root>
       </Container>
@@ -119,11 +133,13 @@ const SelectOrganization = () => {
               Choose an organization to manage virtual machines
             </Text>
           </VStack>
-          <Button colorPalette="blue" variant="outline" asChild>
-            <ReactRouterLink to={'/v2/add-organization'}>
-              <MdAdd /> Create Organization
-            </ReactRouterLink>
-          </Button>
+          {isStaff && (
+            <Button colorPalette="blue" variant="outline" asChild>
+              <ReactRouterLink to={'/v2/add-organization'}>
+                <MdAdd /> Create Organization
+              </ReactRouterLink>
+            </Button>
+          )}
         </HStack>
         
         <SimpleGrid

@@ -25,6 +25,7 @@ import { useCustomerCredits, useCustomerProjectCredits } from '../hooks/useCredi
 import { CreditBalanceCard } from '../components/credits/CreditBalanceCard'
 import { ProjectCreditSummary } from '../components/credits/ProjectCreditSummary'
 import { calculateTotalCustomerCredits, calculateCustomerCreditConsumption } from '../util/creditUtils'
+import { useNavigate } from 'react-router'
 
 /**
  * VM Dashboard - Phase 2 implementation
@@ -34,6 +35,7 @@ export default function VmDashboard() {
   const { selectedOrg } = useOrganizationContext()
   const { data: organization, isLoading: isLoadingOrg } = useOrganization(selectedOrg?.uuid)
   const { data: resources = [], isLoading: isLoadingResources } = useOrgVmResources(selectedOrg?.uuid)
+  const navigate = useNavigate()
   
   // Fetch credits data
   const { data: customerCredits = [], isLoading: isLoadingCustomerCredits } = useCustomerCredits(selectedOrg?.uuid)
@@ -100,7 +102,11 @@ export default function VmDashboard() {
               )}
             </HStack>
           </VStack>
-          <Button colorPalette="blue" size="lg" disabled title="Coming in Phase 3">
+          <Button 
+            colorPalette="blue" 
+            size="lg" 
+            onClick={() => navigate(`/v2/org/${selectedOrg?.uuid}/vms/create?orgId=${selectedOrg?.uuid}`)}
+          >
             <LuPlus /> Create VM
           </Button>
         </HStack>

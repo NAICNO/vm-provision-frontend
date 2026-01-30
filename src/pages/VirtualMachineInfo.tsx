@@ -321,7 +321,7 @@ export default function VirtualMachineInfo() {
                         <List.Root unstyled={true} w="full">
                           <List.Item>
                             <Text flex="1" minW="0" w="full" display="block" whiteSpace="normal" wordBreak="break-word"
-                                  overflowWrap="anywhere">You can access Jupyter Notebook by clicking the button below
+                              overflowWrap="anywhere">You can access Jupyter Notebook by clicking the button below
                               or by
                               copying the URL to your
                               browser.</Text>

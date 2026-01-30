@@ -43,7 +43,14 @@ import {
   TestPage,
   VmDashboard,
   VmDetails,
+  CreateVm,
 } from './v2/pages'
+
+// V2 Phase 2 - User Onboarding imports
+import NoAccessPage from './v2/pages/NoAccessPage'
+import InvitationAccept from './v2/pages/InvitationAccept'
+import UserManagement from './v2/pages/admin/UserManagement'
+import PermissionRequests from './v2/pages/admin/PermissionRequests'
 
 // V2 (Waldur) imports - New
 import V2Profile from './v2/pages/Profile'
@@ -94,6 +101,14 @@ const routes: RouteObject[] = [
             element: <CreateOrganization/>
           },
           {
+            path: 'no-access',
+            element: <NoAccessPage/>
+          },
+          {
+            path: 'invitation/:inviteUuid',
+            element: <InvitationAccept/>
+          },
+          {
             path: 'profile',
             element: <V2Profile/>
           },
@@ -112,6 +127,10 @@ const routes: RouteObject[] = [
               {
                 path: 'vms',
                 element: <VmDashboard />
+              },
+              {
+                path: 'vms/create',
+                element: <CreateVm />
               },
               {
                 path: 'vms/:resourceUuid',
@@ -141,6 +160,15 @@ const routes: RouteObject[] = [
               {
                 path: ':serviceProviderId/offering/:offeringId',
                 element: <ViewEditOffering/>
+              },
+              // Phase 2 - Admin routes
+              {
+                path: 'admin/users',
+                element: <UserManagement/>
+              },
+              {
+                path: 'admin/requests',
+                element: <PermissionRequests/>
               },
             ]
           },
