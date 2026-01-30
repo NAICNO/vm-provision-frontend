@@ -14,15 +14,17 @@ import {
   Field,
 } from '@chakra-ui/react'
 import { LuCheck, LuX } from 'react-icons/lu'
-import { useParams } from 'react-router'
 import { AgGridReact } from 'ag-grid-react'
 import type { ColDef } from 'ag-grid-community'
 import { useOrgPermissionRequests, useApprovePermissionRequest, useRejectPermissionRequest } from '../../hooks/useGroupInvitations'
 import { toaster } from '../../../components/ui/toaster'
 import type { PermissionRequest } from '../../../client'
 
-export default function PermissionRequests() {
-  const { orgId } = useParams<{ orgId: string }>()
+interface PermissionRequestsProps {
+  orgId?: string
+}
+
+export default function PermissionRequests({ orgId }: PermissionRequestsProps) {
   const [rejectModalOpen, setRejectModalOpen] = useState(false)
   const [selectedRequest, setSelectedRequest] = useState<PermissionRequest | null>(null)
   const [rejectComment, setRejectComment] = useState('')
@@ -174,8 +176,11 @@ export default function PermissionRequests() {
           <Heading size="2xl" mb={2}>
             Pending Join Requests
           </Heading>
-          <Text color="gray.600">
-            Review and approve or reject user requests to join your organization
+          <Text color="gray.600" mb={1}>
+            Users who have requested to join this organization via Group Invitation.
+          </Text>
+          <Text color="gray.500" fontSize="sm">
+            These are self-service requests from users who found your organization through a group invitation link. Review and approve or reject each request.
           </Text>
         </Box>
 

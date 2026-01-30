@@ -18,6 +18,7 @@ import {
   Tag,
   Container,
   EmptyState,
+  Badge,
 } from '@chakra-ui/react'
 import {
   Link as ReactRouterLink,
@@ -29,6 +30,10 @@ import { MdOutlineMailOutline, MdPhone } from 'react-icons/md'
 import { LuUsers } from 'react-icons/lu'
 
 import OrgAuditLogs from '../components/organization/OrgAuditLogs.tsx'
+import UserManagement from '../components/organization/UserManagement.tsx'
+import PermissionRequests from '../components/organization/PermissionRequests.tsx'
+import OrganizationProjects from '../components/organization/OrganizationProjects.tsx'
+import OrganizationResources from '../components/organization/OrganizationResources.tsx'
 
 import { useFetchCustomer, useFetchUsersOfCustomer } from '../hooks/useCustomer.ts'
 import {
@@ -37,24 +42,79 @@ import {
 import CustomerOfferings from '../components/organization/CustomerOfferingList.tsx'
 import { ValueChangeDetails } from '@zag-js/tabs'
 import { useOrganizationContext } from '../context/OrganizationContext'
-import { useEffect } from 'react'
-
-const tabs = [
-  {value: 'overview', label: 'Overview'},
-  {value: 'users', label: 'Users'},
-  {value: 'offerings', label: 'Offerings'},
-  {value: 'projects', label: 'Projects'},
-  {value: 'resources', label: 'Resources'},
-  {value: 'audit-logs', label: 'Audit Logs'},
-]
+import { useAuth } from '../../context/AuthContext'
+import { useEffect, useMemo } from 'react'
+import { useOrgInvitations } from '../hooks/useUserInvitations'
+import { useOrgPermissionRequests } from '../hooks/useGroupInvitations'
 
 export const ViewOrganization = () => {
   const { orgId, tab } = useParams<{ orgId: string; tab?: string }>()
   const navigate = useNavigate()
   const { selectOrganization } = useOrganizationContext()
+  const { getCustomerCapabilities } = useAuth()
 
   const { data: customer, isPending } = useFetchCustomer(orgId!)
   const { data: serviceProvider } = useFetchCustomerServiceProvider(orgId!)
+  
+  // Get user's capabilities for this organization
+  const capabilities = useMemo(
+    () => getCustomerCapabilities(orgId || ''),
+    [getCustomerCapabilities, orgId]
+  )
+  
+  // Fetch counts for pending actions (only for users with management permissions)
+  const { data: invitations } = useOrgInvitations(capabilities.canInviteUsers ? orgId : undefined)
+  const { data: permissionRequests } = useOrgPermissionRequests(capabilities.canManageOrganization ? orgId : undefined)
+  
+  const pendingInvitationsCount = invitations?.filter(inv => inv.state === 'pending').length || 0
+  const pendingRequestsCount = permissionRequests?.length || 0
+  
+  // Build tabs array based on user permissions
+  const tabs = useMemo(() => {
+    const baseTabs: Array<{value: string; label: string; count?: number}> = [
+      {value: 'overview', label: 'Overview'},
+    ]
+
+    // Users list is admin-only
+    if (capabilities.canManageOrganization) {
+      baseTabs.push({value: 'users', label: 'Users'})
+    }
+
+    // Admin-only tabs
+    if (capabilities.canInviteUsers) {
+      baseTabs.push({
+        value: 'user-management',
+        label: 'User Management',
+        ...(pendingInvitationsCount > 0 && {count: pendingInvitationsCount})
+      })
+    }
+
+    if (capabilities.canManageOrganization) {
+      baseTabs.push({
+        value: 'permission-requests',
+        label: 'Permission Requests',
+        ...(pendingRequestsCount > 0 && {count: pendingRequestsCount})
+      })
+    }
+
+    // Service provider specific tabs
+    if (customer?.is_service_provider) {
+      baseTabs.push({value: 'offerings', label: 'Offerings'})
+    }
+
+    // Common tabs
+    baseTabs.push(
+      {value: 'projects', label: 'Projects'},
+      {value: 'resources', label: 'Resources'},
+    )
+
+    // Audit logs for admins only
+    if (capabilities.canManageOrganization) {
+      baseTabs.push({value: 'audit-logs', label: 'Audit Logs'})
+    }
+
+    return baseTabs
+  }, [capabilities, pendingInvitationsCount, pendingRequestsCount, customer?.is_service_provider])
 
   // Update selected organization in context when customer data is loaded
   useEffect(() => {
@@ -161,18 +221,24 @@ export const ViewOrganization = () => {
               </VStack>
             </HStack>
           </Card.Body>
-          <Card.Footer>
-            <Button variant="outline" asChild>
-              <ReactRouterLink to={`/v2/org/${orgId}/edit`}>
-                Edit Organization
-              </ReactRouterLink>
-            </Button>
-            <Button colorPalette="blue" asChild>
-              <ReactRouterLink to={`/v2/org/${orgId}/add-project`}>
-                Add Project
-              </ReactRouterLink>
-            </Button>
-          </Card.Footer>
+          {(capabilities.canManageOrganization || capabilities.canCreateProjects) && (
+            <Card.Footer>
+              {capabilities.canManageOrganization && (
+                <Button variant="outline" asChild>
+                  <ReactRouterLink to={`/v2/org/${orgId}/edit`}>
+                    Edit Organization
+                  </ReactRouterLink>
+                </Button>
+              )}
+              {capabilities.canCreateProjects && (
+                <Button colorPalette="blue" asChild>
+                  <ReactRouterLink to={`/v2/org/${orgId}/add-project`}>
+                    Add Project
+                  </ReactRouterLink>
+                </Button>
+              )}
+            </Card.Footer>
+          )}
         </Card.Root>
 
         <Tabs.Root
@@ -185,7 +251,16 @@ export const ViewOrganization = () => {
           <Tabs.List>
             <For each={tabs}>
               {(tab, index) =>
-                <Tabs.Trigger value={tab.value} key={index}>{tab.label}</Tabs.Trigger>
+                <Tabs.Trigger value={tab.value} key={index}>
+                  <HStack gap={2}>
+                    <Text>{tab.label}</Text>
+                    {tab.count && tab.count > 0 && (
+                      <Badge colorPalette="red" variant="solid" size="sm">
+                        {tab.count}
+                      </Badge>
+                    )}
+                  </HStack>
+                </Tabs.Trigger>
               }
             </For>
           </Tabs.List>
@@ -200,8 +275,23 @@ export const ViewOrganization = () => {
           <Tabs.Content value={'users'}>
             <CustomerUsersList customerUuid={customer.uuid!}/>
           </Tabs.Content>
+          <Tabs.Content value={'user-management'}>
+            <UserManagement orgId={orgId} />
+          </Tabs.Content>
+          <Tabs.Content value={'permission-requests'}>
+            <PermissionRequests orgId={orgId} />
+          </Tabs.Content>
           <Tabs.Content value={'offerings'}>
-            <CustomerOfferings serviceProvider={serviceProvider?.[0] || undefined}/>
+            <CustomerOfferings 
+              serviceProvider={serviceProvider?.[0] || undefined}
+              canManage={capabilities.canManageOrganization}
+            />
+          </Tabs.Content>
+          <Tabs.Content value={'projects'}>
+            <OrganizationProjects orgId={orgId} />
+          </Tabs.Content>
+          <Tabs.Content value={'resources'}>
+            <OrganizationResources orgId={orgId} />
           </Tabs.Content>
           <Tabs.Content value={'audit-logs'}>
             <OrgAuditLogs orgId={orgId!}/>

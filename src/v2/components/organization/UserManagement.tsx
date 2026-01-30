@@ -11,7 +11,6 @@ import {
   Spinner,
 } from '@chakra-ui/react'
 import { LuUserPlus, LuRefreshCw, LuX } from 'react-icons/lu'
-import { useParams } from 'react-router'
 import { AgGridReact } from 'ag-grid-react'
 import type { ColDef } from 'ag-grid-community'
 import { useFetchCustomer, useFetchUsersOfCustomer } from '../../hooks/useCustomer'
@@ -28,8 +27,11 @@ interface CustomerUser {
   projects?: string[]
 }
 
-export default function UserManagement() {
-  const { orgId } = useParams<{ orgId: string }>()
+interface UserManagementProps {
+  orgId?: string
+}
+
+export default function UserManagement({ orgId }: UserManagementProps) {
   const [inviteModalOpen, setInviteModalOpen] = useState(false)
 
   const { data: customer } = useFetchCustomer(orgId || '')
@@ -261,9 +263,12 @@ export default function UserManagement() {
 
         {/* Pending Invitations */}
         <Box>
-          <Heading size="lg" mb={4}>
+          <Heading size="lg" mb={2}>
             Pending Invitations
           </Heading>
+          <Text color="fg.muted" mb={4}>
+            Users you&apos;ve invited to join this organization. You can resend or cancel invitations that haven&apos;t been accepted yet.
+          </Text>
           {loadingInvitations ? (
             <Box textAlign="center" py={8}>
               <Spinner />
