@@ -1,5 +1,6 @@
-import { Card, Text, HStack, VStack, Button, Skeleton } from '@chakra-ui/react'
-import { LuServer, LuPlay, LuRotateCw } from 'react-icons/lu'
+import { Card, Text, HStack, VStack, Button, Skeleton, Badge } from '@chakra-ui/react'
+import { LuPlay, LuRotateCw, LuEye } from 'react-icons/lu'
+import { MdComputer } from 'react-icons/md'
 import { Tooltip } from '../../../components/ui/tooltip'
 import type { Resource } from '../../../client/types.gen'
 import { VmStateIndicator } from './VmStateIndicator'
@@ -8,14 +9,16 @@ import { useStartVm, usePullVm } from '../../hooks/useVmActions'
 import { useNavigate } from 'react-router'
 import { useOrganizationContext } from '../../context/OrganizationContext'
 
+
 interface VmCardProps {
   resource: Resource
+  compact?: boolean
 }
 
 /**
  * VM Card component - displays individual VM resource information with actions
  */
-export const VmCard = ({ resource }: VmCardProps) => {
+export const VmCard = ({ resource, compact = false }: VmCardProps) => {
   const navigate = useNavigate()
   const { selectedOrg } = useOrganizationContext()
   const { data: instance, isLoading: isLoadingInstance, error: instanceError } = useOpenstackInstance(resource.scope)
@@ -40,26 +43,26 @@ export const VmCard = ({ resource }: VmCardProps) => {
     }
   }
 
-  // Check if we should show action buttons
+  // VmCard is for VMs only (OpenStack.Instance)
   const showActionButtons = resource.state === 'OK' && resource.scope
   const canStart = instance?.runtime_state === 'SHUTOFF' || instance?.runtime_state === 'SUSPENDED'
   const isActionPending = startVm.isPending || pullVm.isPending
 
   return (
-    <Card.Root>
-      <Card.Body>
-        <VStack align="stretch" gap={4}>
+    <Card.Root size={compact ? 'sm' : 'md'}>
+      <Card.Body p={compact ? 4 : 6}>
+        <VStack align="stretch" gap={compact ? 3 : 4}>
           {/* Header */}
           <HStack justify="space-between">
             <HStack gap={3}>
-              <LuServer size={24} />
+              <MdComputer size={compact ? 20 : 24} />
               <VStack align="start" gap={1}>
-                <Text fontWeight="bold" fontSize="lg">
+                <Text fontWeight="bold" fontSize={compact ? 'md' : 'lg'}>
                   {(resource.attributes?.name as string) || resource.uuid || 'Unknown'}
                 </Text>
-                <Text fontSize="sm" color="fg.muted">
-                  {resource.project_name}
-                </Text>
+                <Badge colorPalette="blue" size="sm" variant="subtle">
+                  Virtual Machine
+                </Badge>
               </VStack>
             </HStack>
             <VmStateIndicator resource={resource} instance={instance} />
@@ -184,9 +187,11 @@ export const VmCard = ({ resource }: VmCardProps) => {
             <Button
               size="sm"
               variant="outline"
+              colorPalette="orange"
               onClick={handleViewDetails}
             >
-              Details
+              <LuEye />
+              View VM Details
             </Button>
           </HStack>
         </VStack>

@@ -9,23 +9,18 @@ import {
   HStack,
   Badge,
   Spinner,
+  Dialog,
+  Portal,
 } from '@chakra-ui/react'
-import { LuUserPlus, LuRefreshCw, LuX } from 'react-icons/lu'
+import { LuUserPlus, LuRefreshCw, LuX, LuUserCheck } from 'react-icons/lu'
 import { AgGridReact } from 'ag-grid-react'
 import type { ColDef } from 'ag-grid-community'
 import { useFetchCustomer, useFetchUsersOfCustomer } from '../../hooks/useCustomer'
-import { useOrgInvitations, useCancelInvitation, useResendInvitation } from '../../hooks/useUserInvitations'
+import { useOrgInvitations, useCancelInvitation, useResendInvitation, useRemoveUserFromOrg } from '../../hooks/useUserInvitations'
 import { InviteUserModal } from '../../components/InviteUserModal'
+import { AddExistingUserModal } from '../../components/AddExistingUserModal'
 import { toaster } from '../../../components/ui/toaster'
-import type { Invitation } from '../../../client'
-
-interface CustomerUser {
-  uuid: string
-  full_name: string
-  email: string
-  role: string
-  projects?: string[]
-}
+import type { Invitation, CustomerUser } from '../../../client'
 
 interface UserManagementProps {
   orgId?: string
@@ -33,24 +28,25 @@ interface UserManagementProps {
 
 export default function UserManagement({ orgId }: UserManagementProps) {
   const [inviteModalOpen, setInviteModalOpen] = useState(false)
+  const [addUserModalOpen, setAddUserModalOpen] = useState(false)
+  const [userToRemove, setUserToRemove] = useState<{ uuid: string; name: string; role: string } | null>(null)
 
   const { data: customer } = useFetchCustomer(orgId || '')
   const { data: customerUsers } = useFetchUsersOfCustomer(orgId || '')
   const { data: invitations, isLoading: loadingInvitations } = useOrgInvitations(orgId)
   const cancelInvitation = useCancelInvitation()
   const resendInvitation = useResendInvitation()
+  const removeUserFromOrg = useRemoveUserFromOrg()
 
   // Transform customer permission data to user list
   const users: CustomerUser[] = customerUsers
-    ? customerUsers.map((user: unknown) => {
-      const perm = user as { user_uuid?: string; user_full_name?: string; user_username?: string; user_email?: string; role_description?: string; role_name?: string }
-      return {
-        uuid: perm.user_uuid || '',
-        full_name: perm.user_full_name || perm.user_username || '',
-        email: perm.user_email || '',
-        role: perm.role_description || perm.role_name || '',
-      }
-    })
+    ? customerUsers.map((user) => ({
+      uuid: user.uuid || '',
+      full_name: user.full_name || user.username || '',
+      email: user.email || '',
+      role: user.role || user.role_name || '',
+      projects: user.projects,
+    }))
     : []
 
   const handleCancelInvitation = async (uuid: string, email: string) => {
@@ -93,6 +89,33 @@ export default function UserManagement({ orgId }: UserManagementProps) {
     }
   }
 
+  const handleRemoveUser = async () => {
+    if (!userToRemove || !orgId) return
+
+    try {
+      await removeUserFromOrg.mutateAsync({
+        customer_uuid: orgId,
+        user_uuid: userToRemove.uuid,
+        role: userToRemove.role,
+      })
+      toaster.create({
+        title: 'User removed',
+        description: `${userToRemove.name} has been removed from the organization`,
+        type: 'success',
+        duration: 5000,
+      })
+      setUserToRemove(null)
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'An error occurred'
+      toaster.create({
+        title: 'Failed to remove user',
+        description: errorMessage,
+        type: 'error',
+        duration: 5000,
+      })
+    }
+  }
+
   const userColumnDefs: ColDef<CustomerUser>[] = [
     {
       headerName: 'Name',
@@ -113,12 +136,40 @@ export default function UserManagement({ orgId }: UserManagementProps) {
       field: 'role',
       sortable: true,
       filter: true,
+      // TODO: Fix role display to properly show Waldur RBAC roles
+      // - Organization roles: CUSTOMER.OWNER, CUSTOMER.MEMBER (from user.role/role_name)
+      // - Project roles: PROJECT.ADMIN, PROJECT.MANAGER, PROJECT.MEMBER (from user.projects[].role_name)
+      // - Display human-readable names and include project-specific roles
       cellRenderer: (params: { value?: string }) => {
         const role = params.value || 'Member'
         const colorPalette = role.includes('OWNER') ? 'purple' : 
           role.includes('MANAGER') ? 'blue' : 'green'
         return <Badge colorPalette={colorPalette}>{role}</Badge>
       },
+    },
+    {
+      headerName: 'Actions',
+      cellRenderer: (params: { data?: CustomerUser }) => {
+        const user = params.data
+        if (!user || !user.uuid) return null
+        
+        return (
+          <Button
+            size="sm"
+            colorPalette="red"
+            variant="outline"
+            onClick={() => setUserToRemove({ 
+              uuid: user.uuid || '', 
+              name: user.full_name || user.email || 'Unknown', 
+              role: user.role || user.role_name || 'Member' 
+            })}
+          >
+            <LuX />
+            Remove
+          </Button>
+        )
+      },
+      flex: 0.5,
     },
   ]
 
@@ -228,13 +279,23 @@ export default function UserManagement({ orgId }: UserManagementProps) {
               {customer?.name} - {users.length} members
             </Text>
           </Box>
-          <Button
-            colorPalette="blue"
-            onClick={() => setInviteModalOpen(true)}
-          >
-            <LuUserPlus />
-            Invite User
-          </Button>
+          <HStack gap={2}>
+            <Button
+              colorPalette="blue"
+              variant="outline"
+              onClick={() => setAddUserModalOpen(true)}
+            >
+              <LuUserCheck />
+              Add Existing User
+            </Button>
+            <Button
+              colorPalette="blue"
+              onClick={() => setInviteModalOpen(true)}
+            >
+              <LuUserPlus />
+              Invite User
+            </Button>
+          </HStack>
         </HStack>
 
         {/* Active Users */}
@@ -298,8 +359,60 @@ export default function UserManagement({ orgId }: UserManagementProps) {
           onClose={() => setInviteModalOpen(false)}
           customerUuid={orgId!}
           customerName={customer?.name || 'Organization'}
-          availableBudget={undefined} // TODO: Calculate from cost policies
         />
+
+        {/* Add Existing User Modal */}
+        <AddExistingUserModal
+          isOpen={addUserModalOpen}
+          onClose={() => setAddUserModalOpen(false)}
+          customerUuid={orgId!}
+          customerName={customer?.name || 'Organization'}
+        />
+
+        {/* Remove User Confirmation Dialog */}
+        <Dialog.Root 
+          open={!!userToRemove} 
+          onOpenChange={(e: { open: boolean }) => !e.open && setUserToRemove(null)}
+        >
+          <Portal>
+            <Dialog.Backdrop />
+            <Dialog.Positioner>
+              <Dialog.Content>
+                <Dialog.Header>
+                  <Dialog.Title>Remove User</Dialog.Title>
+                </Dialog.Header>
+                <Dialog.CloseTrigger />
+
+                <Dialog.Body>
+                  <Text>
+                Are you sure you want to remove <strong>{userToRemove?.name}</strong> from this organization?
+                  </Text>
+                  <Text mt={2} fontSize="sm" color="gray.600">
+                This action cannot be undone. The user will lose access to all projects and resources.
+                  </Text>
+                </Dialog.Body>
+
+                <Dialog.Footer>
+                  <HStack>
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setUserToRemove(null)}
+                    >
+                  Cancel
+                    </Button>
+                    <Button
+                      colorPalette="red"
+                      onClick={handleRemoveUser}
+                      loading={removeUserFromOrg.isPending}
+                    >
+                  Remove User
+                    </Button>
+                  </HStack>
+                </Dialog.Footer>
+              </Dialog.Content>
+            </Dialog.Positioner>
+          </Portal>
+        </Dialog.Root>
       </VStack>
     </Container>
   )

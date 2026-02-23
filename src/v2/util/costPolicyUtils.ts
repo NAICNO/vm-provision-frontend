@@ -45,12 +45,16 @@ export function calculateSpendingProgress(
   // Calculate remaining (can be negative if over limit)
   const remaining = limit - current
 
+  // Get period name (use API's period_name or fallback to PERIOD_NAMES)
+  const periodName = policy.period_name || PERIOD_NAMES[policy.period || 1]
+
   return {
     current,
     limit,
     percentage,
     status,
     remaining,
+    periodName,
   }
 }
 

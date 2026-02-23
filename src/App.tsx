@@ -21,6 +21,7 @@ import {
   Help,
   TermsOfService,
   HelpSSH,
+  HelpGenerateSshKey,
 } from './pages'
 
 import {
@@ -38,12 +39,17 @@ import {
   EditOrganization,
   SelectProject,
   CreateProject,
+  CreateTenant,
+  TenantOrderStatus,
+  TenantDetails,
   CreateOffering,
   ViewEditOffering,
   TestPage,
   VmDashboard,
   VmDetails,
   CreateVm,
+  CreateCostPolicy,
+  EditCostPolicy,
 } from './v2/pages'
 
 // V2 Phase 2 - User Onboarding imports
@@ -69,6 +75,7 @@ const routes: RouteObject[] = [
       {path: '/privacy-policy', element: <PrivacyPolicy/>},
       {path: '/terms-of-service', element: <TermsOfService/>},
       {path: 'help/ssh-troubleshoot', element: <HelpSSH/>},
+      {path: 'help/generate-ssh-key', element: <HelpGenerateSshKey/>},
     ]
   },
   {
@@ -131,8 +138,20 @@ const routes: RouteObject[] = [
                 element: <CreateVm />
               },
               {
+                path: 'project/:projectId/create-tenant',
+                element: <CreateTenant />
+              },
+              {
+                path: 'tenant-order/:orderId/status',
+                element: <TenantOrderStatus />
+              },
+              {
                 path: 'vms/:resourceUuid',
                 element: <VmDetails />
+              },
+              {
+                path: 'tenants/:tenantUuid',
+                element: <TenantDetails />
               },
               // Existing organization management routes
               {
@@ -158,6 +177,15 @@ const routes: RouteObject[] = [
               {
                 path: ':serviceProviderId/offering/:offeringId',
                 element: <ViewEditOffering/>
+              },
+              // Admin routes
+              {
+                path: 'admin/spending/create',
+                element: <CreateCostPolicy/>
+              },
+              {
+                path: 'admin/spending/:policyId/edit',
+                element: <EditCostPolicy/>
               },
             ]
           },

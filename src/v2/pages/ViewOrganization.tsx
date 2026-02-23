@@ -13,11 +13,8 @@ import {
   SkeletonCircle,
   SkeletonText,
   Skeleton,
-  Box,
-  Table,
   Tag,
   Container,
-  EmptyState,
   Badge,
 } from '@chakra-ui/react'
 import {
@@ -25,17 +22,16 @@ import {
   useNavigate,
   useParams,
 } from 'react-router'
-import moment from 'moment/moment'
 import { MdOutlineMailOutline, MdPhone } from 'react-icons/md'
-import { LuUsers } from 'react-icons/lu'
 
 import OrgAuditLogs from '../components/organization/OrgAuditLogs.tsx'
 import UserManagement from '../components/organization/UserManagement.tsx'
 import PermissionRequests from '../components/organization/PermissionRequests.tsx'
 import OrganizationProjects from '../components/organization/OrganizationProjects.tsx'
 import OrganizationResources from '../components/organization/OrganizationResources.tsx'
+import CustomerCostPolicyList from '../components/organization/CustomerCostPolicyList.tsx'
 
-import { useFetchCustomer, useFetchUsersOfCustomer } from '../hooks/useCustomer.ts'
+import { useFetchCustomer } from '../hooks/useCustomer.ts'
 import {
   useFetchCustomerServiceProvider,
 } from '../hooks/useMarketplace.ts'
@@ -75,16 +71,11 @@ export const ViewOrganization = () => {
       {value: 'overview', label: 'Overview'},
     ]
 
-    // Users list is admin-only
-    if (capabilities.canManageOrganization) {
-      baseTabs.push({value: 'users', label: 'Users'})
-    }
-
-    // Admin-only tabs
-    if (capabilities.canInviteUsers) {
+    // User Management tab (combines user list and management features)
+    if (capabilities.canInviteUsers || capabilities.canManageOrganization) {
       baseTabs.push({
         value: 'user-management',
-        label: 'User Management',
+        label: 'Users',
         ...(pendingInvitationsCount > 0 && {count: pendingInvitationsCount})
       })
     }
@@ -108,9 +99,12 @@ export const ViewOrganization = () => {
       {value: 'resources', label: 'Resources'},
     )
 
-    // Audit logs for admins only
+    // Admin tabs
     if (capabilities.canManageOrganization) {
-      baseTabs.push({value: 'audit-logs', label: 'Audit Logs'})
+      baseTabs.push(
+        {value: 'cost-policies', label: 'Cost Policies'},
+        {value: 'audit-logs', label: 'Audit Logs'}
+      )
     }
 
     return baseTabs
@@ -272,9 +266,6 @@ export const ViewOrganization = () => {
               </Text>
             </VStack>
           </Tabs.Content>
-          <Tabs.Content value={'users'}>
-            <CustomerUsersList customerUuid={customer.uuid!}/>
-          </Tabs.Content>
           <Tabs.Content value={'user-management'}>
             <UserManagement orgId={orgId} />
           </Tabs.Content>
@@ -293,6 +284,13 @@ export const ViewOrganization = () => {
           <Tabs.Content value={'resources'}>
             <OrganizationResources orgId={orgId} />
           </Tabs.Content>
+          <Tabs.Content value={'cost-policies'}>
+            <CustomerCostPolicyList
+              customerUuid={orgId!}
+              customerName={customer?.name || ''}
+              canManage={capabilities.canManageOrganization}
+            />
+          </Tabs.Content>
           <Tabs.Content value={'audit-logs'}>
             <OrgAuditLogs orgId={orgId!}/>
           </Tabs.Content>
@@ -301,67 +299,3 @@ export const ViewOrganization = () => {
     </Container>
   )
 }
-
-const CustomerUsersList = ({ customerUuid }: { customerUuid: string }) => {
-  const { data: users, isLoading } = useFetchUsersOfCustomer(customerUuid)
-
-  if (isLoading) {
-    return <Skeleton height="200px" />
-  }
-
-  if (!users || users.length === 0) {
-    return (
-      <EmptyState.Root>
-        <EmptyState.Content>
-          <EmptyState.Indicator>
-            <LuUsers size={48} />
-          </EmptyState.Indicator>
-          <VStack textAlign="center">
-            <EmptyState.Title>No Users</EmptyState.Title>
-            <EmptyState.Description>
-              This organization has no users yet.
-            </EmptyState.Description>
-          </VStack>
-        </EmptyState.Content>
-      </EmptyState.Root>
-    )
-  }
-
-
-  return (
-    <Box mx={6}>
-      <Table.ScrollArea>
-        <Table.Root variant="outline" colorPalette="blue" size="md" stickyHeader>
-          <Table.Header>
-            <Table.Row>
-              <Table.ColumnHeader width="65%">Email</Table.ColumnHeader>
-              <Table.ColumnHeader width="20%">Role</Table.ColumnHeader>
-              <Table.ColumnHeader width="15%">Status</Table.ColumnHeader>
-              <Table.ColumnHeader width="15%">Expires at</Table.ColumnHeader>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            <For each={users}>
-              {(user, index) => (
-                <Table.Row key={index} verticalAlign={'top'}>
-                  <Table.Cell>{user.email}</Table.Cell>
-                  <Table.Cell>{user.role}</Table.Cell>
-                  <Table.Cell>{user.role}</Table.Cell>
-                  <Table.Cell>{moment(user.expiration_time).format('MMM D, YYYY, h:mm A')}</Table.Cell>
-                </Table.Row>
-              )}
-            </For>
-          </Table.Body>
-        </Table.Root>
-      </Table.ScrollArea>
-      <style>
-        {`
-    .collapsible-trigger[data-state="open"] .chev {
-      transform: rotate(90deg);
-    }
-  `}
-      </style>
-    </Box>
-  )
-}
-

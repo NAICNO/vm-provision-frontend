@@ -1,87 +1,92 @@
-import { Box, Heading, VStack, Text, Button, HStack, Badge, Spinner, Flex } from '@chakra-ui/react'
+import { Box, Heading, VStack, Text, Button, HStack, Spinner, Flex } from '@chakra-ui/react'
 import { useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
-import { useVmOfferings, useOfferingPlans } from '../hooks/useMarketplaceOfferings'
-import { useCreateVmOrder } from '../hooks/useVmOrders'
-import { useProjectCredits } from '../hooks/useCredits'
-import { OrderProgressModal } from '../components/orders/OrderProgressModal'
-import type { Offering } from '../../client/types.gen'
+import { useFetchProjects } from '../hooks/useProject'
+import { useProjectTenants } from '../hooks/useTenants'
+import {
+  StepsRoot,
+  StepsList,
+  StepsItem,
+  StepsContent,
+  StepsCompletedContent,
+  StepsNextTrigger,
+  StepsPrevTrigger,
+} from '../../components/ui/steps'
+import type { Project, Resource } from '../../client/types.gen'
+import { toaster } from '../../components/ui/toaster'
+import { LuFolderTree, LuServer, LuMonitor, LuSettings } from 'react-icons/lu'
+import { SelectProjectStep } from '../components/vm/SelectProjectStep'
+import { SelectTenantStep } from '../components/vm/SelectTenantStep'
+import { SelectVmConfigurationStep } from '../components/vm/SelectVmConfigurationStep'
 
 /**
- * VM Creation page - Phase 5 implementation
- * Allows users to create VMs through Waldur marketplace orders
+ * VM Creation page - Refactored with separate step components
+ * Multi-step wizard: Select Project → Select Tenant → Select VM Configuration → Configure VM (TBD)
  */
+
+// Type for VM configuration from Step 3
+interface VmConfigState {
+  values: {
+    vmName: string
+    selectedImage: string
+    selectedFlavor: string
+    selectedVolumeType: string
+    volumeSize: string
+    selectedSubnet: string
+    selectedSecurityGroups: string[]
+    selectedSshKeys: string[]
+  }
+  isValid: boolean
+}
+
 export default function CreateVm() {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  const projectUuid = searchParams.get('project')
   const orgId = searchParams.get('orgId')
 
-  const [selectedOffering, setSelectedOffering] = useState<Offering | null>(null)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [selectedPlan, setSelectedPlan] = useState<any>(null)
-  const [vmName, setVmName] = useState('')
-  const [createdOrderUuid, setCreatedOrderUuid] = useState<string | null>(null)
-  const [showProgressModal, setShowProgressModal] = useState(false)
+  // Step 1: Project selection
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  
+  // Step 2: Tenant selection
+  const [selectedTenant, setSelectedTenant] = useState<Resource | null>(null)
+  
+  // Step 3: VM configuration (managed by Formik in SelectVmConfigurationStep)
+  const [vmConfig, setVmConfig] = useState<VmConfigState | null>(null)
+  
+  // Track current step
+  const [currentStep, setCurrentStep] = useState(0)
 
-  // Fetch offerings for the organization
-  const { data: offerings, isLoading: loadingOfferings } = useVmOfferings(orgId || undefined)
+  // Fetch data for steps
+  const { data: projectsResponse, isLoading: loadingProjects } = useFetchProjects(orgId || undefined)
+  const projects = projectsResponse?.data
+  const { data: projectTenants, isLoading: loadingTenants } = useProjectTenants(selectedProject?.uuid)
 
-  // Fetch plans for selected offering
-  const { data: plans, isLoading: loadingPlans } = useOfferingPlans(
-    selectedOffering?.uuid
-  )
-
-  // Fetch project credits for validation
-  const { data: projectCredits } = useProjectCredits(projectUuid || undefined)
-
-  // Create order mutation
-  const createOrder = useCreateVmOrder()
-
-  const handleSubmit = async () => {
-    if (!selectedOffering || !selectedPlan || !projectUuid || !vmName) {
-      return
-    }
-
-    try {
-      const order = await createOrder.mutateAsync({
-        url: '/api/marketplace-orders/',
-        body: {
-          offering: selectedOffering.url!,
-          plan: selectedPlan.url,
-          project: projectUuid,
-          attributes: {
-            name: vmName,
-            description: '',
-            user_username: 'user', // TODO: Get from user context
-          },
-          limits: {
-            // TODO: Allow user to configure these
-            cpu: 2,
-            ram: 4096,
-            storage: 20480,
-          },
-        },
-      })
-
-      // Show progress modal with order UUID
-      setCreatedOrderUuid(order.uuid || null)
-      setShowProgressModal(true)
-    } catch (error) {
-      console.error('Failed to create VM order:', error)
-    }
+  // Handlers
+  const handleProjectSelect = (project: Project) => {
+    setSelectedProject(project)
+    setSelectedTenant(null) // Reset tenant when changing project
+    setVmConfig(null) // Reset VM configuration
   }
 
-  const handleOrderComplete = () => {
-    navigate(`/v2/org/${orgId}/vms`)
+  const handleTenantSelect = (tenant: Resource) => {
+    setSelectedTenant(tenant)
+    setVmConfig(null) // Reset VM configuration when changing tenant
   }
 
-  if (loadingOfferings) {
+  const handleVmConfigChange = (config: VmConfigState) => {
+    setVmConfig(config)
+  }
+
+  // Validation for step progression
+  const canProceedFromStep1 = selectedProject !== null
+  const canProceedFromStep2 = selectedTenant !== null
+  const canProceedFromStep3 = vmConfig !== null && vmConfig.isValid
+  if (loadingProjects) {
     return (
       <Flex justify="center" align="center" minH="400px">
         <VStack gap={4}>
           <Spinner size="xl" />
-          <Text>Loading VM offerings...</Text>
+          <Text>Loading projects...</Text>
         </VStack>
       </Flex>
     )
@@ -90,181 +95,161 @@ export default function CreateVm() {
   return (
     <Box p={8} maxW="1200px" mx="auto">
       <VStack align="stretch" gap={6}>
+        {/* Page Header */}
         <Box>
           <Heading size="lg" mb={2}>
             Create Virtual Machine
           </Heading>
-          <Text color="gray.600">
-            Provision a new VM through the marketplace
+          <Text color="gray.600" _dark={{ color: 'gray.400' }}>
+            Follow the steps to provision a new VM
           </Text>
         </Box>
 
-        {/* Credit Balance */}
-        {projectCredits && projectCredits.length > 0 && (
-          <Box
-            p={4}
-            borderWidth="1px"
-            borderRadius="md"
-            bg="blue.50"
-            borderColor="blue.200"
-          >
-            <Text fontWeight="bold">Available Credits</Text>
-            <Text fontSize="2xl">
-              {projectCredits[0].value?.toLocaleString()} credits
-            </Text>
-          </Box>
-        )}
+        {/* Multi-step wizard using Chakra UI Steps with built-in navigation */}
+        <StepsRoot 
+          defaultStep={0} 
+          count={4} 
+          colorPalette="blue"
+          onStepChange={(e) => setCurrentStep(e.step)}
+        >
+          <StepsList>
+            <StepsItem
+              index={0}
+              title="Select Project"
+              description="Choose project with budget"
+              icon={<LuFolderTree />}
+            />
+            <StepsItem
+              index={1}
+              title="Select Tenant"
+              description="Choose or create tenant"
+              icon={<LuServer />}
+            />
+            <StepsItem
+              index={2}
+              title="Configure VM"
+              description="Set up your virtual machine"
+              icon={<LuMonitor />}
+            />
+            <StepsItem
+              index={3}
+              title="Configure Details"
+              description="Customize your VM (Coming Soon)"
+              icon={<LuSettings />}
+            />
+          </StepsList>
 
-        {/* Offering Selection */}
-        <Box>
-          <Heading size="md" mb={4}>
-            1. Select Offering
-          </Heading>
-          <VStack align="stretch" gap={3}>
-            {offerings && offerings.length > 0 ? (
-              offerings.map((offering) => (
-                <Box
-                  key={offering.uuid}
-                  p={4}
-                  borderWidth="2px"
-                  borderRadius="md"
-                  borderColor={
-                    selectedOffering?.uuid === offering.uuid
-                      ? 'blue.500'
-                      : 'gray.200'
-                  }
-                  bg={
-                    selectedOffering?.uuid === offering.uuid
-                      ? 'blue.50'
-                      : 'white'
-                  }
-                  cursor="pointer"
-                  onClick={() => setSelectedOffering(offering)}
-                  _hover={{ borderColor: 'blue.300' }}
-                >
-                  <HStack justify="space-between">
-                    <VStack align="start" gap={1}>
-                      <Text fontWeight="bold">{offering.name}</Text>
-                      <Text fontSize="sm" color="gray.600">
-                        {offering.description}
-                      </Text>
-                    </VStack>
-                    <Badge colorScheme="green">{offering.state}</Badge>
-                  </HStack>
-                </Box>
-              ))
+          {/* Step 1: Project Selection */}
+          <StepsContent index={0}>
+            <SelectProjectStep
+              orgId={orgId || ''}
+              projects={projects}
+              selectedProject={selectedProject}
+              onSelectProject={handleProjectSelect}
+              isLoading={loadingProjects}
+            />
+          </StepsContent>
+
+          {/* Step 2: Tenant Selection */}
+          <StepsContent index={1}>
+            <SelectTenantStep
+              orgId={orgId || ''}
+              projectId={selectedProject?.uuid}
+              tenants={projectTenants}
+              selectedTenant={selectedTenant}
+              onSelectTenant={handleTenantSelect}
+              isLoading={loadingTenants}
+            />
+          </StepsContent>
+
+          {/* Step 3: VM Configuration (Formik inside) */}
+          <StepsContent index={2}>
+            {selectedTenant ? (
+              <SelectVmConfigurationStep
+                tenant={selectedTenant}
+                onConfigChange={handleVmConfigChange}
+                isActive={currentStep === 2}
+              />
             ) : (
-              <Text color="gray.500">No offerings available</Text>
-            )}
-          </VStack>
-        </Box>
-
-        {/* Plan Selection */}
-        {selectedOffering && (
-          <Box>
-            <Heading size="md" mb={4}>
-              2. Select Plan
-            </Heading>
-            {loadingPlans ? (
-              <Spinner />
-            ) : (
-              <VStack align="stretch" gap={3}>
-                {plans && plans.length > 0 ? (
-                  plans.map((plan) => (
-                    <Box
-                      key={plan.uuid}
-                      p={4}
-                      borderWidth="2px"
-                      borderRadius="md"
-                      borderColor={
-                        selectedPlan?.uuid === plan.uuid
-                          ? 'blue.500'
-                          : 'gray.200'
-                      }
-                      bg={
-                        selectedPlan?.uuid === plan.uuid ? 'blue.50' : 'white'
-                      }
-                      cursor="pointer"
-                      onClick={() => setSelectedPlan(plan)}
-                      _hover={{ borderColor: 'blue.300' }}
-                    >
-                      <HStack justify="space-between">
-                        <VStack align="start" gap={1}>
-                          <Text fontWeight="bold">{plan.name}</Text>
-                          <Text fontSize="sm" color="gray.600">
-                            {plan.description}
-                          </Text>
-                        </VStack>
-                        <Text fontWeight="bold" fontSize="lg">
-                          {plan.unit_price} / {plan.unit}
-                        </Text>
-                      </HStack>
-                    </Box>
-                  ))
-                ) : (
-                  <Text color="gray.500">No plans available</Text>
-                )}
-              </VStack>
-            )}
-          </Box>
-        )}
-
-        {/* VM Configuration - TODO: Add flavor & image selection */}
-        {selectedPlan && (
-          <Box>
-            <Heading size="md" mb={4}>
-              3. Configure VM
-            </Heading>
-            <VStack align="stretch" gap={4}>
-              <Box>
-                <Text fontWeight="bold" mb={2}>
-                  VM Name
-                </Text>
-                <input
-                  type="text"
-                  value={vmName}
-                  onChange={(e) => setVmName(e.target.value)}
-                  placeholder="Enter VM name"
-                  style={{
-                    width: '100%',
-                    padding: '8px 12px',
-                    border: '1px solid #e2e8f0',
-                    borderRadius: '6px',
-                  }}
-                />
+              <Box textAlign="center" py={8}>
+                <Text color="gray.500">Please select a tenant first</Text>
               </Box>
-              {/* TODO: Add FlavorSelector */}
-              {/* TODO: Add ImageSelector */}
+            )}
+          </StepsContent>
+
+          {/* Step 4: Placeholder for future implementation */}
+          <StepsContent index={3}>
+            <VStack align="stretch" gap={4} mt={6}>
+              <Heading size="md">Configure VM Details</Heading>
+              <Box
+                p={8}
+                textAlign="center"
+                borderWidth="2px"
+                borderStyle="dashed"
+                borderColor="gray.300"
+                borderRadius="md"
+                bg="gray.50"
+                _dark={{ bg: 'gray.800', borderColor: 'gray.600' }}
+              >
+                <Text fontSize="lg" fontWeight="bold" mb={2}>
+                  Coming Soon
+                </Text>
+                <Text color="gray.600" _dark={{ color: 'gray.400' }}>
+                  Detailed VM configuration (name, specs, network, SSH keys, etc.) will be available here.
+                </Text>
+              </Box>
             </VStack>
-          </Box>
-        )}
+          </StepsContent>
 
-        {/* Actions */}
-        <HStack justify="space-between" pt={4}>
-          <Button
-            variant="outline"
-            onClick={() => navigate(`/v2/org/${orgId}/vms`)}
-          >
-            Cancel
-          </Button>
-          <Button
-            colorScheme="blue"
-            onClick={handleSubmit}
-            disabled={!selectedOffering || !selectedPlan || !vmName}
-            loading={createOrder.isPending}
-          >
-            Create VM
-          </Button>
-        </HStack>
+          {/* Completed State */}
+          <StepsCompletedContent>
+            <Box textAlign="center" py={8}>
+              <Heading size="lg" mb={4}>
+                🎉 Configuration Complete!
+              </Heading>
+              <Text color="gray.600" _dark={{ color: 'gray.400' }}>
+                VM creation workflow will be finalized in the next phase.
+              </Text>
+            </Box>
+          </StepsCompletedContent>
+
+          {/* Navigation Buttons - Using built-in Steps triggers */}
+          <HStack justify="space-between" pt={6}>
+            <HStack>
+              <Button
+                variant="outline"
+                onClick={() => navigate(`/v2/org/${orgId}/vms`)}
+              >
+                Cancel
+              </Button>
+              <StepsPrevTrigger asChild>
+                <Button variant="outline">Previous</Button>
+              </StepsPrevTrigger>
+            </HStack>
+
+            <StepsNextTrigger asChild>
+              <Button
+                colorScheme="blue"
+                onClick={(e) => {
+                  // Validate before proceeding to next step
+                  if (currentStep === 0 && !canProceedFromStep1) {
+                    e.preventDefault()
+                    toaster.error({ title: 'Please select a project first' })
+                  } else if (currentStep === 1 && !canProceedFromStep2) {
+                    e.preventDefault()
+                    toaster.error({ title: 'Please select a tenant first' })
+                  } else if (currentStep === 2 && !canProceedFromStep3) {
+                    e.preventDefault()
+                    toaster.error({ title: 'Please complete all required VM configuration fields' })
+                  }
+                }}
+              >
+                Next
+              </Button>
+            </StepsNextTrigger>
+          </HStack>
+        </StepsRoot>
       </VStack>
-
-      {/* Order Progress Modal */}
-      <OrderProgressModal
-        orderUuid={createdOrderUuid}
-        isOpen={showProgressModal}
-        onClose={() => setShowProgressModal(false)}
-        onComplete={handleOrderComplete}
-      />
     </Box>
   )
 }

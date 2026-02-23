@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import {
   Button,
   Input,
@@ -6,10 +6,14 @@ import {
   HStack,
   Dialog,
   Field,
+  Text,
+  Spinner,
+  Portal,
 } from '@chakra-ui/react'
 import { toaster } from '../../components/ui/toaster'
 import { NativeSelectRoot, NativeSelectField } from '../../components/ui/native-select'
 import { useCreateInvitation } from '../hooks/useUserInvitations'
+import { useCustomerCostPolicies, useOrgProjectCostPolicies } from '../hooks/useCostPolicies'
 import type { InvitationRequestWritable } from '../../client'
 
 interface InviteUserModalProps {
@@ -17,7 +21,6 @@ interface InviteUserModalProps {
   onClose: () => void
   customerUuid: string
   customerName: string
-  availableBudget?: number
 }
 
 export const InviteUserModal = ({
@@ -25,7 +28,6 @@ export const InviteUserModal = ({
   onClose,
   customerUuid,
   customerName,
-  availableBudget,
 }: InviteUserModalProps) => {
   const [email, setEmail] = useState('')
   const [role, setRole] = useState<'owner' | 'manager' | 'member'>('member')
@@ -34,6 +36,30 @@ export const InviteUserModal = ({
   const [errors, setErrors] = useState<Record<string, string>>({})
 
   const createInvitation = useCreateInvitation()
+  
+  // Fetch cost policies to calculate available budget
+  const { data: customerPolicies, isLoading: loadingCustomerPolicies } = useCustomerCostPolicies(customerUuid)
+  const { data: projectPolicies, isLoading: loadingProjectPolicies } = useOrgProjectCostPolicies(customerUuid)
+  
+  // Calculate available budget
+  const availableBudget = useMemo(() => {
+    if (!customerPolicies || customerPolicies.length === 0) {
+      return undefined // No organization budget limit
+    }
+    
+    // Get organization budget limit (first policy)
+    const orgPolicy = customerPolicies[0]
+    const orgLimit = orgPolicy.limit_cost || 0
+    
+    // Sum all project budget allocations
+    const allocatedBudget = (projectPolicies || []).reduce((sum, policy) => {
+      return sum + (policy.limit_cost || 0)
+    }, 0)
+    
+    return Math.max(0, orgLimit - allocatedBudget)
+  }, [customerPolicies, projectPolicies])
+  
+  const isLoadingBudget = loadingCustomerPolicies || loadingProjectPolicies
 
   const validateForm = (): boolean => {
     const newErrors: Record<string, string> = {}
@@ -117,115 +143,131 @@ export const InviteUserModal = ({
 
   return (
     <Dialog.Root open={isOpen} onOpenChange={(e: { open: boolean }) => !e.open && handleClose()}>
-      <Dialog.Backdrop />
-      <Dialog.Content>
-        <Dialog.Header>
-          <Dialog.Title>Invite User to {customerName}</Dialog.Title>
-        </Dialog.Header>
-        <Dialog.CloseTrigger />
+      <Portal>
+        <Dialog.Backdrop />
+        <Dialog.Positioner>
+          <Dialog.Content>
+            <Dialog.Header>
+              <Dialog.Title>Invite User to {customerName}</Dialog.Title>
+            </Dialog.Header>
+            <Dialog.CloseTrigger />
 
-        <Dialog.Body>
-          <VStack gap={4} align="stretch">
-            <Field.Root invalid={!!errors.email} required>
-              <Field.Label>Email Address</Field.Label>
-              <Input
-                type="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value)
-                  if (errors.email) {
-                    setErrors({ ...errors, email: '' })
-                  }
-                }}
-                placeholder="user@example.com"
-              />
-              {errors.email && (
-                <Field.ErrorText>{errors.email}</Field.ErrorText>
-              )}
-              <Field.HelperText>
+            <Dialog.Body>
+              <VStack gap={4} align="stretch">
+                <Field.Root invalid={!!errors.email} required>
+                  <Field.Label>Email Address</Field.Label>
+                  <Input
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value)
+                      if (errors.email) {
+                        setErrors({ ...errors, email: '' })
+                      }
+                    }}
+                    placeholder="user@example.com"
+                  />
+                  {errors.email && (
+                    <Field.ErrorText>{errors.email}</Field.ErrorText>
+                  )}
+                  <Field.HelperText>
                 User will receive an invitation email
-              </Field.HelperText>
-            </Field.Root>
+                  </Field.HelperText>
+                </Field.Root>
 
-            <Field.Root required>
-              <Field.Label>Role</Field.Label>
-              <NativeSelectRoot>
-                <NativeSelectField
-                  value={role}
-                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setRole(e.target.value as 'owner' | 'manager' | 'member')}
-                >
-                  <option value="member">Member</option>
-                  <option value="manager">Manager</option>
-                  <option value="owner">Owner</option>
-                </NativeSelectField>
-              </NativeSelectRoot>
-              <Field.HelperText>
+                <Field.Root required>
+                  <Field.Label>Role</Field.Label>
+                  <NativeSelectRoot>
+                    <NativeSelectField
+                      value={role}
+                      onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setRole(e.target.value as 'owner' | 'manager' | 'member')}
+                    >
+                      <option value="member">Member</option>
+                      <option value="manager">Manager</option>
+                      <option value="owner">Owner</option>
+                    </NativeSelectField>
+                  </NativeSelectRoot>
+                  <Field.HelperText>
                 Owner: Full admin access | Manager: Can manage projects | Member: Standard access
-              </Field.HelperText>
-            </Field.Root>
+                  </Field.HelperText>
+                </Field.Root>
 
-            <Field.Root invalid={!!errors.projectName} required>
-              <Field.Label>Project Name</Field.Label>
-              <Input
-                value={projectName}
-                onChange={(e) => {
-                  setProjectName(e.target.value)
-                  if (errors.projectName) {
-                    setErrors({ ...errors, projectName: '' })
-                  }
-                }}
-                placeholder="User's Project"
-              />
-              {errors.projectName && (
-                <Field.ErrorText>{errors.projectName}</Field.ErrorText>
-              )}
-              <Field.HelperText>
+                <Field.Root invalid={!!errors.projectName} required>
+                  <Field.Label>Project Name</Field.Label>
+                  <Input
+                    value={projectName}
+                    onChange={(e) => {
+                      setProjectName(e.target.value)
+                      if (errors.projectName) {
+                        setErrors({ ...errors, projectName: '' })
+                      }
+                    }}
+                    placeholder="User's Project"
+                  />
+                  {errors.projectName && (
+                    <Field.ErrorText>{errors.projectName}</Field.ErrorText>
+                  )}
+                  <Field.HelperText>
                 A dedicated project will be created for this user
-              </Field.HelperText>
-            </Field.Root>
+                  </Field.HelperText>
+                </Field.Root>
 
-            <Field.Root invalid={!!errors.budget} required>
-              <Field.Label>Budget (NOK)</Field.Label>
-              <Input
-                type="number"
-                value={budget}
-                onChange={(e) => {
-                  setBudget(e.target.value)
-                  if (errors.budget) {
-                    setErrors({ ...errors, budget: '' })
-                  }
-                }}
-                placeholder="1000"
-                min="0"
-                step="100"
-              />
-              {errors.budget && (
-                <Field.ErrorText>{errors.budget}</Field.ErrorText>
-              )}
-              {availableBudget !== undefined && (
-                <Field.HelperText>
+                <Field.Root invalid={!!errors.budget} required>
+                  <Field.Label>Budget (NOK)</Field.Label>
+                  <Input
+                    type="number"
+                    value={budget}
+                    onChange={(e) => {
+                      setBudget(e.target.value)
+                      if (errors.budget) {
+                        setErrors({ ...errors, budget: '' })
+                      }
+                    }}
+                    placeholder="1000"
+                    min="0"
+                    step="100"
+                    disabled={isLoadingBudget}
+                  />
+                  {errors.budget && (
+                    <Field.ErrorText>{errors.budget}</Field.ErrorText>
+                  )}
+                  {isLoadingBudget ? (
+                    <HStack gap={2}>
+                      <Spinner size="xs" />
+                      <Text fontSize="sm" color="gray.600">
+                    Calculating available budget...
+                      </Text>
+                    </HStack>
+                  ) : availableBudget !== undefined ? (
+                    <Field.HelperText>
                   Available budget: {availableBudget.toFixed(2)} NOK
-                </Field.HelperText>
-              )}
-            </Field.Root>
-          </VStack>
-        </Dialog.Body>
+                    </Field.HelperText>
+                  ) : (
+                    <Field.HelperText>
+                  No organization budget limit set
+                    </Field.HelperText>
+                  )}
+                </Field.Root>
+              </VStack>
+            </Dialog.Body>
 
-        <Dialog.Footer>
-          <HStack>
-            <Button variant="outline" onClick={handleClose}>
+            <Dialog.Footer>
+              <HStack>
+                <Button variant="outline" onClick={handleClose}>
               Cancel
-            </Button>
-            <Button
-              colorPalette="blue"
-              onClick={handleSubmit}
-              loading={createInvitation.isPending}
-            >
+                </Button>
+                <Button
+                  colorPalette="blue"
+                  onClick={handleSubmit}
+                  loading={createInvitation.isPending}
+                >
               Send Invitation
-            </Button>
-          </HStack>
-        </Dialog.Footer>
-      </Dialog.Content>
+                </Button>
+              </HStack>
+            </Dialog.Footer>
+          </Dialog.Content>
+        </Dialog.Positioner>
+      </Portal>
     </Dialog.Root>
   )
 }

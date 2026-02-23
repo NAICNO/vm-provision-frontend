@@ -6,25 +6,21 @@ import {
   Badge,
   VStack,
   Button,
-  Card,
   Skeleton,
   Stack,
   Container,
   Input,
   InputGroup,
-  SimpleGrid,
 } from '@chakra-ui/react'
 import { useOrganizationContext } from '../context/OrganizationContext'
 import { useOrganization } from '../hooks/useOrganization'
 import { LuPlus, LuSearch } from 'react-icons/lu'
-import { useOrgVmResources, calculateResourceStats } from '../hooks/useOrgVmResources'
+import { useOrgVmResources } from '../hooks/useOrgVmResources'
+import { calculateSeparatedStats } from '../util/resourceTypeUtils'
 import { VmList } from '../components/vm/VmList'
+import { VmStatsCards } from '../components/vm/VmStatsCards'
 import { ProjectFilter } from '../components/ProjectFilter'
 import { useState, useMemo } from 'react'
-import { useCustomerCredits, useCustomerProjectCredits } from '../hooks/useCredits'
-import { CreditBalanceCard } from '../components/credits/CreditBalanceCard'
-import { ProjectCreditSummary } from '../components/credits/ProjectCreditSummary'
-import { calculateTotalCustomerCredits, calculateCustomerCreditConsumption } from '../util/creditUtils'
 import { useNavigate } from 'react-router'
 
 /**
@@ -36,20 +32,12 @@ export default function VmDashboard() {
   const { data: organization, isLoading: isLoadingOrg } = useOrganization(selectedOrg?.uuid)
   const { data: resources = [], isLoading: isLoadingResources } = useOrgVmResources(selectedOrg?.uuid)
   const navigate = useNavigate()
-  
-  // Fetch credits data
-  const { data: customerCredits = [], isLoading: isLoadingCustomerCredits } = useCustomerCredits(selectedOrg?.uuid)
-  const { data: projectCredits = [], isLoading: isLoadingProjectCredits } = useCustomerProjectCredits(selectedOrg?.uuid)
 
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedProjectUuid, setSelectedProjectUuid] = useState<string | null>(null)
 
-  // Calculate stats
-  const stats = useMemo(() => calculateResourceStats(resources), [resources])
-  
-  // Calculate aggregated customer credits (if multiple credit allocations exist)
-  const totalCustomerCreditValue = useMemo(() => calculateTotalCustomerCredits(customerCredits), [customerCredits])
-  const totalCustomerConsumption = useMemo(() => calculateCustomerCreditConsumption(customerCredits), [customerCredits])
+  // Calculate stats separated by resource type
+  const stats = useMemo(() => calculateSeparatedStats(resources), [resources])
 
   // Filter resources by project and search query
   const filteredResources = useMemo(() => {
@@ -111,101 +99,8 @@ export default function VmDashboard() {
           </Button>
         </HStack>
 
-        {/* Credits Section */}
-        {!isLoadingCustomerCredits && !isLoadingProjectCredits && (
-          <SimpleGrid columns={{ base: 1, xl: 2 }} gap={6} width="full">
-            {/* Customer Credits - Show aggregate if multiple, individual if one */}
-            {customerCredits.length > 0 && (
-              <CreditBalanceCard
-                credit={customerCredits[0]}
-                type="customer"
-                showRequestButton={false}
-                aggregateTotal={customerCredits.length > 1 ? totalCustomerCreditValue : undefined}
-                aggregateConsumption={customerCredits.length > 1 ? totalCustomerConsumption : undefined}
-                creditCount={customerCredits.length}
-              />
-            )}
-
-            {/* Project Credits Summary */}
-            {projectCredits.length > 0 && (
-              <ProjectCreditSummary
-                projectCredits={projectCredits}
-                onProjectClick={(projectUuid) => setSelectedProjectUuid(projectUuid)}
-              />
-            )}
-          </SimpleGrid>
-        )}
-
-        {/* Loading Skeletons for Credits */}
-        {(isLoadingCustomerCredits || isLoadingProjectCredits) && (
-          <SimpleGrid columns={{ base: 1, xl: 2 }} gap={6} width="full">
-            <Skeleton height="300px" />
-            <Skeleton height="300px" />
-          </SimpleGrid>
-        )}
-
-        {/* Stats Cards */}
-        <HStack gap={4} width="full" wrap="wrap">
-          <Card.Root flex="1" minW="200px">
-            <Card.Body>
-              <Text fontSize="sm" color="fg.muted">
-                Total VMs
-              </Text>
-              <Text fontSize="3xl" fontWeight="bold">
-                {stats.total}
-              </Text>
-            </Card.Body>
-          </Card.Root>
-          <Card.Root flex="1" minW="200px">
-            <Card.Body>
-              <Text fontSize="sm" color="fg.muted">
-                Running
-              </Text>
-              <HStack>
-                <Text fontSize="3xl" fontWeight="bold" color="green.500">
-                  {stats.running}
-                </Text>
-                <Badge colorPalette="green" variant="solid">
-                  OK
-                </Badge>
-              </HStack>
-            </Card.Body>
-          </Card.Root>
-          <Card.Root flex="1" minW="200px">
-            <Card.Body>
-              <Text fontSize="sm" color="fg.muted">
-                Provisioning
-              </Text>
-              <HStack>
-                <Text fontSize="3xl" fontWeight="bold" color="blue.500">
-                  {stats.creating}
-                </Text>
-                {stats.creating > 0 && (
-                  <Badge colorPalette="blue" variant="solid">
-                    Creating
-                  </Badge>
-                )}
-              </HStack>
-            </Card.Body>
-          </Card.Root>
-          <Card.Root flex="1" minW="200px">
-            <Card.Body>
-              <Text fontSize="sm" color="fg.muted">
-                Errors
-              </Text>
-              <HStack>
-                <Text fontSize="3xl" fontWeight="bold" color="red.500">
-                  {stats.erred}
-                </Text>
-                {stats.erred > 0 && (
-                  <Badge colorPalette="red" variant="solid">
-                    Erred
-                  </Badge>
-                )}
-              </HStack>
-            </Card.Body>
-          </Card.Root>
-        </HStack>
+        {/* Stats Cards - Separated by Resource Type */}
+        <VmStatsCards stats={stats} />
       </VStack>
 
       {/* Filters */}

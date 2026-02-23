@@ -1,7 +1,7 @@
 import { Card, Heading, VStack, HStack, Text, Skeleton, Box, Badge } from '@chakra-ui/react'
 import { LuDollarSign, LuServer, LuCpu, LuHardDrive } from 'react-icons/lu'
 import type { OpenstackInstance, ProviderPlanDetails } from '../../../client/types.gen'
-import { formatCreditValue } from '../../util/creditUtils'
+import { formatCurrency } from '../../util/costPolicyUtils'
 
 interface ResourceUsageCardProps {
   instance: OpenstackInstance | undefined
@@ -11,13 +11,6 @@ interface ResourceUsageCardProps {
 }
 
 export const ResourceUsageCard = ({ instance, plan, isLoading, resourceName }: ResourceUsageCardProps) => {
-  console.log('ResourceUsageCard Debug:', {
-    resourceName,
-    instance,
-    plan,
-    isLoading,
-  })
-
   if (isLoading) {
     return (
       <Card.Root width="full">
@@ -164,20 +157,20 @@ export const ResourceUsageCard = ({ instance, plan, isLoading, resourceName }: R
                 <VStack align="start" gap={1} width="full" fontSize="xs" color="fg.muted">
                   {plan.prices['cores'] !== undefined && instance.cores !== undefined && (
                     <HStack justify="space-between" width="full">
-                      <Text>{instance.cores} cores × {formatCreditValue(plan.prices['cores'])}/core</Text>
-                      <Text>{formatCreditValue(instance.cores * plan.prices['cores'])}</Text>
+                      <Text>{instance.cores} cores × {formatCurrency(plan.prices['cores'])}/core</Text>
+                      <Text>{formatCurrency(instance.cores * plan.prices['cores'])}</Text>
                     </HStack>
                   )}
                   {plan.prices['ram'] !== undefined && instance.ram !== undefined && (
                     <HStack justify="space-between" width="full">
-                      <Text>{(instance.ram / 1024).toFixed(2)} GB RAM × {formatCreditValue(plan.prices['ram'])}/GB</Text>
-                      <Text>{formatCreditValue((instance.ram / 1024) * plan.prices['ram'])}</Text>
+                      <Text>{(instance.ram / 1024).toFixed(2)} GB RAM × {formatCurrency(plan.prices['ram'])}/GB</Text>
+                      <Text>{formatCurrency((instance.ram / 1024) * plan.prices['ram'])}</Text>
                     </HStack>
                   )}
                   {plan.prices['storage'] !== undefined && instance.disk !== undefined && (
                     <HStack justify="space-between" width="full">
-                      <Text>{(instance.disk / 1024).toFixed(0)} GB disk × {formatCreditValue(plan.prices['storage'])}/GB</Text>
-                      <Text>{formatCreditValue((instance.disk / 1024) * plan.prices['storage'])}</Text>
+                      <Text>{(instance.disk / 1024).toFixed(0)} GB disk × {formatCurrency(plan.prices['storage'])}/GB</Text>
+                      <Text>{formatCurrency((instance.disk / 1024) * plan.prices['storage'])}</Text>
                     </HStack>
                   )}
                 </VStack>
@@ -188,7 +181,7 @@ export const ResourceUsageCard = ({ instance, plan, isLoading, resourceName }: R
                     <LuDollarSign style={{ display: 'inline' }} /> Total per Month
                   </Text>
                   <Text fontWeight="bold" fontSize="lg" color="blue.600">
-                    {formatCreditValue(monthlyCost)}
+                    {formatCurrency(monthlyCost)}
                   </Text>
                 </HStack>
                 

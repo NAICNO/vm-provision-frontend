@@ -1,6 +1,6 @@
-import { useCreateSshKey, useDeleteSshKey, useFetchSshKeys } from '../../v2/hooks/useSshKeys.ts'
+import { useDeleteSshKey, useFetchSshKeys } from '../../v2/hooks/useSshKeys.ts'
 import { useEffect, useState } from 'react'
-import type { SshKey, SshKeyRequest } from '../../client/types.gen'
+import type { SshKey } from '../../client/types.gen'
 import {
   Box,
   Button,
@@ -8,19 +8,14 @@ import {
   Dialog,
   EmptyState,
   For,
-  Input,
   Portal,
   Table,
   Text,
-  Textarea,
   VStack,
-  Fieldset as ChakraFieldset,
-  Field as ChakraField
 } from '@chakra-ui/react'
 import { MdAdd, MdKey } from 'react-icons/md'
 import { toaster } from '../ui/toaster.tsx'
-import { Field, FieldProps, Form, Formik } from 'formik'
-import { ImportSshKeySchema } from '../../util/FormValidationSchema.ts'
+import { ImportPublicKeyDialog } from './ImportPublicKeyDialog.tsx'
 
 const SSHKeys = () => {
 
@@ -32,19 +27,23 @@ const SSHKeys = () => {
     setOpen(true)
   }
 
+  if (!sshKeys) {
+    return null
+  }
+
   return (
     <>
       {
-        sshKeys && sshKeys.length === 0 ? (<NoSshKeysView onClickAddKey={onClickAddKey}/>) : (
-          <SshKeysList sshKeys={sshKeys}/>
+        sshKeys.length === 0 ? (<NoSshKeysView onClickAddKey={onClickAddKey}/>) : (
+          <SshKeysList sshKeys={sshKeys} onClickAddKey={onClickAddKey}/>
         )
       }
-      <AddSshKeyDialog open={open} setOpen={setOpen}/>
+      <ImportPublicKeyDialog open={open} setOpen={setOpen}/>
     </>
   )
 }
 
-const SshKeysList = ({sshKeys}: { sshKeys: SshKey[] }) => {
+const SshKeysList = ({sshKeys, onClickAddKey}: { sshKeys: SshKey[], onClickAddKey: () => void }) => {
   // Render a table of SSH keys with following columns:
   // - Name
   // - Type
@@ -66,6 +65,11 @@ const SshKeysList = ({sshKeys}: { sshKeys: SshKey[] }) => {
 
   return (
     <>
+      <Box mx={6} mb={4} display="flex" justifyContent="flex-end">
+        <Button colorPalette="blue" onClick={onClickAddKey}>
+          <MdAdd/> Add SSH Key
+        </Button>
+      </Box>
       <Box mx={6}>
         <Table.Root variant="outline" colorPalette="blue" size="md">
           <Table.Header>
@@ -123,143 +127,10 @@ const NoSshKeysView = ({onClickAddKey}: { onClickAddKey: () => void }) => {
   </EmptyState.Root>)
 }
 
-const AddSshKeyDialog = ({open, setOpen}: { open: boolean, setOpen: (isOpen: boolean) => void }) => {
-
-  const onSuccessCreate = () => {
-    toaster.create({
-      title: 'SSH key saved successfully',
-      type: 'success',
-      duration: 5000,
-    })
-    setTimeout(() => {
-      setOpen(false)
-    }, 500)
-  }
-
-  const onErrorCreate = (error: Error) => {
-    toaster.create({
-      title: 'Error saving SSH key',
-      description: error.message || 'Please try again later.',
-      type: 'error',
-      duration: 2000,
-    })
-  }
-
-  const {mutate, isPending, error} = useCreateSshKey(onSuccessCreate, onErrorCreate)
-
-  return (
-    <Dialog.Root lazyMount open={open} onOpenChange={(e) => setOpen(e.open)}>
-      <Portal>
-        <Dialog.Backdrop/>
-        <Dialog.Positioner>
-          <Dialog.Content>
-            <Dialog.Header>
-              <Dialog.Title>Import Public Key</Dialog.Title>
-            </Dialog.Header>
-            <Formik
-              initialValues={{
-                name: '',
-                public_key: '',
-              }}
-              enableReinitialize={true}
-              validateOnBlur={true}
-              validationSchema={ImportSshKeySchema}
-              onSubmit={(values) => {
-                console.log(values)
-                const sshKeyRequest: SshKeyRequest = {
-                  name: values.name,
-                  public_key: values.public_key,
-                }
-                mutate(sshKeyRequest)
-              }}
-            >
-              {({
-                isValid,
-                values,
-              }) => (
-                <Form>
-                  <Dialog.Body>
-                    <ChakraFieldset.Root size="lg">
-                      <VStack gap={5}>
-                        <Field name={'name'}>
-                          {({field, meta}: FieldProps) => (
-                            <ChakraField.Root invalid={!!(meta.error && meta.touched)}>
-                              <ChakraField.Label>Key Name</ChakraField.Label>
-                              <Input
-                                {...field}
-                                value={values.name}
-                                placeholder="Enter key name here"
-                              />
-                              <ChakraField.ErrorText>
-                                {meta.error}
-                              </ChakraField.ErrorText>
-                            </ChakraField.Root>
-                          )}
-                        </Field>
-                        <Field name={'public_key'}>
-                          {({field, meta}: FieldProps) => (
-                            <ChakraField.Root invalid={!!(meta.error && meta.touched)}>
-                              <ChakraField.Label>Public Key</ChakraField.Label>
-                              <Textarea
-                                {...field}
-                                value={values.public_key}
-                                placeholder="Paste your public SSH key here"
-                                autoresize
-                              />
-                              <ChakraField.ErrorText>
-                                {meta.error}
-                              </ChakraField.ErrorText>
-                            </ChakraField.Root>
-                          )}
-                        </Field>
-                      </VStack>
-                    </ChakraFieldset.Root>
-
-                    {error && (
-                      <Text color="red.500" mt={2}>
-                        {error.message || 'An error occurred while creating the project.'}
-                      </Text>
-                    )}
-
-                  </Dialog.Body>
-
-                  <Dialog.Footer>
-                    <Dialog.ActionTrigger asChild>
-                      <Button
-                        variant="outline"
-                        onClick={() => setOpen(false)}
-                        type="button"
-                      >
-                        Cancel
-                      </Button>
-                    </Dialog.ActionTrigger>
-                    <Button
-                      colorPalette="blue"
-                      type="submit"
-                      loading={isPending}
-                      disabled={!isValid || isPending}
-                      loadingText="Importing..."
-                    >
-                      Import Key
-                    </Button>
-                  </Dialog.Footer>
-                </Form>
-              )}
-            </Formik>
-            <Dialog.CloseTrigger asChild>
-              <CloseButton size="sm"/>
-            </Dialog.CloseTrigger>
-          </Dialog.Content>
-        </Dialog.Positioner>
-      </Portal>
-    </Dialog.Root>
-  )
-}
-
 const DeleteSshKeyDialog = ({open, setOpen, sshKey}: {
   open: boolean,
   setOpen: (isOpen: boolean) => void,
-  sshKey: SshKey
+  sshKey: SshKey | null
 }) => {
   const onSuccessDelete = () => {
     toaster.create({
@@ -305,8 +176,8 @@ const DeleteSshKeyDialog = ({open, setOpen, sshKey}: {
                 colorPalette="red"
                 type="button"
                 loading={isPending}
-                disabled={isPending}
-                onClick={() => mutate(sshKey.uuid)}
+                disabled={isPending || !sshKey}
+                onClick={() => sshKey?.uuid && mutate(sshKey.uuid)}
               >
                 Delete Key
               </Button>

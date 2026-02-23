@@ -5,6 +5,7 @@ import QueryKeys from '../../constants/QueryKeys'
 
 /**
  * Hook to fetch all VM resources for an organization
+ * Fetches both OpenStack.Tenant and OpenStack.Instance resources
  * Implements smart polling: faster for transitioning states, slower for stable states
  */
 export const useOrgVmResources = (customerUuid?: string) => {
@@ -13,15 +14,29 @@ export const useOrgVmResources = (customerUuid?: string) => {
     queryFn: async () => {
       if (!customerUuid) return []
 
-      const response = await marketplaceResourcesList({
-        query: {
-          customer_uuid: customerUuid,
-          offering_type: 'OpenStack.Instance',
-          state: ['Creating', 'OK', 'Erred', 'Updating', 'Terminating'],
-        },
-      })
+      // Fetch both tenants and instances
+      const [tenantsResponse, instancesResponse] = await Promise.all([
+        marketplaceResourcesList({
+          query: {
+            customer_uuid: customerUuid,
+            offering_type: 'OpenStack.Tenant',
+            state: ['Creating', 'OK', 'Erred', 'Updating', 'Terminating'],
+          },
+        }),
+        marketplaceResourcesList({
+          query: {
+            customer_uuid: customerUuid,
+            offering_type: 'OpenStack.Instance',
+            state: ['Creating', 'OK', 'Erred', 'Updating', 'Terminating'],
+          },
+        }),
+      ])
       
-      return (response.data || []) as Resource[]
+      // Combine both results
+      const tenants = (tenantsResponse.data || []) as Resource[]
+      const instances = (instancesResponse.data || []) as Resource[]
+      
+      return [...tenants, ...instances]
     },
     enabled: !!customerUuid,
     refetchInterval: (query) => {

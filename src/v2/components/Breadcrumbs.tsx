@@ -33,7 +33,6 @@ const ORG_PAGE_CONFIG: Record<string, { label: string; icon: React.ReactNode }> 
   'add-project': { label: 'Add Project', icon: <LuPlus size={16} /> },
   'create-vm': { label: 'Create VM', icon: <LuServer size={16} /> },
   'settings': { label: 'Settings', icon: <LuServer size={16} /> },
-  'credits': { label: 'Credits', icon: <LuServer size={16} /> },
   'vms': { label: 'VMs', icon: <LuServer size={16} /> },
   'dashboard': { label: 'VMs', icon: <LuServer size={16} /> },
 }

@@ -48,6 +48,8 @@ export interface SpendingProgress {
   status: SpendingStatus
   /** Amount remaining before limit */
   remaining: number
+  /** Human-readable period name */
+  periodName: string
 }
 
 /**
@@ -85,7 +87,9 @@ export interface ParsedPolicyActions {
  * Form values for creating/editing cost policies
  */
 export interface CostPolicyFormValues {
-  limitCost: number
+  scopeType: 'customer' | 'project'
+  scopeUuid?: string // Required for project-level policies
+  limitCost: string // String for controlled input
   period: PeriodEnum // 1=monthly, 2=annual, 3=total, 4=quarterly
   notifyOrgOwners: boolean
   notifyProjectTeam: boolean

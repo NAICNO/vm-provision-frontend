@@ -90,10 +90,24 @@ export default function OrganizationResources({ orgId }: OrganizationResourcesPr
       sortable: true,
       filter: true,
       flex: 2,
-      cellRenderer: (params: { value?: string }) => {
+      cellRenderer: (params: { value?: string; data?: ResourceRow }) => {
+        // Extract the type from offering name if it contains the type
+        const offeringName = params.value || 'Unknown'
+        let displayType = offeringName
+        let colorPalette = 'gray'
+        
+        // Check if it's a tenant or instance
+        if (params.data?.offering_name?.includes('Tenant') || params.data?.offering_name?.toLowerCase().includes('tenant')) {
+          displayType = 'Tenant'
+          colorPalette = 'purple'
+        } else if (params.data?.offering_name?.includes('Instance') || params.data?.offering_name?.toLowerCase().includes('instance')) {
+          displayType = 'VM Instance'
+          colorPalette = 'blue'
+        }
+        
         return (
-          <Tag.Root size="sm" colorPalette="gray">
-            <Tag.Label>{params.value || 'VM'}</Tag.Label>
+          <Tag.Root size="sm" colorPalette={colorPalette}>
+            <Tag.Label>{displayType}</Tag.Label>
           </Tag.Root>
         )
       },

@@ -23,7 +23,7 @@ import { Tooltip } from '../../components/ui/tooltip'
 import { LuArrowLeft, LuServer, LuHardDrive, LuNetwork, LuClock, LuTag, LuKey, LuShield, LuTriangle, LuUsers, LuRotateCw } from 'react-icons/lu'
 import { Button } from '@chakra-ui/react'
 import moment from 'moment'
-import { ResourceUsageCard } from '../components/credits/ResourceUsageCard'
+import { ResourceUsageCard } from '../components/vm/ResourceUsageCard'
 
 /**
  * VmDetails Page - Phase 3 implementation

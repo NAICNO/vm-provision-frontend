@@ -89,11 +89,6 @@ function generateBreadcrumbs(
       label: 'Settings',
       icon: <LuServer size={16} />,
     })
-  } else if (pathname.includes('/credits')) {
-    breadcrumbs.push({
-      label: 'Credits',
-      icon: <LuServer size={16} />,
-    })
   }
 
   return breadcrumbs
