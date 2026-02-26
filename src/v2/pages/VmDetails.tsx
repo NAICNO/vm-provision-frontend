@@ -9,8 +9,6 @@ import {
   Skeleton,
   Stack,
   Code,
-  Box,
-  Badge,
 } from '@chakra-ui/react'
 import { useParams, useNavigate } from 'react-router'
 import { useResource } from '../hooks/useMarketplaceResource'
@@ -35,7 +33,7 @@ export default function VmDetails() {
 
   const { data: resource, isLoading: isLoadingResource } = useResource(resourceUuid)
   const { data: instance, isLoading: isLoadingInstance } = useOpenstackInstance(resource?.scope)
-  const { data: planDetails, isLoading: isLoadingPlan } = useFetchPlanDetails(resource?.plan_uuid)
+  const { data: planDetails, isLoading: isLoadingPlan } = useFetchPlanDetails(resource?.plan_uuid ?? undefined)
   const pullVm = usePullVm()
 
   const isLoading = isLoadingResource || isLoadingInstance

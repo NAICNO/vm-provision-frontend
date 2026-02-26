@@ -44,7 +44,7 @@ export default function UserManagement({ orgId }: UserManagementProps) {
       uuid: user.uuid || '',
       full_name: user.full_name || user.username || '',
       email: user.email || '',
-      role: user.role || user.role_name || '',
+      role_name: user.role_name || '',
       projects: user.projects,
     }))
     : []
@@ -133,7 +133,7 @@ export default function UserManagement({ orgId }: UserManagementProps) {
     },
     {
       headerName: 'Role',
-      field: 'role',
+      field: 'role_name',
       sortable: true,
       filter: true,
       // TODO: Fix role display to properly show Waldur RBAC roles
@@ -161,7 +161,7 @@ export default function UserManagement({ orgId }: UserManagementProps) {
             onClick={() => setUserToRemove({ 
               uuid: user.uuid || '', 
               name: user.full_name || user.email || 'Unknown', 
-              role: user.role || user.role_name || 'Member' 
+              role: user.role_name || 'Member'
             })}
           >
             <LuX />

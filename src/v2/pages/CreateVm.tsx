@@ -34,7 +34,7 @@ interface VmConfigState {
     volumeSize: string
     selectedSubnet: string
     selectedSecurityGroups: string[]
-    selectedSshKeys: string[]
+    selectedSshKey: string
   }
   isValid: boolean
 }

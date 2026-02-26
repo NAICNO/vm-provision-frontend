@@ -1,6 +1,6 @@
 import { Box, Container, Breadcrumb, HStack } from '@chakra-ui/react'
 import { LuBuilding2, LuChevronRight, LuPlus, LuServer, LuUser } from 'react-icons/lu'
-import { Link as ReactRouterLink, useLocation, useParams } from 'react-router'
+import { Link as ReactRouterLink, useLocation } from 'react-router'
 import { useOrganizationContext } from '../context/OrganizationContext'
 
 interface BreadcrumbItem {

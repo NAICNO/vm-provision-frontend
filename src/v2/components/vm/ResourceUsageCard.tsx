@@ -1,16 +1,16 @@
 import { Card, Heading, VStack, HStack, Text, Skeleton, Box, Badge } from '@chakra-ui/react'
 import { LuDollarSign, LuServer, LuCpu, LuHardDrive } from 'react-icons/lu'
-import type { OpenstackInstance, ProviderPlanDetails } from '../../../client/types.gen'
+import type { OpenStackInstance, ProviderPlanDetails } from '../../../client/types.gen'
 import { formatCurrency } from '../../util/costPolicyUtils'
 
 interface ResourceUsageCardProps {
-  instance: OpenstackInstance | undefined
+  instance: OpenStackInstance | undefined
   plan: ProviderPlanDetails | undefined
   isLoading?: boolean
   resourceName: string
 }
 
-export const ResourceUsageCard = ({ instance, plan, isLoading, resourceName }: ResourceUsageCardProps) => {
+export const ResourceUsageCard = ({ instance, plan, isLoading }: ResourceUsageCardProps) => {
   if (isLoading) {
     return (
       <Card.Root width="full">

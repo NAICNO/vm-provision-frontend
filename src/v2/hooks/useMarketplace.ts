@@ -1,22 +1,17 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 import QueryKeys from '../../constants/QueryKeys.ts'
 import {
-  customersCreate,
   marketplaceCategoriesList,
   marketplacePlansRetrieve,
   marketplaceProviderOfferingsCreate,
-  marketplaceResourceOfferingsList,
-  marketplaceServiceProvidersCreate,
   marketplaceServiceProvidersList,
   marketplaceServiceProvidersOfferingsList
 } from '../../client/sdk.gen'
 import type {
-  Customer,
-  CustomerRequest,
   MarketplaceCategory,
-  OfferingCreate,
   OfferingCreateRequest,
   ProviderOffering,
+  ProviderOfferingDetails,
   ProviderPlanDetails,
   ServiceProvider
 } from '../../client/types.gen'
@@ -68,21 +63,11 @@ export const useFetchMarketplaceCategories = () => {
   })
 }
 
-export const useFetchMarketplaceOfferingTypes = () => {
-  return useQuery({
-    queryKey: ['MARKETPLACE_OFFERING_TYPES'],
-    queryFn: async (): Promise<string[]> => {
-      const response = await marketplaceResourceOfferingsList()
-      return response.data
-    },
-  })
-}
-
 export const useCreateOffering = (
-  onSuccess: OnSuccessCallback<OfferingCreate>,
+  onSuccess: OnSuccessCallback<ProviderOfferingDetails>,
   onError: OnErrorCallback<Error>
 ) => {
-  return useMutation<OfferingCreate, Error, OfferingCreateRequest>({
+  return useMutation<ProviderOfferingDetails, Error, OfferingCreateRequest>({
     mutationKey: [MutationKeys.W_CREATE_CUSTOMER],
     mutationFn: async (offeringCreateRequest) => {
       const result = await marketplaceProviderOfferingsCreate({
@@ -91,7 +76,10 @@ export const useCreateOffering = (
 
       console.log('useCreateOfferingResult', result)
       if (result.error) {
-        throw result.error // Handle the error properly
+        throw result.error
+      }
+      if (!result.data) {
+        throw new Error('No data returned from offering creation')
       }
       return result.data
     },

@@ -47,8 +47,8 @@ const extraPrefixesMap: Record<string, Slot> = {
   $headers_: 'headers',
   $path_: 'path',
   $query_: 'query',
-}
-const extraPrefixes = Object.entries(extraPrefixesMap)
+};
+const extraPrefixes = Object.entries(extraPrefixesMap);
 
 type KeyMap = Map<
   string,
@@ -64,7 +64,7 @@ type KeyMap = Map<
 
 const buildKeyMap = (fields: FieldsConfig, map?: KeyMap): KeyMap => {
   if (!map) {
-    map = new Map()
+    map = new Map();
   }
 
   for (const config of fields) {
@@ -73,19 +73,19 @@ const buildKeyMap = (fields: FieldsConfig, map?: KeyMap): KeyMap => {
         map.set(config.key, {
           in: config.in,
           map: config.map,
-        })
+        });
       }
     } else if ('key' in config) {
       map.set(config.key, {
         map: config.map,
-      })
+      });
     } else if (config.args) {
-      buildKeyMap(config.args, map)
+      buildKeyMap(config.args, map);
     }
   }
 
-  return map
-}
+  return map;
+};
 
 interface Params {
   body: unknown;
@@ -97,71 +97,64 @@ interface Params {
 const stripEmptySlots = (params: Params) => {
   for (const [slot, value] of Object.entries(params)) {
     if (value && typeof value === 'object' && !Object.keys(value).length) {
-      delete params[slot as Slot]
+      delete params[slot as Slot];
     }
   }
-}
+};
 
-export const buildClientParams = (
-  args: ReadonlyArray<unknown>,
-  fields: FieldsConfig,
-) => {
+export const buildClientParams = (args: ReadonlyArray<unknown>, fields: FieldsConfig) => {
   const params: Params = {
     body: {},
     headers: {},
     path: {},
     query: {},
-  }
+  };
 
-  const map = buildKeyMap(fields)
+  const map = buildKeyMap(fields);
 
-  let config: FieldsConfig[number] | undefined
+  let config: FieldsConfig[number] | undefined;
 
   for (const [index, arg] of args.entries()) {
     if (fields[index]) {
-      config = fields[index]
+      config = fields[index];
     }
 
     if (!config) {
-      continue
+      continue;
     }
 
     if ('in' in config) {
       if (config.key) {
-        const field = map.get(config.key)!
-        const name = field.map || config.key
+        const field = map.get(config.key)!;
+        const name = field.map || config.key;
         if (field.in) {
-          (params[field.in] as Record<string, unknown>)[name] = arg
+          (params[field.in] as Record<string, unknown>)[name] = arg;
         }
       } else {
-        params.body = arg
+        params.body = arg;
       }
     } else {
       for (const [key, value] of Object.entries(arg ?? {})) {
-        const field = map.get(key)
+        const field = map.get(key);
 
         if (field) {
           if (field.in) {
             const name = field.map || key;
-            (params[field.in] as Record<string, unknown>)[name] = value
+            (params[field.in] as Record<string, unknown>)[name] = value;
           } else {
-            params[field.map] = value
+            params[field.map] = value;
           }
         } else {
-          const extra = extraPrefixes.find(([prefix]) =>
-            key.startsWith(prefix),
-          )
+          const extra = extraPrefixes.find(([prefix]) => key.startsWith(prefix));
 
           if (extra) {
             const [prefix, slot] = extra;
-            (params[slot] as Record<string, unknown>)[
-              key.slice(prefix.length)
-            ] = value
+            (params[slot] as Record<string, unknown>)[key.slice(prefix.length)] = value;
           } else if ('allowExtra' in config && config.allowExtra) {
             for (const [slot, allowed] of Object.entries(config.allowExtra)) {
               if (allowed) {
-                (params[slot as Slot] as Record<string, unknown>)[key] = value
-                break
+                (params[slot as Slot] as Record<string, unknown>)[key] = value;
+                break;
               }
             }
           }
@@ -170,7 +163,7 @@ export const buildClientParams = (
     }
   }
 
-  stripEmptySlots(params)
+  stripEmptySlots(params);
 
-  return params
-}
+  return params;
+};

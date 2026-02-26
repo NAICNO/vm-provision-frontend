@@ -7,7 +7,7 @@ import {
 import type { 
   MarketplaceOrdersCreateData,
   MarketplaceOrdersListData,
-  OrderCreate,
+
   OrderDetails
 } from '../../client/types.gen'
 import QueryKeys from '../../constants/QueryKeys'
@@ -39,7 +39,7 @@ export const useOrdersList = (filters?: MarketplaceOrdersListData['query']) => {
 export const useCreateVmOrder = () => {
   const queryClient = useQueryClient()
 
-  return useMutation<OrderCreate, Error, MarketplaceOrdersCreateData>({
+  return useMutation<OrderDetails, Error, MarketplaceOrdersCreateData>({
     mutationKey: [MutationKeys.W_CREATE_VM_ORDER],
     mutationFn: async (orderData) => {
       const result = await marketplaceOrdersCreate(orderData)
@@ -51,7 +51,7 @@ export const useCreateVmOrder = () => {
       }
       return result.data
     },
-    onSuccess: (data: OrderCreate) => {
+    onSuccess: (data: OrderDetails) => {
       // Invalidate resources list to show new VM when order completes
       queryClient.invalidateQueries({ queryKey: [QueryKeys.W_RESOURCES] })
       // Invalidate orders list to show the new order
@@ -87,15 +87,13 @@ export const useOrderState = (orderUuid?: string) => {
       // Poll while order is pending or executing
       if (
         order?.state &&
-        ['pending_consumer', 'pending_provider', 'executing'].includes(
-          order.state.toLowerCase()
-        )
+        ['pending-consumer', 'pending-provider', 'executing'].includes(order.state)
       ) {
         return 3000 // 3 seconds
       }
-      
+
       // When order completes, invalidate resources list
-      if (order?.state && ['done', 'erred'].includes(order.state.toLowerCase())) {
+      if (order?.state && ['done', 'erred'].includes(order.state)) {
         queryClient.invalidateQueries({ queryKey: [QueryKeys.W_RESOURCES] })
         queryClient.invalidateQueries({ queryKey: [QueryKeys.W_MARKETPLACE_ORDERS] })
       }

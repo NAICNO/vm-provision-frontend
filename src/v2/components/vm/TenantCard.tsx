@@ -10,7 +10,7 @@ import {
   Collapsible,
   Button,
 } from '@chakra-ui/react'
-import { LuChevronDown, LuChevronRight, LuExternalLink, LuEye } from 'react-icons/lu'
+import { LuChevronDown, LuChevronRight, LuEye } from 'react-icons/lu'
 import { MdWorkspaces } from 'react-icons/md'
 import type { Resource } from '../../../client/types.gen'
 import { VmCard } from './VmCard'

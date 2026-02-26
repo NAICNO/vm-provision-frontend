@@ -25,9 +25,11 @@ axiosInstance.interceptors.response.use(
 
 export function setWaldurApiConfig(token: string) {
   client.setConfig({
-    auth: () => `Token ${token}`,
     baseURL: WALDUR_API_ENDPOINT,
     throwOnError: true,
+    headers: {
+      Authorization: `Token ${token}`,
+    },
   })
 }
 

@@ -14,7 +14,7 @@ export const useFetchProjects = (orgId: string | undefined) => {
         if(orgId) {
           return await projectsList({
             query: {
-              customer: orgId,
+              customer: [orgId],
             }
           })
         } else {
@@ -38,9 +38,12 @@ export const useCreateProject = (
 
       console.log(result)
       if (result.error) {
-        throw result.error // Handle the error properly
+        throw result.error
       }
-      return result.data // Ensure only the `Project` object is returned
+      if (!result.data) {
+        throw new Error('No data returned')
+      }
+      return result.data
     },
     onSuccess: (result) => onSuccess(result),
     onError: (error) => onError(error),

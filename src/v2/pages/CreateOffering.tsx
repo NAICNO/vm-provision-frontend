@@ -12,7 +12,7 @@ import {
 import { NavigateBackButton } from '../../components/NavigateBackButton.tsx'
 import { Field, FieldProps, Form, Formik } from 'formik'
 import { BasicProjectAddSchema, CreateOfferingSchema, isRequired } from '../../util/FormValidationSchema.ts'
-import type { OfferingCreate, OfferingCreateRequest } from '../../client/types.gen'
+import type { ProviderOfferingDetails, ProviderOfferingDetailsRequest } from '../../client/types.gen'
 import { useNavigate, useParams } from 'react-router'
 import { useFetchCustomer } from '../hooks/useCustomer.ts'
 import { useCreateOffering, useFetchMarketplaceCategories } from '../hooks/useMarketplace.ts'
@@ -26,11 +26,11 @@ const CreateOffering = () => {
 
   const {data: categories} = useFetchMarketplaceCategories()
 
-  const {data: customer} = useFetchCustomer(orgId)
+  const {data: customer} = useFetchCustomer(orgId || '')
 
   const navigate = useNavigate()
 
-  const onSuccessCreate = (result: OfferingCreate) => {
+  const onSuccessCreate = (result: ProviderOfferingDetails) => {
     toaster.create({
       title: 'Offering created',
       type: 'success',
@@ -83,7 +83,7 @@ const CreateOffering = () => {
           validationSchema={CreateOfferingSchema}
           onSubmit={(values) => {
             console.log(values)
-            const offeringCreateRequest: OfferingCreateRequest = {
+            const offeringCreateRequest: ProviderOfferingDetailsRequest = {
               name: values.name,
               category: values.category,
               type: OPENSTACK_TENANT_TYPE,
@@ -95,7 +95,6 @@ const CreateOffering = () => {
           {({
             isValid,
             values,
-            resetForm,
           }) => (
             <Form>
               <Card.Root>
@@ -147,8 +146,8 @@ const CreateOffering = () => {
                                 items={[
                                   {label: 'Select a category', value: '', disabled: true},
                                   ...(categories?.map((category) => ({
-                                    label: category.title,
-                                    value: category.url,
+                                    label: category.title || '',
+                                    value: category.url || '',
                                   })) ?? []),
                                 ]}
                               />

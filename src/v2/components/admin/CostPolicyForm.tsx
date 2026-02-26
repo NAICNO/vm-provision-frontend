@@ -10,7 +10,7 @@ import {
 import { Checkbox } from '../../components/ui/checkbox'
 import { NativeSelectRoot, NativeSelectField } from '../../../components/ui/native-select'
 import { useFetchProjects } from '../../hooks/useProject'
-import type { PeriodEnum, Project } from '../../../client/types.gen'
+import type { PolicyPeriodEnum, Project } from '../../../client/types.gen'
 import { PERIOD_NAMES, type CostPolicyFormValues } from '../../types/CostPolicy'
 
 interface CostPolicyFormProps {
@@ -141,7 +141,7 @@ export const CostPolicyForm = ({
           <NativeSelectField
             value={values.period.toString()}
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => 
-              handleChange('period', parseInt(e.target.value) as PeriodEnum)
+              handleChange('period', parseInt(e.target.value) as PolicyPeriodEnum)
             }
           >
             {Object.entries(PERIOD_NAMES).map(([value, label]) => (

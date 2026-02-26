@@ -23,20 +23,19 @@ export const getAuthToken = async (
   auth: Auth,
   callback: ((auth: Auth) => Promise<AuthToken> | AuthToken) | AuthToken,
 ): Promise<string | undefined> => {
-  const token =
-    typeof callback === 'function' ? await callback(auth) : callback
+  const token = typeof callback === 'function' ? await callback(auth) : callback;
 
   if (!token) {
-    return
+    return;
   }
 
   if (auth.scheme === 'bearer') {
-    return `Bearer ${token}`
+    return `Bearer ${token}`;
   }
 
   if (auth.scheme === 'basic') {
-    return `Basic ${btoa(token)}`
+    return `Basic ${btoa(token)}`;
   }
 
-  return token
-}
+  return token;
+};

@@ -13,9 +13,16 @@ import { MdKeyboardArrowRight } from 'react-icons/md'
 
 import { useFetchEvents } from '../../hooks/useEvents.ts'
 
+interface EventContext {
+  user_full_name?: string
+  ip_address?: string
+  [key: string]: unknown
+}
+
 
 const MessageCellRenderer: React.FC<ICellRendererParams<Event, string>> = (params) => {
   const event = params.data as Event
+  const ctx = (event.context ?? {}) as EventContext
 
   return (
     <Box display="flex" flexDirection="column" width="100%" mb={2}>
@@ -38,15 +45,15 @@ const MessageCellRenderer: React.FC<ICellRendererParams<Event, string>> = (param
         <Collapsible.Content>
           <Box padding="4" borderWidth="1px">
             <DataList.Root orientation="horizontal" variant={'bold'}>
-              {event.context.user_full_name &&
-                <DataList.Item key={event.user_full_name}>
+              {ctx.user_full_name &&
+                <DataList.Item key={ctx.user_full_name}>
                   <DataList.ItemLabel>User</DataList.ItemLabel>
-                  <DataList.ItemValue>{event.context.user_full_name}</DataList.ItemValue>
+                  <DataList.ItemValue>{ctx.user_full_name}</DataList.ItemValue>
                 </DataList.Item>
               }
-              <DataList.Item key={event.context.ip_address}>
+              <DataList.Item key={ctx.ip_address}>
                 <DataList.ItemLabel>IP address</DataList.ItemLabel>
-                <DataList.ItemValue>{event.context.ip_address}</DataList.ItemValue>
+                <DataList.ItemValue>{ctx.ip_address}</DataList.ItemValue>
               </DataList.Item>
               <DataList.Item key={event.event_type}>
                 <DataList.ItemLabel>Event type</DataList.ItemLabel>
@@ -83,7 +90,7 @@ const OrgAuditLogs = ({orgId}: Props) => {
     },
     {
       headerName: 'User',
-      valueGetter: (p) => p.data?.context?.user_full_name || 'N/A',
+      valueGetter: (p) => (p.data?.context as EventContext)?.user_full_name || 'N/A',
       flex: 1.5,
       filter: 'agTextColumnFilter',
       sortable: true,

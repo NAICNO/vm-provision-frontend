@@ -37,6 +37,9 @@ export const useFetchCustomer = (customerUuid: string) => {
         const response = await customersRetrieve({
           path: {uuid: customerUuid},
         })
+        if (!response.data) {
+          throw new Error('Customer not found')
+        }
         return response.data
       },
       enabled: !!customerUuid // Only run the query if customerUuid is provided
@@ -50,9 +53,9 @@ export const useFetchUsersOfCustomer = (customerUuid: string) => {
       queryKey: [QueryKeys.W_CUSTOMER_USERS, customerUuid],
       queryFn: async (): Promise<CustomerUser[]> => {
         const response = await customersUsersList({
-          path: {uuid: customerUuid}
+          path: {customer_uuid: customerUuid}
         })
-        return response.data
+        return response.data ?? []
       },
       enabled: !!customerUuid
     }
@@ -74,9 +77,12 @@ export const useSetCustomerAsServiceProvider = (
 
       console.log('service provider set result', result)
       if (result.error) {
-        throw result.error // Handle the error properly
+        throw result.error
       }
-      return result.data // Ensure only the `Customer` object is returned
+      if (!result.data) {
+        throw new Error('No data returned')
+      }
+      return result.data
     },
     onSuccess: (result) => onSuccess(result),
     onError: (error) => onError(error),
@@ -96,9 +102,12 @@ export const useCreateCustomer = (
 
       console.log(result)
       if (result.error) {
-        throw result.error // Handle the error properly
+        throw result.error
       }
-      return result.data // Ensure only the `Customer` object is returned
+      if (!result.data) {
+        throw new Error('No data returned')
+      }
+      return result.data
     },
     onSuccess: (result) => onSuccess(result),
     onError: (error) => onError(error),

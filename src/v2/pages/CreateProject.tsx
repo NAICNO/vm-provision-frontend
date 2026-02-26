@@ -54,7 +54,7 @@ const CreateProject = () => {
   const {mutate, isPending, error} = useCreateProject(onSuccessCreate, onErrorCreate)
 
 
-  const {data: customer} = useFetchCustomer(orgId)
+  const {data: customer} = useFetchCustomer(orgId || '')
 
 
   const handleCancel = () => {
@@ -88,7 +88,7 @@ const CreateProject = () => {
               console.log(values)
               const projectRequest: ProjectRequest = {
                 name: values.name,
-                customer: customer?.url, // Use orgId as the customer ID
+                customer: customer?.url || '',
               }
               mutate(projectRequest)
             }}

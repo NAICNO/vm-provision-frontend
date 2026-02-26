@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from 'react-router'
 import { useFetchCustomer, useSetCustomerAsServiceProvider, useUpdateCustomer } from '../hooks/useCustomer.ts'
+import type { CustomerRequest } from '../../client/types.gen'
 import { BasicOrganizationAddSchema, OrganizationEditSchema } from '../../util/FormValidationSchema.ts'
 import { Form, Formik } from 'formik'
 import {
@@ -20,7 +21,7 @@ const EditOrganization = () => {
 
   const navigate = useNavigate()
 
-  const {data: customer} = useFetchCustomer(orgId)
+  const {data: customer} = useFetchCustomer(orgId || '')
 
   const onSuccessUpdate = () => {
     toaster.create({
@@ -43,7 +44,7 @@ const EditOrganization = () => {
     })
   }
 
-  const {mutate: updateCustomer, isPending, error} = useUpdateCustomer(orgId, onSuccessUpdate, onErrorUpdate)
+  const {mutate: updateCustomer, isPending, error} = useUpdateCustomer(orgId || '', onSuccessUpdate, onErrorUpdate)
 
   const {mutate: setCustomerAsServiceProvider} = useSetCustomerAsServiceProvider(onSuccessUpdate, onErrorUpdate)
 
@@ -55,7 +56,7 @@ const EditOrganization = () => {
   return (
     <VStack alignItems={'flex-start'}>
       {
-        !customer.is_service_provider &&
+        customer && !customer.is_service_provider &&
         <Card.Root width="100%">
           <Card.Body>
             <VStack alignItems={'flex-start'}>
@@ -65,7 +66,7 @@ const EditOrganization = () => {
               <Button
                 variant={'surface'}
                 colorPalette={'green'}
-                onClick={() => setCustomerAsServiceProvider(customer.url)}
+                onClick={() => setCustomerAsServiceProvider(customer!.url!)}
               >
                 Register as Service Provider
               </Button>
@@ -74,20 +75,19 @@ const EditOrganization = () => {
         </Card.Root>
       }
       <Formik
-        initialValues={customer}
+        initialValues={customer!}
         enableReinitialize={true}
         validateOnBlur={true}
         validationSchema={OrganizationEditSchema}
         onSubmit={(values) => {
           console.log(values)
-          updateCustomer(values)
+          updateCustomer(values as unknown as CustomerRequest)
         }}
       >
         {({
           isValid,
           submitForm,
           values,
-          resetForm,
         }) => (
           <Form style={{width: '80%'}}>
             <Card.Root width="100%">
@@ -97,7 +97,7 @@ const EditOrganization = () => {
                     <FormField
                       name={'name'}
                       label={'Organization Name'}
-                      value={values.name}
+                      value={values.name || ''}
                       placeholder={'Enter organization name'}
                       helperText={'This will be the primary name for your organization'}
                       schema={BasicOrganizationAddSchema}
@@ -106,7 +106,7 @@ const EditOrganization = () => {
                     <FormField
                       name={'abbreviation'}
                       label={'Abbreviation'}
-                      value={values.abbreviation}
+                      value={values.abbreviation || ''}
                       placeholder={'Enter abbreviation (e.g., ACME)'}
                       helperText={'Short form of the organization name (optional)'}
                       schema={BasicOrganizationAddSchema}
@@ -115,7 +115,7 @@ const EditOrganization = () => {
                     <FormField
                       name={'homepage'}
                       label={'Website URL'}
-                      value={values.homepage}
+                      value={values.homepage || ''}
                       placeholder={'Enter website URL'}
                       helperText={'Official website of the organization (optional)'}
                       schema={BasicOrganizationAddSchema}
@@ -124,16 +124,16 @@ const EditOrganization = () => {
                     <FormField
                       name={'email'}
                       label={'Email'}
-                      value={values.email}
+                      value={values.email || ''}
                       placeholder={'Enter email address'}
                       helperText={'Primary contact email for the organization'}
                       schema={BasicOrganizationAddSchema}
                     />
 
                     <FormField
-                      name={'phone'}
+                      name={'phone_number'}
                       label={'Phone'}
-                      value={values.phone}
+                      value={values.phone_number || ''}
                       placeholder={'Enter phone number'}
                       helperText={'Contact phone number for the organization'}
                       schema={BasicOrganizationAddSchema}
@@ -142,7 +142,7 @@ const EditOrganization = () => {
                     <FormField
                       name={'address'}
                       label={'Address'}
-                      value={values.address}
+                      value={values.address || ''}
                       placeholder={'Enter organization address'}
                       helperText={'Physical address of the organization (optional)'}
                       Control={Textarea}
@@ -153,7 +153,7 @@ const EditOrganization = () => {
                     <FormField
                       name={'contact_details'}
                       label={'Contact Details'}
-                      value={values.contact_details}
+                      value={values.contact_details || ''}
                       placeholder={'Enter contact details'}
                       helperText={'Additional contact information for the organization (optional)'}
                       Control={Textarea}

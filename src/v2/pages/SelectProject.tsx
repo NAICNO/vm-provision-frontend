@@ -17,7 +17,7 @@ const SelectProject = () => {
 
   const {orgId} = useParams<string>()
 
-  const {data: customer} = useFetchCustomer(orgId)
+  const {data: customer} = useFetchCustomer(orgId || '')
 
   const {data, isPending} = useFetchProjects(orgId)
 

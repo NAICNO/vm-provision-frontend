@@ -12,13 +12,13 @@
  * - PeriodEnum (1=monthly, 2=annual, 3=total, 4=quarterly)
  */
 
-import type { PeriodEnum } from '../../client/types.gen'
+import type { PolicyPeriodEnum } from '../../client/types.gen'
 
 /**
  * Period display names for cost policies
  * Maps PeriodEnum values to human-readable labels
  */
-export const PERIOD_NAMES: Record<PeriodEnum, string> = {
+export const PERIOD_NAMES: Record<PolicyPeriodEnum, string> = {
   1: 'Monthly',
   2: 'Annual',
   3: 'Total',
@@ -90,7 +90,7 @@ export interface CostPolicyFormValues {
   scopeType: 'customer' | 'project'
   scopeUuid?: string // Required for project-level policies
   limitCost: string // String for controlled input
-  period: PeriodEnum // 1=monthly, 2=annual, 3=total, 4=quarterly
+  period: PolicyPeriodEnum // 1=monthly, 2=annual, 3=total, 4=quarterly
   notifyOrgOwners: boolean
   notifyProjectTeam: boolean
   notifyExternalUser: boolean

@@ -22,6 +22,7 @@ export const offeringStateColors: Record<OfferingState, string> = {
   Active: 'green',
   Paused: 'orange',
   Archived: 'gray',
+  Unavailable: 'red',
 }
 
 const colDefs: ColDef<OfferingRow>[] = [

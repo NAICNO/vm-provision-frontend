@@ -5,10 +5,10 @@
  * determining status colors, and parsing/building policy action strings.
  */
 
-import type { 
-  CustomerEstimatedCostPolicy, 
+import type {
+  CustomerEstimatedCostPolicy,
   ProjectEstimatedCostPolicy,
-  PeriodEnum,
+  PolicyPeriodEnum,
 } from '../../client/types.gen'
 import { 
   SpendingProgress, 
@@ -153,8 +153,8 @@ export function parseActions(actionsString: string): ParsedPolicyActions {
 /**
  * Get period display name
  */
-export function getPeriodName(period: PeriodEnum | number): string {
-  return PERIOD_NAMES[period as PeriodEnum] ?? 'Unknown'
+export function getPeriodName(period: PolicyPeriodEnum | number): string {
+  return PERIOD_NAMES[period as PolicyPeriodEnum] ?? 'Unknown'
 }
 
 /**

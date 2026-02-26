@@ -8,7 +8,7 @@ export const APP_NAME = import.meta.env.VITE_APP_NAME
 export const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
 export const SOCKET_ENDPOINT = import.meta.env.VITE_SOCKET_ENDPOINT
 export const AUTH_URL = import.meta.env.VITE_AUTH_URL
-export const SENTRY_DSN= import.meta.env.VITE_SENTRY_DSN
+
 
 export const API_KEY = import.meta.env.VITE_FIREBASE_API_KEY
 export const AUTH_DOMAIN = import.meta.env.VITE_FIREBASE_AUTH_DOMAIN

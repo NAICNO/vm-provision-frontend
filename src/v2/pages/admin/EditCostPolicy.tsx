@@ -26,7 +26,7 @@ import { useFetchCustomer } from '../../hooks/useCustomer'
 import { toaster } from '../../../components/ui/toaster'
 import { calculateSpendingProgress } from '../../util/costPolicyUtils'
 import type { CostPolicyFormValues } from '../../types/CostPolicy'
-import type { PeriodEnum, ProjectEstimatedCostPolicy } from '../../../client/types.gen'
+import type { PolicyPeriodEnum, ProjectEstimatedCostPolicy } from '../../../client/types.gen'
 
 // Validation schema
 const validationSchema = Yup.object().shape({
@@ -80,7 +80,7 @@ export default function EditCostPolicy() {
       scopeType: 'customer',
       scopeUuid: undefined,
       limitCost: '',
-      period: 1 as PeriodEnum,
+      period: 1 as PolicyPeriodEnum,
       notifyOrgOwners: false,
       notifyProjectTeam: false,
       notifyExternalUser: false,
@@ -159,7 +159,7 @@ export default function EditCostPolicy() {
         scopeType: isCustomerPolicy ? 'customer' : 'project',
         scopeUuid: isCustomerPolicy ? undefined : policy.scope,
         limitCost: policy.limit_cost?.toString() || '',
-        period: (policy.period || 1) as PeriodEnum,
+        period: (policy.period || 1) as PolicyPeriodEnum,
         notifyOrgOwners: actions.includes('notify_organization_owners'),
         notifyProjectTeam: actions.includes('notify_project_team'),
         notifyExternalUser: actions.includes('notify_external_user'),

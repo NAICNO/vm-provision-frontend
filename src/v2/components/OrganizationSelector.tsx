@@ -54,7 +54,7 @@ export default function OrganizationSelector() {
               <>
                 {/* Current Organization */}
                 <Menu.Item
-                  value={selectedOrg.uuid}
+                  value={selectedOrg.uuid || ''}
                   bg="bg.muted"
                   _hover={{ bg: 'bg.muted' }}
                   cursor="default"
@@ -75,8 +75,8 @@ export default function OrganizationSelector() {
                   .map((org) => (
                     <Menu.Item
                       key={org.uuid}
-                      value={org.uuid}
-                      onClick={() => handleOrganizationSelect(org.uuid)}
+                      value={org.uuid || ''}
+                      onClick={() => handleOrganizationSelect(org.uuid || '')}
                     >
                       <LuBuilding2 />
                       <Box flex="1">{org.name}</Box>

@@ -1,5 +1,4 @@
 import { VStack, Heading, Text, SimpleGrid, EmptyState, Box, HStack, Button } from '@chakra-ui/react'
-import { LuServer } from 'react-icons/lu'
 import { MdWorkspaces, MdViewList, MdComputer } from 'react-icons/md'
 import type { Resource } from '../../../client/types.gen'
 import { VmCard, VmCardSkeleton } from './VmCard'

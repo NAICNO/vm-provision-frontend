@@ -1,4 +1,4 @@
-import { Box, Heading, VStack, Text, Button, HStack, Badge, Spinner, Card } from '@chakra-ui/react'
+import { Box, Heading, VStack, Text, Button, HStack, Spinner, Card } from '@chakra-ui/react'
 import { useNavigate, useSearchParams, useParams } from 'react-router'
 import { useOrderState } from '../hooks/useVmOrders'
 import { useEffect } from 'react'
@@ -90,8 +90,8 @@ export default function TenantOrderStatus() {
   }
 
   const stateDisplay = getStateDisplay(order?.state)
-  const isProcessing = ['pending_consumer', 'pending_provider', 'executing'].includes(
-    order?.state?.toLowerCase() || ''
+  const isProcessing = ['pending-consumer', 'pending-provider', 'executing'].includes(
+    order?.state || ''
   )
   const isComplete = order?.state?.toLowerCase() === 'done'
   const isFailed = order?.state?.toLowerCase() === 'erred'
@@ -209,7 +209,7 @@ export default function TenantOrderStatus() {
                 fontWeight="bold"
                 fontSize="sm"
                 animation={stateDisplay.step === 2 ? 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' : undefined}
-                sx={{
+                css={{
                   '@keyframes pulse': {
                     '0%, 100%': { opacity: 1 },
                     '50%': { opacity: 0.5 },
@@ -225,7 +225,7 @@ export default function TenantOrderStatus() {
                   color={stateDisplay.step === 2 ? 'blue.600' : 'gray.600'}
                   fontWeight={stateDisplay.step === 2 ? 'medium' : 'normal'}
                   animation={stateDisplay.step === 2 ? 'fadeIn 1s ease-in-out' : undefined}
-                  sx={{
+                  css={{
                     '@keyframes fadeIn': {
                       '0%': { opacity: 0.5 },
                       '100%': { opacity: 1 },
@@ -338,24 +338,24 @@ export default function TenantOrderStatus() {
                 <VStack align="stretch" gap={2}>
                   <HStack justify="space-between">
                     <Text fontSize="sm" color="gray.600">Tenant Name:</Text>
-                    <Text fontSize="sm" fontWeight="medium">{order.attributes?.name || 'N/A'}</Text>
+                    <Text fontSize="sm" fontWeight="medium">{(order.attributes as Record<string, unknown>)?.name as string || 'N/A'}</Text>
                   </HStack>
                   <HStack justify="space-between">
                     <Text fontSize="sm" color="gray.600">Project:</Text>
                     <Text fontSize="sm" fontWeight="medium">{order.project_name || 'N/A'}</Text>
                   </HStack>
-                  {order.approved_at && (
+                  {order.consumer_reviewed_at && (
                     <HStack justify="space-between">
                       <Text fontSize="sm" color="gray.600">Approved:</Text>
                       <Text fontSize="sm" fontWeight="medium">
-                        {new Date(order.approved_at).toLocaleString()}
+                        {new Date(order.consumer_reviewed_at).toLocaleString()}
                       </Text>
                     </HStack>
                   )}
-                  {order.approved_by_full_name && (
+                  {order.consumer_reviewed_by_full_name && (
                     <HStack justify="space-between">
                       <Text fontSize="sm" color="gray.600">Approved By:</Text>
-                      <Text fontSize="sm" fontWeight="medium">{order.approved_by_full_name}</Text>
+                      <Text fontSize="sm" fontWeight="medium">{order.consumer_reviewed_by_full_name}</Text>
                     </HStack>
                   )}
                 </VStack>
@@ -395,8 +395,8 @@ export default function TenantOrderStatus() {
               )}
 
               {/* Approval Notice */}
-              {(order.state === 'pending_consumer' || order.state === 'pending-consumer' || 
-                order.state === 'pending_provider' || order.state === 'pending-provider') && (
+              {(order.state === 'pending-consumer' ||
+                order.state === 'pending-provider') && (
                 <Box p={4} borderWidth="1px" borderRadius="md" bg="orange.50" _dark={{ bg: 'orange.950' }}>
                   <HStack gap={2}>
                     <Spinner size="sm" color="orange.500" />
@@ -405,7 +405,7 @@ export default function TenantOrderStatus() {
                         Approval Required
                       </Text>
                       <Text fontSize="sm" color="orange.600" _dark={{ color: 'orange.400' }}>
-                        {(order.state === 'pending_consumer' || order.state === 'pending-consumer')
+                        {order.state === 'pending-consumer'
                           ? 'Pending organization approval - Please contact your organization administrator.'
                           : 'Pending provider approval - This may take some time.'}
                       </Text>

@@ -12,7 +12,7 @@ import {
 import { NavigateBackButton } from '../../components/NavigateBackButton.tsx'
 import { Field, FieldProps, Form, Formik } from 'formik'
 import { BasicProjectAddSchema, CreateOfferingSchema, isRequired } from '../../util/FormValidationSchema.ts'
-import type { OfferingCreate, OfferingCreateRequest } from '../../client/types.gen'
+import type { ProviderOfferingDetails, ProviderOfferingDetailsRequest } from '../../client/types.gen'
 import { useNavigate, useParams } from 'react-router'
 import { useFetchCustomer } from '../hooks/useCustomer.ts'
 import { useCreateOffering, useFetchMarketplaceCategories } from '../hooks/useMarketplace.ts'
@@ -22,22 +22,21 @@ import { NativeSelectRoot, NativeSelectField } from '../../components/ui/native-
 
 const ViewEditOffering = () => {
 
-  const {orgId, serviceProviderId, offeringId } = useParams<{ orgId: string, serviceProviderId: string, offeringId: string }>()
+  const {orgId} = useParams<{ orgId: string, serviceProviderId: string, offeringId: string }>()
 
   const {data: categories} = useFetchMarketplaceCategories()
 
-  const {data: customer} = useFetchCustomer(orgId)
+  const {data: customer} = useFetchCustomer(orgId || '')
 
   const navigate = useNavigate()
 
-  const onSuccessCreate = (result: OfferingCreate) => {
+  const onSuccessCreate = (_result: ProviderOfferingDetails) => {
     toaster.create({
       title: 'Offering created',
       type: 'success',
       duration: 5000,
     })
     setTimeout(() => {
-      const {uuid} = result
       navigate(-1)
     }, 500)
   }
@@ -83,7 +82,7 @@ const ViewEditOffering = () => {
           validationSchema={CreateOfferingSchema}
           onSubmit={(values) => {
             console.log(values)
-            const offeringCreateRequest: OfferingCreateRequest = {
+            const offeringCreateRequest: ProviderOfferingDetailsRequest = {
               name: values.name,
               category: values.category,
               type: OPENSTACK_TENANT_TYPE,
@@ -95,7 +94,6 @@ const ViewEditOffering = () => {
           {({
             isValid,
             values,
-            resetForm,
           }) => (
             <Form>
               <Card.Root>
@@ -147,8 +145,8 @@ const ViewEditOffering = () => {
                                 items={[
                                   {label: 'Select a category', value: '', disabled: true},
                                   ...(categories?.map((category) => ({
-                                    label: category.title,
-                                    value: category.url,
+                                    label: category.title || '',
+                                    value: category.url || '',
                                   })) ?? []),
                                 ]}
                               />

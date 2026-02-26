@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
 import { client } from '../../client/client.gen'
-import { usersList, usersMeRetrieve } from '../../client/sdk.gen'
+import { usersMeRetrieve } from '../../client/sdk.gen'
 import { WALDUR_API_ENDPOINT } from '../../constants/Constants.ts'
 
 function useFetchUrl(url: string, token: string) {
@@ -35,7 +35,7 @@ const TestPage = () => {
 
   const url = `${baseUrl}${endPoint}`
 
-  const {data, refetch} = useFetchUrl(url, token)
+  useFetchUrl(url, token)
 
   const test = async () => {
     client.setConfig({
@@ -56,7 +56,7 @@ const TestPage = () => {
   }
 
   return (
-    <VStack spacing={4} align="start">
+    <VStack gap={4} align="start">
       <Text>Token</Text>
       <Input value={token} onChange={(e) => setToken(e.target.value)}/>
       <Text>Base Url</Text>

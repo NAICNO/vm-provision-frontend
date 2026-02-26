@@ -21,7 +21,7 @@ import { useFetchCustomer } from '../../hooks/useCustomer'
 import { useFetchProjects } from '../../hooks/useProject'
 import { toaster } from '../../../components/ui/toaster'
 import type { CostPolicyFormValues } from '../../types/CostPolicy'
-import type { PeriodEnum } from '../../../client/types.gen'
+import type { PolicyPeriodEnum } from '../../../client/types.gen'
 
 // Validation schema
 const validationSchema = Yup.object().shape({
@@ -76,7 +76,7 @@ export default function CreateCostPolicy() {
       scopeType: 'customer',
       scopeUuid: undefined,
       limitCost: '',
-      period: 1 as PeriodEnum, // Monthly
+      period: 1 as PolicyPeriodEnum, // Monthly
       notifyOrgOwners: true,
       notifyProjectTeam: false,
       notifyExternalUser: false,

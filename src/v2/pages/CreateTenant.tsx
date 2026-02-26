@@ -234,7 +234,7 @@ export default function CreateTenant() {
                       <HStack justify="space-between">
                         <VStack align="start" gap={1}>
                           <Text fontWeight="bold">{offering.name}</Text>
-                          <Text fontSize="sm" color="gray.600">{offering.description}</Text>
+                          <Text fontSize="sm" color="gray.600">{offering.type}</Text>
                         </VStack>
                         {selectedOffering?.uuid === offering.uuid && (
                           <Badge colorScheme="blue">Selected</Badge>

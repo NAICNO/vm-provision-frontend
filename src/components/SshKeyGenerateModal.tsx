@@ -6,8 +6,6 @@ import {
 } from '@chakra-ui/react'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { FiDownload } from 'react-icons/fi'
-import * as Sentry from '@sentry/react'
-
 import { toaster } from './ui/toaster.tsx'
 import { FILE_NAME_VALIDATION_REGEX } from '../constants/Constants.ts'
 import { useCreateSshKey } from '../hooks/useCreateSshKeyPair.ts'
@@ -81,7 +79,7 @@ export default function SshKeyGenerateModal({isOpen, onClose}: SshKeyGenerateMod
     setPrivateKey(privateKey)
     nextStep()
   }
-  const onErrorCreateSshKey = (error: Error) => {
+  const onErrorCreateSshKey = (_error: Error) => {
     toaster.create({
       title: 'Error creating SSH key',
       description: 'Please try again.',
@@ -89,14 +87,7 @@ export default function SshKeyGenerateModal({isOpen, onClose}: SshKeyGenerateMod
       duration: 5000,
       closable: true,
     })
-    Sentry.captureException(
-      error,
-      {
-        tags: {
-          message: 'SshKeyGenerateModal - onErrorCreateSshKey'
-        }
-      }
-    )
+
   }
 
   const {mutate, isPending} = useCreateSshKey(onSuccessCreateSshKey, onErrorCreateSshKey)
