@@ -56,6 +56,9 @@ import {
 import NoAccessPage from './v2/pages/NoAccessPage'
 import InvitationAccept from './v2/pages/InvitationAccept'
 
+// V2 Phase 6 - Route Guards
+import { AdminGuard } from './v2/components/guards/AdminGuard'
+
 // V2 (Waldur) imports - New
 import V2Profile from './v2/pages/Profile'
 import { OrganizationProvider } from './v2/context/OrganizationContext'
@@ -178,14 +181,20 @@ const routes: RouteObject[] = [
                 path: ':serviceProviderId/offering/:offeringId',
                 element: <ViewEditOffering/>
               },
-              // Admin routes
+              // Admin routes — protected by AdminGuard (CUSTOMER.OWNER or is_staff)
               {
-                path: 'admin/spending/create',
-                element: <CreateCostPolicy/>
-              },
-              {
-                path: 'admin/spending/:policyId/edit',
-                element: <EditCostPolicy/>
+                path: 'admin',
+                element: <AdminGuard />,
+                children: [
+                  {
+                    path: 'spending/create',
+                    element: <CreateCostPolicy/>
+                  },
+                  {
+                    path: 'spending/:policyId/edit',
+                    element: <EditCostPolicy/>
+                  },
+                ]
               },
             ]
           },
