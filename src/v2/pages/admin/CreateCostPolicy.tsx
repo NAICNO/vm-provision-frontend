@@ -111,7 +111,7 @@ export default function CreateCostPolicy() {
 
           toaster.create({
             title: 'Policy Created',
-            description: `Organization-wide spending limit of $${limitCost.toFixed(2)} has been created`,
+            description: `Organization-wide spending limit of ${limitCost.toFixed(2)} NOK has been created`,
             type: 'success',
             duration: 5000,
           })
@@ -135,7 +135,7 @@ export default function CreateCostPolicy() {
 
           toaster.create({
             title: 'Policy Created',
-            description: `Project spending limit of $${limitCost.toFixed(2)} has been created`,
+            description: `Project spending limit of ${limitCost.toFixed(2)} NOK has been created`,
             type: 'success',
             duration: 5000,
           })

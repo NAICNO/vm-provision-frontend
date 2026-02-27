@@ -123,7 +123,7 @@ export const useValidateVmCreation = (
     if (progress.status === 'blocked') {
       return {
         allowed: false,
-        reason: `Spending limit of ${progress.limit.toFixed(2)} exceeded. Current spending: ${progress.current.toFixed(2)}.`,
+        reason: `Spending limit of ${progress.limit.toFixed(2)} NOK exceeded. Current spending: ${progress.current.toFixed(2)} NOK.`,
         status: 'blocked' as SpendingStatus,
         remainingBudget: 0,
       }
@@ -133,7 +133,7 @@ export const useValidateVmCreation = (
     if (progress.remaining < estimatedMonthlyCost) {
       return {
         allowed: false,
-        reason: `Insufficient budget. Remaining: ${progress.remaining.toFixed(2)}, Estimated monthly cost: ${estimatedMonthlyCost.toFixed(2)}.`,
+        reason: `Insufficient budget. Remaining: ${progress.remaining.toFixed(2)} NOK, Estimated monthly cost: ${estimatedMonthlyCost.toFixed(2)} NOK.`,
         status: progress.status,
         remainingBudget: progress.remaining,
       }
@@ -142,9 +142,9 @@ export const useValidateVmCreation = (
     // Warn if we're in warning/critical state but still allow creation
     let warningReason: string | undefined
     if (progress.status === 'critical') {
-      warningReason = `Budget is critically low (${progress.percentage.toFixed(0)}% used). Remaining: ${progress.remaining.toFixed(2)}.`
+      warningReason = `Budget is critically low (${progress.percentage.toFixed(0)}% used). Remaining: ${progress.remaining.toFixed(2)} NOK.`
     } else if (progress.status === 'warning') {
-      warningReason = `Budget usage is high (${progress.percentage.toFixed(0)}% used). Remaining: ${progress.remaining.toFixed(2)}.`
+      warningReason = `Budget usage is high (${progress.percentage.toFixed(0)}% used). Remaining: ${progress.remaining.toFixed(2)} NOK.`
     }
     
     return {

@@ -42,9 +42,18 @@ export const useCreateVmOrder = () => {
   return useMutation<OrderDetails, Error, MarketplaceOrdersCreateData>({
     mutationKey: [MutationKeys.W_CREATE_VM_ORDER],
     mutationFn: async (orderData) => {
+      console.log('[useCreateVmOrder] Sending order:', orderData)
       const result = await marketplaceOrdersCreate(orderData)
+      console.log('[useCreateVmOrder] API response:', result)
       if (result.error) {
-        throw result.error
+        console.error('[useCreateVmOrder] API error:', result.error)
+        // Preserve the full error body for debugging
+        const err = new Error(
+          typeof result.error === 'object' ? JSON.stringify(result.error) : String(result.error)
+        )
+        ;(err as unknown as Record<string, unknown>).body = result.error
+        ;(err as unknown as Record<string, unknown>).status = (result as unknown as Record<string, unknown>).status
+        throw err
       }
       if (!result.data) {
         throw new Error('No data returned from order creation')

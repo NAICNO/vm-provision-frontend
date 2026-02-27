@@ -1,4 +1,5 @@
 import {
+  Box,
   Container,
   Heading,
   Text,
@@ -22,6 +23,10 @@ import { LuArrowLeft, LuServer, LuHardDrive, LuNetwork, LuClock, LuTag, LuKey, L
 import { Button } from '@chakra-ui/react'
 import moment from 'moment'
 import { ResourceUsageCard } from '../components/vm/ResourceUsageCard'
+import { useProjectCostPolicies } from '../hooks/useCostPolicies'
+import { calculateSpendingProgress } from '../util/costPolicyUtils'
+import { SpendingAlert } from '../components/SpendingAlert'
+import { SpendingStatusCard } from '../components/spending/SpendingStatusCard'
 
 /**
  * VmDetails Page - Phase 3 implementation
@@ -35,6 +40,9 @@ export default function VmDetails() {
   const { data: instance, isLoading: isLoadingInstance } = useOpenstackInstance(resource?.scope)
   const { data: planDetails, isLoading: isLoadingPlan } = useFetchPlanDetails(resource?.plan_uuid ?? undefined)
   const pullVm = usePullVm()
+  const { data: projectPolicies } = useProjectCostPolicies(resource?.project_uuid ?? undefined)
+  const projectPolicy = projectPolicies?.[0] || null
+  const projectProgress = projectPolicy ? calculateSpendingProgress(projectPolicy) : null
 
   const isLoading = isLoadingResource || isLoadingInstance
 
@@ -105,6 +113,22 @@ export default function VmDetails() {
             {instance && <VmActionButtons resource={resource} instance={instance} />}
           </HStack>
         </HStack>
+
+        {/* Project Spending Alert */}
+        {projectProgress && projectProgress.status !== 'normal' && (
+          <Box width="full">
+            <SpendingAlert
+              status={projectProgress.status}
+              message={
+                projectProgress.status === 'blocked'
+                  ? 'Project spending limit exceeded. Resource creation is blocked.'
+                  : projectProgress.status === 'critical'
+                    ? `Project budget is at ${projectProgress.percentage.toFixed(0)}% — approaching the spending limit.`
+                    : `Project budget is at ${projectProgress.percentage.toFixed(0)}% of the limit.`
+              }
+            />
+          </Box>
+        )}
 
         {/* Two-Column Layout */}
         <Grid templateColumns={{ base: '1fr', lg: '1fr 400px' }} gap={4} width="full">
@@ -243,6 +267,11 @@ export default function VmDetails() {
 
           {/* Right Column */}
           <VStack gap={4}>
+            {/* Project Budget */}
+            {projectPolicy && (
+              <SpendingStatusCard policy={projectPolicy} level="project" />
+            )}
+
             {/* VM Cost Estimate */}
             <ResourceUsageCard
               instance={instance}

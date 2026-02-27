@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
-import { 
-  marketplaceResourcesList, 
+import {
+  marketplaceResourcesList,
   marketplaceServiceProvidersList,
-  marketplaceServiceProvidersOfferingsList 
+  marketplaceServiceProvidersOfferingsList,
+  marketplacePublicOfferingsList,
 } from '../../client/sdk.gen'
-import type { Resource, ProviderOffering } from '../../client/types.gen'
+import type { Resource, ProviderOffering, PublicOfferingDetails } from '../../client/types.gen'
 import QueryKeys from '../../constants/QueryKeys'
 
 /**
@@ -91,6 +92,32 @@ export const useTenantOfferings = (customerUuid?: string) => {
     },
     enabled: !!customerUuid,
     staleTime: 5 * 60 * 1000, // 5 minutes - offerings don't change frequently
+  })
+}
+
+/**
+ * Fetch all OpenStack.Instance offerings for VM creation
+ * Each offering is scoped to a specific tenant (scope_uuid matches the OpenStack tenant UUID)
+ * @param customerUuid - Customer/Organization UUID
+ */
+export const useInstanceOfferings = (customerUuid?: string) => {
+  return useQuery<PublicOfferingDetails[], Error>({
+    queryKey: [QueryKeys.W_MARKETPLACE_OFFERINGS, 'instance', customerUuid],
+    queryFn: async (): Promise<PublicOfferingDetails[]> => {
+      if (!customerUuid) return []
+
+      const response = await marketplacePublicOfferingsList({
+        query: {
+          customer_uuid: customerUuid,
+          type: ['OpenStack.Instance'],
+          state: ['Active'],
+        },
+      })
+
+      return response.data || []
+    },
+    enabled: !!customerUuid,
+    staleTime: 5 * 60 * 1000,
   })
 }
 

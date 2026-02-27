@@ -235,7 +235,7 @@ export default function EditCostPolicy() {
         {isApproachingLimit && (
           <Alert.Root status="warning">
             <Alert.Content>
-              <Alert.Title>Current Spending: ${progress.current.toFixed(2)}</Alert.Title>
+              <Alert.Title>Current Spending: {progress.current.toFixed(2)} NOK</Alert.Title>
               <Alert.Description>
                 This policy has reached {progress.percentage.toFixed(1)}% of its limit. 
                 Lowering the limit below current spending may trigger immediate actions.
@@ -288,11 +288,11 @@ export default function EditCostPolicy() {
               <Text fontWeight="bold">Policy Information</Text>
               <HStack justify="space-between">
                 <Text fontSize="sm" color="fg.muted">Current Spending:</Text>
-                <Text fontSize="sm" fontWeight="medium">${progress.current.toFixed(2)}</Text>
+                <Text fontSize="sm" fontWeight="medium">{progress.current.toFixed(2)} NOK</Text>
               </HStack>
               <HStack justify="space-between">
                 <Text fontSize="sm" color="fg.muted">Current Limit:</Text>
-                <Text fontSize="sm" fontWeight="medium">${progress.limit.toFixed(2)}</Text>
+                <Text fontSize="sm" fontWeight="medium">{progress.limit.toFixed(2)} NOK</Text>
               </HStack>
               <HStack justify="space-between">
                 <Text fontSize="sm" color="fg.muted">Usage:</Text>

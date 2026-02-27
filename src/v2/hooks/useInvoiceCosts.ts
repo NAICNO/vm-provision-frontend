@@ -151,3 +151,59 @@ export function useCurrentMonthCustomerCosts(
 ) {
   return useCustomerCostsForPeriod(customerUuid, 1, enabled)
 }
+
+export interface ProjectCostEntry {
+  uuid: string
+  name: string
+  totalPrice: number
+}
+
+/**
+ * Hook to fetch invoice costs for all projects in an organization.
+ * Fetches the project list, then costs for each project in parallel.
+ * @param customerUuid - UUID of the customer/organization
+ * @param period - Period in months (1 or 3)
+ * @param enabled - Whether the query should run
+ * @returns Array of { uuid, name, totalPrice } for each project with non-zero spending
+ */
+export function useOrgProjectCosts(
+  customerUuid?: string,
+  period = 3,
+  enabled = true
+) {
+  return useQuery({
+    queryKey: [QueryKeys.W_ORG_PROJECT_COSTS, customerUuid, period],
+    queryFn: async (): Promise<ProjectCostEntry[]> => {
+      const { projectsList } = await import('../../client/sdk.gen')
+      const projectsResp = await projectsList({
+        query: { customer: [customerUuid!] },
+      })
+      const projects = projectsResp.data || []
+
+      const costResults = await Promise.all(
+        projects.map(async (project) => {
+          try {
+            const params: InvoiceItemsProjectCostsForPeriodRetrieveData = {
+              url: '/api/invoice-items/project_costs_for_period/',
+              query: { project_uuid: project.uuid, period },
+            }
+            const resp = await invoiceItemsProjectCostsForPeriodRetrieve(params)
+            return {
+              uuid: project.uuid!,
+              name: project.name!,
+              totalPrice: Number(resp.data?.total_price ?? 0),
+            }
+          } catch {
+            return { uuid: project.uuid!, name: project.name!, totalPrice: 0 }
+          }
+        })
+      )
+
+      return costResults
+        .filter((p) => p.totalPrice > 0)
+        .sort((a, b) => b.totalPrice - a.totalPrice)
+    },
+    enabled: enabled && !!customerUuid,
+    staleTime: 60000,
+  })
+}

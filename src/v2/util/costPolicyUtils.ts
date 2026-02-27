@@ -65,11 +65,11 @@ export function calculateSpendingProgress(
  * @param decimals - Number of decimal places (default: 2)
  */
 export function formatCurrency(
-  amount: number, 
-  currency = '€',
+  amount: number,
+  currency = 'NOK',
   decimals = 2
 ): string {
-  return `${currency}${amount.toFixed(decimals)}`
+  return `${amount.toFixed(decimals)} ${currency}`
 }
 
 /**

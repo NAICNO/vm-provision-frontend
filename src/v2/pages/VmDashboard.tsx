@@ -16,10 +16,16 @@ import { useOrganizationContext } from '../context/OrganizationContext'
 import { useOrganization } from '../hooks/useOrganization'
 import { LuPlus, LuSearch } from 'react-icons/lu'
 import { useOrgVmResources } from '../hooks/useOrgVmResources'
+import { useCustomerCostPolicies } from '../hooks/useCostPolicies'
+import { useCustomerCostsForPeriod } from '../hooks/useInvoiceCosts'
 import { calculateSeparatedStats } from '../util/resourceTypeUtils'
+import { SPENDING_THRESHOLDS, type SpendingStatus } from '../types/CostPolicy'
 import { VmList } from '../components/vm/VmList'
 import { VmStatsCards } from '../components/vm/VmStatsCards'
 import { ProjectFilter } from '../components/ProjectFilter'
+import { SpendingAlert } from '../components/SpendingAlert'
+import { SpendingStatusCard } from '../components/spending/SpendingStatusCard'
+import { ProjectSpendingSummary } from '../components/spending/ProjectSpendingSummary'
 import { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router'
 
@@ -31,7 +37,28 @@ export default function VmDashboard() {
   const { selectedOrg } = useOrganizationContext()
   const { data: organization, isLoading: isLoadingOrg } = useOrganization(selectedOrg?.uuid)
   const { data: resources = [], isLoading: isLoadingResources } = useOrgVmResources(selectedOrg?.uuid)
+  const { data: customerPolicies } = useCustomerCostPolicies(selectedOrg?.uuid)
+  // Fetch actual org spending from invoice API (covers ALL projects, not just those with cost policies)
+  const { data: customerCosts } = useCustomerCostsForPeriod(selectedOrg?.uuid, 3, !!selectedOrg?.uuid)
   const navigate = useNavigate()
+
+  // Get organization-level cost policy
+  const orgPolicy = customerPolicies?.[0] || null
+
+  // Use invoice-based total spending for the org card
+  const aggregatedSpending = Number(customerCosts?.total_price ?? 0)
+
+  // Compute org-level status using aggregated spending
+  const orgLimit = Number(orgPolicy?.limit_cost ?? 0)
+  const orgPercentage = orgLimit > 0 ? (aggregatedSpending / orgLimit) * 100 : 0
+  const orgStatus: SpendingStatus = orgPolicy?.has_fired
+    ? 'blocked'
+    : orgPercentage >= SPENDING_THRESHOLDS.CRITICAL
+      ? 'critical'
+      : orgPercentage >= SPENDING_THRESHOLDS.WARNING
+        ? 'warning'
+        : 'normal'
+  const isCreationBlocked = orgPolicy?.has_fired === true
 
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedProjectUuid, setSelectedProjectUuid] = useState<string | null>(null)
@@ -90,10 +117,11 @@ export default function VmDashboard() {
               )}
             </HStack>
           </VStack>
-          <Button 
-            colorPalette="blue" 
-            size="lg" 
+          <Button
+            colorPalette="blue"
+            size="lg"
             onClick={() => navigate(`/v2/org/${selectedOrg?.uuid}/vms/create?orgId=${selectedOrg?.uuid}`)}
+            disabled={isCreationBlocked}
           >
             <LuPlus /> Create VM
           </Button>
@@ -101,6 +129,37 @@ export default function VmDashboard() {
 
         {/* Stats Cards - Separated by Resource Type */}
         <VmStatsCards stats={stats} />
+
+        {/* Spending Alert Banner */}
+        {orgPolicy && orgStatus !== 'normal' && (
+          <Box width="full">
+            <SpendingAlert
+              status={orgStatus}
+              message={
+                orgStatus === 'blocked'
+                  ? 'Organization spending limit exceeded. VM creation is blocked. Contact your administrator.'
+                  : orgStatus === 'critical'
+                    ? `Organization budget is at ${orgPercentage.toFixed(0)}% — approaching the spending limit.`
+                    : `Organization budget is at ${orgPercentage.toFixed(0)}% of the limit.`
+              }
+            />
+          </Box>
+        )}
+
+        {/* Spending Overview */}
+        {orgPolicy && (
+          <Box width="full">
+            <VStack align="stretch" gap={3}>
+              <SpendingStatusCard policy={orgPolicy} level="organization" aggregatedSpending={aggregatedSpending} />
+              {selectedOrg?.uuid && (
+                <ProjectSpendingSummary
+                  customerUuid={selectedOrg.uuid}
+                  onProjectClick={(projectUuid) => setSelectedProjectUuid(projectUuid)}
+                />
+              )}
+            </VStack>
+          </Box>
+        )}
       </VStack>
 
       {/* Filters */}
