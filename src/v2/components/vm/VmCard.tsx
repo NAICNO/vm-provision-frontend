@@ -1,11 +1,10 @@
 import { Card, Text, HStack, VStack, Button, Skeleton, Badge } from '@chakra-ui/react'
-import { LuPlay, LuRotateCw, LuEye } from 'react-icons/lu'
+import { LuEye } from 'react-icons/lu'
 import { MdComputer } from 'react-icons/md'
-import { Tooltip } from '../../../components/ui/tooltip'
 import type { Resource } from '../../../client/types.gen'
 import { VmStateIndicator } from './VmStateIndicator'
+import { VmActionButtons } from './VmActionButtons'
 import { useOpenstackInstance } from '../../hooks/useOpenstackInstance'
-import { useStartVm, usePullVm } from '../../hooks/useVmActions'
 import { useNavigate } from 'react-router'
 import { useOrganizationContext } from '../../context/OrganizationContext'
 
@@ -22,8 +21,6 @@ export const VmCard = ({ resource, compact = false }: VmCardProps) => {
   const navigate = useNavigate()
   const { selectedOrg } = useOrganizationContext()
   const { data: instance, isLoading: isLoadingInstance, error: instanceError } = useOpenstackInstance(resource.scope)
-  const startVm = useStartVm()
-  const pullVm = usePullVm()
 
   const handleViewDetails = () => {
     if (selectedOrg?.uuid && resource.uuid) {
@@ -31,22 +28,8 @@ export const VmCard = ({ resource, compact = false }: VmCardProps) => {
     }
   }
 
-  const handleStart = () => {
-    if (instance?.uuid) {
-      startVm.mutate(instance.uuid)
-    }
-  }
-
-  const handleSync = () => {
-    if (instance?.uuid) {
-      pullVm.mutate(instance.uuid)
-    }
-  }
-
   // VmCard is for VMs only (OpenStack.Instance)
   const showActionButtons = resource.state === 'OK' && resource.scope
-  const canStart = instance?.runtime_state === 'SHUTOFF' || instance?.runtime_state === 'SUSPENDED'
-  const isActionPending = startVm.isPending || pullVm.isPending
 
   return (
     <Card.Root size={compact ? 'sm' : 'md'}>
@@ -70,7 +53,7 @@ export const VmCard = ({ resource, compact = false }: VmCardProps) => {
 
           {/* Details */}
           <VStack align="stretch" gap={2} fontSize="sm">
-            {/* CPU/RAM/Disk - Priority information */}
+            {/* CPU/RAM/Disk from instance (priority) */}
             {(instance?.cores || instance?.ram || instance?.disk) && (
               <HStack justify="space-between">
                 <Text color="fg.muted">Resources:</Text>
@@ -80,6 +63,19 @@ export const VmCard = ({ resource, compact = false }: VmCardProps) => {
                   {instance.ram ? `${(instance.ram / 1024).toFixed(0)} GB RAM` : ''}
                   {(instance.cores || instance.ram) && instance.disk ? ' • ' : ''}
                   {instance.disk ? `${(instance.disk / 1024).toFixed(0)} GB Disk` : ''}
+                </Text>
+              </HStack>
+            )}
+            {/* resource.limits as fallback only when instance details not loaded */}
+            {!instance && resource.limits && (
+              <HStack justify="space-between">
+                <Text color="fg.muted">Resources:</Text>
+                <Text fontWeight="medium" fontSize="xs">
+                  {resource.limits.cpu ? `${resource.limits.cpu} vCPU` : ''}
+                  {resource.limits.cpu && resource.limits.ram ? ' • ' : ''}
+                  {resource.limits.ram ? `${(resource.limits.ram / 1024).toFixed(0)} GB RAM` : ''}
+                  {(resource.limits.cpu || resource.limits.ram) && resource.limits.storage ? ' • ' : ''}
+                  {resource.limits.storage ? `${(resource.limits.storage / 1024).toFixed(0)} GB Storage` : ''}
                 </Text>
               </HStack>
             )}
@@ -119,22 +115,10 @@ export const VmCard = ({ resource, compact = false }: VmCardProps) => {
                 <Text fontFamily="mono" fontSize="xs">{instance.external_ips[0]}</Text>
               </HStack>
             )}
-            {resource.limits && (
-              <HStack justify="space-between">
-                <Text color="fg.muted">Resources:</Text>
-                <Text fontWeight="medium" fontSize="xs">
-                  {resource.limits.cpu ? `${resource.limits.cpu} vCPU` : ''}
-                  {resource.limits.cpu && resource.limits.ram ? ' • ' : ''}
-                  {resource.limits.ram ? `${(resource.limits.ram / 1024).toFixed(0)} GB RAM` : ''}
-                  {(resource.limits.cpu || resource.limits.ram) && resource.limits.storage ? ' • ' : ''}
-                  {resource.limits.storage ? `${(resource.limits.storage / 1024).toFixed(0)} GB Storage` : ''}
-                </Text>
-              </HStack>
-            )}
             {resource.created && (
               <HStack justify="space-between">
                 <Text color="fg.muted">Created:</Text>
-                <Text>{new Date(resource.created).toLocaleDateString()}</Text>
+                <Text>{new Date(resource.created).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</Text>
               </HStack>
             )}
           </VStack>
@@ -148,32 +132,7 @@ export const VmCard = ({ resource, compact = false }: VmCardProps) => {
                   <Skeleton width="40px" height="32px" />
                 </HStack>
               ) : instance ? (
-                <HStack gap={2}>
-                  {canStart && (
-                    <Tooltip content="Start VM">
-                      <Button
-                        size="sm"
-                        colorPalette="green"
-                        onClick={handleStart}
-                        disabled={isActionPending}
-                        loading={startVm.isPending}
-                      >
-                        <LuPlay />
-                      </Button>
-                    </Tooltip>
-                  )}
-                  <Tooltip content="Sync with OpenStack">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={handleSync}
-                      disabled={isActionPending}
-                      loading={pullVm.isPending}
-                    >
-                      <LuRotateCw />
-                    </Button>
-                  </Tooltip>
-                </HStack>
+                <VmActionButtons resource={resource} instance={instance} variant="compact" />
               ) : instanceError ? (
                 <Text fontSize="xs" color="red.600">Failed to load actions</Text>
               ) : null
@@ -191,7 +150,7 @@ export const VmCard = ({ resource, compact = false }: VmCardProps) => {
               onClick={handleViewDetails}
             >
               <LuEye />
-              View VM Details
+              {compact ? 'Details' : 'View VM Details'}
             </Button>
           </HStack>
         </VStack>

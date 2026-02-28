@@ -1,11 +1,15 @@
-import { VStack, Heading, Text, SimpleGrid, EmptyState, Box, HStack, Button } from '@chakra-ui/react'
+import { VStack, Heading, Text, SimpleGrid, EmptyState, Box, HStack, Button, Badge, Collapsible } from '@chakra-ui/react'
 import { MdWorkspaces, MdViewList, MdComputer } from 'react-icons/md'
+import { LuChevronDown, LuEye } from 'react-icons/lu'
 import type { Resource } from '../../../client/types.gen'
 import { VmCard, VmCardSkeleton } from './VmCard'
 import { TenantCard } from './TenantCard'
+import { VmStateIndicator } from './VmStateIndicator'
 import { groupResourcesByProject } from '../../hooks/useOrgVmResources'
 import { separateResourceTypes, groupVmsByTenant } from '../../util/resourceTypeUtils'
 import { useState } from 'react'
+import { useNavigate } from 'react-router'
+import { useOrganizationContext } from '../../context/OrganizationContext'
 
 interface VmListProps {
   resources: Resource[]
@@ -16,11 +20,86 @@ interface VmListProps {
 type ViewMode = 'all' | 'tenants' | 'vms' | 'grouped'
 
 /**
+ * Compact row for empty tenants (no VMs) - used in collapsed section
+ */
+const EmptyTenantRow = ({ tenant }: { tenant: Resource }) => {
+  const navigate = useNavigate()
+  const { selectedOrg } = useOrganizationContext()
+
+  const handleViewDetails = () => {
+    if (selectedOrg?.uuid && tenant.uuid) {
+      navigate(`/v2/org/${selectedOrg.uuid}/tenants/${tenant.uuid}`)
+    }
+  }
+
+  return (
+    <HStack
+      justify="space-between"
+      p={3}
+      borderRadius="md"
+      bg="bg.subtle"
+      _hover={{ bg: 'bg.muted' }}
+    >
+      <HStack gap={3}>
+        <MdWorkspaces size={18} />
+        <Text fontWeight="medium" fontSize="sm">
+          {(tenant.attributes?.name as string) || 'Unknown Tenant'}
+        </Text>
+        <Text fontSize="xs" color="fg.muted">
+          {tenant.project_name}
+        </Text>
+      </HStack>
+      <HStack gap={2}>
+        <VmStateIndicator resource={tenant} />
+        <Button size="xs" variant="ghost" onClick={handleViewDetails}>
+          <LuEye />
+          Details
+        </Button>
+      </HStack>
+    </HStack>
+  )
+}
+
+/**
+ * Collapsed section for empty tenants
+ */
+const EmptyTenantsSection = ({ tenants }: { tenants: { tenant: Resource; vms: Resource[] }[] }) => {
+  if (tenants.length === 0) return null
+
+  return (
+    <Collapsible.Root defaultOpen={false}>
+      <Collapsible.Trigger asChild>
+        <Button variant="ghost" size="sm" width="full" justifyContent="space-between" py={2}>
+          <HStack gap={2}>
+            <Badge variant="outline" size="sm">
+              {tenants.length}
+            </Badge>
+            <Text fontSize="sm" color="fg.muted">
+              {tenants.length === 1 ? 'empty tenant' : 'empty tenants'} (no VMs)
+            </Text>
+          </HStack>
+          <Collapsible.Indicator>
+            <LuChevronDown />
+          </Collapsible.Indicator>
+        </Button>
+      </Collapsible.Trigger>
+      <Collapsible.Content>
+        <VStack align="stretch" gap={2} mt={2}>
+          {tenants.map(({ tenant }) => (
+            <EmptyTenantRow key={tenant.uuid} tenant={tenant} />
+          ))}
+        </VStack>
+      </Collapsible.Content>
+    </Collapsible.Root>
+  )
+}
+
+/**
  * VM List component - displays VMs and Tenants with multiple view modes
  */
 export const VmList = ({ resources, isLoading = false, groupByProject = true }: VmListProps) => {
   const [viewMode, setViewMode] = useState<ViewMode>('grouped')
-  
+
   const { tenants, vms } = separateResourceTypes(resources)
 
   if (isLoading) {
@@ -84,11 +163,11 @@ export const VmList = ({ resources, isLoading = false, groupByProject = true }: 
 /**
  * View Mode Toggle Buttons
  */
-const ViewModeButtons = ({ 
-  viewMode, 
+const ViewModeButtons = ({
+  viewMode,
   onViewModeChange,
-  disabled = false 
-}: { 
+  disabled = false
+}: {
   viewMode: ViewMode
   onViewModeChange: (mode: ViewMode) => void
   disabled?: boolean
@@ -131,16 +210,10 @@ const ViewModeButtons = ({
 
 /**
  * Grouped by Tenant View - Shows tenants with their VMs nested
+ * Empty tenants are collapsed into a compact section at the bottom.
  */
 const GroupedByTenantView = ({ tenants, vms }: { tenants: Resource[]; vms: Resource[] }) => {
   const groupedByTenant = groupVmsByTenant(tenants, vms)
-
-  // Debug logging in development
-  if (import.meta.env.DEV) {
-    console.log('Tenants:', tenants.length, tenants.map(t => ({ uuid: t.uuid, url: t.url, name: t.attributes?.name })))
-    console.log('VMs:', vms.length, vms.map(v => ({ uuid: v.uuid, scope: v.scope, parent_uuid: v.parent_uuid, name: v.attributes?.name })))
-    console.log('Grouped:', groupedByTenant.length, groupedByTenant.map(g => ({ tenant: g.tenant.attributes?.name, vmCount: g.vms.length })))
-  }
 
   if (groupedByTenant.length === 0 && tenants.length === 0) {
     return (
@@ -166,11 +239,15 @@ const GroupedByTenantView = ({ tenants, vms }: { tenants: Resource[]; vms: Resou
     )
   }
 
+  const tenantsWithVms = groupedByTenant.filter((g) => g.vms.length > 0)
+  const emptyTenants = groupedByTenant.filter((g) => g.vms.length === 0)
+
   return (
     <VStack align="stretch" gap={6}>
-      {groupedByTenant.map(({ tenant, vms }) => (
+      {tenantsWithVms.map(({ tenant, vms }) => (
         <TenantCard key={tenant.uuid} tenant={tenant} vms={vms} defaultExpanded={true} />
       ))}
+      <EmptyTenantsSection tenants={emptyTenants} />
     </VStack>
   )
 }
@@ -180,7 +257,7 @@ const GroupedByTenantView = ({ tenants, vms }: { tenants: Resource[]; vms: Resou
  */
 const AllResourcesView = ({ resources, groupByProject }: { resources: Resource[]; groupByProject: boolean }) => {
   const { tenants, vms } = separateResourceTypes(resources)
-  
+
   if (groupByProject) {
     const groupedResources = groupResourcesByProject(resources)
 
@@ -192,7 +269,7 @@ const AllResourcesView = ({ resources, groupByProject }: { resources: Resource[]
           const tenantVmMap = new Map(
             groupedByTenant.map(({ tenant, vms }) => [tenant.uuid, vms])
           )
-          
+
           return (
             <Box key={project.uuid}>
               <Heading size="lg" mb={4}>
@@ -203,10 +280,10 @@ const AllResourcesView = ({ resources, groupByProject }: { resources: Resource[]
               </Heading>
               <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} gap={6}>
                 {projectTenants.map((tenant) => (
-                  <TenantCard 
-                    key={tenant.uuid} 
-                    tenant={tenant} 
-                    vms={tenantVmMap.get(tenant.uuid) || []} 
+                  <TenantCard
+                    key={tenant.uuid}
+                    tenant={tenant}
+                    vms={tenantVmMap.get(tenant.uuid) || []}
                     defaultExpanded={false}
                   />
                 ))}
@@ -229,10 +306,10 @@ const AllResourcesView = ({ resources, groupByProject }: { resources: Resource[]
   return (
     <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} gap={6}>
       {tenants.map((tenant) => (
-        <TenantCard 
-          key={tenant.uuid} 
-          tenant={tenant} 
-          vms={tenantVmMap.get(tenant.uuid) || []} 
+        <TenantCard
+          key={tenant.uuid}
+          tenant={tenant}
+          vms={tenantVmMap.get(tenant.uuid) || []}
           defaultExpanded={false}
         />
       ))}
@@ -245,6 +322,7 @@ const AllResourcesView = ({ resources, groupByProject }: { resources: Resource[]
 
 /**
  * Tenants Only View
+ * Empty tenants are collapsed into a compact section at the bottom.
  */
 const TenantsOnlyView = ({ tenants, vms }: { tenants: Resource[]; vms: Resource[] }) => {
   if (tenants.length === 0) {
@@ -255,23 +333,34 @@ const TenantsOnlyView = ({ tenants, vms }: { tenants: Resource[]; vms: Resource[
     )
   }
 
-  // Group VMs by tenant to get counts
   const groupedByTenant = groupVmsByTenant(tenants, vms)
   const tenantVmMap = new Map(
     groupedByTenant.map(({ tenant, vms }) => [tenant.uuid, vms])
   )
 
+  const populatedTenants = tenants.filter((t) => (tenantVmMap.get(t.uuid) || []).length > 0)
+  const emptyTenantsList = tenants.filter((t) => (tenantVmMap.get(t.uuid) || []).length === 0)
+
   return (
-    <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} gap={6}>
-      {tenants.map((tenant) => (
-        <TenantCard 
-          key={tenant.uuid} 
-          tenant={tenant} 
-          vms={tenantVmMap.get(tenant.uuid) || []} 
-          defaultExpanded={false} 
+    <VStack align="stretch" gap={6}>
+      {populatedTenants.length > 0 && (
+        <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} gap={6}>
+          {populatedTenants.map((tenant) => (
+            <TenantCard
+              key={tenant.uuid}
+              tenant={tenant}
+              vms={tenantVmMap.get(tenant.uuid) || []}
+              defaultExpanded={false}
+            />
+          ))}
+        </SimpleGrid>
+      )}
+      {emptyTenantsList.length > 0 && (
+        <EmptyTenantsSection
+          tenants={emptyTenantsList.map((tenant) => ({ tenant, vms: [] }))}
         />
-      ))}
-    </SimpleGrid>
+      )}
+    </VStack>
   )
 }
 

@@ -18,11 +18,13 @@ import { LuPlus, LuSearch } from 'react-icons/lu'
 import { useOrgVmResources } from '../hooks/useOrgVmResources'
 import { useCustomerCostPolicies } from '../hooks/useCostPolicies'
 import { useCustomerCostsForPeriod } from '../hooks/useInvoiceCosts'
+import { useCustomerStats, aggregateComponentStats } from '../hooks/useCustomerStats'
 import { calculateSeparatedStats } from '../util/resourceTypeUtils'
 import { SPENDING_THRESHOLDS, PERIOD_NAMES, type SpendingStatus } from '../types/CostPolicy'
 import { VmList } from '../components/vm/VmList'
 import { VmStatsCards } from '../components/vm/VmStatsCards'
 import { ProjectFilter } from '../components/ProjectFilter'
+import { StateFilter } from '../components/StateFilter'
 import { SpendingAlert } from '../components/SpendingAlert'
 import { ProjectSpendingSummary } from '../components/spending/ProjectSpendingSummary'
 import { useState, useMemo } from 'react'
@@ -39,6 +41,8 @@ export default function VmDashboard() {
   const { data: customerPolicies } = useCustomerCostPolicies(selectedOrg?.uuid)
   // Fetch actual org spending from invoice API (covers ALL projects, not just those with cost policies)
   const { data: customerCosts } = useCustomerCostsForPeriod(selectedOrg?.uuid, 3, !!selectedOrg?.uuid)
+  // Fetch resource utilization stats (CPU, RAM, Storage)
+  const { data: customerStats, isLoading: isLoadingStats } = useCustomerStats(selectedOrg?.uuid)
   const navigate = useNavigate()
 
   // Get organization-level cost policy
@@ -61,17 +65,26 @@ export default function VmDashboard() {
 
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedProjectUuid, setSelectedProjectUuid] = useState<string | null>(null)
+  const [selectedState, setSelectedState] = useState<string | null>(null)
 
   // Calculate stats separated by resource type
   const stats = useMemo(() => calculateSeparatedStats(resources), [resources])
 
-  // Filter resources by project and search query
+  // Aggregate resource utilization
+  const resourceUsage = useMemo(() => aggregateComponentStats(customerStats), [customerStats])
+
+  // Filter resources by project, state, and search query
   const filteredResources = useMemo(() => {
     let filtered = resources
 
     // Filter by project
     if (selectedProjectUuid) {
       filtered = filtered.filter((r) => r.project_uuid === selectedProjectUuid)
+    }
+
+    // Filter by state
+    if (selectedState) {
+      filtered = filtered.filter((r) => r.state === selectedState)
     }
 
     // Filter by search query
@@ -86,7 +99,7 @@ export default function VmDashboard() {
     }
 
     return filtered
-  }, [resources, selectedProjectUuid, searchQuery])
+  }, [resources, selectedProjectUuid, selectedState, searchQuery])
 
   if (isLoadingOrg) {
     return (
@@ -133,6 +146,8 @@ export default function VmDashboard() {
           budgetLimit={orgLimit > 0 ? orgLimit : undefined}
           spendingStatus={orgPolicy ? orgStatus : undefined}
           periodName={orgPolicy?.period ? PERIOD_NAMES[orgPolicy.period] : undefined}
+          resourceUsage={resourceUsage}
+          isLoadingUsage={isLoadingStats}
         />
 
         {/* Spending Alert Banner */}
@@ -178,6 +193,11 @@ export default function VmDashboard() {
           resources={resources}
           onFilterChange={setSelectedProjectUuid}
           organizationUuid={selectedOrg?.uuid}
+        />
+        <StateFilter
+          resources={resources}
+          onFilterChange={setSelectedState}
+          selectedState={selectedState}
         />
       </HStack>
 

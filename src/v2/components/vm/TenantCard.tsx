@@ -122,7 +122,7 @@ export const TenantCard = ({ tenant, vms, defaultExpanded = false }: TenantCardP
             {tenant.created && (
               <HStack justify="space-between">
                 <Text color="fg.muted">Created:</Text>
-                <Text>{new Date(tenant.created).toLocaleDateString()}</Text>
+                <Text>{new Date(tenant.created).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</Text>
               </HStack>
             )}
           </VStack>
