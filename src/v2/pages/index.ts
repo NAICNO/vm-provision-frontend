@@ -11,6 +11,7 @@ export { default as CreateOffering } from './CreateOffering'
 export { default as ViewEditOffering } from './ViewEditOffering'
 export { default as TestPage } from './TestPage'
 export { default as VmDashboard } from './VmDashboard'
+export { default as UserVmDashboard } from './UserVmDashboard'
 export { default as VmDetails } from './VmDetails'
 export { default as CreateVm } from './CreateVm'
 

@@ -46,6 +46,7 @@ import {
   ViewEditOffering,
   TestPage,
   VmDashboard,
+  UserVmDashboard,
   VmDetails,
   CreateVm,
   CreateCostPolicy,
@@ -138,7 +139,7 @@ const routes: RouteObject[] = [
               },
               {
                 path: 'vms',
-                element: <VmDashboard />
+                element: <UserVmDashboard />
               },
               {
                 path: 'vms/create',
@@ -201,6 +202,10 @@ const routes: RouteObject[] = [
                 path: 'admin',
                 element: <AdminGuard />,
                 children: [
+                  {
+                    path: 'dashboard',
+                    element: <VmDashboard />
+                  },
                   {
                     path: 'spending/create',
                     element: <CreateCostPolicy/>
