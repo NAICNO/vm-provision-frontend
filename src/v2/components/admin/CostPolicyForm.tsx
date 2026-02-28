@@ -177,7 +177,7 @@ export const CostPolicyForm = ({
 
           <Checkbox
             checked={values.notifyProjectTeam}
-            onCheckedChange={(details) => 
+            onCheckedChange={(details) =>
               handleChange('notifyProjectTeam', details.checked === true)
             }
             disabled={disabled}
@@ -185,6 +185,19 @@ export const CostPolicyForm = ({
             <Text fontSize="sm">Notify project team</Text>
             <Text fontSize="xs" color="fg.muted">
               Send email alerts to project members
+            </Text>
+          </Checkbox>
+
+          <Checkbox
+            checked={values.notifyExternalUser}
+            onCheckedChange={(details) =>
+              handleChange('notifyExternalUser', details.checked === true)
+            }
+            disabled={disabled}
+          >
+            <Text fontSize="sm">Notify external user</Text>
+            <Text fontSize="xs" color="fg.muted">
+              Send email alerts to an external contact
             </Text>
           </Checkbox>
 

@@ -1,5 +1,5 @@
-import { projectsCreate, projectsList } from '../../client/sdk.gen'
-import type { Project, ProjectRequest } from '../../client/types.gen'
+import { projectsCreate, projectsList, projectsListUsersList, projectsRetrieve } from '../../client/sdk.gen'
+import type { Project, ProjectRequest, UserRoleDetails } from '../../client/types.gen'
 import { useMutation, useQuery } from '@tanstack/react-query'
 
 import QueryKeys from '../../constants/QueryKeys.ts'
@@ -23,6 +23,28 @@ export const useFetchProjects = (orgId: string | undefined) => {
       }
     }
   )
+}
+
+export const useFetchProject = (projectUuid: string | undefined) => {
+  return useQuery({
+    queryKey: [QueryKeys.W_PROJECTS, 'detail', projectUuid],
+    queryFn: async () => {
+      const response = await projectsRetrieve({ path: { uuid: projectUuid! } })
+      return response.data
+    },
+    enabled: !!projectUuid,
+  })
+}
+
+export const useFetchProjectMembers = (projectUuid: string | undefined) => {
+  return useQuery<UserRoleDetails[], Error>({
+    queryKey: [QueryKeys.W_PROJECT_MEMBERS, projectUuid],
+    queryFn: async (): Promise<UserRoleDetails[]> => {
+      const response = await projectsListUsersList({ path: { uuid: projectUuid! } })
+      return response.data ?? []
+    },
+    enabled: !!projectUuid,
+  })
 }
 
 export const useCreateProject = (

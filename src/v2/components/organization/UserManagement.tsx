@@ -22,6 +22,14 @@ import { AddExistingUserModal } from '../../components/AddExistingUserModal'
 import { toaster } from '../../../components/ui/toaster'
 import type { Invitation, CustomerUser } from '../../../client'
 
+const ROLE_DISPLAY: Record<string, string> = {
+  'CUSTOMER.OWNER': 'Owner',
+  'CUSTOMER.MEMBER': 'Member',
+  'PROJECT.ADMIN': 'Project Admin',
+  'PROJECT.MANAGER': 'Project Manager',
+  'PROJECT.MEMBER': 'Project Member',
+}
+
 interface UserManagementProps {
   orgId?: string
 }
@@ -136,15 +144,13 @@ export default function UserManagement({ orgId }: UserManagementProps) {
       field: 'role_name',
       sortable: true,
       filter: true,
-      // TODO: Fix role display to properly show Waldur RBAC roles
-      // - Organization roles: CUSTOMER.OWNER, CUSTOMER.MEMBER (from user.role/role_name)
-      // - Project roles: PROJECT.ADMIN, PROJECT.MANAGER, PROJECT.MEMBER (from user.projects[].role_name)
-      // - Display human-readable names and include project-specific roles
       cellRenderer: (params: { value?: string }) => {
-        const role = params.value || 'Member'
-        const colorPalette = role.includes('OWNER') ? 'purple' : 
-          role.includes('MANAGER') ? 'blue' : 'green'
-        return <Badge colorPalette={colorPalette}>{role}</Badge>
+        const role = params.value || ''
+        const displayName = ROLE_DISPLAY[role] || role || 'Member'
+        const colorPalette = role.includes('OWNER') ? 'purple' :
+          role.includes('ADMIN') ? 'orange' :
+            role.includes('MANAGER') ? 'blue' : 'green'
+        return <Badge colorPalette={colorPalette}>{displayName}</Badge>
       },
     },
     {

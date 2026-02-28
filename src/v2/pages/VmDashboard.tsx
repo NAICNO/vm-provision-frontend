@@ -19,12 +19,11 @@ import { useOrgVmResources } from '../hooks/useOrgVmResources'
 import { useCustomerCostPolicies } from '../hooks/useCostPolicies'
 import { useCustomerCostsForPeriod } from '../hooks/useInvoiceCosts'
 import { calculateSeparatedStats } from '../util/resourceTypeUtils'
-import { SPENDING_THRESHOLDS, type SpendingStatus } from '../types/CostPolicy'
+import { SPENDING_THRESHOLDS, PERIOD_NAMES, type SpendingStatus } from '../types/CostPolicy'
 import { VmList } from '../components/vm/VmList'
 import { VmStatsCards } from '../components/vm/VmStatsCards'
 import { ProjectFilter } from '../components/ProjectFilter'
 import { SpendingAlert } from '../components/SpendingAlert'
-import { SpendingStatusCard } from '../components/spending/SpendingStatusCard'
 import { ProjectSpendingSummary } from '../components/spending/ProjectSpendingSummary'
 import { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router'
@@ -128,7 +127,13 @@ export default function VmDashboard() {
         </HStack>
 
         {/* Stats Cards - Separated by Resource Type */}
-        <VmStatsCards stats={stats} />
+        <VmStatsCards
+          stats={stats}
+          spending={aggregatedSpending}
+          budgetLimit={orgLimit > 0 ? orgLimit : undefined}
+          spendingStatus={orgPolicy ? orgStatus : undefined}
+          periodName={orgPolicy?.period ? PERIOD_NAMES[orgPolicy.period] : undefined}
+        />
 
         {/* Spending Alert Banner */}
         {orgPolicy && orgStatus !== 'normal' && (
@@ -146,18 +151,13 @@ export default function VmDashboard() {
           </Box>
         )}
 
-        {/* Spending Overview */}
-        {orgPolicy && (
+        {/* Project Spending Summary */}
+        {selectedOrg?.uuid && (
           <Box width="full">
-            <VStack align="stretch" gap={3}>
-              <SpendingStatusCard policy={orgPolicy} level="organization" aggregatedSpending={aggregatedSpending} />
-              {selectedOrg?.uuid && (
-                <ProjectSpendingSummary
-                  customerUuid={selectedOrg.uuid}
-                  onProjectClick={(projectUuid) => setSelectedProjectUuid(projectUuid)}
-                />
-              )}
-            </VStack>
+            <ProjectSpendingSummary
+              customerUuid={selectedOrg.uuid}
+              onProjectClick={(projectUuid) => setSelectedProjectUuid(projectUuid)}
+            />
           </Box>
         )}
       </VStack>

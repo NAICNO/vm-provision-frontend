@@ -191,6 +191,10 @@ export function ProjectSpendingSummary({ customerUuid, onProjectClick }: Project
             )
           })}
         </SimpleGrid>
+        <Text fontSize="xs" color="fg.muted" fontStyle="italic" mt={2}>
+          Projects with budgets show estimated costs for the current billing period.
+          Projects without budgets show billed costs.
+        </Text>
       </Collapsible.Content>
     </Collapsible.Root>
   )

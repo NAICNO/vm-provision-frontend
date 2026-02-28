@@ -58,6 +58,10 @@ import InvitationAccept from './v2/pages/InvitationAccept'
 
 // V2 Phase 6 - Route Guards
 import { AdminGuard } from './v2/components/guards/AdminGuard'
+import { ProjectAdminGuard } from './v2/components/guards/ProjectAdminGuard'
+
+// V2 Phase 7A - Project Members
+import ProjectMembers from './v2/pages/ProjectMembers'
 
 // V2 (Waldur) imports - New
 import V2Profile from './v2/pages/Profile'
@@ -180,6 +184,17 @@ const routes: RouteObject[] = [
               {
                 path: ':serviceProviderId/offering/:offeringId',
                 element: <ViewEditOffering/>
+              },
+              // Project members — protected by ProjectAdminGuard (PROJECT.ADMIN+ or CUSTOMER.OWNER/staff)
+              {
+                path: 'projects/:projectId',
+                element: <ProjectAdminGuard />,
+                children: [
+                  {
+                    path: 'members',
+                    element: <ProjectMembers />
+                  },
+                ]
               },
               // Admin routes — protected by AdminGuard (CUSTOMER.OWNER or is_staff)
               {
