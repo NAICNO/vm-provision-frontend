@@ -7,60 +7,60 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/marketplace-categories/` | `marketplace_categories_list` | List categories |
-| HEAD | `/api/marketplace-categories/` | `marketplace_categories_count` | List categories |
-| POST | `/api/marketplace-categories/` | `marketplace_categories_create` | Create a category |
-| GET | `/api/marketplace-categories/{uuid}/` | `marketplace_categories_retrieve` | Retrieve a category |
-| PUT | `/api/marketplace-categories/{uuid}/` | `marketplace_categories_update` | Update a category |
-| PATCH | `/api/marketplace-categories/{uuid}/` | `marketplace_categories_partial_update` | Partially update a category |
-| DELETE | `/api/marketplace-categories/{uuid}/` | `marketplace_categories_destroy` | Delete a category |
-| GET | `/api/marketplace-category-columns/` | `marketplace_category_columns_list` | List category columns |
-| HEAD | `/api/marketplace-category-columns/` | `marketplace_category_columns_count` | List category columns |
-| POST | `/api/marketplace-category-columns/` | `marketplace_category_columns_create` | Create a category column |
-| GET | `/api/marketplace-category-columns/{uuid}/` | `marketplace_category_columns_retrieve` | Retrieve a category column |
-| PUT | `/api/marketplace-category-columns/{uuid}/` | `marketplace_category_columns_update` | Update a category column |
-| PATCH | `/api/marketplace-category-columns/{uuid}/` | `marketplace_category_columns_partial_update` | Partially update a category column |
-| DELETE | `/api/marketplace-category-columns/{uuid}/` | `marketplace_category_columns_destroy` | Delete a category column |
-| GET | `/api/marketplace-category-component-usages/` | `marketplace_category_component_usages_list` | List aggregated category component usages |
-| HEAD | `/api/marketplace-category-component-usages/` | `marketplace_category_component_usages_count` | List aggregated category component usages |
-| GET | `/api/marketplace-category-component-usages/{id}/` | `marketplace_category_component_usages_retrieve` | Retrieve an aggregated category component usage record |
-| GET | `/api/marketplace-category-components/` | `marketplace_category_components_list` | List category components |
-| HEAD | `/api/marketplace-category-components/` | `marketplace_category_components_count` | List category components |
-| POST | `/api/marketplace-category-components/` | `marketplace_category_components_create` | Create a category component |
-| GET | `/api/marketplace-category-components/{id}/` | `marketplace_category_components_retrieve` | Retrieve a category component |
-| PUT | `/api/marketplace-category-components/{id}/` | `marketplace_category_components_update` | Update a category component |
-| PATCH | `/api/marketplace-category-components/{id}/` | `marketplace_category_components_partial_update` | Partially update a category component |
-| DELETE | `/api/marketplace-category-components/{id}/` | `marketplace_category_components_destroy` | Delete a category component |
-| GET | `/api/marketplace-category-groups/` | `marketplace_category_groups_list` | List category groups |
-| HEAD | `/api/marketplace-category-groups/` | `marketplace_category_groups_count` | List category groups |
-| POST | `/api/marketplace-category-groups/` | `marketplace_category_groups_create` | Create a category group |
-| GET | `/api/marketplace-category-groups/{uuid}/` | `marketplace_category_groups_retrieve` | Retrieve a category group |
-| PUT | `/api/marketplace-category-groups/{uuid}/` | `marketplace_category_groups_update` | Update a category group |
-| PATCH | `/api/marketplace-category-groups/{uuid}/` | `marketplace_category_groups_partial_update` | Partially update a category group |
-| DELETE | `/api/marketplace-category-groups/{uuid}/` | `marketplace_category_groups_destroy` | Delete a category group |
-| GET | `/api/marketplace-category-help-articles/` | `marketplace_category_help_articles_list` | List category help articles |
-| HEAD | `/api/marketplace-category-help-articles/` | `marketplace_category_help_articles_count` | List category help articles |
-| POST | `/api/marketplace-category-help-articles/` | `marketplace_category_help_articles_create` | Create a category help article |
-| GET | `/api/marketplace-category-help-articles/{id}/` | `marketplace_category_help_articles_retrieve` | Retrieve a category help article |
-| PUT | `/api/marketplace-category-help-articles/{id}/` | `marketplace_category_help_articles_update` | Update a category help article |
-| PATCH | `/api/marketplace-category-help-articles/{id}/` | `marketplace_category_help_articles_partial_update` | Partially update a category help article |
-| DELETE | `/api/marketplace-category-help-articles/{id}/` | `marketplace_category_help_articles_destroy` | Delete a category help article |
-| GET | `/api/marketplace-global-categories/` | `marketplace_global_categories_retrieve` | Get resource counts by category |
-| GET | `/api/marketplace-tags/` | `marketplace_tags_list` |  |
-| HEAD | `/api/marketplace-tags/` | `marketplace_tags_count` |  |
-| POST | `/api/marketplace-tags/` | `marketplace_tags_create` |  |
-| GET | `/api/marketplace-tags/{uuid}/` | `marketplace_tags_retrieve` |  |
-| PUT | `/api/marketplace-tags/{uuid}/` | `marketplace_tags_update` |  |
-| PATCH | `/api/marketplace-tags/{uuid}/` | `marketplace_tags_partial_update` |  |
-| DELETE | `/api/marketplace-tags/{uuid}/` | `marketplace_tags_destroy` |  |
+| GET | `/api/marketplace-categories/` | [`marketplace_categories_list`](#marketplace-categories-list) | List categories |
+| HEAD | `/api/marketplace-categories/` | [`marketplace_categories_count`](#marketplace-categories-count) | List categories |
+| POST | `/api/marketplace-categories/` | [`marketplace_categories_create`](#marketplace-categories-create) | Create a category |
+| GET | `/api/marketplace-categories/{uuid}/` | [`marketplace_categories_retrieve`](#marketplace-categories-retrieve) | Retrieve a category |
+| PUT | `/api/marketplace-categories/{uuid}/` | [`marketplace_categories_update`](#marketplace-categories-update) | Update a category |
+| PATCH | `/api/marketplace-categories/{uuid}/` | [`marketplace_categories_partial_update`](#marketplace-categories-partial-update) | Partially update a category |
+| DELETE | `/api/marketplace-categories/{uuid}/` | [`marketplace_categories_destroy`](#marketplace-categories-destroy) | Delete a category |
+| GET | `/api/marketplace-category-columns/` | [`marketplace_category_columns_list`](#marketplace-category-columns-list) | List category columns |
+| HEAD | `/api/marketplace-category-columns/` | [`marketplace_category_columns_count`](#marketplace-category-columns-count) | List category columns |
+| POST | `/api/marketplace-category-columns/` | [`marketplace_category_columns_create`](#marketplace-category-columns-create) | Create a category column |
+| GET | `/api/marketplace-category-columns/{uuid}/` | [`marketplace_category_columns_retrieve`](#marketplace-category-columns-retrieve) | Retrieve a category column |
+| PUT | `/api/marketplace-category-columns/{uuid}/` | [`marketplace_category_columns_update`](#marketplace-category-columns-update) | Update a category column |
+| PATCH | `/api/marketplace-category-columns/{uuid}/` | [`marketplace_category_columns_partial_update`](#marketplace-category-columns-partial-update) | Partially update a category column |
+| DELETE | `/api/marketplace-category-columns/{uuid}/` | [`marketplace_category_columns_destroy`](#marketplace-category-columns-destroy) | Delete a category column |
+| GET | `/api/marketplace-category-component-usages/` | [`marketplace_category_component_usages_list`](#marketplace-category-component-usages-list) | List aggregated category component usages |
+| HEAD | `/api/marketplace-category-component-usages/` | [`marketplace_category_component_usages_count`](#marketplace-category-component-usages-count) | List aggregated category component usages |
+| GET | `/api/marketplace-category-component-usages/{id}/` | [`marketplace_category_component_usages_retrieve`](#marketplace-category-component-usages-retrieve) | Retrieve an aggregated category component usage record |
+| GET | `/api/marketplace-category-components/` | [`marketplace_category_components_list`](#marketplace-category-components-list) | List category components |
+| HEAD | `/api/marketplace-category-components/` | [`marketplace_category_components_count`](#marketplace-category-components-count) | List category components |
+| POST | `/api/marketplace-category-components/` | [`marketplace_category_components_create`](#marketplace-category-components-create) | Create a category component |
+| GET | `/api/marketplace-category-components/{id}/` | [`marketplace_category_components_retrieve`](#marketplace-category-components-retrieve) | Retrieve a category component |
+| PUT | `/api/marketplace-category-components/{id}/` | [`marketplace_category_components_update`](#marketplace-category-components-update) | Update a category component |
+| PATCH | `/api/marketplace-category-components/{id}/` | [`marketplace_category_components_partial_update`](#marketplace-category-components-partial-update) | Partially update a category component |
+| DELETE | `/api/marketplace-category-components/{id}/` | [`marketplace_category_components_destroy`](#marketplace-category-components-destroy) | Delete a category component |
+| GET | `/api/marketplace-category-groups/` | [`marketplace_category_groups_list`](#marketplace-category-groups-list) | List category groups |
+| HEAD | `/api/marketplace-category-groups/` | [`marketplace_category_groups_count`](#marketplace-category-groups-count) | List category groups |
+| POST | `/api/marketplace-category-groups/` | [`marketplace_category_groups_create`](#marketplace-category-groups-create) | Create a category group |
+| GET | `/api/marketplace-category-groups/{uuid}/` | [`marketplace_category_groups_retrieve`](#marketplace-category-groups-retrieve) | Retrieve a category group |
+| PUT | `/api/marketplace-category-groups/{uuid}/` | [`marketplace_category_groups_update`](#marketplace-category-groups-update) | Update a category group |
+| PATCH | `/api/marketplace-category-groups/{uuid}/` | [`marketplace_category_groups_partial_update`](#marketplace-category-groups-partial-update) | Partially update a category group |
+| DELETE | `/api/marketplace-category-groups/{uuid}/` | [`marketplace_category_groups_destroy`](#marketplace-category-groups-destroy) | Delete a category group |
+| GET | `/api/marketplace-category-help-articles/` | [`marketplace_category_help_articles_list`](#marketplace-category-help-articles-list) | List category help articles |
+| HEAD | `/api/marketplace-category-help-articles/` | [`marketplace_category_help_articles_count`](#marketplace-category-help-articles-count) | List category help articles |
+| POST | `/api/marketplace-category-help-articles/` | [`marketplace_category_help_articles_create`](#marketplace-category-help-articles-create) | Create a category help article |
+| GET | `/api/marketplace-category-help-articles/{id}/` | [`marketplace_category_help_articles_retrieve`](#marketplace-category-help-articles-retrieve) | Retrieve a category help article |
+| PUT | `/api/marketplace-category-help-articles/{id}/` | [`marketplace_category_help_articles_update`](#marketplace-category-help-articles-update) | Update a category help article |
+| PATCH | `/api/marketplace-category-help-articles/{id}/` | [`marketplace_category_help_articles_partial_update`](#marketplace-category-help-articles-partial-update) | Partially update a category help article |
+| DELETE | `/api/marketplace-category-help-articles/{id}/` | [`marketplace_category_help_articles_destroy`](#marketplace-category-help-articles-destroy) | Delete a category help article |
+| GET | `/api/marketplace-global-categories/` | [`marketplace_global_categories_retrieve`](#marketplace-global-categories-retrieve) | Get resource counts by category |
+| GET | `/api/marketplace-tags/` | [`marketplace_tags_list`](#marketplace-tags-list) |  |
+| HEAD | `/api/marketplace-tags/` | [`marketplace_tags_count`](#marketplace-tags-count) |  |
+| POST | `/api/marketplace-tags/` | [`marketplace_tags_create`](#marketplace-tags-create) |  |
+| GET | `/api/marketplace-tags/{uuid}/` | [`marketplace_tags_retrieve`](#marketplace-tags-retrieve) |  |
+| PUT | `/api/marketplace-tags/{uuid}/` | [`marketplace_tags_update`](#marketplace-tags-update) |  |
+| PATCH | `/api/marketplace-tags/{uuid}/` | [`marketplace_tags_partial_update`](#marketplace-tags-partial-update) |  |
+| DELETE | `/api/marketplace-tags/{uuid}/` | [`marketplace_tags_destroy`](#marketplace-tags-destroy) |  |
 
 ## Endpoint Details
 
-### List categories
+### marketplace_categories_list
 
 **`GET`** `/api/marketplace-categories/`
 
-**Operation ID:** `marketplace_categories_list`
+**Summary:** List categories
 
 Returns a paginated list of marketplace categories.
 
@@ -86,11 +86,11 @@ Returns a paginated list of marketplace categories.
 
 ---
 
-### List categories
+### marketplace_categories_count
 
 **`HEAD`** `/api/marketplace-categories/`
 
-**Operation ID:** `marketplace_categories_count`
+**Summary:** List categories
 
 Get number of items in the collection matching the request parameters.
 
@@ -115,11 +115,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a category
+### marketplace_categories_create
 
 **`POST`** `/api/marketplace-categories/`
 
-**Operation ID:** `marketplace_categories_create`
+**Summary:** Create a category
 
 Creates a new marketplace category. Requires staff permissions.
 
@@ -145,11 +145,11 @@ Schema: `MarketplaceCategoryRequest`
 
 ---
 
-### Retrieve a category
+### marketplace_categories_retrieve
 
 **`GET`** `/api/marketplace-categories/{uuid}/`
 
-**Operation ID:** `marketplace_categories_retrieve`
+**Summary:** Retrieve a category
 
 Returns details of a specific marketplace category.
 
@@ -168,11 +168,11 @@ Returns details of a specific marketplace category.
 
 ---
 
-### Update a category
+### marketplace_categories_update
 
 **`PUT`** `/api/marketplace-categories/{uuid}/`
 
-**Operation ID:** `marketplace_categories_update`
+**Summary:** Update a category
 
 Updates an existing marketplace category. Requires staff permissions.
 
@@ -204,11 +204,11 @@ Schema: `MarketplaceCategoryRequest`
 
 ---
 
-### Partially update a category
+### marketplace_categories_partial_update
 
 **`PATCH`** `/api/marketplace-categories/{uuid}/`
 
-**Operation ID:** `marketplace_categories_partial_update`
+**Summary:** Partially update a category
 
 Partially updates an existing marketplace category. Requires staff permissions.
 
@@ -240,11 +240,11 @@ Schema: `PatchedMarketplaceCategoryRequest`
 
 ---
 
-### Delete a category
+### marketplace_categories_destroy
 
 **`DELETE`** `/api/marketplace-categories/{uuid}/`
 
-**Operation ID:** `marketplace_categories_destroy`
+**Summary:** Delete a category
 
 Deletes a marketplace category. Requires staff permissions.
 
@@ -262,11 +262,11 @@ Deletes a marketplace category. Requires staff permissions.
 
 ---
 
-### List category columns
+### marketplace_category_columns_list
 
 **`GET`** `/api/marketplace-category-columns/`
 
-**Operation ID:** `marketplace_category_columns_list`
+**Summary:** List category columns
 
 Returns a paginated list of category columns used for resource table rendering.
 
@@ -285,11 +285,11 @@ Returns a paginated list of category columns used for resource table rendering.
 
 ---
 
-### List category columns
+### marketplace_category_columns_count
 
 **`HEAD`** `/api/marketplace-category-columns/`
 
-**Operation ID:** `marketplace_category_columns_count`
+**Summary:** List category columns
 
 Get number of items in the collection matching the request parameters.
 
@@ -308,11 +308,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a category column
+### marketplace_category_columns_create
 
 **`POST`** `/api/marketplace-category-columns/`
 
-**Operation ID:** `marketplace_category_columns_create`
+**Summary:** Create a category column
 
 Creates a new category column. Requires staff permissions.
 
@@ -336,11 +336,11 @@ Schema: `CategoryColumnRequest`
 
 ---
 
-### Retrieve a category column
+### marketplace_category_columns_retrieve
 
 **`GET`** `/api/marketplace-category-columns/{uuid}/`
 
-**Operation ID:** `marketplace_category_columns_retrieve`
+**Summary:** Retrieve a category column
 
 Returns details of a specific category column.
 
@@ -358,11 +358,11 @@ Returns details of a specific category column.
 
 ---
 
-### Update a category column
+### marketplace_category_columns_update
 
 **`PUT`** `/api/marketplace-category-columns/{uuid}/`
 
-**Operation ID:** `marketplace_category_columns_update`
+**Summary:** Update a category column
 
 Updates an existing category column. Requires staff permissions.
 
@@ -392,11 +392,11 @@ Schema: `CategoryColumnRequest`
 
 ---
 
-### Partially update a category column
+### marketplace_category_columns_partial_update
 
 **`PATCH`** `/api/marketplace-category-columns/{uuid}/`
 
-**Operation ID:** `marketplace_category_columns_partial_update`
+**Summary:** Partially update a category column
 
 Partially updates an existing category column. Requires staff permissions.
 
@@ -426,11 +426,11 @@ Schema: `PatchedCategoryColumnRequest`
 
 ---
 
-### Delete a category column
+### marketplace_category_columns_destroy
 
 **`DELETE`** `/api/marketplace-category-columns/{uuid}/`
 
-**Operation ID:** `marketplace_category_columns_destroy`
+**Summary:** Delete a category column
 
 Deletes a category column. Requires staff permissions.
 
@@ -448,11 +448,11 @@ Deletes a category column. Requires staff permissions.
 
 ---
 
-### List aggregated category component usages
+### marketplace_category_component_usages_list
 
 **`GET`** `/api/marketplace-category-component-usages/`
 
-**Operation ID:** `marketplace_category_component_usages_list`
+**Summary:** List aggregated category component usages
 
 Returns a paginated list of aggregated component usages for marketplace categories.
         This data is scoped to either a customer or a project and represents the total usage
@@ -478,11 +478,11 @@ Returns a paginated list of aggregated component usages for marketplace categori
 
 ---
 
-### List aggregated category component usages
+### marketplace_category_component_usages_count
 
 **`HEAD`** `/api/marketplace-category-component-usages/`
 
-**Operation ID:** `marketplace_category_component_usages_count`
+**Summary:** List aggregated category component usages
 
 Get number of items in the collection matching the request parameters.
 
@@ -502,11 +502,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve an aggregated category component usage record
+### marketplace_category_component_usages_retrieve
 
 **`GET`** `/api/marketplace-category-component-usages/{id}/`
 
-**Operation ID:** `marketplace_category_component_usages_retrieve`
+**Summary:** Retrieve an aggregated category component usage record
 
 Returns the details of a single aggregated usage record for a category component, identified by its database ID.
 
@@ -525,11 +525,11 @@ Returns the details of a single aggregated usage record for a category component
 
 ---
 
-### List category components
+### marketplace_category_components_list
 
 **`GET`** `/api/marketplace-category-components/`
 
-**Operation ID:** `marketplace_category_components_list`
+**Summary:** List category components
 
 Returns a paginated list of all components defined at the category level. These act as templates for components in offerings.
 
@@ -546,11 +546,11 @@ Returns a paginated list of all components defined at the category level. These 
 
 ---
 
-### List category components
+### marketplace_category_components_count
 
 **`HEAD`** `/api/marketplace-category-components/`
 
-**Operation ID:** `marketplace_category_components_count`
+**Summary:** List category components
 
 Get number of items in the collection matching the request parameters.
 
@@ -567,11 +567,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a category component
+### marketplace_category_components_create
 
 **`POST`** `/api/marketplace-category-components/`
 
-**Operation ID:** `marketplace_category_components_create`
+**Summary:** Create a category component
 
 Creates a new component for a category. Requires staff permissions.
 
@@ -595,11 +595,11 @@ Schema: `CategoryComponentsRequest`
 
 ---
 
-### Retrieve a category component
+### marketplace_category_components_retrieve
 
 **`GET`** `/api/marketplace-category-components/{id}/`
 
-**Operation ID:** `marketplace_category_components_retrieve`
+**Summary:** Retrieve a category component
 
 Returns the details of a specific category component, identified by its ID.
 
@@ -617,11 +617,11 @@ Returns the details of a specific category component, identified by its ID.
 
 ---
 
-### Update a category component
+### marketplace_category_components_update
 
 **`PUT`** `/api/marketplace-category-components/{id}/`
 
-**Operation ID:** `marketplace_category_components_update`
+**Summary:** Update a category component
 
 Updates an existing category component. Requires staff permissions.
 
@@ -651,11 +651,11 @@ Schema: `CategoryComponentsRequest`
 
 ---
 
-### Partially update a category component
+### marketplace_category_components_partial_update
 
 **`PATCH`** `/api/marketplace-category-components/{id}/`
 
-**Operation ID:** `marketplace_category_components_partial_update`
+**Summary:** Partially update a category component
 
 Partially updates an existing category component. Requires staff permissions.
 
@@ -685,11 +685,11 @@ Schema: `PatchedCategoryComponentsRequest`
 
 ---
 
-### Delete a category component
+### marketplace_category_components_destroy
 
 **`DELETE`** `/api/marketplace-category-components/{id}/`
 
-**Operation ID:** `marketplace_category_components_destroy`
+**Summary:** Delete a category component
 
 Deletes a category component. Requires staff permissions.
 
@@ -707,11 +707,11 @@ Deletes a category component. Requires staff permissions.
 
 ---
 
-### List category groups
+### marketplace_category_groups_list
 
 **`GET`** `/api/marketplace-category-groups/`
 
-**Operation ID:** `marketplace_category_groups_list`
+**Summary:** List category groups
 
 Returns a paginated list of category groups.
 
@@ -730,11 +730,11 @@ Returns a paginated list of category groups.
 
 ---
 
-### List category groups
+### marketplace_category_groups_count
 
 **`HEAD`** `/api/marketplace-category-groups/`
 
-**Operation ID:** `marketplace_category_groups_count`
+**Summary:** List category groups
 
 Get number of items in the collection matching the request parameters.
 
@@ -752,11 +752,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a category group
+### marketplace_category_groups_create
 
 **`POST`** `/api/marketplace-category-groups/`
 
-**Operation ID:** `marketplace_category_groups_create`
+**Summary:** Create a category group
 
 Creates a new category group. Requires staff permissions.
 
@@ -778,11 +778,11 @@ Schema: `CategoryGroupRequest`
 
 ---
 
-### Retrieve a category group
+### marketplace_category_groups_retrieve
 
 **`GET`** `/api/marketplace-category-groups/{uuid}/`
 
-**Operation ID:** `marketplace_category_groups_retrieve`
+**Summary:** Retrieve a category group
 
 Returns details of a specific category group.
 
@@ -801,11 +801,11 @@ Returns details of a specific category group.
 
 ---
 
-### Update a category group
+### marketplace_category_groups_update
 
 **`PUT`** `/api/marketplace-category-groups/{uuid}/`
 
-**Operation ID:** `marketplace_category_groups_update`
+**Summary:** Update a category group
 
 Updates an existing category group. Requires staff permissions.
 
@@ -833,11 +833,11 @@ Schema: `CategoryGroupRequest`
 
 ---
 
-### Partially update a category group
+### marketplace_category_groups_partial_update
 
 **`PATCH`** `/api/marketplace-category-groups/{uuid}/`
 
-**Operation ID:** `marketplace_category_groups_partial_update`
+**Summary:** Partially update a category group
 
 Partially updates an existing category group. Requires staff permissions.
 
@@ -865,11 +865,11 @@ Schema: `PatchedCategoryGroupRequest`
 
 ---
 
-### Delete a category group
+### marketplace_category_groups_destroy
 
 **`DELETE`** `/api/marketplace-category-groups/{uuid}/`
 
-**Operation ID:** `marketplace_category_groups_destroy`
+**Summary:** Delete a category group
 
 Deletes a category group. Requires staff permissions.
 
@@ -887,11 +887,11 @@ Deletes a category group. Requires staff permissions.
 
 ---
 
-### List category help articles
+### marketplace_category_help_articles_list
 
 **`GET`** `/api/marketplace-category-help-articles/`
 
-**Operation ID:** `marketplace_category_help_articles_list`
+**Summary:** List category help articles
 
 Returns a paginated list of all help articles associated with marketplace categories.
 
@@ -908,11 +908,11 @@ Returns a paginated list of all help articles associated with marketplace catego
 
 ---
 
-### List category help articles
+### marketplace_category_help_articles_count
 
 **`HEAD`** `/api/marketplace-category-help-articles/`
 
-**Operation ID:** `marketplace_category_help_articles_count`
+**Summary:** List category help articles
 
 Get number of items in the collection matching the request parameters.
 
@@ -929,11 +929,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a category help article
+### marketplace_category_help_articles_create
 
 **`POST`** `/api/marketplace-category-help-articles/`
 
-**Operation ID:** `marketplace_category_help_articles_create`
+**Summary:** Create a category help article
 
 Creates a new help article and associates it with one or more categories. Requires staff permissions.
 
@@ -955,11 +955,11 @@ Schema: `CategoryHelpArticlesRequest`
 
 ---
 
-### Retrieve a category help article
+### marketplace_category_help_articles_retrieve
 
 **`GET`** `/api/marketplace-category-help-articles/{id}/`
 
-**Operation ID:** `marketplace_category_help_articles_retrieve`
+**Summary:** Retrieve a category help article
 
 Returns the details of a specific help article, identified by its ID.
 
@@ -977,11 +977,11 @@ Returns the details of a specific help article, identified by its ID.
 
 ---
 
-### Update a category help article
+### marketplace_category_help_articles_update
 
 **`PUT`** `/api/marketplace-category-help-articles/{id}/`
 
-**Operation ID:** `marketplace_category_help_articles_update`
+**Summary:** Update a category help article
 
 Updates an existing help article. Requires staff permissions.
 
@@ -1009,11 +1009,11 @@ Schema: `CategoryHelpArticlesRequest`
 
 ---
 
-### Partially update a category help article
+### marketplace_category_help_articles_partial_update
 
 **`PATCH`** `/api/marketplace-category-help-articles/{id}/`
 
-**Operation ID:** `marketplace_category_help_articles_partial_update`
+**Summary:** Partially update a category help article
 
 Partially updates an existing help article. Requires staff permissions.
 
@@ -1041,11 +1041,11 @@ Schema: `PatchedCategoryHelpArticlesRequest`
 
 ---
 
-### Delete a category help article
+### marketplace_category_help_articles_destroy
 
 **`DELETE`** `/api/marketplace-category-help-articles/{id}/`
 
-**Operation ID:** `marketplace_category_help_articles_destroy`
+**Summary:** Delete a category help article
 
 Deletes a help article. Requires staff permissions.
 
@@ -1063,11 +1063,11 @@ Deletes a help article. Requires staff permissions.
 
 ---
 
-### Get resource counts by category
+### marketplace_global_categories_retrieve
 
 **`GET`** `/api/marketplace-global-categories/`
 
-**Operation ID:** `marketplace_global_categories_retrieve`
+**Summary:** Get resource counts by category
 
 Returns a dictionary mapping marketplace category UUIDs to the count of active (non-terminated)
         resources the current user has access to within that category. This is primarily used for UI
@@ -1094,8 +1094,6 @@ Returns a dictionary mapping marketplace category UUIDs to the count of active (
 
 **`GET`** `/api/marketplace-tags/`
 
-**Operation ID:** `marketplace_tags_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1114,8 +1112,6 @@ Returns a dictionary mapping marketplace category UUIDs to the count of active (
 ### marketplace_tags_count
 
 **`HEAD`** `/api/marketplace-tags/`
-
-**Operation ID:** `marketplace_tags_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1138,8 +1134,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/marketplace-tags/`
 
-**Operation ID:** `marketplace_tags_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `TagRequest`
@@ -1161,8 +1155,6 @@ Schema: `TagRequest`
 
 **`GET`** `/api/marketplace-tags/{uuid}/`
 
-**Operation ID:** `marketplace_tags_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1180,8 +1172,6 @@ Schema: `TagRequest`
 ### marketplace_tags_update
 
 **`PUT`** `/api/marketplace-tags/{uuid}/`
-
-**Operation ID:** `marketplace_tags_update`
 
 **Parameters:**
 
@@ -1210,8 +1200,6 @@ Schema: `TagRequest`
 
 **`PATCH`** `/api/marketplace-tags/{uuid}/`
 
-**Operation ID:** `marketplace_tags_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1238,8 +1226,6 @@ Schema: `PatchedTagRequest`
 ### marketplace_tags_destroy
 
 **`DELETE`** `/api/marketplace-tags/{uuid}/`
-
-**Operation ID:** `marketplace_tags_destroy`
 
 **Parameters:**
 

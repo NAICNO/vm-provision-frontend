@@ -7,74 +7,72 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/azure-images/` | `azure_images_list` |  |
-| HEAD | `/api/azure-images/` | `azure_images_count` |  |
-| GET | `/api/azure-images/{uuid}/` | `azure_images_retrieve` |  |
-| GET | `/api/azure-locations/` | `azure_locations_list` |  |
-| HEAD | `/api/azure-locations/` | `azure_locations_count` |  |
-| GET | `/api/azure-locations/{uuid}/` | `azure_locations_retrieve` |  |
-| GET | `/api/azure-public-ips/` | `azure_public_ips_list` |  |
-| HEAD | `/api/azure-public-ips/` | `azure_public_ips_count` |  |
-| POST | `/api/azure-public-ips/` | `azure_public_ips_create` |  |
-| GET | `/api/azure-public-ips/{uuid}/` | `azure_public_ips_retrieve` |  |
-| PUT | `/api/azure-public-ips/{uuid}/` | `azure_public_ips_update` |  |
-| PATCH | `/api/azure-public-ips/{uuid}/` | `azure_public_ips_partial_update` |  |
-| DELETE | `/api/azure-public-ips/{uuid}/` | `azure_public_ips_destroy` |  |
-| POST | `/api/azure-public-ips/{uuid}/pull/` | `azure_public_ips_pull` | Synchronize resource state |
-| POST | `/api/azure-public-ips/{uuid}/set_erred/` | `azure_public_ips_set_erred` | Mark resource as ERRED |
-| POST | `/api/azure-public-ips/{uuid}/set_ok/` | `azure_public_ips_set_ok` | Mark resource as OK |
-| POST | `/api/azure-public-ips/{uuid}/unlink/` | `azure_public_ips_unlink` | Unlink resource |
-| GET | `/api/azure-resource-groups/` | `azure_resource_groups_list` |  |
-| HEAD | `/api/azure-resource-groups/` | `azure_resource_groups_count` |  |
-| GET | `/api/azure-resource-groups/{uuid}/` | `azure_resource_groups_retrieve` |  |
-| GET | `/api/azure-sizes/` | `azure_sizes_list` |  |
-| HEAD | `/api/azure-sizes/` | `azure_sizes_count` |  |
-| GET | `/api/azure-sizes/{uuid}/` | `azure_sizes_retrieve` |  |
-| GET | `/api/azure-sql-databases/` | `azure_sql_databases_list` |  |
-| HEAD | `/api/azure-sql-databases/` | `azure_sql_databases_count` |  |
-| POST | `/api/azure-sql-databases/` | `azure_sql_databases_create` |  |
-| GET | `/api/azure-sql-databases/{uuid}/` | `azure_sql_databases_retrieve` |  |
-| PUT | `/api/azure-sql-databases/{uuid}/` | `azure_sql_databases_update` |  |
-| PATCH | `/api/azure-sql-databases/{uuid}/` | `azure_sql_databases_partial_update` |  |
-| DELETE | `/api/azure-sql-databases/{uuid}/` | `azure_sql_databases_destroy` |  |
-| POST | `/api/azure-sql-databases/{uuid}/pull/` | `azure_sql_databases_pull` | Synchronize resource state |
-| POST | `/api/azure-sql-databases/{uuid}/set_erred/` | `azure_sql_databases_set_erred` | Mark resource as ERRED |
-| POST | `/api/azure-sql-databases/{uuid}/set_ok/` | `azure_sql_databases_set_ok` | Mark resource as OK |
-| POST | `/api/azure-sql-databases/{uuid}/unlink/` | `azure_sql_databases_unlink` | Unlink resource |
-| GET | `/api/azure-sql-servers/` | `azure_sql_servers_list` |  |
-| HEAD | `/api/azure-sql-servers/` | `azure_sql_servers_count` |  |
-| POST | `/api/azure-sql-servers/` | `azure_sql_servers_create` |  |
-| GET | `/api/azure-sql-servers/{uuid}/` | `azure_sql_servers_retrieve` |  |
-| PUT | `/api/azure-sql-servers/{uuid}/` | `azure_sql_servers_update` |  |
-| PATCH | `/api/azure-sql-servers/{uuid}/` | `azure_sql_servers_partial_update` |  |
-| DELETE | `/api/azure-sql-servers/{uuid}/` | `azure_sql_servers_destroy` |  |
-| POST | `/api/azure-sql-servers/{uuid}/create_database/` | `azure_sql_servers_create_database` |  |
-| POST | `/api/azure-sql-servers/{uuid}/pull/` | `azure_sql_servers_pull` | Synchronize resource state |
-| POST | `/api/azure-sql-servers/{uuid}/set_erred/` | `azure_sql_servers_set_erred` | Mark resource as ERRED |
-| POST | `/api/azure-sql-servers/{uuid}/set_ok/` | `azure_sql_servers_set_ok` | Mark resource as OK |
-| POST | `/api/azure-sql-servers/{uuid}/unlink/` | `azure_sql_servers_unlink` | Unlink resource |
-| GET | `/api/azure-virtualmachines/` | `azure_virtualmachines_list` |  |
-| HEAD | `/api/azure-virtualmachines/` | `azure_virtualmachines_count` |  |
-| POST | `/api/azure-virtualmachines/` | `azure_virtualmachines_create` |  |
-| GET | `/api/azure-virtualmachines/{uuid}/` | `azure_virtualmachines_retrieve` |  |
-| PUT | `/api/azure-virtualmachines/{uuid}/` | `azure_virtualmachines_update` |  |
-| PATCH | `/api/azure-virtualmachines/{uuid}/` | `azure_virtualmachines_partial_update` |  |
-| DELETE | `/api/azure-virtualmachines/{uuid}/` | `azure_virtualmachines_destroy` |  |
-| POST | `/api/azure-virtualmachines/{uuid}/pull/` | `azure_virtualmachines_pull` | Synchronize resource state |
-| POST | `/api/azure-virtualmachines/{uuid}/restart/` | `azure_virtualmachines_restart` |  |
-| POST | `/api/azure-virtualmachines/{uuid}/set_erred/` | `azure_virtualmachines_set_erred` | Mark resource as ERRED |
-| POST | `/api/azure-virtualmachines/{uuid}/set_ok/` | `azure_virtualmachines_set_ok` | Mark resource as OK |
-| POST | `/api/azure-virtualmachines/{uuid}/start/` | `azure_virtualmachines_start` |  |
-| POST | `/api/azure-virtualmachines/{uuid}/stop/` | `azure_virtualmachines_stop` |  |
-| POST | `/api/azure-virtualmachines/{uuid}/unlink/` | `azure_virtualmachines_unlink` | Unlink resource |
+| GET | `/api/azure-images/` | [`azure_images_list`](#azure-images-list) |  |
+| HEAD | `/api/azure-images/` | [`azure_images_count`](#azure-images-count) |  |
+| GET | `/api/azure-images/{uuid}/` | [`azure_images_retrieve`](#azure-images-retrieve) |  |
+| GET | `/api/azure-locations/` | [`azure_locations_list`](#azure-locations-list) |  |
+| HEAD | `/api/azure-locations/` | [`azure_locations_count`](#azure-locations-count) |  |
+| GET | `/api/azure-locations/{uuid}/` | [`azure_locations_retrieve`](#azure-locations-retrieve) |  |
+| GET | `/api/azure-public-ips/` | [`azure_public_ips_list`](#azure-public-ips-list) |  |
+| HEAD | `/api/azure-public-ips/` | [`azure_public_ips_count`](#azure-public-ips-count) |  |
+| POST | `/api/azure-public-ips/` | [`azure_public_ips_create`](#azure-public-ips-create) |  |
+| GET | `/api/azure-public-ips/{uuid}/` | [`azure_public_ips_retrieve`](#azure-public-ips-retrieve) |  |
+| PUT | `/api/azure-public-ips/{uuid}/` | [`azure_public_ips_update`](#azure-public-ips-update) |  |
+| PATCH | `/api/azure-public-ips/{uuid}/` | [`azure_public_ips_partial_update`](#azure-public-ips-partial-update) |  |
+| DELETE | `/api/azure-public-ips/{uuid}/` | [`azure_public_ips_destroy`](#azure-public-ips-destroy) |  |
+| POST | `/api/azure-public-ips/{uuid}/pull/` | [`azure_public_ips_pull`](#azure-public-ips-pull) | Synchronize resource state |
+| POST | `/api/azure-public-ips/{uuid}/set_erred/` | [`azure_public_ips_set_erred`](#azure-public-ips-set-erred) | Mark resource as ERRED |
+| POST | `/api/azure-public-ips/{uuid}/set_ok/` | [`azure_public_ips_set_ok`](#azure-public-ips-set-ok) | Mark resource as OK |
+| POST | `/api/azure-public-ips/{uuid}/unlink/` | [`azure_public_ips_unlink`](#azure-public-ips-unlink) | Unlink resource |
+| GET | `/api/azure-resource-groups/` | [`azure_resource_groups_list`](#azure-resource-groups-list) |  |
+| HEAD | `/api/azure-resource-groups/` | [`azure_resource_groups_count`](#azure-resource-groups-count) |  |
+| GET | `/api/azure-resource-groups/{uuid}/` | [`azure_resource_groups_retrieve`](#azure-resource-groups-retrieve) |  |
+| GET | `/api/azure-sizes/` | [`azure_sizes_list`](#azure-sizes-list) |  |
+| HEAD | `/api/azure-sizes/` | [`azure_sizes_count`](#azure-sizes-count) |  |
+| GET | `/api/azure-sizes/{uuid}/` | [`azure_sizes_retrieve`](#azure-sizes-retrieve) |  |
+| GET | `/api/azure-sql-databases/` | [`azure_sql_databases_list`](#azure-sql-databases-list) |  |
+| HEAD | `/api/azure-sql-databases/` | [`azure_sql_databases_count`](#azure-sql-databases-count) |  |
+| POST | `/api/azure-sql-databases/` | [`azure_sql_databases_create`](#azure-sql-databases-create) |  |
+| GET | `/api/azure-sql-databases/{uuid}/` | [`azure_sql_databases_retrieve`](#azure-sql-databases-retrieve) |  |
+| PUT | `/api/azure-sql-databases/{uuid}/` | [`azure_sql_databases_update`](#azure-sql-databases-update) |  |
+| PATCH | `/api/azure-sql-databases/{uuid}/` | [`azure_sql_databases_partial_update`](#azure-sql-databases-partial-update) |  |
+| DELETE | `/api/azure-sql-databases/{uuid}/` | [`azure_sql_databases_destroy`](#azure-sql-databases-destroy) |  |
+| POST | `/api/azure-sql-databases/{uuid}/pull/` | [`azure_sql_databases_pull`](#azure-sql-databases-pull) | Synchronize resource state |
+| POST | `/api/azure-sql-databases/{uuid}/set_erred/` | [`azure_sql_databases_set_erred`](#azure-sql-databases-set-erred) | Mark resource as ERRED |
+| POST | `/api/azure-sql-databases/{uuid}/set_ok/` | [`azure_sql_databases_set_ok`](#azure-sql-databases-set-ok) | Mark resource as OK |
+| POST | `/api/azure-sql-databases/{uuid}/unlink/` | [`azure_sql_databases_unlink`](#azure-sql-databases-unlink) | Unlink resource |
+| GET | `/api/azure-sql-servers/` | [`azure_sql_servers_list`](#azure-sql-servers-list) |  |
+| HEAD | `/api/azure-sql-servers/` | [`azure_sql_servers_count`](#azure-sql-servers-count) |  |
+| POST | `/api/azure-sql-servers/` | [`azure_sql_servers_create`](#azure-sql-servers-create) |  |
+| GET | `/api/azure-sql-servers/{uuid}/` | [`azure_sql_servers_retrieve`](#azure-sql-servers-retrieve) |  |
+| PUT | `/api/azure-sql-servers/{uuid}/` | [`azure_sql_servers_update`](#azure-sql-servers-update) |  |
+| PATCH | `/api/azure-sql-servers/{uuid}/` | [`azure_sql_servers_partial_update`](#azure-sql-servers-partial-update) |  |
+| DELETE | `/api/azure-sql-servers/{uuid}/` | [`azure_sql_servers_destroy`](#azure-sql-servers-destroy) |  |
+| POST | `/api/azure-sql-servers/{uuid}/create_database/` | [`azure_sql_servers_create_database`](#azure-sql-servers-create-database) |  |
+| POST | `/api/azure-sql-servers/{uuid}/pull/` | [`azure_sql_servers_pull`](#azure-sql-servers-pull) | Synchronize resource state |
+| POST | `/api/azure-sql-servers/{uuid}/set_erred/` | [`azure_sql_servers_set_erred`](#azure-sql-servers-set-erred) | Mark resource as ERRED |
+| POST | `/api/azure-sql-servers/{uuid}/set_ok/` | [`azure_sql_servers_set_ok`](#azure-sql-servers-set-ok) | Mark resource as OK |
+| POST | `/api/azure-sql-servers/{uuid}/unlink/` | [`azure_sql_servers_unlink`](#azure-sql-servers-unlink) | Unlink resource |
+| GET | `/api/azure-virtualmachines/` | [`azure_virtualmachines_list`](#azure-virtualmachines-list) |  |
+| HEAD | `/api/azure-virtualmachines/` | [`azure_virtualmachines_count`](#azure-virtualmachines-count) |  |
+| POST | `/api/azure-virtualmachines/` | [`azure_virtualmachines_create`](#azure-virtualmachines-create) |  |
+| GET | `/api/azure-virtualmachines/{uuid}/` | [`azure_virtualmachines_retrieve`](#azure-virtualmachines-retrieve) |  |
+| PUT | `/api/azure-virtualmachines/{uuid}/` | [`azure_virtualmachines_update`](#azure-virtualmachines-update) |  |
+| PATCH | `/api/azure-virtualmachines/{uuid}/` | [`azure_virtualmachines_partial_update`](#azure-virtualmachines-partial-update) |  |
+| DELETE | `/api/azure-virtualmachines/{uuid}/` | [`azure_virtualmachines_destroy`](#azure-virtualmachines-destroy) |  |
+| POST | `/api/azure-virtualmachines/{uuid}/pull/` | [`azure_virtualmachines_pull`](#azure-virtualmachines-pull) | Synchronize resource state |
+| POST | `/api/azure-virtualmachines/{uuid}/restart/` | [`azure_virtualmachines_restart`](#azure-virtualmachines-restart) |  |
+| POST | `/api/azure-virtualmachines/{uuid}/set_erred/` | [`azure_virtualmachines_set_erred`](#azure-virtualmachines-set-erred) | Mark resource as ERRED |
+| POST | `/api/azure-virtualmachines/{uuid}/set_ok/` | [`azure_virtualmachines_set_ok`](#azure-virtualmachines-set-ok) | Mark resource as OK |
+| POST | `/api/azure-virtualmachines/{uuid}/start/` | [`azure_virtualmachines_start`](#azure-virtualmachines-start) |  |
+| POST | `/api/azure-virtualmachines/{uuid}/stop/` | [`azure_virtualmachines_stop`](#azure-virtualmachines-stop) |  |
+| POST | `/api/azure-virtualmachines/{uuid}/unlink/` | [`azure_virtualmachines_unlink`](#azure-virtualmachines-unlink) | Unlink resource |
 
 ## Endpoint Details
 
 ### azure_images_list
 
 **`GET`** `/api/azure-images/`
-
-**Operation ID:** `azure_images_list`
 
 **Parameters:**
 
@@ -98,8 +96,6 @@
 ### azure_images_count
 
 **`HEAD`** `/api/azure-images/`
-
-**Operation ID:** `azure_images_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -126,8 +122,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/azure-images/{uuid}/`
 
-**Operation ID:** `azure_images_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -145,8 +139,6 @@ Get number of items in the collection matching the request parameters.
 ### azure_locations_list
 
 **`GET`** `/api/azure-locations/`
-
-**Operation ID:** `azure_locations_list`
 
 **Parameters:**
 
@@ -169,8 +161,6 @@ Get number of items in the collection matching the request parameters.
 ### azure_locations_count
 
 **`HEAD`** `/api/azure-locations/`
-
-**Operation ID:** `azure_locations_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -196,8 +186,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/azure-locations/{uuid}/`
 
-**Operation ID:** `azure_locations_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -215,8 +203,6 @@ Get number of items in the collection matching the request parameters.
 ### azure_public_ips_list
 
 **`GET`** `/api/azure-public-ips/`
-
-**Operation ID:** `azure_public_ips_list`
 
 **Parameters:**
 
@@ -255,8 +241,6 @@ Get number of items in the collection matching the request parameters.
 ### azure_public_ips_count
 
 **`HEAD`** `/api/azure-public-ips/`
-
-**Operation ID:** `azure_public_ips_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -297,8 +281,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/azure-public-ips/`
 
-**Operation ID:** `azure_public_ips_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `AzurePublicIPRequest`
@@ -324,8 +306,6 @@ Schema: `AzurePublicIPRequest`
 
 **`GET`** `/api/azure-public-ips/{uuid}/`
 
-**Operation ID:** `azure_public_ips_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -344,8 +324,6 @@ Schema: `AzurePublicIPRequest`
 ### azure_public_ips_update
 
 **`PUT`** `/api/azure-public-ips/{uuid}/`
-
-**Operation ID:** `azure_public_ips_update`
 
 **Parameters:**
 
@@ -378,8 +356,6 @@ Schema: `AzurePublicIPRequest`
 
 **`PATCH`** `/api/azure-public-ips/{uuid}/`
 
-**Operation ID:** `azure_public_ips_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -408,8 +384,6 @@ Schema: `PatchedAzurePublicIPRequest`
 
 **`DELETE`** `/api/azure-public-ips/{uuid}/`
 
-**Operation ID:** `azure_public_ips_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -424,11 +398,11 @@ Schema: `PatchedAzurePublicIPRequest`
 
 ---
 
-### Synchronize resource state
+### azure_public_ips_pull
 
 **`POST`** `/api/azure-public-ips/{uuid}/pull/`
 
-**Operation ID:** `azure_public_ips_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -447,11 +421,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### azure_public_ips_set_erred
 
 **`POST`** `/api/azure-public-ips/{uuid}/set_erred/`
 
-**Operation ID:** `azure_public_ips_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -478,11 +452,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### azure_public_ips_set_ok
 
 **`POST`** `/api/azure-public-ips/{uuid}/set_ok/`
 
-**Operation ID:** `azure_public_ips_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -500,11 +474,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### azure_public_ips_unlink
 
 **`POST`** `/api/azure-public-ips/{uuid}/unlink/`
 
-**Operation ID:** `azure_public_ips_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -528,8 +502,6 @@ Delete resource from the database without scheduling operations on backend
 
 **`GET`** `/api/azure-resource-groups/`
 
-**Operation ID:** `azure_resource_groups_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -547,8 +519,6 @@ Delete resource from the database without scheduling operations on backend
 ### azure_resource_groups_count
 
 **`HEAD`** `/api/azure-resource-groups/`
-
-**Operation ID:** `azure_resource_groups_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -569,8 +539,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/azure-resource-groups/{uuid}/`
 
-**Operation ID:** `azure_resource_groups_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -589,8 +557,6 @@ Get number of items in the collection matching the request parameters.
 ### azure_sizes_list
 
 **`GET`** `/api/azure-sizes/`
-
-**Operation ID:** `azure_sizes_list`
 
 **Parameters:**
 
@@ -615,8 +581,6 @@ Get number of items in the collection matching the request parameters.
 ### azure_sizes_count
 
 **`HEAD`** `/api/azure-sizes/`
-
-**Operation ID:** `azure_sizes_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -644,8 +608,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/azure-sizes/{uuid}/`
 
-**Operation ID:** `azure_sizes_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -663,8 +625,6 @@ Get number of items in the collection matching the request parameters.
 ### azure_sql_databases_list
 
 **`GET`** `/api/azure-sql-databases/`
-
-**Operation ID:** `azure_sql_databases_list`
 
 **Parameters:**
 
@@ -705,8 +665,6 @@ Get number of items in the collection matching the request parameters.
 ### azure_sql_databases_count
 
 **`HEAD`** `/api/azure-sql-databases/`
-
-**Operation ID:** `azure_sql_databases_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -749,8 +707,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/azure-sql-databases/`
 
-**Operation ID:** `azure_sql_databases_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `AzureSqlDatabaseRequest`
@@ -777,8 +733,6 @@ Schema: `AzureSqlDatabaseRequest`
 
 **`GET`** `/api/azure-sql-databases/{uuid}/`
 
-**Operation ID:** `azure_sql_databases_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -797,8 +751,6 @@ Schema: `AzureSqlDatabaseRequest`
 ### azure_sql_databases_update
 
 **`PUT`** `/api/azure-sql-databases/{uuid}/`
-
-**Operation ID:** `azure_sql_databases_update`
 
 **Parameters:**
 
@@ -832,8 +784,6 @@ Schema: `AzureSqlDatabaseRequest`
 
 **`PATCH`** `/api/azure-sql-databases/{uuid}/`
 
-**Operation ID:** `azure_sql_databases_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -863,8 +813,6 @@ Schema: `PatchedAzureSqlDatabaseRequest`
 
 **`DELETE`** `/api/azure-sql-databases/{uuid}/`
 
-**Operation ID:** `azure_sql_databases_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -879,11 +827,11 @@ Schema: `PatchedAzureSqlDatabaseRequest`
 
 ---
 
-### Synchronize resource state
+### azure_sql_databases_pull
 
 **`POST`** `/api/azure-sql-databases/{uuid}/pull/`
 
-**Operation ID:** `azure_sql_databases_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -902,11 +850,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### azure_sql_databases_set_erred
 
 **`POST`** `/api/azure-sql-databases/{uuid}/set_erred/`
 
-**Operation ID:** `azure_sql_databases_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -933,11 +881,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### azure_sql_databases_set_ok
 
 **`POST`** `/api/azure-sql-databases/{uuid}/set_ok/`
 
-**Operation ID:** `azure_sql_databases_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -955,11 +903,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### azure_sql_databases_unlink
 
 **`POST`** `/api/azure-sql-databases/{uuid}/unlink/`
 
-**Operation ID:** `azure_sql_databases_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -982,8 +930,6 @@ Delete resource from the database without scheduling operations on backend
 ### azure_sql_servers_list
 
 **`GET`** `/api/azure-sql-servers/`
-
-**Operation ID:** `azure_sql_servers_list`
 
 **Parameters:**
 
@@ -1022,8 +968,6 @@ Delete resource from the database without scheduling operations on backend
 ### azure_sql_servers_count
 
 **`HEAD`** `/api/azure-sql-servers/`
-
-**Operation ID:** `azure_sql_servers_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1064,8 +1008,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/azure-sql-servers/`
 
-**Operation ID:** `azure_sql_servers_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `AzureSqlServerRequest`
@@ -1091,8 +1033,6 @@ Schema: `AzureSqlServerRequest`
 
 **`GET`** `/api/azure-sql-servers/{uuid}/`
 
-**Operation ID:** `azure_sql_servers_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1111,8 +1051,6 @@ Schema: `AzureSqlServerRequest`
 ### azure_sql_servers_update
 
 **`PUT`** `/api/azure-sql-servers/{uuid}/`
-
-**Operation ID:** `azure_sql_servers_update`
 
 **Parameters:**
 
@@ -1145,8 +1083,6 @@ Schema: `AzureSqlServerRequest`
 
 **`PATCH`** `/api/azure-sql-servers/{uuid}/`
 
-**Operation ID:** `azure_sql_servers_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1175,8 +1111,6 @@ Schema: `PatchedAzureSqlServerRequest`
 
 **`DELETE`** `/api/azure-sql-servers/{uuid}/`
 
-**Operation ID:** `azure_sql_servers_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1194,8 +1128,6 @@ Schema: `PatchedAzureSqlServerRequest`
 ### azure_sql_servers_create_database
 
 **`POST`** `/api/azure-sql-servers/{uuid}/create_database/`
-
-**Operation ID:** `azure_sql_servers_create_database`
 
 **Parameters:**
 
@@ -1220,11 +1152,11 @@ Schema: `AzureSqlDatabaseCreateRequest`
 
 ---
 
-### Synchronize resource state
+### azure_sql_servers_pull
 
 **`POST`** `/api/azure-sql-servers/{uuid}/pull/`
 
-**Operation ID:** `azure_sql_servers_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -1243,11 +1175,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### azure_sql_servers_set_erred
 
 **`POST`** `/api/azure-sql-servers/{uuid}/set_erred/`
 
-**Operation ID:** `azure_sql_servers_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -1274,11 +1206,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### azure_sql_servers_set_ok
 
 **`POST`** `/api/azure-sql-servers/{uuid}/set_ok/`
 
-**Operation ID:** `azure_sql_servers_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -1296,11 +1228,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### azure_sql_servers_unlink
 
 **`POST`** `/api/azure-sql-servers/{uuid}/unlink/`
 
-**Operation ID:** `azure_sql_servers_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -1323,8 +1255,6 @@ Delete resource from the database without scheduling operations on backend
 ### azure_virtualmachines_list
 
 **`GET`** `/api/azure-virtualmachines/`
-
-**Operation ID:** `azure_virtualmachines_list`
 
 **Parameters:**
 
@@ -1363,8 +1293,6 @@ Delete resource from the database without scheduling operations on backend
 ### azure_virtualmachines_count
 
 **`HEAD`** `/api/azure-virtualmachines/`
-
-**Operation ID:** `azure_virtualmachines_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1405,8 +1333,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/azure-virtualmachines/`
 
-**Operation ID:** `azure_virtualmachines_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `AzureVirtualMachineRequest`
@@ -1435,8 +1361,6 @@ Schema: `AzureVirtualMachineRequest`
 
 **`GET`** `/api/azure-virtualmachines/{uuid}/`
 
-**Operation ID:** `azure_virtualmachines_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1455,8 +1379,6 @@ Schema: `AzureVirtualMachineRequest`
 ### azure_virtualmachines_update
 
 **`PUT`** `/api/azure-virtualmachines/{uuid}/`
-
-**Operation ID:** `azure_virtualmachines_update`
 
 **Parameters:**
 
@@ -1492,8 +1414,6 @@ Schema: `AzureVirtualMachineRequest`
 
 **`PATCH`** `/api/azure-virtualmachines/{uuid}/`
 
-**Operation ID:** `azure_virtualmachines_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1521,8 +1441,6 @@ Schema: `PatchedAzureVirtualMachineRequest`
 
 **`DELETE`** `/api/azure-virtualmachines/{uuid}/`
 
-**Operation ID:** `azure_virtualmachines_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1537,11 +1455,11 @@ Schema: `PatchedAzureVirtualMachineRequest`
 
 ---
 
-### Synchronize resource state
+### azure_virtualmachines_pull
 
 **`POST`** `/api/azure-virtualmachines/{uuid}/pull/`
 
-**Operation ID:** `azure_virtualmachines_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -1564,8 +1482,6 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 **`POST`** `/api/azure-virtualmachines/{uuid}/restart/`
 
-**Operation ID:** `azure_virtualmachines_restart`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1580,11 +1496,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### azure_virtualmachines_set_erred
 
 **`POST`** `/api/azure-virtualmachines/{uuid}/set_erred/`
 
-**Operation ID:** `azure_virtualmachines_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -1611,11 +1527,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### azure_virtualmachines_set_ok
 
 **`POST`** `/api/azure-virtualmachines/{uuid}/set_ok/`
 
-**Operation ID:** `azure_virtualmachines_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -1637,8 +1553,6 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 **`POST`** `/api/azure-virtualmachines/{uuid}/start/`
 
-**Operation ID:** `azure_virtualmachines_start`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1657,8 +1571,6 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 **`POST`** `/api/azure-virtualmachines/{uuid}/stop/`
 
-**Operation ID:** `azure_virtualmachines_stop`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1673,11 +1585,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### azure_virtualmachines_unlink
 
 **`POST`** `/api/azure-virtualmachines/{uuid}/unlink/`
 
-**Operation ID:** `azure_virtualmachines_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used

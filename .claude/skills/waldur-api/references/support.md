@@ -7,93 +7,91 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/support-attachments/` | `support_attachments_list` |  |
-| HEAD | `/api/support-attachments/` | `support_attachments_count` |  |
-| POST | `/api/support-attachments/` | `support_attachments_create` |  |
-| GET | `/api/support-attachments/{uuid}/` | `support_attachments_retrieve` |  |
-| DELETE | `/api/support-attachments/{uuid}/` | `support_attachments_destroy` |  |
-| GET | `/api/support-comments/` | `support_comments_list` |  |
-| HEAD | `/api/support-comments/` | `support_comments_count` |  |
-| GET | `/api/support-comments/{uuid}/` | `support_comments_retrieve` |  |
-| PUT | `/api/support-comments/{uuid}/` | `support_comments_update` |  |
-| PATCH | `/api/support-comments/{uuid}/` | `support_comments_partial_update` |  |
-| DELETE | `/api/support-comments/{uuid}/` | `support_comments_destroy` |  |
-| GET | `/api/support-feedback-average-report/` | `support_feedback_average_report_retrieve` |  |
-| GET | `/api/support-feedback-report/` | `support_feedback_report_retrieve` |  |
-| GET | `/api/support-feedbacks/` | `support_feedbacks_list` |  |
-| HEAD | `/api/support-feedbacks/` | `support_feedbacks_count` |  |
-| POST | `/api/support-feedbacks/` | `support_feedbacks_create` |  |
-| GET | `/api/support-feedbacks/{uuid}/` | `support_feedbacks_retrieve` |  |
-| GET | `/api/support-issue-statuses/` | `support_issue_statuses_list` |  |
-| HEAD | `/api/support-issue-statuses/` | `support_issue_statuses_count` |  |
-| POST | `/api/support-issue-statuses/` | `support_issue_statuses_create` |  |
-| GET | `/api/support-issue-statuses/{uuid}/` | `support_issue_statuses_retrieve` |  |
-| PUT | `/api/support-issue-statuses/{uuid}/` | `support_issue_statuses_update` |  |
-| PATCH | `/api/support-issue-statuses/{uuid}/` | `support_issue_statuses_partial_update` |  |
-| DELETE | `/api/support-issue-statuses/{uuid}/` | `support_issue_statuses_destroy` |  |
-| GET | `/api/support-issues/` | `support_issues_list` |  |
-| HEAD | `/api/support-issues/` | `support_issues_count` |  |
-| POST | `/api/support-issues/` | `support_issues_create` |  |
-| GET | `/api/support-issues/{uuid}/` | `support_issues_retrieve` |  |
-| PUT | `/api/support-issues/{uuid}/` | `support_issues_update` |  |
-| PATCH | `/api/support-issues/{uuid}/` | `support_issues_partial_update` |  |
-| DELETE | `/api/support-issues/{uuid}/` | `support_issues_destroy` |  |
-| POST | `/api/support-issues/{uuid}/comment/` | `support_issues_comment` |  |
-| POST | `/api/support-issues/{uuid}/sync/` | `support_issues_sync` |  |
-| POST | `/api/support-jira-webhook/` | `support_jira_webhook` |  |
-| GET | `/api/support-priorities/` | `support_priorities_list` |  |
-| HEAD | `/api/support-priorities/` | `support_priorities_count` |  |
-| GET | `/api/support-priorities/{uuid}/` | `support_priorities_retrieve` |  |
-| GET | `/api/support-request-types-admin/` | `support_request_types_admin_list` |  |
-| HEAD | `/api/support-request-types-admin/` | `support_request_types_admin_count` |  |
-| POST | `/api/support-request-types-admin/` | `support_request_types_admin_create` |  |
-| POST | `/api/support-request-types-admin/reorder/` | `support_request_types_admin_reorder` |  |
-| GET | `/api/support-request-types-admin/{uuid}/` | `support_request_types_admin_retrieve` |  |
-| PUT | `/api/support-request-types-admin/{uuid}/` | `support_request_types_admin_update` |  |
-| PATCH | `/api/support-request-types-admin/{uuid}/` | `support_request_types_admin_partial_update` |  |
-| DELETE | `/api/support-request-types-admin/{uuid}/` | `support_request_types_admin_destroy` |  |
-| POST | `/api/support-request-types-admin/{uuid}/activate/` | `support_request_types_admin_activate` |  |
-| POST | `/api/support-request-types-admin/{uuid}/deactivate/` | `support_request_types_admin_deactivate` |  |
-| GET | `/api/support-request-types/` | `support_request_types_list` |  |
-| HEAD | `/api/support-request-types/` | `support_request_types_count` |  |
-| GET | `/api/support-request-types/{uuid}/` | `support_request_types_retrieve` |  |
-| POST | `/api/support-smax-webhook/` | `support_smax_webhook` |  |
-| GET | `/api/support-statistics/` | `support_statistics_retrieve` |  |
-| GET | `/api/support-templates/` | `support_templates_list` |  |
-| HEAD | `/api/support-templates/` | `support_templates_count` |  |
-| POST | `/api/support-templates/` | `support_templates_create` |  |
-| GET | `/api/support-templates/{uuid}/` | `support_templates_retrieve` |  |
-| PUT | `/api/support-templates/{uuid}/` | `support_templates_update` |  |
-| PATCH | `/api/support-templates/{uuid}/` | `support_templates_partial_update` |  |
-| DELETE | `/api/support-templates/{uuid}/` | `support_templates_destroy` |  |
-| POST | `/api/support-templates/{uuid}/create_attachments/` | `support_templates_create_attachments` |  |
-| POST | `/api/support-templates/{uuid}/delete_attachments/` | `support_templates_delete_attachments` |  |
-| GET | `/api/support-users/` | `support_users_list` |  |
-| HEAD | `/api/support-users/` | `support_users_count` |  |
-| GET | `/api/support-users/{uuid}/` | `support_users_retrieve` |  |
-| POST | `/api/support-zammad-webhook/` | `support_zammad_webhook` |  |
-| GET | `/api/support/settings/atlassian/` | `support_settings_atlassian_list` |  |
-| POST | `/api/support/settings/atlassian/` | `support_settings_atlassian_create` |  |
-| GET | `/api/support/settings/atlassian/current_settings/` | `support_settings_atlassian_current_settings_retrieve` |  |
-| POST | `/api/support/settings/atlassian/discover_custom_fields/` | `support_settings_atlassian_discover_custom_fields` |  |
-| POST | `/api/support/settings/atlassian/discover_priorities/` | `support_settings_atlassian_discover_priorities` |  |
-| POST | `/api/support/settings/atlassian/discover_projects/` | `support_settings_atlassian_discover_projects` |  |
-| POST | `/api/support/settings/atlassian/discover_request_types/` | `support_settings_atlassian_discover_request_types` |  |
-| POST | `/api/support/settings/atlassian/preview_settings/` | `support_settings_atlassian_preview_settings` |  |
-| POST | `/api/support/settings/atlassian/save_settings/` | `support_settings_atlassian_save_settings` |  |
-| POST | `/api/support/settings/atlassian/validate_credentials/` | `support_settings_atlassian_validate_credentials` |  |
-| GET | `/api/support/settings/atlassian/{id}/` | `support_settings_atlassian_retrieve` |  |
-| PUT | `/api/support/settings/atlassian/{id}/` | `support_settings_atlassian_update` |  |
-| PATCH | `/api/support/settings/atlassian/{id}/` | `support_settings_atlassian_partial_update` |  |
-| DELETE | `/api/support/settings/atlassian/{id}/` | `support_settings_atlassian_destroy` |  |
+| GET | `/api/support-attachments/` | [`support_attachments_list`](#support-attachments-list) |  |
+| HEAD | `/api/support-attachments/` | [`support_attachments_count`](#support-attachments-count) |  |
+| POST | `/api/support-attachments/` | [`support_attachments_create`](#support-attachments-create) |  |
+| GET | `/api/support-attachments/{uuid}/` | [`support_attachments_retrieve`](#support-attachments-retrieve) |  |
+| DELETE | `/api/support-attachments/{uuid}/` | [`support_attachments_destroy`](#support-attachments-destroy) |  |
+| GET | `/api/support-comments/` | [`support_comments_list`](#support-comments-list) |  |
+| HEAD | `/api/support-comments/` | [`support_comments_count`](#support-comments-count) |  |
+| GET | `/api/support-comments/{uuid}/` | [`support_comments_retrieve`](#support-comments-retrieve) |  |
+| PUT | `/api/support-comments/{uuid}/` | [`support_comments_update`](#support-comments-update) |  |
+| PATCH | `/api/support-comments/{uuid}/` | [`support_comments_partial_update`](#support-comments-partial-update) |  |
+| DELETE | `/api/support-comments/{uuid}/` | [`support_comments_destroy`](#support-comments-destroy) |  |
+| GET | `/api/support-feedback-average-report/` | [`support_feedback_average_report_retrieve`](#support-feedback-average-report-retrieve) |  |
+| GET | `/api/support-feedback-report/` | [`support_feedback_report_retrieve`](#support-feedback-report-retrieve) |  |
+| GET | `/api/support-feedbacks/` | [`support_feedbacks_list`](#support-feedbacks-list) |  |
+| HEAD | `/api/support-feedbacks/` | [`support_feedbacks_count`](#support-feedbacks-count) |  |
+| POST | `/api/support-feedbacks/` | [`support_feedbacks_create`](#support-feedbacks-create) |  |
+| GET | `/api/support-feedbacks/{uuid}/` | [`support_feedbacks_retrieve`](#support-feedbacks-retrieve) |  |
+| GET | `/api/support-issue-statuses/` | [`support_issue_statuses_list`](#support-issue-statuses-list) |  |
+| HEAD | `/api/support-issue-statuses/` | [`support_issue_statuses_count`](#support-issue-statuses-count) |  |
+| POST | `/api/support-issue-statuses/` | [`support_issue_statuses_create`](#support-issue-statuses-create) |  |
+| GET | `/api/support-issue-statuses/{uuid}/` | [`support_issue_statuses_retrieve`](#support-issue-statuses-retrieve) |  |
+| PUT | `/api/support-issue-statuses/{uuid}/` | [`support_issue_statuses_update`](#support-issue-statuses-update) |  |
+| PATCH | `/api/support-issue-statuses/{uuid}/` | [`support_issue_statuses_partial_update`](#support-issue-statuses-partial-update) |  |
+| DELETE | `/api/support-issue-statuses/{uuid}/` | [`support_issue_statuses_destroy`](#support-issue-statuses-destroy) |  |
+| GET | `/api/support-issues/` | [`support_issues_list`](#support-issues-list) |  |
+| HEAD | `/api/support-issues/` | [`support_issues_count`](#support-issues-count) |  |
+| POST | `/api/support-issues/` | [`support_issues_create`](#support-issues-create) |  |
+| GET | `/api/support-issues/{uuid}/` | [`support_issues_retrieve`](#support-issues-retrieve) |  |
+| PUT | `/api/support-issues/{uuid}/` | [`support_issues_update`](#support-issues-update) |  |
+| PATCH | `/api/support-issues/{uuid}/` | [`support_issues_partial_update`](#support-issues-partial-update) |  |
+| DELETE | `/api/support-issues/{uuid}/` | [`support_issues_destroy`](#support-issues-destroy) |  |
+| POST | `/api/support-issues/{uuid}/comment/` | [`support_issues_comment`](#support-issues-comment) |  |
+| POST | `/api/support-issues/{uuid}/sync/` | [`support_issues_sync`](#support-issues-sync) |  |
+| POST | `/api/support-jira-webhook/` | [`support_jira_webhook`](#support-jira-webhook) |  |
+| GET | `/api/support-priorities/` | [`support_priorities_list`](#support-priorities-list) |  |
+| HEAD | `/api/support-priorities/` | [`support_priorities_count`](#support-priorities-count) |  |
+| GET | `/api/support-priorities/{uuid}/` | [`support_priorities_retrieve`](#support-priorities-retrieve) |  |
+| GET | `/api/support-request-types-admin/` | [`support_request_types_admin_list`](#support-request-types-admin-list) |  |
+| HEAD | `/api/support-request-types-admin/` | [`support_request_types_admin_count`](#support-request-types-admin-count) |  |
+| POST | `/api/support-request-types-admin/` | [`support_request_types_admin_create`](#support-request-types-admin-create) |  |
+| POST | `/api/support-request-types-admin/reorder/` | [`support_request_types_admin_reorder`](#support-request-types-admin-reorder) |  |
+| GET | `/api/support-request-types-admin/{uuid}/` | [`support_request_types_admin_retrieve`](#support-request-types-admin-retrieve) |  |
+| PUT | `/api/support-request-types-admin/{uuid}/` | [`support_request_types_admin_update`](#support-request-types-admin-update) |  |
+| PATCH | `/api/support-request-types-admin/{uuid}/` | [`support_request_types_admin_partial_update`](#support-request-types-admin-partial-update) |  |
+| DELETE | `/api/support-request-types-admin/{uuid}/` | [`support_request_types_admin_destroy`](#support-request-types-admin-destroy) |  |
+| POST | `/api/support-request-types-admin/{uuid}/activate/` | [`support_request_types_admin_activate`](#support-request-types-admin-activate) |  |
+| POST | `/api/support-request-types-admin/{uuid}/deactivate/` | [`support_request_types_admin_deactivate`](#support-request-types-admin-deactivate) |  |
+| GET | `/api/support-request-types/` | [`support_request_types_list`](#support-request-types-list) |  |
+| HEAD | `/api/support-request-types/` | [`support_request_types_count`](#support-request-types-count) |  |
+| GET | `/api/support-request-types/{uuid}/` | [`support_request_types_retrieve`](#support-request-types-retrieve) |  |
+| POST | `/api/support-smax-webhook/` | [`support_smax_webhook`](#support-smax-webhook) |  |
+| GET | `/api/support-statistics/` | [`support_statistics_retrieve`](#support-statistics-retrieve) |  |
+| GET | `/api/support-templates/` | [`support_templates_list`](#support-templates-list) |  |
+| HEAD | `/api/support-templates/` | [`support_templates_count`](#support-templates-count) |  |
+| POST | `/api/support-templates/` | [`support_templates_create`](#support-templates-create) |  |
+| GET | `/api/support-templates/{uuid}/` | [`support_templates_retrieve`](#support-templates-retrieve) |  |
+| PUT | `/api/support-templates/{uuid}/` | [`support_templates_update`](#support-templates-update) |  |
+| PATCH | `/api/support-templates/{uuid}/` | [`support_templates_partial_update`](#support-templates-partial-update) |  |
+| DELETE | `/api/support-templates/{uuid}/` | [`support_templates_destroy`](#support-templates-destroy) |  |
+| POST | `/api/support-templates/{uuid}/create_attachments/` | [`support_templates_create_attachments`](#support-templates-create-attachments) |  |
+| POST | `/api/support-templates/{uuid}/delete_attachments/` | [`support_templates_delete_attachments`](#support-templates-delete-attachments) |  |
+| GET | `/api/support-users/` | [`support_users_list`](#support-users-list) |  |
+| HEAD | `/api/support-users/` | [`support_users_count`](#support-users-count) |  |
+| GET | `/api/support-users/{uuid}/` | [`support_users_retrieve`](#support-users-retrieve) |  |
+| POST | `/api/support-zammad-webhook/` | [`support_zammad_webhook`](#support-zammad-webhook) |  |
+| GET | `/api/support/settings/atlassian/` | [`support_settings_atlassian_list`](#support-settings-atlassian-list) |  |
+| POST | `/api/support/settings/atlassian/` | [`support_settings_atlassian_create`](#support-settings-atlassian-create) |  |
+| GET | `/api/support/settings/atlassian/current_settings/` | [`support_settings_atlassian_current_settings_retrieve`](#support-settings-atlassian-current-settings-retrieve) |  |
+| POST | `/api/support/settings/atlassian/discover_custom_fields/` | [`support_settings_atlassian_discover_custom_fields`](#support-settings-atlassian-discover-custom-fields) |  |
+| POST | `/api/support/settings/atlassian/discover_priorities/` | [`support_settings_atlassian_discover_priorities`](#support-settings-atlassian-discover-priorities) |  |
+| POST | `/api/support/settings/atlassian/discover_projects/` | [`support_settings_atlassian_discover_projects`](#support-settings-atlassian-discover-projects) |  |
+| POST | `/api/support/settings/atlassian/discover_request_types/` | [`support_settings_atlassian_discover_request_types`](#support-settings-atlassian-discover-request-types) |  |
+| POST | `/api/support/settings/atlassian/preview_settings/` | [`support_settings_atlassian_preview_settings`](#support-settings-atlassian-preview-settings) |  |
+| POST | `/api/support/settings/atlassian/save_settings/` | [`support_settings_atlassian_save_settings`](#support-settings-atlassian-save-settings) |  |
+| POST | `/api/support/settings/atlassian/validate_credentials/` | [`support_settings_atlassian_validate_credentials`](#support-settings-atlassian-validate-credentials) |  |
+| GET | `/api/support/settings/atlassian/{id}/` | [`support_settings_atlassian_retrieve`](#support-settings-atlassian-retrieve) |  |
+| PUT | `/api/support/settings/atlassian/{id}/` | [`support_settings_atlassian_update`](#support-settings-atlassian-update) |  |
+| PATCH | `/api/support/settings/atlassian/{id}/` | [`support_settings_atlassian_partial_update`](#support-settings-atlassian-partial-update) |  |
+| DELETE | `/api/support/settings/atlassian/{id}/` | [`support_settings_atlassian_destroy`](#support-settings-atlassian-destroy) |  |
 
 ## Endpoint Details
 
 ### support_attachments_list
 
 **`GET`** `/api/support-attachments/`
-
-**Operation ID:** `support_attachments_list`
 
 **Parameters:**
 
@@ -114,8 +112,6 @@
 ### support_attachments_count
 
 **`HEAD`** `/api/support-attachments/`
-
-**Operation ID:** `support_attachments_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -138,8 +134,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/support-attachments/`
 
-**Operation ID:** `support_attachments_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `AttachmentRequest`
@@ -161,8 +155,6 @@ Schema: `AttachmentRequest`
 
 **`GET`** `/api/support-attachments/{uuid}/`
 
-**Operation ID:** `support_attachments_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -182,8 +174,6 @@ Schema: `AttachmentRequest`
 
 **`DELETE`** `/api/support-attachments/{uuid}/`
 
-**Operation ID:** `support_attachments_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -201,8 +191,6 @@ Schema: `AttachmentRequest`
 ### support_comments_list
 
 **`GET`** `/api/support-comments/`
-
-**Operation ID:** `support_comments_list`
 
 **Parameters:**
 
@@ -229,8 +217,6 @@ Schema: `AttachmentRequest`
 ### support_comments_count
 
 **`HEAD`** `/api/support-comments/`
-
-**Operation ID:** `support_comments_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -260,8 +246,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/support-comments/{uuid}/`
 
-**Operation ID:** `support_comments_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -279,8 +263,6 @@ Get number of items in the collection matching the request parameters.
 ### support_comments_update
 
 **`PUT`** `/api/support-comments/{uuid}/`
-
-**Operation ID:** `support_comments_update`
 
 **Parameters:**
 
@@ -309,8 +291,6 @@ Schema: `CommentRequest`
 
 **`PATCH`** `/api/support-comments/{uuid}/`
 
-**Operation ID:** `support_comments_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -338,8 +318,6 @@ Schema: `PatchedCommentRequest`
 
 **`DELETE`** `/api/support-comments/{uuid}/`
 
-**Operation ID:** `support_comments_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -358,8 +336,6 @@ Schema: `PatchedCommentRequest`
 
 **`GET`** `/api/support-feedback-average-report/`
 
-**Operation ID:** `support_feedback_average_report_retrieve`
-
 **Responses:**
 
 | Status | Description |
@@ -372,8 +348,6 @@ Schema: `PatchedCommentRequest`
 
 **`GET`** `/api/support-feedback-report/`
 
-**Operation ID:** `support_feedback_report_retrieve`
-
 **Responses:**
 
 | Status | Description |
@@ -385,8 +359,6 @@ Schema: `PatchedCommentRequest`
 ### support_feedbacks_list
 
 **`GET`** `/api/support-feedbacks/`
-
-**Operation ID:** `support_feedbacks_list`
 
 **Parameters:**
 
@@ -413,8 +385,6 @@ Schema: `PatchedCommentRequest`
 ### support_feedbacks_count
 
 **`HEAD`** `/api/support-feedbacks/`
-
-**Operation ID:** `support_feedbacks_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -444,8 +414,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/support-feedbacks/`
 
-**Operation ID:** `support_feedbacks_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `CreateFeedbackRequest`
@@ -468,8 +436,6 @@ Schema: `CreateFeedbackRequest`
 
 **`GET`** `/api/support-feedbacks/{uuid}/`
 
-**Operation ID:** `support_feedbacks_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -488,8 +454,6 @@ Schema: `CreateFeedbackRequest`
 
 **`GET`** `/api/support-issue-statuses/`
 
-**Operation ID:** `support_issue_statuses_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -506,8 +470,6 @@ Schema: `CreateFeedbackRequest`
 ### support_issue_statuses_count
 
 **`HEAD`** `/api/support-issue-statuses/`
-
-**Operation ID:** `support_issue_statuses_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -527,8 +489,6 @@ Get number of items in the collection matching the request parameters.
 ### support_issue_statuses_create
 
 **`POST`** `/api/support-issue-statuses/`
-
-**Operation ID:** `support_issue_statuses_create`
 
 **Request Body** (`application/json`, required):
 
@@ -551,8 +511,6 @@ Schema: `IssueStatusCreateRequest`
 
 **`GET`** `/api/support-issue-statuses/{uuid}/`
 
-**Operation ID:** `support_issue_statuses_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -570,8 +528,6 @@ Schema: `IssueStatusCreateRequest`
 ### support_issue_statuses_update
 
 **`PUT`** `/api/support-issue-statuses/{uuid}/`
-
-**Operation ID:** `support_issue_statuses_update`
 
 **Parameters:**
 
@@ -600,8 +556,6 @@ Schema: `IssueStatusCreateRequest`
 
 **`PATCH`** `/api/support-issue-statuses/{uuid}/`
 
-**Operation ID:** `support_issue_statuses_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -629,8 +583,6 @@ Schema: `PatchedIssueStatusRequest`
 
 **`DELETE`** `/api/support-issue-statuses/{uuid}/`
 
-**Operation ID:** `support_issue_statuses_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -648,8 +600,6 @@ Schema: `PatchedIssueStatusRequest`
 ### support_issues_list
 
 **`GET`** `/api/support-issues/`
-
-**Operation ID:** `support_issues_list`
 
 **Parameters:**
 
@@ -689,8 +639,6 @@ Schema: `PatchedIssueStatusRequest`
 ### support_issues_count
 
 **`HEAD`** `/api/support-issues/`
-
-**Operation ID:** `support_issues_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -733,8 +681,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/support-issues/`
 
-**Operation ID:** `support_issues_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `IssueRequest`
@@ -766,8 +712,6 @@ Schema: `IssueRequest`
 
 **`GET`** `/api/support-issues/{uuid}/`
 
-**Operation ID:** `support_issues_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -785,8 +729,6 @@ Schema: `IssueRequest`
 ### support_issues_update
 
 **`PUT`** `/api/support-issues/{uuid}/`
-
-**Operation ID:** `support_issues_update`
 
 **Parameters:**
 
@@ -825,8 +767,6 @@ Schema: `IssueRequest`
 
 **`PATCH`** `/api/support-issues/{uuid}/`
 
-**Operation ID:** `support_issues_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -856,8 +796,6 @@ Schema: `PatchedIssueRequest`
 
 **`DELETE`** `/api/support-issues/{uuid}/`
 
-**Operation ID:** `support_issues_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -875,8 +813,6 @@ Schema: `PatchedIssueRequest`
 ### support_issues_comment
 
 **`POST`** `/api/support-issues/{uuid}/comment/`
-
-**Operation ID:** `support_issues_comment`
 
 **Parameters:**
 
@@ -904,8 +840,6 @@ Schema: `CommentRequest`
 ### support_issues_sync
 
 **`POST`** `/api/support-issues/{uuid}/sync/`
-
-**Operation ID:** `support_issues_sync`
 
 **Parameters:**
 
@@ -944,8 +878,6 @@ Schema: `IssueRequest`
 
 **`POST`** `/api/support-jira-webhook/`
 
-**Operation ID:** `support_jira_webhook`
-
 **Request Body** (`application/json`, required):
 
 Schema: `WebHookReceiverRequest`
@@ -970,8 +902,6 @@ Schema: `WebHookReceiverRequest`
 
 **`GET`** `/api/support-priorities/`
 
-**Operation ID:** `support_priorities_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -990,8 +920,6 @@ Schema: `WebHookReceiverRequest`
 ### support_priorities_count
 
 **`HEAD`** `/api/support-priorities/`
-
-**Operation ID:** `support_priorities_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1014,8 +942,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/support-priorities/{uuid}/`
 
-**Operation ID:** `support_priorities_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1033,8 +959,6 @@ Get number of items in the collection matching the request parameters.
 ### support_request_types_admin_list
 
 **`GET`** `/api/support-request-types-admin/`
-
-**Operation ID:** `support_request_types_admin_list`
 
 **Parameters:**
 
@@ -1054,8 +978,6 @@ Get number of items in the collection matching the request parameters.
 ### support_request_types_admin_count
 
 **`HEAD`** `/api/support-request-types-admin/`
-
-**Operation ID:** `support_request_types_admin_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1077,8 +999,6 @@ Get number of items in the collection matching the request parameters.
 ### support_request_types_admin_create
 
 **`POST`** `/api/support-request-types-admin/`
-
-**Operation ID:** `support_request_types_admin_create`
 
 **Request Body** (`application/json`, required):
 
@@ -1102,8 +1022,6 @@ Schema: `RequestTypeAdminRequest`
 ### support_request_types_admin_reorder
 
 **`POST`** `/api/support-request-types-admin/reorder/`
-
-**Operation ID:** `support_request_types_admin_reorder`
 
 Bulk update order for multiple request types.
 
@@ -1130,8 +1048,6 @@ Schema: `RequestTypeAdminRequest`
 
 **`GET`** `/api/support-request-types-admin/{uuid}/`
 
-**Operation ID:** `support_request_types_admin_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1149,8 +1065,6 @@ Schema: `RequestTypeAdminRequest`
 ### support_request_types_admin_update
 
 **`PUT`** `/api/support-request-types-admin/{uuid}/`
-
-**Operation ID:** `support_request_types_admin_update`
 
 **Parameters:**
 
@@ -1181,8 +1095,6 @@ Schema: `RequestTypeAdminRequest`
 
 **`PATCH`** `/api/support-request-types-admin/{uuid}/`
 
-**Operation ID:** `support_request_types_admin_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1212,8 +1124,6 @@ Schema: `PatchedRequestTypeAdminRequest`
 
 **`DELETE`** `/api/support-request-types-admin/{uuid}/`
 
-**Operation ID:** `support_request_types_admin_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1231,8 +1141,6 @@ Schema: `PatchedRequestTypeAdminRequest`
 ### support_request_types_admin_activate
 
 **`POST`** `/api/support-request-types-admin/{uuid}/activate/`
-
-**Operation ID:** `support_request_types_admin_activate`
 
 Activate a request type so it appears in issue creation.
 
@@ -1265,8 +1173,6 @@ Schema: `RequestTypeAdminRequest`
 
 **`POST`** `/api/support-request-types-admin/{uuid}/deactivate/`
 
-**Operation ID:** `support_request_types_admin_deactivate`
-
 Deactivate a request type so it no longer appears in issue creation.
 
 **Parameters:**
@@ -1298,8 +1204,6 @@ Schema: `RequestTypeAdminRequest`
 
 **`GET`** `/api/support-request-types/`
 
-**Operation ID:** `support_request_types_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1316,8 +1220,6 @@ Schema: `RequestTypeAdminRequest`
 ### support_request_types_count
 
 **`HEAD`** `/api/support-request-types/`
-
-**Operation ID:** `support_request_types_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1338,8 +1240,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/support-request-types/{uuid}/`
 
-**Operation ID:** `support_request_types_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1357,8 +1257,6 @@ Get number of items in the collection matching the request parameters.
 ### support_smax_webhook
 
 **`POST`** `/api/support-smax-webhook/`
-
-**Operation ID:** `support_smax_webhook`
 
 **Request Body** (`application/json`, required):
 
@@ -1380,8 +1278,6 @@ Schema: `SmaxWebHookReceiverRequest`
 
 **`GET`** `/api/support-statistics/`
 
-**Operation ID:** `support_statistics_retrieve`
-
 **Responses:**
 
 | Status | Description |
@@ -1393,8 +1289,6 @@ Schema: `SmaxWebHookReceiverRequest`
 ### support_templates_list
 
 **`GET`** `/api/support-templates/`
-
-**Operation ID:** `support_templates_list`
 
 **Parameters:**
 
@@ -1412,8 +1306,6 @@ Schema: `SmaxWebHookReceiverRequest`
 ### support_templates_count
 
 **`HEAD`** `/api/support-templates/`
-
-**Operation ID:** `support_templates_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1433,8 +1325,6 @@ Get number of items in the collection matching the request parameters.
 ### support_templates_create
 
 **`POST`** `/api/support-templates/`
-
-**Operation ID:** `support_templates_create`
 
 **Request Body** (`application/json`, required):
 
@@ -1458,8 +1348,6 @@ Schema: `TemplateRequest`
 
 **`GET`** `/api/support-templates/{uuid}/`
 
-**Operation ID:** `support_templates_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1477,8 +1365,6 @@ Schema: `TemplateRequest`
 ### support_templates_update
 
 **`PUT`** `/api/support-templates/{uuid}/`
-
-**Operation ID:** `support_templates_update`
 
 **Parameters:**
 
@@ -1508,8 +1394,6 @@ Schema: `TemplateRequest`
 
 **`PATCH`** `/api/support-templates/{uuid}/`
 
-**Operation ID:** `support_templates_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1538,8 +1422,6 @@ Schema: `PatchedTemplateRequest`
 
 **`DELETE`** `/api/support-templates/{uuid}/`
 
-**Operation ID:** `support_templates_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1557,8 +1439,6 @@ Schema: `PatchedTemplateRequest`
 ### support_templates_create_attachments
 
 **`POST`** `/api/support-templates/{uuid}/create_attachments/`
-
-**Operation ID:** `support_templates_create_attachments`
 
 This view attaches documents to template.
 
@@ -1589,8 +1469,6 @@ Schema: `CreateAttachmentsRequest`
 
 **`POST`** `/api/support-templates/{uuid}/delete_attachments/`
 
-**Operation ID:** `support_templates_delete_attachments`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1617,8 +1495,6 @@ Schema: `DeleteAttachmentsRequest`
 
 **`GET`** `/api/support-users/`
 
-**Operation ID:** `support_users_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1638,8 +1514,6 @@ Schema: `DeleteAttachmentsRequest`
 ### support_users_count
 
 **`HEAD`** `/api/support-users/`
-
-**Operation ID:** `support_users_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1663,8 +1537,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/support-users/{uuid}/`
 
-**Operation ID:** `support_users_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1683,8 +1555,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/support-zammad-webhook/`
 
-**Operation ID:** `support_zammad_webhook`
-
 **Responses:**
 
 | Status | Description |
@@ -1696,8 +1566,6 @@ Get number of items in the collection matching the request parameters.
 ### support_settings_atlassian_list
 
 **`GET`** `/api/support/settings/atlassian/`
-
-**Operation ID:** `support_settings_atlassian_list`
 
 **Parameters:**
 
@@ -1716,8 +1584,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/support/settings/atlassian/`
 
-**Operation ID:** `support_settings_atlassian_create`
-
 **Responses:**
 
 | Status | Description |
@@ -1729,8 +1595,6 @@ Get number of items in the collection matching the request parameters.
 ### support_settings_atlassian_current_settings_retrieve
 
 **`GET`** `/api/support/settings/atlassian/current_settings/`
-
-**Operation ID:** `support_settings_atlassian_current_settings_retrieve`
 
 Get current Atlassian settings (masked secrets).
 
@@ -1745,8 +1609,6 @@ Get current Atlassian settings (masked secrets).
 ### support_settings_atlassian_discover_custom_fields
 
 **`POST`** `/api/support/settings/atlassian/discover_custom_fields/`
-
-**Operation ID:** `support_settings_atlassian_discover_custom_fields`
 
 Discover available custom fields.
 
@@ -1784,8 +1646,6 @@ Schema: `DiscoverCustomFieldsRequestRequest`
 
 **`POST`** `/api/support/settings/atlassian/discover_priorities/`
 
-**Operation ID:** `support_settings_atlassian_discover_priorities`
-
 Discover available priorities.
 
 **Parameters:**
@@ -1819,8 +1679,6 @@ Schema: `DiscoverPrioritiesRequestRequest`
 ### support_settings_atlassian_discover_projects
 
 **`POST`** `/api/support/settings/atlassian/discover_projects/`
-
-**Operation ID:** `support_settings_atlassian_discover_projects`
 
 Discover available Service Desk projects.
 
@@ -1856,8 +1714,6 @@ Schema: `DiscoverProjectsRequestRequest`
 
 **`POST`** `/api/support/settings/atlassian/discover_request_types/`
 
-**Operation ID:** `support_settings_atlassian_discover_request_types`
-
 Discover request types for a selected project.
 
 **Parameters:**
@@ -1892,8 +1748,6 @@ Schema: `DiscoverRequestTypesRequestRequest`
 ### support_settings_atlassian_preview_settings
 
 **`POST`** `/api/support/settings/atlassian/preview_settings/`
-
-**Operation ID:** `support_settings_atlassian_preview_settings`
 
 Generate preview of settings to be saved.
 
@@ -1941,8 +1795,6 @@ Schema: `AtlassianSettingsPreviewRequest`
 ### support_settings_atlassian_save_settings
 
 **`POST`** `/api/support/settings/atlassian/save_settings/`
-
-**Operation ID:** `support_settings_atlassian_save_settings`
 
 Save selected settings to constance.
 
@@ -1992,8 +1844,6 @@ Schema: `AtlassianSettingsSaveRequest`
 
 **`POST`** `/api/support/settings/atlassian/validate_credentials/`
 
-**Operation ID:** `support_settings_atlassian_validate_credentials`
-
 Validate Atlassian credentials without saving them.
 
 **Request Body** (`application/json`, required):
@@ -2023,8 +1873,6 @@ Schema: `AtlassianCredentialsRequest`
 
 **`GET`** `/api/support/settings/atlassian/{id}/`
 
-**Operation ID:** `support_settings_atlassian_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2042,8 +1890,6 @@ Schema: `AtlassianCredentialsRequest`
 ### support_settings_atlassian_update
 
 **`PUT`** `/api/support/settings/atlassian/{id}/`
-
-**Operation ID:** `support_settings_atlassian_update`
 
 **Parameters:**
 
@@ -2063,8 +1909,6 @@ Schema: `AtlassianCredentialsRequest`
 
 **`PATCH`** `/api/support/settings/atlassian/{id}/`
 
-**Operation ID:** `support_settings_atlassian_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2082,8 +1926,6 @@ Schema: `AtlassianCredentialsRequest`
 ### support_settings_atlassian_destroy
 
 **`DELETE`** `/api/support/settings/atlassian/{id}/`
-
-**Operation ID:** `support_settings_atlassian_destroy`
 
 **Parameters:**
 

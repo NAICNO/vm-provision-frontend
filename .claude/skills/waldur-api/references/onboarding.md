@@ -7,51 +7,49 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/onboarding-justifications/` | `onboarding_justifications_list` |  |
-| HEAD | `/api/onboarding-justifications/` | `onboarding_justifications_count` |  |
-| POST | `/api/onboarding-justifications/` | `onboarding_justifications_create` |  |
-| POST | `/api/onboarding-justifications/create_justification/` | `onboarding_justifications_create_justification` |  |
-| GET | `/api/onboarding-justifications/{uuid}/` | `onboarding_justifications_retrieve` |  |
-| PUT | `/api/onboarding-justifications/{uuid}/` | `onboarding_justifications_update` |  |
-| PATCH | `/api/onboarding-justifications/{uuid}/` | `onboarding_justifications_partial_update` |  |
-| DELETE | `/api/onboarding-justifications/{uuid}/` | `onboarding_justifications_destroy` |  |
-| POST | `/api/onboarding-justifications/{uuid}/approve/` | `onboarding_justifications_approve` |  |
-| POST | `/api/onboarding-justifications/{uuid}/attach_document/` | `onboarding_justifications_attach_document` |  |
-| POST | `/api/onboarding-justifications/{uuid}/reject/` | `onboarding_justifications_reject` |  |
-| GET | `/api/onboarding-question-metadata/` | `onboarding_question_metadata_list` |  |
-| HEAD | `/api/onboarding-question-metadata/` | `onboarding_question_metadata_count` |  |
-| POST | `/api/onboarding-question-metadata/` | `onboarding_question_metadata_create` |  |
-| GET | `/api/onboarding-question-metadata/{uuid}/` | `onboarding_question_metadata_retrieve` |  |
-| PUT | `/api/onboarding-question-metadata/{uuid}/` | `onboarding_question_metadata_update` |  |
-| PATCH | `/api/onboarding-question-metadata/{uuid}/` | `onboarding_question_metadata_partial_update` |  |
-| DELETE | `/api/onboarding-question-metadata/{uuid}/` | `onboarding_question_metadata_destroy` |  |
-| GET | `/api/onboarding-verifications/` | `onboarding_verifications_list` |  |
-| HEAD | `/api/onboarding-verifications/` | `onboarding_verifications_count` |  |
-| POST | `/api/onboarding-verifications/` | `onboarding_verifications_create` |  |
-| GET | `/api/onboarding-verifications/available_checklists/` | `onboarding_verifications_available_checklists_retrieve` |  |
-| HEAD | `/api/onboarding-verifications/available_checklists/` | `onboarding_verifications_available_checklists_count` |  |
-| GET | `/api/onboarding-verifications/checklist-template/` | `onboarding_verifications_checklist_template_retrieve` |  |
-| HEAD | `/api/onboarding-verifications/checklist-template/` | `onboarding_verifications_checklist_template_count` |  |
-| POST | `/api/onboarding-verifications/start_verification/` | `onboarding_verifications_start_verification` |  |
-| GET | `/api/onboarding-verifications/{uuid}/` | `onboarding_verifications_retrieve` |  |
-| PUT | `/api/onboarding-verifications/{uuid}/` | `onboarding_verifications_update` |  |
-| PATCH | `/api/onboarding-verifications/{uuid}/` | `onboarding_verifications_partial_update` |  |
-| DELETE | `/api/onboarding-verifications/{uuid}/` | `onboarding_verifications_destroy` |  |
-| GET | `/api/onboarding-verifications/{uuid}/checklist/` | `onboarding_verifications_checklist_retrieve` |  |
-| GET | `/api/onboarding-verifications/{uuid}/completion_status/` | `onboarding_verifications_completion_status_retrieve` |  |
-| POST | `/api/onboarding-verifications/{uuid}/create_customer/` | `onboarding_verifications_create_customer` |  |
-| POST | `/api/onboarding-verifications/{uuid}/run_validation/` | `onboarding_verifications_run_validation` |  |
-| POST | `/api/onboarding-verifications/{uuid}/submit_answers/` | `onboarding_verifications_submit_answers` |  |
-| GET | `/api/onboarding/person-identifier-fields/` | `onboarding_person_identifier_fields_retrieve` |  |
-| GET | `/api/onboarding/supported-countries/` | `onboarding_supported_countries_retrieve` |  |
+| GET | `/api/onboarding-justifications/` | [`onboarding_justifications_list`](#onboarding-justifications-list) |  |
+| HEAD | `/api/onboarding-justifications/` | [`onboarding_justifications_count`](#onboarding-justifications-count) |  |
+| POST | `/api/onboarding-justifications/` | [`onboarding_justifications_create`](#onboarding-justifications-create) |  |
+| POST | `/api/onboarding-justifications/create_justification/` | [`onboarding_justifications_create_justification`](#onboarding-justifications-create-justification) |  |
+| GET | `/api/onboarding-justifications/{uuid}/` | [`onboarding_justifications_retrieve`](#onboarding-justifications-retrieve) |  |
+| PUT | `/api/onboarding-justifications/{uuid}/` | [`onboarding_justifications_update`](#onboarding-justifications-update) |  |
+| PATCH | `/api/onboarding-justifications/{uuid}/` | [`onboarding_justifications_partial_update`](#onboarding-justifications-partial-update) |  |
+| DELETE | `/api/onboarding-justifications/{uuid}/` | [`onboarding_justifications_destroy`](#onboarding-justifications-destroy) |  |
+| POST | `/api/onboarding-justifications/{uuid}/approve/` | [`onboarding_justifications_approve`](#onboarding-justifications-approve) |  |
+| POST | `/api/onboarding-justifications/{uuid}/attach_document/` | [`onboarding_justifications_attach_document`](#onboarding-justifications-attach-document) |  |
+| POST | `/api/onboarding-justifications/{uuid}/reject/` | [`onboarding_justifications_reject`](#onboarding-justifications-reject) |  |
+| GET | `/api/onboarding-question-metadata/` | [`onboarding_question_metadata_list`](#onboarding-question-metadata-list) |  |
+| HEAD | `/api/onboarding-question-metadata/` | [`onboarding_question_metadata_count`](#onboarding-question-metadata-count) |  |
+| POST | `/api/onboarding-question-metadata/` | [`onboarding_question_metadata_create`](#onboarding-question-metadata-create) |  |
+| GET | `/api/onboarding-question-metadata/{uuid}/` | [`onboarding_question_metadata_retrieve`](#onboarding-question-metadata-retrieve) |  |
+| PUT | `/api/onboarding-question-metadata/{uuid}/` | [`onboarding_question_metadata_update`](#onboarding-question-metadata-update) |  |
+| PATCH | `/api/onboarding-question-metadata/{uuid}/` | [`onboarding_question_metadata_partial_update`](#onboarding-question-metadata-partial-update) |  |
+| DELETE | `/api/onboarding-question-metadata/{uuid}/` | [`onboarding_question_metadata_destroy`](#onboarding-question-metadata-destroy) |  |
+| GET | `/api/onboarding-verifications/` | [`onboarding_verifications_list`](#onboarding-verifications-list) |  |
+| HEAD | `/api/onboarding-verifications/` | [`onboarding_verifications_count`](#onboarding-verifications-count) |  |
+| POST | `/api/onboarding-verifications/` | [`onboarding_verifications_create`](#onboarding-verifications-create) |  |
+| GET | `/api/onboarding-verifications/available_checklists/` | [`onboarding_verifications_available_checklists_retrieve`](#onboarding-verifications-available-checklists-retrieve) |  |
+| HEAD | `/api/onboarding-verifications/available_checklists/` | [`onboarding_verifications_available_checklists_count`](#onboarding-verifications-available-checklists-count) |  |
+| GET | `/api/onboarding-verifications/checklist-template/` | [`onboarding_verifications_checklist_template_retrieve`](#onboarding-verifications-checklist-template-retrieve) |  |
+| HEAD | `/api/onboarding-verifications/checklist-template/` | [`onboarding_verifications_checklist_template_count`](#onboarding-verifications-checklist-template-count) |  |
+| POST | `/api/onboarding-verifications/start_verification/` | [`onboarding_verifications_start_verification`](#onboarding-verifications-start-verification) |  |
+| GET | `/api/onboarding-verifications/{uuid}/` | [`onboarding_verifications_retrieve`](#onboarding-verifications-retrieve) |  |
+| PUT | `/api/onboarding-verifications/{uuid}/` | [`onboarding_verifications_update`](#onboarding-verifications-update) |  |
+| PATCH | `/api/onboarding-verifications/{uuid}/` | [`onboarding_verifications_partial_update`](#onboarding-verifications-partial-update) |  |
+| DELETE | `/api/onboarding-verifications/{uuid}/` | [`onboarding_verifications_destroy`](#onboarding-verifications-destroy) |  |
+| GET | `/api/onboarding-verifications/{uuid}/checklist/` | [`onboarding_verifications_checklist_retrieve`](#onboarding-verifications-checklist-retrieve) |  |
+| GET | `/api/onboarding-verifications/{uuid}/completion_status/` | [`onboarding_verifications_completion_status_retrieve`](#onboarding-verifications-completion-status-retrieve) |  |
+| POST | `/api/onboarding-verifications/{uuid}/create_customer/` | [`onboarding_verifications_create_customer`](#onboarding-verifications-create-customer) |  |
+| POST | `/api/onboarding-verifications/{uuid}/run_validation/` | [`onboarding_verifications_run_validation`](#onboarding-verifications-run-validation) |  |
+| POST | `/api/onboarding-verifications/{uuid}/submit_answers/` | [`onboarding_verifications_submit_answers`](#onboarding-verifications-submit-answers) |  |
+| GET | `/api/onboarding/person-identifier-fields/` | [`onboarding_person_identifier_fields_retrieve`](#onboarding-person-identifier-fields-retrieve) |  |
+| GET | `/api/onboarding/supported-countries/` | [`onboarding_supported_countries_retrieve`](#onboarding-supported-countries-retrieve) |  |
 
 ## Endpoint Details
 
 ### onboarding_justifications_list
 
 **`GET`** `/api/onboarding-justifications/`
-
-**Operation ID:** `onboarding_justifications_list`
 
 **Parameters:**
 
@@ -74,8 +72,6 @@
 ### onboarding_justifications_count
 
 **`HEAD`** `/api/onboarding-justifications/`
-
-**Operation ID:** `onboarding_justifications_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -101,8 +97,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/onboarding-justifications/`
 
-**Operation ID:** `onboarding_justifications_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `OnboardingJustificationRequest`
@@ -123,8 +117,6 @@ Schema: `OnboardingJustificationRequest`
 ### onboarding_justifications_create_justification
 
 **`POST`** `/api/onboarding-justifications/create_justification/`
-
-**Operation ID:** `onboarding_justifications_create_justification`
 
 Create justification for failed verification.
 
@@ -149,8 +141,6 @@ Schema: `OnboardingJustificationCreateRequest`
 
 **`GET`** `/api/onboarding-justifications/{uuid}/`
 
-**Operation ID:** `onboarding_justifications_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -168,8 +158,6 @@ Schema: `OnboardingJustificationCreateRequest`
 ### onboarding_justifications_update
 
 **`PUT`** `/api/onboarding-justifications/{uuid}/`
-
-**Operation ID:** `onboarding_justifications_update`
 
 **Parameters:**
 
@@ -198,8 +186,6 @@ Schema: `OnboardingJustificationRequest`
 
 **`PATCH`** `/api/onboarding-justifications/{uuid}/`
 
-**Operation ID:** `onboarding_justifications_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -227,8 +213,6 @@ Schema: `PatchedOnboardingJustificationRequest`
 
 **`DELETE`** `/api/onboarding-justifications/{uuid}/`
 
-**Operation ID:** `onboarding_justifications_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -246,8 +230,6 @@ Schema: `PatchedOnboardingJustificationRequest`
 ### onboarding_justifications_approve
 
 **`POST`** `/api/onboarding-justifications/{uuid}/approve/`
-
-**Operation ID:** `onboarding_justifications_approve`
 
 Approve justification and mark verification as VERIFIED.
 
@@ -277,8 +259,6 @@ Schema: `OnboardingJustificationReviewRequest`
 
 **`POST`** `/api/onboarding-justifications/{uuid}/attach_document/`
 
-**Operation ID:** `onboarding_justifications_attach_document`
-
 Attach supporting document to justification.
 
 **Parameters:**
@@ -306,8 +286,6 @@ Schema: `OnboardingJustificationDocumentationRequest`
 ### onboarding_justifications_reject
 
 **`POST`** `/api/onboarding-justifications/{uuid}/reject/`
-
-**Operation ID:** `onboarding_justifications_reject`
 
 Reject justification and mark verification as FAILED.
 
@@ -337,8 +315,6 @@ Schema: `OnboardingJustificationReviewRequest`
 
 **`GET`** `/api/onboarding-question-metadata/`
 
-**Operation ID:** `onboarding_question_metadata_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -360,8 +336,6 @@ Schema: `OnboardingJustificationReviewRequest`
 ### onboarding_question_metadata_count
 
 **`HEAD`** `/api/onboarding-question-metadata/`
-
-**Operation ID:** `onboarding_question_metadata_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -387,8 +361,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/onboarding-question-metadata/`
 
-**Operation ID:** `onboarding_question_metadata_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `OnboardingQuestionMetadataRequest`
@@ -411,8 +383,6 @@ Schema: `OnboardingQuestionMetadataRequest`
 
 **`GET`** `/api/onboarding-question-metadata/{uuid}/`
 
-**Operation ID:** `onboarding_question_metadata_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -430,8 +400,6 @@ Schema: `OnboardingQuestionMetadataRequest`
 ### onboarding_question_metadata_update
 
 **`PUT`** `/api/onboarding-question-metadata/{uuid}/`
-
-**Operation ID:** `onboarding_question_metadata_update`
 
 **Parameters:**
 
@@ -461,8 +429,6 @@ Schema: `OnboardingQuestionMetadataRequest`
 
 **`PATCH`** `/api/onboarding-question-metadata/{uuid}/`
 
-**Operation ID:** `onboarding_question_metadata_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -491,8 +457,6 @@ Schema: `PatchedOnboardingQuestionMetadataRequest`
 
 **`DELETE`** `/api/onboarding-question-metadata/{uuid}/`
 
-**Operation ID:** `onboarding_question_metadata_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -510,8 +474,6 @@ Schema: `PatchedOnboardingQuestionMetadataRequest`
 ### onboarding_verifications_list
 
 **`GET`** `/api/onboarding-verifications/`
-
-**Operation ID:** `onboarding_verifications_list`
 
 **Parameters:**
 
@@ -537,8 +499,6 @@ Schema: `PatchedOnboardingQuestionMetadataRequest`
 ### onboarding_verifications_count
 
 **`HEAD`** `/api/onboarding-verifications/`
-
-**Operation ID:** `onboarding_verifications_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -567,8 +527,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/onboarding-verifications/`
 
-**Operation ID:** `onboarding_verifications_create`
-
 **Request Body** (`application/json`, optional):
 
 Schema: `OnboardingVerificationRequest`
@@ -592,8 +550,6 @@ Schema: `OnboardingVerificationRequest`
 
 **`GET`** `/api/onboarding-verifications/available_checklists/`
 
-**Operation ID:** `onboarding_verifications_available_checklists_retrieve`
-
 Get available onboarding checklists (customer and intent) for preview. This endpoint allows users to see checklist questions before creating a verification. Supports checklist_type parameter to filter by customer or intent checklists. Includes questions with onboarding metadata (field mappings).
 
 **Parameters:**
@@ -614,8 +570,6 @@ Get available onboarding checklists (customer and intent) for preview. This endp
 
 **`HEAD`** `/api/onboarding-verifications/available_checklists/`
 
-**Operation ID:** `onboarding_verifications_available_checklists_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -635,8 +589,6 @@ Get number of items in the collection matching the request parameters.
 ### onboarding_verifications_checklist_template_retrieve
 
 **`GET`** `/api/onboarding-verifications/checklist-template/`
-
-**Operation ID:** `onboarding_verifications_checklist_template_retrieve`
 
 Get checklist template for creating new objects.
 
@@ -660,8 +612,6 @@ Get checklist template for creating new objects.
 
 **`HEAD`** `/api/onboarding-verifications/checklist-template/`
 
-**Operation ID:** `onboarding_verifications_checklist_template_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -681,8 +631,6 @@ Get number of items in the collection matching the request parameters.
 ### onboarding_verifications_start_verification
 
 **`POST`** `/api/onboarding-verifications/start_verification/`
-
-**Operation ID:** `onboarding_verifications_start_verification`
 
 Start company validation process by creating a verification record. User selects validation_method (e.g., 'ariregister', 'wirtschaftscompass'). Checklists are used for intent and customer data collection. Then call run_validation to perform automatic validation or create manual justification.
 
@@ -709,8 +657,6 @@ Schema: `OnboardingCompanyValidationRequestRequest`
 
 **`GET`** `/api/onboarding-verifications/{uuid}/`
 
-**Operation ID:** `onboarding_verifications_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -728,8 +674,6 @@ Schema: `OnboardingCompanyValidationRequestRequest`
 ### onboarding_verifications_update
 
 **`PUT`** `/api/onboarding-verifications/{uuid}/`
-
-**Operation ID:** `onboarding_verifications_update`
 
 **Parameters:**
 
@@ -760,8 +704,6 @@ Schema: `OnboardingVerificationRequest`
 
 **`PATCH`** `/api/onboarding-verifications/{uuid}/`
 
-**Operation ID:** `onboarding_verifications_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -791,8 +733,6 @@ Schema: `PatchedOnboardingVerificationRequest`
 
 **`DELETE`** `/api/onboarding-verifications/{uuid}/`
 
-**Operation ID:** `onboarding_verifications_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -810,8 +750,6 @@ Schema: `PatchedOnboardingVerificationRequest`
 ### onboarding_verifications_checklist_retrieve
 
 **`GET`** `/api/onboarding-verifications/{uuid}/checklist/`
-
-**Operation ID:** `onboarding_verifications_checklist_retrieve`
 
 Get checklist with questions and existing answers. Supports both customer and intent checklists via checklist_type parameter.
 
@@ -835,8 +773,6 @@ Get checklist with questions and existing answers. Supports both customer and in
 
 **`GET`** `/api/onboarding-verifications/{uuid}/completion_status/`
 
-**Operation ID:** `onboarding_verifications_completion_status_retrieve`
-
 Get checklist completion status. Supports both customer and intent checklists via checklist_type parameter.
 
 **Parameters:**
@@ -858,8 +794,6 @@ Get checklist completion status. Supports both customer and intent checklists vi
 
 **`POST`** `/api/onboarding-verifications/{uuid}/create_customer/`
 
-**Operation ID:** `onboarding_verifications_create_customer`
-
 Create customer from successful verification.
 
 **Parameters:**
@@ -879,8 +813,6 @@ Create customer from successful verification.
 ### onboarding_verifications_run_validation
 
 **`POST`** `/api/onboarding-verifications/{uuid}/run_validation/`
-
-**Operation ID:** `onboarding_verifications_run_validation`
 
 Run automatic validation using the required fields provided during verification creation. Checklist answers (if any) are only used for supplemental customer/intent data.
 
@@ -913,8 +845,6 @@ Schema: `OnboardingRunValidationRequestRequest`
 
 **`POST`** `/api/onboarding-verifications/{uuid}/submit_answers/`
 
-**Operation ID:** `onboarding_verifications_submit_answers`
-
 Submit answers to checklist questions. Automatically detects which checklist (customer or intent) each question belongs to.
 
 **Parameters:**
@@ -937,8 +867,6 @@ Submit answers to checklist questions. Automatically detects which checklist (cu
 
 **`GET`** `/api/onboarding/person-identifier-fields/`
 
-**Operation ID:** `onboarding_person_identifier_fields_retrieve`
-
 Return person identifier field specification for a specific validation method. The validation_method parameter should match one of the available methods (e.g., 'ariregister', 'wirtschaftscompass', 'bolagsverket', 'breg').
 
 **Parameters:**
@@ -958,8 +886,6 @@ Return person identifier field specification for a specific validation method. T
 ### onboarding_supported_countries_retrieve
 
 **`GET`** `/api/onboarding/supported-countries/`
-
-**Operation ID:** `onboarding_supported_countries_retrieve`
 
 Return list of supported countries for validation.
 

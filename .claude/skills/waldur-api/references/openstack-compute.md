@@ -7,106 +7,106 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/openstack-backups/` | `openstack_backups_list` | List backups |
-| HEAD | `/api/openstack-backups/` | `openstack_backups_count` | List backups |
-| GET | `/api/openstack-backups/{uuid}/` | `openstack_backups_retrieve` | Get backup details |
-| PUT | `/api/openstack-backups/{uuid}/` | `openstack_backups_update` | Update backup |
-| PATCH | `/api/openstack-backups/{uuid}/` | `openstack_backups_partial_update` | Partially update backup |
-| DELETE | `/api/openstack-backups/{uuid}/` | `openstack_backups_destroy` | Delete backup |
-| POST | `/api/openstack-backups/{uuid}/pull/` | `openstack_backups_pull` | Synchronize resource state |
-| POST | `/api/openstack-backups/{uuid}/restore/` | `openstack_backups_restore` | Restore instance from backup |
-| POST | `/api/openstack-backups/{uuid}/set_erred/` | `openstack_backups_set_erred` | Mark resource as ERRED |
-| POST | `/api/openstack-backups/{uuid}/set_ok/` | `openstack_backups_set_ok` | Mark resource as OK |
-| POST | `/api/openstack-backups/{uuid}/unlink/` | `openstack_backups_unlink` | Unlink resource |
-| GET | `/api/openstack-flavors/` | `openstack_flavors_list` | List flavors |
-| HEAD | `/api/openstack-flavors/` | `openstack_flavors_count` | List flavors |
-| GET | `/api/openstack-flavors/usage_stats/` | `openstack_flavors_usage_stats_retrieve` | Get flavor usage statistics |
-| HEAD | `/api/openstack-flavors/usage_stats/` | `openstack_flavors_usage_stats_count` | Get flavor usage statistics |
-| GET | `/api/openstack-flavors/{uuid}/` | `openstack_flavors_retrieve` | Get flavor details |
-| GET | `/api/openstack-images/` | `openstack_images_list` | List images |
-| HEAD | `/api/openstack-images/` | `openstack_images_count` | List images |
-| GET | `/api/openstack-images/usage_stats/` | `openstack_images_usage_stats_retrieve` | Get image usage statistics |
-| HEAD | `/api/openstack-images/usage_stats/` | `openstack_images_usage_stats_count` | Get image usage statistics |
-| GET | `/api/openstack-images/{uuid}/` | `openstack_images_retrieve` | Get image details |
-| GET | `/api/openstack-instance-availability-zones/` | `openstack_instance_availability_zones_list` | List instance availability zones |
-| HEAD | `/api/openstack-instance-availability-zones/` | `openstack_instance_availability_zones_count` | List instance availability zones |
-| GET | `/api/openstack-instance-availability-zones/{uuid}/` | `openstack_instance_availability_zones_retrieve` | Get instance availability zone details |
-| GET | `/api/openstack-instances/` | `openstack_instances_list` | List instances |
-| HEAD | `/api/openstack-instances/` | `openstack_instances_count` | List instances |
-| GET | `/api/openstack-instances/{uuid}/` | `openstack_instances_retrieve` | Get instance details |
-| PUT | `/api/openstack-instances/{uuid}/` | `openstack_instances_update` | Update instance |
-| PATCH | `/api/openstack-instances/{uuid}/` | `openstack_instances_partial_update` | Partially update instance |
-| POST | `/api/openstack-instances/{uuid}/backup/` | `openstack_instances_backup` | Create instance backup |
-| POST | `/api/openstack-instances/{uuid}/change_flavor/` | `openstack_instances_change_flavor` | Change instance flavor |
-| GET | `/api/openstack-instances/{uuid}/console/` | `openstack_instances_console_retrieve` | Get console URL |
-| GET | `/api/openstack-instances/{uuid}/console_log/` | `openstack_instances_console_log_retrieve` | Get console log |
-| GET | `/api/openstack-instances/{uuid}/floating_ips/` | `openstack_instances_floating_ips_list` | List instance floating IPs |
-| GET | `/api/openstack-instances/{uuid}/ports/` | `openstack_instances_ports_list` | List instance ports |
-| POST | `/api/openstack-instances/{uuid}/pull/` | `openstack_instances_pull` | Synchronize resource state |
-| POST | `/api/openstack-instances/{uuid}/restart/` | `openstack_instances_restart` | Restart instance |
-| POST | `/api/openstack-instances/{uuid}/set_erred/` | `openstack_instances_set_erred` | Mark resource as ERRED |
-| POST | `/api/openstack-instances/{uuid}/set_ok/` | `openstack_instances_set_ok` | Mark resource as OK |
-| POST | `/api/openstack-instances/{uuid}/start/` | `openstack_instances_start` | Start instance |
-| POST | `/api/openstack-instances/{uuid}/stop/` | `openstack_instances_stop` | Stop instance |
-| POST | `/api/openstack-instances/{uuid}/unlink/` | `openstack_instances_unlink` | Unlink resource |
-| POST | `/api/openstack-instances/{uuid}/update_allowed_address_pairs/` | `openstack_instances_update_allowed_address_pairs` | Update instance allowed address pairs |
-| POST | `/api/openstack-instances/{uuid}/update_floating_ips/` | `openstack_instances_update_floating_ips` | Update instance floating IPs |
-| POST | `/api/openstack-instances/{uuid}/update_ports/` | `openstack_instances_update_ports` | Update instance ports |
-| POST | `/api/openstack-instances/{uuid}/update_security_groups/` | `openstack_instances_update_security_groups` | Update instance security groups |
-| GET | `/api/openstack-marketplace-tenants/` | `openstack_marketplace_tenants_list` |  |
-| HEAD | `/api/openstack-marketplace-tenants/` | `openstack_marketplace_tenants_count` |  |
-| GET | `/api/openstack-marketplace-tenants/{uuid}/` | `openstack_marketplace_tenants_retrieve` |  |
-| POST | `/api/openstack-marketplace-tenants/{uuid}/create_image/` | `openstack_marketplace_tenants_create_image` |  |
-| POST | `/api/openstack-marketplace-tenants/{uuid}/upload_image_data/{image_id}/` | `openstack_marketplace_tenants_upload_image_data` |  |
-| GET | `/api/openstack-migrations/` | `openstack_migrations_list` |  |
-| HEAD | `/api/openstack-migrations/` | `openstack_migrations_count` |  |
-| POST | `/api/openstack-migrations/` | `openstack_migrations_create` |  |
-| GET | `/api/openstack-migrations/{uuid}/` | `openstack_migrations_retrieve` |  |
-| PUT | `/api/openstack-migrations/{uuid}/` | `openstack_migrations_update` |  |
-| PATCH | `/api/openstack-migrations/{uuid}/` | `openstack_migrations_partial_update` |  |
-| DELETE | `/api/openstack-migrations/{uuid}/` | `openstack_migrations_destroy` |  |
-| GET | `/api/openstack-server-groups/` | `openstack_server_groups_list` | List server groups |
-| HEAD | `/api/openstack-server-groups/` | `openstack_server_groups_count` | List server groups |
-| POST | `/api/openstack-server-groups/` | `openstack_server_groups_create` |  |
-| GET | `/api/openstack-server-groups/{uuid}/` | `openstack_server_groups_retrieve` | Get server group details |
-| DELETE | `/api/openstack-server-groups/{uuid}/` | `openstack_server_groups_destroy` | Delete server group |
-| POST | `/api/openstack-server-groups/{uuid}/pull/` | `openstack_server_groups_pull` | Synchronize resource state |
-| POST | `/api/openstack-server-groups/{uuid}/set_erred/` | `openstack_server_groups_set_erred` | Mark resource as ERRED |
-| POST | `/api/openstack-server-groups/{uuid}/set_ok/` | `openstack_server_groups_set_ok` | Mark resource as OK |
-| POST | `/api/openstack-server-groups/{uuid}/unlink/` | `openstack_server_groups_unlink` | Unlink resource |
-| GET | `/api/openstack-snapshots/` | `openstack_snapshots_list` | List snapshots |
-| HEAD | `/api/openstack-snapshots/` | `openstack_snapshots_count` | List snapshots |
-| GET | `/api/openstack-snapshots/{uuid}/` | `openstack_snapshots_retrieve` | Get snapshot details |
-| PUT | `/api/openstack-snapshots/{uuid}/` | `openstack_snapshots_update` | Update snapshot |
-| PATCH | `/api/openstack-snapshots/{uuid}/` | `openstack_snapshots_partial_update` | Partially update snapshot |
-| DELETE | `/api/openstack-snapshots/{uuid}/` | `openstack_snapshots_destroy` | Delete snapshot |
-| POST | `/api/openstack-snapshots/{uuid}/pull/` | `openstack_snapshots_pull` | Synchronize resource state |
-| GET | `/api/openstack-snapshots/{uuid}/restorations/` | `openstack_snapshots_restorations_list` | List snapshot restorations |
-| POST | `/api/openstack-snapshots/{uuid}/restore/` | `openstack_snapshots_restore` | Restore volume from snapshot |
-| POST | `/api/openstack-snapshots/{uuid}/set_erred/` | `openstack_snapshots_set_erred` | Mark resource as ERRED |
-| POST | `/api/openstack-snapshots/{uuid}/set_ok/` | `openstack_snapshots_set_ok` | Mark resource as OK |
-| POST | `/api/openstack-snapshots/{uuid}/unlink/` | `openstack_snapshots_unlink` | Unlink resource |
-| GET | `/api/openstack/discovery/` | `openstack_discovery_list` |  |
-| POST | `/api/openstack/discovery/` | `openstack_discovery_create` |  |
-| POST | `/api/openstack/discovery/discover_external_networks/` | `openstack_discovery_discover_external_networks` |  |
-| POST | `/api/openstack/discovery/discover_flavors/` | `openstack_discovery_discover_flavors` |  |
-| POST | `/api/openstack/discovery/discover_instance_availability_zones/` | `openstack_discovery_discover_instance_availability_zones` |  |
-| POST | `/api/openstack/discovery/discover_volume_availability_zones/` | `openstack_discovery_discover_volume_availability_zones` |  |
-| POST | `/api/openstack/discovery/discover_volume_types/` | `openstack_discovery_discover_volume_types` |  |
-| POST | `/api/openstack/discovery/preview_service_attributes/` | `openstack_discovery_preview_service_attributes` |  |
-| POST | `/api/openstack/discovery/validate_credentials/` | `openstack_discovery_validate_credentials` |  |
-| GET | `/api/openstack/discovery/{id}/` | `openstack_discovery_retrieve` |  |
-| PUT | `/api/openstack/discovery/{id}/` | `openstack_discovery_update` |  |
-| PATCH | `/api/openstack/discovery/{id}/` | `openstack_discovery_partial_update` |  |
-| DELETE | `/api/openstack/discovery/{id}/` | `openstack_discovery_destroy` |  |
+| GET | `/api/openstack-backups/` | [`openstack_backups_list`](#openstack-backups-list) | List backups |
+| HEAD | `/api/openstack-backups/` | [`openstack_backups_count`](#openstack-backups-count) | List backups |
+| GET | `/api/openstack-backups/{uuid}/` | [`openstack_backups_retrieve`](#openstack-backups-retrieve) | Get backup details |
+| PUT | `/api/openstack-backups/{uuid}/` | [`openstack_backups_update`](#openstack-backups-update) | Update backup |
+| PATCH | `/api/openstack-backups/{uuid}/` | [`openstack_backups_partial_update`](#openstack-backups-partial-update) | Partially update backup |
+| DELETE | `/api/openstack-backups/{uuid}/` | [`openstack_backups_destroy`](#openstack-backups-destroy) | Delete backup |
+| POST | `/api/openstack-backups/{uuid}/pull/` | [`openstack_backups_pull`](#openstack-backups-pull) | Synchronize resource state |
+| POST | `/api/openstack-backups/{uuid}/restore/` | [`openstack_backups_restore`](#openstack-backups-restore) | Restore instance from backup |
+| POST | `/api/openstack-backups/{uuid}/set_erred/` | [`openstack_backups_set_erred`](#openstack-backups-set-erred) | Mark resource as ERRED |
+| POST | `/api/openstack-backups/{uuid}/set_ok/` | [`openstack_backups_set_ok`](#openstack-backups-set-ok) | Mark resource as OK |
+| POST | `/api/openstack-backups/{uuid}/unlink/` | [`openstack_backups_unlink`](#openstack-backups-unlink) | Unlink resource |
+| GET | `/api/openstack-flavors/` | [`openstack_flavors_list`](#openstack-flavors-list) | List flavors |
+| HEAD | `/api/openstack-flavors/` | [`openstack_flavors_count`](#openstack-flavors-count) | List flavors |
+| GET | `/api/openstack-flavors/usage_stats/` | [`openstack_flavors_usage_stats_retrieve`](#openstack-flavors-usage-stats-retrieve) | Get flavor usage statistics |
+| HEAD | `/api/openstack-flavors/usage_stats/` | [`openstack_flavors_usage_stats_count`](#openstack-flavors-usage-stats-count) | Get flavor usage statistics |
+| GET | `/api/openstack-flavors/{uuid}/` | [`openstack_flavors_retrieve`](#openstack-flavors-retrieve) | Get flavor details |
+| GET | `/api/openstack-images/` | [`openstack_images_list`](#openstack-images-list) | List images |
+| HEAD | `/api/openstack-images/` | [`openstack_images_count`](#openstack-images-count) | List images |
+| GET | `/api/openstack-images/usage_stats/` | [`openstack_images_usage_stats_retrieve`](#openstack-images-usage-stats-retrieve) | Get image usage statistics |
+| HEAD | `/api/openstack-images/usage_stats/` | [`openstack_images_usage_stats_count`](#openstack-images-usage-stats-count) | Get image usage statistics |
+| GET | `/api/openstack-images/{uuid}/` | [`openstack_images_retrieve`](#openstack-images-retrieve) | Get image details |
+| GET | `/api/openstack-instance-availability-zones/` | [`openstack_instance_availability_zones_list`](#openstack-instance-availability-zones-list) | List instance availability zones |
+| HEAD | `/api/openstack-instance-availability-zones/` | [`openstack_instance_availability_zones_count`](#openstack-instance-availability-zones-count) | List instance availability zones |
+| GET | `/api/openstack-instance-availability-zones/{uuid}/` | [`openstack_instance_availability_zones_retrieve`](#openstack-instance-availability-zones-retrieve) | Get instance availability zone details |
+| GET | `/api/openstack-instances/` | [`openstack_instances_list`](#openstack-instances-list) | List instances |
+| HEAD | `/api/openstack-instances/` | [`openstack_instances_count`](#openstack-instances-count) | List instances |
+| GET | `/api/openstack-instances/{uuid}/` | [`openstack_instances_retrieve`](#openstack-instances-retrieve) | Get instance details |
+| PUT | `/api/openstack-instances/{uuid}/` | [`openstack_instances_update`](#openstack-instances-update) | Update instance |
+| PATCH | `/api/openstack-instances/{uuid}/` | [`openstack_instances_partial_update`](#openstack-instances-partial-update) | Partially update instance |
+| POST | `/api/openstack-instances/{uuid}/backup/` | [`openstack_instances_backup`](#openstack-instances-backup) | Create instance backup |
+| POST | `/api/openstack-instances/{uuid}/change_flavor/` | [`openstack_instances_change_flavor`](#openstack-instances-change-flavor) | Change instance flavor |
+| GET | `/api/openstack-instances/{uuid}/console/` | [`openstack_instances_console_retrieve`](#openstack-instances-console-retrieve) | Get console URL |
+| GET | `/api/openstack-instances/{uuid}/console_log/` | [`openstack_instances_console_log_retrieve`](#openstack-instances-console-log-retrieve) | Get console log |
+| GET | `/api/openstack-instances/{uuid}/floating_ips/` | [`openstack_instances_floating_ips_list`](#openstack-instances-floating-ips-list) | List instance floating IPs |
+| GET | `/api/openstack-instances/{uuid}/ports/` | [`openstack_instances_ports_list`](#openstack-instances-ports-list) | List instance ports |
+| POST | `/api/openstack-instances/{uuid}/pull/` | [`openstack_instances_pull`](#openstack-instances-pull) | Synchronize resource state |
+| POST | `/api/openstack-instances/{uuid}/restart/` | [`openstack_instances_restart`](#openstack-instances-restart) | Restart instance |
+| POST | `/api/openstack-instances/{uuid}/set_erred/` | [`openstack_instances_set_erred`](#openstack-instances-set-erred) | Mark resource as ERRED |
+| POST | `/api/openstack-instances/{uuid}/set_ok/` | [`openstack_instances_set_ok`](#openstack-instances-set-ok) | Mark resource as OK |
+| POST | `/api/openstack-instances/{uuid}/start/` | [`openstack_instances_start`](#openstack-instances-start) | Start instance |
+| POST | `/api/openstack-instances/{uuid}/stop/` | [`openstack_instances_stop`](#openstack-instances-stop) | Stop instance |
+| POST | `/api/openstack-instances/{uuid}/unlink/` | [`openstack_instances_unlink`](#openstack-instances-unlink) | Unlink resource |
+| POST | `/api/openstack-instances/{uuid}/update_allowed_address_pairs/` | [`openstack_instances_update_allowed_address_pairs`](#openstack-instances-update-allowed-address-pairs) | Update instance allowed address pairs |
+| POST | `/api/openstack-instances/{uuid}/update_floating_ips/` | [`openstack_instances_update_floating_ips`](#openstack-instances-update-floating-ips) | Update instance floating IPs |
+| POST | `/api/openstack-instances/{uuid}/update_ports/` | [`openstack_instances_update_ports`](#openstack-instances-update-ports) | Update instance ports |
+| POST | `/api/openstack-instances/{uuid}/update_security_groups/` | [`openstack_instances_update_security_groups`](#openstack-instances-update-security-groups) | Update instance security groups |
+| GET | `/api/openstack-marketplace-tenants/` | [`openstack_marketplace_tenants_list`](#openstack-marketplace-tenants-list) |  |
+| HEAD | `/api/openstack-marketplace-tenants/` | [`openstack_marketplace_tenants_count`](#openstack-marketplace-tenants-count) |  |
+| GET | `/api/openstack-marketplace-tenants/{uuid}/` | [`openstack_marketplace_tenants_retrieve`](#openstack-marketplace-tenants-retrieve) |  |
+| POST | `/api/openstack-marketplace-tenants/{uuid}/create_image/` | [`openstack_marketplace_tenants_create_image`](#openstack-marketplace-tenants-create-image) |  |
+| POST | `/api/openstack-marketplace-tenants/{uuid}/upload_image_data/{image_id}/` | [`openstack_marketplace_tenants_upload_image_data`](#openstack-marketplace-tenants-upload-image-data) |  |
+| GET | `/api/openstack-migrations/` | [`openstack_migrations_list`](#openstack-migrations-list) |  |
+| HEAD | `/api/openstack-migrations/` | [`openstack_migrations_count`](#openstack-migrations-count) |  |
+| POST | `/api/openstack-migrations/` | [`openstack_migrations_create`](#openstack-migrations-create) |  |
+| GET | `/api/openstack-migrations/{uuid}/` | [`openstack_migrations_retrieve`](#openstack-migrations-retrieve) |  |
+| PUT | `/api/openstack-migrations/{uuid}/` | [`openstack_migrations_update`](#openstack-migrations-update) |  |
+| PATCH | `/api/openstack-migrations/{uuid}/` | [`openstack_migrations_partial_update`](#openstack-migrations-partial-update) |  |
+| DELETE | `/api/openstack-migrations/{uuid}/` | [`openstack_migrations_destroy`](#openstack-migrations-destroy) |  |
+| GET | `/api/openstack-server-groups/` | [`openstack_server_groups_list`](#openstack-server-groups-list) | List server groups |
+| HEAD | `/api/openstack-server-groups/` | [`openstack_server_groups_count`](#openstack-server-groups-count) | List server groups |
+| POST | `/api/openstack-server-groups/` | [`openstack_server_groups_create`](#openstack-server-groups-create) |  |
+| GET | `/api/openstack-server-groups/{uuid}/` | [`openstack_server_groups_retrieve`](#openstack-server-groups-retrieve) | Get server group details |
+| DELETE | `/api/openstack-server-groups/{uuid}/` | [`openstack_server_groups_destroy`](#openstack-server-groups-destroy) | Delete server group |
+| POST | `/api/openstack-server-groups/{uuid}/pull/` | [`openstack_server_groups_pull`](#openstack-server-groups-pull) | Synchronize resource state |
+| POST | `/api/openstack-server-groups/{uuid}/set_erred/` | [`openstack_server_groups_set_erred`](#openstack-server-groups-set-erred) | Mark resource as ERRED |
+| POST | `/api/openstack-server-groups/{uuid}/set_ok/` | [`openstack_server_groups_set_ok`](#openstack-server-groups-set-ok) | Mark resource as OK |
+| POST | `/api/openstack-server-groups/{uuid}/unlink/` | [`openstack_server_groups_unlink`](#openstack-server-groups-unlink) | Unlink resource |
+| GET | `/api/openstack-snapshots/` | [`openstack_snapshots_list`](#openstack-snapshots-list) | List snapshots |
+| HEAD | `/api/openstack-snapshots/` | [`openstack_snapshots_count`](#openstack-snapshots-count) | List snapshots |
+| GET | `/api/openstack-snapshots/{uuid}/` | [`openstack_snapshots_retrieve`](#openstack-snapshots-retrieve) | Get snapshot details |
+| PUT | `/api/openstack-snapshots/{uuid}/` | [`openstack_snapshots_update`](#openstack-snapshots-update) | Update snapshot |
+| PATCH | `/api/openstack-snapshots/{uuid}/` | [`openstack_snapshots_partial_update`](#openstack-snapshots-partial-update) | Partially update snapshot |
+| DELETE | `/api/openstack-snapshots/{uuid}/` | [`openstack_snapshots_destroy`](#openstack-snapshots-destroy) | Delete snapshot |
+| POST | `/api/openstack-snapshots/{uuid}/pull/` | [`openstack_snapshots_pull`](#openstack-snapshots-pull) | Synchronize resource state |
+| GET | `/api/openstack-snapshots/{uuid}/restorations/` | [`openstack_snapshots_restorations_list`](#openstack-snapshots-restorations-list) | List snapshot restorations |
+| POST | `/api/openstack-snapshots/{uuid}/restore/` | [`openstack_snapshots_restore`](#openstack-snapshots-restore) | Restore volume from snapshot |
+| POST | `/api/openstack-snapshots/{uuid}/set_erred/` | [`openstack_snapshots_set_erred`](#openstack-snapshots-set-erred) | Mark resource as ERRED |
+| POST | `/api/openstack-snapshots/{uuid}/set_ok/` | [`openstack_snapshots_set_ok`](#openstack-snapshots-set-ok) | Mark resource as OK |
+| POST | `/api/openstack-snapshots/{uuid}/unlink/` | [`openstack_snapshots_unlink`](#openstack-snapshots-unlink) | Unlink resource |
+| GET | `/api/openstack/discovery/` | [`openstack_discovery_list`](#openstack-discovery-list) |  |
+| POST | `/api/openstack/discovery/` | [`openstack_discovery_create`](#openstack-discovery-create) |  |
+| POST | `/api/openstack/discovery/discover_external_networks/` | [`openstack_discovery_discover_external_networks`](#openstack-discovery-discover-external-networks) |  |
+| POST | `/api/openstack/discovery/discover_flavors/` | [`openstack_discovery_discover_flavors`](#openstack-discovery-discover-flavors) |  |
+| POST | `/api/openstack/discovery/discover_instance_availability_zones/` | [`openstack_discovery_discover_instance_availability_zones`](#openstack-discovery-discover-instance-availability-zones) |  |
+| POST | `/api/openstack/discovery/discover_volume_availability_zones/` | [`openstack_discovery_discover_volume_availability_zones`](#openstack-discovery-discover-volume-availability-zones) |  |
+| POST | `/api/openstack/discovery/discover_volume_types/` | [`openstack_discovery_discover_volume_types`](#openstack-discovery-discover-volume-types) |  |
+| POST | `/api/openstack/discovery/preview_service_attributes/` | [`openstack_discovery_preview_service_attributes`](#openstack-discovery-preview-service-attributes) |  |
+| POST | `/api/openstack/discovery/validate_credentials/` | [`openstack_discovery_validate_credentials`](#openstack-discovery-validate-credentials) |  |
+| GET | `/api/openstack/discovery/{id}/` | [`openstack_discovery_retrieve`](#openstack-discovery-retrieve) |  |
+| PUT | `/api/openstack/discovery/{id}/` | [`openstack_discovery_update`](#openstack-discovery-update) |  |
+| PATCH | `/api/openstack/discovery/{id}/` | [`openstack_discovery_partial_update`](#openstack-discovery-partial-update) |  |
+| DELETE | `/api/openstack/discovery/{id}/` | [`openstack_discovery_destroy`](#openstack-discovery-destroy) |  |
 
 ## Endpoint Details
 
-### List backups
+### openstack_backups_list
 
 **`GET`** `/api/openstack-backups/`
 
-**Operation ID:** `openstack_backups_list`
+**Summary:** List backups
 
 Get a list of instance backups.
 
@@ -146,11 +146,11 @@ Get a list of instance backups.
 
 ---
 
-### List backups
+### openstack_backups_count
 
 **`HEAD`** `/api/openstack-backups/`
 
-**Operation ID:** `openstack_backups_count`
+**Summary:** List backups
 
 Get number of items in the collection matching the request parameters.
 
@@ -189,11 +189,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get backup details
+### openstack_backups_retrieve
 
 **`GET`** `/api/openstack-backups/{uuid}/`
 
-**Operation ID:** `openstack_backups_retrieve`
+**Summary:** Get backup details
 
 Retrieve details of a specific instance backup.
 
@@ -212,11 +212,11 @@ Retrieve details of a specific instance backup.
 
 ---
 
-### Update backup
+### openstack_backups_update
 
 **`PUT`** `/api/openstack-backups/{uuid}/`
 
-**Operation ID:** `openstack_backups_update`
+**Summary:** Update backup
 
 Update an existing instance backup.
 
@@ -244,11 +244,11 @@ Schema: `OpenStackBackupRequest`
 
 ---
 
-### Partially update backup
+### openstack_backups_partial_update
 
 **`PATCH`** `/api/openstack-backups/{uuid}/`
 
-**Operation ID:** `openstack_backups_partial_update`
+**Summary:** Partially update backup
 
 Update specific fields of an instance backup.
 
@@ -276,11 +276,11 @@ Schema: `PatchedOpenStackBackupRequest`
 
 ---
 
-### Delete backup
+### openstack_backups_destroy
 
 **`DELETE`** `/api/openstack-backups/{uuid}/`
 
-**Operation ID:** `openstack_backups_destroy`
+**Summary:** Delete backup
 
 Delete an instance backup.
 
@@ -298,11 +298,11 @@ Delete an instance backup.
 
 ---
 
-### Synchronize resource state
+### openstack_backups_pull
 
 **`POST`** `/api/openstack-backups/{uuid}/pull/`
 
-**Operation ID:** `openstack_backups_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -321,11 +321,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Restore instance from backup
+### openstack_backups_restore
 
 **`POST`** `/api/openstack-backups/{uuid}/restore/`
 
-**Operation ID:** `openstack_backups_restore`
+**Summary:** Restore instance from backup
 
 **Parameters:**
 
@@ -353,11 +353,11 @@ Schema: `OpenStackBackupRestorationCreateRequest`
 
 ---
 
-### Mark resource as ERRED
+### openstack_backups_set_erred
 
 **`POST`** `/api/openstack-backups/{uuid}/set_erred/`
 
-**Operation ID:** `openstack_backups_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -384,11 +384,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### openstack_backups_set_ok
 
 **`POST`** `/api/openstack-backups/{uuid}/set_ok/`
 
-**Operation ID:** `openstack_backups_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -406,11 +406,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### openstack_backups_unlink
 
 **`POST`** `/api/openstack-backups/{uuid}/unlink/`
 
-**Operation ID:** `openstack_backups_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -430,11 +430,11 @@ Delete resource from the database without scheduling operations on backend
 
 ---
 
-### List flavors
+### openstack_flavors_list
 
 **`GET`** `/api/openstack-flavors/`
 
-**Operation ID:** `openstack_flavors_list`
+**Summary:** List flavors
 
 Get a list of available VM instance flavors.
 
@@ -470,11 +470,11 @@ Get a list of available VM instance flavors.
 
 ---
 
-### List flavors
+### openstack_flavors_count
 
 **`HEAD`** `/api/openstack-flavors/`
 
-**Operation ID:** `openstack_flavors_count`
+**Summary:** List flavors
 
 Get number of items in the collection matching the request parameters.
 
@@ -509,11 +509,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get flavor usage statistics
+### openstack_flavors_usage_stats_retrieve
 
 **`GET`** `/api/openstack-flavors/usage_stats/`
 
-**Operation ID:** `openstack_flavors_usage_stats_retrieve`
+**Summary:** Get flavor usage statistics
 
 Retrieve usage statistics for VM instance flavors, showing running and created instance counts for each flavor.
 
@@ -531,11 +531,11 @@ Retrieve usage statistics for VM instance flavors, showing running and created i
 
 ---
 
-### Get flavor usage statistics
+### openstack_flavors_usage_stats_count
 
 **`HEAD`** `/api/openstack-flavors/usage_stats/`
 
-**Operation ID:** `openstack_flavors_usage_stats_count`
+**Summary:** Get flavor usage statistics
 
 Get number of items in the collection matching the request parameters.
 
@@ -547,11 +547,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get flavor details
+### openstack_flavors_retrieve
 
 **`GET`** `/api/openstack-flavors/{uuid}/`
 
-**Operation ID:** `openstack_flavors_retrieve`
+**Summary:** Get flavor details
 
 Retrieve details of a specific VM instance flavor.
 
@@ -570,11 +570,11 @@ Retrieve details of a specific VM instance flavor.
 
 ---
 
-### List images
+### openstack_images_list
 
 **`GET`** `/api/openstack-images/`
 
-**Operation ID:** `openstack_images_list`
+**Summary:** List images
 
 Get a list of available VM instance images.
 
@@ -599,11 +599,11 @@ Get a list of available VM instance images.
 
 ---
 
-### List images
+### openstack_images_count
 
 **`HEAD`** `/api/openstack-images/`
 
-**Operation ID:** `openstack_images_count`
+**Summary:** List images
 
 Get number of items in the collection matching the request parameters.
 
@@ -628,11 +628,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get image usage statistics
+### openstack_images_usage_stats_retrieve
 
 **`GET`** `/api/openstack-images/usage_stats/`
 
-**Operation ID:** `openstack_images_usage_stats_retrieve`
+**Summary:** Get image usage statistics
 
 Retrieve usage statistics for VM instance images, showing running and created instance counts for each image.
 
@@ -644,11 +644,11 @@ Retrieve usage statistics for VM instance images, showing running and created in
 
 ---
 
-### Get image usage statistics
+### openstack_images_usage_stats_count
 
 **`HEAD`** `/api/openstack-images/usage_stats/`
 
-**Operation ID:** `openstack_images_usage_stats_count`
+**Summary:** Get image usage statistics
 
 Get number of items in the collection matching the request parameters.
 
@@ -660,11 +660,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get image details
+### openstack_images_retrieve
 
 **`GET`** `/api/openstack-images/{uuid}/`
 
-**Operation ID:** `openstack_images_retrieve`
+**Summary:** Get image details
 
 Retrieve details of a specific VM instance image.
 
@@ -682,11 +682,11 @@ Retrieve details of a specific VM instance image.
 
 ---
 
-### List instance availability zones
+### openstack_instance_availability_zones_list
 
 **`GET`** `/api/openstack-instance-availability-zones/`
 
-**Operation ID:** `openstack_instance_availability_zones_list`
+**Summary:** List instance availability zones
 
 Get a list of instance availability zones.
 
@@ -709,11 +709,11 @@ Get a list of instance availability zones.
 
 ---
 
-### List instance availability zones
+### openstack_instance_availability_zones_count
 
 **`HEAD`** `/api/openstack-instance-availability-zones/`
 
-**Operation ID:** `openstack_instance_availability_zones_count`
+**Summary:** List instance availability zones
 
 Get number of items in the collection matching the request parameters.
 
@@ -736,11 +736,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get instance availability zone details
+### openstack_instance_availability_zones_retrieve
 
 **`GET`** `/api/openstack-instance-availability-zones/{uuid}/`
 
-**Operation ID:** `openstack_instance_availability_zones_retrieve`
+**Summary:** Get instance availability zone details
 
 Retrieve details of a specific instance availability zone.
 
@@ -758,11 +758,11 @@ Retrieve details of a specific instance availability zone.
 
 ---
 
-### List instances
+### openstack_instances_list
 
 **`GET`** `/api/openstack-instances/`
 
-**Operation ID:** `openstack_instances_list`
+**Summary:** List instances
 
 Get a list of VM instances.
 
@@ -805,11 +805,11 @@ Get a list of VM instances.
 
 ---
 
-### List instances
+### openstack_instances_count
 
 **`HEAD`** `/api/openstack-instances/`
 
-**Operation ID:** `openstack_instances_count`
+**Summary:** List instances
 
 Get number of items in the collection matching the request parameters.
 
@@ -851,11 +851,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get instance details
+### openstack_instances_retrieve
 
 **`GET`** `/api/openstack-instances/{uuid}/`
 
-**Operation ID:** `openstack_instances_retrieve`
+**Summary:** Get instance details
 
 Retrieve details of a specific VM instance.
 
@@ -874,11 +874,11 @@ Retrieve details of a specific VM instance.
 
 ---
 
-### Update instance
+### openstack_instances_update
 
 **`PUT`** `/api/openstack-instances/{uuid}/`
 
-**Operation ID:** `openstack_instances_update`
+**Summary:** Update instance
 
 Update an existing VM instance.
 
@@ -905,11 +905,11 @@ Schema: `OpenStackInstanceRequest`
 
 ---
 
-### Partially update instance
+### openstack_instances_partial_update
 
 **`PATCH`** `/api/openstack-instances/{uuid}/`
 
-**Operation ID:** `openstack_instances_partial_update`
+**Summary:** Partially update instance
 
 Update specific fields of a VM instance.
 
@@ -936,11 +936,11 @@ Schema: `PatchedOpenStackInstanceRequest`
 
 ---
 
-### Create instance backup
+### openstack_instances_backup
 
 **`POST`** `/api/openstack-instances/{uuid}/backup/`
 
-**Operation ID:** `openstack_instances_backup`
+**Summary:** Create instance backup
 
 Create backup from instance
 
@@ -968,11 +968,11 @@ Schema: `OpenStackBackupRequest`
 
 ---
 
-### Change instance flavor
+### openstack_instances_change_flavor
 
 **`POST`** `/api/openstack-instances/{uuid}/change_flavor/`
 
-**Operation ID:** `openstack_instances_change_flavor`
+**Summary:** Change instance flavor
 
 Change flavor of the instance
 
@@ -998,11 +998,11 @@ Schema: `InstanceFlavorChangeRequest`
 
 ---
 
-### Get console URL
+### openstack_instances_console_retrieve
 
 **`GET`** `/api/openstack-instances/{uuid}/console/`
 
-**Operation ID:** `openstack_instances_console_retrieve`
+**Summary:** Get console URL
 
 Get console url for the instance
 
@@ -1020,11 +1020,11 @@ Get console url for the instance
 
 ---
 
-### Get console log
+### openstack_instances_console_log_retrieve
 
 **`GET`** `/api/openstack-instances/{uuid}/console_log/`
 
-**Operation ID:** `openstack_instances_console_log_retrieve`
+**Summary:** Get console log
 
 Get console log for the instance
 
@@ -1043,11 +1043,11 @@ Get console log for the instance
 
 ---
 
-### List instance floating IPs
+### openstack_instances_floating_ips_list
 
 **`GET`** `/api/openstack-instances/{uuid}/floating_ips/`
 
-**Operation ID:** `openstack_instances_floating_ips_list`
+**Summary:** List instance floating IPs
 
 Get a list of instance floating IPs
 
@@ -1065,11 +1065,11 @@ Get a list of instance floating IPs
 
 ---
 
-### List instance ports
+### openstack_instances_ports_list
 
 **`GET`** `/api/openstack-instances/{uuid}/ports/`
 
-**Operation ID:** `openstack_instances_ports_list`
+**Summary:** List instance ports
 
 Get a list of instance ports
 
@@ -1087,11 +1087,11 @@ Get a list of instance ports
 
 ---
 
-### Synchronize resource state
+### openstack_instances_pull
 
 **`POST`** `/api/openstack-instances/{uuid}/pull/`
 
-**Operation ID:** `openstack_instances_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -1110,11 +1110,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Restart instance
+### openstack_instances_restart
 
 **`POST`** `/api/openstack-instances/{uuid}/restart/`
 
-**Operation ID:** `openstack_instances_restart`
+**Summary:** Restart instance
 
 Restart the instance
 
@@ -1132,11 +1132,11 @@ Restart the instance
 
 ---
 
-### Mark resource as ERRED
+### openstack_instances_set_erred
 
 **`POST`** `/api/openstack-instances/{uuid}/set_erred/`
 
-**Operation ID:** `openstack_instances_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -1163,11 +1163,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### openstack_instances_set_ok
 
 **`POST`** `/api/openstack-instances/{uuid}/set_ok/`
 
-**Operation ID:** `openstack_instances_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -1185,11 +1185,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Start instance
+### openstack_instances_start
 
 **`POST`** `/api/openstack-instances/{uuid}/start/`
 
-**Operation ID:** `openstack_instances_start`
+**Summary:** Start instance
 
 Start the instance
 
@@ -1207,11 +1207,11 @@ Start the instance
 
 ---
 
-### Stop instance
+### openstack_instances_stop
 
 **`POST`** `/api/openstack-instances/{uuid}/stop/`
 
-**Operation ID:** `openstack_instances_stop`
+**Summary:** Stop instance
 
 Stop the instance
 
@@ -1229,11 +1229,11 @@ Stop the instance
 
 ---
 
-### Unlink resource
+### openstack_instances_unlink
 
 **`POST`** `/api/openstack-instances/{uuid}/unlink/`
 
-**Operation ID:** `openstack_instances_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -1253,11 +1253,11 @@ Delete resource from the database without scheduling operations on backend
 
 ---
 
-### Update instance allowed address pairs
+### openstack_instances_update_allowed_address_pairs
 
 **`POST`** `/api/openstack-instances/{uuid}/update_allowed_address_pairs/`
 
-**Operation ID:** `openstack_instances_update_allowed_address_pairs`
+**Summary:** Update instance allowed address pairs
 
 Update allowed address pairs of the instance
 
@@ -1284,11 +1284,11 @@ Schema: `OpenStackInstanceAllowedAddressPairsUpdateRequest`
 
 ---
 
-### Update instance floating IPs
+### openstack_instances_update_floating_ips
 
 **`POST`** `/api/openstack-instances/{uuid}/update_floating_ips/`
 
-**Operation ID:** `openstack_instances_update_floating_ips`
+**Summary:** Update instance floating IPs
 
 Update floating IPs of the instance
 
@@ -1314,11 +1314,11 @@ Schema: `OpenStackInstanceFloatingIPsUpdateRequest`
 
 ---
 
-### Update instance ports
+### openstack_instances_update_ports
 
 **`POST`** `/api/openstack-instances/{uuid}/update_ports/`
 
-**Operation ID:** `openstack_instances_update_ports`
+**Summary:** Update instance ports
 
 Update ports of the instance
 
@@ -1344,11 +1344,11 @@ Schema: `OpenStackInstancePortsUpdateRequest`
 
 ---
 
-### Update instance security groups
+### openstack_instances_update_security_groups
 
 **`POST`** `/api/openstack-instances/{uuid}/update_security_groups/`
 
-**Operation ID:** `openstack_instances_update_security_groups`
+**Summary:** Update instance security groups
 
 Update security groups of the instance
 
@@ -1377,8 +1377,6 @@ Schema: `OpenStackInstanceSecurityGroupsUpdateRequest`
 ### openstack_marketplace_tenants_list
 
 **`GET`** `/api/openstack-marketplace-tenants/`
-
-**Operation ID:** `openstack_marketplace_tenants_list`
 
 **Parameters:**
 
@@ -1414,8 +1412,6 @@ Schema: `OpenStackInstanceSecurityGroupsUpdateRequest`
 ### openstack_marketplace_tenants_count
 
 **`HEAD`** `/api/openstack-marketplace-tenants/`
-
-**Operation ID:** `openstack_marketplace_tenants_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1454,8 +1450,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/openstack-marketplace-tenants/{uuid}/`
 
-**Operation ID:** `openstack_marketplace_tenants_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1473,8 +1467,6 @@ Get number of items in the collection matching the request parameters.
 ### openstack_marketplace_tenants_create_image
 
 **`POST`** `/api/openstack-marketplace-tenants/{uuid}/create_image/`
-
-**Operation ID:** `openstack_marketplace_tenants_create_image`
 
 **Parameters:**
 
@@ -1507,8 +1499,6 @@ Schema: `ImageCreateRequest`
 
 **`POST`** `/api/openstack-marketplace-tenants/{uuid}/upload_image_data/{image_id}/`
 
-**Operation ID:** `openstack_marketplace_tenants_upload_image_data`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1530,8 +1520,6 @@ Schema: `ImageCreateRequest`
 
 **`GET`** `/api/openstack-migrations/`
 
-**Operation ID:** `openstack_migrations_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1550,8 +1538,6 @@ Schema: `ImageCreateRequest`
 ### openstack_migrations_count
 
 **`HEAD`** `/api/openstack-migrations/`
-
-**Operation ID:** `openstack_migrations_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1573,8 +1559,6 @@ Get number of items in the collection matching the request parameters.
 ### openstack_migrations_create
 
 **`POST`** `/api/openstack-migrations/`
-
-**Operation ID:** `openstack_migrations_create`
 
 **Request Body** (`application/json`, required):
 
@@ -1601,8 +1585,6 @@ Schema: `MigrationCreateRequest`
 
 **`GET`** `/api/openstack-migrations/{uuid}/`
 
-**Operation ID:** `openstack_migrations_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1620,8 +1602,6 @@ Schema: `MigrationCreateRequest`
 ### openstack_migrations_update
 
 **`PUT`** `/api/openstack-migrations/{uuid}/`
-
-**Operation ID:** `openstack_migrations_update`
 
 **Parameters:**
 
@@ -1651,8 +1631,6 @@ Schema: `MigrationDetailsRequest`
 
 **`PATCH`** `/api/openstack-migrations/{uuid}/`
 
-**Operation ID:** `openstack_migrations_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1681,8 +1659,6 @@ Schema: `PatchedMigrationDetailsRequest`
 
 **`DELETE`** `/api/openstack-migrations/{uuid}/`
 
-**Operation ID:** `openstack_migrations_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1697,11 +1673,11 @@ Schema: `PatchedMigrationDetailsRequest`
 
 ---
 
-### List server groups
+### openstack_server_groups_list
 
 **`GET`** `/api/openstack-server-groups/`
 
-**Operation ID:** `openstack_server_groups_list`
+**Summary:** List server groups
 
 Get a list of server groups.
 
@@ -1739,11 +1715,11 @@ Get a list of server groups.
 
 ---
 
-### List server groups
+### openstack_server_groups_count
 
 **`HEAD`** `/api/openstack-server-groups/`
 
-**Operation ID:** `openstack_server_groups_count`
+**Summary:** List server groups
 
 Get number of items in the collection matching the request parameters.
 
@@ -1784,8 +1760,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/openstack-server-groups/`
 
-**Operation ID:** `openstack_server_groups_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `OpenStackServerGroupRequest`
@@ -1804,11 +1778,11 @@ Schema: `OpenStackServerGroupRequest`
 
 ---
 
-### Get server group details
+### openstack_server_groups_retrieve
 
 **`GET`** `/api/openstack-server-groups/{uuid}/`
 
-**Operation ID:** `openstack_server_groups_retrieve`
+**Summary:** Get server group details
 
 Retrieve details of a specific server group.
 
@@ -1827,11 +1801,11 @@ Retrieve details of a specific server group.
 
 ---
 
-### Delete server group
+### openstack_server_groups_destroy
 
 **`DELETE`** `/api/openstack-server-groups/{uuid}/`
 
-**Operation ID:** `openstack_server_groups_destroy`
+**Summary:** Delete server group
 
 Delete a server group.
 
@@ -1849,11 +1823,11 @@ Delete a server group.
 
 ---
 
-### Synchronize resource state
+### openstack_server_groups_pull
 
 **`POST`** `/api/openstack-server-groups/{uuid}/pull/`
 
-**Operation ID:** `openstack_server_groups_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -1872,11 +1846,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### openstack_server_groups_set_erred
 
 **`POST`** `/api/openstack-server-groups/{uuid}/set_erred/`
 
-**Operation ID:** `openstack_server_groups_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -1903,11 +1877,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### openstack_server_groups_set_ok
 
 **`POST`** `/api/openstack-server-groups/{uuid}/set_ok/`
 
-**Operation ID:** `openstack_server_groups_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -1925,11 +1899,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### openstack_server_groups_unlink
 
 **`POST`** `/api/openstack-server-groups/{uuid}/unlink/`
 
-**Operation ID:** `openstack_server_groups_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -1949,11 +1923,11 @@ Delete resource from the database without scheduling operations on backend
 
 ---
 
-### List snapshots
+### openstack_snapshots_list
 
 **`GET`** `/api/openstack-snapshots/`
 
-**Operation ID:** `openstack_snapshots_list`
+**Summary:** List snapshots
 
 Get a list of snapshots.
 
@@ -1996,11 +1970,11 @@ Get a list of snapshots.
 
 ---
 
-### List snapshots
+### openstack_snapshots_count
 
 **`HEAD`** `/api/openstack-snapshots/`
 
-**Operation ID:** `openstack_snapshots_count`
+**Summary:** List snapshots
 
 Get number of items in the collection matching the request parameters.
 
@@ -2042,11 +2016,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get snapshot details
+### openstack_snapshots_retrieve
 
 **`GET`** `/api/openstack-snapshots/{uuid}/`
 
-**Operation ID:** `openstack_snapshots_retrieve`
+**Summary:** Get snapshot details
 
 Retrieve details of a specific snapshot.
 
@@ -2065,11 +2039,11 @@ Retrieve details of a specific snapshot.
 
 ---
 
-### Update snapshot
+### openstack_snapshots_update
 
 **`PUT`** `/api/openstack-snapshots/{uuid}/`
 
-**Operation ID:** `openstack_snapshots_update`
+**Summary:** Update snapshot
 
 Update an existing snapshot.
 
@@ -2098,11 +2072,11 @@ Schema: `OpenStackSnapshotRequest`
 
 ---
 
-### Partially update snapshot
+### openstack_snapshots_partial_update
 
 **`PATCH`** `/api/openstack-snapshots/{uuid}/`
 
-**Operation ID:** `openstack_snapshots_partial_update`
+**Summary:** Partially update snapshot
 
 Update specific fields of a snapshot.
 
@@ -2131,11 +2105,11 @@ Schema: `PatchedOpenStackSnapshotRequest`
 
 ---
 
-### Delete snapshot
+### openstack_snapshots_destroy
 
 **`DELETE`** `/api/openstack-snapshots/{uuid}/`
 
-**Operation ID:** `openstack_snapshots_destroy`
+**Summary:** Delete snapshot
 
 Delete a snapshot.
 
@@ -2153,11 +2127,11 @@ Delete a snapshot.
 
 ---
 
-### Synchronize resource state
+### openstack_snapshots_pull
 
 **`POST`** `/api/openstack-snapshots/{uuid}/pull/`
 
-**Operation ID:** `openstack_snapshots_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -2176,11 +2150,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### List snapshot restorations
+### openstack_snapshots_restorations_list
 
 **`GET`** `/api/openstack-snapshots/{uuid}/restorations/`
 
-**Operation ID:** `openstack_snapshots_restorations_list`
+**Summary:** List snapshot restorations
 
 Get a list of snapshot restorations
 
@@ -2198,11 +2172,11 @@ Get a list of snapshot restorations
 
 ---
 
-### Restore volume from snapshot
+### openstack_snapshots_restore
 
 **`POST`** `/api/openstack-snapshots/{uuid}/restore/`
 
-**Operation ID:** `openstack_snapshots_restore`
+**Summary:** Restore volume from snapshot
 
 **Parameters:**
 
@@ -2227,11 +2201,11 @@ Schema: `OpenStackSnapshotRestorationRequest`
 
 ---
 
-### Mark resource as ERRED
+### openstack_snapshots_set_erred
 
 **`POST`** `/api/openstack-snapshots/{uuid}/set_erred/`
 
-**Operation ID:** `openstack_snapshots_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -2258,11 +2232,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### openstack_snapshots_set_ok
 
 **`POST`** `/api/openstack-snapshots/{uuid}/set_ok/`
 
-**Operation ID:** `openstack_snapshots_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -2280,11 +2254,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### openstack_snapshots_unlink
 
 **`POST`** `/api/openstack-snapshots/{uuid}/unlink/`
 
-**Operation ID:** `openstack_snapshots_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -2308,8 +2282,6 @@ Delete resource from the database without scheduling operations on backend
 
 **`GET`** `/api/openstack/discovery/`
 
-**Operation ID:** `openstack_discovery_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2327,8 +2299,6 @@ Delete resource from the database without scheduling operations on backend
 
 **`POST`** `/api/openstack/discovery/`
 
-**Operation ID:** `openstack_discovery_create`
-
 **Responses:**
 
 | Status | Description |
@@ -2340,8 +2310,6 @@ Delete resource from the database without scheduling operations on backend
 ### openstack_discovery_discover_external_networks
 
 **`POST`** `/api/openstack/discovery/discover_external_networks/`
-
-**Operation ID:** `openstack_discovery_discover_external_networks`
 
 Discover available external networks.
 
@@ -2377,8 +2345,6 @@ Schema: `DiscoverExternalNetworksRequestRequest`
 
 **`POST`** `/api/openstack/discovery/discover_flavors/`
 
-**Operation ID:** `openstack_discovery_discover_flavors`
-
 Discover available flavors.
 
 **Parameters:**
@@ -2412,8 +2378,6 @@ Schema: `DiscoverFlavorsRequestRequest`
 ### openstack_discovery_discover_instance_availability_zones
 
 **`POST`** `/api/openstack/discovery/discover_instance_availability_zones/`
-
-**Operation ID:** `openstack_discovery_discover_instance_availability_zones`
 
 Discover available Nova instance availability zones.
 
@@ -2449,8 +2413,6 @@ Schema: `DiscoverInstanceAvailabilityZonesRequestRequest`
 
 **`POST`** `/api/openstack/discovery/discover_volume_availability_zones/`
 
-**Operation ID:** `openstack_discovery_discover_volume_availability_zones`
-
 Discover available Cinder volume availability zones.
 
 **Parameters:**
@@ -2484,8 +2446,6 @@ Schema: `DiscoverVolumeAvailabilityZonesRequestRequest`
 ### openstack_discovery_discover_volume_types
 
 **`POST`** `/api/openstack/discovery/discover_volume_types/`
-
-**Operation ID:** `openstack_discovery_discover_volume_types`
 
 Discover available volume types.
 
@@ -2521,8 +2481,6 @@ Schema: `DiscoverVolumeTypesRequestRequest`
 
 **`POST`** `/api/openstack/discovery/preview_service_attributes/`
 
-**Operation ID:** `openstack_discovery_preview_service_attributes`
-
 Build service_attributes and plugin_options from selected values.
 
 **Request Body** (`application/json`, required):
@@ -2555,8 +2513,6 @@ Schema: `PreviewServiceAttributesRequestRequest`
 
 **`POST`** `/api/openstack/discovery/validate_credentials/`
 
-**Operation ID:** `openstack_discovery_validate_credentials`
-
 Validate OpenStack credentials without saving them.
 
 **Request Body** (`application/json`, required):
@@ -2586,8 +2542,6 @@ Schema: `OpenStackCredentialsRequest`
 
 **`GET`** `/api/openstack/discovery/{id}/`
 
-**Operation ID:** `openstack_discovery_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2605,8 +2559,6 @@ Schema: `OpenStackCredentialsRequest`
 ### openstack_discovery_update
 
 **`PUT`** `/api/openstack/discovery/{id}/`
-
-**Operation ID:** `openstack_discovery_update`
 
 **Parameters:**
 
@@ -2626,8 +2578,6 @@ Schema: `OpenStackCredentialsRequest`
 
 **`PATCH`** `/api/openstack/discovery/{id}/`
 
-**Operation ID:** `openstack_discovery_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2645,8 +2595,6 @@ Schema: `OpenStackCredentialsRequest`
 ### openstack_discovery_destroy
 
 **`DELETE`** `/api/openstack/discovery/{id}/`
-
-**Operation ID:** `openstack_discovery_destroy`
 
 **Parameters:**
 

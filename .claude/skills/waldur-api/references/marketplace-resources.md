@@ -7,106 +7,104 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/marketplace-bookings/{uuid}/` | `marketplace_bookings_list` |  |
-| GET | `/api/marketplace-provider-resources/` | `marketplace_provider_resources_list` | List provider resources |
-| HEAD | `/api/marketplace-provider-resources/` | `marketplace_provider_resources_count` | List provider resources |
-| GET | `/api/marketplace-provider-resources/{uuid}/` | `marketplace_provider_resources_retrieve` | Retrieve a provider resource |
-| PUT | `/api/marketplace-provider-resources/{uuid}/` | `marketplace_provider_resources_update` | Update a provider resource |
-| PATCH | `/api/marketplace-provider-resources/{uuid}/` | `marketplace_provider_resources_partial_update` | Partially update a provider resource |
-| GET | `/api/marketplace-provider-resources/{uuid}/details/` | `marketplace_provider_resources_details_retrieve` | Get resource details |
-| GET | `/api/marketplace-provider-resources/{uuid}/glauth_users_config/` | `marketplace_provider_resources_glauth_users_config_retrieve` | Get GLauth user configuration for a resource |
-| GET | `/api/marketplace-provider-resources/{uuid}/history/` | `marketplace_provider_resources_history_list` | Get version history |
-| GET | `/api/marketplace-provider-resources/{uuid}/history/at/` | `marketplace_provider_resources_history_at_retrieve` | Get object state at a specific timestamp |
-| POST | `/api/marketplace-provider-resources/{uuid}/move_resource/` | `marketplace_provider_resources_move_resource` | Move a resource to another project |
-| GET | `/api/marketplace-provider-resources/{uuid}/offering/` | `marketplace_provider_resources_offering_retrieve` | Get offering details |
-| GET | `/api/marketplace-provider-resources/{uuid}/offering_for_subresources/` | `marketplace_provider_resources_offering_for_subresources_list` | List offerings for sub-resources |
-| GET | `/api/marketplace-provider-resources/{uuid}/plan_periods/` | `marketplace_provider_resources_plan_periods_list` | List resource plan periods |
-| POST | `/api/marketplace-provider-resources/{uuid}/pull/` | `marketplace_provider_resources_pull` | Pull resource data |
-| POST | `/api/marketplace-provider-resources/{uuid}/refresh_last_sync/` | `marketplace_provider_resources_refresh_last_sync` | Refresh last sync time |
-| POST | `/api/marketplace-provider-resources/{uuid}/restore/` | `marketplace_provider_resources_restore` |  |
-| POST | `/api/marketplace-provider-resources/{uuid}/set_as_erred/` | `marketplace_provider_resources_set_as_erred` | Set resource state to erred |
-| POST | `/api/marketplace-provider-resources/{uuid}/set_as_ok/` | `marketplace_provider_resources_set_as_ok` | Set resource state to OK |
-| POST | `/api/marketplace-provider-resources/{uuid}/set_backend_id/` | `marketplace_provider_resources_set_backend_id` | Set resource backend ID |
-| POST | `/api/marketplace-provider-resources/{uuid}/set_backend_metadata/` | `marketplace_provider_resources_set_backend_metadata` | Set resource backend metadata |
-| POST | `/api/marketplace-provider-resources/{uuid}/set_downscaled/` | `marketplace_provider_resources_set_downscaled` | Set downscaled flag for resource |
-| POST | `/api/marketplace-provider-resources/{uuid}/set_end_date_by_provider/` | `marketplace_provider_resources_set_end_date_by_provider` | Set end date by provider |
-| POST | `/api/marketplace-provider-resources/{uuid}/set_end_date_by_staff/` | `marketplace_provider_resources_set_end_date_by_staff` | Set end date of the resource by staff |
-| POST | `/api/marketplace-provider-resources/{uuid}/set_keycloak_scopes/` | `marketplace_provider_resources_set_keycloak_scopes` | Set Keycloak scope options for a resource |
-| POST | `/api/marketplace-provider-resources/{uuid}/set_limits/` | `marketplace_provider_resources_set_limits` | Set resource limits |
-| POST | `/api/marketplace-provider-resources/{uuid}/set_paused/` | `marketplace_provider_resources_set_paused` | Set paused flag for resource |
-| POST | `/api/marketplace-provider-resources/{uuid}/set_restrict_member_access/` | `marketplace_provider_resources_set_restrict_member_access` | Set restrict member access flag |
-| POST | `/api/marketplace-provider-resources/{uuid}/set_slug/` | `marketplace_provider_resources_set_slug` | Set resource slug |
-| POST | `/api/marketplace-provider-resources/{uuid}/set_state_ok/` | `marketplace_provider_resources_set_state_ok` | Set resource state to OK |
-| POST | `/api/marketplace-provider-resources/{uuid}/submit_report/` | `marketplace_provider_resources_submit_report` | Submit a report for a resource |
-| GET | `/api/marketplace-provider-resources/{uuid}/team/` | `marketplace_provider_resources_team_list` | Get resource team |
-| POST | `/api/marketplace-provider-resources/{uuid}/terminate/` | `marketplace_provider_resources_terminate` | Terminate a resource |
-| POST | `/api/marketplace-provider-resources/{uuid}/unlink/` | `marketplace_provider_resources_unlink` | Unlink a resource (staff only) |
-| POST | `/api/marketplace-provider-resources/{uuid}/update_options/` | `marketplace_provider_resources_update_options` | Update resource options |
-| POST | `/api/marketplace-provider-resources/{uuid}/update_options_direct/` | `marketplace_provider_resources_update_options_direct` | Update resource options directly |
-| GET | `/api/marketplace-remote-synchronisations/` | `marketplace_remote_synchronisations_list` |  |
-| HEAD | `/api/marketplace-remote-synchronisations/` | `marketplace_remote_synchronisations_count` |  |
-| POST | `/api/marketplace-remote-synchronisations/` | `marketplace_remote_synchronisations_create` |  |
-| GET | `/api/marketplace-remote-synchronisations/{uuid}/` | `marketplace_remote_synchronisations_retrieve` |  |
-| PUT | `/api/marketplace-remote-synchronisations/{uuid}/` | `marketplace_remote_synchronisations_update` |  |
-| PATCH | `/api/marketplace-remote-synchronisations/{uuid}/` | `marketplace_remote_synchronisations_partial_update` |  |
-| DELETE | `/api/marketplace-remote-synchronisations/{uuid}/` | `marketplace_remote_synchronisations_destroy` |  |
-| POST | `/api/marketplace-remote-synchronisations/{uuid}/run_synchronisation/` | `marketplace_remote_synchronisations_run_synchronisation` |  |
-| GET | `/api/marketplace-resource-users/` | `marketplace_resource_users_list` | List resource users |
-| HEAD | `/api/marketplace-resource-users/` | `marketplace_resource_users_count` | List resource users |
-| POST | `/api/marketplace-resource-users/` | `marketplace_resource_users_create` | Link a user to a resource |
-| GET | `/api/marketplace-resource-users/{uuid}/` | `marketplace_resource_users_retrieve` | Retrieve a resource-user link |
-| DELETE | `/api/marketplace-resource-users/{uuid}/` | `marketplace_resource_users_destroy` | Unlink a user from a resource |
-| GET | `/api/marketplace-resources/` | `marketplace_resources_list` | List consumer resources |
-| HEAD | `/api/marketplace-resources/` | `marketplace_resources_count` | List consumer resources |
-| POST | `/api/marketplace-resources/suggest_name/` | `marketplace_resources_suggest_name` | Suggest a resource name |
-| GET | `/api/marketplace-resources/{uuid}/` | `marketplace_resources_retrieve` | Retrieve a consumer resource |
-| PUT | `/api/marketplace-resources/{uuid}/` | `marketplace_resources_update` | Update a consumer resource |
-| PATCH | `/api/marketplace-resources/{uuid}/` | `marketplace_resources_partial_update` | Partially update a consumer resource |
-| GET | `/api/marketplace-resources/{uuid}/details/` | `marketplace_resources_details_retrieve` | Get resource details |
-| POST | `/api/marketplace-resources/{uuid}/estimate_renewal/` | `marketplace_resources_estimate_renewal` | Estimate renewal cost breakdown |
-| GET | `/api/marketplace-resources/{uuid}/glauth_users_config/` | `marketplace_resources_glauth_users_config_retrieve` | Get GLauth user configuration for a resource |
-| GET | `/api/marketplace-resources/{uuid}/history/` | `marketplace_resources_history_list` | Get version history |
-| GET | `/api/marketplace-resources/{uuid}/history/at/` | `marketplace_resources_history_at_retrieve` | Get object state at a specific timestamp |
-| POST | `/api/marketplace-resources/{uuid}/move_resource/` | `marketplace_resources_move_resource` | Move a resource to another project |
-| GET | `/api/marketplace-resources/{uuid}/offering/` | `marketplace_resources_offering_retrieve` | Get offering details |
-| GET | `/api/marketplace-resources/{uuid}/offering_for_subresources/` | `marketplace_resources_offering_for_subresources_list` | List offerings for sub-resources |
-| GET | `/api/marketplace-resources/{uuid}/plan_periods/` | `marketplace_resources_plan_periods_list` | List resource plan periods |
-| POST | `/api/marketplace-resources/{uuid}/pull/` | `marketplace_resources_pull` | Pull resource data |
-| POST | `/api/marketplace-resources/{uuid}/reallocate_limits/` | `marketplace_resources_reallocate_limits` | Reallocate resource limits |
-| POST | `/api/marketplace-resources/{uuid}/renew/` | `marketplace_resources_renew` | Renew a prepaid resource |
-| POST | `/api/marketplace-resources/{uuid}/restore/` | `marketplace_resources_restore` |  |
-| POST | `/api/marketplace-resources/{uuid}/set_downscaled/` | `marketplace_resources_set_downscaled` | Set downscaled flag for resource |
-| POST | `/api/marketplace-resources/{uuid}/set_end_date_by_staff/` | `marketplace_resources_set_end_date_by_staff` | Set end date of the resource by staff |
-| POST | `/api/marketplace-resources/{uuid}/set_paused/` | `marketplace_resources_set_paused` | Set paused flag for resource |
-| POST | `/api/marketplace-resources/{uuid}/set_restrict_member_access/` | `marketplace_resources_set_restrict_member_access` | Set restrict member access flag |
-| POST | `/api/marketplace-resources/{uuid}/set_slug/` | `marketplace_resources_set_slug` | Set resource slug |
-| POST | `/api/marketplace-resources/{uuid}/switch_plan/` | `marketplace_resources_switch_plan` | Switch resource plan |
-| GET | `/api/marketplace-resources/{uuid}/team/` | `marketplace_resources_team_list` | Get resource team |
-| POST | `/api/marketplace-resources/{uuid}/terminate/` | `marketplace_resources_terminate` | Terminate a resource |
-| POST | `/api/marketplace-resources/{uuid}/unlink/` | `marketplace_resources_unlink` | Unlink a resource (staff only) |
-| POST | `/api/marketplace-resources/{uuid}/update_limits/` | `marketplace_resources_update_limits` | Update resource limits |
-| POST | `/api/marketplace-resources/{uuid}/update_options/` | `marketplace_resources_update_options` | Update resource options |
-| GET | `/api/marketplace-robot-accounts/` | `marketplace_robot_accounts_list` | List robot accounts |
-| HEAD | `/api/marketplace-robot-accounts/` | `marketplace_robot_accounts_count` | List robot accounts |
-| POST | `/api/marketplace-robot-accounts/` | `marketplace_robot_accounts_create` | Create a robot account |
-| GET | `/api/marketplace-robot-accounts/{uuid}/` | `marketplace_robot_accounts_retrieve` | Retrieve a robot account |
-| PUT | `/api/marketplace-robot-accounts/{uuid}/` | `marketplace_robot_accounts_update` | Update a robot account |
-| PATCH | `/api/marketplace-robot-accounts/{uuid}/` | `marketplace_robot_accounts_partial_update` | Partially update a robot account |
-| DELETE | `/api/marketplace-robot-accounts/{uuid}/` | `marketplace_robot_accounts_destroy` | Delete a robot account |
-| POST | `/api/marketplace-robot-accounts/{uuid}/set_state_creating/` | `marketplace_robot_accounts_set_state_creating` | Set robot account state to creating |
-| POST | `/api/marketplace-robot-accounts/{uuid}/set_state_deleted/` | `marketplace_robot_accounts_set_state_deleted` | Set robot account state to deleted |
-| POST | `/api/marketplace-robot-accounts/{uuid}/set_state_erred/` | `marketplace_robot_accounts_set_state_erred` | Set robot account state to erred |
-| POST | `/api/marketplace-robot-accounts/{uuid}/set_state_ok/` | `marketplace_robot_accounts_set_state_ok` | Set robot account state to OK |
-| POST | `/api/marketplace-robot-accounts/{uuid}/set_state_request_deletion/` | `marketplace_robot_accounts_set_state_request_deletion` | Request deletion of a robot account |
-| GET | `/api/marketplace-runtime-states/` | `marketplace_runtime_states_list` | List available runtime states for resources |
+| GET | `/api/marketplace-bookings/{uuid}/` | [`marketplace_bookings_list`](#marketplace-bookings-list) |  |
+| GET | `/api/marketplace-provider-resources/` | [`marketplace_provider_resources_list`](#marketplace-provider-resources-list) | List provider resources |
+| HEAD | `/api/marketplace-provider-resources/` | [`marketplace_provider_resources_count`](#marketplace-provider-resources-count) | List provider resources |
+| GET | `/api/marketplace-provider-resources/{uuid}/` | [`marketplace_provider_resources_retrieve`](#marketplace-provider-resources-retrieve) | Retrieve a provider resource |
+| PUT | `/api/marketplace-provider-resources/{uuid}/` | [`marketplace_provider_resources_update`](#marketplace-provider-resources-update) | Update a provider resource |
+| PATCH | `/api/marketplace-provider-resources/{uuid}/` | [`marketplace_provider_resources_partial_update`](#marketplace-provider-resources-partial-update) | Partially update a provider resource |
+| GET | `/api/marketplace-provider-resources/{uuid}/details/` | [`marketplace_provider_resources_details_retrieve`](#marketplace-provider-resources-details-retrieve) | Get resource details |
+| GET | `/api/marketplace-provider-resources/{uuid}/glauth_users_config/` | [`marketplace_provider_resources_glauth_users_config_retrieve`](#marketplace-provider-resources-glauth-users-config-retrieve) | Get GLauth user configuration for a resource |
+| GET | `/api/marketplace-provider-resources/{uuid}/history/` | [`marketplace_provider_resources_history_list`](#marketplace-provider-resources-history-list) | Get version history |
+| GET | `/api/marketplace-provider-resources/{uuid}/history/at/` | [`marketplace_provider_resources_history_at_retrieve`](#marketplace-provider-resources-history-at-retrieve) | Get object state at a specific timestamp |
+| POST | `/api/marketplace-provider-resources/{uuid}/move_resource/` | [`marketplace_provider_resources_move_resource`](#marketplace-provider-resources-move-resource) | Move a resource to another project |
+| GET | `/api/marketplace-provider-resources/{uuid}/offering/` | [`marketplace_provider_resources_offering_retrieve`](#marketplace-provider-resources-offering-retrieve) | Get offering details |
+| GET | `/api/marketplace-provider-resources/{uuid}/offering_for_subresources/` | [`marketplace_provider_resources_offering_for_subresources_list`](#marketplace-provider-resources-offering-for-subresources-list) | List offerings for sub-resources |
+| GET | `/api/marketplace-provider-resources/{uuid}/plan_periods/` | [`marketplace_provider_resources_plan_periods_list`](#marketplace-provider-resources-plan-periods-list) | List resource plan periods |
+| POST | `/api/marketplace-provider-resources/{uuid}/pull/` | [`marketplace_provider_resources_pull`](#marketplace-provider-resources-pull) | Pull resource data |
+| POST | `/api/marketplace-provider-resources/{uuid}/refresh_last_sync/` | [`marketplace_provider_resources_refresh_last_sync`](#marketplace-provider-resources-refresh-last-sync) | Refresh last sync time |
+| POST | `/api/marketplace-provider-resources/{uuid}/restore/` | [`marketplace_provider_resources_restore`](#marketplace-provider-resources-restore) |  |
+| POST | `/api/marketplace-provider-resources/{uuid}/set_as_erred/` | [`marketplace_provider_resources_set_as_erred`](#marketplace-provider-resources-set-as-erred) | Set resource state to erred |
+| POST | `/api/marketplace-provider-resources/{uuid}/set_as_ok/` | [`marketplace_provider_resources_set_as_ok`](#marketplace-provider-resources-set-as-ok) | Set resource state to OK |
+| POST | `/api/marketplace-provider-resources/{uuid}/set_backend_id/` | [`marketplace_provider_resources_set_backend_id`](#marketplace-provider-resources-set-backend-id) | Set resource backend ID |
+| POST | `/api/marketplace-provider-resources/{uuid}/set_backend_metadata/` | [`marketplace_provider_resources_set_backend_metadata`](#marketplace-provider-resources-set-backend-metadata) | Set resource backend metadata |
+| POST | `/api/marketplace-provider-resources/{uuid}/set_downscaled/` | [`marketplace_provider_resources_set_downscaled`](#marketplace-provider-resources-set-downscaled) | Set downscaled flag for resource |
+| POST | `/api/marketplace-provider-resources/{uuid}/set_end_date_by_provider/` | [`marketplace_provider_resources_set_end_date_by_provider`](#marketplace-provider-resources-set-end-date-by-provider) | Set end date by provider |
+| POST | `/api/marketplace-provider-resources/{uuid}/set_end_date_by_staff/` | [`marketplace_provider_resources_set_end_date_by_staff`](#marketplace-provider-resources-set-end-date-by-staff) | Set end date of the resource by staff |
+| POST | `/api/marketplace-provider-resources/{uuid}/set_keycloak_scopes/` | [`marketplace_provider_resources_set_keycloak_scopes`](#marketplace-provider-resources-set-keycloak-scopes) | Set Keycloak scope options for a resource |
+| POST | `/api/marketplace-provider-resources/{uuid}/set_limits/` | [`marketplace_provider_resources_set_limits`](#marketplace-provider-resources-set-limits) | Set resource limits |
+| POST | `/api/marketplace-provider-resources/{uuid}/set_paused/` | [`marketplace_provider_resources_set_paused`](#marketplace-provider-resources-set-paused) | Set paused flag for resource |
+| POST | `/api/marketplace-provider-resources/{uuid}/set_restrict_member_access/` | [`marketplace_provider_resources_set_restrict_member_access`](#marketplace-provider-resources-set-restrict-member-access) | Set restrict member access flag |
+| POST | `/api/marketplace-provider-resources/{uuid}/set_slug/` | [`marketplace_provider_resources_set_slug`](#marketplace-provider-resources-set-slug) | Set resource slug |
+| POST | `/api/marketplace-provider-resources/{uuid}/set_state_ok/` | [`marketplace_provider_resources_set_state_ok`](#marketplace-provider-resources-set-state-ok) | Set resource state to OK |
+| POST | `/api/marketplace-provider-resources/{uuid}/submit_report/` | [`marketplace_provider_resources_submit_report`](#marketplace-provider-resources-submit-report) | Submit a report for a resource |
+| GET | `/api/marketplace-provider-resources/{uuid}/team/` | [`marketplace_provider_resources_team_list`](#marketplace-provider-resources-team-list) | Get resource team |
+| POST | `/api/marketplace-provider-resources/{uuid}/terminate/` | [`marketplace_provider_resources_terminate`](#marketplace-provider-resources-terminate) | Terminate a resource |
+| POST | `/api/marketplace-provider-resources/{uuid}/unlink/` | [`marketplace_provider_resources_unlink`](#marketplace-provider-resources-unlink) | Unlink a resource (staff only) |
+| POST | `/api/marketplace-provider-resources/{uuid}/update_options/` | [`marketplace_provider_resources_update_options`](#marketplace-provider-resources-update-options) | Update resource options |
+| POST | `/api/marketplace-provider-resources/{uuid}/update_options_direct/` | [`marketplace_provider_resources_update_options_direct`](#marketplace-provider-resources-update-options-direct) | Update resource options directly |
+| GET | `/api/marketplace-remote-synchronisations/` | [`marketplace_remote_synchronisations_list`](#marketplace-remote-synchronisations-list) |  |
+| HEAD | `/api/marketplace-remote-synchronisations/` | [`marketplace_remote_synchronisations_count`](#marketplace-remote-synchronisations-count) |  |
+| POST | `/api/marketplace-remote-synchronisations/` | [`marketplace_remote_synchronisations_create`](#marketplace-remote-synchronisations-create) |  |
+| GET | `/api/marketplace-remote-synchronisations/{uuid}/` | [`marketplace_remote_synchronisations_retrieve`](#marketplace-remote-synchronisations-retrieve) |  |
+| PUT | `/api/marketplace-remote-synchronisations/{uuid}/` | [`marketplace_remote_synchronisations_update`](#marketplace-remote-synchronisations-update) |  |
+| PATCH | `/api/marketplace-remote-synchronisations/{uuid}/` | [`marketplace_remote_synchronisations_partial_update`](#marketplace-remote-synchronisations-partial-update) |  |
+| DELETE | `/api/marketplace-remote-synchronisations/{uuid}/` | [`marketplace_remote_synchronisations_destroy`](#marketplace-remote-synchronisations-destroy) |  |
+| POST | `/api/marketplace-remote-synchronisations/{uuid}/run_synchronisation/` | [`marketplace_remote_synchronisations_run_synchronisation`](#marketplace-remote-synchronisations-run-synchronisation) |  |
+| GET | `/api/marketplace-resource-users/` | [`marketplace_resource_users_list`](#marketplace-resource-users-list) | List resource users |
+| HEAD | `/api/marketplace-resource-users/` | [`marketplace_resource_users_count`](#marketplace-resource-users-count) | List resource users |
+| POST | `/api/marketplace-resource-users/` | [`marketplace_resource_users_create`](#marketplace-resource-users-create) | Link a user to a resource |
+| GET | `/api/marketplace-resource-users/{uuid}/` | [`marketplace_resource_users_retrieve`](#marketplace-resource-users-retrieve) | Retrieve a resource-user link |
+| DELETE | `/api/marketplace-resource-users/{uuid}/` | [`marketplace_resource_users_destroy`](#marketplace-resource-users-destroy) | Unlink a user from a resource |
+| GET | `/api/marketplace-resources/` | [`marketplace_resources_list`](#marketplace-resources-list) | List consumer resources |
+| HEAD | `/api/marketplace-resources/` | [`marketplace_resources_count`](#marketplace-resources-count) | List consumer resources |
+| POST | `/api/marketplace-resources/suggest_name/` | [`marketplace_resources_suggest_name`](#marketplace-resources-suggest-name) | Suggest a resource name |
+| GET | `/api/marketplace-resources/{uuid}/` | [`marketplace_resources_retrieve`](#marketplace-resources-retrieve) | Retrieve a consumer resource |
+| PUT | `/api/marketplace-resources/{uuid}/` | [`marketplace_resources_update`](#marketplace-resources-update) | Update a consumer resource |
+| PATCH | `/api/marketplace-resources/{uuid}/` | [`marketplace_resources_partial_update`](#marketplace-resources-partial-update) | Partially update a consumer resource |
+| GET | `/api/marketplace-resources/{uuid}/details/` | [`marketplace_resources_details_retrieve`](#marketplace-resources-details-retrieve) | Get resource details |
+| POST | `/api/marketplace-resources/{uuid}/estimate_renewal/` | [`marketplace_resources_estimate_renewal`](#marketplace-resources-estimate-renewal) | Estimate renewal cost breakdown |
+| GET | `/api/marketplace-resources/{uuid}/glauth_users_config/` | [`marketplace_resources_glauth_users_config_retrieve`](#marketplace-resources-glauth-users-config-retrieve) | Get GLauth user configuration for a resource |
+| GET | `/api/marketplace-resources/{uuid}/history/` | [`marketplace_resources_history_list`](#marketplace-resources-history-list) | Get version history |
+| GET | `/api/marketplace-resources/{uuid}/history/at/` | [`marketplace_resources_history_at_retrieve`](#marketplace-resources-history-at-retrieve) | Get object state at a specific timestamp |
+| POST | `/api/marketplace-resources/{uuid}/move_resource/` | [`marketplace_resources_move_resource`](#marketplace-resources-move-resource) | Move a resource to another project |
+| GET | `/api/marketplace-resources/{uuid}/offering/` | [`marketplace_resources_offering_retrieve`](#marketplace-resources-offering-retrieve) | Get offering details |
+| GET | `/api/marketplace-resources/{uuid}/offering_for_subresources/` | [`marketplace_resources_offering_for_subresources_list`](#marketplace-resources-offering-for-subresources-list) | List offerings for sub-resources |
+| GET | `/api/marketplace-resources/{uuid}/plan_periods/` | [`marketplace_resources_plan_periods_list`](#marketplace-resources-plan-periods-list) | List resource plan periods |
+| POST | `/api/marketplace-resources/{uuid}/pull/` | [`marketplace_resources_pull`](#marketplace-resources-pull) | Pull resource data |
+| POST | `/api/marketplace-resources/{uuid}/reallocate_limits/` | [`marketplace_resources_reallocate_limits`](#marketplace-resources-reallocate-limits) | Reallocate resource limits |
+| POST | `/api/marketplace-resources/{uuid}/renew/` | [`marketplace_resources_renew`](#marketplace-resources-renew) | Renew a prepaid resource |
+| POST | `/api/marketplace-resources/{uuid}/restore/` | [`marketplace_resources_restore`](#marketplace-resources-restore) |  |
+| POST | `/api/marketplace-resources/{uuid}/set_downscaled/` | [`marketplace_resources_set_downscaled`](#marketplace-resources-set-downscaled) | Set downscaled flag for resource |
+| POST | `/api/marketplace-resources/{uuid}/set_end_date_by_staff/` | [`marketplace_resources_set_end_date_by_staff`](#marketplace-resources-set-end-date-by-staff) | Set end date of the resource by staff |
+| POST | `/api/marketplace-resources/{uuid}/set_paused/` | [`marketplace_resources_set_paused`](#marketplace-resources-set-paused) | Set paused flag for resource |
+| POST | `/api/marketplace-resources/{uuid}/set_restrict_member_access/` | [`marketplace_resources_set_restrict_member_access`](#marketplace-resources-set-restrict-member-access) | Set restrict member access flag |
+| POST | `/api/marketplace-resources/{uuid}/set_slug/` | [`marketplace_resources_set_slug`](#marketplace-resources-set-slug) | Set resource slug |
+| POST | `/api/marketplace-resources/{uuid}/switch_plan/` | [`marketplace_resources_switch_plan`](#marketplace-resources-switch-plan) | Switch resource plan |
+| GET | `/api/marketplace-resources/{uuid}/team/` | [`marketplace_resources_team_list`](#marketplace-resources-team-list) | Get resource team |
+| POST | `/api/marketplace-resources/{uuid}/terminate/` | [`marketplace_resources_terminate`](#marketplace-resources-terminate) | Terminate a resource |
+| POST | `/api/marketplace-resources/{uuid}/unlink/` | [`marketplace_resources_unlink`](#marketplace-resources-unlink) | Unlink a resource (staff only) |
+| POST | `/api/marketplace-resources/{uuid}/update_limits/` | [`marketplace_resources_update_limits`](#marketplace-resources-update-limits) | Update resource limits |
+| POST | `/api/marketplace-resources/{uuid}/update_options/` | [`marketplace_resources_update_options`](#marketplace-resources-update-options) | Update resource options |
+| GET | `/api/marketplace-robot-accounts/` | [`marketplace_robot_accounts_list`](#marketplace-robot-accounts-list) | List robot accounts |
+| HEAD | `/api/marketplace-robot-accounts/` | [`marketplace_robot_accounts_count`](#marketplace-robot-accounts-count) | List robot accounts |
+| POST | `/api/marketplace-robot-accounts/` | [`marketplace_robot_accounts_create`](#marketplace-robot-accounts-create) | Create a robot account |
+| GET | `/api/marketplace-robot-accounts/{uuid}/` | [`marketplace_robot_accounts_retrieve`](#marketplace-robot-accounts-retrieve) | Retrieve a robot account |
+| PUT | `/api/marketplace-robot-accounts/{uuid}/` | [`marketplace_robot_accounts_update`](#marketplace-robot-accounts-update) | Update a robot account |
+| PATCH | `/api/marketplace-robot-accounts/{uuid}/` | [`marketplace_robot_accounts_partial_update`](#marketplace-robot-accounts-partial-update) | Partially update a robot account |
+| DELETE | `/api/marketplace-robot-accounts/{uuid}/` | [`marketplace_robot_accounts_destroy`](#marketplace-robot-accounts-destroy) | Delete a robot account |
+| POST | `/api/marketplace-robot-accounts/{uuid}/set_state_creating/` | [`marketplace_robot_accounts_set_state_creating`](#marketplace-robot-accounts-set-state-creating) | Set robot account state to creating |
+| POST | `/api/marketplace-robot-accounts/{uuid}/set_state_deleted/` | [`marketplace_robot_accounts_set_state_deleted`](#marketplace-robot-accounts-set-state-deleted) | Set robot account state to deleted |
+| POST | `/api/marketplace-robot-accounts/{uuid}/set_state_erred/` | [`marketplace_robot_accounts_set_state_erred`](#marketplace-robot-accounts-set-state-erred) | Set robot account state to erred |
+| POST | `/api/marketplace-robot-accounts/{uuid}/set_state_ok/` | [`marketplace_robot_accounts_set_state_ok`](#marketplace-robot-accounts-set-state-ok) | Set robot account state to OK |
+| POST | `/api/marketplace-robot-accounts/{uuid}/set_state_request_deletion/` | [`marketplace_robot_accounts_set_state_request_deletion`](#marketplace-robot-accounts-set-state-request-deletion) | Request deletion of a robot account |
+| GET | `/api/marketplace-runtime-states/` | [`marketplace_runtime_states_list`](#marketplace-runtime-states-list) | List available runtime states for resources |
 
 ## Endpoint Details
 
 ### marketplace_bookings_list
 
 **`GET`** `/api/marketplace-bookings/{uuid}/`
-
-**Operation ID:** `marketplace_bookings_list`
 
 **Parameters:**
 
@@ -122,11 +120,11 @@
 
 ---
 
-### List provider resources
+### marketplace_provider_resources_list
 
 **`GET`** `/api/marketplace-provider-resources/`
 
-**Operation ID:** `marketplace_provider_resources_list`
+**Summary:** List provider resources
 
 Returns a paginated list of resources for offerings managed by the current user as a service provider.
 
@@ -184,11 +182,11 @@ Returns a paginated list of resources for offerings managed by the current user 
 
 ---
 
-### List provider resources
+### marketplace_provider_resources_count
 
 **`HEAD`** `/api/marketplace-provider-resources/`
 
-**Operation ID:** `marketplace_provider_resources_count`
+**Summary:** List provider resources
 
 Get number of items in the collection matching the request parameters.
 
@@ -245,11 +243,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve a provider resource
+### marketplace_provider_resources_retrieve
 
 **`GET`** `/api/marketplace-provider-resources/{uuid}/`
 
-**Operation ID:** `marketplace_provider_resources_retrieve`
+**Summary:** Retrieve a provider resource
 
 Returns details of a specific resource from a provider's perspective.
 
@@ -268,11 +266,11 @@ Returns details of a specific resource from a provider's perspective.
 
 ---
 
-### Update a provider resource
+### marketplace_provider_resources_update
 
 **`PUT`** `/api/marketplace-provider-resources/{uuid}/`
 
-**Operation ID:** `marketplace_provider_resources_update`
+**Summary:** Update a provider resource
 
 Updates the name or description of a resource. Requires provider permissions.
 
@@ -300,11 +298,11 @@ Schema: `ResourceUpdateRequest`
 
 ---
 
-### Partially update a provider resource
+### marketplace_provider_resources_partial_update
 
 **`PATCH`** `/api/marketplace-provider-resources/{uuid}/`
 
-**Operation ID:** `marketplace_provider_resources_partial_update`
+**Summary:** Partially update a provider resource
 
 Partially updates the name or description of a resource. Requires provider permissions.
 
@@ -332,11 +330,11 @@ Schema: `PatchedResourceUpdateRequest`
 
 ---
 
-### Get resource details
+### marketplace_provider_resources_details_retrieve
 
 **`GET`** `/api/marketplace-provider-resources/{uuid}/details/`
 
-**Operation ID:** `marketplace_provider_resources_details_retrieve`
+**Summary:** Get resource details
 
 Returns the detailed representation of the backend resource associated with the marketplace resource. The format of the response depends on the resource type.
 
@@ -356,11 +354,11 @@ Returns the detailed representation of the backend resource associated with the 
 
 ---
 
-### Get GLauth user configuration for a resource
+### marketplace_provider_resources_glauth_users_config_retrieve
 
 **`GET`** `/api/marketplace-provider-resources/{uuid}/glauth_users_config/`
 
-**Operation ID:** `marketplace_provider_resources_glauth_users_config_retrieve`
+**Summary:** Get GLauth user configuration for a resource
 
 This endpoint provides a GLauth configuration file for the users associated with the project of this resource.
         It is intended for use by an external agent to synchronize user data from Waldur to GLauth.
@@ -379,11 +377,11 @@ This endpoint provides a GLauth configuration file for the users associated with
 
 ---
 
-### Get version history
+### marketplace_provider_resources_history_list
 
 **`GET`** `/api/marketplace-provider-resources/{uuid}/history/`
 
-**Operation ID:** `marketplace_provider_resources_history_list`
+**Summary:** Get version history
 
 Returns the version history for this object. Only accessible by staff and support users.
 
@@ -443,11 +441,11 @@ Returns the version history for this object. Only accessible by staff and suppor
 
 ---
 
-### Get object state at a specific timestamp
+### marketplace_provider_resources_history_at_retrieve
 
 **`GET`** `/api/marketplace-provider-resources/{uuid}/history/at/`
 
-**Operation ID:** `marketplace_provider_resources_history_at_retrieve`
+**Summary:** Get object state at a specific timestamp
 
 Returns the state of the object as it was at the specified timestamp. Only accessible by staff and support users.
 
@@ -468,11 +466,11 @@ Returns the state of the object as it was at the specified timestamp. Only acces
 
 ---
 
-### Move a resource to another project
+### marketplace_provider_resources_move_resource
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/move_resource/`
 
-**Operation ID:** `marketplace_provider_resources_move_resource`
+**Summary:** Move a resource to another project
 
 Moves a resource and its associated data to a different project. Requires staff permissions.
 
@@ -498,11 +496,11 @@ Schema: `MoveResourceRequest`
 
 ---
 
-### Get offering details
+### marketplace_provider_resources_offering_retrieve
 
 **`GET`** `/api/marketplace-provider-resources/{uuid}/offering/`
 
-**Operation ID:** `marketplace_provider_resources_offering_retrieve`
+**Summary:** Get offering details
 
 Returns details of the offering connected to the requested object.
 
@@ -520,11 +518,11 @@ Returns details of the offering connected to the requested object.
 
 ---
 
-### List offerings for sub-resources
+### marketplace_provider_resources_offering_for_subresources_list
 
 **`GET`** `/api/marketplace-provider-resources/{uuid}/offering_for_subresources/`
 
-**Operation ID:** `marketplace_provider_resources_offering_for_subresources_list`
+**Summary:** List offerings for sub-resources
 
 Returns a list of offerings that can be provisioned as sub-resources of the current resource.
 
@@ -542,11 +540,11 @@ Returns a list of offerings that can be provisioned as sub-resources of the curr
 
 ---
 
-### List resource plan periods
+### marketplace_provider_resources_plan_periods_list
 
 **`GET`** `/api/marketplace-provider-resources/{uuid}/plan_periods/`
 
-**Operation ID:** `marketplace_provider_resources_plan_periods_list`
+**Summary:** List resource plan periods
 
 Returns a list of active and future plan periods for the resource. Each period includes the plan details and current component usage.
 
@@ -564,11 +562,11 @@ Returns a list of active and future plan periods for the resource. Each period i
 
 ---
 
-### Pull resource data
+### marketplace_provider_resources_pull
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/pull/`
 
-**Operation ID:** `marketplace_provider_resources_pull`
+**Summary:** Pull resource data
 
 Schedules a task to pull the latest data for the resource from its backend.
 
@@ -586,11 +584,11 @@ Schedules a task to pull the latest data for the resource from its backend.
 
 ---
 
-### Refresh last sync time
+### marketplace_provider_resources_refresh_last_sync
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/refresh_last_sync/`
 
-**Operation ID:** `marketplace_provider_resources_refresh_last_sync`
+**Summary:** Refresh last sync time
 
 Updates the 'last_sync' timestamp for a resource to the current time. This is useful for backend agents to signal that a resource is being actively monitored.
 
@@ -611,8 +609,6 @@ Updates the 'last_sync' timestamp for a resource to the current time. This is us
 ### marketplace_provider_resources_restore
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/restore/`
-
-**Operation ID:** `marketplace_provider_resources_restore`
 
 **Parameters:**
 
@@ -642,11 +638,11 @@ Schema: `ResourceRequest`
 
 ---
 
-### Set resource state to erred
+### marketplace_provider_resources_set_as_erred
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/set_as_erred/`
 
-**Operation ID:** `marketplace_provider_resources_set_as_erred`
+**Summary:** Set resource state to erred
 
 Allows a service provider to manually set the state of a resource to 'erred'. An error message and traceback can be provided.
 
@@ -673,11 +669,11 @@ Schema: `ResourceSetStateErredRequest`
 
 ---
 
-### Set resource state to OK
+### marketplace_provider_resources_set_as_ok
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/set_as_ok/`
 
-**Operation ID:** `marketplace_provider_resources_set_as_ok`
+**Summary:** Set resource state to OK
 
 Allows a service provider to manually set the state of a resource to 'OK', clearing any previous error messages.
 
@@ -695,11 +691,11 @@ Allows a service provider to manually set the state of a resource to 'OK', clear
 
 ---
 
-### Set resource backend ID
+### marketplace_provider_resources_set_backend_id
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/set_backend_id/`
 
-**Operation ID:** `marketplace_provider_resources_set_backend_id`
+**Summary:** Set resource backend ID
 
 Allows a service provider to set or update the backend ID for a resource, linking it to an external system's identifier.
 
@@ -725,11 +721,11 @@ Schema: `ResourceBackendIDRequest`
 
 ---
 
-### Set resource backend metadata
+### marketplace_provider_resources_set_backend_metadata
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/set_backend_metadata/`
 
-**Operation ID:** `marketplace_provider_resources_set_backend_metadata`
+**Summary:** Set resource backend metadata
 
 Allows a service provider to set or update the backend-specific metadata for a resource.
 
@@ -755,11 +751,11 @@ Schema: `ResourceBackendMetadataRequest`
 
 ---
 
-### Set downscaled flag for resource
+### marketplace_provider_resources_set_downscaled
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/set_downscaled/`
 
-**Operation ID:** `marketplace_provider_resources_set_downscaled`
+**Summary:** Set downscaled flag for resource
 
 Sets the 'downscaled' flag for a resource. Requires staff permissions.
 
@@ -785,11 +781,11 @@ Schema: `ResourceDownscaledRequest`
 
 ---
 
-### Set end date by provider
+### marketplace_provider_resources_set_end_date_by_provider
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/set_end_date_by_provider/`
 
-**Operation ID:** `marketplace_provider_resources_set_end_date_by_provider`
+**Summary:** Set end date by provider
 
 Allows a service provider to set or update the end date for a resource, scheduling it for termination. A notification is sent to the consumer.
 
@@ -815,11 +811,11 @@ Schema: `ResourceEndDateByProviderRequest`
 
 ---
 
-### Set end date of the resource by staff
+### marketplace_provider_resources_set_end_date_by_staff
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/set_end_date_by_staff/`
 
-**Operation ID:** `marketplace_provider_resources_set_end_date_by_staff`
+**Summary:** Set end date of the resource by staff
 
 Allows a staff user to set or update the end date for a resource, which will schedule it for termination.
 
@@ -845,11 +841,11 @@ Schema: `ResourceEndDateByProviderRequest`
 
 ---
 
-### Set Keycloak scope options for a resource
+### marketplace_provider_resources_set_keycloak_scopes
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/set_keycloak_scopes/`
 
-**Operation ID:** `marketplace_provider_resources_set_keycloak_scopes`
+**Summary:** Set Keycloak scope options for a resource
 
 Allows a service provider to configure available scope options for Keycloak memberships on a resource. Requires Keycloak integration to be enabled on the offering.
 
@@ -875,11 +871,11 @@ Schema: `ResourceKeycloakScopesRequest`
 
 ---
 
-### Set resource limits
+### marketplace_provider_resources_set_limits
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/set_limits/`
 
-**Operation ID:** `marketplace_provider_resources_set_limits`
+**Summary:** Set resource limits
 
 Allows a service provider to directly set the limits for a resource. This is typically used for administrative changes or backend synchronization, bypassing the normal order process.
 
@@ -905,11 +901,11 @@ Schema: `ResourceSetLimitsRequest`
 
 ---
 
-### Set paused flag for resource
+### marketplace_provider_resources_set_paused
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/set_paused/`
 
-**Operation ID:** `marketplace_provider_resources_set_paused`
+**Summary:** Set paused flag for resource
 
 Sets the 'paused' flag for a resource. Requires staff permissions.
 
@@ -935,11 +931,11 @@ Schema: `ResourcePausedRequest`
 
 ---
 
-### Set restrict member access flag
+### marketplace_provider_resources_set_restrict_member_access
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/set_restrict_member_access/`
 
-**Operation ID:** `marketplace_provider_resources_set_restrict_member_access`
+**Summary:** Set restrict member access flag
 
 Sets the 'restrict_member_access' flag for a resource. Requires staff permissions.
 
@@ -965,11 +961,11 @@ Schema: `ResourceRestrictMemberAccessRequest`
 
 ---
 
-### Set resource slug
+### marketplace_provider_resources_set_slug
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/set_slug/`
 
-**Operation ID:** `marketplace_provider_resources_set_slug`
+**Summary:** Set resource slug
 
 Updates the slug for a resource. Requires staff permissions.
 
@@ -995,11 +991,11 @@ Schema: `ResourceSlugRequest`
 
 ---
 
-### Set resource state to OK
+### marketplace_provider_resources_set_state_ok
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/set_state_ok/`
 
-**Operation ID:** `marketplace_provider_resources_set_state_ok`
+**Summary:** Set resource state to OK
 
 Allows a service provider to manually set the resource state to OK. This is useful for recovering from Erred state.
 
@@ -1017,11 +1013,11 @@ Allows a service provider to manually set the resource state to OK. This is usef
 
 ---
 
-### Submit a report for a resource
+### marketplace_provider_resources_submit_report
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/submit_report/`
 
-**Operation ID:** `marketplace_provider_resources_submit_report`
+**Summary:** Submit a report for a resource
 
 Allows a service provider to submit a report (e.g., usage or status report) for a resource.
 
@@ -1047,11 +1043,11 @@ Schema: `ResourceReportRequest`
 
 ---
 
-### Get resource team
+### marketplace_provider_resources_team_list
 
 **`GET`** `/api/marketplace-provider-resources/{uuid}/team/`
 
-**Operation ID:** `marketplace_provider_resources_team_list`
+**Summary:** Get resource team
 
 Returns a list of users connected to the project of this resource, including their project roles and offering-specific usernames.
 
@@ -1069,11 +1065,11 @@ Returns a list of users connected to the project of this resource, including the
 
 ---
 
-### Terminate a resource
+### marketplace_provider_resources_terminate
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/terminate/`
 
-**Operation ID:** `marketplace_provider_resources_terminate`
+**Summary:** Terminate a resource
 
 Creates a marketplace order to terminate the resource. This action is asynchronous and may require approval.
 
@@ -1099,11 +1095,11 @@ Schema: `ResourceTerminateRequest`
 
 ---
 
-### Unlink a resource (staff only)
+### marketplace_provider_resources_unlink
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/unlink/`
 
-**Operation ID:** `marketplace_provider_resources_unlink`
+**Summary:** Unlink a resource (staff only)
 
 Forcefully deletes a marketplace resource and its related plugin resource from the database. This action does not schedule operations on the backend and is intended for cleaning up resources stuck in transitioning states. Requires staff permissions.
 
@@ -1122,11 +1118,11 @@ Forcefully deletes a marketplace resource and its related plugin resource from t
 
 ---
 
-### Update resource options
+### marketplace_provider_resources_update_options
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/update_options/`
 
-**Operation ID:** `marketplace_provider_resources_update_options`
+**Summary:** Update resource options
 
 Updates the options of a resource. If the offering is configured to create orders for option changes, a new UPDATE order will be created. Otherwise, the options are updated directly.
 
@@ -1154,11 +1150,11 @@ Schema: `ResourceOptionsRequest`
 
 ---
 
-### Update resource options directly
+### marketplace_provider_resources_update_options_direct
 
 **`POST`** `/api/marketplace-provider-resources/{uuid}/update_options_direct/`
 
-**Operation ID:** `marketplace_provider_resources_update_options_direct`
+**Summary:** Update resource options directly
 
 Allows a service provider to directly update the options of a resource without creating an order. This is typically used for administrative changes or backend synchronization.
 
@@ -1188,8 +1184,6 @@ Schema: `ResourceOptionsRequest`
 
 **`GET`** `/api/marketplace-remote-synchronisations/`
 
-**Operation ID:** `marketplace_remote_synchronisations_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1206,8 +1200,6 @@ Schema: `ResourceOptionsRequest`
 ### marketplace_remote_synchronisations_count
 
 **`HEAD`** `/api/marketplace-remote-synchronisations/`
-
-**Operation ID:** `marketplace_remote_synchronisations_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1227,8 +1219,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_remote_synchronisations_create
 
 **`POST`** `/api/marketplace-remote-synchronisations/`
-
-**Operation ID:** `marketplace_remote_synchronisations_create`
 
 **Request Body** (`application/json`, required):
 
@@ -1256,8 +1246,6 @@ Schema: `RemoteSynchronisationRequest`
 
 **`GET`** `/api/marketplace-remote-synchronisations/{uuid}/`
 
-**Operation ID:** `marketplace_remote_synchronisations_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1275,8 +1263,6 @@ Schema: `RemoteSynchronisationRequest`
 ### marketplace_remote_synchronisations_update
 
 **`PUT`** `/api/marketplace-remote-synchronisations/{uuid}/`
-
-**Operation ID:** `marketplace_remote_synchronisations_update`
 
 **Parameters:**
 
@@ -1310,8 +1296,6 @@ Schema: `RemoteSynchronisationRequest`
 
 **`PATCH`** `/api/marketplace-remote-synchronisations/{uuid}/`
 
-**Operation ID:** `marketplace_remote_synchronisations_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1343,8 +1327,6 @@ Schema: `PatchedRemoteSynchronisationRequest`
 
 **`DELETE`** `/api/marketplace-remote-synchronisations/{uuid}/`
 
-**Operation ID:** `marketplace_remote_synchronisations_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1363,8 +1345,6 @@ Schema: `PatchedRemoteSynchronisationRequest`
 
 **`POST`** `/api/marketplace-remote-synchronisations/{uuid}/run_synchronisation/`
 
-**Operation ID:** `marketplace_remote_synchronisations_run_synchronisation`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1379,11 +1359,11 @@ Schema: `PatchedRemoteSynchronisationRequest`
 
 ---
 
-### List resource users
+### marketplace_resource_users_list
 
 **`GET`** `/api/marketplace-resource-users/`
 
-**Operation ID:** `marketplace_resource_users_list`
+**Summary:** List resource users
 
 Returns a paginated list of users associated with resources, including their roles. The list is filtered based on the permissions of the current user. Staff and support users can see all resource-user links. Other users can only see links for resources they have access to.
 
@@ -1405,11 +1385,11 @@ Returns a paginated list of users associated with resources, including their rol
 
 ---
 
-### List resource users
+### marketplace_resource_users_count
 
 **`HEAD`** `/api/marketplace-resource-users/`
 
-**Operation ID:** `marketplace_resource_users_count`
+**Summary:** List resource users
 
 Get number of items in the collection matching the request parameters.
 
@@ -1431,11 +1411,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Link a user to a resource
+### marketplace_resource_users_create
 
 **`POST`** `/api/marketplace-resource-users/`
 
-**Operation ID:** `marketplace_resource_users_create`
+**Summary:** Link a user to a resource
 
 Creates a new association between a user and a resource with a specific role. The user must have permission to manage users for the resource (typically service provider staff or owners).
 
@@ -1457,11 +1437,11 @@ Schema: `ResourceUserRequest`
 
 ---
 
-### Retrieve a resource-user link
+### marketplace_resource_users_retrieve
 
 **`GET`** `/api/marketplace-resource-users/{uuid}/`
 
-**Operation ID:** `marketplace_resource_users_retrieve`
+**Summary:** Retrieve a resource-user link
 
 Returns details of a specific link between a user and a resource, including their role.
 
@@ -1479,11 +1459,11 @@ Returns details of a specific link between a user and a resource, including thei
 
 ---
 
-### Unlink a user from a resource
+### marketplace_resource_users_destroy
 
 **`DELETE`** `/api/marketplace-resource-users/{uuid}/`
 
-**Operation ID:** `marketplace_resource_users_destroy`
+**Summary:** Unlink a user from a resource
 
 Removes the association between a user and a resource, effectively revoking their role on that resource. The user must have permission to manage users for the resource.
 
@@ -1501,11 +1481,11 @@ Removes the association between a user and a resource, effectively revoking thei
 
 ---
 
-### List consumer resources
+### marketplace_resources_list
 
 **`GET`** `/api/marketplace-resources/`
 
-**Operation ID:** `marketplace_resources_list`
+**Summary:** List consumer resources
 
 Returns a paginated list of resources accessible to the current user as a service consumer.
 
@@ -1563,11 +1543,11 @@ Returns a paginated list of resources accessible to the current user as a servic
 
 ---
 
-### List consumer resources
+### marketplace_resources_count
 
 **`HEAD`** `/api/marketplace-resources/`
 
-**Operation ID:** `marketplace_resources_count`
+**Summary:** List consumer resources
 
 Get number of items in the collection matching the request parameters.
 
@@ -1624,11 +1604,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Suggest a resource name
+### marketplace_resources_suggest_name
 
 **`POST`** `/api/marketplace-resources/suggest_name/`
 
-**Operation ID:** `marketplace_resources_suggest_name`
+**Summary:** Suggest a resource name
 
 Generates a suggested name for a new resource based on the project and offering. If the offering has a `resource_name_pattern` in `plugin_options`, it is used as a Python format string with variables: `{customer_name}`, `{customer_slug}`, `{project_name}`, `{project_slug}`, `{offering_name}`, `{offering_slug}`, `{plan_name}`, `{counter}`, and `{attributes[KEY]}` for any order form value.
 
@@ -1651,11 +1631,11 @@ Schema: `ResourceSuggestNameRequest`
 
 ---
 
-### Retrieve a consumer resource
+### marketplace_resources_retrieve
 
 **`GET`** `/api/marketplace-resources/{uuid}/`
 
-**Operation ID:** `marketplace_resources_retrieve`
+**Summary:** Retrieve a consumer resource
 
 Returns details of a specific resource accessible to the consumer.
 
@@ -1674,11 +1654,11 @@ Returns details of a specific resource accessible to the consumer.
 
 ---
 
-### Update a consumer resource
+### marketplace_resources_update
 
 **`PUT`** `/api/marketplace-resources/{uuid}/`
 
-**Operation ID:** `marketplace_resources_update`
+**Summary:** Update a consumer resource
 
 Updates the name, description, or end date of a resource.
 
@@ -1706,11 +1686,11 @@ Schema: `ResourceUpdateRequest`
 
 ---
 
-### Partially update a consumer resource
+### marketplace_resources_partial_update
 
 **`PATCH`** `/api/marketplace-resources/{uuid}/`
 
-**Operation ID:** `marketplace_resources_partial_update`
+**Summary:** Partially update a consumer resource
 
 Partially updates the name, description, or end date of a resource.
 
@@ -1738,11 +1718,11 @@ Schema: `PatchedResourceUpdateRequest`
 
 ---
 
-### Get resource details
+### marketplace_resources_details_retrieve
 
 **`GET`** `/api/marketplace-resources/{uuid}/details/`
 
-**Operation ID:** `marketplace_resources_details_retrieve`
+**Summary:** Get resource details
 
 Returns the detailed representation of the backend resource associated with the marketplace resource. The format of the response depends on the resource type.
 
@@ -1762,11 +1742,11 @@ Returns the detailed representation of the backend resource associated with the 
 
 ---
 
-### Estimate renewal cost breakdown
+### marketplace_resources_estimate_renewal
 
 **`POST`** `/api/marketplace-resources/{uuid}/estimate_renewal/`
 
-**Operation ID:** `marketplace_resources_estimate_renewal`
+**Summary:** Estimate renewal cost breakdown
 
 **Parameters:**
 
@@ -1791,11 +1771,11 @@ Schema: `RenewalEstimateRequestRequest`
 
 ---
 
-### Get GLauth user configuration for a resource
+### marketplace_resources_glauth_users_config_retrieve
 
 **`GET`** `/api/marketplace-resources/{uuid}/glauth_users_config/`
 
-**Operation ID:** `marketplace_resources_glauth_users_config_retrieve`
+**Summary:** Get GLauth user configuration for a resource
 
 This endpoint provides a GLauth configuration file for the users associated with the project of this resource.
         It is intended for use by an external agent to synchronize user data from Waldur to GLauth.
@@ -1814,11 +1794,11 @@ This endpoint provides a GLauth configuration file for the users associated with
 
 ---
 
-### Get version history
+### marketplace_resources_history_list
 
 **`GET`** `/api/marketplace-resources/{uuid}/history/`
 
-**Operation ID:** `marketplace_resources_history_list`
+**Summary:** Get version history
 
 Returns the version history for this object. Only accessible by staff and support users.
 
@@ -1878,11 +1858,11 @@ Returns the version history for this object. Only accessible by staff and suppor
 
 ---
 
-### Get object state at a specific timestamp
+### marketplace_resources_history_at_retrieve
 
 **`GET`** `/api/marketplace-resources/{uuid}/history/at/`
 
-**Operation ID:** `marketplace_resources_history_at_retrieve`
+**Summary:** Get object state at a specific timestamp
 
 Returns the state of the object as it was at the specified timestamp. Only accessible by staff and support users.
 
@@ -1903,11 +1883,11 @@ Returns the state of the object as it was at the specified timestamp. Only acces
 
 ---
 
-### Move a resource to another project
+### marketplace_resources_move_resource
 
 **`POST`** `/api/marketplace-resources/{uuid}/move_resource/`
 
-**Operation ID:** `marketplace_resources_move_resource`
+**Summary:** Move a resource to another project
 
 Moves a resource and its associated data to a different project. Requires staff permissions.
 
@@ -1933,11 +1913,11 @@ Schema: `MoveResourceRequest`
 
 ---
 
-### Get offering details
+### marketplace_resources_offering_retrieve
 
 **`GET`** `/api/marketplace-resources/{uuid}/offering/`
 
-**Operation ID:** `marketplace_resources_offering_retrieve`
+**Summary:** Get offering details
 
 Returns details of the offering connected to the requested object.
 
@@ -1955,11 +1935,11 @@ Returns details of the offering connected to the requested object.
 
 ---
 
-### List offerings for sub-resources
+### marketplace_resources_offering_for_subresources_list
 
 **`GET`** `/api/marketplace-resources/{uuid}/offering_for_subresources/`
 
-**Operation ID:** `marketplace_resources_offering_for_subresources_list`
+**Summary:** List offerings for sub-resources
 
 Returns a list of offerings that can be provisioned as sub-resources of the current resource.
 
@@ -1977,11 +1957,11 @@ Returns a list of offerings that can be provisioned as sub-resources of the curr
 
 ---
 
-### List resource plan periods
+### marketplace_resources_plan_periods_list
 
 **`GET`** `/api/marketplace-resources/{uuid}/plan_periods/`
 
-**Operation ID:** `marketplace_resources_plan_periods_list`
+**Summary:** List resource plan periods
 
 Returns a list of active and future plan periods for the resource. Each period includes the plan details and current component usage.
 
@@ -1999,11 +1979,11 @@ Returns a list of active and future plan periods for the resource. Each period i
 
 ---
 
-### Pull resource data
+### marketplace_resources_pull
 
 **`POST`** `/api/marketplace-resources/{uuid}/pull/`
 
-**Operation ID:** `marketplace_resources_pull`
+**Summary:** Pull resource data
 
 Schedules a task to pull the latest data for the resource from its backend.
 
@@ -2021,11 +2001,11 @@ Schedules a task to pull the latest data for the resource from its backend.
 
 ---
 
-### Reallocate resource limits
+### marketplace_resources_reallocate_limits
 
 **`POST`** `/api/marketplace-resources/{uuid}/reallocate_limits/`
 
-**Operation ID:** `marketplace_resources_reallocate_limits`
+**Summary:** Reallocate resource limits
 
 Creates marketplace orders to reallocate limits from source resource to target resources.
 
@@ -2052,11 +2032,11 @@ Schema: `ResourceReallocateLimitsRequest`
 
 ---
 
-### Renew a prepaid resource
+### marketplace_resources_renew
 
 **`POST`** `/api/marketplace-resources/{uuid}/renew/`
 
-**Operation ID:** `marketplace_resources_renew`
+**Summary:** Renew a prepaid resource
 
 Creates a renewal order to extend the subscription period of a prepaid resource. Optionally, limits can be upgraded at the same time.
 
@@ -2089,8 +2069,6 @@ Schema: `ResourceRenewRequest`
 
 **`POST`** `/api/marketplace-resources/{uuid}/restore/`
 
-**Operation ID:** `marketplace_resources_restore`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2119,11 +2097,11 @@ Schema: `ResourceRequest`
 
 ---
 
-### Set downscaled flag for resource
+### marketplace_resources_set_downscaled
 
 **`POST`** `/api/marketplace-resources/{uuid}/set_downscaled/`
 
-**Operation ID:** `marketplace_resources_set_downscaled`
+**Summary:** Set downscaled flag for resource
 
 Sets the 'downscaled' flag for a resource. Requires staff permissions.
 
@@ -2149,11 +2127,11 @@ Schema: `ResourceDownscaledRequest`
 
 ---
 
-### Set end date of the resource by staff
+### marketplace_resources_set_end_date_by_staff
 
 **`POST`** `/api/marketplace-resources/{uuid}/set_end_date_by_staff/`
 
-**Operation ID:** `marketplace_resources_set_end_date_by_staff`
+**Summary:** Set end date of the resource by staff
 
 Allows a staff user to set or update the end date for a resource, which will schedule it for termination.
 
@@ -2179,11 +2157,11 @@ Schema: `ResourceEndDateByProviderRequest`
 
 ---
 
-### Set paused flag for resource
+### marketplace_resources_set_paused
 
 **`POST`** `/api/marketplace-resources/{uuid}/set_paused/`
 
-**Operation ID:** `marketplace_resources_set_paused`
+**Summary:** Set paused flag for resource
 
 Sets the 'paused' flag for a resource. Requires staff permissions.
 
@@ -2209,11 +2187,11 @@ Schema: `ResourcePausedRequest`
 
 ---
 
-### Set restrict member access flag
+### marketplace_resources_set_restrict_member_access
 
 **`POST`** `/api/marketplace-resources/{uuid}/set_restrict_member_access/`
 
-**Operation ID:** `marketplace_resources_set_restrict_member_access`
+**Summary:** Set restrict member access flag
 
 Sets the 'restrict_member_access' flag for a resource. Requires staff permissions.
 
@@ -2239,11 +2217,11 @@ Schema: `ResourceRestrictMemberAccessRequest`
 
 ---
 
-### Set resource slug
+### marketplace_resources_set_slug
 
 **`POST`** `/api/marketplace-resources/{uuid}/set_slug/`
 
-**Operation ID:** `marketplace_resources_set_slug`
+**Summary:** Set resource slug
 
 Updates the slug for a resource. Requires staff permissions.
 
@@ -2269,11 +2247,11 @@ Schema: `ResourceSlugRequest`
 
 ---
 
-### Switch resource plan
+### marketplace_resources_switch_plan
 
 **`POST`** `/api/marketplace-resources/{uuid}/switch_plan/`
 
-**Operation ID:** `marketplace_resources_switch_plan`
+**Summary:** Switch resource plan
 
 Creates a marketplace order to switch the billing plan for a resource. This action is asynchronous and may require approval.
 
@@ -2299,11 +2277,11 @@ Schema: `ResourceSwitchPlanRequest`
 
 ---
 
-### Get resource team
+### marketplace_resources_team_list
 
 **`GET`** `/api/marketplace-resources/{uuid}/team/`
 
-**Operation ID:** `marketplace_resources_team_list`
+**Summary:** Get resource team
 
 Returns a list of users connected to the project of this resource, including their project roles and offering-specific usernames.
 
@@ -2321,11 +2299,11 @@ Returns a list of users connected to the project of this resource, including the
 
 ---
 
-### Terminate a resource
+### marketplace_resources_terminate
 
 **`POST`** `/api/marketplace-resources/{uuid}/terminate/`
 
-**Operation ID:** `marketplace_resources_terminate`
+**Summary:** Terminate a resource
 
 Creates a marketplace order to terminate the resource. This action is asynchronous and may require approval.
 
@@ -2351,11 +2329,11 @@ Schema: `ResourceTerminateRequest`
 
 ---
 
-### Unlink a resource (staff only)
+### marketplace_resources_unlink
 
 **`POST`** `/api/marketplace-resources/{uuid}/unlink/`
 
-**Operation ID:** `marketplace_resources_unlink`
+**Summary:** Unlink a resource (staff only)
 
 Forcefully deletes a marketplace resource and its related plugin resource from the database. This action does not schedule operations on the backend and is intended for cleaning up resources stuck in transitioning states. Requires staff permissions.
 
@@ -2374,11 +2352,11 @@ Forcefully deletes a marketplace resource and its related plugin resource from t
 
 ---
 
-### Update resource limits
+### marketplace_resources_update_limits
 
 **`POST`** `/api/marketplace-resources/{uuid}/update_limits/`
 
-**Operation ID:** `marketplace_resources_update_limits`
+**Summary:** Update resource limits
 
 Creates a marketplace order to update the limits (e.g., CPU, RAM) for a resource. This action is asynchronous and may require approval.
 
@@ -2405,11 +2383,11 @@ Schema: `ResourceUpdateLimitsRequest`
 
 ---
 
-### Update resource options
+### marketplace_resources_update_options
 
 **`POST`** `/api/marketplace-resources/{uuid}/update_options/`
 
-**Operation ID:** `marketplace_resources_update_options`
+**Summary:** Update resource options
 
 Updates the options of a resource. If the offering is configured to create orders for option changes, a new UPDATE order will be created. Otherwise, the options are updated directly.
 
@@ -2437,11 +2415,11 @@ Schema: `ResourceOptionsRequest`
 
 ---
 
-### List robot accounts
+### marketplace_robot_accounts_list
 
 **`GET`** `/api/marketplace-robot-accounts/`
 
-**Operation ID:** `marketplace_robot_accounts_list`
+**Summary:** List robot accounts
 
 Returns a paginated list of robot accounts accessible to the current user.
 
@@ -2468,11 +2446,11 @@ Returns a paginated list of robot accounts accessible to the current user.
 
 ---
 
-### List robot accounts
+### marketplace_robot_accounts_count
 
 **`HEAD`** `/api/marketplace-robot-accounts/`
 
-**Operation ID:** `marketplace_robot_accounts_count`
+**Summary:** List robot accounts
 
 Get number of items in the collection matching the request parameters.
 
@@ -2498,11 +2476,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a robot account
+### marketplace_robot_accounts_create
 
 **`POST`** `/api/marketplace-robot-accounts/`
 
-**Operation ID:** `marketplace_robot_accounts_create`
+**Summary:** Create a robot account
 
 Creates a new robot account for a specific resource. This is typically used for automated access to a resource, e.g., for CI/CD pipelines.
 
@@ -2528,11 +2506,11 @@ Schema: `RobotAccountRequest`
 
 ---
 
-### Retrieve a robot account
+### marketplace_robot_accounts_retrieve
 
 **`GET`** `/api/marketplace-robot-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_robot_accounts_retrieve`
+**Summary:** Retrieve a robot account
 
 Returns the details of a specific robot account.
 
@@ -2551,11 +2529,11 @@ Returns the details of a specific robot account.
 
 ---
 
-### Update a robot account
+### marketplace_robot_accounts_update
 
 **`PUT`** `/api/marketplace-robot-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_robot_accounts_update`
+**Summary:** Update a robot account
 
 Updates the properties of a robot account, such as its username or associated users. Not allowed for synchronized remote accounts.
 
@@ -2587,11 +2565,11 @@ Schema: `RobotAccountRequest`
 
 ---
 
-### Partially update a robot account
+### marketplace_robot_accounts_partial_update
 
 **`PATCH`** `/api/marketplace-robot-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_robot_accounts_partial_update`
+**Summary:** Partially update a robot account
 
 Partially updates the properties of a robot account. Not allowed for synchronized remote accounts.
 
@@ -2623,11 +2601,11 @@ Schema: `PatchedRobotAccountRequest`
 
 ---
 
-### Delete a robot account
+### marketplace_robot_accounts_destroy
 
 **`DELETE`** `/api/marketplace-robot-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_robot_accounts_destroy`
+**Summary:** Delete a robot account
 
 Deletes a robot account. This is a hard delete and should be used with caution.
 
@@ -2645,11 +2623,11 @@ Deletes a robot account. This is a hard delete and should be used with caution.
 
 ---
 
-### Set robot account state to creating
+### marketplace_robot_accounts_set_state_creating
 
 **`POST`** `/api/marketplace-robot-accounts/{uuid}/set_state_creating/`
 
-**Operation ID:** `marketplace_robot_accounts_set_state_creating`
+**Summary:** Set robot account state to creating
 
 Transitions the robot account state from 'Requested' to 'Creating'. This is typically used by an agent to signal that the creation process has started.
 
@@ -2668,11 +2646,11 @@ Transitions the robot account state from 'Requested' to 'Creating'. This is typi
 
 ---
 
-### Set robot account state to deleted
+### marketplace_robot_accounts_set_state_deleted
 
 **`POST`** `/api/marketplace-robot-accounts/{uuid}/set_state_deleted/`
 
-**Operation ID:** `marketplace_robot_accounts_set_state_deleted`
+**Summary:** Set robot account state to deleted
 
 Transitions the robot account state from 'Requested deletion' to 'Deleted', marking the successful completion of the deletion process.
 
@@ -2691,11 +2669,11 @@ Transitions the robot account state from 'Requested deletion' to 'Deleted', mark
 
 ---
 
-### Set robot account state to erred
+### marketplace_robot_accounts_set_state_erred
 
 **`POST`** `/api/marketplace-robot-accounts/{uuid}/set_state_erred/`
 
-**Operation ID:** `marketplace_robot_accounts_set_state_erred`
+**Summary:** Set robot account state to erred
 
 Manually moves the robot account into the 'Error' state. An optional error message can be provided.
 
@@ -2722,11 +2700,11 @@ Schema: `RobotAccountErrorRequest`
 
 ---
 
-### Set robot account state to OK
+### marketplace_robot_accounts_set_state_ok
 
 **`POST`** `/api/marketplace-robot-accounts/{uuid}/set_state_ok/`
 
-**Operation ID:** `marketplace_robot_accounts_set_state_ok`
+**Summary:** Set robot account state to OK
 
 Manually sets the robot account state to 'OK', indicating that it is fully operational. This can be used to recover from an error state.
 
@@ -2745,11 +2723,11 @@ Manually sets the robot account state to 'OK', indicating that it is fully opera
 
 ---
 
-### Request deletion of a robot account
+### marketplace_robot_accounts_set_state_request_deletion
 
 **`POST`** `/api/marketplace-robot-accounts/{uuid}/set_state_request_deletion/`
 
-**Operation ID:** `marketplace_robot_accounts_set_state_request_deletion`
+**Summary:** Request deletion of a robot account
 
 Transitions the robot account state from 'OK' to 'Requested deletion', initiating the deletion process.
 
@@ -2768,11 +2746,11 @@ Transitions the robot account state from 'OK' to 'Requested deletion', initiatin
 
 ---
 
-### List available runtime states for resources
+### marketplace_runtime_states_list
 
 **`GET`** `/api/marketplace-runtime-states/`
 
-**Operation ID:** `marketplace_runtime_states_list`
+**Summary:** List available runtime states for resources
 
 Returns a unique, sorted list of runtime states for all resources accessible to the current user.
         The runtime state is a backend-specific state of a resource (e.g., 'ACTIVE', 'SHUTOFF' for a VM).

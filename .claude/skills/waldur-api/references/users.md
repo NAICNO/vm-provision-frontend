@@ -7,104 +7,102 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/user-action-executions/` | `user_action_executions_list` |  |
-| HEAD | `/api/user-action-executions/` | `user_action_executions_count` |  |
-| GET | `/api/user-action-executions/{id}/` | `user_action_executions_retrieve` |  |
-| GET | `/api/user-action-providers/` | `user_action_providers_list` |  |
-| HEAD | `/api/user-action-providers/` | `user_action_providers_count` |  |
-| GET | `/api/user-action-providers/{id}/` | `user_action_providers_retrieve` |  |
-| GET | `/api/user-actions/` | `user_actions_list` |  |
-| HEAD | `/api/user-actions/` | `user_actions_count` |  |
-| POST | `/api/user-actions/bulk_silence/` | `user_actions_bulk_silence` |  |
-| GET | `/api/user-actions/summary/` | `user_actions_summary_retrieve` |  |
-| HEAD | `/api/user-actions/summary/` | `user_actions_summary_count` |  |
-| POST | `/api/user-actions/update_actions/` | `user_actions_update_actions` |  |
-| GET | `/api/user-actions/{uuid}/` | `user_actions_retrieve` |  |
-| POST | `/api/user-actions/{uuid}/execute_action/` | `user_actions_execute_action` |  |
-| POST | `/api/user-actions/{uuid}/silence/` | `user_actions_silence` |  |
-| POST | `/api/user-actions/{uuid}/unsilence/` | `user_actions_unsilence` |  |
-| GET | `/api/user-agreements/` | `user_agreements_list` | List user agreements |
-| HEAD | `/api/user-agreements/` | `user_agreements_count` | List user agreements |
-| POST | `/api/user-agreements/` | `user_agreements_create` |  |
-| GET | `/api/user-agreements/{uuid}/` | `user_agreements_retrieve` | Retrieve user agreement |
-| PUT | `/api/user-agreements/{uuid}/` | `user_agreements_update` |  |
-| PATCH | `/api/user-agreements/{uuid}/` | `user_agreements_partial_update` |  |
-| DELETE | `/api/user-agreements/{uuid}/` | `user_agreements_destroy` |  |
-| GET | `/api/user-group-invitations/` | `user_group_invitations_list` | List group invitations |
-| HEAD | `/api/user-group-invitations/` | `user_group_invitations_count` | List group invitations |
-| POST | `/api/user-group-invitations/` | `user_group_invitations_create` | Create group invitation |
-| GET | `/api/user-group-invitations/{uuid}/` | `user_group_invitations_retrieve` | Retrieve group invitation |
-| PUT | `/api/user-group-invitations/{uuid}/` | `user_group_invitations_update` | Update a group invitation |
-| PATCH | `/api/user-group-invitations/{uuid}/` | `user_group_invitations_partial_update` | Partially update a group invitation |
-| DELETE | `/api/user-group-invitations/{uuid}/` | `user_group_invitations_destroy` | Delete a group invitation |
-| POST | `/api/user-group-invitations/{uuid}/cancel/` | `user_group_invitations_cancel` | Cancel a group invitation |
-| GET | `/api/user-group-invitations/{uuid}/projects/` | `user_group_invitations_projects_list` | List projects for a customer-scoped group invitation |
-| POST | `/api/user-group-invitations/{uuid}/submit_request/` | `user_group_invitations_submit_request` | Submit a permission request |
-| GET | `/api/user-invitations/` | `user_invitations_list` | List user invitations |
-| HEAD | `/api/user-invitations/` | `user_invitations_count` | List user invitations |
-| POST | `/api/user-invitations/` | `user_invitations_create` | Create user invitation |
-| POST | `/api/user-invitations/approve/` | `user_invitations_approve` | Approve a requested invitation |
-| POST | `/api/user-invitations/check-duplicates/` | `user_invitations_check_duplicates` | Check for duplicate invitations |
-| POST | `/api/user-invitations/reject/` | `user_invitations_reject` | Reject a requested invitation |
-| GET | `/api/user-invitations/{uuid}/` | `user_invitations_retrieve` | Retrieve user invitation |
-| PUT | `/api/user-invitations/{uuid}/` | `user_invitations_update` | Update user invitation |
-| PATCH | `/api/user-invitations/{uuid}/` | `user_invitations_partial_update` | Partially update user invitation |
-| DELETE | `/api/user-invitations/{uuid}/` | `user_invitations_destroy` | Delete user invitation |
-| POST | `/api/user-invitations/{uuid}/accept/` | `user_invitations_accept` | Accept an invitation |
-| POST | `/api/user-invitations/{uuid}/cancel/` | `user_invitations_cancel` | Cancel an invitation |
-| POST | `/api/user-invitations/{uuid}/check/` | `user_invitations_check` | Check invitation validity |
-| POST | `/api/user-invitations/{uuid}/delete/` | `user_invitations_delete` | Delete an invitation (staff only) |
-| GET | `/api/user-invitations/{uuid}/details/` | `user_invitations_details_retrieve` | Get public invitation details |
-| POST | `/api/user-invitations/{uuid}/send/` | `user_invitations_send` | Resend an invitation |
-| GET | `/api/user-permission-requests/` | `user_permission_requests_list` | List permission requests |
-| HEAD | `/api/user-permission-requests/` | `user_permission_requests_count` | List permission requests |
-| GET | `/api/user-permission-requests/{uuid}/` | `user_permission_requests_retrieve` | Retrieve permission request |
-| POST | `/api/user-permission-requests/{uuid}/approve/` | `user_permission_requests_approve` | Approve a permission request |
-| POST | `/api/user-permission-requests/{uuid}/cancel_request/` | `user_permission_requests_cancel_request` | Cancel a permission request |
-| POST | `/api/user-permission-requests/{uuid}/reject/` | `user_permission_requests_reject` | Reject a permission request |
-| GET | `/api/user-permissions/` | `user_permissions_list` | List user permissions |
-| HEAD | `/api/user-permissions/` | `user_permissions_count` | List user permissions |
-| GET | `/api/user-permissions/{uuid}/` | `user_permissions_retrieve` | Get permission details |
-| GET | `/api/users/` | `users_list` |  |
-| HEAD | `/api/users/` | `users_count` |  |
-| POST | `/api/users/` | `users_create` |  |
-| POST | `/api/users/confirm_email/` | `users_confirm_email` | Confirm email change |
-| GET | `/api/users/me/` | `users_me_retrieve` | Get current user details |
-| HEAD | `/api/users/me/` | `users_me_count` | Get current user details |
-| GET | `/api/users/profile_completeness/` | `users_profile_completeness_retrieve` | Check profile completeness |
-| HEAD | `/api/users/profile_completeness/` | `users_profile_completeness_count` | Check profile completeness |
-| POST | `/api/users/scim_sync_all/` | `users_scim_sync_all` | Trigger SCIM synchronization for all users |
-| GET | `/api/users/user_active_status_count/` | `users_user_active_status_count_list` | Get user counts by active status |
-| HEAD | `/api/users/user_active_status_count/` | `users_user_active_status_count_count` | Get user counts by active status |
-| GET | `/api/users/user_language_count/` | `users_user_language_count_list` | Get user counts by preferred language |
-| HEAD | `/api/users/user_language_count/` | `users_user_language_count_count` | Get user counts by preferred language |
-| GET | `/api/users/user_registration_trend/` | `users_user_registration_trend_list` | Get user registration trends by month |
-| HEAD | `/api/users/user_registration_trend/` | `users_user_registration_trend_count` | Get user registration trends by month |
-| GET | `/api/users/{uuid}/` | `users_retrieve` |  |
-| PUT | `/api/users/{uuid}/` | `users_update` |  |
-| PATCH | `/api/users/{uuid}/` | `users_partial_update` |  |
-| DELETE | `/api/users/{uuid}/` | `users_destroy` |  |
-| POST | `/api/users/{uuid}/cancel_change_email/` | `users_cancel_change_email` | Cancel email change request |
-| POST | `/api/users/{uuid}/change_email/` | `users_change_email` | Request email change |
-| POST | `/api/users/{uuid}/change_password/` | `users_change_password` | Change user password |
-| GET | `/api/users/{uuid}/data_access/` | `users_data_access_retrieve` | Get user data access visibility |
-| GET | `/api/users/{uuid}/data_access_history/` | `users_data_access_history_list` | Get user data access history |
-| GET | `/api/users/{uuid}/history/` | `users_history_list` | Get version history |
-| GET | `/api/users/{uuid}/history/at/` | `users_history_at_retrieve` | Get object state at a specific timestamp |
-| GET | `/api/users/{uuid}/identity_bridge_status/` | `users_identity_bridge_status_retrieve` | Get identity bridge status for a user |
-| POST | `/api/users/{uuid}/pull_remote_user/` | `users_pull_remote_user` | Synchronize user details from eduTEAMS |
-| POST | `/api/users/{uuid}/refresh_token/` | `users_refresh_token` | Refresh user auth token |
-| POST | `/api/users/{uuid}/send_notification/` | `users_send_notification` | Send action notification to a specific user |
-| GET | `/api/users/{uuid}/token/` | `users_token_retrieve` | Get user auth token |
-| POST | `/api/users/{uuid}/update_actions/` | `users_update_actions` | Recalculate user actions for a specific user |
+| GET | `/api/user-action-executions/` | [`user_action_executions_list`](#user-action-executions-list) |  |
+| HEAD | `/api/user-action-executions/` | [`user_action_executions_count`](#user-action-executions-count) |  |
+| GET | `/api/user-action-executions/{id}/` | [`user_action_executions_retrieve`](#user-action-executions-retrieve) |  |
+| GET | `/api/user-action-providers/` | [`user_action_providers_list`](#user-action-providers-list) |  |
+| HEAD | `/api/user-action-providers/` | [`user_action_providers_count`](#user-action-providers-count) |  |
+| GET | `/api/user-action-providers/{id}/` | [`user_action_providers_retrieve`](#user-action-providers-retrieve) |  |
+| GET | `/api/user-actions/` | [`user_actions_list`](#user-actions-list) |  |
+| HEAD | `/api/user-actions/` | [`user_actions_count`](#user-actions-count) |  |
+| POST | `/api/user-actions/bulk_silence/` | [`user_actions_bulk_silence`](#user-actions-bulk-silence) |  |
+| GET | `/api/user-actions/summary/` | [`user_actions_summary_retrieve`](#user-actions-summary-retrieve) |  |
+| HEAD | `/api/user-actions/summary/` | [`user_actions_summary_count`](#user-actions-summary-count) |  |
+| POST | `/api/user-actions/update_actions/` | [`user_actions_update_actions`](#user-actions-update-actions) |  |
+| GET | `/api/user-actions/{uuid}/` | [`user_actions_retrieve`](#user-actions-retrieve) |  |
+| POST | `/api/user-actions/{uuid}/execute_action/` | [`user_actions_execute_action`](#user-actions-execute-action) |  |
+| POST | `/api/user-actions/{uuid}/silence/` | [`user_actions_silence`](#user-actions-silence) |  |
+| POST | `/api/user-actions/{uuid}/unsilence/` | [`user_actions_unsilence`](#user-actions-unsilence) |  |
+| GET | `/api/user-agreements/` | [`user_agreements_list`](#user-agreements-list) | List user agreements |
+| HEAD | `/api/user-agreements/` | [`user_agreements_count`](#user-agreements-count) | List user agreements |
+| POST | `/api/user-agreements/` | [`user_agreements_create`](#user-agreements-create) |  |
+| GET | `/api/user-agreements/{uuid}/` | [`user_agreements_retrieve`](#user-agreements-retrieve) | Retrieve user agreement |
+| PUT | `/api/user-agreements/{uuid}/` | [`user_agreements_update`](#user-agreements-update) |  |
+| PATCH | `/api/user-agreements/{uuid}/` | [`user_agreements_partial_update`](#user-agreements-partial-update) |  |
+| DELETE | `/api/user-agreements/{uuid}/` | [`user_agreements_destroy`](#user-agreements-destroy) |  |
+| GET | `/api/user-group-invitations/` | [`user_group_invitations_list`](#user-group-invitations-list) | List group invitations |
+| HEAD | `/api/user-group-invitations/` | [`user_group_invitations_count`](#user-group-invitations-count) | List group invitations |
+| POST | `/api/user-group-invitations/` | [`user_group_invitations_create`](#user-group-invitations-create) | Create group invitation |
+| GET | `/api/user-group-invitations/{uuid}/` | [`user_group_invitations_retrieve`](#user-group-invitations-retrieve) | Retrieve group invitation |
+| PUT | `/api/user-group-invitations/{uuid}/` | [`user_group_invitations_update`](#user-group-invitations-update) | Update a group invitation |
+| PATCH | `/api/user-group-invitations/{uuid}/` | [`user_group_invitations_partial_update`](#user-group-invitations-partial-update) | Partially update a group invitation |
+| DELETE | `/api/user-group-invitations/{uuid}/` | [`user_group_invitations_destroy`](#user-group-invitations-destroy) | Delete a group invitation |
+| POST | `/api/user-group-invitations/{uuid}/cancel/` | [`user_group_invitations_cancel`](#user-group-invitations-cancel) | Cancel a group invitation |
+| GET | `/api/user-group-invitations/{uuid}/projects/` | [`user_group_invitations_projects_list`](#user-group-invitations-projects-list) | List projects for a customer-scoped group invitation |
+| POST | `/api/user-group-invitations/{uuid}/submit_request/` | [`user_group_invitations_submit_request`](#user-group-invitations-submit-request) | Submit a permission request |
+| GET | `/api/user-invitations/` | [`user_invitations_list`](#user-invitations-list) | List user invitations |
+| HEAD | `/api/user-invitations/` | [`user_invitations_count`](#user-invitations-count) | List user invitations |
+| POST | `/api/user-invitations/` | [`user_invitations_create`](#user-invitations-create) | Create user invitation |
+| POST | `/api/user-invitations/approve/` | [`user_invitations_approve`](#user-invitations-approve) | Approve a requested invitation |
+| POST | `/api/user-invitations/check-duplicates/` | [`user_invitations_check_duplicates`](#user-invitations-check-duplicates) | Check for duplicate invitations |
+| POST | `/api/user-invitations/reject/` | [`user_invitations_reject`](#user-invitations-reject) | Reject a requested invitation |
+| GET | `/api/user-invitations/{uuid}/` | [`user_invitations_retrieve`](#user-invitations-retrieve) | Retrieve user invitation |
+| PUT | `/api/user-invitations/{uuid}/` | [`user_invitations_update`](#user-invitations-update) | Update user invitation |
+| PATCH | `/api/user-invitations/{uuid}/` | [`user_invitations_partial_update`](#user-invitations-partial-update) | Partially update user invitation |
+| DELETE | `/api/user-invitations/{uuid}/` | [`user_invitations_destroy`](#user-invitations-destroy) | Delete user invitation |
+| POST | `/api/user-invitations/{uuid}/accept/` | [`user_invitations_accept`](#user-invitations-accept) | Accept an invitation |
+| POST | `/api/user-invitations/{uuid}/cancel/` | [`user_invitations_cancel`](#user-invitations-cancel) | Cancel an invitation |
+| POST | `/api/user-invitations/{uuid}/check/` | [`user_invitations_check`](#user-invitations-check) | Check invitation validity |
+| POST | `/api/user-invitations/{uuid}/delete/` | [`user_invitations_delete`](#user-invitations-delete) | Delete an invitation (staff only) |
+| GET | `/api/user-invitations/{uuid}/details/` | [`user_invitations_details_retrieve`](#user-invitations-details-retrieve) | Get public invitation details |
+| POST | `/api/user-invitations/{uuid}/send/` | [`user_invitations_send`](#user-invitations-send) | Resend an invitation |
+| GET | `/api/user-permission-requests/` | [`user_permission_requests_list`](#user-permission-requests-list) | List permission requests |
+| HEAD | `/api/user-permission-requests/` | [`user_permission_requests_count`](#user-permission-requests-count) | List permission requests |
+| GET | `/api/user-permission-requests/{uuid}/` | [`user_permission_requests_retrieve`](#user-permission-requests-retrieve) | Retrieve permission request |
+| POST | `/api/user-permission-requests/{uuid}/approve/` | [`user_permission_requests_approve`](#user-permission-requests-approve) | Approve a permission request |
+| POST | `/api/user-permission-requests/{uuid}/cancel_request/` | [`user_permission_requests_cancel_request`](#user-permission-requests-cancel-request) | Cancel a permission request |
+| POST | `/api/user-permission-requests/{uuid}/reject/` | [`user_permission_requests_reject`](#user-permission-requests-reject) | Reject a permission request |
+| GET | `/api/user-permissions/` | [`user_permissions_list`](#user-permissions-list) | List user permissions |
+| HEAD | `/api/user-permissions/` | [`user_permissions_count`](#user-permissions-count) | List user permissions |
+| GET | `/api/user-permissions/{uuid}/` | [`user_permissions_retrieve`](#user-permissions-retrieve) | Get permission details |
+| GET | `/api/users/` | [`users_list`](#users-list) |  |
+| HEAD | `/api/users/` | [`users_count`](#users-count) |  |
+| POST | `/api/users/` | [`users_create`](#users-create) |  |
+| POST | `/api/users/confirm_email/` | [`users_confirm_email`](#users-confirm-email) | Confirm email change |
+| GET | `/api/users/me/` | [`users_me_retrieve`](#users-me-retrieve) | Get current user details |
+| HEAD | `/api/users/me/` | [`users_me_count`](#users-me-count) | Get current user details |
+| GET | `/api/users/profile_completeness/` | [`users_profile_completeness_retrieve`](#users-profile-completeness-retrieve) | Check profile completeness |
+| HEAD | `/api/users/profile_completeness/` | [`users_profile_completeness_count`](#users-profile-completeness-count) | Check profile completeness |
+| POST | `/api/users/scim_sync_all/` | [`users_scim_sync_all`](#users-scim-sync-all) | Trigger SCIM synchronization for all users |
+| GET | `/api/users/user_active_status_count/` | [`users_user_active_status_count_list`](#users-user-active-status-count-list) | Get user counts by active status |
+| HEAD | `/api/users/user_active_status_count/` | [`users_user_active_status_count_count`](#users-user-active-status-count-count) | Get user counts by active status |
+| GET | `/api/users/user_language_count/` | [`users_user_language_count_list`](#users-user-language-count-list) | Get user counts by preferred language |
+| HEAD | `/api/users/user_language_count/` | [`users_user_language_count_count`](#users-user-language-count-count) | Get user counts by preferred language |
+| GET | `/api/users/user_registration_trend/` | [`users_user_registration_trend_list`](#users-user-registration-trend-list) | Get user registration trends by month |
+| HEAD | `/api/users/user_registration_trend/` | [`users_user_registration_trend_count`](#users-user-registration-trend-count) | Get user registration trends by month |
+| GET | `/api/users/{uuid}/` | [`users_retrieve`](#users-retrieve) |  |
+| PUT | `/api/users/{uuid}/` | [`users_update`](#users-update) |  |
+| PATCH | `/api/users/{uuid}/` | [`users_partial_update`](#users-partial-update) |  |
+| DELETE | `/api/users/{uuid}/` | [`users_destroy`](#users-destroy) |  |
+| POST | `/api/users/{uuid}/cancel_change_email/` | [`users_cancel_change_email`](#users-cancel-change-email) | Cancel email change request |
+| POST | `/api/users/{uuid}/change_email/` | [`users_change_email`](#users-change-email) | Request email change |
+| POST | `/api/users/{uuid}/change_password/` | [`users_change_password`](#users-change-password) | Change user password |
+| GET | `/api/users/{uuid}/data_access/` | [`users_data_access_retrieve`](#users-data-access-retrieve) | Get user data access visibility |
+| GET | `/api/users/{uuid}/data_access_history/` | [`users_data_access_history_list`](#users-data-access-history-list) | Get user data access history |
+| GET | `/api/users/{uuid}/history/` | [`users_history_list`](#users-history-list) | Get version history |
+| GET | `/api/users/{uuid}/history/at/` | [`users_history_at_retrieve`](#users-history-at-retrieve) | Get object state at a specific timestamp |
+| GET | `/api/users/{uuid}/identity_bridge_status/` | [`users_identity_bridge_status_retrieve`](#users-identity-bridge-status-retrieve) | Get identity bridge status for a user |
+| POST | `/api/users/{uuid}/pull_remote_user/` | [`users_pull_remote_user`](#users-pull-remote-user) | Synchronize user details from eduTEAMS |
+| POST | `/api/users/{uuid}/refresh_token/` | [`users_refresh_token`](#users-refresh-token) | Refresh user auth token |
+| POST | `/api/users/{uuid}/send_notification/` | [`users_send_notification`](#users-send-notification) | Send action notification to a specific user |
+| GET | `/api/users/{uuid}/token/` | [`users_token_retrieve`](#users-token-retrieve) | Get user auth token |
+| POST | `/api/users/{uuid}/update_actions/` | [`users_update_actions`](#users-update-actions) | Recalculate user actions for a specific user |
 
 ## Endpoint Details
 
 ### user_action_executions_list
 
 **`GET`** `/api/user-action-executions/`
-
-**Operation ID:** `user_action_executions_list`
 
 **Parameters:**
 
@@ -123,8 +121,6 @@
 ### user_action_executions_count
 
 **`HEAD`** `/api/user-action-executions/`
-
-**Operation ID:** `user_action_executions_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -146,8 +142,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/user-action-executions/{id}/`
 
-**Operation ID:** `user_action_executions_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -166,8 +160,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/user-action-providers/`
 
-**Operation ID:** `user_action_providers_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -184,8 +176,6 @@ Get number of items in the collection matching the request parameters.
 ### user_action_providers_count
 
 **`HEAD`** `/api/user-action-providers/`
-
-**Operation ID:** `user_action_providers_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -206,8 +196,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/user-action-providers/{id}/`
 
-**Operation ID:** `user_action_providers_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -225,8 +213,6 @@ Get number of items in the collection matching the request parameters.
 ### user_actions_list
 
 **`GET`** `/api/user-actions/`
-
-**Operation ID:** `user_actions_list`
 
 **Parameters:**
 
@@ -254,8 +240,6 @@ Get number of items in the collection matching the request parameters.
 ### user_actions_count
 
 **`HEAD`** `/api/user-actions/`
-
-**Operation ID:** `user_actions_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -286,8 +270,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/user-actions/bulk_silence/`
 
-**Operation ID:** `user_actions_bulk_silence`
-
 Bulk silence actions by filters
 
 **Request Body** (`application/json`, optional):
@@ -310,8 +292,6 @@ Schema: `SilenceActionRequest`
 
 **`GET`** `/api/user-actions/summary/`
 
-**Operation ID:** `user_actions_summary_retrieve`
-
 Get action summary counts
 
 **Responses:**
@@ -326,8 +306,6 @@ Get action summary counts
 
 **`HEAD`** `/api/user-actions/summary/`
 
-**Operation ID:** `user_actions_summary_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Responses:**
@@ -341,8 +319,6 @@ Get number of items in the collection matching the request parameters.
 ### user_actions_update_actions
 
 **`POST`** `/api/user-actions/update_actions/`
-
-**Operation ID:** `user_actions_update_actions`
 
 Trigger update of user actions
 
@@ -366,8 +342,6 @@ Schema: `UpdateActionsRequest`
 
 **`GET`** `/api/user-actions/{uuid}/`
 
-**Operation ID:** `user_actions_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -385,8 +359,6 @@ Schema: `UpdateActionsRequest`
 ### user_actions_execute_action
 
 **`POST`** `/api/user-actions/{uuid}/execute_action/`
-
-**Operation ID:** `user_actions_execute_action`
 
 Execute a corrective action
 
@@ -418,8 +390,6 @@ Schema: `ExecuteActionRequest`
 
 **`POST`** `/api/user-actions/{uuid}/silence/`
 
-**Operation ID:** `user_actions_silence`
-
 Silence an action temporarily or permanently
 
 **Parameters:**
@@ -448,8 +418,6 @@ Schema: `SilenceActionRequest`
 
 **`POST`** `/api/user-actions/{uuid}/unsilence/`
 
-**Operation ID:** `user_actions_unsilence`
-
 Remove silence from an action
 
 **Parameters:**
@@ -466,11 +434,11 @@ Remove silence from an action
 
 ---
 
-### List user agreements
+### user_agreements_list
 
 **`GET`** `/api/user-agreements/`
 
-**Operation ID:** `user_agreements_list`
+**Summary:** List user agreements
 
 Retrieve a list of user agreements (Terms of Service and Privacy Policy). Supports filtering by agreement type and language with fallback behavior.
 
@@ -489,11 +457,11 @@ Retrieve a list of user agreements (Terms of Service and Privacy Policy). Suppor
 
 ---
 
-### List user agreements
+### user_agreements_count
 
 **`HEAD`** `/api/user-agreements/`
 
-**Operation ID:** `user_agreements_count`
+**Summary:** List user agreements
 
 Get number of items in the collection matching the request parameters.
 
@@ -516,8 +484,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/user-agreements/`
 
-**Operation ID:** `user_agreements_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `UserAgreementRequest`
@@ -536,11 +502,11 @@ Schema: `UserAgreementRequest`
 
 ---
 
-### Retrieve user agreement
+### user_agreements_retrieve
 
 **`GET`** `/api/user-agreements/{uuid}/`
 
-**Operation ID:** `user_agreements_retrieve`
+**Summary:** Retrieve user agreement
 
 Fetch the details of a specific user agreement by its UUID.
 
@@ -561,8 +527,6 @@ Fetch the details of a specific user agreement by its UUID.
 ### user_agreements_update
 
 **`PUT`** `/api/user-agreements/{uuid}/`
-
-**Operation ID:** `user_agreements_update`
 
 **Parameters:**
 
@@ -592,8 +556,6 @@ Schema: `UserAgreementRequest`
 
 **`PATCH`** `/api/user-agreements/{uuid}/`
 
-**Operation ID:** `user_agreements_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -622,8 +584,6 @@ Schema: `PatchedUserAgreementRequest`
 
 **`DELETE`** `/api/user-agreements/{uuid}/`
 
-**Operation ID:** `user_agreements_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -638,11 +598,11 @@ Schema: `PatchedUserAgreementRequest`
 
 ---
 
-### List group invitations
+### user_group_invitations_list
 
 **`GET`** `/api/user-group-invitations/`
 
-**Operation ID:** `user_group_invitations_list`
+**Summary:** List group invitations
 
 Retrieve a list of group invitations. Unauthenticated users can only see public invitations.
 
@@ -667,11 +627,11 @@ Retrieve a list of group invitations. Unauthenticated users can only see public 
 
 ---
 
-### List group invitations
+### user_group_invitations_count
 
 **`HEAD`** `/api/user-group-invitations/`
 
-**Operation ID:** `user_group_invitations_count`
+**Summary:** List group invitations
 
 Get number of items in the collection matching the request parameters.
 
@@ -696,11 +656,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create group invitation
+### user_group_invitations_create
 
 **`POST`** `/api/user-group-invitations/`
 
-**Operation ID:** `user_group_invitations_create`
+**Summary:** Create group invitation
 
 Create a new group invitation, which acts as a template for users to request permissions.
 
@@ -730,11 +690,11 @@ Schema: `GroupInvitationRequest`
 
 ---
 
-### Retrieve group invitation
+### user_group_invitations_retrieve
 
 **`GET`** `/api/user-group-invitations/{uuid}/`
 
-**Operation ID:** `user_group_invitations_retrieve`
+**Summary:** Retrieve group invitation
 
 Retrieve details of a specific group invitation. Unauthenticated users can only see public invitations.
 
@@ -752,11 +712,11 @@ Retrieve details of a specific group invitation. Unauthenticated users can only 
 
 ---
 
-### Update a group invitation
+### user_group_invitations_update
 
 **`PUT`** `/api/user-group-invitations/{uuid}/`
 
-**Operation ID:** `user_group_invitations_update`
+**Summary:** Update a group invitation
 
 Update an active group invitation. Only active invitations can be edited.
 
@@ -792,11 +752,11 @@ Schema: `GroupInvitationUpdateRequest`
 
 ---
 
-### Partially update a group invitation
+### user_group_invitations_partial_update
 
 **`PATCH`** `/api/user-group-invitations/{uuid}/`
 
-**Operation ID:** `user_group_invitations_partial_update`
+**Summary:** Partially update a group invitation
 
 Partially update an active group invitation. Only active invitations can be edited.
 
@@ -832,11 +792,11 @@ Schema: `PatchedGroupInvitationUpdateRequest`
 
 ---
 
-### Delete a group invitation
+### user_group_invitations_destroy
 
 **`DELETE`** `/api/user-group-invitations/{uuid}/`
 
-**Operation ID:** `user_group_invitations_destroy`
+**Summary:** Delete a group invitation
 
 Deletes an inactive group invitation. Only invitations that have been canceled (is_active=False) can be deleted.
 
@@ -854,11 +814,11 @@ Deletes an inactive group invitation. Only invitations that have been canceled (
 
 ---
 
-### Cancel a group invitation
+### user_group_invitations_cancel
 
 **`POST`** `/api/user-group-invitations/{uuid}/cancel/`
 
-**Operation ID:** `user_group_invitations_cancel`
+**Summary:** Cancel a group invitation
 
 Cancels an active group invitation, preventing new permission requests from being created.
 
@@ -876,11 +836,11 @@ Cancels an active group invitation, preventing new permission requests from bein
 
 ---
 
-### List projects for a customer-scoped group invitation
+### user_group_invitations_projects_list
 
 **`GET`** `/api/user-group-invitations/{uuid}/projects/`
 
-**Operation ID:** `user_group_invitations_projects_list`
+**Summary:** List projects for a customer-scoped group invitation
 
 For a group invitation scoped to a customer, this endpoint lists all projects within that customer.
 
@@ -898,11 +858,11 @@ For a group invitation scoped to a customer, this endpoint lists all projects wi
 
 ---
 
-### Submit a permission request
+### user_group_invitations_submit_request
 
 **`POST`** `/api/user-group-invitations/{uuid}/submit_request/`
 
-**Operation ID:** `user_group_invitations_submit_request`
+**Summary:** Submit a permission request
 
 Creates a permission request based on a group invitation for the currently authenticated user. If the invitation has auto_approve enabled and the user matches the required patterns, the request is automatically approved.
 
@@ -920,11 +880,11 @@ Creates a permission request based on a group invitation for the currently authe
 
 ---
 
-### List user invitations
+### user_invitations_list
 
 **`GET`** `/api/user-invitations/`
 
-**Operation ID:** `user_invitations_list`
+**Summary:** List user invitations
 
 Retrieve a list of user invitations visible to the current user.
 
@@ -953,11 +913,11 @@ Retrieve a list of user invitations visible to the current user.
 
 ---
 
-### List user invitations
+### user_invitations_count
 
 **`HEAD`** `/api/user-invitations/`
 
-**Operation ID:** `user_invitations_count`
+**Summary:** List user invitations
 
 Get number of items in the collection matching the request parameters.
 
@@ -986,11 +946,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create user invitation
+### user_invitations_create
 
 **`POST`** `/api/user-invitations/`
 
-**Operation ID:** `user_invitations_create`
+**Summary:** Create user invitation
 
 Create a new user invitation to grant a role in a specific scope (e.g., organization or project).
 
@@ -1019,11 +979,11 @@ Schema: `InvitationRequest`
 
 ---
 
-### Approve a requested invitation
+### user_invitations_approve
 
 **`POST`** `/api/user-invitations/approve/`
 
-**Operation ID:** `user_invitations_approve`
+**Summary:** Approve a requested invitation
 
 For user's convenience invitation approval is performed without authentication.
         User UUID and invitation UUID is encoded into cryptographically signed token.
@@ -1044,11 +1004,11 @@ Schema: `TokenRequest`
 
 ---
 
-### Check for duplicate invitations
+### user_invitations_check_duplicates
 
 **`POST`** `/api/user-invitations/check-duplicates/`
 
-**Operation ID:** `user_invitations_check_duplicates`
+**Summary:** Check for duplicate invitations
 
 Returns pending invitations that already exist for the same email and role within the given scope.
 
@@ -1069,11 +1029,11 @@ Schema: `InvitationDuplicateCheckRequest`
 
 ---
 
-### Reject a requested invitation
+### user_invitations_reject
 
 **`POST`** `/api/user-invitations/reject/`
 
-**Operation ID:** `user_invitations_reject`
+**Summary:** Reject a requested invitation
 
 For user's convenience invitation reject action is performed without authentication.
         User UUID and invitation UUID is encoded into cryptographically signed token.
@@ -1094,11 +1054,11 @@ Schema: `TokenRequest`
 
 ---
 
-### Retrieve user invitation
+### user_invitations_retrieve
 
 **`GET`** `/api/user-invitations/{uuid}/`
 
-**Operation ID:** `user_invitations_retrieve`
+**Summary:** Retrieve user invitation
 
 Retrieve details of a specific user invitation.
 
@@ -1116,11 +1076,11 @@ Retrieve details of a specific user invitation.
 
 ---
 
-### Update user invitation
+### user_invitations_update
 
 **`PUT`** `/api/user-invitations/{uuid}/`
 
-**Operation ID:** `user_invitations_update`
+**Summary:** Update user invitation
 
 Update an existing user invitation. Only pending invitations can be edited. Allows changing email and role within the same scope.
 
@@ -1147,11 +1107,11 @@ Schema: `InvitationUpdateRequest`
 
 ---
 
-### Partially update user invitation
+### user_invitations_partial_update
 
 **`PATCH`** `/api/user-invitations/{uuid}/`
 
-**Operation ID:** `user_invitations_partial_update`
+**Summary:** Partially update user invitation
 
 Partially update an existing user invitation. Only pending invitations can be edited. Allows changing email and role within the same scope.
 
@@ -1178,11 +1138,11 @@ Schema: `PatchedInvitationUpdateRequest`
 
 ---
 
-### Delete user invitation
+### user_invitations_destroy
 
 **`DELETE`** `/api/user-invitations/{uuid}/`
 
-**Operation ID:** `user_invitations_destroy`
+**Summary:** Delete user invitation
 
 Delete a user invitation. Only users with invitation management permissions can delete invitations.
 
@@ -1200,11 +1160,11 @@ Delete a user invitation. Only users with invitation management permissions can 
 
 ---
 
-### Accept an invitation
+### user_invitations_accept
 
 **`POST`** `/api/user-invitations/{uuid}/accept/`
 
-**Operation ID:** `user_invitations_accept`
+**Summary:** Accept an invitation
 
 Accepts an invitation for the currently authenticated user. This grants the user the specified role in the invitation's scope.
 
@@ -1222,11 +1182,11 @@ Accepts an invitation for the currently authenticated user. This grants the user
 
 ---
 
-### Cancel an invitation
+### user_invitations_cancel
 
 **`POST`** `/api/user-invitations/{uuid}/cancel/`
 
-**Operation ID:** `user_invitations_cancel`
+**Summary:** Cancel an invitation
 
 Cancels a pending or planned (pending_project) invitation.
 
@@ -1244,11 +1204,11 @@ Cancels a pending or planned (pending_project) invitation.
 
 ---
 
-### Check invitation validity
+### user_invitations_check
 
 **`POST`** `/api/user-invitations/{uuid}/check/`
 
-**Operation ID:** `user_invitations_check`
+**Summary:** Check invitation validity
 
 Checks if an invitation is pending and returns its email and whether a civil number is required for acceptance. This endpoint is public and does not require authentication.
 
@@ -1266,11 +1226,11 @@ Checks if an invitation is pending and returns its email and whether a civil num
 
 ---
 
-### Delete an invitation (staff only)
+### user_invitations_delete
 
 **`POST`** `/api/user-invitations/{uuid}/delete/`
 
-**Operation ID:** `user_invitations_delete`
+**Summary:** Delete an invitation (staff only)
 
 Deletes an invitation. This action is restricted to staff users.
 
@@ -1288,11 +1248,11 @@ Deletes an invitation. This action is restricted to staff users.
 
 ---
 
-### Get public invitation details
+### user_invitations_details_retrieve
 
 **`GET`** `/api/user-invitations/{uuid}/details/`
 
-**Operation ID:** `user_invitations_details_retrieve`
+**Summary:** Get public invitation details
 
 Retrieves public-facing details of an invitation. This is used to show information to a user before they accept it.
 
@@ -1310,11 +1270,11 @@ Retrieves public-facing details of an invitation. This is used to show informati
 
 ---
 
-### Resend an invitation
+### user_invitations_send
 
 **`POST`** `/api/user-invitations/{uuid}/send/`
 
-**Operation ID:** `user_invitations_send`
+**Summary:** Resend an invitation
 
 Resends an email for a pending, expired, or canceled invitation. If the invitation was expired or canceled, its state is reset to 'pending' and its creation time is updated.
 
@@ -1332,11 +1292,11 @@ Resends an email for a pending, expired, or canceled invitation. If the invitati
 
 ---
 
-### List permission requests
+### user_permission_requests_list
 
 **`GET`** `/api/user-permission-requests/`
 
-**Operation ID:** `user_permission_requests_list`
+**Summary:** List permission requests
 
 Retrieve a list of permission requests visible to the user.
 
@@ -1359,11 +1319,11 @@ Retrieve a list of permission requests visible to the user.
 
 ---
 
-### List permission requests
+### user_permission_requests_count
 
 **`HEAD`** `/api/user-permission-requests/`
 
-**Operation ID:** `user_permission_requests_count`
+**Summary:** List permission requests
 
 Get number of items in the collection matching the request parameters.
 
@@ -1386,11 +1346,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve permission request
+### user_permission_requests_retrieve
 
 **`GET`** `/api/user-permission-requests/{uuid}/`
 
-**Operation ID:** `user_permission_requests_retrieve`
+**Summary:** Retrieve permission request
 
 Retrieve details of a specific permission request.
 
@@ -1408,11 +1368,11 @@ Retrieve details of a specific permission request.
 
 ---
 
-### Approve a permission request
+### user_permission_requests_approve
 
 **`POST`** `/api/user-permission-requests/{uuid}/approve/`
 
-**Operation ID:** `user_permission_requests_approve`
+**Summary:** Approve a permission request
 
 Approves a pending permission request, granting the requesting user the permissions defined in the associated group invitation.
 
@@ -1438,11 +1398,11 @@ Schema: `ReviewCommentRequest`
 
 ---
 
-### Cancel a permission request
+### user_permission_requests_cancel_request
 
 **`POST`** `/api/user-permission-requests/{uuid}/cancel_request/`
 
-**Operation ID:** `user_permission_requests_cancel_request`
+**Summary:** Cancel a permission request
 
 Cancels a pending or draft permission request. This can be done by the user who created the request or by a staff member.
 
@@ -1460,11 +1420,11 @@ Cancels a pending or draft permission request. This can be done by the user who 
 
 ---
 
-### Reject a permission request
+### user_permission_requests_reject
 
 **`POST`** `/api/user-permission-requests/{uuid}/reject/`
 
-**Operation ID:** `user_permission_requests_reject`
+**Summary:** Reject a permission request
 
 Rejects a pending permission request.
 
@@ -1490,11 +1450,11 @@ Schema: `ReviewCommentRequest`
 
 ---
 
-### List user permissions
+### user_permissions_list
 
 **`GET`** `/api/user-permissions/`
 
-**Operation ID:** `user_permissions_list`
+**Summary:** List user permissions
 
 Get a list of all permissions for the current user. Staff and support users can view all user permissions. The list can be filtered by user, scope, role, etc.
 
@@ -1526,11 +1486,11 @@ Get a list of all permissions for the current user. Staff and support users can 
 
 ---
 
-### List user permissions
+### user_permissions_count
 
 **`HEAD`** `/api/user-permissions/`
 
-**Operation ID:** `user_permissions_count`
+**Summary:** List user permissions
 
 Get number of items in the collection matching the request parameters.
 
@@ -1562,11 +1522,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get permission details
+### user_permissions_retrieve
 
 **`GET`** `/api/user-permissions/{uuid}/`
 
-**Operation ID:** `user_permissions_retrieve`
+**Summary:** Get permission details
 
 Retrieve the details of a specific user permission grant by its UUID.
 
@@ -1587,8 +1547,6 @@ Retrieve the details of a specific user permission grant by its UUID.
 ### users_list
 
 **`GET`** `/api/users/`
-
-**Operation ID:** `users_list`
 
 **Parameters:**
 
@@ -1632,8 +1590,6 @@ Retrieve the details of a specific user permission grant by its UUID.
 
 **`HEAD`** `/api/users/`
 
-**Operation ID:** `users_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -1676,8 +1632,6 @@ Get number of items in the collection matching the request parameters.
 ### users_create
 
 **`POST`** `/api/users/`
-
-**Operation ID:** `users_create`
 
 **Request Body** (`application/json`, required):
 
@@ -1725,11 +1679,11 @@ Schema: `UserRequest`
 
 ---
 
-### Confirm email change
+### users_confirm_email
 
 **`POST`** `/api/users/confirm_email/`
 
-**Operation ID:** `users_confirm_email`
+**Summary:** Confirm email change
 
 Confirm email update using code
 
@@ -1749,11 +1703,11 @@ Schema: `ConfirmEmailRequestRequest`
 
 ---
 
-### Get current user details
+### users_me_retrieve
 
 **`GET`** `/api/users/me/`
 
-**Operation ID:** `users_me_retrieve`
+**Summary:** Get current user details
 
 Get current user details, including authentication token and profile completeness status.
 
@@ -1771,11 +1725,11 @@ Get current user details, including authentication token and profile completenes
 
 ---
 
-### Get current user details
+### users_me_count
 
 **`HEAD`** `/api/users/me/`
 
-**Operation ID:** `users_me_count`
+**Summary:** Get current user details
 
 Get number of items in the collection matching the request parameters.
 
@@ -1787,11 +1741,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Check profile completeness
+### users_profile_completeness_retrieve
 
 **`GET`** `/api/users/profile_completeness/`
 
-**Operation ID:** `users_profile_completeness_retrieve`
+**Summary:** Check profile completeness
 
 Check if user profile is complete with all mandatory attributes.
 
@@ -1803,11 +1757,11 @@ Check if user profile is complete with all mandatory attributes.
 
 ---
 
-### Check profile completeness
+### users_profile_completeness_count
 
 **`HEAD`** `/api/users/profile_completeness/`
 
-**Operation ID:** `users_profile_completeness_count`
+**Summary:** Check profile completeness
 
 Get number of items in the collection matching the request parameters.
 
@@ -1819,11 +1773,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Trigger SCIM synchronization for all users
+### users_scim_sync_all
 
 **`POST`** `/api/users/scim_sync_all/`
 
-**Operation ID:** `users_scim_sync_all`
+**Summary:** Trigger SCIM synchronization for all users
 
 Staff-only action to queue SCIM synchronization for all users.
 
@@ -1835,11 +1789,11 @@ Staff-only action to queue SCIM synchronization for all users.
 
 ---
 
-### Get user counts by active status
+### users_user_active_status_count_list
 
 **`GET`** `/api/users/user_active_status_count/`
 
-**Operation ID:** `users_user_active_status_count_list`
+**Summary:** Get user counts by active status
 
 Returns aggregated counts of users by active/inactive status. Staff or support only.
 
@@ -1880,11 +1834,11 @@ Returns aggregated counts of users by active/inactive status. Staff or support o
 
 ---
 
-### Get user counts by active status
+### users_user_active_status_count_count
 
 **`HEAD`** `/api/users/user_active_status_count/`
 
-**Operation ID:** `users_user_active_status_count_count`
+**Summary:** Get user counts by active status
 
 Get number of items in the collection matching the request parameters.
 
@@ -1925,11 +1879,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get user counts by preferred language
+### users_user_language_count_list
 
 **`GET`** `/api/users/user_language_count/`
 
-**Operation ID:** `users_user_language_count_list`
+**Summary:** Get user counts by preferred language
 
 Returns aggregated counts of users by preferred language. Staff or support only.
 
@@ -1970,11 +1924,11 @@ Returns aggregated counts of users by preferred language. Staff or support only.
 
 ---
 
-### Get user counts by preferred language
+### users_user_language_count_count
 
 **`HEAD`** `/api/users/user_language_count/`
 
-**Operation ID:** `users_user_language_count_count`
+**Summary:** Get user counts by preferred language
 
 Get number of items in the collection matching the request parameters.
 
@@ -2015,11 +1969,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get user registration trends by month
+### users_user_registration_trend_list
 
 **`GET`** `/api/users/user_registration_trend/`
 
-**Operation ID:** `users_user_registration_trend_list`
+**Summary:** Get user registration trends by month
 
 Returns user registration counts aggregated by month. Staff or support only.
 
@@ -2060,11 +2014,11 @@ Returns user registration counts aggregated by month. Staff or support only.
 
 ---
 
-### Get user registration trends by month
+### users_user_registration_trend_count
 
 **`HEAD`** `/api/users/user_registration_trend/`
 
-**Operation ID:** `users_user_registration_trend_count`
+**Summary:** Get user registration trends by month
 
 Get number of items in the collection matching the request parameters.
 
@@ -2109,8 +2063,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/users/{uuid}/`
 
-**Operation ID:** `users_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2129,8 +2081,6 @@ Get number of items in the collection matching the request parameters.
 ### users_update
 
 **`PUT`** `/api/users/{uuid}/`
-
-**Operation ID:** `users_update`
 
 **Parameters:**
 
@@ -2188,8 +2138,6 @@ Schema: `UserRequest`
 
 **`PATCH`** `/api/users/{uuid}/`
 
-**Operation ID:** `users_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2245,8 +2193,6 @@ Schema: `PatchedUserRequest`
 
 **`DELETE`** `/api/users/{uuid}/`
 
-**Operation ID:** `users_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2261,11 +2207,11 @@ Schema: `PatchedUserRequest`
 
 ---
 
-### Cancel email change request
+### users_cancel_change_email
 
 **`POST`** `/api/users/{uuid}/cancel_change_email/`
 
-**Operation ID:** `users_cancel_change_email`
+**Summary:** Cancel email change request
 
 Cancel email update request
 
@@ -2283,11 +2229,11 @@ Cancel email update request
 
 ---
 
-### Request email change
+### users_change_email
 
 **`POST`** `/api/users/{uuid}/change_email/`
 
-**Operation ID:** `users_change_email`
+**Summary:** Request email change
 
 Allows to change email for user.
 
@@ -2313,11 +2259,11 @@ Schema: `UserEmailChangeRequest`
 
 ---
 
-### Change user password
+### users_change_password
 
 **`POST`** `/api/users/{uuid}/change_password/`
 
-**Operation ID:** `users_change_password`
+**Summary:** Change user password
 
 Allows staff user to change password for any user.
 
@@ -2343,11 +2289,11 @@ Schema: `PasswordChangeRequest`
 
 ---
 
-### Get user data access visibility
+### users_data_access_retrieve
 
 **`GET`** `/api/users/{uuid}/data_access/`
 
-**Operation ID:** `users_data_access_retrieve`
+**Summary:** Get user data access visibility
 
 Shows who has access to the user's profile data. Includes administrative access (staff/support), organizational access (same customer/project), and service provider access (via consent). Regular users see counts for admin access; staff/support see individual records.
 
@@ -2365,11 +2311,11 @@ Shows who has access to the user's profile data. Includes administrative access 
 
 ---
 
-### Get user data access history
+### users_data_access_history_list
 
 **`GET`** `/api/users/{uuid}/data_access_history/`
 
-**Operation ID:** `users_data_access_history_list`
+**Summary:** Get user data access history
 
 Shows historical log of who has accessed the user's profile data. Regular users see anonymized accessor categories. Staff/support see full details including accessor identity, IP, and context.
 
@@ -2414,11 +2360,11 @@ Shows historical log of who has accessed the user's profile data. Regular users 
 
 ---
 
-### Get version history
+### users_history_list
 
 **`GET`** `/api/users/{uuid}/history/`
 
-**Operation ID:** `users_history_list`
+**Summary:** Get version history
 
 Returns the version history for this object. Only accessible by staff and support users.
 
@@ -2462,11 +2408,11 @@ Returns the version history for this object. Only accessible by staff and suppor
 
 ---
 
-### Get object state at a specific timestamp
+### users_history_at_retrieve
 
 **`GET`** `/api/users/{uuid}/history/at/`
 
-**Operation ID:** `users_history_at_retrieve`
+**Summary:** Get object state at a specific timestamp
 
 Returns the state of the object as it was at the specified timestamp. Only accessible by staff and support users.
 
@@ -2487,11 +2433,11 @@ Returns the state of the object as it was at the specified timestamp. Only acces
 
 ---
 
-### Get identity bridge status for a user
+### users_identity_bridge_status_retrieve
 
 **`GET`** `/api/users/{uuid}/identity_bridge_status/`
 
-**Operation ID:** `users_identity_bridge_status_retrieve`
+**Summary:** Get identity bridge status for a user
 
 Returns diagnostic information about a user's identity bridge state: active ISDs, per-attribute source tracking with staleness detection, and effective bridge-writable fields. Staff only.
 
@@ -2509,11 +2455,11 @@ Returns diagnostic information about a user's identity bridge state: active ISDs
 
 ---
 
-### Synchronize user details from eduTEAMS
+### users_pull_remote_user
 
 **`POST`** `/api/users/{uuid}/pull_remote_user/`
 
-**Operation ID:** `users_pull_remote_user`
+**Summary:** Synchronize user details from eduTEAMS
 
 **Parameters:**
 
@@ -2529,11 +2475,11 @@ Returns diagnostic information about a user's identity bridge state: active ISDs
 
 ---
 
-### Refresh user auth token
+### users_refresh_token
 
 **`POST`** `/api/users/{uuid}/refresh_token/`
 
-**Operation ID:** `users_refresh_token`
+**Summary:** Refresh user auth token
 
 **Parameters:**
 
@@ -2549,11 +2495,11 @@ Returns diagnostic information about a user's identity bridge state: active ISDs
 
 ---
 
-### Send action notification to a specific user
+### users_send_notification
 
 **`POST`** `/api/users/{uuid}/send_notification/`
 
-**Operation ID:** `users_send_notification`
+**Summary:** Send action notification to a specific user
 
 Staff-only action to send a pending actions digest notification to a specific user.
 
@@ -2571,11 +2517,11 @@ Staff-only action to send a pending actions digest notification to a specific us
 
 ---
 
-### Get user auth token
+### users_token_retrieve
 
 **`GET`** `/api/users/{uuid}/token/`
 
-**Operation ID:** `users_token_retrieve`
+**Summary:** Get user auth token
 
 **Parameters:**
 
@@ -2591,11 +2537,11 @@ Staff-only action to send a pending actions digest notification to a specific us
 
 ---
 
-### Recalculate user actions for a specific user
+### users_update_actions
 
 **`POST`** `/api/users/{uuid}/update_actions/`
 
-**Operation ID:** `users_update_actions`
+**Summary:** Recalculate user actions for a specific user
 
 Staff-only action to trigger recalculation of user actions for a specific user.
 

@@ -7,51 +7,51 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/celery-stats/` | `celery_stats_retrieve` | Get Celery worker statistics |
-| GET | `/api/daily-quotas/` | `daily_quotas_retrieve` |  |
-| GET | `/api/data-access-logs/` | `data_access_logs_list` |  |
-| HEAD | `/api/data-access-logs/` | `data_access_logs_count` |  |
-| GET | `/api/data-access-logs/{uuid}/` | `data_access_logs_retrieve` |  |
-| DELETE | `/api/data-access-logs/{uuid}/` | `data_access_logs_destroy` |  |
-| GET | `/api/database-stats/` | `database_stats_retrieve` | Get comprehensive database statistics |
-| GET | `/api/debug/pubsub/circuit_breaker/` | `debug_pubsub_circuit_breaker_retrieve` | Get circuit breaker state |
-| POST | `/api/debug/pubsub/circuit_breaker_reset/` | `debug_pubsub_circuit_breaker_reset` | Reset circuit breaker |
-| GET | `/api/debug/pubsub/dead_letter_queue/` | `debug_pubsub_dead_letter_queue_retrieve` | Get dead letter queue status |
-| GET | `/api/debug/pubsub/message_state_cache/` | `debug_pubsub_message_state_cache_retrieve` | Get message state cache statistics |
-| GET | `/api/debug/pubsub/metrics/` | `debug_pubsub_metrics_retrieve` | Get publishing metrics |
-| POST | `/api/debug/pubsub/metrics_reset/` | `debug_pubsub_metrics_reset` | Reset publishing metrics |
-| GET | `/api/debug/pubsub/overview/` | `debug_pubsub_overview_retrieve` | Get pubsub system health overview |
-| GET | `/api/debug/pubsub/queues/` | `debug_pubsub_queues_retrieve` | Get subscription queues overview |
-| GET | `/api/email-logs/` | `email_logs_list` |  |
-| HEAD | `/api/email-logs/` | `email_logs_count` |  |
-| GET | `/api/email-logs/{uuid}/` | `email_logs_retrieve` |  |
-| GET | `/api/rabbitmq-overview/` | `rabbitmq_overview_retrieve` | Get RabbitMQ cluster overview statistics |
-| GET | `/api/rabbitmq-stats/` | `rabbitmq_stats_retrieve` | Get RabbitMQ subscription queue statistics |
-| POST | `/api/rabbitmq-stats/` | `rabbitmq_stats` | Purge or delete RabbitMQ subscription queues |
-| GET | `/api/rabbitmq-user-stats/` | `rabbitmq_user_stats_list` | Get RabbitMQ user connection statistics |
-| GET | `/api/rabbitmq-vhost-stats/` | `rabbitmq_vhost_stats_list` |  |
-| GET | `/api/stats/celery/` | `stats_celery_retrieve` | Get Celery worker statistics |
-| GET | `/api/stats/database/` | `stats_database_retrieve` | Get comprehensive database statistics |
-| POST | `/api/stats/query/` | `stats_query` | Execute read-only SQL query |
-| GET | `/api/stats/table-growth/` | `stats_table_growth_retrieve` | Get table growth statistics |
-| GET | `/api/sync-issues/` | `sync_issues_retrieve` |  |
-| POST | `/api/sync-issues/` | `sync_issues` |  |
-| GET | `/api/system-logs/` | `system_logs_list` |  |
-| HEAD | `/api/system-logs/` | `system_logs_count` |  |
-| GET | `/api/system-logs/instances/` | `system_logs_instances_list` | List system log instances |
-| HEAD | `/api/system-logs/instances/` | `system_logs_instances_count` | List system log instances |
-| GET | `/api/system-logs/stats/` | `system_logs_stats_retrieve` | Get system log statistics |
-| HEAD | `/api/system-logs/stats/` | `system_logs_stats_count` | Get system log statistics |
-| GET | `/api/system-logs/{id}/` | `system_logs_retrieve` |  |
-| GET | `/api/version/` | `version_retrieve` | Get application version |
+| GET | `/api/celery-stats/` | [`celery_stats_retrieve`](#celery-stats-retrieve) | Get Celery worker statistics |
+| GET | `/api/daily-quotas/` | [`daily_quotas_retrieve`](#daily-quotas-retrieve) |  |
+| GET | `/api/data-access-logs/` | [`data_access_logs_list`](#data-access-logs-list) |  |
+| HEAD | `/api/data-access-logs/` | [`data_access_logs_count`](#data-access-logs-count) |  |
+| GET | `/api/data-access-logs/{uuid}/` | [`data_access_logs_retrieve`](#data-access-logs-retrieve) |  |
+| DELETE | `/api/data-access-logs/{uuid}/` | [`data_access_logs_destroy`](#data-access-logs-destroy) |  |
+| GET | `/api/database-stats/` | [`database_stats_retrieve`](#database-stats-retrieve) | Get comprehensive database statistics |
+| GET | `/api/debug/pubsub/circuit_breaker/` | [`debug_pubsub_circuit_breaker_retrieve`](#debug-pubsub-circuit-breaker-retrieve) | Get circuit breaker state |
+| POST | `/api/debug/pubsub/circuit_breaker_reset/` | [`debug_pubsub_circuit_breaker_reset`](#debug-pubsub-circuit-breaker-reset) | Reset circuit breaker |
+| GET | `/api/debug/pubsub/dead_letter_queue/` | [`debug_pubsub_dead_letter_queue_retrieve`](#debug-pubsub-dead-letter-queue-retrieve) | Get dead letter queue status |
+| GET | `/api/debug/pubsub/message_state_cache/` | [`debug_pubsub_message_state_cache_retrieve`](#debug-pubsub-message-state-cache-retrieve) | Get message state cache statistics |
+| GET | `/api/debug/pubsub/metrics/` | [`debug_pubsub_metrics_retrieve`](#debug-pubsub-metrics-retrieve) | Get publishing metrics |
+| POST | `/api/debug/pubsub/metrics_reset/` | [`debug_pubsub_metrics_reset`](#debug-pubsub-metrics-reset) | Reset publishing metrics |
+| GET | `/api/debug/pubsub/overview/` | [`debug_pubsub_overview_retrieve`](#debug-pubsub-overview-retrieve) | Get pubsub system health overview |
+| GET | `/api/debug/pubsub/queues/` | [`debug_pubsub_queues_retrieve`](#debug-pubsub-queues-retrieve) | Get subscription queues overview |
+| GET | `/api/email-logs/` | [`email_logs_list`](#email-logs-list) |  |
+| HEAD | `/api/email-logs/` | [`email_logs_count`](#email-logs-count) |  |
+| GET | `/api/email-logs/{uuid}/` | [`email_logs_retrieve`](#email-logs-retrieve) |  |
+| GET | `/api/rabbitmq-overview/` | [`rabbitmq_overview_retrieve`](#rabbitmq-overview-retrieve) | Get RabbitMQ cluster overview statistics |
+| GET | `/api/rabbitmq-stats/` | [`rabbitmq_stats_retrieve`](#rabbitmq-stats-retrieve) | Get RabbitMQ subscription queue statistics |
+| POST | `/api/rabbitmq-stats/` | [`rabbitmq_stats`](#rabbitmq-stats) | Purge or delete RabbitMQ subscription queues |
+| GET | `/api/rabbitmq-user-stats/` | [`rabbitmq_user_stats_list`](#rabbitmq-user-stats-list) | Get RabbitMQ user connection statistics |
+| GET | `/api/rabbitmq-vhost-stats/` | [`rabbitmq_vhost_stats_list`](#rabbitmq-vhost-stats-list) |  |
+| GET | `/api/stats/celery/` | [`stats_celery_retrieve`](#stats-celery-retrieve) | Get Celery worker statistics |
+| GET | `/api/stats/database/` | [`stats_database_retrieve`](#stats-database-retrieve) | Get comprehensive database statistics |
+| POST | `/api/stats/query/` | [`stats_query`](#stats-query) | Execute read-only SQL query |
+| GET | `/api/stats/table-growth/` | [`stats_table_growth_retrieve`](#stats-table-growth-retrieve) | Get table growth statistics |
+| GET | `/api/sync-issues/` | [`sync_issues_retrieve`](#sync-issues-retrieve) |  |
+| POST | `/api/sync-issues/` | [`sync_issues`](#sync-issues) |  |
+| GET | `/api/system-logs/` | [`system_logs_list`](#system-logs-list) |  |
+| HEAD | `/api/system-logs/` | [`system_logs_count`](#system-logs-count) |  |
+| GET | `/api/system-logs/instances/` | [`system_logs_instances_list`](#system-logs-instances-list) | List system log instances |
+| HEAD | `/api/system-logs/instances/` | [`system_logs_instances_count`](#system-logs-instances-count) | List system log instances |
+| GET | `/api/system-logs/stats/` | [`system_logs_stats_retrieve`](#system-logs-stats-retrieve) | Get system log statistics |
+| HEAD | `/api/system-logs/stats/` | [`system_logs_stats_count`](#system-logs-stats-count) | Get system log statistics |
+| GET | `/api/system-logs/{id}/` | [`system_logs_retrieve`](#system-logs-retrieve) |  |
+| GET | `/api/version/` | [`version_retrieve`](#version-retrieve) | Get application version |
 
 ## Endpoint Details
 
-### Get Celery worker statistics
+### celery_stats_retrieve
 
 **`GET`** `/api/celery-stats/`
 
-**Operation ID:** `celery_stats_retrieve`
+**Summary:** Get Celery worker statistics
 
 Provides a comprehensive snapshot of all Celery workers' status.
 
@@ -77,8 +77,6 @@ E...
 
 **`GET`** `/api/daily-quotas/`
 
-**Operation ID:** `daily_quotas_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -99,8 +97,6 @@ E...
 ### data_access_logs_list
 
 **`GET`** `/api/data-access-logs/`
-
-**Operation ID:** `data_access_logs_list`
 
 **Parameters:**
 
@@ -125,8 +121,6 @@ E...
 ### data_access_logs_count
 
 **`HEAD`** `/api/data-access-logs/`
-
-**Operation ID:** `data_access_logs_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -154,8 +148,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/data-access-logs/{uuid}/`
 
-**Operation ID:** `data_access_logs_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -174,8 +166,6 @@ Get number of items in the collection matching the request parameters.
 
 **`DELETE`** `/api/data-access-logs/{uuid}/`
 
-**Operation ID:** `data_access_logs_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -190,11 +180,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get comprehensive database statistics
+### database_stats_retrieve
 
 **`GET`** `/api/database-stats/`
 
-**Operation ID:** `database_stats_retrieve`
+**Summary:** Get comprehensive database statistics
 
 Retrieves comprehensive statistics about the PostgreSQL database including:
 - **Table statistics**: Top 10 largest tables by size
@@ -213,11 +203,11 @@ Retrieves comprehensive statistics about the PostgreSQL database including:
 
 ---
 
-### Get circuit breaker state
+### debug_pubsub_circuit_breaker_retrieve
 
 **`GET`** `/api/debug/pubsub/circuit_breaker/`
 
-**Operation ID:** `debug_pubsub_circuit_breaker_retrieve`
+**Summary:** Get circuit breaker state
 
 Get current STOMP circuit breaker state and statistics.
 
@@ -240,11 +230,11 @@ Requires staff permissions.
 
 ---
 
-### Reset circuit breaker
+### debug_pubsub_circuit_breaker_reset
 
 **`POST`** `/api/debug/pubsub/circuit_breaker_reset/`
 
-**Operation ID:** `debug_pubsub_circuit_breaker_reset`
+**Summary:** Reset circuit breaker
 
 Manually reset the STOMP circuit breaker to CLOSED state.
 
@@ -260,11 +250,11 @@ Requires staff permissions.
 
 ---
 
-### Get dead letter queue status
+### debug_pubsub_dead_letter_queue_retrieve
 
 **`GET`** `/api/debug/pubsub/dead_letter_queue/`
 
-**Operation ID:** `debug_pubsub_dead_letter_queue_retrieve`
+**Summary:** Get dead letter queue status
 
 Get dead letter queue (DLQ) statistics.
 
@@ -285,11 +275,11 @@ Requires staff permissions.
 
 ---
 
-### Get message state cache statistics
+### debug_pubsub_message_state_cache_retrieve
 
 **`GET`** `/api/debug/pubsub/message_state_cache/`
 
-**Operation ID:** `debug_pubsub_message_state_cache_retrieve`
+**Summary:** Get message state cache statistics
 
 Get message state tracker cache statistics for idempotency.
 
@@ -310,11 +300,11 @@ Requires staff permissions.
 
 ---
 
-### Get publishing metrics
+### debug_pubsub_metrics_retrieve
 
 **`GET`** `/api/debug/pubsub/metrics/`
 
-**Operation ID:** `debug_pubsub_metrics_retrieve`
+**Summary:** Get publishing metrics
 
 Get message publishing metrics and statistics.
 
@@ -338,11 +328,11 @@ Requires staff ...
 
 ---
 
-### Reset publishing metrics
+### debug_pubsub_metrics_reset
 
 **`POST`** `/api/debug/pubsub/metrics_reset/`
 
-**Operation ID:** `debug_pubsub_metrics_reset`
+**Summary:** Reset publishing metrics
 
 Reset all publishing metrics counters to zero.
 
@@ -356,11 +346,11 @@ Requires staff permissions.
 
 ---
 
-### Get pubsub system health overview
+### debug_pubsub_overview_retrieve
 
 **`GET`** `/api/debug/pubsub/overview/`
 
-**Operation ID:** `debug_pubsub_overview_retrieve`
+**Summary:** Get pubsub system health overview
 
 Dashboard overview of pubsub system health.
 
@@ -377,11 +367,11 @@ Requires staff permissions.
 
 ---
 
-### Get subscription queues overview
+### debug_pubsub_queues_retrieve
 
 **`GET`** `/api/debug/pubsub/queues/`
 
-**Operation ID:** `debug_pubsub_queues_retrieve`
+**Summary:** Get subscription queues overview
 
 Get overview of subscription queues from RabbitMQ.
 
@@ -405,8 +395,6 @@ Requires staff permissions.
 
 **`GET`** `/api/email-logs/`
 
-**Operation ID:** `email_logs_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -428,8 +416,6 @@ Requires staff permissions.
 ### email_logs_count
 
 **`HEAD`** `/api/email-logs/`
-
-**Operation ID:** `email_logs_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -455,8 +441,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/email-logs/{uuid}/`
 
-**Operation ID:** `email_logs_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -471,11 +455,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get RabbitMQ cluster overview statistics
+### rabbitmq_overview_retrieve
 
 **`GET`** `/api/rabbitmq-overview/`
 
-**Operation ID:** `rabbitmq_overview_retrieve`
+**Summary:** Get RabbitMQ cluster overview statistics
 
 Returns global RabbitMQ cluster health and performance metrics.
 
@@ -497,11 +481,11 @@ Requires support user permissions.
 
 ---
 
-### Get RabbitMQ subscription queue statistics
+### rabbitmq_stats_retrieve
 
 **`GET`** `/api/rabbitmq-stats/`
 
-**Operation ID:** `rabbitmq_stats_retrieve`
+**Summary:** Get RabbitMQ subscription queue statistics
 
 Provides statistics about RabbitMQ subscription queues.
 
@@ -521,11 +505,11 @@ Requires support user permissions.
 
 ---
 
-### Purge or delete RabbitMQ subscription queues
+### rabbitmq_stats
 
 **`POST`** `/api/rabbitmq-stats/`
 
-**Operation ID:** `rabbitmq_stats`
+**Summary:** Purge or delete RabbitMQ subscription queues
 
 Purges messages from or deletes specified RabbitMQ subscription queues.
 
@@ -562,11 +546,11 @@ Schema: `RmqPurgeRequestRequest`
 
 ---
 
-### Get RabbitMQ user connection statistics
+### rabbitmq_user_stats_list
 
 **`GET`** `/api/rabbitmq-user-stats/`
 
-**Operation ID:** `rabbitmq_user_stats_list`
+**Summary:** Get RabbitMQ user connection statistics
 
 Returns enriched connection data for all RabbitMQ users.
 
@@ -596,8 +580,6 @@ Requires support user permissions.
 
 **`GET`** `/api/rabbitmq-vhost-stats/`
 
-**Operation ID:** `rabbitmq_vhost_stats_list`
-
 **Responses:**
 
 | Status | Description |
@@ -606,11 +588,11 @@ Requires support user permissions.
 
 ---
 
-### Get Celery worker statistics
+### stats_celery_retrieve
 
 **`GET`** `/api/stats/celery/`
 
-**Operation ID:** `stats_celery_retrieve`
+**Summary:** Get Celery worker statistics
 
 Provides a comprehensive snapshot of all Celery workers' status.
 
@@ -632,11 +614,11 @@ E...
 
 ---
 
-### Get comprehensive database statistics
+### stats_database_retrieve
 
 **`GET`** `/api/stats/database/`
 
-**Operation ID:** `stats_database_retrieve`
+**Summary:** Get comprehensive database statistics
 
 Retrieves comprehensive statistics about the PostgreSQL database including:
 - **Table statistics**: Top 10 largest tables by size
@@ -655,11 +637,11 @@ Retrieves comprehensive statistics about the PostgreSQL database including:
 
 ---
 
-### Execute read-only SQL query
+### stats_query
 
 **`POST`** `/api/stats/query/`
 
-**Operation ID:** `stats_query`
+**Summary:** Execute read-only SQL query
 
 Execute a given SQL query against a read-only database replica. This is a powerful tool for diagnostics and reporting, but should be used with caution. Requires support user permissions.
 
@@ -680,11 +662,11 @@ Schema: `QueryRequest`
 
 ---
 
-### Get table growth statistics
+### stats_table_growth_retrieve
 
 **`GET`** `/api/stats/table-growth/`
 
-**Operation ID:** `stats_table_growth_retrieve`
+**Summary:** Get table growth statistics
 
 Retrieves historical table growth statistics for detecting abnormal patterns.
 
@@ -711,8 +693,6 @@ Each table entry includes:
 
 **`GET`** `/api/sync-issues/`
 
-**Operation ID:** `sync_issues_retrieve`
-
 This view triggers synchronization of issues from backend.
 
 **Responses:**
@@ -728,8 +708,6 @@ This view triggers synchronization of issues from backend.
 
 **`POST`** `/api/sync-issues/`
 
-**Operation ID:** `sync_issues`
-
 This view triggers synchronization of issues from backend.
 
 **Responses:**
@@ -744,8 +722,6 @@ This view triggers synchronization of issues from backend.
 ### system_logs_list
 
 **`GET`** `/api/system-logs/`
-
-**Operation ID:** `system_logs_list`
 
 **Parameters:**
 
@@ -773,8 +749,6 @@ This view triggers synchronization of issues from backend.
 
 **`HEAD`** `/api/system-logs/`
 
-**Operation ID:** `system_logs_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -799,11 +773,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### List system log instances
+### system_logs_instances_list
 
 **`GET`** `/api/system-logs/instances/`
 
-**Operation ID:** `system_logs_instances_list`
+**Summary:** List system log instances
 
 List all known instances (pods/containers) with their last activity.
 
@@ -829,11 +803,11 @@ List all known instances (pods/containers) with their last activity.
 
 ---
 
-### List system log instances
+### system_logs_instances_count
 
 **`HEAD`** `/api/system-logs/instances/`
 
-**Operation ID:** `system_logs_instances_count`
+**Summary:** List system log instances
 
 Get number of items in the collection matching the request parameters.
 
@@ -859,11 +833,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get system log statistics
+### system_logs_stats_retrieve
 
 **`GET`** `/api/system-logs/stats/`
 
-**Operation ID:** `system_logs_stats_retrieve`
+**Summary:** Get system log statistics
 
 Return log count statistics per source and instance, plus total table size.
 
@@ -875,11 +849,11 @@ Return log count statistics per source and instance, plus total table size.
 
 ---
 
-### Get system log statistics
+### system_logs_stats_count
 
 **`HEAD`** `/api/system-logs/stats/`
 
-**Operation ID:** `system_logs_stats_count`
+**Summary:** Get system log statistics
 
 Get number of items in the collection matching the request parameters.
 
@@ -895,8 +869,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/system-logs/{id}/`
 
-**Operation ID:** `system_logs_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -911,11 +883,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get application version
+### version_retrieve
 
 **`GET`** `/api/version/`
 
-**Operation ID:** `version_retrieve`
+**Summary:** Get application version
 
 Retrieves the current installed version of the application and the latest available version from GitHub (if available). Requires staff or support user permissions.
 

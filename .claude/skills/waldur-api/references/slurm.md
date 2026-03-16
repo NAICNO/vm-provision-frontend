@@ -7,43 +7,41 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/slurm-allocation-user-usage/` | `slurm_allocation_user_usage_list` |  |
-| HEAD | `/api/slurm-allocation-user-usage/` | `slurm_allocation_user_usage_count` |  |
-| GET | `/api/slurm-allocation-user-usage/{id}/` | `slurm_allocation_user_usage_retrieve` |  |
-| GET | `/api/slurm-allocations/` | `slurm_allocations_list` |  |
-| HEAD | `/api/slurm-allocations/` | `slurm_allocations_count` |  |
-| POST | `/api/slurm-allocations/` | `slurm_allocations_create` |  |
-| GET | `/api/slurm-allocations/{uuid}/` | `slurm_allocations_retrieve` |  |
-| PUT | `/api/slurm-allocations/{uuid}/` | `slurm_allocations_update` |  |
-| PATCH | `/api/slurm-allocations/{uuid}/` | `slurm_allocations_partial_update` |  |
-| DELETE | `/api/slurm-allocations/{uuid}/` | `slurm_allocations_destroy` |  |
-| POST | `/api/slurm-allocations/{uuid}/pull/` | `slurm_allocations_pull` | Synchronize resource state |
-| POST | `/api/slurm-allocations/{uuid}/set_erred/` | `slurm_allocations_set_erred` | Mark resource as ERRED |
-| POST | `/api/slurm-allocations/{uuid}/set_limits/` | `slurm_allocations_set_limits` |  |
-| POST | `/api/slurm-allocations/{uuid}/set_ok/` | `slurm_allocations_set_ok` | Mark resource as OK |
-| POST | `/api/slurm-allocations/{uuid}/unlink/` | `slurm_allocations_unlink` | Unlink resource |
-| GET | `/api/slurm-associations/` | `slurm_associations_list` |  |
-| HEAD | `/api/slurm-associations/` | `slurm_associations_count` |  |
-| GET | `/api/slurm-associations/{uuid}/` | `slurm_associations_retrieve` |  |
-| GET | `/api/slurm-jobs/` | `slurm_jobs_list` |  |
-| HEAD | `/api/slurm-jobs/` | `slurm_jobs_count` |  |
-| POST | `/api/slurm-jobs/` | `slurm_jobs_create` |  |
-| GET | `/api/slurm-jobs/{uuid}/` | `slurm_jobs_retrieve` |  |
-| PUT | `/api/slurm-jobs/{uuid}/` | `slurm_jobs_update` |  |
-| PATCH | `/api/slurm-jobs/{uuid}/` | `slurm_jobs_partial_update` |  |
-| DELETE | `/api/slurm-jobs/{uuid}/` | `slurm_jobs_destroy` |  |
-| POST | `/api/slurm-jobs/{uuid}/pull/` | `slurm_jobs_pull` | Synchronize resource state |
-| POST | `/api/slurm-jobs/{uuid}/set_erred/` | `slurm_jobs_set_erred` | Mark resource as ERRED |
-| POST | `/api/slurm-jobs/{uuid}/set_ok/` | `slurm_jobs_set_ok` | Mark resource as OK |
-| POST | `/api/slurm-jobs/{uuid}/unlink/` | `slurm_jobs_unlink` | Unlink resource |
+| GET | `/api/slurm-allocation-user-usage/` | [`slurm_allocation_user_usage_list`](#slurm-allocation-user-usage-list) |  |
+| HEAD | `/api/slurm-allocation-user-usage/` | [`slurm_allocation_user_usage_count`](#slurm-allocation-user-usage-count) |  |
+| GET | `/api/slurm-allocation-user-usage/{id}/` | [`slurm_allocation_user_usage_retrieve`](#slurm-allocation-user-usage-retrieve) |  |
+| GET | `/api/slurm-allocations/` | [`slurm_allocations_list`](#slurm-allocations-list) |  |
+| HEAD | `/api/slurm-allocations/` | [`slurm_allocations_count`](#slurm-allocations-count) |  |
+| POST | `/api/slurm-allocations/` | [`slurm_allocations_create`](#slurm-allocations-create) |  |
+| GET | `/api/slurm-allocations/{uuid}/` | [`slurm_allocations_retrieve`](#slurm-allocations-retrieve) |  |
+| PUT | `/api/slurm-allocations/{uuid}/` | [`slurm_allocations_update`](#slurm-allocations-update) |  |
+| PATCH | `/api/slurm-allocations/{uuid}/` | [`slurm_allocations_partial_update`](#slurm-allocations-partial-update) |  |
+| DELETE | `/api/slurm-allocations/{uuid}/` | [`slurm_allocations_destroy`](#slurm-allocations-destroy) |  |
+| POST | `/api/slurm-allocations/{uuid}/pull/` | [`slurm_allocations_pull`](#slurm-allocations-pull) | Synchronize resource state |
+| POST | `/api/slurm-allocations/{uuid}/set_erred/` | [`slurm_allocations_set_erred`](#slurm-allocations-set-erred) | Mark resource as ERRED |
+| POST | `/api/slurm-allocations/{uuid}/set_limits/` | [`slurm_allocations_set_limits`](#slurm-allocations-set-limits) |  |
+| POST | `/api/slurm-allocations/{uuid}/set_ok/` | [`slurm_allocations_set_ok`](#slurm-allocations-set-ok) | Mark resource as OK |
+| POST | `/api/slurm-allocations/{uuid}/unlink/` | [`slurm_allocations_unlink`](#slurm-allocations-unlink) | Unlink resource |
+| GET | `/api/slurm-associations/` | [`slurm_associations_list`](#slurm-associations-list) |  |
+| HEAD | `/api/slurm-associations/` | [`slurm_associations_count`](#slurm-associations-count) |  |
+| GET | `/api/slurm-associations/{uuid}/` | [`slurm_associations_retrieve`](#slurm-associations-retrieve) |  |
+| GET | `/api/slurm-jobs/` | [`slurm_jobs_list`](#slurm-jobs-list) |  |
+| HEAD | `/api/slurm-jobs/` | [`slurm_jobs_count`](#slurm-jobs-count) |  |
+| POST | `/api/slurm-jobs/` | [`slurm_jobs_create`](#slurm-jobs-create) |  |
+| GET | `/api/slurm-jobs/{uuid}/` | [`slurm_jobs_retrieve`](#slurm-jobs-retrieve) |  |
+| PUT | `/api/slurm-jobs/{uuid}/` | [`slurm_jobs_update`](#slurm-jobs-update) |  |
+| PATCH | `/api/slurm-jobs/{uuid}/` | [`slurm_jobs_partial_update`](#slurm-jobs-partial-update) |  |
+| DELETE | `/api/slurm-jobs/{uuid}/` | [`slurm_jobs_destroy`](#slurm-jobs-destroy) |  |
+| POST | `/api/slurm-jobs/{uuid}/pull/` | [`slurm_jobs_pull`](#slurm-jobs-pull) | Synchronize resource state |
+| POST | `/api/slurm-jobs/{uuid}/set_erred/` | [`slurm_jobs_set_erred`](#slurm-jobs-set-erred) | Mark resource as ERRED |
+| POST | `/api/slurm-jobs/{uuid}/set_ok/` | [`slurm_jobs_set_ok`](#slurm-jobs-set-ok) | Mark resource as OK |
+| POST | `/api/slurm-jobs/{uuid}/unlink/` | [`slurm_jobs_unlink`](#slurm-jobs-unlink) | Unlink resource |
 
 ## Endpoint Details
 
 ### slurm_allocation_user_usage_list
 
 **`GET`** `/api/slurm-allocation-user-usage/`
-
-**Operation ID:** `slurm_allocation_user_usage_list`
 
 **Parameters:**
 
@@ -67,8 +65,6 @@
 ### slurm_allocation_user_usage_count
 
 **`HEAD`** `/api/slurm-allocation-user-usage/`
-
-**Operation ID:** `slurm_allocation_user_usage_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -95,8 +91,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/slurm-allocation-user-usage/{id}/`
 
-**Operation ID:** `slurm_allocation_user_usage_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -114,8 +108,6 @@ Get number of items in the collection matching the request parameters.
 ### slurm_allocations_list
 
 **`GET`** `/api/slurm-allocations/`
-
-**Operation ID:** `slurm_allocations_list`
 
 **Parameters:**
 
@@ -153,8 +145,6 @@ Get number of items in the collection matching the request parameters.
 ### slurm_allocations_count
 
 **`HEAD`** `/api/slurm-allocations/`
-
-**Operation ID:** `slurm_allocations_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -194,8 +184,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/slurm-allocations/`
 
-**Operation ID:** `slurm_allocations_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `SlurmAllocationRequest`
@@ -219,8 +207,6 @@ Schema: `SlurmAllocationRequest`
 
 **`GET`** `/api/slurm-allocations/{uuid}/`
 
-**Operation ID:** `slurm_allocations_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -239,8 +225,6 @@ Schema: `SlurmAllocationRequest`
 ### slurm_allocations_update
 
 **`PUT`** `/api/slurm-allocations/{uuid}/`
-
-**Operation ID:** `slurm_allocations_update`
 
 **Parameters:**
 
@@ -271,8 +255,6 @@ Schema: `SlurmAllocationRequest`
 
 **`PATCH`** `/api/slurm-allocations/{uuid}/`
 
-**Operation ID:** `slurm_allocations_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -300,8 +282,6 @@ Schema: `PatchedSlurmAllocationRequest`
 
 **`DELETE`** `/api/slurm-allocations/{uuid}/`
 
-**Operation ID:** `slurm_allocations_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -316,11 +296,11 @@ Schema: `PatchedSlurmAllocationRequest`
 
 ---
 
-### Synchronize resource state
+### slurm_allocations_pull
 
 **`POST`** `/api/slurm-allocations/{uuid}/pull/`
 
-**Operation ID:** `slurm_allocations_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -339,11 +319,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### slurm_allocations_set_erred
 
 **`POST`** `/api/slurm-allocations/{uuid}/set_erred/`
 
-**Operation ID:** `slurm_allocations_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -374,8 +354,6 @@ Schema: `SetErredRequest`
 
 **`POST`** `/api/slurm-allocations/{uuid}/set_limits/`
 
-**Operation ID:** `slurm_allocations_set_limits`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -400,11 +378,11 @@ Schema: `SlurmAllocationSetLimitsRequest`
 
 ---
 
-### Mark resource as OK
+### slurm_allocations_set_ok
 
 **`POST`** `/api/slurm-allocations/{uuid}/set_ok/`
 
-**Operation ID:** `slurm_allocations_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -422,11 +400,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### slurm_allocations_unlink
 
 **`POST`** `/api/slurm-allocations/{uuid}/unlink/`
 
-**Operation ID:** `slurm_allocations_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -450,8 +428,6 @@ Delete resource from the database without scheduling operations on backend
 
 **`GET`** `/api/slurm-associations/`
 
-**Operation ID:** `slurm_associations_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -470,8 +446,6 @@ Delete resource from the database without scheduling operations on backend
 ### slurm_associations_count
 
 **`HEAD`** `/api/slurm-associations/`
-
-**Operation ID:** `slurm_associations_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -494,8 +468,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/slurm-associations/{uuid}/`
 
-**Operation ID:** `slurm_associations_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -513,8 +485,6 @@ Get number of items in the collection matching the request parameters.
 ### slurm_jobs_list
 
 **`GET`** `/api/slurm-jobs/`
-
-**Operation ID:** `slurm_jobs_list`
 
 **Parameters:**
 
@@ -534,8 +504,6 @@ Get number of items in the collection matching the request parameters.
 
 **`HEAD`** `/api/slurm-jobs/`
 
-**Operation ID:** `slurm_jobs_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -554,8 +522,6 @@ Get number of items in the collection matching the request parameters.
 ### slurm_jobs_create
 
 **`POST`** `/api/slurm-jobs/`
-
-**Operation ID:** `slurm_jobs_create`
 
 **Request Body** (`application/json`, required):
 
@@ -582,8 +548,6 @@ Schema: `FirecrestJobRequest`
 
 **`GET`** `/api/slurm-jobs/{uuid}/`
 
-**Operation ID:** `slurm_jobs_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -602,8 +566,6 @@ Schema: `FirecrestJobRequest`
 ### slurm_jobs_update
 
 **`PUT`** `/api/slurm-jobs/{uuid}/`
-
-**Operation ID:** `slurm_jobs_update`
 
 **Parameters:**
 
@@ -636,8 +598,6 @@ Schema: `FirecrestJobRequest`
 
 **`PATCH`** `/api/slurm-jobs/{uuid}/`
 
-**Operation ID:** `slurm_jobs_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -666,8 +626,6 @@ Schema: `PatchedFirecrestJobRequest`
 
 **`DELETE`** `/api/slurm-jobs/{uuid}/`
 
-**Operation ID:** `slurm_jobs_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -682,11 +640,11 @@ Schema: `PatchedFirecrestJobRequest`
 
 ---
 
-### Synchronize resource state
+### slurm_jobs_pull
 
 **`POST`** `/api/slurm-jobs/{uuid}/pull/`
 
-**Operation ID:** `slurm_jobs_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -705,11 +663,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### slurm_jobs_set_erred
 
 **`POST`** `/api/slurm-jobs/{uuid}/set_erred/`
 
-**Operation ID:** `slurm_jobs_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -736,11 +694,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### slurm_jobs_set_ok
 
 **`POST`** `/api/slurm-jobs/{uuid}/set_ok/`
 
-**Operation ID:** `slurm_jobs_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -758,11 +716,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### slurm_jobs_unlink
 
 **`POST`** `/api/slurm-jobs/{uuid}/unlink/`
 
-**Operation ID:** `slurm_jobs_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used

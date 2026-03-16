@@ -7,58 +7,56 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/marketplace-offering-permissions-log/` | `marketplace_offering_permissions_log_list` |  |
-| HEAD | `/api/marketplace-offering-permissions-log/` | `marketplace_offering_permissions_log_count` |  |
-| GET | `/api/marketplace-offering-permissions-log/{id}/` | `marketplace_offering_permissions_log_retrieve` |  |
-| GET | `/api/marketplace-offering-permissions/` | `marketplace_offering_permissions_list` |  |
-| HEAD | `/api/marketplace-offering-permissions/` | `marketplace_offering_permissions_count` |  |
-| GET | `/api/marketplace-offering-permissions/{id}/` | `marketplace_offering_permissions_retrieve` |  |
-| GET | `/api/marketplace-offering-user-checklist-completions/` | `marketplace_offering_user_checklist_completions_list` | List checklist completions for offering users |
-| HEAD | `/api/marketplace-offering-user-checklist-completions/` | `marketplace_offering_user_checklist_completions_count` | List checklist completions for offering users |
-| GET | `/api/marketplace-offering-user-checklist-completions/{id}/` | `marketplace_offering_user_checklist_completions_retrieve` | Retrieve a checklist completion |
-| GET | `/api/marketplace-offering-user-roles/` | `marketplace_offering_user_roles_list` |  |
-| HEAD | `/api/marketplace-offering-user-roles/` | `marketplace_offering_user_roles_count` |  |
-| POST | `/api/marketplace-offering-user-roles/` | `marketplace_offering_user_roles_create` |  |
-| GET | `/api/marketplace-offering-user-roles/{uuid}/` | `marketplace_offering_user_roles_retrieve` |  |
-| PUT | `/api/marketplace-offering-user-roles/{uuid}/` | `marketplace_offering_user_roles_update` |  |
-| PATCH | `/api/marketplace-offering-user-roles/{uuid}/` | `marketplace_offering_user_roles_partial_update` |  |
-| DELETE | `/api/marketplace-offering-user-roles/{uuid}/` | `marketplace_offering_user_roles_destroy` |  |
-| GET | `/api/marketplace-offering-users/` | `marketplace_offering_users_list` | List offering users |
-| HEAD | `/api/marketplace-offering-users/` | `marketplace_offering_users_count` | List offering users |
-| POST | `/api/marketplace-offering-users/` | `marketplace_offering_users_create` | Create an offering user |
-| GET | `/api/marketplace-offering-users/checklist-template/` | `marketplace_offering_users_checklist_template_retrieve` |  |
-| HEAD | `/api/marketplace-offering-users/checklist-template/` | `marketplace_offering_users_checklist_template_count` |  |
-| GET | `/api/marketplace-offering-users/profile_field_warnings/` | `marketplace_offering_users_profile_field_warnings_retrieve` | Get profile field warnings |
-| HEAD | `/api/marketplace-offering-users/profile_field_warnings/` | `marketplace_offering_users_profile_field_warnings_count` | Get profile field warnings |
-| GET | `/api/marketplace-offering-users/{uuid}/` | `marketplace_offering_users_retrieve` | Retrieve an offering user |
-| PUT | `/api/marketplace-offering-users/{uuid}/` | `marketplace_offering_users_update` |  |
-| PATCH | `/api/marketplace-offering-users/{uuid}/` | `marketplace_offering_users_partial_update` |  |
-| DELETE | `/api/marketplace-offering-users/{uuid}/` | `marketplace_offering_users_destroy` | Delete an offering user |
-| POST | `/api/marketplace-offering-users/{uuid}/begin_creating/` | `marketplace_offering_users_begin_creating` | Begin creation process |
-| GET | `/api/marketplace-offering-users/{uuid}/checklist/` | `marketplace_offering_users_checklist_retrieve` |  |
-| GET | `/api/marketplace-offering-users/{uuid}/checklist_review/` | `marketplace_offering_users_checklist_review_retrieve` |  |
-| GET | `/api/marketplace-offering-users/{uuid}/completion_review_status/` | `marketplace_offering_users_completion_review_status_retrieve` |  |
-| GET | `/api/marketplace-offering-users/{uuid}/completion_status/` | `marketplace_offering_users_completion_status_retrieve` |  |
-| POST | `/api/marketplace-offering-users/{uuid}/request_deletion/` | `marketplace_offering_users_request_deletion` | Request deletion of an offering user |
-| POST | `/api/marketplace-offering-users/{uuid}/set_deleted/` | `marketplace_offering_users_set_deleted` | Set state to Deleted |
-| POST | `/api/marketplace-offering-users/{uuid}/set_deleting/` | `marketplace_offering_users_set_deleting` | Begin deletion process |
-| POST | `/api/marketplace-offering-users/{uuid}/set_error_creating/` | `marketplace_offering_users_set_error_creating` | Set state to Error Creating |
-| POST | `/api/marketplace-offering-users/{uuid}/set_error_deleting/` | `marketplace_offering_users_set_error_deleting` | Set state to Error Deleting |
-| POST | `/api/marketplace-offering-users/{uuid}/set_ok/` | `marketplace_offering_users_set_ok` | Set state to OK |
-| POST | `/api/marketplace-offering-users/{uuid}/set_pending_account_linking/` | `marketplace_offering_users_set_pending_account_linking` | Set state to Pending Account Linking |
-| POST | `/api/marketplace-offering-users/{uuid}/set_pending_additional_validation/` | `marketplace_offering_users_set_pending_additional_validation` | Set state to Pending Additional Validation |
-| POST | `/api/marketplace-offering-users/{uuid}/set_validation_complete/` | `marketplace_offering_users_set_validation_complete` | Set state to Validation Complete |
-| POST | `/api/marketplace-offering-users/{uuid}/submit_answers/` | `marketplace_offering_users_submit_answers` |  |
-| PATCH | `/api/marketplace-offering-users/{uuid}/update_comments/` | `marketplace_offering_users_update_comments_partial_update` | Update service provider comments |
-| POST | `/api/marketplace-offering-users/{uuid}/update_restricted/` | `marketplace_offering_users_update_restricted` | Update restriction status |
+| GET | `/api/marketplace-offering-permissions-log/` | [`marketplace_offering_permissions_log_list`](#marketplace-offering-permissions-log-list) |  |
+| HEAD | `/api/marketplace-offering-permissions-log/` | [`marketplace_offering_permissions_log_count`](#marketplace-offering-permissions-log-count) |  |
+| GET | `/api/marketplace-offering-permissions-log/{id}/` | [`marketplace_offering_permissions_log_retrieve`](#marketplace-offering-permissions-log-retrieve) |  |
+| GET | `/api/marketplace-offering-permissions/` | [`marketplace_offering_permissions_list`](#marketplace-offering-permissions-list) |  |
+| HEAD | `/api/marketplace-offering-permissions/` | [`marketplace_offering_permissions_count`](#marketplace-offering-permissions-count) |  |
+| GET | `/api/marketplace-offering-permissions/{id}/` | [`marketplace_offering_permissions_retrieve`](#marketplace-offering-permissions-retrieve) |  |
+| GET | `/api/marketplace-offering-user-checklist-completions/` | [`marketplace_offering_user_checklist_completions_list`](#marketplace-offering-user-checklist-completions-list) | List checklist completions for offering users |
+| HEAD | `/api/marketplace-offering-user-checklist-completions/` | [`marketplace_offering_user_checklist_completions_count`](#marketplace-offering-user-checklist-completions-count) | List checklist completions for offering users |
+| GET | `/api/marketplace-offering-user-checklist-completions/{id}/` | [`marketplace_offering_user_checklist_completions_retrieve`](#marketplace-offering-user-checklist-completions-retrieve) | Retrieve a checklist completion |
+| GET | `/api/marketplace-offering-user-roles/` | [`marketplace_offering_user_roles_list`](#marketplace-offering-user-roles-list) |  |
+| HEAD | `/api/marketplace-offering-user-roles/` | [`marketplace_offering_user_roles_count`](#marketplace-offering-user-roles-count) |  |
+| POST | `/api/marketplace-offering-user-roles/` | [`marketplace_offering_user_roles_create`](#marketplace-offering-user-roles-create) |  |
+| GET | `/api/marketplace-offering-user-roles/{uuid}/` | [`marketplace_offering_user_roles_retrieve`](#marketplace-offering-user-roles-retrieve) |  |
+| PUT | `/api/marketplace-offering-user-roles/{uuid}/` | [`marketplace_offering_user_roles_update`](#marketplace-offering-user-roles-update) |  |
+| PATCH | `/api/marketplace-offering-user-roles/{uuid}/` | [`marketplace_offering_user_roles_partial_update`](#marketplace-offering-user-roles-partial-update) |  |
+| DELETE | `/api/marketplace-offering-user-roles/{uuid}/` | [`marketplace_offering_user_roles_destroy`](#marketplace-offering-user-roles-destroy) |  |
+| GET | `/api/marketplace-offering-users/` | [`marketplace_offering_users_list`](#marketplace-offering-users-list) | List offering users |
+| HEAD | `/api/marketplace-offering-users/` | [`marketplace_offering_users_count`](#marketplace-offering-users-count) | List offering users |
+| POST | `/api/marketplace-offering-users/` | [`marketplace_offering_users_create`](#marketplace-offering-users-create) | Create an offering user |
+| GET | `/api/marketplace-offering-users/checklist-template/` | [`marketplace_offering_users_checklist_template_retrieve`](#marketplace-offering-users-checklist-template-retrieve) |  |
+| HEAD | `/api/marketplace-offering-users/checklist-template/` | [`marketplace_offering_users_checklist_template_count`](#marketplace-offering-users-checklist-template-count) |  |
+| GET | `/api/marketplace-offering-users/profile_field_warnings/` | [`marketplace_offering_users_profile_field_warnings_retrieve`](#marketplace-offering-users-profile-field-warnings-retrieve) | Get profile field warnings |
+| HEAD | `/api/marketplace-offering-users/profile_field_warnings/` | [`marketplace_offering_users_profile_field_warnings_count`](#marketplace-offering-users-profile-field-warnings-count) | Get profile field warnings |
+| GET | `/api/marketplace-offering-users/{uuid}/` | [`marketplace_offering_users_retrieve`](#marketplace-offering-users-retrieve) | Retrieve an offering user |
+| PUT | `/api/marketplace-offering-users/{uuid}/` | [`marketplace_offering_users_update`](#marketplace-offering-users-update) |  |
+| PATCH | `/api/marketplace-offering-users/{uuid}/` | [`marketplace_offering_users_partial_update`](#marketplace-offering-users-partial-update) |  |
+| DELETE | `/api/marketplace-offering-users/{uuid}/` | [`marketplace_offering_users_destroy`](#marketplace-offering-users-destroy) | Delete an offering user |
+| POST | `/api/marketplace-offering-users/{uuid}/begin_creating/` | [`marketplace_offering_users_begin_creating`](#marketplace-offering-users-begin-creating) | Begin creation process |
+| GET | `/api/marketplace-offering-users/{uuid}/checklist/` | [`marketplace_offering_users_checklist_retrieve`](#marketplace-offering-users-checklist-retrieve) |  |
+| GET | `/api/marketplace-offering-users/{uuid}/checklist_review/` | [`marketplace_offering_users_checklist_review_retrieve`](#marketplace-offering-users-checklist-review-retrieve) |  |
+| GET | `/api/marketplace-offering-users/{uuid}/completion_review_status/` | [`marketplace_offering_users_completion_review_status_retrieve`](#marketplace-offering-users-completion-review-status-retrieve) |  |
+| GET | `/api/marketplace-offering-users/{uuid}/completion_status/` | [`marketplace_offering_users_completion_status_retrieve`](#marketplace-offering-users-completion-status-retrieve) |  |
+| POST | `/api/marketplace-offering-users/{uuid}/request_deletion/` | [`marketplace_offering_users_request_deletion`](#marketplace-offering-users-request-deletion) | Request deletion of an offering user |
+| POST | `/api/marketplace-offering-users/{uuid}/set_deleted/` | [`marketplace_offering_users_set_deleted`](#marketplace-offering-users-set-deleted) | Set state to Deleted |
+| POST | `/api/marketplace-offering-users/{uuid}/set_deleting/` | [`marketplace_offering_users_set_deleting`](#marketplace-offering-users-set-deleting) | Begin deletion process |
+| POST | `/api/marketplace-offering-users/{uuid}/set_error_creating/` | [`marketplace_offering_users_set_error_creating`](#marketplace-offering-users-set-error-creating) | Set state to Error Creating |
+| POST | `/api/marketplace-offering-users/{uuid}/set_error_deleting/` | [`marketplace_offering_users_set_error_deleting`](#marketplace-offering-users-set-error-deleting) | Set state to Error Deleting |
+| POST | `/api/marketplace-offering-users/{uuid}/set_ok/` | [`marketplace_offering_users_set_ok`](#marketplace-offering-users-set-ok) | Set state to OK |
+| POST | `/api/marketplace-offering-users/{uuid}/set_pending_account_linking/` | [`marketplace_offering_users_set_pending_account_linking`](#marketplace-offering-users-set-pending-account-linking) | Set state to Pending Account Linking |
+| POST | `/api/marketplace-offering-users/{uuid}/set_pending_additional_validation/` | [`marketplace_offering_users_set_pending_additional_validation`](#marketplace-offering-users-set-pending-additional-validation) | Set state to Pending Additional Validation |
+| POST | `/api/marketplace-offering-users/{uuid}/set_validation_complete/` | [`marketplace_offering_users_set_validation_complete`](#marketplace-offering-users-set-validation-complete) | Set state to Validation Complete |
+| POST | `/api/marketplace-offering-users/{uuid}/submit_answers/` | [`marketplace_offering_users_submit_answers`](#marketplace-offering-users-submit-answers) |  |
+| PATCH | `/api/marketplace-offering-users/{uuid}/update_comments/` | [`marketplace_offering_users_update_comments_partial_update`](#marketplace-offering-users-update-comments-partial-update) | Update service provider comments |
+| POST | `/api/marketplace-offering-users/{uuid}/update_restricted/` | [`marketplace_offering_users_update_restricted`](#marketplace-offering-users-update-restricted) | Update restriction status |
 
 ## Endpoint Details
 
 ### marketplace_offering_permissions_log_list
 
 **`GET`** `/api/marketplace-offering-permissions-log/`
-
-**Operation ID:** `marketplace_offering_permissions_log_list`
 
 **Parameters:**
 
@@ -92,8 +90,6 @@
 ### marketplace_offering_permissions_log_count
 
 **`HEAD`** `/api/marketplace-offering-permissions-log/`
-
-**Operation ID:** `marketplace_offering_permissions_log_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -130,8 +126,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-offering-permissions-log/{id}/`
 
-**Operation ID:** `marketplace_offering_permissions_log_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -149,8 +143,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_offering_permissions_list
 
 **`GET`** `/api/marketplace-offering-permissions/`
-
-**Operation ID:** `marketplace_offering_permissions_list`
 
 **Parameters:**
 
@@ -184,8 +176,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_offering_permissions_count
 
 **`HEAD`** `/api/marketplace-offering-permissions/`
-
-**Operation ID:** `marketplace_offering_permissions_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -222,8 +212,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-offering-permissions/{id}/`
 
-**Operation ID:** `marketplace_offering_permissions_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -238,11 +226,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### List checklist completions for offering users
+### marketplace_offering_user_checklist_completions_list
 
 **`GET`** `/api/marketplace-offering-user-checklist-completions/`
 
-**Operation ID:** `marketplace_offering_user_checklist_completions_list`
+**Summary:** List checklist completions for offering users
 
 Returns a paginated list of all checklist completions for offering users that the current user is allowed to see.
         This endpoint is used by service providers to monitor compliance status and by users to see their own required checklists.
@@ -267,11 +255,11 @@ Returns a paginated list of all checklist completions for offering users that th
 
 ---
 
-### List checklist completions for offering users
+### marketplace_offering_user_checklist_completions_count
 
 **`HEAD`** `/api/marketplace-offering-user-checklist-completions/`
 
-**Operation ID:** `marketplace_offering_user_checklist_completions_count`
+**Summary:** List checklist completions for offering users
 
 Get number of items in the collection matching the request parameters.
 
@@ -294,11 +282,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve a checklist completion
+### marketplace_offering_user_checklist_completions_retrieve
 
 **`GET`** `/api/marketplace-offering-user-checklist-completions/{id}/`
 
-**Operation ID:** `marketplace_offering_user_checklist_completions_retrieve`
+**Summary:** Retrieve a checklist completion
 
 Returns the details of a specific checklist completion for an offering user.
 
@@ -320,8 +308,6 @@ Returns the details of a specific checklist completion for an offering user.
 
 **`GET`** `/api/marketplace-offering-user-roles/`
 
-**Operation ID:** `marketplace_offering_user_roles_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -342,8 +328,6 @@ Returns the details of a specific checklist completion for an offering user.
 ### marketplace_offering_user_roles_count
 
 **`HEAD`** `/api/marketplace-offering-user-roles/`
-
-**Operation ID:** `marketplace_offering_user_roles_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -368,8 +352,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/marketplace-offering-user-roles/`
 
-**Operation ID:** `marketplace_offering_user_roles_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `OfferingUserRoleRequest`
@@ -393,8 +375,6 @@ Schema: `OfferingUserRoleRequest`
 
 **`GET`** `/api/marketplace-offering-user-roles/{uuid}/`
 
-**Operation ID:** `marketplace_offering_user_roles_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -412,8 +392,6 @@ Schema: `OfferingUserRoleRequest`
 ### marketplace_offering_user_roles_update
 
 **`PUT`** `/api/marketplace-offering-user-roles/{uuid}/`
-
-**Operation ID:** `marketplace_offering_user_roles_update`
 
 **Parameters:**
 
@@ -444,8 +422,6 @@ Schema: `OfferingUserRoleRequest`
 
 **`PATCH`** `/api/marketplace-offering-user-roles/{uuid}/`
 
-**Operation ID:** `marketplace_offering_user_roles_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -475,8 +451,6 @@ Schema: `PatchedOfferingUserRoleRequest`
 
 **`DELETE`** `/api/marketplace-offering-user-roles/{uuid}/`
 
-**Operation ID:** `marketplace_offering_user_roles_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -491,11 +465,11 @@ Schema: `PatchedOfferingUserRoleRequest`
 
 ---
 
-### List offering users
+### marketplace_offering_users_list
 
 **`GET`** `/api/marketplace-offering-users/`
 
-**Operation ID:** `marketplace_offering_users_list`
+**Summary:** List offering users
 
 Returns a paginated list of users associated with offerings. The visibility of users depends on the role of the authenticated user. Staff and support can see all users. Service providers can see users of their offerings if the user has consented. Regular users can only see their own offering-user records.
 
@@ -528,11 +502,11 @@ Returns a paginated list of users associated with offerings. The visibility of u
 
 ---
 
-### List offering users
+### marketplace_offering_users_count
 
 **`HEAD`** `/api/marketplace-offering-users/`
 
-**Operation ID:** `marketplace_offering_users_count`
+**Summary:** List offering users
 
 Get number of items in the collection matching the request parameters.
 
@@ -564,11 +538,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create an offering user
+### marketplace_offering_users_create
 
 **`POST`** `/api/marketplace-offering-users/`
 
-**Operation ID:** `marketplace_offering_users_create`
+**Summary:** Create an offering user
 
 Associates a user with a specific offering, creating an offering-specific user account. This is typically done by a service provider.
 
@@ -596,8 +570,6 @@ Schema: `OfferingUserRequest`
 
 **`GET`** `/api/marketplace-offering-users/checklist-template/`
 
-**Operation ID:** `marketplace_offering_users_checklist_template_retrieve`
-
 Get checklist template for creating new objects.
 
 **Parameters:**
@@ -620,8 +592,6 @@ Get checklist template for creating new objects.
 
 **`HEAD`** `/api/marketplace-offering-users/checklist-template/`
 
-**Operation ID:** `marketplace_offering_users_checklist_template_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -638,11 +608,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get profile field warnings
+### marketplace_offering_users_profile_field_warnings_retrieve
 
 **`GET`** `/api/marketplace-offering-users/profile_field_warnings/`
 
-**Operation ID:** `marketplace_offering_users_profile_field_warnings_retrieve`
+**Summary:** Get profile field warnings
 
 Returns a mapping of user profile field names to offerings that expose those fields. When ENFORCE_OFFERING_USER_PROFILE_COMPLETENESS is enabled, clearing a field listed here would make the user invisible to the service provider for the associated offerings.
 
@@ -654,11 +624,11 @@ Returns a mapping of user profile field names to offerings that expose those fie
 
 ---
 
-### Get profile field warnings
+### marketplace_offering_users_profile_field_warnings_count
 
 **`HEAD`** `/api/marketplace-offering-users/profile_field_warnings/`
 
-**Operation ID:** `marketplace_offering_users_profile_field_warnings_count`
+**Summary:** Get profile field warnings
 
 Get number of items in the collection matching the request parameters.
 
@@ -670,11 +640,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve an offering user
+### marketplace_offering_users_retrieve
 
 **`GET`** `/api/marketplace-offering-users/{uuid}/`
 
-**Operation ID:** `marketplace_offering_users_retrieve`
+**Summary:** Retrieve an offering user
 
 Returns the details of a specific offering-user link. Visibility follows the same rules as the list view.
 
@@ -696,8 +666,6 @@ Returns the details of a specific offering-user link. Visibility follows the sam
 ### marketplace_offering_users_update
 
 **`PUT`** `/api/marketplace-offering-users/{uuid}/`
-
-**Operation ID:** `marketplace_offering_users_update`
 
 **Parameters:**
 
@@ -729,8 +697,6 @@ Schema: `OfferingUserRequest`
 
 **`PATCH`** `/api/marketplace-offering-users/{uuid}/`
 
-**Operation ID:** `marketplace_offering_users_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -757,11 +723,11 @@ Schema: `PatchedOfferingUserRequest`
 
 ---
 
-### Delete an offering user
+### marketplace_offering_users_destroy
 
 **`DELETE`** `/api/marketplace-offering-users/{uuid}/`
 
-**Operation ID:** `marketplace_offering_users_destroy`
+**Summary:** Delete an offering user
 
 Removes the association between a user and an offering. This action may trigger backend cleanup processes depending on the offering type.
 
@@ -779,11 +745,11 @@ Removes the association between a user and an offering. This action may trigger 
 
 ---
 
-### Begin creation process
+### marketplace_offering_users_begin_creating
 
 **`POST`** `/api/marketplace-offering-users/{uuid}/begin_creating/`
 
-**Operation ID:** `marketplace_offering_users_begin_creating`
+**Summary:** Begin creation process
 
 Transitions the offering user state from 'Requested' or 'Error Creating' to 'Creating'. This is typically used by an agent to signal that the creation process has started.
 
@@ -804,8 +770,6 @@ Transitions the offering user state from 'Requested' or 'Error Creating' to 'Cre
 ### marketplace_offering_users_checklist_retrieve
 
 **`GET`** `/api/marketplace-offering-users/{uuid}/checklist/`
-
-**Operation ID:** `marketplace_offering_users_checklist_retrieve`
 
 Get checklist with questions and existing answers.
 
@@ -830,8 +794,6 @@ Get checklist with questions and existing answers.
 
 **`GET`** `/api/marketplace-offering-users/{uuid}/checklist_review/`
 
-**Operation ID:** `marketplace_offering_users_checklist_review_retrieve`
-
 Get checklist with questions and existing answers including review logic (reviewers only).
 
 **Parameters:**
@@ -853,8 +815,6 @@ Get checklist with questions and existing answers including review logic (review
 ### marketplace_offering_users_completion_review_status_retrieve
 
 **`GET`** `/api/marketplace-offering-users/{uuid}/completion_review_status/`
-
-**Operation ID:** `marketplace_offering_users_completion_review_status_retrieve`
 
 Get checklist completion status with review triggers (reviewers only).
 
@@ -878,8 +838,6 @@ Get checklist completion status with review triggers (reviewers only).
 
 **`GET`** `/api/marketplace-offering-users/{uuid}/completion_status/`
 
-**Operation ID:** `marketplace_offering_users_completion_status_retrieve`
-
 Get checklist completion status.
 
 **Parameters:**
@@ -898,11 +856,11 @@ Get checklist completion status.
 
 ---
 
-### Request deletion of an offering user
+### marketplace_offering_users_request_deletion
 
 **`POST`** `/api/marketplace-offering-users/{uuid}/request_deletion/`
 
-**Operation ID:** `marketplace_offering_users_request_deletion`
+**Summary:** Request deletion of an offering user
 
 Initiates the deletion process for an offering user account by transitioning it to the 'Deletion Requested' state.
 
@@ -920,11 +878,11 @@ Initiates the deletion process for an offering user account by transitioning it 
 
 ---
 
-### Set state to Deleted
+### marketplace_offering_users_set_deleted
 
 **`POST`** `/api/marketplace-offering-users/{uuid}/set_deleted/`
 
-**Operation ID:** `marketplace_offering_users_set_deleted`
+**Summary:** Set state to Deleted
 
 Transitions the offering user to the 'Deleted' state, marking the successful completion of the deletion process.
 
@@ -942,11 +900,11 @@ Transitions the offering user to the 'Deleted' state, marking the successful com
 
 ---
 
-### Begin deletion process
+### marketplace_offering_users_set_deleting
 
 **`POST`** `/api/marketplace-offering-users/{uuid}/set_deleting/`
 
-**Operation ID:** `marketplace_offering_users_set_deleting`
+**Summary:** Begin deletion process
 
 Transitions the offering user to the 'Deleting' state. This is typically used by an agent to signal that the deletion process has started.
 
@@ -964,11 +922,11 @@ Transitions the offering user to the 'Deleting' state. This is typically used by
 
 ---
 
-### Set state to Error Creating
+### marketplace_offering_users_set_error_creating
 
 **`POST`** `/api/marketplace-offering-users/{uuid}/set_error_creating/`
 
-**Operation ID:** `marketplace_offering_users_set_error_creating`
+**Summary:** Set state to Error Creating
 
 Manually moves the offering user into the 'Error Creating' state. This is typically used by an agent to report a failure during the creation process.
 
@@ -986,11 +944,11 @@ Manually moves the offering user into the 'Error Creating' state. This is typica
 
 ---
 
-### Set state to Error Deleting
+### marketplace_offering_users_set_error_deleting
 
 **`POST`** `/api/marketplace-offering-users/{uuid}/set_error_deleting/`
 
-**Operation ID:** `marketplace_offering_users_set_error_deleting`
+**Summary:** Set state to Error Deleting
 
 Manually moves the offering user into the 'Error Deleting' state. This is typically used by an agent to report a failure during the deletion process.
 
@@ -1008,11 +966,11 @@ Manually moves the offering user into the 'Error Deleting' state. This is typica
 
 ---
 
-### Set state to OK
+### marketplace_offering_users_set_ok
 
 **`POST`** `/api/marketplace-offering-users/{uuid}/set_ok/`
 
-**Operation ID:** `marketplace_offering_users_set_ok`
+**Summary:** Set state to OK
 
 Manually sets the offering user state to 'OK'. This can be used to recover from an error state or to complete a manual creation process.
 
@@ -1030,11 +988,11 @@ Manually sets the offering user state to 'OK'. This can be used to recover from 
 
 ---
 
-### Set state to Pending Account Linking
+### marketplace_offering_users_set_pending_account_linking
 
 **`POST`** `/api/marketplace-offering-users/{uuid}/set_pending_account_linking/`
 
-**Operation ID:** `marketplace_offering_users_set_pending_account_linking`
+**Summary:** Set state to Pending Account Linking
 
 Transitions the state to 'Pending Account Linking' and allows a service provider to add a comment and a URL to guide the user.
 
@@ -1061,11 +1019,11 @@ Schema: `OfferingUserStateTransitionRequest`
 
 ---
 
-### Set state to Pending Additional Validation
+### marketplace_offering_users_set_pending_additional_validation
 
 **`POST`** `/api/marketplace-offering-users/{uuid}/set_pending_additional_validation/`
 
-**Operation ID:** `marketplace_offering_users_set_pending_additional_validation`
+**Summary:** Set state to Pending Additional Validation
 
 Transitions the state to 'Pending Additional Validation' and allows a service provider to add a comment and a URL for the user to follow.
 
@@ -1092,11 +1050,11 @@ Schema: `OfferingUserStateTransitionRequest`
 
 ---
 
-### Set state to Validation Complete
+### marketplace_offering_users_set_validation_complete
 
 **`POST`** `/api/marketplace-offering-users/{uuid}/set_validation_complete/`
 
-**Operation ID:** `marketplace_offering_users_set_validation_complete`
+**Summary:** Set state to Validation Complete
 
 Transitions the state from a pending validation state to 'OK', indicating that the user has completed the required steps. This clears any service provider comments.
 
@@ -1118,8 +1076,6 @@ Transitions the state from a pending validation state to 'OK', indicating that t
 
 **`POST`** `/api/marketplace-offering-users/{uuid}/submit_answers/`
 
-**Operation ID:** `marketplace_offering_users_submit_answers`
-
 Submit checklist answers.
 
 **Parameters:**
@@ -1140,11 +1096,11 @@ Submit checklist answers.
 
 ---
 
-### Update service provider comments
+### marketplace_offering_users_update_comments_partial_update
 
 **`PATCH`** `/api/marketplace-offering-users/{uuid}/update_comments/`
 
-**Operation ID:** `marketplace_offering_users_update_comments_partial_update`
+**Summary:** Update service provider comments
 
 Allows a service provider to update the `service_provider_comment` and `service_provider_comment_url` fields for an offering user. This is often used to provide feedback or instructions during a pending state.
 
@@ -1171,11 +1127,11 @@ Schema: `PatchedOfferingUserServiceProviderCommentRequest`
 
 ---
 
-### Update restriction status
+### marketplace_offering_users_update_restricted
 
 **`POST`** `/api/marketplace-offering-users/{uuid}/update_restricted/`
 
-**Operation ID:** `marketplace_offering_users_update_restricted`
+**Summary:** Update restriction status
 
 Allows a service provider to mark an offering user as restricted or unrestricted. A restricted user may have limited access to the resource.
 

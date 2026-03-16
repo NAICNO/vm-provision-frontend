@@ -7,71 +7,69 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/billing-total-cost/` | `billing_total_cost_retrieve` |  |
-| GET | `/api/financial-reports/` | `financial_reports_list` |  |
-| HEAD | `/api/financial-reports/` | `financial_reports_count` |  |
-| GET | `/api/financial-reports/{uuid}/` | `financial_reports_retrieve` |  |
-| GET | `/api/invoice-items/` | `invoice_items_list` |  |
-| HEAD | `/api/invoice-items/` | `invoice_items_count` |  |
-| GET | `/api/invoice-items/costs/` | `invoice_items_costs_list` |  |
-| HEAD | `/api/invoice-items/costs/` | `invoice_items_costs_count` |  |
-| GET | `/api/invoice-items/customer_costs_for_period/` | `invoice_items_customer_costs_for_period_retrieve` |  |
-| HEAD | `/api/invoice-items/customer_costs_for_period/` | `invoice_items_customer_costs_for_period_count` |  |
-| GET | `/api/invoice-items/project_costs_for_period/` | `invoice_items_project_costs_for_period_retrieve` |  |
-| HEAD | `/api/invoice-items/project_costs_for_period/` | `invoice_items_project_costs_for_period_count` |  |
-| GET | `/api/invoice-items/total_price/` | `invoice_items_total_price_retrieve` |  |
-| HEAD | `/api/invoice-items/total_price/` | `invoice_items_total_price_count` |  |
-| GET | `/api/invoice-items/{uuid}/` | `invoice_items_retrieve` |  |
-| PUT | `/api/invoice-items/{uuid}/` | `invoice_items_update` |  |
-| PATCH | `/api/invoice-items/{uuid}/` | `invoice_items_partial_update` |  |
-| DELETE | `/api/invoice-items/{uuid}/` | `invoice_items_destroy` |  |
-| GET | `/api/invoice-items/{uuid}/consumptions/` | `invoice_items_consumptions_retrieve` |  |
-| POST | `/api/invoice-items/{uuid}/create_compensation/` | `invoice_items_create_compensation` |  |
-| POST | `/api/invoice-items/{uuid}/migrate_to/` | `invoice_items_migrate_to` |  |
-| POST | `/api/invoice/send-financial-report-by-mail/` | `invoice_send_financial_report_by_mail` |  |
-| GET | `/api/invoices/` | `invoices_list` |  |
-| HEAD | `/api/invoices/` | `invoices_count` |  |
-| GET | `/api/invoices/growth/` | `invoices_growth_retrieve` |  |
-| HEAD | `/api/invoices/growth/` | `invoices_growth_count` |  |
-| POST | `/api/invoices/import_usage/` | `invoices_import_usage` | Import usage data |
-| GET | `/api/invoices/{uuid}/` | `invoices_retrieve` |  |
-| GET | `/api/invoices/{uuid}/history/` | `invoices_history_list` | Get version history |
-| GET | `/api/invoices/{uuid}/history/at/` | `invoices_history_at_retrieve` | Get object state at a specific timestamp |
-| GET | `/api/invoices/{uuid}/items/` | `invoices_items_retrieve` | Get invoice items |
-| POST | `/api/invoices/{uuid}/paid/` | `invoices_paid` |  |
-| POST | `/api/invoices/{uuid}/send_notification/` | `invoices_send_notification` | Send invoice notification |
-| POST | `/api/invoices/{uuid}/set_backend_id/` | `invoices_set_backend_id` |  |
-| POST | `/api/invoices/{uuid}/set_payment_url/` | `invoices_set_payment_url` |  |
-| POST | `/api/invoices/{uuid}/set_reference_number/` | `invoices_set_reference_number` |  |
-| GET | `/api/invoices/{uuid}/stats/` | `invoices_stats_list` |  |
-| GET | `/api/payment-profiles/` | `payment_profiles_list` |  |
-| HEAD | `/api/payment-profiles/` | `payment_profiles_count` |  |
-| POST | `/api/payment-profiles/` | `payment_profiles_create` |  |
-| GET | `/api/payment-profiles/{uuid}/` | `payment_profiles_retrieve` |  |
-| PUT | `/api/payment-profiles/{uuid}/` | `payment_profiles_update` |  |
-| PATCH | `/api/payment-profiles/{uuid}/` | `payment_profiles_partial_update` |  |
-| DELETE | `/api/payment-profiles/{uuid}/` | `payment_profiles_destroy` |  |
-| POST | `/api/payment-profiles/{uuid}/enable/` | `payment_profiles_enable` |  |
-| GET | `/api/payments/` | `payments_list` |  |
-| HEAD | `/api/payments/` | `payments_count` |  |
-| POST | `/api/payments/` | `payments_create` |  |
-| GET | `/api/payments/{uuid}/` | `payments_retrieve` |  |
-| PUT | `/api/payments/{uuid}/` | `payments_update` |  |
-| PATCH | `/api/payments/{uuid}/` | `payments_partial_update` |  |
-| DELETE | `/api/payments/{uuid}/` | `payments_destroy` |  |
-| POST | `/api/payments/{uuid}/link_to_invoice/` | `payments_link_to_invoice` |  |
-| POST | `/api/payments/{uuid}/unlink_from_invoice/` | `payments_unlink_from_invoice` |  |
-| GET | `/api/provider-invoice-items/` | `provider_invoice_items_list` |  |
-| HEAD | `/api/provider-invoice-items/` | `provider_invoice_items_count` |  |
-| GET | `/api/provider-invoice-items/{id}/` | `provider_invoice_items_retrieve` |  |
+| GET | `/api/billing-total-cost/` | [`billing_total_cost_retrieve`](#billing-total-cost-retrieve) |  |
+| GET | `/api/financial-reports/` | [`financial_reports_list`](#financial-reports-list) |  |
+| HEAD | `/api/financial-reports/` | [`financial_reports_count`](#financial-reports-count) |  |
+| GET | `/api/financial-reports/{uuid}/` | [`financial_reports_retrieve`](#financial-reports-retrieve) |  |
+| GET | `/api/invoice-items/` | [`invoice_items_list`](#invoice-items-list) |  |
+| HEAD | `/api/invoice-items/` | [`invoice_items_count`](#invoice-items-count) |  |
+| GET | `/api/invoice-items/costs/` | [`invoice_items_costs_list`](#invoice-items-costs-list) |  |
+| HEAD | `/api/invoice-items/costs/` | [`invoice_items_costs_count`](#invoice-items-costs-count) |  |
+| GET | `/api/invoice-items/customer_costs_for_period/` | [`invoice_items_customer_costs_for_period_retrieve`](#invoice-items-customer-costs-for-period-retrieve) |  |
+| HEAD | `/api/invoice-items/customer_costs_for_period/` | [`invoice_items_customer_costs_for_period_count`](#invoice-items-customer-costs-for-period-count) |  |
+| GET | `/api/invoice-items/project_costs_for_period/` | [`invoice_items_project_costs_for_period_retrieve`](#invoice-items-project-costs-for-period-retrieve) |  |
+| HEAD | `/api/invoice-items/project_costs_for_period/` | [`invoice_items_project_costs_for_period_count`](#invoice-items-project-costs-for-period-count) |  |
+| GET | `/api/invoice-items/total_price/` | [`invoice_items_total_price_retrieve`](#invoice-items-total-price-retrieve) |  |
+| HEAD | `/api/invoice-items/total_price/` | [`invoice_items_total_price_count`](#invoice-items-total-price-count) |  |
+| GET | `/api/invoice-items/{uuid}/` | [`invoice_items_retrieve`](#invoice-items-retrieve) |  |
+| PUT | `/api/invoice-items/{uuid}/` | [`invoice_items_update`](#invoice-items-update) |  |
+| PATCH | `/api/invoice-items/{uuid}/` | [`invoice_items_partial_update`](#invoice-items-partial-update) |  |
+| DELETE | `/api/invoice-items/{uuid}/` | [`invoice_items_destroy`](#invoice-items-destroy) |  |
+| GET | `/api/invoice-items/{uuid}/consumptions/` | [`invoice_items_consumptions_retrieve`](#invoice-items-consumptions-retrieve) |  |
+| POST | `/api/invoice-items/{uuid}/create_compensation/` | [`invoice_items_create_compensation`](#invoice-items-create-compensation) |  |
+| POST | `/api/invoice-items/{uuid}/migrate_to/` | [`invoice_items_migrate_to`](#invoice-items-migrate-to) |  |
+| POST | `/api/invoice/send-financial-report-by-mail/` | [`invoice_send_financial_report_by_mail`](#invoice-send-financial-report-by-mail) |  |
+| GET | `/api/invoices/` | [`invoices_list`](#invoices-list) |  |
+| HEAD | `/api/invoices/` | [`invoices_count`](#invoices-count) |  |
+| GET | `/api/invoices/growth/` | [`invoices_growth_retrieve`](#invoices-growth-retrieve) |  |
+| HEAD | `/api/invoices/growth/` | [`invoices_growth_count`](#invoices-growth-count) |  |
+| POST | `/api/invoices/import_usage/` | [`invoices_import_usage`](#invoices-import-usage) | Import usage data |
+| GET | `/api/invoices/{uuid}/` | [`invoices_retrieve`](#invoices-retrieve) |  |
+| GET | `/api/invoices/{uuid}/history/` | [`invoices_history_list`](#invoices-history-list) | Get version history |
+| GET | `/api/invoices/{uuid}/history/at/` | [`invoices_history_at_retrieve`](#invoices-history-at-retrieve) | Get object state at a specific timestamp |
+| GET | `/api/invoices/{uuid}/items/` | [`invoices_items_retrieve`](#invoices-items-retrieve) | Get invoice items |
+| POST | `/api/invoices/{uuid}/paid/` | [`invoices_paid`](#invoices-paid) |  |
+| POST | `/api/invoices/{uuid}/send_notification/` | [`invoices_send_notification`](#invoices-send-notification) | Send invoice notification |
+| POST | `/api/invoices/{uuid}/set_backend_id/` | [`invoices_set_backend_id`](#invoices-set-backend-id) |  |
+| POST | `/api/invoices/{uuid}/set_payment_url/` | [`invoices_set_payment_url`](#invoices-set-payment-url) |  |
+| POST | `/api/invoices/{uuid}/set_reference_number/` | [`invoices_set_reference_number`](#invoices-set-reference-number) |  |
+| GET | `/api/invoices/{uuid}/stats/` | [`invoices_stats_list`](#invoices-stats-list) |  |
+| GET | `/api/payment-profiles/` | [`payment_profiles_list`](#payment-profiles-list) |  |
+| HEAD | `/api/payment-profiles/` | [`payment_profiles_count`](#payment-profiles-count) |  |
+| POST | `/api/payment-profiles/` | [`payment_profiles_create`](#payment-profiles-create) |  |
+| GET | `/api/payment-profiles/{uuid}/` | [`payment_profiles_retrieve`](#payment-profiles-retrieve) |  |
+| PUT | `/api/payment-profiles/{uuid}/` | [`payment_profiles_update`](#payment-profiles-update) |  |
+| PATCH | `/api/payment-profiles/{uuid}/` | [`payment_profiles_partial_update`](#payment-profiles-partial-update) |  |
+| DELETE | `/api/payment-profiles/{uuid}/` | [`payment_profiles_destroy`](#payment-profiles-destroy) |  |
+| POST | `/api/payment-profiles/{uuid}/enable/` | [`payment_profiles_enable`](#payment-profiles-enable) |  |
+| GET | `/api/payments/` | [`payments_list`](#payments-list) |  |
+| HEAD | `/api/payments/` | [`payments_count`](#payments-count) |  |
+| POST | `/api/payments/` | [`payments_create`](#payments-create) |  |
+| GET | `/api/payments/{uuid}/` | [`payments_retrieve`](#payments-retrieve) |  |
+| PUT | `/api/payments/{uuid}/` | [`payments_update`](#payments-update) |  |
+| PATCH | `/api/payments/{uuid}/` | [`payments_partial_update`](#payments-partial-update) |  |
+| DELETE | `/api/payments/{uuid}/` | [`payments_destroy`](#payments-destroy) |  |
+| POST | `/api/payments/{uuid}/link_to_invoice/` | [`payments_link_to_invoice`](#payments-link-to-invoice) |  |
+| POST | `/api/payments/{uuid}/unlink_from_invoice/` | [`payments_unlink_from_invoice`](#payments-unlink-from-invoice) |  |
+| GET | `/api/provider-invoice-items/` | [`provider_invoice_items_list`](#provider-invoice-items-list) |  |
+| HEAD | `/api/provider-invoice-items/` | [`provider_invoice_items_count`](#provider-invoice-items-count) |  |
+| GET | `/api/provider-invoice-items/{id}/` | [`provider_invoice_items_retrieve`](#provider-invoice-items-retrieve) |  |
 
 ## Endpoint Details
 
 ### billing_total_cost_retrieve
 
 **`GET`** `/api/billing-total-cost/`
-
-**Operation ID:** `billing_total_cost_retrieve`
 
 **Parameters:**
 
@@ -94,8 +92,6 @@
 ### financial_reports_list
 
 **`GET`** `/api/financial-reports/`
-
-**Operation ID:** `financial_reports_list`
 
 **Parameters:**
 
@@ -132,8 +128,6 @@
 ### financial_reports_count
 
 **`HEAD`** `/api/financial-reports/`
-
-**Operation ID:** `financial_reports_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -173,8 +167,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/financial-reports/{uuid}/`
 
-**Operation ID:** `financial_reports_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -192,8 +184,6 @@ Get number of items in the collection matching the request parameters.
 ### invoice_items_list
 
 **`GET`** `/api/invoice-items/`
-
-**Operation ID:** `invoice_items_list`
 
 **Parameters:**
 
@@ -220,8 +210,6 @@ Get number of items in the collection matching the request parameters.
 ### invoice_items_count
 
 **`HEAD`** `/api/invoice-items/`
-
-**Operation ID:** `invoice_items_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -251,8 +239,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/invoice-items/costs/`
 
-**Operation ID:** `invoice_items_costs_list`
-
 Get costs breakdown for a project by year and month.
 
 **Parameters:**
@@ -272,8 +258,6 @@ Get costs breakdown for a project by year and month.
 ### invoice_items_costs_count
 
 **`HEAD`** `/api/invoice-items/costs/`
-
-**Operation ID:** `invoice_items_costs_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -295,8 +279,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/invoice-items/customer_costs_for_period/`
 
-**Operation ID:** `invoice_items_customer_costs_for_period_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -315,8 +297,6 @@ Get number of items in the collection matching the request parameters.
 ### invoice_items_customer_costs_for_period_count
 
 **`HEAD`** `/api/invoice-items/customer_costs_for_period/`
-
-**Operation ID:** `invoice_items_customer_costs_for_period_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -339,8 +319,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/invoice-items/project_costs_for_period/`
 
-**Operation ID:** `invoice_items_project_costs_for_period_retrieve`
-
 Get resource cost breakdown for a project over a specified period.
 
 **Parameters:**
@@ -362,8 +340,6 @@ Get resource cost breakdown for a project over a specified period.
 
 **`HEAD`** `/api/invoice-items/project_costs_for_period/`
 
-**Operation ID:** `invoice_items_project_costs_for_period_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -384,8 +360,6 @@ Get number of items in the collection matching the request parameters.
 ### invoice_items_total_price_retrieve
 
 **`GET`** `/api/invoice-items/total_price/`
-
-**Operation ID:** `invoice_items_total_price_retrieve`
 
 Calculate total price for filtered invoice items.
 
@@ -415,8 +389,6 @@ Calculate total price for filtered invoice items.
 
 **`HEAD`** `/api/invoice-items/total_price/`
 
-**Operation ID:** `invoice_items_total_price_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -445,8 +417,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/invoice-items/{uuid}/`
 
-**Operation ID:** `invoice_items_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -464,8 +434,6 @@ Get number of items in the collection matching the request parameters.
 ### invoice_items_update
 
 **`PUT`** `/api/invoice-items/{uuid}/`
-
-**Operation ID:** `invoice_items_update`
 
 **Parameters:**
 
@@ -497,8 +465,6 @@ Schema: `InvoiceItemUpdateRequest`
 
 **`PATCH`** `/api/invoice-items/{uuid}/`
 
-**Operation ID:** `invoice_items_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -529,8 +495,6 @@ Schema: `PatchedInvoiceItemUpdateRequest`
 
 **`DELETE`** `/api/invoice-items/{uuid}/`
 
-**Operation ID:** `invoice_items_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -549,8 +513,6 @@ Schema: `PatchedInvoiceItemUpdateRequest`
 
 **`GET`** `/api/invoice-items/{uuid}/consumptions/`
 
-**Operation ID:** `invoice_items_consumptions_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -568,8 +530,6 @@ Schema: `PatchedInvoiceItemUpdateRequest`
 ### invoice_items_create_compensation
 
 **`POST`** `/api/invoice-items/{uuid}/create_compensation/`
-
-**Operation ID:** `invoice_items_create_compensation`
 
 Create compensation invoice item for selected invoice item.
 
@@ -599,8 +559,6 @@ Schema: `InvoiceItemCompensationRequest`
 
 **`POST`** `/api/invoice-items/{uuid}/migrate_to/`
 
-**Operation ID:** `invoice_items_migrate_to`
-
 Move invoice item from one invoice to another one.
 
 **Parameters:**
@@ -629,8 +587,6 @@ Schema: `InvoiceItemMigrateToRequest`
 
 **`POST`** `/api/invoice/send-financial-report-by-mail/`
 
-**Operation ID:** `invoice_send_financial_report_by_mail`
-
 **Request Body** (`application/json`, required):
 
 Schema: `FinancialReportEmailRequest`
@@ -652,8 +608,6 @@ Schema: `FinancialReportEmailRequest`
 ### invoices_list
 
 **`GET`** `/api/invoices/`
-
-**Operation ID:** `invoices_list`
 
 **Parameters:**
 
@@ -682,8 +636,6 @@ Schema: `FinancialReportEmailRequest`
 ### invoices_count
 
 **`HEAD`** `/api/invoices/`
-
-**Operation ID:** `invoices_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -714,8 +666,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/invoices/growth/`
 
-**Operation ID:** `invoices_growth_retrieve`
-
 Analyze invoice trends over time by comparing monthly totals for major customers versus others over the past year.
 
 **Parameters:**
@@ -738,8 +688,6 @@ Analyze invoice trends over time by comparing monthly totals for major customers
 
 **`HEAD`** `/api/invoices/growth/`
 
-**Operation ID:** `invoices_growth_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -758,11 +706,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Import usage data
+### invoices_import_usage
 
 **`POST`** `/api/invoices/import_usage/`
 
-**Operation ID:** `invoices_import_usage`
+**Summary:** Import usage data
 
 Import component usage items as JSON data for multiple customers. Creates invoice items for the specified billing period. Items are deduplicated by name, customer, and billing period to prevent duplicates.
 
@@ -788,8 +736,6 @@ Schema: `ImportUsageRequest`
 
 **`GET`** `/api/invoices/{uuid}/`
 
-**Operation ID:** `invoices_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -805,11 +751,11 @@ Schema: `ImportUsageRequest`
 
 ---
 
-### Get version history
+### invoices_history_list
 
 **`GET`** `/api/invoices/{uuid}/history/`
 
-**Operation ID:** `invoices_history_list`
+**Summary:** Get version history
 
 Returns the version history for this object. Only accessible by staff and support users.
 
@@ -839,11 +785,11 @@ Returns the version history for this object. Only accessible by staff and suppor
 
 ---
 
-### Get object state at a specific timestamp
+### invoices_history_at_retrieve
 
 **`GET`** `/api/invoices/{uuid}/history/at/`
 
-**Operation ID:** `invoices_history_at_retrieve`
+**Summary:** Get object state at a specific timestamp
 
 Returns the state of the object as it was at the specified timestamp. Only accessible by staff and support users.
 
@@ -864,11 +810,11 @@ Returns the state of the object as it was at the specified timestamp. Only acces
 
 ---
 
-### Get invoice items
+### invoices_items_retrieve
 
 **`GET`** `/api/invoices/{uuid}/items/`
 
-**Operation ID:** `invoices_items_retrieve`
+**Summary:** Get invoice items
 
 Retrieve a list of invoice items for the specified invoice.
 
@@ -896,8 +842,6 @@ Retrieve a list of invoice items for the specified invoice.
 
 **`POST`** `/api/invoices/{uuid}/paid/`
 
-**Operation ID:** `invoices_paid`
-
 Mark invoice as paid and optionally create payment record with proof of payment.
 
 **Parameters:**
@@ -923,11 +867,11 @@ Schema: `PaidRequest`
 
 ---
 
-### Send invoice notification
+### invoices_send_notification
 
 **`POST`** `/api/invoices/{uuid}/send_notification/`
 
-**Operation ID:** `invoices_send_notification`
+**Summary:** Send invoice notification
 
 Schedule sending of a notification for the specified invoice.
 
@@ -948,8 +892,6 @@ Schedule sending of a notification for the specified invoice.
 ### invoices_set_backend_id
 
 **`POST`** `/api/invoices/{uuid}/set_backend_id/`
-
-**Operation ID:** `invoices_set_backend_id`
 
 Set backend ID for invoice.
 
@@ -979,8 +921,6 @@ Schema: `BackendIdRequest`
 
 **`POST`** `/api/invoices/{uuid}/set_payment_url/`
 
-**Operation ID:** `invoices_set_payment_url`
-
 Set payment URL for invoice.
 
 **Parameters:**
@@ -1009,8 +949,6 @@ Schema: `PaymentURLRequest`
 
 **`POST`** `/api/invoices/{uuid}/set_reference_number/`
 
-**Operation ID:** `invoices_set_reference_number`
-
 Set reference number for invoice.
 
 **Parameters:**
@@ -1038,8 +976,6 @@ Schema: `ReferenceNumberRequest`
 ### invoices_stats_list
 
 **`GET`** `/api/invoices/{uuid}/stats/`
-
-**Operation ID:** `invoices_stats_list`
 
 Spendings grouped by offerings and filtered by provider.
 
@@ -1072,8 +1008,6 @@ Spendings grouped by offerings and filtered by provider.
 
 **`GET`** `/api/payment-profiles/`
 
-**Operation ID:** `payment_profiles_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1095,8 +1029,6 @@ Spendings grouped by offerings and filtered by provider.
 ### payment_profiles_count
 
 **`HEAD`** `/api/payment-profiles/`
-
-**Operation ID:** `payment_profiles_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1122,8 +1054,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/payment-profiles/`
 
-**Operation ID:** `payment_profiles_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `PaymentProfileRequest`
@@ -1148,8 +1078,6 @@ Schema: `PaymentProfileRequest`
 
 **`GET`** `/api/payment-profiles/{uuid}/`
 
-**Operation ID:** `payment_profiles_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1167,8 +1095,6 @@ Schema: `PaymentProfileRequest`
 ### payment_profiles_update
 
 **`PUT`** `/api/payment-profiles/{uuid}/`
-
-**Operation ID:** `payment_profiles_update`
 
 **Parameters:**
 
@@ -1200,8 +1126,6 @@ Schema: `PaymentProfileRequest`
 
 **`PATCH`** `/api/payment-profiles/{uuid}/`
 
-**Operation ID:** `payment_profiles_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1232,8 +1156,6 @@ Schema: `PatchedPaymentProfileRequest`
 
 **`DELETE`** `/api/payment-profiles/{uuid}/`
 
-**Operation ID:** `payment_profiles_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1252,8 +1174,6 @@ Schema: `PatchedPaymentProfileRequest`
 
 **`POST`** `/api/payment-profiles/{uuid}/enable/`
 
-**Operation ID:** `payment_profiles_enable`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1271,8 +1191,6 @@ Schema: `PatchedPaymentProfileRequest`
 ### payments_list
 
 **`GET`** `/api/payments/`
-
-**Operation ID:** `payments_list`
 
 **Parameters:**
 
@@ -1293,8 +1211,6 @@ Schema: `PatchedPaymentProfileRequest`
 ### payments_count
 
 **`HEAD`** `/api/payments/`
-
-**Operation ID:** `payments_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1317,8 +1233,6 @@ Get number of items in the collection matching the request parameters.
 ### payments_create
 
 **`POST`** `/api/payments/`
-
-**Operation ID:** `payments_create`
 
 **Request Body** (`application/json`, required):
 
@@ -1343,8 +1257,6 @@ Schema: `PaymentRequest`
 
 **`GET`** `/api/payments/{uuid}/`
 
-**Operation ID:** `payments_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1362,8 +1274,6 @@ Schema: `PaymentRequest`
 ### payments_update
 
 **`PUT`** `/api/payments/{uuid}/`
-
-**Operation ID:** `payments_update`
 
 **Parameters:**
 
@@ -1394,8 +1304,6 @@ Schema: `PaymentRequest`
 
 **`PATCH`** `/api/payments/{uuid}/`
 
-**Operation ID:** `payments_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1425,8 +1333,6 @@ Schema: `PatchedPaymentRequest`
 
 **`DELETE`** `/api/payments/{uuid}/`
 
-**Operation ID:** `payments_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1444,8 +1350,6 @@ Schema: `PatchedPaymentRequest`
 ### payments_link_to_invoice
 
 **`POST`** `/api/payments/{uuid}/link_to_invoice/`
-
-**Operation ID:** `payments_link_to_invoice`
 
 Link a payment to an invoice. Payment can be linked to an invoice only if they belong to the same customer.
 
@@ -1475,8 +1379,6 @@ Schema: `LinkToInvoiceRequest`
 
 **`POST`** `/api/payments/{uuid}/unlink_from_invoice/`
 
-**Operation ID:** `payments_unlink_from_invoice`
-
 Unlink a payment from an invoice. Remove connection between payment and existing linked invoice.
 
 **Parameters:**
@@ -1496,8 +1398,6 @@ Unlink a payment from an invoice. Remove connection between payment and existing
 ### provider_invoice_items_list
 
 **`GET`** `/api/provider-invoice-items/`
-
-**Operation ID:** `provider_invoice_items_list`
 
 **Parameters:**
 
@@ -1521,8 +1421,6 @@ Unlink a payment from an invoice. Remove connection between payment and existing
 ### provider_invoice_items_count
 
 **`HEAD`** `/api/provider-invoice-items/`
-
-**Operation ID:** `provider_invoice_items_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1548,8 +1446,6 @@ Get number of items in the collection matching the request parameters.
 ### provider_invoice_items_retrieve
 
 **`GET`** `/api/provider-invoice-items/{id}/`
-
-**Operation ID:** `provider_invoice_items_retrieve`
 
 **Parameters:**
 

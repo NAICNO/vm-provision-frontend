@@ -7,107 +7,107 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/marketplace-component-usages/` | `marketplace_component_usages_list` | List component usage records |
-| HEAD | `/api/marketplace-component-usages/` | `marketplace_component_usages_count` | List component usage records |
-| POST | `/api/marketplace-component-usages/set_usage/` | `marketplace_component_usages_set_usage` | Set component usage for a resource |
-| GET | `/api/marketplace-component-usages/{uuid}/` | `marketplace_component_usages_retrieve` | Retrieve a component usage record |
-| POST | `/api/marketplace-component-usages/{uuid}/set_user_usage/` | `marketplace_component_usages_set_user_usage` | Set user-specific component usage |
-| POST | `/api/marketplace-component-usages/{uuid}/set_user_usages/` | `marketplace_component_usages_set_user_usages` | Bulk set user-specific component usages |
-| GET | `/api/marketplace-component-user-usages/` | `marketplace_component_user_usages_list` | List user-specific component usages |
-| HEAD | `/api/marketplace-component-user-usages/` | `marketplace_component_user_usages_count` | List user-specific component usages |
-| GET | `/api/marketplace-component-user-usages/{uuid}/` | `marketplace_component_user_usages_retrieve` | Retrieve a user-specific component usage record |
-| GET | `/api/marketplace-stats/aggregated_usage_trends/` | `marketplace_stats_aggregated_usage_trends_list` |  |
-| HEAD | `/api/marketplace-stats/aggregated_usage_trends/` | `marketplace_stats_aggregated_usage_trends_count` |  |
-| GET | `/api/marketplace-stats/component_usages/` | `marketplace_stats_component_usages_list` |  |
-| HEAD | `/api/marketplace-stats/component_usages/` | `marketplace_stats_component_usages_count` |  |
-| GET | `/api/marketplace-stats/component_usages_per_month/` | `marketplace_stats_component_usages_per_month_list` |  |
-| HEAD | `/api/marketplace-stats/component_usages_per_month/` | `marketplace_stats_component_usages_per_month_count` |  |
-| GET | `/api/marketplace-stats/component_usages_per_project/` | `marketplace_stats_component_usages_per_project_list` |  |
-| HEAD | `/api/marketplace-stats/component_usages_per_project/` | `marketplace_stats_component_usages_per_project_count` |  |
-| GET | `/api/marketplace-stats/count_active_resources_grouped_by_offering/` | `marketplace_stats_count_active_resources_grouped_by_offering_list` |  |
-| HEAD | `/api/marketplace-stats/count_active_resources_grouped_by_offering/` | `marketplace_stats_count_active_resources_grouped_by_offering_count` |  |
-| GET | `/api/marketplace-stats/count_active_resources_grouped_by_offering_country/` | `marketplace_stats_count_active_resources_grouped_by_offering_country_list` |  |
-| HEAD | `/api/marketplace-stats/count_active_resources_grouped_by_offering_country/` | `marketplace_stats_count_active_resources_grouped_by_offering_country_count` |  |
-| GET | `/api/marketplace-stats/count_active_resources_grouped_by_organization_group/` | `marketplace_stats_count_active_resources_grouped_by_organization_group_list` |  |
-| HEAD | `/api/marketplace-stats/count_active_resources_grouped_by_organization_group/` | `marketplace_stats_count_active_resources_grouped_by_organization_group_count` |  |
-| GET | `/api/marketplace-stats/count_projects_grouped_by_provider_and_industry_flag/` | `marketplace_stats_count_projects_grouped_by_provider_and_industry_flag_list` |  |
-| HEAD | `/api/marketplace-stats/count_projects_grouped_by_provider_and_industry_flag/` | `marketplace_stats_count_projects_grouped_by_provider_and_industry_flag_count` |  |
-| GET | `/api/marketplace-stats/count_projects_grouped_by_provider_and_oecd/` | `marketplace_stats_count_projects_grouped_by_provider_and_oecd_list` |  |
-| HEAD | `/api/marketplace-stats/count_projects_grouped_by_provider_and_oecd/` | `marketplace_stats_count_projects_grouped_by_provider_and_oecd_count` |  |
-| GET | `/api/marketplace-stats/count_projects_of_service_providers/` | `marketplace_stats_count_projects_of_service_providers_list` |  |
-| HEAD | `/api/marketplace-stats/count_projects_of_service_providers/` | `marketplace_stats_count_projects_of_service_providers_count` |  |
-| GET | `/api/marketplace-stats/count_projects_of_service_providers_grouped_by_oecd/` | `marketplace_stats_count_projects_of_service_providers_grouped_by_oecd_list` |  |
-| HEAD | `/api/marketplace-stats/count_projects_of_service_providers_grouped_by_oecd/` | `marketplace_stats_count_projects_of_service_providers_grouped_by_oecd_count` |  |
-| GET | `/api/marketplace-stats/count_unique_users_connected_with_active_resources_of_service_provider/` | `marketplace_stats_count_unique_users_connected_with_active_resources_of_service_provider_list` |  |
-| HEAD | `/api/marketplace-stats/count_unique_users_connected_with_active_resources_of_service_provider/` | `marketplace_stats_count_unique_users_connected_with_active_resources_of_service_provider_count` |  |
-| GET | `/api/marketplace-stats/count_users_of_service_providers/` | `marketplace_stats_count_users_of_service_providers_list` |  |
-| HEAD | `/api/marketplace-stats/count_users_of_service_providers/` | `marketplace_stats_count_users_of_service_providers_count` |  |
-| GET | `/api/marketplace-stats/customer_member_count/` | `marketplace_stats_customer_member_count_list` |  |
-| HEAD | `/api/marketplace-stats/customer_member_count/` | `marketplace_stats_customer_member_count_count` |  |
-| GET | `/api/marketplace-stats/customer_member_summary/` | `marketplace_stats_customer_member_summary_retrieve` |  |
-| HEAD | `/api/marketplace-stats/customer_member_summary/` | `marketplace_stats_customer_member_summary_count` |  |
-| GET | `/api/marketplace-stats/offering_costs_summary/` | `marketplace_stats_offering_costs_summary_retrieve` |  |
-| HEAD | `/api/marketplace-stats/offering_costs_summary/` | `marketplace_stats_offering_costs_summary_count` |  |
-| GET | `/api/marketplace-stats/offerings_counter_stats/` | `marketplace_stats_offerings_counter_stats_list` |  |
-| HEAD | `/api/marketplace-stats/offerings_counter_stats/` | `marketplace_stats_offerings_counter_stats_count` |  |
-| GET | `/api/marketplace-stats/order_stats/` | `marketplace_stats_order_stats_retrieve` |  |
-| HEAD | `/api/marketplace-stats/order_stats/` | `marketplace_stats_order_stats_count` |  |
-| GET | `/api/marketplace-stats/organization_project_count/` | `marketplace_stats_organization_project_count_list` |  |
-| HEAD | `/api/marketplace-stats/organization_project_count/` | `marketplace_stats_organization_project_count_count` |  |
-| GET | `/api/marketplace-stats/organization_resource_count/` | `marketplace_stats_organization_resource_count_list` |  |
-| HEAD | `/api/marketplace-stats/organization_resource_count/` | `marketplace_stats_organization_resource_count_count` |  |
-| GET | `/api/marketplace-stats/project_classification_summary/` | `marketplace_stats_project_classification_summary_retrieve` |  |
-| HEAD | `/api/marketplace-stats/project_classification_summary/` | `marketplace_stats_project_classification_summary_count` |  |
-| GET | `/api/marketplace-stats/projects_limits_grouped_by_industry_flag/` | `marketplace_stats_projects_limits_grouped_by_industry_flag_retrieve` |  |
-| HEAD | `/api/marketplace-stats/projects_limits_grouped_by_industry_flag/` | `marketplace_stats_projects_limits_grouped_by_industry_flag_count` |  |
-| GET | `/api/marketplace-stats/projects_limits_grouped_by_oecd/` | `marketplace_stats_projects_limits_grouped_by_oecd_retrieve` |  |
-| HEAD | `/api/marketplace-stats/projects_limits_grouped_by_oecd/` | `marketplace_stats_projects_limits_grouped_by_oecd_count` |  |
-| GET | `/api/marketplace-stats/projects_usages_grouped_by_industry_flag/` | `marketplace_stats_projects_usages_grouped_by_industry_flag_retrieve` |  |
-| HEAD | `/api/marketplace-stats/projects_usages_grouped_by_industry_flag/` | `marketplace_stats_projects_usages_grouped_by_industry_flag_count` |  |
-| GET | `/api/marketplace-stats/projects_usages_grouped_by_oecd/` | `marketplace_stats_projects_usages_grouped_by_oecd_retrieve` |  |
-| HEAD | `/api/marketplace-stats/projects_usages_grouped_by_oecd/` | `marketplace_stats_projects_usages_grouped_by_oecd_count` |  |
-| GET | `/api/marketplace-stats/provider_customers/` | `marketplace_stats_provider_customers_retrieve` |  |
-| HEAD | `/api/marketplace-stats/provider_customers/` | `marketplace_stats_provider_customers_count` |  |
-| GET | `/api/marketplace-stats/provider_offerings/` | `marketplace_stats_provider_offerings_retrieve` |  |
-| HEAD | `/api/marketplace-stats/provider_offerings/` | `marketplace_stats_provider_offerings_count` |  |
-| GET | `/api/marketplace-stats/provider_resources/` | `marketplace_stats_provider_resources_retrieve` |  |
-| HEAD | `/api/marketplace-stats/provider_resources/` | `marketplace_stats_provider_resources_count` |  |
-| GET | `/api/marketplace-stats/resource_provisioning_stats/` | `marketplace_stats_resource_provisioning_stats_list` |  |
-| HEAD | `/api/marketplace-stats/resource_provisioning_stats/` | `marketplace_stats_resource_provisioning_stats_count` |  |
-| GET | `/api/marketplace-stats/resource_usage_by_creator_affiliation/` | `marketplace_stats_resource_usage_by_creator_affiliation_list` |  |
-| HEAD | `/api/marketplace-stats/resource_usage_by_creator_affiliation/` | `marketplace_stats_resource_usage_by_creator_affiliation_count` |  |
-| GET | `/api/marketplace-stats/resource_usage_by_customer/` | `marketplace_stats_resource_usage_by_customer_list` |  |
-| HEAD | `/api/marketplace-stats/resource_usage_by_customer/` | `marketplace_stats_resource_usage_by_customer_count` |  |
-| GET | `/api/marketplace-stats/resource_usage_by_organization_type/` | `marketplace_stats_resource_usage_by_organization_type_list` |  |
-| HEAD | `/api/marketplace-stats/resource_usage_by_organization_type/` | `marketplace_stats_resource_usage_by_organization_type_count` |  |
-| GET | `/api/marketplace-stats/resources_geography_summary/` | `marketplace_stats_resources_geography_summary_retrieve` |  |
-| HEAD | `/api/marketplace-stats/resources_geography_summary/` | `marketplace_stats_resources_geography_summary_count` |  |
-| GET | `/api/marketplace-stats/resources_limits/` | `marketplace_stats_resources_limits_list` |  |
-| HEAD | `/api/marketplace-stats/resources_limits/` | `marketplace_stats_resources_limits_count` |  |
-| GET | `/api/marketplace-stats/resources_missing_usage/` | `marketplace_stats_resources_missing_usage_list` |  |
-| HEAD | `/api/marketplace-stats/resources_missing_usage/` | `marketplace_stats_resources_missing_usage_count` |  |
-| GET | `/api/marketplace-stats/total_cost_of_active_resources_per_offering/` | `marketplace_stats_total_cost_of_active_resources_per_offering_list` |  |
-| HEAD | `/api/marketplace-stats/total_cost_of_active_resources_per_offering/` | `marketplace_stats_total_cost_of_active_resources_per_offering_count` |  |
-| GET | `/api/marketplace-stats/user_affiliation_count/` | `marketplace_stats_user_affiliation_count_list` |  |
-| HEAD | `/api/marketplace-stats/user_affiliation_count/` | `marketplace_stats_user_affiliation_count_count` |  |
-| GET | `/api/marketplace-stats/user_auth_method_count/` | `marketplace_stats_user_auth_method_count_list` |  |
-| HEAD | `/api/marketplace-stats/user_auth_method_count/` | `marketplace_stats_user_auth_method_count_count` |  |
-| GET | `/api/marketplace-stats/user_identity_source_count/` | `marketplace_stats_user_identity_source_count_list` |  |
-| HEAD | `/api/marketplace-stats/user_identity_source_count/` | `marketplace_stats_user_identity_source_count_count` |  |
-| GET | `/api/marketplace-stats/user_job_title_count/` | `marketplace_stats_user_job_title_count_list` |  |
-| HEAD | `/api/marketplace-stats/user_job_title_count/` | `marketplace_stats_user_job_title_count_count` |  |
-| GET | `/api/marketplace-stats/user_organization_count/` | `marketplace_stats_user_organization_count_list` |  |
-| HEAD | `/api/marketplace-stats/user_organization_count/` | `marketplace_stats_user_organization_count_count` |  |
-| GET | `/api/marketplace-stats/user_organization_type_count/` | `marketplace_stats_user_organization_type_count_list` |  |
-| HEAD | `/api/marketplace-stats/user_organization_type_count/` | `marketplace_stats_user_organization_type_count_count` |  |
+| GET | `/api/marketplace-component-usages/` | [`marketplace_component_usages_list`](#marketplace-component-usages-list) | List component usage records |
+| HEAD | `/api/marketplace-component-usages/` | [`marketplace_component_usages_count`](#marketplace-component-usages-count) | List component usage records |
+| POST | `/api/marketplace-component-usages/set_usage/` | [`marketplace_component_usages_set_usage`](#marketplace-component-usages-set-usage) | Set component usage for a resource |
+| GET | `/api/marketplace-component-usages/{uuid}/` | [`marketplace_component_usages_retrieve`](#marketplace-component-usages-retrieve) | Retrieve a component usage record |
+| POST | `/api/marketplace-component-usages/{uuid}/set_user_usage/` | [`marketplace_component_usages_set_user_usage`](#marketplace-component-usages-set-user-usage) | Set user-specific component usage |
+| POST | `/api/marketplace-component-usages/{uuid}/set_user_usages/` | [`marketplace_component_usages_set_user_usages`](#marketplace-component-usages-set-user-usages) | Bulk set user-specific component usages |
+| GET | `/api/marketplace-component-user-usages/` | [`marketplace_component_user_usages_list`](#marketplace-component-user-usages-list) | List user-specific component usages |
+| HEAD | `/api/marketplace-component-user-usages/` | [`marketplace_component_user_usages_count`](#marketplace-component-user-usages-count) | List user-specific component usages |
+| GET | `/api/marketplace-component-user-usages/{uuid}/` | [`marketplace_component_user_usages_retrieve`](#marketplace-component-user-usages-retrieve) | Retrieve a user-specific component usage record |
+| GET | `/api/marketplace-stats/aggregated_usage_trends/` | [`marketplace_stats_aggregated_usage_trends_list`](#marketplace-stats-aggregated-usage-trends-list) |  |
+| HEAD | `/api/marketplace-stats/aggregated_usage_trends/` | [`marketplace_stats_aggregated_usage_trends_count`](#marketplace-stats-aggregated-usage-trends-count) |  |
+| GET | `/api/marketplace-stats/component_usages/` | [`marketplace_stats_component_usages_list`](#marketplace-stats-component-usages-list) |  |
+| HEAD | `/api/marketplace-stats/component_usages/` | [`marketplace_stats_component_usages_count`](#marketplace-stats-component-usages-count) |  |
+| GET | `/api/marketplace-stats/component_usages_per_month/` | [`marketplace_stats_component_usages_per_month_list`](#marketplace-stats-component-usages-per-month-list) |  |
+| HEAD | `/api/marketplace-stats/component_usages_per_month/` | [`marketplace_stats_component_usages_per_month_count`](#marketplace-stats-component-usages-per-month-count) |  |
+| GET | `/api/marketplace-stats/component_usages_per_project/` | [`marketplace_stats_component_usages_per_project_list`](#marketplace-stats-component-usages-per-project-list) |  |
+| HEAD | `/api/marketplace-stats/component_usages_per_project/` | [`marketplace_stats_component_usages_per_project_count`](#marketplace-stats-component-usages-per-project-count) |  |
+| GET | `/api/marketplace-stats/count_active_resources_grouped_by_offering/` | [`marketplace_stats_count_active_resources_grouped_by_offering_list`](#marketplace-stats-count-active-resources-grouped-by-offering-list) |  |
+| HEAD | `/api/marketplace-stats/count_active_resources_grouped_by_offering/` | [`marketplace_stats_count_active_resources_grouped_by_offering_count`](#marketplace-stats-count-active-resources-grouped-by-offering-count) |  |
+| GET | `/api/marketplace-stats/count_active_resources_grouped_by_offering_country/` | [`marketplace_stats_count_active_resources_grouped_by_offering_country_list`](#marketplace-stats-count-active-resources-grouped-by-offering-country-list) |  |
+| HEAD | `/api/marketplace-stats/count_active_resources_grouped_by_offering_country/` | [`marketplace_stats_count_active_resources_grouped_by_offering_country_count`](#marketplace-stats-count-active-resources-grouped-by-offering-country-count) |  |
+| GET | `/api/marketplace-stats/count_active_resources_grouped_by_organization_group/` | [`marketplace_stats_count_active_resources_grouped_by_organization_group_list`](#marketplace-stats-count-active-resources-grouped-by-organization-group-list) |  |
+| HEAD | `/api/marketplace-stats/count_active_resources_grouped_by_organization_group/` | [`marketplace_stats_count_active_resources_grouped_by_organization_group_count`](#marketplace-stats-count-active-resources-grouped-by-organization-group-count) |  |
+| GET | `/api/marketplace-stats/count_projects_grouped_by_provider_and_industry_flag/` | [`marketplace_stats_count_projects_grouped_by_provider_and_industry_flag_list`](#marketplace-stats-count-projects-grouped-by-provider-and-industry-flag-list) |  |
+| HEAD | `/api/marketplace-stats/count_projects_grouped_by_provider_and_industry_flag/` | [`marketplace_stats_count_projects_grouped_by_provider_and_industry_flag_count`](#marketplace-stats-count-projects-grouped-by-provider-and-industry-flag-count) |  |
+| GET | `/api/marketplace-stats/count_projects_grouped_by_provider_and_oecd/` | [`marketplace_stats_count_projects_grouped_by_provider_and_oecd_list`](#marketplace-stats-count-projects-grouped-by-provider-and-oecd-list) |  |
+| HEAD | `/api/marketplace-stats/count_projects_grouped_by_provider_and_oecd/` | [`marketplace_stats_count_projects_grouped_by_provider_and_oecd_count`](#marketplace-stats-count-projects-grouped-by-provider-and-oecd-count) |  |
+| GET | `/api/marketplace-stats/count_projects_of_service_providers/` | [`marketplace_stats_count_projects_of_service_providers_list`](#marketplace-stats-count-projects-of-service-providers-list) |  |
+| HEAD | `/api/marketplace-stats/count_projects_of_service_providers/` | [`marketplace_stats_count_projects_of_service_providers_count`](#marketplace-stats-count-projects-of-service-providers-count) |  |
+| GET | `/api/marketplace-stats/count_projects_of_service_providers_grouped_by_oecd/` | [`marketplace_stats_count_projects_of_service_providers_grouped_by_oecd_list`](#marketplace-stats-count-projects-of-service-providers-grouped-by-oecd-list) |  |
+| HEAD | `/api/marketplace-stats/count_projects_of_service_providers_grouped_by_oecd/` | [`marketplace_stats_count_projects_of_service_providers_grouped_by_oecd_count`](#marketplace-stats-count-projects-of-service-providers-grouped-by-oecd-count) |  |
+| GET | `/api/marketplace-stats/count_unique_users_connected_with_active_resources_of_service_provider/` | [`marketplace_stats_count_unique_users_connected_with_active_resources_of_service_provider_list`](#marketplace-stats-count-unique-users-connected-with-active-resources-of-service-provider-list) |  |
+| HEAD | `/api/marketplace-stats/count_unique_users_connected_with_active_resources_of_service_provider/` | [`marketplace_stats_count_unique_users_connected_with_active_resources_of_service_provider_count`](#marketplace-stats-count-unique-users-connected-with-active-resources-of-service-provider-count) |  |
+| GET | `/api/marketplace-stats/count_users_of_service_providers/` | [`marketplace_stats_count_users_of_service_providers_list`](#marketplace-stats-count-users-of-service-providers-list) |  |
+| HEAD | `/api/marketplace-stats/count_users_of_service_providers/` | [`marketplace_stats_count_users_of_service_providers_count`](#marketplace-stats-count-users-of-service-providers-count) |  |
+| GET | `/api/marketplace-stats/customer_member_count/` | [`marketplace_stats_customer_member_count_list`](#marketplace-stats-customer-member-count-list) |  |
+| HEAD | `/api/marketplace-stats/customer_member_count/` | [`marketplace_stats_customer_member_count_count`](#marketplace-stats-customer-member-count-count) |  |
+| GET | `/api/marketplace-stats/customer_member_summary/` | [`marketplace_stats_customer_member_summary_retrieve`](#marketplace-stats-customer-member-summary-retrieve) |  |
+| HEAD | `/api/marketplace-stats/customer_member_summary/` | [`marketplace_stats_customer_member_summary_count`](#marketplace-stats-customer-member-summary-count) |  |
+| GET | `/api/marketplace-stats/offering_costs_summary/` | [`marketplace_stats_offering_costs_summary_retrieve`](#marketplace-stats-offering-costs-summary-retrieve) |  |
+| HEAD | `/api/marketplace-stats/offering_costs_summary/` | [`marketplace_stats_offering_costs_summary_count`](#marketplace-stats-offering-costs-summary-count) |  |
+| GET | `/api/marketplace-stats/offerings_counter_stats/` | [`marketplace_stats_offerings_counter_stats_list`](#marketplace-stats-offerings-counter-stats-list) |  |
+| HEAD | `/api/marketplace-stats/offerings_counter_stats/` | [`marketplace_stats_offerings_counter_stats_count`](#marketplace-stats-offerings-counter-stats-count) |  |
+| GET | `/api/marketplace-stats/order_stats/` | [`marketplace_stats_order_stats_retrieve`](#marketplace-stats-order-stats-retrieve) |  |
+| HEAD | `/api/marketplace-stats/order_stats/` | [`marketplace_stats_order_stats_count`](#marketplace-stats-order-stats-count) |  |
+| GET | `/api/marketplace-stats/organization_project_count/` | [`marketplace_stats_organization_project_count_list`](#marketplace-stats-organization-project-count-list) |  |
+| HEAD | `/api/marketplace-stats/organization_project_count/` | [`marketplace_stats_organization_project_count_count`](#marketplace-stats-organization-project-count-count) |  |
+| GET | `/api/marketplace-stats/organization_resource_count/` | [`marketplace_stats_organization_resource_count_list`](#marketplace-stats-organization-resource-count-list) |  |
+| HEAD | `/api/marketplace-stats/organization_resource_count/` | [`marketplace_stats_organization_resource_count_count`](#marketplace-stats-organization-resource-count-count) |  |
+| GET | `/api/marketplace-stats/project_classification_summary/` | [`marketplace_stats_project_classification_summary_retrieve`](#marketplace-stats-project-classification-summary-retrieve) |  |
+| HEAD | `/api/marketplace-stats/project_classification_summary/` | [`marketplace_stats_project_classification_summary_count`](#marketplace-stats-project-classification-summary-count) |  |
+| GET | `/api/marketplace-stats/projects_limits_grouped_by_industry_flag/` | [`marketplace_stats_projects_limits_grouped_by_industry_flag_retrieve`](#marketplace-stats-projects-limits-grouped-by-industry-flag-retrieve) |  |
+| HEAD | `/api/marketplace-stats/projects_limits_grouped_by_industry_flag/` | [`marketplace_stats_projects_limits_grouped_by_industry_flag_count`](#marketplace-stats-projects-limits-grouped-by-industry-flag-count) |  |
+| GET | `/api/marketplace-stats/projects_limits_grouped_by_oecd/` | [`marketplace_stats_projects_limits_grouped_by_oecd_retrieve`](#marketplace-stats-projects-limits-grouped-by-oecd-retrieve) |  |
+| HEAD | `/api/marketplace-stats/projects_limits_grouped_by_oecd/` | [`marketplace_stats_projects_limits_grouped_by_oecd_count`](#marketplace-stats-projects-limits-grouped-by-oecd-count) |  |
+| GET | `/api/marketplace-stats/projects_usages_grouped_by_industry_flag/` | [`marketplace_stats_projects_usages_grouped_by_industry_flag_retrieve`](#marketplace-stats-projects-usages-grouped-by-industry-flag-retrieve) |  |
+| HEAD | `/api/marketplace-stats/projects_usages_grouped_by_industry_flag/` | [`marketplace_stats_projects_usages_grouped_by_industry_flag_count`](#marketplace-stats-projects-usages-grouped-by-industry-flag-count) |  |
+| GET | `/api/marketplace-stats/projects_usages_grouped_by_oecd/` | [`marketplace_stats_projects_usages_grouped_by_oecd_retrieve`](#marketplace-stats-projects-usages-grouped-by-oecd-retrieve) |  |
+| HEAD | `/api/marketplace-stats/projects_usages_grouped_by_oecd/` | [`marketplace_stats_projects_usages_grouped_by_oecd_count`](#marketplace-stats-projects-usages-grouped-by-oecd-count) |  |
+| GET | `/api/marketplace-stats/provider_customers/` | [`marketplace_stats_provider_customers_retrieve`](#marketplace-stats-provider-customers-retrieve) |  |
+| HEAD | `/api/marketplace-stats/provider_customers/` | [`marketplace_stats_provider_customers_count`](#marketplace-stats-provider-customers-count) |  |
+| GET | `/api/marketplace-stats/provider_offerings/` | [`marketplace_stats_provider_offerings_retrieve`](#marketplace-stats-provider-offerings-retrieve) |  |
+| HEAD | `/api/marketplace-stats/provider_offerings/` | [`marketplace_stats_provider_offerings_count`](#marketplace-stats-provider-offerings-count) |  |
+| GET | `/api/marketplace-stats/provider_resources/` | [`marketplace_stats_provider_resources_retrieve`](#marketplace-stats-provider-resources-retrieve) |  |
+| HEAD | `/api/marketplace-stats/provider_resources/` | [`marketplace_stats_provider_resources_count`](#marketplace-stats-provider-resources-count) |  |
+| GET | `/api/marketplace-stats/resource_provisioning_stats/` | [`marketplace_stats_resource_provisioning_stats_list`](#marketplace-stats-resource-provisioning-stats-list) |  |
+| HEAD | `/api/marketplace-stats/resource_provisioning_stats/` | [`marketplace_stats_resource_provisioning_stats_count`](#marketplace-stats-resource-provisioning-stats-count) |  |
+| GET | `/api/marketplace-stats/resource_usage_by_creator_affiliation/` | [`marketplace_stats_resource_usage_by_creator_affiliation_list`](#marketplace-stats-resource-usage-by-creator-affiliation-list) |  |
+| HEAD | `/api/marketplace-stats/resource_usage_by_creator_affiliation/` | [`marketplace_stats_resource_usage_by_creator_affiliation_count`](#marketplace-stats-resource-usage-by-creator-affiliation-count) |  |
+| GET | `/api/marketplace-stats/resource_usage_by_customer/` | [`marketplace_stats_resource_usage_by_customer_list`](#marketplace-stats-resource-usage-by-customer-list) |  |
+| HEAD | `/api/marketplace-stats/resource_usage_by_customer/` | [`marketplace_stats_resource_usage_by_customer_count`](#marketplace-stats-resource-usage-by-customer-count) |  |
+| GET | `/api/marketplace-stats/resource_usage_by_organization_type/` | [`marketplace_stats_resource_usage_by_organization_type_list`](#marketplace-stats-resource-usage-by-organization-type-list) |  |
+| HEAD | `/api/marketplace-stats/resource_usage_by_organization_type/` | [`marketplace_stats_resource_usage_by_organization_type_count`](#marketplace-stats-resource-usage-by-organization-type-count) |  |
+| GET | `/api/marketplace-stats/resources_geography_summary/` | [`marketplace_stats_resources_geography_summary_retrieve`](#marketplace-stats-resources-geography-summary-retrieve) |  |
+| HEAD | `/api/marketplace-stats/resources_geography_summary/` | [`marketplace_stats_resources_geography_summary_count`](#marketplace-stats-resources-geography-summary-count) |  |
+| GET | `/api/marketplace-stats/resources_limits/` | [`marketplace_stats_resources_limits_list`](#marketplace-stats-resources-limits-list) |  |
+| HEAD | `/api/marketplace-stats/resources_limits/` | [`marketplace_stats_resources_limits_count`](#marketplace-stats-resources-limits-count) |  |
+| GET | `/api/marketplace-stats/resources_missing_usage/` | [`marketplace_stats_resources_missing_usage_list`](#marketplace-stats-resources-missing-usage-list) |  |
+| HEAD | `/api/marketplace-stats/resources_missing_usage/` | [`marketplace_stats_resources_missing_usage_count`](#marketplace-stats-resources-missing-usage-count) |  |
+| GET | `/api/marketplace-stats/total_cost_of_active_resources_per_offering/` | [`marketplace_stats_total_cost_of_active_resources_per_offering_list`](#marketplace-stats-total-cost-of-active-resources-per-offering-list) |  |
+| HEAD | `/api/marketplace-stats/total_cost_of_active_resources_per_offering/` | [`marketplace_stats_total_cost_of_active_resources_per_offering_count`](#marketplace-stats-total-cost-of-active-resources-per-offering-count) |  |
+| GET | `/api/marketplace-stats/user_affiliation_count/` | [`marketplace_stats_user_affiliation_count_list`](#marketplace-stats-user-affiliation-count-list) |  |
+| HEAD | `/api/marketplace-stats/user_affiliation_count/` | [`marketplace_stats_user_affiliation_count_count`](#marketplace-stats-user-affiliation-count-count) |  |
+| GET | `/api/marketplace-stats/user_auth_method_count/` | [`marketplace_stats_user_auth_method_count_list`](#marketplace-stats-user-auth-method-count-list) |  |
+| HEAD | `/api/marketplace-stats/user_auth_method_count/` | [`marketplace_stats_user_auth_method_count_count`](#marketplace-stats-user-auth-method-count-count) |  |
+| GET | `/api/marketplace-stats/user_identity_source_count/` | [`marketplace_stats_user_identity_source_count_list`](#marketplace-stats-user-identity-source-count-list) |  |
+| HEAD | `/api/marketplace-stats/user_identity_source_count/` | [`marketplace_stats_user_identity_source_count_count`](#marketplace-stats-user-identity-source-count-count) |  |
+| GET | `/api/marketplace-stats/user_job_title_count/` | [`marketplace_stats_user_job_title_count_list`](#marketplace-stats-user-job-title-count-list) |  |
+| HEAD | `/api/marketplace-stats/user_job_title_count/` | [`marketplace_stats_user_job_title_count_count`](#marketplace-stats-user-job-title-count-count) |  |
+| GET | `/api/marketplace-stats/user_organization_count/` | [`marketplace_stats_user_organization_count_list`](#marketplace-stats-user-organization-count-list) |  |
+| HEAD | `/api/marketplace-stats/user_organization_count/` | [`marketplace_stats_user_organization_count_count`](#marketplace-stats-user-organization-count-count) |  |
+| GET | `/api/marketplace-stats/user_organization_type_count/` | [`marketplace_stats_user_organization_type_count_list`](#marketplace-stats-user-organization-type-count-list) |  |
+| HEAD | `/api/marketplace-stats/user_organization_type_count/` | [`marketplace_stats_user_organization_type_count_count`](#marketplace-stats-user-organization-type-count-count) |  |
 
 ## Endpoint Details
 
-### List component usage records
+### marketplace_component_usages_list
 
 **`GET`** `/api/marketplace-component-usages/`
 
-**Operation ID:** `marketplace_component_usages_list`
+**Summary:** List component usage records
 
 Returns a paginated list of component usage records for resources. This data is used for billing and usage tracking.
 
@@ -137,11 +137,11 @@ Returns a paginated list of component usage records for resources. This data is 
 
 ---
 
-### List component usage records
+### marketplace_component_usages_count
 
 **`HEAD`** `/api/marketplace-component-usages/`
 
-**Operation ID:** `marketplace_component_usages_count`
+**Summary:** List component usage records
 
 Get number of items in the collection matching the request parameters.
 
@@ -170,11 +170,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Set component usage for a resource
+### marketplace_component_usages_set_usage
 
 **`POST`** `/api/marketplace-component-usages/set_usage/`
 
-**Operation ID:** `marketplace_component_usages_set_usage`
+**Summary:** Set component usage for a resource
 
 Allows a service provider to report usage for one or more components of a specific resource.
         This endpoint is typically used by backend systems or agents to submit periodic usage data.
@@ -202,11 +202,11 @@ Schema: `ComponentUsageCreateRequest`
 
 ---
 
-### Retrieve a component usage record
+### marketplace_component_usages_retrieve
 
 **`GET`** `/api/marketplace-component-usages/{uuid}/`
 
-**Operation ID:** `marketplace_component_usages_retrieve`
+**Summary:** Retrieve a component usage record
 
 Returns the details of a specific component usage record.
 
@@ -225,11 +225,11 @@ Returns the details of a specific component usage record.
 
 ---
 
-### Set user-specific component usage
+### marketplace_component_usages_set_user_usage
 
 **`POST`** `/api/marketplace-component-usages/{uuid}/set_user_usage/`
 
-**Operation ID:** `marketplace_component_usages_set_user_usage`
+**Summary:** Set user-specific component usage
 
 Allows a service provider to report usage for a specific user associated with a resource's component.
         This is used for detailed, per-user usage tracking within a single resource.
@@ -262,11 +262,11 @@ Schema: `ComponentUserUsageCreateRequest`
 
 ---
 
-### Bulk set user-specific component usages
+### marketplace_component_usages_set_user_usages
 
 **`POST`** `/api/marketplace-component-usages/{uuid}/set_user_usages/`
 
-**Operation ID:** `marketplace_component_usages_set_user_usages`
+**Summary:** Bulk set user-specific component usages
 
 Allows a service provider to report usage for multiple users associated with a resource's component
         in a single request. This avoids the need for one API call per user.
@@ -297,11 +297,11 @@ Schema: `ComponentUserUsageBulkCreateRequest`
 
 ---
 
-### List user-specific component usages
+### marketplace_component_user_usages_list
 
 **`GET`** `/api/marketplace-component-user-usages/`
 
-**Operation ID:** `marketplace_component_user_usages_list`
+**Summary:** List user-specific component usages
 
 Returns a paginated list of component usage records attributed to specific users.
         This provides a granular view of resource consumption, breaking down the total usage of a component
@@ -334,11 +334,11 @@ Returns a paginated list of component usage records attributed to specific users
 
 ---
 
-### List user-specific component usages
+### marketplace_component_user_usages_count
 
 **`HEAD`** `/api/marketplace-component-user-usages/`
 
-**Operation ID:** `marketplace_component_user_usages_count`
+**Summary:** List user-specific component usages
 
 Get number of items in the collection matching the request parameters.
 
@@ -368,11 +368,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve a user-specific component usage record
+### marketplace_component_user_usages_retrieve
 
 **`GET`** `/api/marketplace-component-user-usages/{uuid}/`
 
-**Operation ID:** `marketplace_component_user_usages_retrieve`
+**Summary:** Retrieve a user-specific component usage record
 
 Returns the details of a single user-specific component usage record.
 
@@ -395,8 +395,6 @@ Returns the details of a single user-specific component usage record.
 
 **`GET`** `/api/marketplace-stats/aggregated_usage_trends/`
 
-**Operation ID:** `marketplace_stats_aggregated_usage_trends_list`
-
 Return aggregated usage trends per month.
 
 **Parameters:**
@@ -415,8 +413,6 @@ Return aggregated usage trends per month.
 ### marketplace_stats_aggregated_usage_trends_count
 
 **`HEAD`** `/api/marketplace-stats/aggregated_usage_trends/`
-
-**Operation ID:** `marketplace_stats_aggregated_usage_trends_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -437,8 +433,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/component_usages/`
 
-**Operation ID:** `marketplace_stats_component_usages_list`
-
 Return component usages for current month.
 
 **Parameters:**
@@ -457,8 +451,6 @@ Return component usages for current month.
 ### marketplace_stats_component_usages_count
 
 **`HEAD`** `/api/marketplace-stats/component_usages/`
-
-**Operation ID:** `marketplace_stats_component_usages_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -479,8 +471,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/component_usages_per_month/`
 
-**Operation ID:** `marketplace_stats_component_usages_per_month_list`
-
 Return component usages per month.
 
 **Parameters:**
@@ -499,8 +489,6 @@ Return component usages per month.
 ### marketplace_stats_component_usages_per_month_count
 
 **`HEAD`** `/api/marketplace-stats/component_usages_per_month/`
-
-**Operation ID:** `marketplace_stats_component_usages_per_month_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -521,8 +509,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/component_usages_per_project/`
 
-**Operation ID:** `marketplace_stats_component_usages_per_project_list`
-
 Return component usages per project.
 
 **Parameters:**
@@ -541,8 +527,6 @@ Return component usages per project.
 ### marketplace_stats_component_usages_per_project_count
 
 **`HEAD`** `/api/marketplace-stats/component_usages_per_project/`
-
-**Operation ID:** `marketplace_stats_component_usages_per_project_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -563,8 +547,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/count_active_resources_grouped_by_offering/`
 
-**Operation ID:** `marketplace_stats_count_active_resources_grouped_by_offering_list`
-
 Count active resources grouped by offering.
 
 **Parameters:**
@@ -583,8 +565,6 @@ Count active resources grouped by offering.
 ### marketplace_stats_count_active_resources_grouped_by_offering_count
 
 **`HEAD`** `/api/marketplace-stats/count_active_resources_grouped_by_offering/`
-
-**Operation ID:** `marketplace_stats_count_active_resources_grouped_by_offering_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -605,8 +585,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/count_active_resources_grouped_by_offering_country/`
 
-**Operation ID:** `marketplace_stats_count_active_resources_grouped_by_offering_country_list`
-
 Count active resources grouped by offering country.
 
 **Parameters:**
@@ -625,8 +603,6 @@ Count active resources grouped by offering country.
 ### marketplace_stats_count_active_resources_grouped_by_offering_country_count
 
 **`HEAD`** `/api/marketplace-stats/count_active_resources_grouped_by_offering_country/`
-
-**Operation ID:** `marketplace_stats_count_active_resources_grouped_by_offering_country_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -647,8 +623,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/count_active_resources_grouped_by_organization_group/`
 
-**Operation ID:** `marketplace_stats_count_active_resources_grouped_by_organization_group_list`
-
 Count active resources grouped by organization group.
 
 **Parameters:**
@@ -667,8 +641,6 @@ Count active resources grouped by organization group.
 ### marketplace_stats_count_active_resources_grouped_by_organization_group_count
 
 **`HEAD`** `/api/marketplace-stats/count_active_resources_grouped_by_organization_group/`
-
-**Operation ID:** `marketplace_stats_count_active_resources_grouped_by_organization_group_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -689,8 +661,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/count_projects_grouped_by_provider_and_industry_flag/`
 
-**Operation ID:** `marketplace_stats_count_projects_grouped_by_provider_and_industry_flag_list`
-
 Count projects grouped by provider and industry flag
 
 **Parameters:**
@@ -709,8 +679,6 @@ Count projects grouped by provider and industry flag
 ### marketplace_stats_count_projects_grouped_by_provider_and_industry_flag_count
 
 **`HEAD`** `/api/marketplace-stats/count_projects_grouped_by_provider_and_industry_flag/`
-
-**Operation ID:** `marketplace_stats_count_projects_grouped_by_provider_and_industry_flag_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -731,8 +699,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/count_projects_grouped_by_provider_and_oecd/`
 
-**Operation ID:** `marketplace_stats_count_projects_grouped_by_provider_and_oecd_list`
-
 Count projects grouped by provider and OECD code
 
 **Parameters:**
@@ -751,8 +717,6 @@ Count projects grouped by provider and OECD code
 ### marketplace_stats_count_projects_grouped_by_provider_and_oecd_count
 
 **`HEAD`** `/api/marketplace-stats/count_projects_grouped_by_provider_and_oecd/`
-
-**Operation ID:** `marketplace_stats_count_projects_grouped_by_provider_and_oecd_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -773,8 +737,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/count_projects_of_service_providers/`
 
-**Operation ID:** `marketplace_stats_count_projects_of_service_providers_list`
-
 Count projects of service providers.
 
 **Parameters:**
@@ -793,8 +755,6 @@ Count projects of service providers.
 ### marketplace_stats_count_projects_of_service_providers_count
 
 **`HEAD`** `/api/marketplace-stats/count_projects_of_service_providers/`
-
-**Operation ID:** `marketplace_stats_count_projects_of_service_providers_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -815,8 +775,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/count_projects_of_service_providers_grouped_by_oecd/`
 
-**Operation ID:** `marketplace_stats_count_projects_of_service_providers_grouped_by_oecd_list`
-
 Count projects of service providers grouped by OECD.
 
 **Parameters:**
@@ -835,8 +793,6 @@ Count projects of service providers grouped by OECD.
 ### marketplace_stats_count_projects_of_service_providers_grouped_by_oecd_count
 
 **`HEAD`** `/api/marketplace-stats/count_projects_of_service_providers_grouped_by_oecd/`
-
-**Operation ID:** `marketplace_stats_count_projects_of_service_providers_grouped_by_oecd_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -857,8 +813,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/count_unique_users_connected_with_active_resources_of_service_provider/`
 
-**Operation ID:** `marketplace_stats_count_unique_users_connected_with_active_resources_of_service_provider_list`
-
 Count unique users connected with active resources of service provider.
 
 **Parameters:**
@@ -877,8 +831,6 @@ Count unique users connected with active resources of service provider.
 ### marketplace_stats_count_unique_users_connected_with_active_resources_of_service_provider_count
 
 **`HEAD`** `/api/marketplace-stats/count_unique_users_connected_with_active_resources_of_service_provider/`
-
-**Operation ID:** `marketplace_stats_count_unique_users_connected_with_active_resources_of_service_provider_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -899,8 +851,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/count_users_of_service_providers/`
 
-**Operation ID:** `marketplace_stats_count_users_of_service_providers_list`
-
 Count users of service providers.
 
 **Parameters:**
@@ -919,8 +869,6 @@ Count users of service providers.
 ### marketplace_stats_count_users_of_service_providers_count
 
 **`HEAD`** `/api/marketplace-stats/count_users_of_service_providers/`
-
-**Operation ID:** `marketplace_stats_count_users_of_service_providers_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -941,8 +889,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/customer_member_count/`
 
-**Operation ID:** `marketplace_stats_customer_member_count_list`
-
 Return count of customer members.
 
 **Parameters:**
@@ -961,8 +907,6 @@ Return count of customer members.
 ### marketplace_stats_customer_member_count_count
 
 **`HEAD`** `/api/marketplace-stats/customer_member_count/`
-
-**Operation ID:** `marketplace_stats_customer_member_count_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -983,8 +927,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/customer_member_summary/`
 
-**Operation ID:** `marketplace_stats_customer_member_summary_retrieve`
-
 Return summary statistics for customer members.
 
 **Responses:**
@@ -998,8 +940,6 @@ Return summary statistics for customer members.
 ### marketplace_stats_customer_member_summary_count
 
 **`HEAD`** `/api/marketplace-stats/customer_member_summary/`
-
-**Operation ID:** `marketplace_stats_customer_member_summary_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1015,8 +955,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/offering_costs_summary/`
 
-**Operation ID:** `marketplace_stats_offering_costs_summary_retrieve`
-
 Return summary statistics for offering costs.
 
 **Responses:**
@@ -1031,8 +969,6 @@ Return summary statistics for offering costs.
 
 **`HEAD`** `/api/marketplace-stats/offering_costs_summary/`
 
-**Operation ID:** `marketplace_stats_offering_costs_summary_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Responses:**
@@ -1046,8 +982,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_stats_offerings_counter_stats_list
 
 **`GET`** `/api/marketplace-stats/offerings_counter_stats/`
-
-**Operation ID:** `marketplace_stats_offerings_counter_stats_list`
 
 Retrieve statistics about the number of offerings, grouped by category and service provider.
 
@@ -1068,8 +1002,6 @@ Retrieve statistics about the number of offerings, grouped by category and servi
 
 **`HEAD`** `/api/marketplace-stats/offerings_counter_stats/`
 
-**Operation ID:** `marketplace_stats_offerings_counter_stats_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -1088,8 +1020,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_stats_order_stats_retrieve
 
 **`GET`** `/api/marketplace-stats/order_stats/`
-
-**Operation ID:** `marketplace_stats_order_stats_retrieve`
 
 Return comprehensive order statistics including daily breakdown, state/type aggregations, and summary stats.
 
@@ -1114,8 +1044,6 @@ Return comprehensive order statistics including daily breakdown, state/type aggr
 
 **`HEAD`** `/api/marketplace-stats/order_stats/`
 
-**Operation ID:** `marketplace_stats_order_stats_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -1139,8 +1067,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/organization_project_count/`
 
-**Operation ID:** `marketplace_stats_organization_project_count_list`
-
 Return project count per organization.
 
 **Parameters:**
@@ -1159,8 +1085,6 @@ Return project count per organization.
 ### marketplace_stats_organization_project_count_count
 
 **`HEAD`** `/api/marketplace-stats/organization_project_count/`
-
-**Operation ID:** `marketplace_stats_organization_project_count_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1181,8 +1105,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/organization_resource_count/`
 
-**Operation ID:** `marketplace_stats_organization_resource_count_list`
-
 Return resource count per organization.
 
 **Parameters:**
@@ -1201,8 +1123,6 @@ Return resource count per organization.
 ### marketplace_stats_organization_resource_count_count
 
 **`HEAD`** `/api/marketplace-stats/organization_resource_count/`
-
-**Operation ID:** `marketplace_stats_organization_resource_count_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1223,8 +1143,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/project_classification_summary/`
 
-**Operation ID:** `marketplace_stats_project_classification_summary_retrieve`
-
 Return summary statistics for project classification.
 
 **Responses:**
@@ -1238,8 +1156,6 @@ Return summary statistics for project classification.
 ### marketplace_stats_project_classification_summary_count
 
 **`HEAD`** `/api/marketplace-stats/project_classification_summary/`
-
-**Operation ID:** `marketplace_stats_project_classification_summary_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1255,8 +1171,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/projects_limits_grouped_by_industry_flag/`
 
-**Operation ID:** `marketplace_stats_projects_limits_grouped_by_industry_flag_retrieve`
-
 Group project limits by industry flag.
 
 **Responses:**
@@ -1270,8 +1184,6 @@ Group project limits by industry flag.
 ### marketplace_stats_projects_limits_grouped_by_industry_flag_count
 
 **`HEAD`** `/api/marketplace-stats/projects_limits_grouped_by_industry_flag/`
-
-**Operation ID:** `marketplace_stats_projects_limits_grouped_by_industry_flag_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1287,8 +1199,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/projects_limits_grouped_by_oecd/`
 
-**Operation ID:** `marketplace_stats_projects_limits_grouped_by_oecd_retrieve`
-
 Group project limits by OECD code.
 
 **Responses:**
@@ -1302,8 +1212,6 @@ Group project limits by OECD code.
 ### marketplace_stats_projects_limits_grouped_by_oecd_count
 
 **`HEAD`** `/api/marketplace-stats/projects_limits_grouped_by_oecd/`
-
-**Operation ID:** `marketplace_stats_projects_limits_grouped_by_oecd_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1319,8 +1227,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/projects_usages_grouped_by_industry_flag/`
 
-**Operation ID:** `marketplace_stats_projects_usages_grouped_by_industry_flag_retrieve`
-
 Group project usages by industry flag.
 
 **Responses:**
@@ -1334,8 +1240,6 @@ Group project usages by industry flag.
 ### marketplace_stats_projects_usages_grouped_by_industry_flag_count
 
 **`HEAD`** `/api/marketplace-stats/projects_usages_grouped_by_industry_flag/`
-
-**Operation ID:** `marketplace_stats_projects_usages_grouped_by_industry_flag_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1351,8 +1255,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/projects_usages_grouped_by_oecd/`
 
-**Operation ID:** `marketplace_stats_projects_usages_grouped_by_oecd_retrieve`
-
 Group project usages by OECD code.
 
 **Responses:**
@@ -1367,8 +1269,6 @@ Group project usages by OECD code.
 
 **`HEAD`** `/api/marketplace-stats/projects_usages_grouped_by_oecd/`
 
-**Operation ID:** `marketplace_stats_projects_usages_grouped_by_oecd_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Responses:**
@@ -1382,8 +1282,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_stats_provider_customers_retrieve
 
 **`GET`** `/api/marketplace-stats/provider_customers/`
-
-**Operation ID:** `marketplace_stats_provider_customers_retrieve`
 
 Return customer statistics for a service provider.
 
@@ -1405,8 +1303,6 @@ Return customer statistics for a service provider.
 
 **`HEAD`** `/api/marketplace-stats/provider_customers/`
 
-**Operation ID:** `marketplace_stats_provider_customers_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -1426,8 +1322,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_stats_provider_offerings_retrieve
 
 **`GET`** `/api/marketplace-stats/provider_offerings/`
-
-**Operation ID:** `marketplace_stats_provider_offerings_retrieve`
 
 Return offering performance statistics for a service provider.
 
@@ -1449,8 +1343,6 @@ Return offering performance statistics for a service provider.
 
 **`HEAD`** `/api/marketplace-stats/provider_offerings/`
 
-**Operation ID:** `marketplace_stats_provider_offerings_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -1470,8 +1362,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_stats_provider_resources_retrieve
 
 **`GET`** `/api/marketplace-stats/provider_resources/`
-
-**Operation ID:** `marketplace_stats_provider_resources_retrieve`
 
 Return resource statistics for a service provider.
 
@@ -1493,8 +1383,6 @@ Return resource statistics for a service provider.
 
 **`HEAD`** `/api/marketplace-stats/provider_resources/`
 
-**Operation ID:** `marketplace_stats_provider_resources_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -1514,8 +1402,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_stats_resource_provisioning_stats_list
 
 **`GET`** `/api/marketplace-stats/resource_provisioning_stats/`
-
-**Operation ID:** `marketplace_stats_resource_provisioning_stats_list`
 
 Get resource provisioning statistics.
 
@@ -1537,8 +1423,6 @@ Get resource provisioning statistics.
 
 **`HEAD`** `/api/marketplace-stats/resource_provisioning_stats/`
 
-**Operation ID:** `marketplace_stats_resource_provisioning_stats_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -1559,8 +1443,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/resource_usage_by_creator_affiliation/`
 
-**Operation ID:** `marketplace_stats_resource_usage_by_creator_affiliation_list`
-
 Return resource usage grouped by creator's affiliation.
 
 **Parameters:**
@@ -1579,8 +1461,6 @@ Return resource usage grouped by creator's affiliation.
 ### marketplace_stats_resource_usage_by_creator_affiliation_count
 
 **`HEAD`** `/api/marketplace-stats/resource_usage_by_creator_affiliation/`
-
-**Operation ID:** `marketplace_stats_resource_usage_by_creator_affiliation_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1601,8 +1481,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/resource_usage_by_customer/`
 
-**Operation ID:** `marketplace_stats_resource_usage_by_customer_list`
-
 Return resource usage statistics grouped by customer.
 
 **Parameters:**
@@ -1621,8 +1499,6 @@ Return resource usage statistics grouped by customer.
 ### marketplace_stats_resource_usage_by_customer_count
 
 **`HEAD`** `/api/marketplace-stats/resource_usage_by_customer/`
-
-**Operation ID:** `marketplace_stats_resource_usage_by_customer_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1643,8 +1519,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/resource_usage_by_organization_type/`
 
-**Operation ID:** `marketplace_stats_resource_usage_by_organization_type_list`
-
 Return component usages grouped by project members' organization type.
 
 **Parameters:**
@@ -1663,8 +1537,6 @@ Return component usages grouped by project members' organization type.
 ### marketplace_stats_resource_usage_by_organization_type_count
 
 **`HEAD`** `/api/marketplace-stats/resource_usage_by_organization_type/`
-
-**Operation ID:** `marketplace_stats_resource_usage_by_organization_type_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1685,8 +1557,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/resources_geography_summary/`
 
-**Operation ID:** `marketplace_stats_resources_geography_summary_retrieve`
-
 Return summary statistics for resource geographic distribution.
 
 **Responses:**
@@ -1701,8 +1571,6 @@ Return summary statistics for resource geographic distribution.
 
 **`HEAD`** `/api/marketplace-stats/resources_geography_summary/`
 
-**Operation ID:** `marketplace_stats_resources_geography_summary_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Responses:**
@@ -1716,8 +1584,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_stats_resources_limits_list
 
 **`GET`** `/api/marketplace-stats/resources_limits/`
-
-**Operation ID:** `marketplace_stats_resources_limits_list`
 
 Return resources limits per offering.
 
@@ -1738,8 +1604,6 @@ Return resources limits per offering.
 
 **`HEAD`** `/api/marketplace-stats/resources_limits/`
 
-**Operation ID:** `marketplace_stats_resources_limits_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -1758,8 +1622,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_stats_resources_missing_usage_list
 
 **`GET`** `/api/marketplace-stats/resources_missing_usage/`
-
-**Operation ID:** `marketplace_stats_resources_missing_usage_list`
 
 Return usage-based resources with no usage reported in the specified billing period.
 
@@ -1782,8 +1644,6 @@ Return usage-based resources with no usage reported in the specified billing per
 
 **`HEAD`** `/api/marketplace-stats/resources_missing_usage/`
 
-**Operation ID:** `marketplace_stats_resources_missing_usage_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -1805,8 +1665,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/total_cost_of_active_resources_per_offering/`
 
-**Operation ID:** `marketplace_stats_total_cost_of_active_resources_per_offering_list`
-
 Total cost of active resources per offering.
 
 **Parameters:**
@@ -1825,8 +1683,6 @@ Total cost of active resources per offering.
 ### marketplace_stats_total_cost_of_active_resources_per_offering_count
 
 **`HEAD`** `/api/marketplace-stats/total_cost_of_active_resources_per_offering/`
-
-**Operation ID:** `marketplace_stats_total_cost_of_active_resources_per_offering_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1847,8 +1703,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/user_affiliation_count/`
 
-**Operation ID:** `marketplace_stats_user_affiliation_count_list`
-
 Return user count grouped by affiliation.
 
 **Parameters:**
@@ -1867,8 +1721,6 @@ Return user count grouped by affiliation.
 ### marketplace_stats_user_affiliation_count_count
 
 **`HEAD`** `/api/marketplace-stats/user_affiliation_count/`
-
-**Operation ID:** `marketplace_stats_user_affiliation_count_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1889,8 +1741,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/user_auth_method_count/`
 
-**Operation ID:** `marketplace_stats_user_auth_method_count_list`
-
 Return user count grouped by authentication method.
 
 **Parameters:**
@@ -1909,8 +1759,6 @@ Return user count grouped by authentication method.
 ### marketplace_stats_user_auth_method_count_count
 
 **`HEAD`** `/api/marketplace-stats/user_auth_method_count/`
-
-**Operation ID:** `marketplace_stats_user_auth_method_count_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1931,8 +1779,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/user_identity_source_count/`
 
-**Operation ID:** `marketplace_stats_user_identity_source_count_list`
-
 Return user count grouped by identity source.
 
 **Parameters:**
@@ -1951,8 +1797,6 @@ Return user count grouped by identity source.
 ### marketplace_stats_user_identity_source_count_count
 
 **`HEAD`** `/api/marketplace-stats/user_identity_source_count/`
-
-**Operation ID:** `marketplace_stats_user_identity_source_count_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1973,8 +1817,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/user_job_title_count/`
 
-**Operation ID:** `marketplace_stats_user_job_title_count_list`
-
 Return user count grouped by job title.
 
 **Parameters:**
@@ -1993,8 +1835,6 @@ Return user count grouped by job title.
 ### marketplace_stats_user_job_title_count_count
 
 **`HEAD`** `/api/marketplace-stats/user_job_title_count/`
-
-**Operation ID:** `marketplace_stats_user_job_title_count_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2015,8 +1855,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/user_organization_count/`
 
-**Operation ID:** `marketplace_stats_user_organization_count_list`
-
 Return user count grouped by organization.
 
 **Parameters:**
@@ -2035,8 +1873,6 @@ Return user count grouped by organization.
 ### marketplace_stats_user_organization_count_count
 
 **`HEAD`** `/api/marketplace-stats/user_organization_count/`
-
-**Operation ID:** `marketplace_stats_user_organization_count_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2057,8 +1893,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-stats/user_organization_type_count/`
 
-**Operation ID:** `marketplace_stats_user_organization_type_count_list`
-
 Return user count grouped by organization type (SCHAC URN).
 
 **Parameters:**
@@ -2077,8 +1911,6 @@ Return user count grouped by organization type (SCHAC URN).
 ### marketplace_stats_user_organization_type_count_count
 
 **`HEAD`** `/api/marketplace-stats/user_organization_type_count/`
-
-**Operation ID:** `marketplace_stats_user_organization_type_count_count`
 
 Get number of items in the collection matching the request parameters.
 

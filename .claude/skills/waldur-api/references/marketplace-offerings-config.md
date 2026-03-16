@@ -7,43 +7,41 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/marketplace-offering-files/` | `marketplace_offering_files_list` |  |
-| HEAD | `/api/marketplace-offering-files/` | `marketplace_offering_files_count` |  |
-| POST | `/api/marketplace-offering-files/` | `marketplace_offering_files_create` |  |
-| GET | `/api/marketplace-offering-files/{uuid}/` | `marketplace_offering_files_retrieve` |  |
-| DELETE | `/api/marketplace-offering-files/{uuid}/` | `marketplace_offering_files_destroy` |  |
-| GET | `/api/marketplace-offering-referrals/` | `marketplace_offering_referrals_list` | List Datacite referrals for offerings |
-| HEAD | `/api/marketplace-offering-referrals/` | `marketplace_offering_referrals_count` | List Datacite referrals for offerings |
-| GET | `/api/marketplace-offering-referrals/{uuid}/` | `marketplace_offering_referrals_retrieve` | Retrieve a specific Datacite referral |
-| GET | `/api/marketplace-offering-terms-of-service/` | `marketplace_offering_terms_of_service_list` | List Terms of Service configurations |
-| HEAD | `/api/marketplace-offering-terms-of-service/` | `marketplace_offering_terms_of_service_count` | List Terms of Service configurations |
-| POST | `/api/marketplace-offering-terms-of-service/` | `marketplace_offering_terms_of_service_create` | Create a Terms of Service configuration |
-| GET | `/api/marketplace-offering-terms-of-service/{uuid}/` | `marketplace_offering_terms_of_service_retrieve` | Retrieve a Terms of Service configuration |
-| PUT | `/api/marketplace-offering-terms-of-service/{uuid}/` | `marketplace_offering_terms_of_service_update` | Update a Terms of Service configuration |
-| PATCH | `/api/marketplace-offering-terms-of-service/{uuid}/` | `marketplace_offering_terms_of_service_partial_update` | Partially update a Terms of Service configuration |
-| DELETE | `/api/marketplace-offering-terms-of-service/{uuid}/` | `marketplace_offering_terms_of_service_destroy` | Delete a Terms of Service configuration |
-| GET | `/api/marketplace-screenshots/` | `marketplace_screenshots_list` |  |
-| HEAD | `/api/marketplace-screenshots/` | `marketplace_screenshots_count` |  |
-| POST | `/api/marketplace-screenshots/` | `marketplace_screenshots_create` |  |
-| GET | `/api/marketplace-screenshots/{uuid}/` | `marketplace_screenshots_retrieve` |  |
-| PUT | `/api/marketplace-screenshots/{uuid}/` | `marketplace_screenshots_update` |  |
-| PATCH | `/api/marketplace-screenshots/{uuid}/` | `marketplace_screenshots_partial_update` |  |
-| DELETE | `/api/marketplace-screenshots/{uuid}/` | `marketplace_screenshots_destroy` |  |
-| GET | `/api/marketplace-sections/` | `marketplace_sections_list` | List sections |
-| HEAD | `/api/marketplace-sections/` | `marketplace_sections_count` | List sections |
-| POST | `/api/marketplace-sections/` | `marketplace_sections_create` | Create a section |
-| GET | `/api/marketplace-sections/{key}/` | `marketplace_sections_retrieve` | Retrieve a section |
-| PUT | `/api/marketplace-sections/{key}/` | `marketplace_sections_update` | Update a section |
-| PATCH | `/api/marketplace-sections/{key}/` | `marketplace_sections_partial_update` | Partially update a section |
-| DELETE | `/api/marketplace-sections/{key}/` | `marketplace_sections_destroy` | Delete a section |
+| GET | `/api/marketplace-offering-files/` | [`marketplace_offering_files_list`](#marketplace-offering-files-list) |  |
+| HEAD | `/api/marketplace-offering-files/` | [`marketplace_offering_files_count`](#marketplace-offering-files-count) |  |
+| POST | `/api/marketplace-offering-files/` | [`marketplace_offering_files_create`](#marketplace-offering-files-create) |  |
+| GET | `/api/marketplace-offering-files/{uuid}/` | [`marketplace_offering_files_retrieve`](#marketplace-offering-files-retrieve) |  |
+| DELETE | `/api/marketplace-offering-files/{uuid}/` | [`marketplace_offering_files_destroy`](#marketplace-offering-files-destroy) |  |
+| GET | `/api/marketplace-offering-referrals/` | [`marketplace_offering_referrals_list`](#marketplace-offering-referrals-list) | List Datacite referrals for offerings |
+| HEAD | `/api/marketplace-offering-referrals/` | [`marketplace_offering_referrals_count`](#marketplace-offering-referrals-count) | List Datacite referrals for offerings |
+| GET | `/api/marketplace-offering-referrals/{uuid}/` | [`marketplace_offering_referrals_retrieve`](#marketplace-offering-referrals-retrieve) | Retrieve a specific Datacite referral |
+| GET | `/api/marketplace-offering-terms-of-service/` | [`marketplace_offering_terms_of_service_list`](#marketplace-offering-terms-of-service-list) | List Terms of Service configurations |
+| HEAD | `/api/marketplace-offering-terms-of-service/` | [`marketplace_offering_terms_of_service_count`](#marketplace-offering-terms-of-service-count) | List Terms of Service configurations |
+| POST | `/api/marketplace-offering-terms-of-service/` | [`marketplace_offering_terms_of_service_create`](#marketplace-offering-terms-of-service-create) | Create a Terms of Service configuration |
+| GET | `/api/marketplace-offering-terms-of-service/{uuid}/` | [`marketplace_offering_terms_of_service_retrieve`](#marketplace-offering-terms-of-service-retrieve) | Retrieve a Terms of Service configuration |
+| PUT | `/api/marketplace-offering-terms-of-service/{uuid}/` | [`marketplace_offering_terms_of_service_update`](#marketplace-offering-terms-of-service-update) | Update a Terms of Service configuration |
+| PATCH | `/api/marketplace-offering-terms-of-service/{uuid}/` | [`marketplace_offering_terms_of_service_partial_update`](#marketplace-offering-terms-of-service-partial-update) | Partially update a Terms of Service configuration |
+| DELETE | `/api/marketplace-offering-terms-of-service/{uuid}/` | [`marketplace_offering_terms_of_service_destroy`](#marketplace-offering-terms-of-service-destroy) | Delete a Terms of Service configuration |
+| GET | `/api/marketplace-screenshots/` | [`marketplace_screenshots_list`](#marketplace-screenshots-list) |  |
+| HEAD | `/api/marketplace-screenshots/` | [`marketplace_screenshots_count`](#marketplace-screenshots-count) |  |
+| POST | `/api/marketplace-screenshots/` | [`marketplace_screenshots_create`](#marketplace-screenshots-create) |  |
+| GET | `/api/marketplace-screenshots/{uuid}/` | [`marketplace_screenshots_retrieve`](#marketplace-screenshots-retrieve) |  |
+| PUT | `/api/marketplace-screenshots/{uuid}/` | [`marketplace_screenshots_update`](#marketplace-screenshots-update) |  |
+| PATCH | `/api/marketplace-screenshots/{uuid}/` | [`marketplace_screenshots_partial_update`](#marketplace-screenshots-partial-update) |  |
+| DELETE | `/api/marketplace-screenshots/{uuid}/` | [`marketplace_screenshots_destroy`](#marketplace-screenshots-destroy) |  |
+| GET | `/api/marketplace-sections/` | [`marketplace_sections_list`](#marketplace-sections-list) | List sections |
+| HEAD | `/api/marketplace-sections/` | [`marketplace_sections_count`](#marketplace-sections-count) | List sections |
+| POST | `/api/marketplace-sections/` | [`marketplace_sections_create`](#marketplace-sections-create) | Create a section |
+| GET | `/api/marketplace-sections/{key}/` | [`marketplace_sections_retrieve`](#marketplace-sections-retrieve) | Retrieve a section |
+| PUT | `/api/marketplace-sections/{key}/` | [`marketplace_sections_update`](#marketplace-sections-update) | Update a section |
+| PATCH | `/api/marketplace-sections/{key}/` | [`marketplace_sections_partial_update`](#marketplace-sections-partial-update) | Partially update a section |
+| DELETE | `/api/marketplace-sections/{key}/` | [`marketplace_sections_destroy`](#marketplace-sections-destroy) | Delete a section |
 
 ## Endpoint Details
 
 ### marketplace_offering_files_list
 
 **`GET`** `/api/marketplace-offering-files/`
-
-**Operation ID:** `marketplace_offering_files_list`
 
 **Parameters:**
 
@@ -67,8 +65,6 @@
 ### marketplace_offering_files_count
 
 **`HEAD`** `/api/marketplace-offering-files/`
-
-**Operation ID:** `marketplace_offering_files_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -94,8 +90,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/marketplace-offering-files/`
 
-**Operation ID:** `marketplace_offering_files_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `OfferingFileRequest`
@@ -118,8 +112,6 @@ Schema: `OfferingFileRequest`
 
 **`GET`** `/api/marketplace-offering-files/{uuid}/`
 
-**Operation ID:** `marketplace_offering_files_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -139,8 +131,6 @@ Schema: `OfferingFileRequest`
 
 **`DELETE`** `/api/marketplace-offering-files/{uuid}/`
 
-**Operation ID:** `marketplace_offering_files_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -155,11 +145,11 @@ Schema: `OfferingFileRequest`
 
 ---
 
-### List Datacite referrals for offerings
+### marketplace_offering_referrals_list
 
 **`GET`** `/api/marketplace-offering-referrals/`
 
-**Operation ID:** `marketplace_offering_referrals_list`
+**Summary:** List Datacite referrals for offerings
 
 Returns a paginated list of Datacite referrals associated with marketplace offerings. Referrals represent relationships between an offering (identified by a DOI) and other research outputs, such as publications or datasets. The list must be filtered by the offering's scope.
 
@@ -178,11 +168,11 @@ Returns a paginated list of Datacite referrals associated with marketplace offer
 
 ---
 
-### List Datacite referrals for offerings
+### marketplace_offering_referrals_count
 
 **`HEAD`** `/api/marketplace-offering-referrals/`
 
-**Operation ID:** `marketplace_offering_referrals_count`
+**Summary:** List Datacite referrals for offerings
 
 Get number of items in the collection matching the request parameters.
 
@@ -201,11 +191,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve a specific Datacite referral
+### marketplace_offering_referrals_retrieve
 
 **`GET`** `/api/marketplace-offering-referrals/{uuid}/`
 
-**Operation ID:** `marketplace_offering_referrals_retrieve`
+**Summary:** Retrieve a specific Datacite referral
 
 Returns the details of a single Datacite referral record, identified by its UUID. Details include the related identifier (PID), the type of relationship, and metadata about the related work.
 
@@ -223,11 +213,11 @@ Returns the details of a single Datacite referral record, identified by its UUID
 
 ---
 
-### List Terms of Service configurations
+### marketplace_offering_terms_of_service_list
 
 **`GET`** `/api/marketplace-offering-terms-of-service/`
 
-**Operation ID:** `marketplace_offering_terms_of_service_list`
+**Summary:** List Terms of Service configurations
 
 Returns a paginated list of Terms of Service configurations for offerings. Visibility depends on user permissions: staff/support see all; service providers see their own; regular users see ToS for offerings they have consented to or shared offerings.
 
@@ -250,11 +240,11 @@ Returns a paginated list of Terms of Service configurations for offerings. Visib
 
 ---
 
-### List Terms of Service configurations
+### marketplace_offering_terms_of_service_count
 
 **`HEAD`** `/api/marketplace-offering-terms-of-service/`
 
-**Operation ID:** `marketplace_offering_terms_of_service_count`
+**Summary:** List Terms of Service configurations
 
 Get number of items in the collection matching the request parameters.
 
@@ -277,11 +267,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a Terms of Service configuration
+### marketplace_offering_terms_of_service_create
 
 **`POST`** `/api/marketplace-offering-terms-of-service/`
 
-**Operation ID:** `marketplace_offering_terms_of_service_create`
+**Summary:** Create a Terms of Service configuration
 
 Creates a new Terms of Service configuration for an offering. Only one active ToS configuration is allowed per offering.
 
@@ -307,11 +297,11 @@ Schema: `OfferingTermsOfServiceCreateRequest`
 
 ---
 
-### Retrieve a Terms of Service configuration
+### marketplace_offering_terms_of_service_retrieve
 
 **`GET`** `/api/marketplace-offering-terms-of-service/{uuid}/`
 
-**Operation ID:** `marketplace_offering_terms_of_service_retrieve`
+**Summary:** Retrieve a Terms of Service configuration
 
 Returns the details of a specific Terms of Service configuration.
 
@@ -329,11 +319,11 @@ Returns the details of a specific Terms of Service configuration.
 
 ---
 
-### Update a Terms of Service configuration
+### marketplace_offering_terms_of_service_update
 
 **`PUT`** `/api/marketplace-offering-terms-of-service/{uuid}/`
 
-**Operation ID:** `marketplace_offering_terms_of_service_update`
+**Summary:** Update a Terms of Service configuration
 
 Updates an existing Terms of Service configuration. Note that some fields like `version` and `requires_reconsent` are protected and cannot be changed after creation.
 
@@ -362,11 +352,11 @@ Schema: `OfferingTermsOfServiceRequest`
 
 ---
 
-### Partially update a Terms of Service configuration
+### marketplace_offering_terms_of_service_partial_update
 
 **`PATCH`** `/api/marketplace-offering-terms-of-service/{uuid}/`
 
-**Operation ID:** `marketplace_offering_terms_of_service_partial_update`
+**Summary:** Partially update a Terms of Service configuration
 
 Partially updates an existing Terms of Service configuration.
 
@@ -395,11 +385,11 @@ Schema: `PatchedOfferingTermsOfServiceRequest`
 
 ---
 
-### Delete a Terms of Service configuration
+### marketplace_offering_terms_of_service_destroy
 
 **`DELETE`** `/api/marketplace-offering-terms-of-service/{uuid}/`
 
-**Operation ID:** `marketplace_offering_terms_of_service_destroy`
+**Summary:** Delete a Terms of Service configuration
 
 Deletes a Terms of Service configuration. This is a hard delete and should be used with caution.
 
@@ -420,8 +410,6 @@ Deletes a Terms of Service configuration. This is a hard delete and should be us
 ### marketplace_screenshots_list
 
 **`GET`** `/api/marketplace-screenshots/`
-
-**Operation ID:** `marketplace_screenshots_list`
 
 **Parameters:**
 
@@ -444,8 +432,6 @@ Deletes a Terms of Service configuration. This is a hard delete and should be us
 ### marketplace_screenshots_count
 
 **`HEAD`** `/api/marketplace-screenshots/`
-
-**Operation ID:** `marketplace_screenshots_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -471,8 +457,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/marketplace-screenshots/`
 
-**Operation ID:** `marketplace_screenshots_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `ScreenshotRequest`
@@ -496,8 +480,6 @@ Schema: `ScreenshotRequest`
 
 **`GET`** `/api/marketplace-screenshots/{uuid}/`
 
-**Operation ID:** `marketplace_screenshots_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -515,8 +497,6 @@ Schema: `ScreenshotRequest`
 ### marketplace_screenshots_update
 
 **`PUT`** `/api/marketplace-screenshots/{uuid}/`
-
-**Operation ID:** `marketplace_screenshots_update`
 
 **Parameters:**
 
@@ -547,8 +527,6 @@ Schema: `ScreenshotRequest`
 
 **`PATCH`** `/api/marketplace-screenshots/{uuid}/`
 
-**Operation ID:** `marketplace_screenshots_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -576,8 +554,6 @@ Schema: `PatchedScreenshotRequest`
 
 **`DELETE`** `/api/marketplace-screenshots/{uuid}/`
 
-**Operation ID:** `marketplace_screenshots_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -592,11 +568,11 @@ Schema: `PatchedScreenshotRequest`
 
 ---
 
-### List sections
+### marketplace_sections_list
 
 **`GET`** `/api/marketplace-sections/`
 
-**Operation ID:** `marketplace_sections_list`
+**Summary:** List sections
 
 Returns a paginated list of all sections. Sections are used to group attributes within a category.
 
@@ -613,11 +589,11 @@ Returns a paginated list of all sections. Sections are used to group attributes 
 
 ---
 
-### List sections
+### marketplace_sections_count
 
 **`HEAD`** `/api/marketplace-sections/`
 
-**Operation ID:** `marketplace_sections_count`
+**Summary:** List sections
 
 Get number of items in the collection matching the request parameters.
 
@@ -634,11 +610,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a section
+### marketplace_sections_create
 
 **`POST`** `/api/marketplace-sections/`
 
-**Operation ID:** `marketplace_sections_create`
+**Summary:** Create a section
 
 Creates a new section within a category. Requires staff permissions.
 
@@ -661,11 +637,11 @@ Schema: `SectionRequest`
 
 ---
 
-### Retrieve a section
+### marketplace_sections_retrieve
 
 **`GET`** `/api/marketplace-sections/{key}/`
 
-**Operation ID:** `marketplace_sections_retrieve`
+**Summary:** Retrieve a section
 
 Returns the details of a specific section, identified by its key.
 
@@ -683,11 +659,11 @@ Returns the details of a specific section, identified by its key.
 
 ---
 
-### Update a section
+### marketplace_sections_update
 
 **`PUT`** `/api/marketplace-sections/{key}/`
 
-**Operation ID:** `marketplace_sections_update`
+**Summary:** Update a section
 
 Updates an existing section. Requires staff permissions.
 
@@ -716,11 +692,11 @@ Schema: `SectionRequest`
 
 ---
 
-### Partially update a section
+### marketplace_sections_partial_update
 
 **`PATCH`** `/api/marketplace-sections/{key}/`
 
-**Operation ID:** `marketplace_sections_partial_update`
+**Summary:** Partially update a section
 
 Partially updates an existing section. Requires staff permissions.
 
@@ -749,11 +725,11 @@ Schema: `PatchedSectionRequest`
 
 ---
 
-### Delete a section
+### marketplace_sections_destroy
 
 **`DELETE`** `/api/marketplace-sections/{key}/`
 
-**Operation ID:** `marketplace_sections_destroy`
+**Summary:** Delete a section
 
 Deletes a section. Requires staff permissions.
 

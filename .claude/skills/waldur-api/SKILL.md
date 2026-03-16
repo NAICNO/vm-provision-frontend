@@ -17,8 +17,11 @@ The source of truth for the Waldur API is `openapi.json` in the project root. Ne
 ## How to use
 
 1. **Identify the domain** from the reference file map below
-2. **Read the relevant file** from `.claude/skills/waldur-api/references/` using the Read tool
-3. For cross-cutting searches or schema lookups, use the **search script** as a fallback
+2. **Read only the overview table** from the relevant reference file (use `limit: 60` on the Read tool) to see what endpoints exist
+3. **Get specific endpoint details** using the search script: `detail <operationId>`
+4. For cross-cutting searches or schema lookups, use `search`, `schema`, or `tag` commands
+
+This two-step approach keeps token usage low — read ~50 lines to discover endpoints, then pull only the details you need via the script.
 
 ## Reference file map
 

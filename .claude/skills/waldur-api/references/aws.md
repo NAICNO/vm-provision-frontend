@@ -7,51 +7,49 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/aws-images/` | `aws_images_list` |  |
-| HEAD | `/api/aws-images/` | `aws_images_count` |  |
-| GET | `/api/aws-images/{uuid}/` | `aws_images_retrieve` |  |
-| GET | `/api/aws-instances/` | `aws_instances_list` |  |
-| HEAD | `/api/aws-instances/` | `aws_instances_count` |  |
-| POST | `/api/aws-instances/` | `aws_instances_create` |  |
-| GET | `/api/aws-instances/{uuid}/` | `aws_instances_retrieve` |  |
-| PUT | `/api/aws-instances/{uuid}/` | `aws_instances_update` |  |
-| PATCH | `/api/aws-instances/{uuid}/` | `aws_instances_partial_update` |  |
-| DELETE | `/api/aws-instances/{uuid}/` | `aws_instances_destroy` |  |
-| POST | `/api/aws-instances/{uuid}/pull/` | `aws_instances_pull` | Synchronize resource state |
-| POST | `/api/aws-instances/{uuid}/resize/` | `aws_instances_resize` |  |
-| POST | `/api/aws-instances/{uuid}/restart/` | `aws_instances_restart` |  |
-| POST | `/api/aws-instances/{uuid}/set_erred/` | `aws_instances_set_erred` | Mark resource as ERRED |
-| POST | `/api/aws-instances/{uuid}/set_ok/` | `aws_instances_set_ok` | Mark resource as OK |
-| POST | `/api/aws-instances/{uuid}/start/` | `aws_instances_start` |  |
-| POST | `/api/aws-instances/{uuid}/stop/` | `aws_instances_stop` |  |
-| POST | `/api/aws-instances/{uuid}/unlink/` | `aws_instances_unlink` | Unlink resource |
-| GET | `/api/aws-regions/` | `aws_regions_list` |  |
-| HEAD | `/api/aws-regions/` | `aws_regions_count` |  |
-| GET | `/api/aws-regions/{uuid}/` | `aws_regions_retrieve` |  |
-| GET | `/api/aws-sizes/` | `aws_sizes_list` |  |
-| HEAD | `/api/aws-sizes/` | `aws_sizes_count` |  |
-| GET | `/api/aws-sizes/{uuid}/` | `aws_sizes_retrieve` |  |
-| GET | `/api/aws-volumes/` | `aws_volumes_list` |  |
-| HEAD | `/api/aws-volumes/` | `aws_volumes_count` |  |
-| POST | `/api/aws-volumes/` | `aws_volumes_create` |  |
-| GET | `/api/aws-volumes/{uuid}/` | `aws_volumes_retrieve` |  |
-| PUT | `/api/aws-volumes/{uuid}/` | `aws_volumes_update` |  |
-| PATCH | `/api/aws-volumes/{uuid}/` | `aws_volumes_partial_update` |  |
-| DELETE | `/api/aws-volumes/{uuid}/` | `aws_volumes_destroy` |  |
-| POST | `/api/aws-volumes/{uuid}/attach/` | `aws_volumes_attach` |  |
-| POST | `/api/aws-volumes/{uuid}/detach/` | `aws_volumes_detach` |  |
-| POST | `/api/aws-volumes/{uuid}/pull/` | `aws_volumes_pull` | Synchronize resource state |
-| POST | `/api/aws-volumes/{uuid}/set_erred/` | `aws_volumes_set_erred` | Mark resource as ERRED |
-| POST | `/api/aws-volumes/{uuid}/set_ok/` | `aws_volumes_set_ok` | Mark resource as OK |
-| POST | `/api/aws-volumes/{uuid}/unlink/` | `aws_volumes_unlink` | Unlink resource |
+| GET | `/api/aws-images/` | [`aws_images_list`](#aws-images-list) |  |
+| HEAD | `/api/aws-images/` | [`aws_images_count`](#aws-images-count) |  |
+| GET | `/api/aws-images/{uuid}/` | [`aws_images_retrieve`](#aws-images-retrieve) |  |
+| GET | `/api/aws-instances/` | [`aws_instances_list`](#aws-instances-list) |  |
+| HEAD | `/api/aws-instances/` | [`aws_instances_count`](#aws-instances-count) |  |
+| POST | `/api/aws-instances/` | [`aws_instances_create`](#aws-instances-create) |  |
+| GET | `/api/aws-instances/{uuid}/` | [`aws_instances_retrieve`](#aws-instances-retrieve) |  |
+| PUT | `/api/aws-instances/{uuid}/` | [`aws_instances_update`](#aws-instances-update) |  |
+| PATCH | `/api/aws-instances/{uuid}/` | [`aws_instances_partial_update`](#aws-instances-partial-update) |  |
+| DELETE | `/api/aws-instances/{uuid}/` | [`aws_instances_destroy`](#aws-instances-destroy) |  |
+| POST | `/api/aws-instances/{uuid}/pull/` | [`aws_instances_pull`](#aws-instances-pull) | Synchronize resource state |
+| POST | `/api/aws-instances/{uuid}/resize/` | [`aws_instances_resize`](#aws-instances-resize) |  |
+| POST | `/api/aws-instances/{uuid}/restart/` | [`aws_instances_restart`](#aws-instances-restart) |  |
+| POST | `/api/aws-instances/{uuid}/set_erred/` | [`aws_instances_set_erred`](#aws-instances-set-erred) | Mark resource as ERRED |
+| POST | `/api/aws-instances/{uuid}/set_ok/` | [`aws_instances_set_ok`](#aws-instances-set-ok) | Mark resource as OK |
+| POST | `/api/aws-instances/{uuid}/start/` | [`aws_instances_start`](#aws-instances-start) |  |
+| POST | `/api/aws-instances/{uuid}/stop/` | [`aws_instances_stop`](#aws-instances-stop) |  |
+| POST | `/api/aws-instances/{uuid}/unlink/` | [`aws_instances_unlink`](#aws-instances-unlink) | Unlink resource |
+| GET | `/api/aws-regions/` | [`aws_regions_list`](#aws-regions-list) |  |
+| HEAD | `/api/aws-regions/` | [`aws_regions_count`](#aws-regions-count) |  |
+| GET | `/api/aws-regions/{uuid}/` | [`aws_regions_retrieve`](#aws-regions-retrieve) |  |
+| GET | `/api/aws-sizes/` | [`aws_sizes_list`](#aws-sizes-list) |  |
+| HEAD | `/api/aws-sizes/` | [`aws_sizes_count`](#aws-sizes-count) |  |
+| GET | `/api/aws-sizes/{uuid}/` | [`aws_sizes_retrieve`](#aws-sizes-retrieve) |  |
+| GET | `/api/aws-volumes/` | [`aws_volumes_list`](#aws-volumes-list) |  |
+| HEAD | `/api/aws-volumes/` | [`aws_volumes_count`](#aws-volumes-count) |  |
+| POST | `/api/aws-volumes/` | [`aws_volumes_create`](#aws-volumes-create) |  |
+| GET | `/api/aws-volumes/{uuid}/` | [`aws_volumes_retrieve`](#aws-volumes-retrieve) |  |
+| PUT | `/api/aws-volumes/{uuid}/` | [`aws_volumes_update`](#aws-volumes-update) |  |
+| PATCH | `/api/aws-volumes/{uuid}/` | [`aws_volumes_partial_update`](#aws-volumes-partial-update) |  |
+| DELETE | `/api/aws-volumes/{uuid}/` | [`aws_volumes_destroy`](#aws-volumes-destroy) |  |
+| POST | `/api/aws-volumes/{uuid}/attach/` | [`aws_volumes_attach`](#aws-volumes-attach) |  |
+| POST | `/api/aws-volumes/{uuid}/detach/` | [`aws_volumes_detach`](#aws-volumes-detach) |  |
+| POST | `/api/aws-volumes/{uuid}/pull/` | [`aws_volumes_pull`](#aws-volumes-pull) | Synchronize resource state |
+| POST | `/api/aws-volumes/{uuid}/set_erred/` | [`aws_volumes_set_erred`](#aws-volumes-set-erred) | Mark resource as ERRED |
+| POST | `/api/aws-volumes/{uuid}/set_ok/` | [`aws_volumes_set_ok`](#aws-volumes-set-ok) | Mark resource as OK |
+| POST | `/api/aws-volumes/{uuid}/unlink/` | [`aws_volumes_unlink`](#aws-volumes-unlink) | Unlink resource |
 
 ## Endpoint Details
 
 ### aws_images_list
 
 **`GET`** `/api/aws-images/`
-
-**Operation ID:** `aws_images_list`
 
 **Parameters:**
 
@@ -72,8 +70,6 @@
 ### aws_images_count
 
 **`HEAD`** `/api/aws-images/`
-
-**Operation ID:** `aws_images_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -97,8 +93,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/aws-images/{uuid}/`
 
-**Operation ID:** `aws_images_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -116,8 +110,6 @@ Get number of items in the collection matching the request parameters.
 ### aws_instances_list
 
 **`GET`** `/api/aws-instances/`
-
-**Operation ID:** `aws_instances_list`
 
 **Parameters:**
 
@@ -154,8 +146,6 @@ Get number of items in the collection matching the request parameters.
 ### aws_instances_count
 
 **`HEAD`** `/api/aws-instances/`
-
-**Operation ID:** `aws_instances_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -194,8 +184,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/aws-instances/`
 
-**Operation ID:** `aws_instances_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `AwsInstanceRequest`
@@ -224,8 +212,6 @@ Schema: `AwsInstanceRequest`
 
 **`GET`** `/api/aws-instances/{uuid}/`
 
-**Operation ID:** `aws_instances_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -244,8 +230,6 @@ Schema: `AwsInstanceRequest`
 ### aws_instances_update
 
 **`PUT`** `/api/aws-instances/{uuid}/`
-
-**Operation ID:** `aws_instances_update`
 
 **Parameters:**
 
@@ -281,8 +265,6 @@ Schema: `AwsInstanceRequest`
 
 **`PATCH`** `/api/aws-instances/{uuid}/`
 
-**Operation ID:** `aws_instances_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -310,8 +292,6 @@ Schema: `PatchedAwsInstanceRequest`
 
 **`DELETE`** `/api/aws-instances/{uuid}/`
 
-**Operation ID:** `aws_instances_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -326,11 +306,11 @@ Schema: `PatchedAwsInstanceRequest`
 
 ---
 
-### Synchronize resource state
+### aws_instances_pull
 
 **`POST`** `/api/aws-instances/{uuid}/pull/`
 
-**Operation ID:** `aws_instances_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -352,8 +332,6 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 ### aws_instances_resize
 
 **`POST`** `/api/aws-instances/{uuid}/resize/`
-
-**Operation ID:** `aws_instances_resize`
 
 **Parameters:**
 
@@ -381,8 +359,6 @@ Schema: `AwsInstanceResizeRequest`
 
 **`POST`** `/api/aws-instances/{uuid}/restart/`
 
-**Operation ID:** `aws_instances_restart`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -397,11 +373,11 @@ Schema: `AwsInstanceResizeRequest`
 
 ---
 
-### Mark resource as ERRED
+### aws_instances_set_erred
 
 **`POST`** `/api/aws-instances/{uuid}/set_erred/`
 
-**Operation ID:** `aws_instances_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -428,11 +404,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### aws_instances_set_ok
 
 **`POST`** `/api/aws-instances/{uuid}/set_ok/`
 
-**Operation ID:** `aws_instances_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -454,8 +430,6 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 **`POST`** `/api/aws-instances/{uuid}/start/`
 
-**Operation ID:** `aws_instances_start`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -474,8 +448,6 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 **`POST`** `/api/aws-instances/{uuid}/stop/`
 
-**Operation ID:** `aws_instances_stop`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -490,11 +462,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### aws_instances_unlink
 
 **`POST`** `/api/aws-instances/{uuid}/unlink/`
 
-**Operation ID:** `aws_instances_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -518,8 +490,6 @@ Delete resource from the database without scheduling operations on backend
 
 **`GET`** `/api/aws-regions/`
 
-**Operation ID:** `aws_regions_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -538,8 +508,6 @@ Delete resource from the database without scheduling operations on backend
 ### aws_regions_count
 
 **`HEAD`** `/api/aws-regions/`
-
-**Operation ID:** `aws_regions_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -562,8 +530,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/aws-regions/{uuid}/`
 
-**Operation ID:** `aws_regions_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -581,8 +547,6 @@ Get number of items in the collection matching the request parameters.
 ### aws_sizes_list
 
 **`GET`** `/api/aws-sizes/`
-
-**Operation ID:** `aws_sizes_list`
 
 **Parameters:**
 
@@ -603,8 +567,6 @@ Get number of items in the collection matching the request parameters.
 ### aws_sizes_count
 
 **`HEAD`** `/api/aws-sizes/`
-
-**Operation ID:** `aws_sizes_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -628,8 +590,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/aws-sizes/{uuid}/`
 
-**Operation ID:** `aws_sizes_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -647,8 +607,6 @@ Get number of items in the collection matching the request parameters.
 ### aws_volumes_list
 
 **`GET`** `/api/aws-volumes/`
-
-**Operation ID:** `aws_volumes_list`
 
 **Parameters:**
 
@@ -668,8 +626,6 @@ Get number of items in the collection matching the request parameters.
 
 **`HEAD`** `/api/aws-volumes/`
 
-**Operation ID:** `aws_volumes_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -688,8 +644,6 @@ Get number of items in the collection matching the request parameters.
 ### aws_volumes_create
 
 **`POST`** `/api/aws-volumes/`
-
-**Operation ID:** `aws_volumes_create`
 
 **Request Body** (`application/json`, required):
 
@@ -717,8 +671,6 @@ Schema: `AwsVolumeRequest`
 
 **`GET`** `/api/aws-volumes/{uuid}/`
 
-**Operation ID:** `aws_volumes_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -737,8 +689,6 @@ Schema: `AwsVolumeRequest`
 ### aws_volumes_update
 
 **`PUT`** `/api/aws-volumes/{uuid}/`
-
-**Operation ID:** `aws_volumes_update`
 
 **Parameters:**
 
@@ -772,8 +722,6 @@ Schema: `AwsVolumeRequest`
 
 **`PATCH`** `/api/aws-volumes/{uuid}/`
 
-**Operation ID:** `aws_volumes_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -792,8 +740,6 @@ Schema: `AwsVolumeRequest`
 
 **`DELETE`** `/api/aws-volumes/{uuid}/`
 
-**Operation ID:** `aws_volumes_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -811,8 +757,6 @@ Schema: `AwsVolumeRequest`
 ### aws_volumes_attach
 
 **`POST`** `/api/aws-volumes/{uuid}/attach/`
-
-**Operation ID:** `aws_volumes_attach`
 
 **Parameters:**
 
@@ -841,8 +785,6 @@ Schema: `AwsVolumeAttachRequest`
 
 **`POST`** `/api/aws-volumes/{uuid}/detach/`
 
-**Operation ID:** `aws_volumes_detach`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -857,11 +799,11 @@ Schema: `AwsVolumeAttachRequest`
 
 ---
 
-### Synchronize resource state
+### aws_volumes_pull
 
 **`POST`** `/api/aws-volumes/{uuid}/pull/`
 
-**Operation ID:** `aws_volumes_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -880,11 +822,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### aws_volumes_set_erred
 
 **`POST`** `/api/aws-volumes/{uuid}/set_erred/`
 
-**Operation ID:** `aws_volumes_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -911,11 +853,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### aws_volumes_set_ok
 
 **`POST`** `/api/aws-volumes/{uuid}/set_ok/`
 
-**Operation ID:** `aws_volumes_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -933,11 +875,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### aws_volumes_unlink
 
 **`POST`** `/api/aws-volumes/{uuid}/unlink/`
 
-**Operation ID:** `aws_volumes_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used

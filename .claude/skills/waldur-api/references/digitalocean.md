@@ -7,38 +7,36 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/digitalocean-droplets/` | `digitalocean_droplets_list` |  |
-| HEAD | `/api/digitalocean-droplets/` | `digitalocean_droplets_count` |  |
-| POST | `/api/digitalocean-droplets/` | `digitalocean_droplets_create` |  |
-| GET | `/api/digitalocean-droplets/{uuid}/` | `digitalocean_droplets_retrieve` |  |
-| PUT | `/api/digitalocean-droplets/{uuid}/` | `digitalocean_droplets_update` |  |
-| PATCH | `/api/digitalocean-droplets/{uuid}/` | `digitalocean_droplets_partial_update` |  |
-| DELETE | `/api/digitalocean-droplets/{uuid}/` | `digitalocean_droplets_destroy` |  |
-| POST | `/api/digitalocean-droplets/{uuid}/pull/` | `digitalocean_droplets_pull` | Synchronize resource state |
-| POST | `/api/digitalocean-droplets/{uuid}/resize/` | `digitalocean_droplets_resize` |  |
-| POST | `/api/digitalocean-droplets/{uuid}/restart/` | `digitalocean_droplets_restart` |  |
-| POST | `/api/digitalocean-droplets/{uuid}/set_erred/` | `digitalocean_droplets_set_erred` | Mark resource as ERRED |
-| POST | `/api/digitalocean-droplets/{uuid}/set_ok/` | `digitalocean_droplets_set_ok` | Mark resource as OK |
-| POST | `/api/digitalocean-droplets/{uuid}/start/` | `digitalocean_droplets_start` |  |
-| POST | `/api/digitalocean-droplets/{uuid}/stop/` | `digitalocean_droplets_stop` |  |
-| POST | `/api/digitalocean-droplets/{uuid}/unlink/` | `digitalocean_droplets_unlink` | Unlink resource |
-| GET | `/api/digitalocean-images/` | `digitalocean_images_list` |  |
-| HEAD | `/api/digitalocean-images/` | `digitalocean_images_count` |  |
-| GET | `/api/digitalocean-images/{uuid}/` | `digitalocean_images_retrieve` |  |
-| GET | `/api/digitalocean-regions/` | `digitalocean_regions_list` |  |
-| HEAD | `/api/digitalocean-regions/` | `digitalocean_regions_count` |  |
-| GET | `/api/digitalocean-regions/{uuid}/` | `digitalocean_regions_retrieve` |  |
-| GET | `/api/digitalocean-sizes/` | `digitalocean_sizes_list` |  |
-| HEAD | `/api/digitalocean-sizes/` | `digitalocean_sizes_count` |  |
-| GET | `/api/digitalocean-sizes/{uuid}/` | `digitalocean_sizes_retrieve` |  |
+| GET | `/api/digitalocean-droplets/` | [`digitalocean_droplets_list`](#digitalocean-droplets-list) |  |
+| HEAD | `/api/digitalocean-droplets/` | [`digitalocean_droplets_count`](#digitalocean-droplets-count) |  |
+| POST | `/api/digitalocean-droplets/` | [`digitalocean_droplets_create`](#digitalocean-droplets-create) |  |
+| GET | `/api/digitalocean-droplets/{uuid}/` | [`digitalocean_droplets_retrieve`](#digitalocean-droplets-retrieve) |  |
+| PUT | `/api/digitalocean-droplets/{uuid}/` | [`digitalocean_droplets_update`](#digitalocean-droplets-update) |  |
+| PATCH | `/api/digitalocean-droplets/{uuid}/` | [`digitalocean_droplets_partial_update`](#digitalocean-droplets-partial-update) |  |
+| DELETE | `/api/digitalocean-droplets/{uuid}/` | [`digitalocean_droplets_destroy`](#digitalocean-droplets-destroy) |  |
+| POST | `/api/digitalocean-droplets/{uuid}/pull/` | [`digitalocean_droplets_pull`](#digitalocean-droplets-pull) | Synchronize resource state |
+| POST | `/api/digitalocean-droplets/{uuid}/resize/` | [`digitalocean_droplets_resize`](#digitalocean-droplets-resize) |  |
+| POST | `/api/digitalocean-droplets/{uuid}/restart/` | [`digitalocean_droplets_restart`](#digitalocean-droplets-restart) |  |
+| POST | `/api/digitalocean-droplets/{uuid}/set_erred/` | [`digitalocean_droplets_set_erred`](#digitalocean-droplets-set-erred) | Mark resource as ERRED |
+| POST | `/api/digitalocean-droplets/{uuid}/set_ok/` | [`digitalocean_droplets_set_ok`](#digitalocean-droplets-set-ok) | Mark resource as OK |
+| POST | `/api/digitalocean-droplets/{uuid}/start/` | [`digitalocean_droplets_start`](#digitalocean-droplets-start) |  |
+| POST | `/api/digitalocean-droplets/{uuid}/stop/` | [`digitalocean_droplets_stop`](#digitalocean-droplets-stop) |  |
+| POST | `/api/digitalocean-droplets/{uuid}/unlink/` | [`digitalocean_droplets_unlink`](#digitalocean-droplets-unlink) | Unlink resource |
+| GET | `/api/digitalocean-images/` | [`digitalocean_images_list`](#digitalocean-images-list) |  |
+| HEAD | `/api/digitalocean-images/` | [`digitalocean_images_count`](#digitalocean-images-count) |  |
+| GET | `/api/digitalocean-images/{uuid}/` | [`digitalocean_images_retrieve`](#digitalocean-images-retrieve) |  |
+| GET | `/api/digitalocean-regions/` | [`digitalocean_regions_list`](#digitalocean-regions-list) |  |
+| HEAD | `/api/digitalocean-regions/` | [`digitalocean_regions_count`](#digitalocean-regions-count) |  |
+| GET | `/api/digitalocean-regions/{uuid}/` | [`digitalocean_regions_retrieve`](#digitalocean-regions-retrieve) |  |
+| GET | `/api/digitalocean-sizes/` | [`digitalocean_sizes_list`](#digitalocean-sizes-list) |  |
+| HEAD | `/api/digitalocean-sizes/` | [`digitalocean_sizes_count`](#digitalocean-sizes-count) |  |
+| GET | `/api/digitalocean-sizes/{uuid}/` | [`digitalocean_sizes_retrieve`](#digitalocean-sizes-retrieve) |  |
 
 ## Endpoint Details
 
 ### digitalocean_droplets_list
 
 **`GET`** `/api/digitalocean-droplets/`
-
-**Operation ID:** `digitalocean_droplets_list`
 
 **Parameters:**
 
@@ -75,8 +73,6 @@
 ### digitalocean_droplets_count
 
 **`HEAD`** `/api/digitalocean-droplets/`
-
-**Operation ID:** `digitalocean_droplets_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -115,8 +111,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/digitalocean-droplets/`
 
-**Operation ID:** `digitalocean_droplets_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `DigitalOceanDropletRequest`
@@ -145,8 +139,6 @@ Schema: `DigitalOceanDropletRequest`
 
 **`GET`** `/api/digitalocean-droplets/{uuid}/`
 
-**Operation ID:** `digitalocean_droplets_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -165,8 +157,6 @@ Schema: `DigitalOceanDropletRequest`
 ### digitalocean_droplets_update
 
 **`PUT`** `/api/digitalocean-droplets/{uuid}/`
-
-**Operation ID:** `digitalocean_droplets_update`
 
 **Parameters:**
 
@@ -202,8 +192,6 @@ Schema: `DigitalOceanDropletRequest`
 
 **`PATCH`** `/api/digitalocean-droplets/{uuid}/`
 
-**Operation ID:** `digitalocean_droplets_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -231,8 +219,6 @@ Schema: `PatchedDigitalOceanDropletRequest`
 
 **`DELETE`** `/api/digitalocean-droplets/{uuid}/`
 
-**Operation ID:** `digitalocean_droplets_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -247,11 +233,11 @@ Schema: `PatchedDigitalOceanDropletRequest`
 
 ---
 
-### Synchronize resource state
+### digitalocean_droplets_pull
 
 **`POST`** `/api/digitalocean-droplets/{uuid}/pull/`
 
-**Operation ID:** `digitalocean_droplets_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -273,8 +259,6 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 ### digitalocean_droplets_resize
 
 **`POST`** `/api/digitalocean-droplets/{uuid}/resize/`
-
-**Operation ID:** `digitalocean_droplets_resize`
 
 To resize droplet, submit a POST request to the instance URL, specifying URI of a target size.
 
@@ -314,8 +298,6 @@ Schema: `DigitalOceanDropletResizeRequest`
 
 **`POST`** `/api/digitalocean-droplets/{uuid}/restart/`
 
-**Operation ID:** `digitalocean_droplets_restart`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -330,11 +312,11 @@ Schema: `DigitalOceanDropletResizeRequest`
 
 ---
 
-### Mark resource as ERRED
+### digitalocean_droplets_set_erred
 
 **`POST`** `/api/digitalocean-droplets/{uuid}/set_erred/`
 
-**Operation ID:** `digitalocean_droplets_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -361,11 +343,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### digitalocean_droplets_set_ok
 
 **`POST`** `/api/digitalocean-droplets/{uuid}/set_ok/`
 
-**Operation ID:** `digitalocean_droplets_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -387,8 +369,6 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 **`POST`** `/api/digitalocean-droplets/{uuid}/start/`
 
-**Operation ID:** `digitalocean_droplets_start`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -407,8 +387,6 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 **`POST`** `/api/digitalocean-droplets/{uuid}/stop/`
 
-**Operation ID:** `digitalocean_droplets_stop`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -423,11 +401,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### digitalocean_droplets_unlink
 
 **`POST`** `/api/digitalocean-droplets/{uuid}/unlink/`
 
-**Operation ID:** `digitalocean_droplets_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -451,8 +429,6 @@ Delete resource from the database without scheduling operations on backend
 
 **`GET`** `/api/digitalocean-images/`
 
-**Operation ID:** `digitalocean_images_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -474,8 +450,6 @@ Delete resource from the database without scheduling operations on backend
 ### digitalocean_images_count
 
 **`HEAD`** `/api/digitalocean-images/`
-
-**Operation ID:** `digitalocean_images_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -501,8 +475,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/digitalocean-images/{uuid}/`
 
-**Operation ID:** `digitalocean_images_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -520,8 +492,6 @@ Get number of items in the collection matching the request parameters.
 ### digitalocean_regions_list
 
 **`GET`** `/api/digitalocean-regions/`
-
-**Operation ID:** `digitalocean_regions_list`
 
 **Parameters:**
 
@@ -541,8 +511,6 @@ Get number of items in the collection matching the request parameters.
 ### digitalocean_regions_count
 
 **`HEAD`** `/api/digitalocean-regions/`
-
-**Operation ID:** `digitalocean_regions_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -565,8 +533,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/digitalocean-regions/{uuid}/`
 
-**Operation ID:** `digitalocean_regions_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -584,8 +550,6 @@ Get number of items in the collection matching the request parameters.
 ### digitalocean_sizes_list
 
 **`GET`** `/api/digitalocean-sizes/`
-
-**Operation ID:** `digitalocean_sizes_list`
 
 **Parameters:**
 
@@ -608,8 +572,6 @@ Get number of items in the collection matching the request parameters.
 ### digitalocean_sizes_count
 
 **`HEAD`** `/api/digitalocean-sizes/`
-
-**Operation ID:** `digitalocean_sizes_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -634,8 +596,6 @@ Get number of items in the collection matching the request parameters.
 ### digitalocean_sizes_retrieve
 
 **`GET`** `/api/digitalocean-sizes/{uuid}/`
-
-**Operation ID:** `digitalocean_sizes_retrieve`
 
 **Parameters:**
 

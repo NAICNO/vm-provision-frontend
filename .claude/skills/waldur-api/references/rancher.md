@@ -7,135 +7,133 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/managed-rancher-cluster-resources/` | `managed_rancher_cluster_resources_list` |  |
-| HEAD | `/api/managed-rancher-cluster-resources/` | `managed_rancher_cluster_resources_count` |  |
-| GET | `/api/managed-rancher-cluster-resources/{uuid}/` | `managed_rancher_cluster_resources_retrieve` |  |
-| POST | `/api/managed-rancher-cluster-resources/{uuid}/add_node/` | `managed_rancher_cluster_resources_add_node` |  |
-| GET | `/api/rancher-apps/` | `rancher_apps_list` |  |
-| HEAD | `/api/rancher-apps/` | `rancher_apps_count` |  |
-| POST | `/api/rancher-apps/` | `rancher_apps_create` |  |
-| GET | `/api/rancher-apps/{uuid}/` | `rancher_apps_retrieve` |  |
-| PUT | `/api/rancher-apps/{uuid}/` | `rancher_apps_update` |  |
-| PATCH | `/api/rancher-apps/{uuid}/` | `rancher_apps_partial_update` |  |
-| DELETE | `/api/rancher-apps/{uuid}/` | `rancher_apps_destroy` |  |
-| POST | `/api/rancher-apps/{uuid}/pull/` | `rancher_apps_pull` | Synchronize resource state |
-| POST | `/api/rancher-apps/{uuid}/set_erred/` | `rancher_apps_set_erred` | Mark resource as ERRED |
-| POST | `/api/rancher-apps/{uuid}/set_ok/` | `rancher_apps_set_ok` | Mark resource as OK |
-| POST | `/api/rancher-apps/{uuid}/unlink/` | `rancher_apps_unlink` | Unlink resource |
-| GET | `/api/rancher-catalogs/` | `rancher_catalogs_list` |  |
-| HEAD | `/api/rancher-catalogs/` | `rancher_catalogs_count` |  |
-| POST | `/api/rancher-catalogs/` | `rancher_catalogs_create` |  |
-| GET | `/api/rancher-catalogs/{uuid}/` | `rancher_catalogs_retrieve` |  |
-| PUT | `/api/rancher-catalogs/{uuid}/` | `rancher_catalogs_update` |  |
-| PATCH | `/api/rancher-catalogs/{uuid}/` | `rancher_catalogs_partial_update` |  |
-| DELETE | `/api/rancher-catalogs/{uuid}/` | `rancher_catalogs_destroy` |  |
-| POST | `/api/rancher-catalogs/{uuid}/refresh/` | `rancher_catalogs_refresh` |  |
-| GET | `/api/rancher-cluster-security-groups/` | `rancher_cluster_security_groups_list` |  |
-| HEAD | `/api/rancher-cluster-security-groups/` | `rancher_cluster_security_groups_count` |  |
-| GET | `/api/rancher-cluster-security-groups/{uuid}/` | `rancher_cluster_security_groups_retrieve` |  |
-| PUT | `/api/rancher-cluster-security-groups/{uuid}/` | `rancher_cluster_security_groups_update` |  |
-| PATCH | `/api/rancher-cluster-security-groups/{uuid}/` | `rancher_cluster_security_groups_partial_update` |  |
-| GET | `/api/rancher-cluster-templates/` | `rancher_cluster_templates_list` |  |
-| HEAD | `/api/rancher-cluster-templates/` | `rancher_cluster_templates_count` |  |
-| GET | `/api/rancher-cluster-templates/{uuid}/` | `rancher_cluster_templates_retrieve` |  |
-| GET | `/api/rancher-clusters/` | `rancher_clusters_list` |  |
-| HEAD | `/api/rancher-clusters/` | `rancher_clusters_count` |  |
-| GET | `/api/rancher-clusters/{uuid}/` | `rancher_clusters_retrieve` |  |
-| PUT | `/api/rancher-clusters/{uuid}/` | `rancher_clusters_update` |  |
-| PATCH | `/api/rancher-clusters/{uuid}/` | `rancher_clusters_partial_update` |  |
-| POST | `/api/rancher-clusters/{uuid}/create_management_security_group/` | `rancher_clusters_create_management_security_group` |  |
-| POST | `/api/rancher-clusters/{uuid}/import_yaml/` | `rancher_clusters_import_yaml` |  |
-| POST | `/api/rancher-clusters/{uuid}/pull/` | `rancher_clusters_pull` | Synchronize resource state |
-| POST | `/api/rancher-clusters/{uuid}/set_erred/` | `rancher_clusters_set_erred` | Mark resource as ERRED |
-| POST | `/api/rancher-clusters/{uuid}/set_ok/` | `rancher_clusters_set_ok` | Mark resource as OK |
-| POST | `/api/rancher-clusters/{uuid}/unlink/` | `rancher_clusters_unlink` | Unlink resource |
-| GET | `/api/rancher-hpas/` | `rancher_hpas_list` |  |
-| HEAD | `/api/rancher-hpas/` | `rancher_hpas_count` |  |
-| POST | `/api/rancher-hpas/` | `rancher_hpas_create` |  |
-| GET | `/api/rancher-hpas/{uuid}/` | `rancher_hpas_retrieve` |  |
-| PUT | `/api/rancher-hpas/{uuid}/` | `rancher_hpas_update` |  |
-| PATCH | `/api/rancher-hpas/{uuid}/` | `rancher_hpas_partial_update` |  |
-| DELETE | `/api/rancher-hpas/{uuid}/` | `rancher_hpas_destroy` |  |
-| POST | `/api/rancher-hpas/{uuid}/pull/` | `rancher_hpas_pull` | Synchronize resource state |
-| POST | `/api/rancher-hpas/{uuid}/set_erred/` | `rancher_hpas_set_erred` | Mark resource as ERRED |
-| POST | `/api/rancher-hpas/{uuid}/set_ok/` | `rancher_hpas_set_ok` | Mark resource as OK |
-| POST | `/api/rancher-hpas/{uuid}/unlink/` | `rancher_hpas_unlink` | Unlink resource |
-| GET | `/api/rancher-hpas/{uuid}/yaml/` | `rancher_hpas_yaml_retrieve` |  |
-| PUT | `/api/rancher-hpas/{uuid}/yaml/` | `rancher_hpas_yaml_update` |  |
-| GET | `/api/rancher-ingresses/` | `rancher_ingresses_list` |  |
-| HEAD | `/api/rancher-ingresses/` | `rancher_ingresses_count` |  |
-| POST | `/api/rancher-ingresses/` | `rancher_ingresses_create` |  |
-| GET | `/api/rancher-ingresses/{uuid}/` | `rancher_ingresses_retrieve` |  |
-| PUT | `/api/rancher-ingresses/{uuid}/` | `rancher_ingresses_update` |  |
-| PATCH | `/api/rancher-ingresses/{uuid}/` | `rancher_ingresses_partial_update` |  |
-| DELETE | `/api/rancher-ingresses/{uuid}/` | `rancher_ingresses_destroy` |  |
-| POST | `/api/rancher-ingresses/{uuid}/pull/` | `rancher_ingresses_pull` | Synchronize resource state |
-| POST | `/api/rancher-ingresses/{uuid}/set_erred/` | `rancher_ingresses_set_erred` | Mark resource as ERRED |
-| POST | `/api/rancher-ingresses/{uuid}/set_ok/` | `rancher_ingresses_set_ok` | Mark resource as OK |
-| POST | `/api/rancher-ingresses/{uuid}/unlink/` | `rancher_ingresses_unlink` | Unlink resource |
-| GET | `/api/rancher-ingresses/{uuid}/yaml/` | `rancher_ingresses_yaml_retrieve` |  |
-| PUT | `/api/rancher-ingresses/{uuid}/yaml/` | `rancher_ingresses_yaml_update` |  |
-| GET | `/api/rancher-namespaces/` | `rancher_namespaces_list` |  |
-| HEAD | `/api/rancher-namespaces/` | `rancher_namespaces_count` |  |
-| GET | `/api/rancher-namespaces/{uuid}/` | `rancher_namespaces_retrieve` |  |
-| GET | `/api/rancher-nodes/` | `rancher_nodes_list` |  |
-| HEAD | `/api/rancher-nodes/` | `rancher_nodes_count` |  |
-| POST | `/api/rancher-nodes/` | `rancher_nodes_create` |  |
-| GET | `/api/rancher-nodes/{uuid}/` | `rancher_nodes_retrieve` |  |
-| DELETE | `/api/rancher-nodes/{uuid}/` | `rancher_nodes_destroy` |  |
-| GET | `/api/rancher-nodes/{uuid}/console/` | `rancher_nodes_console_retrieve` |  |
-| GET | `/api/rancher-nodes/{uuid}/console_log/` | `rancher_nodes_console_log_retrieve` |  |
-| POST | `/api/rancher-nodes/{uuid}/link_openstack/` | `rancher_nodes_link_openstack` |  |
-| POST | `/api/rancher-nodes/{uuid}/pull/` | `rancher_nodes_pull` | Synchronize resource state |
-| POST | `/api/rancher-nodes/{uuid}/set_erred/` | `rancher_nodes_set_erred` | Mark resource as ERRED |
-| POST | `/api/rancher-nodes/{uuid}/set_ok/` | `rancher_nodes_set_ok` | Mark resource as OK |
-| POST | `/api/rancher-nodes/{uuid}/unlink/` | `rancher_nodes_unlink` | Unlink resource |
-| POST | `/api/rancher-nodes/{uuid}/unlink_openstack/` | `rancher_nodes_unlink_openstack` |  |
-| GET | `/api/rancher-projects/` | `rancher_projects_list` |  |
-| HEAD | `/api/rancher-projects/` | `rancher_projects_count` |  |
-| GET | `/api/rancher-projects/{uuid}/` | `rancher_projects_retrieve` |  |
-| GET | `/api/rancher-projects/{uuid}/secrets/` | `rancher_projects_secrets_retrieve` |  |
-| GET | `/api/rancher-role-templates/` | `rancher_role_templates_list` |  |
-| HEAD | `/api/rancher-role-templates/` | `rancher_role_templates_count` |  |
-| GET | `/api/rancher-role-templates/{uuid}/` | `rancher_role_templates_retrieve` |  |
-| GET | `/api/rancher-services/` | `rancher_services_list` |  |
-| HEAD | `/api/rancher-services/` | `rancher_services_count` |  |
-| POST | `/api/rancher-services/` | `rancher_services_create` |  |
-| GET | `/api/rancher-services/{uuid}/` | `rancher_services_retrieve` |  |
-| PUT | `/api/rancher-services/{uuid}/` | `rancher_services_update` |  |
-| PATCH | `/api/rancher-services/{uuid}/` | `rancher_services_partial_update` |  |
-| DELETE | `/api/rancher-services/{uuid}/` | `rancher_services_destroy` |  |
-| POST | `/api/rancher-services/{uuid}/pull/` | `rancher_services_pull` | Synchronize resource state |
-| POST | `/api/rancher-services/{uuid}/set_erred/` | `rancher_services_set_erred` | Mark resource as ERRED |
-| POST | `/api/rancher-services/{uuid}/set_ok/` | `rancher_services_set_ok` | Mark resource as OK |
-| POST | `/api/rancher-services/{uuid}/unlink/` | `rancher_services_unlink` | Unlink resource |
-| GET | `/api/rancher-services/{uuid}/yaml/` | `rancher_services_yaml_retrieve` |  |
-| PUT | `/api/rancher-services/{uuid}/yaml/` | `rancher_services_yaml_update` |  |
-| GET | `/api/rancher-template-versions/{template_uuid}/{version}/` | `rancher_template_versions_retrieve` |  |
-| GET | `/api/rancher-templates/` | `rancher_templates_list` |  |
-| HEAD | `/api/rancher-templates/` | `rancher_templates_count` |  |
-| GET | `/api/rancher-templates/{uuid}/` | `rancher_templates_retrieve` |  |
-| GET | `/api/rancher-users/` | `rancher_users_list` |  |
-| HEAD | `/api/rancher-users/` | `rancher_users_count` |  |
-| GET | `/api/rancher-users/{uuid}/` | `rancher_users_retrieve` |  |
-| GET | `/api/rancher-workloads/` | `rancher_workloads_list` |  |
-| HEAD | `/api/rancher-workloads/` | `rancher_workloads_count` |  |
-| POST | `/api/rancher-workloads/` | `rancher_workloads_create` |  |
-| GET | `/api/rancher-workloads/{uuid}/` | `rancher_workloads_retrieve` |  |
-| PUT | `/api/rancher-workloads/{uuid}/` | `rancher_workloads_update` |  |
-| PATCH | `/api/rancher-workloads/{uuid}/` | `rancher_workloads_partial_update` |  |
-| DELETE | `/api/rancher-workloads/{uuid}/` | `rancher_workloads_destroy` |  |
-| POST | `/api/rancher-workloads/{uuid}/redeploy/` | `rancher_workloads_redeploy` |  |
-| GET | `/api/rancher-workloads/{uuid}/yaml/` | `rancher_workloads_yaml_retrieve` |  |
-| PUT | `/api/rancher-workloads/{uuid}/yaml/` | `rancher_workloads_yaml_update` |  |
+| GET | `/api/managed-rancher-cluster-resources/` | [`managed_rancher_cluster_resources_list`](#managed-rancher-cluster-resources-list) |  |
+| HEAD | `/api/managed-rancher-cluster-resources/` | [`managed_rancher_cluster_resources_count`](#managed-rancher-cluster-resources-count) |  |
+| GET | `/api/managed-rancher-cluster-resources/{uuid}/` | [`managed_rancher_cluster_resources_retrieve`](#managed-rancher-cluster-resources-retrieve) |  |
+| POST | `/api/managed-rancher-cluster-resources/{uuid}/add_node/` | [`managed_rancher_cluster_resources_add_node`](#managed-rancher-cluster-resources-add-node) |  |
+| GET | `/api/rancher-apps/` | [`rancher_apps_list`](#rancher-apps-list) |  |
+| HEAD | `/api/rancher-apps/` | [`rancher_apps_count`](#rancher-apps-count) |  |
+| POST | `/api/rancher-apps/` | [`rancher_apps_create`](#rancher-apps-create) |  |
+| GET | `/api/rancher-apps/{uuid}/` | [`rancher_apps_retrieve`](#rancher-apps-retrieve) |  |
+| PUT | `/api/rancher-apps/{uuid}/` | [`rancher_apps_update`](#rancher-apps-update) |  |
+| PATCH | `/api/rancher-apps/{uuid}/` | [`rancher_apps_partial_update`](#rancher-apps-partial-update) |  |
+| DELETE | `/api/rancher-apps/{uuid}/` | [`rancher_apps_destroy`](#rancher-apps-destroy) |  |
+| POST | `/api/rancher-apps/{uuid}/pull/` | [`rancher_apps_pull`](#rancher-apps-pull) | Synchronize resource state |
+| POST | `/api/rancher-apps/{uuid}/set_erred/` | [`rancher_apps_set_erred`](#rancher-apps-set-erred) | Mark resource as ERRED |
+| POST | `/api/rancher-apps/{uuid}/set_ok/` | [`rancher_apps_set_ok`](#rancher-apps-set-ok) | Mark resource as OK |
+| POST | `/api/rancher-apps/{uuid}/unlink/` | [`rancher_apps_unlink`](#rancher-apps-unlink) | Unlink resource |
+| GET | `/api/rancher-catalogs/` | [`rancher_catalogs_list`](#rancher-catalogs-list) |  |
+| HEAD | `/api/rancher-catalogs/` | [`rancher_catalogs_count`](#rancher-catalogs-count) |  |
+| POST | `/api/rancher-catalogs/` | [`rancher_catalogs_create`](#rancher-catalogs-create) |  |
+| GET | `/api/rancher-catalogs/{uuid}/` | [`rancher_catalogs_retrieve`](#rancher-catalogs-retrieve) |  |
+| PUT | `/api/rancher-catalogs/{uuid}/` | [`rancher_catalogs_update`](#rancher-catalogs-update) |  |
+| PATCH | `/api/rancher-catalogs/{uuid}/` | [`rancher_catalogs_partial_update`](#rancher-catalogs-partial-update) |  |
+| DELETE | `/api/rancher-catalogs/{uuid}/` | [`rancher_catalogs_destroy`](#rancher-catalogs-destroy) |  |
+| POST | `/api/rancher-catalogs/{uuid}/refresh/` | [`rancher_catalogs_refresh`](#rancher-catalogs-refresh) |  |
+| GET | `/api/rancher-cluster-security-groups/` | [`rancher_cluster_security_groups_list`](#rancher-cluster-security-groups-list) |  |
+| HEAD | `/api/rancher-cluster-security-groups/` | [`rancher_cluster_security_groups_count`](#rancher-cluster-security-groups-count) |  |
+| GET | `/api/rancher-cluster-security-groups/{uuid}/` | [`rancher_cluster_security_groups_retrieve`](#rancher-cluster-security-groups-retrieve) |  |
+| PUT | `/api/rancher-cluster-security-groups/{uuid}/` | [`rancher_cluster_security_groups_update`](#rancher-cluster-security-groups-update) |  |
+| PATCH | `/api/rancher-cluster-security-groups/{uuid}/` | [`rancher_cluster_security_groups_partial_update`](#rancher-cluster-security-groups-partial-update) |  |
+| GET | `/api/rancher-cluster-templates/` | [`rancher_cluster_templates_list`](#rancher-cluster-templates-list) |  |
+| HEAD | `/api/rancher-cluster-templates/` | [`rancher_cluster_templates_count`](#rancher-cluster-templates-count) |  |
+| GET | `/api/rancher-cluster-templates/{uuid}/` | [`rancher_cluster_templates_retrieve`](#rancher-cluster-templates-retrieve) |  |
+| GET | `/api/rancher-clusters/` | [`rancher_clusters_list`](#rancher-clusters-list) |  |
+| HEAD | `/api/rancher-clusters/` | [`rancher_clusters_count`](#rancher-clusters-count) |  |
+| GET | `/api/rancher-clusters/{uuid}/` | [`rancher_clusters_retrieve`](#rancher-clusters-retrieve) |  |
+| PUT | `/api/rancher-clusters/{uuid}/` | [`rancher_clusters_update`](#rancher-clusters-update) |  |
+| PATCH | `/api/rancher-clusters/{uuid}/` | [`rancher_clusters_partial_update`](#rancher-clusters-partial-update) |  |
+| POST | `/api/rancher-clusters/{uuid}/create_management_security_group/` | [`rancher_clusters_create_management_security_group`](#rancher-clusters-create-management-security-group) |  |
+| POST | `/api/rancher-clusters/{uuid}/import_yaml/` | [`rancher_clusters_import_yaml`](#rancher-clusters-import-yaml) |  |
+| POST | `/api/rancher-clusters/{uuid}/pull/` | [`rancher_clusters_pull`](#rancher-clusters-pull) | Synchronize resource state |
+| POST | `/api/rancher-clusters/{uuid}/set_erred/` | [`rancher_clusters_set_erred`](#rancher-clusters-set-erred) | Mark resource as ERRED |
+| POST | `/api/rancher-clusters/{uuid}/set_ok/` | [`rancher_clusters_set_ok`](#rancher-clusters-set-ok) | Mark resource as OK |
+| POST | `/api/rancher-clusters/{uuid}/unlink/` | [`rancher_clusters_unlink`](#rancher-clusters-unlink) | Unlink resource |
+| GET | `/api/rancher-hpas/` | [`rancher_hpas_list`](#rancher-hpas-list) |  |
+| HEAD | `/api/rancher-hpas/` | [`rancher_hpas_count`](#rancher-hpas-count) |  |
+| POST | `/api/rancher-hpas/` | [`rancher_hpas_create`](#rancher-hpas-create) |  |
+| GET | `/api/rancher-hpas/{uuid}/` | [`rancher_hpas_retrieve`](#rancher-hpas-retrieve) |  |
+| PUT | `/api/rancher-hpas/{uuid}/` | [`rancher_hpas_update`](#rancher-hpas-update) |  |
+| PATCH | `/api/rancher-hpas/{uuid}/` | [`rancher_hpas_partial_update`](#rancher-hpas-partial-update) |  |
+| DELETE | `/api/rancher-hpas/{uuid}/` | [`rancher_hpas_destroy`](#rancher-hpas-destroy) |  |
+| POST | `/api/rancher-hpas/{uuid}/pull/` | [`rancher_hpas_pull`](#rancher-hpas-pull) | Synchronize resource state |
+| POST | `/api/rancher-hpas/{uuid}/set_erred/` | [`rancher_hpas_set_erred`](#rancher-hpas-set-erred) | Mark resource as ERRED |
+| POST | `/api/rancher-hpas/{uuid}/set_ok/` | [`rancher_hpas_set_ok`](#rancher-hpas-set-ok) | Mark resource as OK |
+| POST | `/api/rancher-hpas/{uuid}/unlink/` | [`rancher_hpas_unlink`](#rancher-hpas-unlink) | Unlink resource |
+| GET | `/api/rancher-hpas/{uuid}/yaml/` | [`rancher_hpas_yaml_retrieve`](#rancher-hpas-yaml-retrieve) |  |
+| PUT | `/api/rancher-hpas/{uuid}/yaml/` | [`rancher_hpas_yaml_update`](#rancher-hpas-yaml-update) |  |
+| GET | `/api/rancher-ingresses/` | [`rancher_ingresses_list`](#rancher-ingresses-list) |  |
+| HEAD | `/api/rancher-ingresses/` | [`rancher_ingresses_count`](#rancher-ingresses-count) |  |
+| POST | `/api/rancher-ingresses/` | [`rancher_ingresses_create`](#rancher-ingresses-create) |  |
+| GET | `/api/rancher-ingresses/{uuid}/` | [`rancher_ingresses_retrieve`](#rancher-ingresses-retrieve) |  |
+| PUT | `/api/rancher-ingresses/{uuid}/` | [`rancher_ingresses_update`](#rancher-ingresses-update) |  |
+| PATCH | `/api/rancher-ingresses/{uuid}/` | [`rancher_ingresses_partial_update`](#rancher-ingresses-partial-update) |  |
+| DELETE | `/api/rancher-ingresses/{uuid}/` | [`rancher_ingresses_destroy`](#rancher-ingresses-destroy) |  |
+| POST | `/api/rancher-ingresses/{uuid}/pull/` | [`rancher_ingresses_pull`](#rancher-ingresses-pull) | Synchronize resource state |
+| POST | `/api/rancher-ingresses/{uuid}/set_erred/` | [`rancher_ingresses_set_erred`](#rancher-ingresses-set-erred) | Mark resource as ERRED |
+| POST | `/api/rancher-ingresses/{uuid}/set_ok/` | [`rancher_ingresses_set_ok`](#rancher-ingresses-set-ok) | Mark resource as OK |
+| POST | `/api/rancher-ingresses/{uuid}/unlink/` | [`rancher_ingresses_unlink`](#rancher-ingresses-unlink) | Unlink resource |
+| GET | `/api/rancher-ingresses/{uuid}/yaml/` | [`rancher_ingresses_yaml_retrieve`](#rancher-ingresses-yaml-retrieve) |  |
+| PUT | `/api/rancher-ingresses/{uuid}/yaml/` | [`rancher_ingresses_yaml_update`](#rancher-ingresses-yaml-update) |  |
+| GET | `/api/rancher-namespaces/` | [`rancher_namespaces_list`](#rancher-namespaces-list) |  |
+| HEAD | `/api/rancher-namespaces/` | [`rancher_namespaces_count`](#rancher-namespaces-count) |  |
+| GET | `/api/rancher-namespaces/{uuid}/` | [`rancher_namespaces_retrieve`](#rancher-namespaces-retrieve) |  |
+| GET | `/api/rancher-nodes/` | [`rancher_nodes_list`](#rancher-nodes-list) |  |
+| HEAD | `/api/rancher-nodes/` | [`rancher_nodes_count`](#rancher-nodes-count) |  |
+| POST | `/api/rancher-nodes/` | [`rancher_nodes_create`](#rancher-nodes-create) |  |
+| GET | `/api/rancher-nodes/{uuid}/` | [`rancher_nodes_retrieve`](#rancher-nodes-retrieve) |  |
+| DELETE | `/api/rancher-nodes/{uuid}/` | [`rancher_nodes_destroy`](#rancher-nodes-destroy) |  |
+| GET | `/api/rancher-nodes/{uuid}/console/` | [`rancher_nodes_console_retrieve`](#rancher-nodes-console-retrieve) |  |
+| GET | `/api/rancher-nodes/{uuid}/console_log/` | [`rancher_nodes_console_log_retrieve`](#rancher-nodes-console-log-retrieve) |  |
+| POST | `/api/rancher-nodes/{uuid}/link_openstack/` | [`rancher_nodes_link_openstack`](#rancher-nodes-link-openstack) |  |
+| POST | `/api/rancher-nodes/{uuid}/pull/` | [`rancher_nodes_pull`](#rancher-nodes-pull) | Synchronize resource state |
+| POST | `/api/rancher-nodes/{uuid}/set_erred/` | [`rancher_nodes_set_erred`](#rancher-nodes-set-erred) | Mark resource as ERRED |
+| POST | `/api/rancher-nodes/{uuid}/set_ok/` | [`rancher_nodes_set_ok`](#rancher-nodes-set-ok) | Mark resource as OK |
+| POST | `/api/rancher-nodes/{uuid}/unlink/` | [`rancher_nodes_unlink`](#rancher-nodes-unlink) | Unlink resource |
+| POST | `/api/rancher-nodes/{uuid}/unlink_openstack/` | [`rancher_nodes_unlink_openstack`](#rancher-nodes-unlink-openstack) |  |
+| GET | `/api/rancher-projects/` | [`rancher_projects_list`](#rancher-projects-list) |  |
+| HEAD | `/api/rancher-projects/` | [`rancher_projects_count`](#rancher-projects-count) |  |
+| GET | `/api/rancher-projects/{uuid}/` | [`rancher_projects_retrieve`](#rancher-projects-retrieve) |  |
+| GET | `/api/rancher-projects/{uuid}/secrets/` | [`rancher_projects_secrets_retrieve`](#rancher-projects-secrets-retrieve) |  |
+| GET | `/api/rancher-role-templates/` | [`rancher_role_templates_list`](#rancher-role-templates-list) |  |
+| HEAD | `/api/rancher-role-templates/` | [`rancher_role_templates_count`](#rancher-role-templates-count) |  |
+| GET | `/api/rancher-role-templates/{uuid}/` | [`rancher_role_templates_retrieve`](#rancher-role-templates-retrieve) |  |
+| GET | `/api/rancher-services/` | [`rancher_services_list`](#rancher-services-list) |  |
+| HEAD | `/api/rancher-services/` | [`rancher_services_count`](#rancher-services-count) |  |
+| POST | `/api/rancher-services/` | [`rancher_services_create`](#rancher-services-create) |  |
+| GET | `/api/rancher-services/{uuid}/` | [`rancher_services_retrieve`](#rancher-services-retrieve) |  |
+| PUT | `/api/rancher-services/{uuid}/` | [`rancher_services_update`](#rancher-services-update) |  |
+| PATCH | `/api/rancher-services/{uuid}/` | [`rancher_services_partial_update`](#rancher-services-partial-update) |  |
+| DELETE | `/api/rancher-services/{uuid}/` | [`rancher_services_destroy`](#rancher-services-destroy) |  |
+| POST | `/api/rancher-services/{uuid}/pull/` | [`rancher_services_pull`](#rancher-services-pull) | Synchronize resource state |
+| POST | `/api/rancher-services/{uuid}/set_erred/` | [`rancher_services_set_erred`](#rancher-services-set-erred) | Mark resource as ERRED |
+| POST | `/api/rancher-services/{uuid}/set_ok/` | [`rancher_services_set_ok`](#rancher-services-set-ok) | Mark resource as OK |
+| POST | `/api/rancher-services/{uuid}/unlink/` | [`rancher_services_unlink`](#rancher-services-unlink) | Unlink resource |
+| GET | `/api/rancher-services/{uuid}/yaml/` | [`rancher_services_yaml_retrieve`](#rancher-services-yaml-retrieve) |  |
+| PUT | `/api/rancher-services/{uuid}/yaml/` | [`rancher_services_yaml_update`](#rancher-services-yaml-update) |  |
+| GET | `/api/rancher-template-versions/{template_uuid}/{version}/` | [`rancher_template_versions_retrieve`](#rancher-template-versions-retrieve) |  |
+| GET | `/api/rancher-templates/` | [`rancher_templates_list`](#rancher-templates-list) |  |
+| HEAD | `/api/rancher-templates/` | [`rancher_templates_count`](#rancher-templates-count) |  |
+| GET | `/api/rancher-templates/{uuid}/` | [`rancher_templates_retrieve`](#rancher-templates-retrieve) |  |
+| GET | `/api/rancher-users/` | [`rancher_users_list`](#rancher-users-list) |  |
+| HEAD | `/api/rancher-users/` | [`rancher_users_count`](#rancher-users-count) |  |
+| GET | `/api/rancher-users/{uuid}/` | [`rancher_users_retrieve`](#rancher-users-retrieve) |  |
+| GET | `/api/rancher-workloads/` | [`rancher_workloads_list`](#rancher-workloads-list) |  |
+| HEAD | `/api/rancher-workloads/` | [`rancher_workloads_count`](#rancher-workloads-count) |  |
+| POST | `/api/rancher-workloads/` | [`rancher_workloads_create`](#rancher-workloads-create) |  |
+| GET | `/api/rancher-workloads/{uuid}/` | [`rancher_workloads_retrieve`](#rancher-workloads-retrieve) |  |
+| PUT | `/api/rancher-workloads/{uuid}/` | [`rancher_workloads_update`](#rancher-workloads-update) |  |
+| PATCH | `/api/rancher-workloads/{uuid}/` | [`rancher_workloads_partial_update`](#rancher-workloads-partial-update) |  |
+| DELETE | `/api/rancher-workloads/{uuid}/` | [`rancher_workloads_destroy`](#rancher-workloads-destroy) |  |
+| POST | `/api/rancher-workloads/{uuid}/redeploy/` | [`rancher_workloads_redeploy`](#rancher-workloads-redeploy) |  |
+| GET | `/api/rancher-workloads/{uuid}/yaml/` | [`rancher_workloads_yaml_retrieve`](#rancher-workloads-yaml-retrieve) |  |
+| PUT | `/api/rancher-workloads/{uuid}/yaml/` | [`rancher_workloads_yaml_update`](#rancher-workloads-yaml-update) |  |
 
 ## Endpoint Details
 
 ### managed_rancher_cluster_resources_list
 
 **`GET`** `/api/managed-rancher-cluster-resources/`
-
-**Operation ID:** `managed_rancher_cluster_resources_list`
 
 **Parameters:**
 
@@ -154,8 +152,6 @@
 ### managed_rancher_cluster_resources_count
 
 **`HEAD`** `/api/managed-rancher-cluster-resources/`
-
-**Operation ID:** `managed_rancher_cluster_resources_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -176,8 +172,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/managed-rancher-cluster-resources/{uuid}/`
 
-**Operation ID:** `managed_rancher_cluster_resources_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -196,8 +190,6 @@ Get number of items in the collection matching the request parameters.
 ### managed_rancher_cluster_resources_add_node
 
 **`POST`** `/api/managed-rancher-cluster-resources/{uuid}/add_node/`
-
-**Operation ID:** `managed_rancher_cluster_resources_add_node`
 
 **Parameters:**
 
@@ -233,8 +225,6 @@ Schema: `ManagedRancherCreateNodeRequest`
 ### rancher_apps_list
 
 **`GET`** `/api/rancher-apps/`
-
-**Operation ID:** `rancher_apps_list`
 
 **Parameters:**
 
@@ -274,8 +264,6 @@ Schema: `ManagedRancherCreateNodeRequest`
 ### rancher_apps_count
 
 **`HEAD`** `/api/rancher-apps/`
-
-**Operation ID:** `rancher_apps_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -317,8 +305,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/rancher-apps/`
 
-**Operation ID:** `rancher_apps_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `RancherApplicationRequest`
@@ -352,8 +338,6 @@ Schema: `RancherApplicationRequest`
 
 **`GET`** `/api/rancher-apps/{uuid}/`
 
-**Operation ID:** `rancher_apps_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -372,8 +356,6 @@ Schema: `RancherApplicationRequest`
 ### rancher_apps_update
 
 **`PUT`** `/api/rancher-apps/{uuid}/`
-
-**Operation ID:** `rancher_apps_update`
 
 **Parameters:**
 
@@ -414,8 +396,6 @@ Schema: `RancherApplicationRequest`
 
 **`PATCH`** `/api/rancher-apps/{uuid}/`
 
-**Operation ID:** `rancher_apps_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -455,8 +435,6 @@ Schema: `PatchedRancherApplicationRequest`
 
 **`DELETE`** `/api/rancher-apps/{uuid}/`
 
-**Operation ID:** `rancher_apps_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -471,11 +449,11 @@ Schema: `PatchedRancherApplicationRequest`
 
 ---
 
-### Synchronize resource state
+### rancher_apps_pull
 
 **`POST`** `/api/rancher-apps/{uuid}/pull/`
 
-**Operation ID:** `rancher_apps_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -494,11 +472,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### rancher_apps_set_erred
 
 **`POST`** `/api/rancher-apps/{uuid}/set_erred/`
 
-**Operation ID:** `rancher_apps_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -525,11 +503,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### rancher_apps_set_ok
 
 **`POST`** `/api/rancher-apps/{uuid}/set_ok/`
 
-**Operation ID:** `rancher_apps_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -547,11 +525,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### rancher_apps_unlink
 
 **`POST`** `/api/rancher-apps/{uuid}/unlink/`
 
-**Operation ID:** `rancher_apps_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -575,8 +553,6 @@ Delete resource from the database without scheduling operations on backend
 
 **`GET`** `/api/rancher-catalogs/`
 
-**Operation ID:** `rancher_catalogs_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -593,8 +569,6 @@ Delete resource from the database without scheduling operations on backend
 ### rancher_catalogs_count
 
 **`HEAD`** `/api/rancher-catalogs/`
-
-**Operation ID:** `rancher_catalogs_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -614,8 +588,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_catalogs_create
 
 **`POST`** `/api/rancher-catalogs/`
-
-**Operation ID:** `rancher_catalogs_create`
 
 **Request Body** (`application/json`, required):
 
@@ -643,8 +615,6 @@ Schema: `RancherCatalogCreateRequest`
 
 **`GET`** `/api/rancher-catalogs/{uuid}/`
 
-**Operation ID:** `rancher_catalogs_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -662,8 +632,6 @@ Schema: `RancherCatalogCreateRequest`
 ### rancher_catalogs_update
 
 **`PUT`** `/api/rancher-catalogs/{uuid}/`
-
-**Operation ID:** `rancher_catalogs_update`
 
 **Parameters:**
 
@@ -695,8 +663,6 @@ Schema: `RancherCatalogUpdateRequest`
 
 **`PATCH`** `/api/rancher-catalogs/{uuid}/`
 
-**Operation ID:** `rancher_catalogs_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -727,8 +693,6 @@ Schema: `PatchedRancherCatalogRequest`
 
 **`DELETE`** `/api/rancher-catalogs/{uuid}/`
 
-**Operation ID:** `rancher_catalogs_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -746,8 +710,6 @@ Schema: `PatchedRancherCatalogRequest`
 ### rancher_catalogs_refresh
 
 **`POST`** `/api/rancher-catalogs/{uuid}/refresh/`
-
-**Operation ID:** `rancher_catalogs_refresh`
 
 **Parameters:**
 
@@ -779,8 +741,6 @@ Schema: `RancherCatalogRequest`
 
 **`GET`** `/api/rancher-cluster-security-groups/`
 
-**Operation ID:** `rancher_cluster_security_groups_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -800,8 +760,6 @@ Schema: `RancherCatalogRequest`
 ### rancher_cluster_security_groups_count
 
 **`HEAD`** `/api/rancher-cluster-security-groups/`
-
-**Operation ID:** `rancher_cluster_security_groups_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -825,8 +783,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/rancher-cluster-security-groups/{uuid}/`
 
-**Operation ID:** `rancher_cluster_security_groups_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -844,8 +800,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_cluster_security_groups_update
 
 **`PUT`** `/api/rancher-cluster-security-groups/{uuid}/`
-
-**Operation ID:** `rancher_cluster_security_groups_update`
 
 **Parameters:**
 
@@ -873,8 +827,6 @@ Schema: `ClusterSecurityGroupRequest`
 
 **`PATCH`** `/api/rancher-cluster-security-groups/{uuid}/`
 
-**Operation ID:** `rancher_cluster_security_groups_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -901,8 +853,6 @@ Schema: `PatchedClusterSecurityGroupRequest`
 
 **`GET`** `/api/rancher-cluster-templates/`
 
-**Operation ID:** `rancher_cluster_templates_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -919,8 +869,6 @@ Schema: `PatchedClusterSecurityGroupRequest`
 ### rancher_cluster_templates_count
 
 **`HEAD`** `/api/rancher-cluster-templates/`
-
-**Operation ID:** `rancher_cluster_templates_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -941,8 +889,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/rancher-cluster-templates/{uuid}/`
 
-**Operation ID:** `rancher_cluster_templates_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -960,8 +906,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_clusters_list
 
 **`GET`** `/api/rancher-clusters/`
-
-**Operation ID:** `rancher_clusters_list`
 
 **Parameters:**
 
@@ -998,8 +942,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_clusters_count
 
 **`HEAD`** `/api/rancher-clusters/`
-
-**Operation ID:** `rancher_clusters_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1038,8 +980,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/rancher-clusters/{uuid}/`
 
-**Operation ID:** `rancher_clusters_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1058,8 +998,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_clusters_update
 
 **`PUT`** `/api/rancher-clusters/{uuid}/`
-
-**Operation ID:** `rancher_clusters_update`
 
 **Parameters:**
 
@@ -1091,8 +1029,6 @@ Schema: `RancherClusterRequest`
 
 **`PATCH`** `/api/rancher-clusters/{uuid}/`
 
-**Operation ID:** `rancher_clusters_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1122,8 +1058,6 @@ Schema: `PatchedRancherClusterRequest`
 ### rancher_clusters_create_management_security_group
 
 **`POST`** `/api/rancher-clusters/{uuid}/create_management_security_group/`
-
-**Operation ID:** `rancher_clusters_create_management_security_group`
 
 **Parameters:**
 
@@ -1155,8 +1089,6 @@ Schema: `RancherClusterRequest`
 
 **`POST`** `/api/rancher-clusters/{uuid}/import_yaml/`
 
-**Operation ID:** `rancher_clusters_import_yaml`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1181,11 +1113,11 @@ Schema: `RancherImportYamlRequest`
 
 ---
 
-### Synchronize resource state
+### rancher_clusters_pull
 
 **`POST`** `/api/rancher-clusters/{uuid}/pull/`
 
-**Operation ID:** `rancher_clusters_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -1204,11 +1136,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### rancher_clusters_set_erred
 
 **`POST`** `/api/rancher-clusters/{uuid}/set_erred/`
 
-**Operation ID:** `rancher_clusters_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -1235,11 +1167,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### rancher_clusters_set_ok
 
 **`POST`** `/api/rancher-clusters/{uuid}/set_ok/`
 
-**Operation ID:** `rancher_clusters_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -1257,11 +1189,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### rancher_clusters_unlink
 
 **`POST`** `/api/rancher-clusters/{uuid}/unlink/`
 
-**Operation ID:** `rancher_clusters_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -1284,8 +1216,6 @@ Delete resource from the database without scheduling operations on backend
 ### rancher_hpas_list
 
 **`GET`** `/api/rancher-hpas/`
-
-**Operation ID:** `rancher_hpas_list`
 
 **Parameters:**
 
@@ -1311,8 +1241,6 @@ Delete resource from the database without scheduling operations on backend
 ### rancher_hpas_count
 
 **`HEAD`** `/api/rancher-hpas/`
-
-**Operation ID:** `rancher_hpas_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1341,8 +1269,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/rancher-hpas/`
 
-**Operation ID:** `rancher_hpas_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `RancherHPARequest`
@@ -1368,8 +1294,6 @@ Schema: `RancherHPARequest`
 
 **`GET`** `/api/rancher-hpas/{uuid}/`
 
-**Operation ID:** `rancher_hpas_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1387,8 +1311,6 @@ Schema: `RancherHPARequest`
 ### rancher_hpas_update
 
 **`PUT`** `/api/rancher-hpas/{uuid}/`
-
-**Operation ID:** `rancher_hpas_update`
 
 **Parameters:**
 
@@ -1421,8 +1343,6 @@ Schema: `RancherHPARequest`
 
 **`PATCH`** `/api/rancher-hpas/{uuid}/`
 
-**Operation ID:** `rancher_hpas_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1454,8 +1374,6 @@ Schema: `PatchedRancherHPARequest`
 
 **`DELETE`** `/api/rancher-hpas/{uuid}/`
 
-**Operation ID:** `rancher_hpas_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1470,11 +1388,11 @@ Schema: `PatchedRancherHPARequest`
 
 ---
 
-### Synchronize resource state
+### rancher_hpas_pull
 
 **`POST`** `/api/rancher-hpas/{uuid}/pull/`
 
-**Operation ID:** `rancher_hpas_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -1493,11 +1411,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### rancher_hpas_set_erred
 
 **`POST`** `/api/rancher-hpas/{uuid}/set_erred/`
 
-**Operation ID:** `rancher_hpas_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -1524,11 +1442,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### rancher_hpas_set_ok
 
 **`POST`** `/api/rancher-hpas/{uuid}/set_ok/`
 
-**Operation ID:** `rancher_hpas_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -1546,11 +1464,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### rancher_hpas_unlink
 
 **`POST`** `/api/rancher-hpas/{uuid}/unlink/`
 
-**Operation ID:** `rancher_hpas_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -1574,8 +1492,6 @@ Delete resource from the database without scheduling operations on backend
 
 **`GET`** `/api/rancher-hpas/{uuid}/yaml/`
 
-**Operation ID:** `rancher_hpas_yaml_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1593,8 +1509,6 @@ Delete resource from the database without scheduling operations on backend
 ### rancher_hpas_yaml_update
 
 **`PUT`** `/api/rancher-hpas/{uuid}/yaml/`
-
-**Operation ID:** `rancher_hpas_yaml_update`
 
 **Parameters:**
 
@@ -1626,8 +1540,6 @@ Schema: `RancherHPARequest`
 ### rancher_ingresses_list
 
 **`GET`** `/api/rancher-ingresses/`
-
-**Operation ID:** `rancher_ingresses_list`
 
 **Parameters:**
 
@@ -1667,8 +1579,6 @@ Schema: `RancherHPARequest`
 ### rancher_ingresses_count
 
 **`HEAD`** `/api/rancher-ingresses/`
-
-**Operation ID:** `rancher_ingresses_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1710,8 +1620,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/rancher-ingresses/`
 
-**Operation ID:** `rancher_ingresses_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `RancherIngressRequest`
@@ -1742,8 +1650,6 @@ Schema: `RancherIngressRequest`
 
 **`GET`** `/api/rancher-ingresses/{uuid}/`
 
-**Operation ID:** `rancher_ingresses_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1762,8 +1668,6 @@ Schema: `RancherIngressRequest`
 ### rancher_ingresses_update
 
 **`PUT`** `/api/rancher-ingresses/{uuid}/`
-
-**Operation ID:** `rancher_ingresses_update`
 
 **Parameters:**
 
@@ -1801,8 +1705,6 @@ Schema: `RancherIngressRequest`
 
 **`PATCH`** `/api/rancher-ingresses/{uuid}/`
 
-**Operation ID:** `rancher_ingresses_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1839,8 +1741,6 @@ Schema: `PatchedRancherIngressRequest`
 
 **`DELETE`** `/api/rancher-ingresses/{uuid}/`
 
-**Operation ID:** `rancher_ingresses_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1855,11 +1755,11 @@ Schema: `PatchedRancherIngressRequest`
 
 ---
 
-### Synchronize resource state
+### rancher_ingresses_pull
 
 **`POST`** `/api/rancher-ingresses/{uuid}/pull/`
 
-**Operation ID:** `rancher_ingresses_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -1878,11 +1778,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### rancher_ingresses_set_erred
 
 **`POST`** `/api/rancher-ingresses/{uuid}/set_erred/`
 
-**Operation ID:** `rancher_ingresses_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -1909,11 +1809,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### rancher_ingresses_set_ok
 
 **`POST`** `/api/rancher-ingresses/{uuid}/set_ok/`
 
-**Operation ID:** `rancher_ingresses_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -1931,11 +1831,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### rancher_ingresses_unlink
 
 **`POST`** `/api/rancher-ingresses/{uuid}/unlink/`
 
-**Operation ID:** `rancher_ingresses_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -1959,8 +1859,6 @@ Delete resource from the database without scheduling operations on backend
 
 **`GET`** `/api/rancher-ingresses/{uuid}/yaml/`
 
-**Operation ID:** `rancher_ingresses_yaml_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1979,8 +1877,6 @@ Delete resource from the database without scheduling operations on backend
 ### rancher_ingresses_yaml_update
 
 **`PUT`** `/api/rancher-ingresses/{uuid}/yaml/`
-
-**Operation ID:** `rancher_ingresses_yaml_update`
 
 **Parameters:**
 
@@ -2018,8 +1914,6 @@ Schema: `RancherIngressRequest`
 
 **`GET`** `/api/rancher-namespaces/`
 
-**Operation ID:** `rancher_namespaces_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2043,8 +1937,6 @@ Schema: `RancherIngressRequest`
 ### rancher_namespaces_count
 
 **`HEAD`** `/api/rancher-namespaces/`
-
-**Operation ID:** `rancher_namespaces_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2072,8 +1964,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/rancher-namespaces/{uuid}/`
 
-**Operation ID:** `rancher_namespaces_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2092,8 +1982,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/rancher-nodes/`
 
-**Operation ID:** `rancher_nodes_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2111,8 +1999,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_nodes_count
 
 **`HEAD`** `/api/rancher-nodes/`
-
-**Operation ID:** `rancher_nodes_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2133,8 +2019,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_nodes_create
 
 **`POST`** `/api/rancher-nodes/`
-
-**Operation ID:** `rancher_nodes_create`
 
 **Request Body** (`application/json`, required):
 
@@ -2166,8 +2050,6 @@ Schema: `RancherCreateNodeRequest`
 
 **`GET`** `/api/rancher-nodes/{uuid}/`
 
-**Operation ID:** `rancher_nodes_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2186,8 +2068,6 @@ Schema: `RancherCreateNodeRequest`
 
 **`DELETE`** `/api/rancher-nodes/{uuid}/`
 
-**Operation ID:** `rancher_nodes_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2205,8 +2085,6 @@ Schema: `RancherCreateNodeRequest`
 ### rancher_nodes_console_retrieve
 
 **`GET`** `/api/rancher-nodes/{uuid}/console/`
-
-**Operation ID:** `rancher_nodes_console_retrieve`
 
 Returns console URL for the node.
 
@@ -2227,8 +2105,6 @@ Returns console URL for the node.
 ### rancher_nodes_console_log_retrieve
 
 **`GET`** `/api/rancher-nodes/{uuid}/console_log/`
-
-**Operation ID:** `rancher_nodes_console_log_retrieve`
 
 Returns console log for the node.
 
@@ -2251,8 +2127,6 @@ Returns console log for the node.
 ### rancher_nodes_link_openstack
 
 **`POST`** `/api/rancher-nodes/{uuid}/link_openstack/`
-
-**Operation ID:** `rancher_nodes_link_openstack`
 
 Links node to OpenStack instance.
 
@@ -2278,11 +2152,11 @@ Schema: `LinkOpenstackRequest`
 
 ---
 
-### Synchronize resource state
+### rancher_nodes_pull
 
 **`POST`** `/api/rancher-nodes/{uuid}/pull/`
 
-**Operation ID:** `rancher_nodes_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -2301,11 +2175,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### rancher_nodes_set_erred
 
 **`POST`** `/api/rancher-nodes/{uuid}/set_erred/`
 
-**Operation ID:** `rancher_nodes_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -2332,11 +2206,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### rancher_nodes_set_ok
 
 **`POST`** `/api/rancher-nodes/{uuid}/set_ok/`
 
-**Operation ID:** `rancher_nodes_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -2354,11 +2228,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### rancher_nodes_unlink
 
 **`POST`** `/api/rancher-nodes/{uuid}/unlink/`
 
-**Operation ID:** `rancher_nodes_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -2382,8 +2256,6 @@ Delete resource from the database without scheduling operations on backend
 
 **`POST`** `/api/rancher-nodes/{uuid}/unlink_openstack/`
 
-**Operation ID:** `rancher_nodes_unlink_openstack`
-
 Unlinks node from OpenStack instance.
 
 **Parameters:**
@@ -2403,8 +2275,6 @@ Unlinks node from OpenStack instance.
 ### rancher_projects_list
 
 **`GET`** `/api/rancher-projects/`
-
-**Operation ID:** `rancher_projects_list`
 
 **Parameters:**
 
@@ -2427,8 +2297,6 @@ Unlinks node from OpenStack instance.
 ### rancher_projects_count
 
 **`HEAD`** `/api/rancher-projects/`
-
-**Operation ID:** `rancher_projects_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2454,8 +2322,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/rancher-projects/{uuid}/`
 
-**Operation ID:** `rancher_projects_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2473,8 +2339,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_projects_secrets_retrieve
 
 **`GET`** `/api/rancher-projects/{uuid}/secrets/`
-
-**Operation ID:** `rancher_projects_secrets_retrieve`
 
 Returns project's secrets.
 
@@ -2496,8 +2360,6 @@ Returns project's secrets.
 
 **`GET`** `/api/rancher-role-templates/`
 
-**Operation ID:** `rancher_role_templates_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2518,8 +2380,6 @@ Returns project's secrets.
 ### rancher_role_templates_count
 
 **`HEAD`** `/api/rancher-role-templates/`
-
-**Operation ID:** `rancher_role_templates_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2544,8 +2404,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/rancher-role-templates/{uuid}/`
 
-**Operation ID:** `rancher_role_templates_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2563,8 +2421,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_services_list
 
 **`GET`** `/api/rancher-services/`
-
-**Operation ID:** `rancher_services_list`
 
 **Parameters:**
 
@@ -2604,8 +2460,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_services_count
 
 **`HEAD`** `/api/rancher-services/`
-
-**Operation ID:** `rancher_services_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2647,8 +2501,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/rancher-services/`
 
-**Operation ID:** `rancher_services_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `RancherServiceCreateRequest`
@@ -2680,8 +2532,6 @@ Schema: `RancherServiceCreateRequest`
 
 **`GET`** `/api/rancher-services/{uuid}/`
 
-**Operation ID:** `rancher_services_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2700,8 +2550,6 @@ Schema: `RancherServiceCreateRequest`
 ### rancher_services_update
 
 **`PUT`** `/api/rancher-services/{uuid}/`
-
-**Operation ID:** `rancher_services_update`
 
 **Parameters:**
 
@@ -2740,8 +2588,6 @@ Schema: `RancherServiceRequest`
 
 **`PATCH`** `/api/rancher-services/{uuid}/`
 
-**Operation ID:** `rancher_services_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2779,8 +2625,6 @@ Schema: `PatchedRancherServiceRequest`
 
 **`DELETE`** `/api/rancher-services/{uuid}/`
 
-**Operation ID:** `rancher_services_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2795,11 +2639,11 @@ Schema: `PatchedRancherServiceRequest`
 
 ---
 
-### Synchronize resource state
+### rancher_services_pull
 
 **`POST`** `/api/rancher-services/{uuid}/pull/`
 
-**Operation ID:** `rancher_services_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -2818,11 +2662,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### rancher_services_set_erred
 
 **`POST`** `/api/rancher-services/{uuid}/set_erred/`
 
-**Operation ID:** `rancher_services_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -2849,11 +2693,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### rancher_services_set_ok
 
 **`POST`** `/api/rancher-services/{uuid}/set_ok/`
 
-**Operation ID:** `rancher_services_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -2871,11 +2715,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### rancher_services_unlink
 
 **`POST`** `/api/rancher-services/{uuid}/unlink/`
 
-**Operation ID:** `rancher_services_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -2899,8 +2743,6 @@ Delete resource from the database without scheduling operations on backend
 
 **`GET`** `/api/rancher-services/{uuid}/yaml/`
 
-**Operation ID:** `rancher_services_yaml_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2919,8 +2761,6 @@ Delete resource from the database without scheduling operations on backend
 ### rancher_services_yaml_update
 
 **`PUT`** `/api/rancher-services/{uuid}/yaml/`
-
-**Operation ID:** `rancher_services_yaml_update`
 
 **Parameters:**
 
@@ -2959,8 +2799,6 @@ Schema: `RancherServiceRequest`
 
 **`GET`** `/api/rancher-template-versions/{template_uuid}/{version}/`
 
-**Operation ID:** `rancher_template_versions_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2979,8 +2817,6 @@ Schema: `RancherServiceRequest`
 ### rancher_templates_list
 
 **`GET`** `/api/rancher-templates/`
-
-**Operation ID:** `rancher_templates_list`
 
 **Parameters:**
 
@@ -3006,8 +2842,6 @@ Schema: `RancherServiceRequest`
 ### rancher_templates_count
 
 **`HEAD`** `/api/rancher-templates/`
-
-**Operation ID:** `rancher_templates_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -3036,8 +2870,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/rancher-templates/{uuid}/`
 
-**Operation ID:** `rancher_templates_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -3055,8 +2887,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_users_list
 
 **`GET`** `/api/rancher-users/`
-
-**Operation ID:** `rancher_users_list`
 
 **Parameters:**
 
@@ -3080,8 +2910,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_users_count
 
 **`HEAD`** `/api/rancher-users/`
-
-**Operation ID:** `rancher_users_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -3108,8 +2936,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/rancher-users/{uuid}/`
 
-**Operation ID:** `rancher_users_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -3127,8 +2953,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_workloads_list
 
 **`GET`** `/api/rancher-workloads/`
-
-**Operation ID:** `rancher_workloads_list`
 
 **Parameters:**
 
@@ -3154,8 +2978,6 @@ Get number of items in the collection matching the request parameters.
 ### rancher_workloads_count
 
 **`HEAD`** `/api/rancher-workloads/`
-
-**Operation ID:** `rancher_workloads_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -3184,8 +3006,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/rancher-workloads/`
 
-**Operation ID:** `rancher_workloads_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `RancherWorkloadRequest`
@@ -3211,8 +3031,6 @@ Schema: `RancherWorkloadRequest`
 
 **`GET`** `/api/rancher-workloads/{uuid}/`
 
-**Operation ID:** `rancher_workloads_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -3230,8 +3048,6 @@ Schema: `RancherWorkloadRequest`
 ### rancher_workloads_update
 
 **`PUT`** `/api/rancher-workloads/{uuid}/`
-
-**Operation ID:** `rancher_workloads_update`
 
 **Parameters:**
 
@@ -3264,8 +3080,6 @@ Schema: `RancherWorkloadRequest`
 
 **`PATCH`** `/api/rancher-workloads/{uuid}/`
 
-**Operation ID:** `rancher_workloads_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -3297,8 +3111,6 @@ Schema: `PatchedRancherWorkloadRequest`
 
 **`DELETE`** `/api/rancher-workloads/{uuid}/`
 
-**Operation ID:** `rancher_workloads_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -3316,8 +3128,6 @@ Schema: `PatchedRancherWorkloadRequest`
 ### rancher_workloads_redeploy
 
 **`POST`** `/api/rancher-workloads/{uuid}/redeploy/`
-
-**Operation ID:** `rancher_workloads_redeploy`
 
 **Parameters:**
 
@@ -3337,8 +3147,6 @@ Schema: `PatchedRancherWorkloadRequest`
 
 **`GET`** `/api/rancher-workloads/{uuid}/yaml/`
 
-**Operation ID:** `rancher_workloads_yaml_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -3356,8 +3164,6 @@ Schema: `PatchedRancherWorkloadRequest`
 ### rancher_workloads_yaml_update
 
 **`PUT`** `/api/rancher-workloads/{uuid}/yaml/`
-
-**Operation ID:** `rancher_workloads_yaml_update`
 
 **Parameters:**
 

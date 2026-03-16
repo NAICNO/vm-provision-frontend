@@ -7,115 +7,115 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/marketplace-course-accounts/` | `marketplace_course_accounts_list` | List course accounts |
-| HEAD | `/api/marketplace-course-accounts/` | `marketplace_course_accounts_count` | List course accounts |
-| POST | `/api/marketplace-course-accounts/` | `marketplace_course_accounts_create` | Create a course account |
-| POST | `/api/marketplace-course-accounts/create_bulk/` | `marketplace_course_accounts_create_bulk` | Bulk create course accounts |
-| GET | `/api/marketplace-course-accounts/{uuid}/` | `marketplace_course_accounts_retrieve` | Retrieve a course account |
-| DELETE | `/api/marketplace-course-accounts/{uuid}/` | `marketplace_course_accounts_destroy` | Delete (close) a course account |
-| GET | `/api/marketplace-customer-service-accounts/` | `marketplace_customer_service_accounts_list` | List service accounts |
-| HEAD | `/api/marketplace-customer-service-accounts/` | `marketplace_customer_service_accounts_count` | List service accounts |
-| POST | `/api/marketplace-customer-service-accounts/` | `marketplace_customer_service_accounts_create` | Create a customer service account |
-| GET | `/api/marketplace-customer-service-accounts/{uuid}/` | `marketplace_customer_service_accounts_retrieve` | Retrieve a service account |
-| PUT | `/api/marketplace-customer-service-accounts/{uuid}/` | `marketplace_customer_service_accounts_update` | Update a service account |
-| PATCH | `/api/marketplace-customer-service-accounts/{uuid}/` | `marketplace_customer_service_accounts_partial_update` | Partially update a service account |
-| DELETE | `/api/marketplace-customer-service-accounts/{uuid}/` | `marketplace_customer_service_accounts_destroy` | Close a customer service account |
-| POST | `/api/marketplace-customer-service-accounts/{uuid}/rotate_api_key/` | `marketplace_customer_service_accounts_rotate_api_key` | Rotate API key for a customer service account |
-| GET | `/api/marketplace-demo-presets/info/{name}/` | `marketplace_demo_presets_info_retrieve` | Get demo preset details |
-| HEAD | `/api/marketplace-demo-presets/info/{name}/` | `marketplace_demo_presets_info_count` | Get demo preset details |
-| GET | `/api/marketplace-demo-presets/list/` | `marketplace_demo_presets_list_list` | List demo presets |
-| HEAD | `/api/marketplace-demo-presets/list/` | `marketplace_demo_presets_list_count` | List demo presets |
-| POST | `/api/marketplace-demo-presets/load/{name}/` | `marketplace_demo_presets_load` | Load demo preset |
-| GET | `/api/marketplace-project-service-accounts/` | `marketplace_project_service_accounts_list` | List service accounts |
-| HEAD | `/api/marketplace-project-service-accounts/` | `marketplace_project_service_accounts_count` | List service accounts |
-| POST | `/api/marketplace-project-service-accounts/` | `marketplace_project_service_accounts_create` | Create a project service account |
-| GET | `/api/marketplace-project-service-accounts/{uuid}/` | `marketplace_project_service_accounts_retrieve` | Retrieve a service account |
-| PUT | `/api/marketplace-project-service-accounts/{uuid}/` | `marketplace_project_service_accounts_update` | Update a service account |
-| PATCH | `/api/marketplace-project-service-accounts/{uuid}/` | `marketplace_project_service_accounts_partial_update` | Partially update a service account |
-| DELETE | `/api/marketplace-project-service-accounts/{uuid}/` | `marketplace_project_service_accounts_destroy` | Close a project service account |
-| POST | `/api/marketplace-project-service-accounts/{uuid}/rotate_api_key/` | `marketplace_project_service_accounts_rotate_api_key` | Rotate API key for a project service account |
-| GET | `/api/marketplace-project-update-requests/` | `marketplace_project_update_requests_list` |  |
-| HEAD | `/api/marketplace-project-update-requests/` | `marketplace_project_update_requests_count` |  |
-| GET | `/api/marketplace-project-update-requests/{uuid}/` | `marketplace_project_update_requests_retrieve` |  |
-| POST | `/api/marketplace-project-update-requests/{uuid}/approve/` | `marketplace_project_update_requests_approve` |  |
-| POST | `/api/marketplace-project-update-requests/{uuid}/reject/` | `marketplace_project_update_requests_reject` |  |
-| GET | `/api/marketplace-script-async-dry-run/` | `marketplace_script_async_dry_run_list` |  |
-| HEAD | `/api/marketplace-script-async-dry-run/` | `marketplace_script_async_dry_run_count` |  |
-| GET | `/api/marketplace-script-async-dry-run/{uuid}/` | `marketplace_script_async_dry_run_retrieve` |  |
-| POST | `/api/marketplace-script-dry-run/{uuid}/async_run/` | `marketplace_script_dry_run_async_run` |  |
-| POST | `/api/marketplace-script-dry-run/{uuid}/run/` | `marketplace_script_dry_run_run` |  |
-| POST | `/api/marketplace-script-sync-resource/` | `marketplace_script_sync_resource` | This view allows a user to trigger a pull operation for a ma |
-| GET | `/api/marketplace-site-agent-connection-stats/` | `marketplace_site_agent_connection_stats_retrieve` | Get agent connection statistics |
-| GET | `/api/marketplace-site-agent-identities/` | `marketplace_site_agent_identities_list` |  |
-| HEAD | `/api/marketplace-site-agent-identities/` | `marketplace_site_agent_identities_count` |  |
-| POST | `/api/marketplace-site-agent-identities/` | `marketplace_site_agent_identities_create` |  |
-| POST | `/api/marketplace-site-agent-identities/cleanup_orphaned/` | `marketplace_site_agent_identities_cleanup_orphaned` |  |
-| GET | `/api/marketplace-site-agent-identities/{uuid}/` | `marketplace_site_agent_identities_retrieve` |  |
-| PUT | `/api/marketplace-site-agent-identities/{uuid}/` | `marketplace_site_agent_identities_update` |  |
-| DELETE | `/api/marketplace-site-agent-identities/{uuid}/` | `marketplace_site_agent_identities_destroy` |  |
-| POST | `/api/marketplace-site-agent-identities/{uuid}/register_event_subscription/` | `marketplace_site_agent_identities_register_event_subscription` |  |
-| POST | `/api/marketplace-site-agent-identities/{uuid}/register_service/` | `marketplace_site_agent_identities_register_service` |  |
-| GET | `/api/marketplace-site-agent-processors/` | `marketplace_site_agent_processors_list` |  |
-| HEAD | `/api/marketplace-site-agent-processors/` | `marketplace_site_agent_processors_count` |  |
-| GET | `/api/marketplace-site-agent-processors/{uuid}/` | `marketplace_site_agent_processors_retrieve` |  |
-| DELETE | `/api/marketplace-site-agent-processors/{uuid}/` | `marketplace_site_agent_processors_destroy` |  |
-| GET | `/api/marketplace-site-agent-services/` | `marketplace_site_agent_services_list` |  |
-| HEAD | `/api/marketplace-site-agent-services/` | `marketplace_site_agent_services_count` |  |
-| POST | `/api/marketplace-site-agent-services/cleanup_stale/` | `marketplace_site_agent_services_cleanup_stale` |  |
-| GET | `/api/marketplace-site-agent-services/{uuid}/` | `marketplace_site_agent_services_retrieve` |  |
-| DELETE | `/api/marketplace-site-agent-services/{uuid}/` | `marketplace_site_agent_services_destroy` |  |
-| POST | `/api/marketplace-site-agent-services/{uuid}/register_processor/` | `marketplace_site_agent_services_register_processor` |  |
-| POST | `/api/marketplace-site-agent-services/{uuid}/set_statistics/` | `marketplace_site_agent_services_set_statistics` |  |
-| GET | `/api/marketplace-site-agent-stats/` | `marketplace_site_agent_stats_retrieve` |  |
-| GET | `/api/marketplace-site-agent-task-stats/` | `marketplace_site_agent_task_stats_retrieve` |  |
-| GET | `/api/marketplace-software-catalogs/` | `marketplace_software_catalogs_list` | List software catalogs |
-| HEAD | `/api/marketplace-software-catalogs/` | `marketplace_software_catalogs_count` | List software catalogs |
-| POST | `/api/marketplace-software-catalogs/` | `marketplace_software_catalogs_create` | Create a software catalog |
-| GET | `/api/marketplace-software-catalogs/discover/` | `marketplace_software_catalogs_discover_list` | Discover available software catalog versions |
-| HEAD | `/api/marketplace-software-catalogs/discover/` | `marketplace_software_catalogs_discover_count` | Discover available software catalog versions |
-| POST | `/api/marketplace-software-catalogs/import_catalog/` | `marketplace_software_catalogs_import_catalog` | Import a new software catalog |
-| GET | `/api/marketplace-software-catalogs/{uuid}/` | `marketplace_software_catalogs_retrieve` | Retrieve a software catalog |
-| PUT | `/api/marketplace-software-catalogs/{uuid}/` | `marketplace_software_catalogs_update` | Update a software catalog |
-| PATCH | `/api/marketplace-software-catalogs/{uuid}/` | `marketplace_software_catalogs_partial_update` | Partially update a software catalog |
-| DELETE | `/api/marketplace-software-catalogs/{uuid}/` | `marketplace_software_catalogs_destroy` | Delete a software catalog |
-| POST | `/api/marketplace-software-catalogs/{uuid}/update_catalog/` | `marketplace_software_catalogs_update_catalog` | Trigger async update for an existing catalog |
-| GET | `/api/marketplace-software-packages/` | `marketplace_software_packages_list` | List software packages |
-| HEAD | `/api/marketplace-software-packages/` | `marketplace_software_packages_count` | List software packages |
-| POST | `/api/marketplace-software-packages/` | `marketplace_software_packages_create` | Create a software package |
-| GET | `/api/marketplace-software-packages/{uuid}/` | `marketplace_software_packages_retrieve` | Retrieve a software package |
-| PUT | `/api/marketplace-software-packages/{uuid}/` | `marketplace_software_packages_update` | Update a software package |
-| PATCH | `/api/marketplace-software-packages/{uuid}/` | `marketplace_software_packages_partial_update` | Partially update a software package |
-| DELETE | `/api/marketplace-software-packages/{uuid}/` | `marketplace_software_packages_destroy` | Delete a software package |
-| GET | `/api/marketplace-software-targets/` | `marketplace_software_targets_list` | List software targets |
-| HEAD | `/api/marketplace-software-targets/` | `marketplace_software_targets_count` | List software targets |
-| POST | `/api/marketplace-software-targets/` | `marketplace_software_targets_create` | Create a software target |
-| GET | `/api/marketplace-software-targets/{uuid}/` | `marketplace_software_targets_retrieve` | Retrieve a software target |
-| PUT | `/api/marketplace-software-targets/{uuid}/` | `marketplace_software_targets_update` | Update a software target |
-| PATCH | `/api/marketplace-software-targets/{uuid}/` | `marketplace_software_targets_partial_update` | Partially update a software target |
-| DELETE | `/api/marketplace-software-targets/{uuid}/` | `marketplace_software_targets_destroy` | Delete a software target |
-| GET | `/api/marketplace-software-versions/` | `marketplace_software_versions_list` | List software versions |
-| HEAD | `/api/marketplace-software-versions/` | `marketplace_software_versions_count` | List software versions |
-| POST | `/api/marketplace-software-versions/` | `marketplace_software_versions_create` | Create a software version |
-| GET | `/api/marketplace-software-versions/{uuid}/` | `marketplace_software_versions_retrieve` | Retrieve a software version |
-| PUT | `/api/marketplace-software-versions/{uuid}/` | `marketplace_software_versions_update` | Update a software version |
-| PATCH | `/api/marketplace-software-versions/{uuid}/` | `marketplace_software_versions_partial_update` | Partially update a software version |
-| DELETE | `/api/marketplace-software-versions/{uuid}/` | `marketplace_software_versions_destroy` | Delete a software version |
-| GET | `/api/marketplace-user-offering-consents/` | `marketplace_user_offering_consents_list` | List user offering consents |
-| HEAD | `/api/marketplace-user-offering-consents/` | `marketplace_user_offering_consents_count` | List user offering consents |
-| POST | `/api/marketplace-user-offering-consents/` | `marketplace_user_offering_consents_create` | Grant consent to an offering's Terms of Service |
-| GET | `/api/marketplace-user-offering-consents/{uuid}/` | `marketplace_user_offering_consents_retrieve` | Retrieve a user offering consent |
-| PUT | `/api/marketplace-user-offering-consents/{uuid}/` | `marketplace_user_offering_consents_update` |  |
-| PATCH | `/api/marketplace-user-offering-consents/{uuid}/` | `marketplace_user_offering_consents_partial_update` |  |
-| DELETE | `/api/marketplace-user-offering-consents/{uuid}/` | `marketplace_user_offering_consents_destroy` |  |
-| POST | `/api/marketplace-user-offering-consents/{uuid}/revoke/` | `marketplace_user_offering_consents_revoke` | Revoke consent to Terms of Service |
+| GET | `/api/marketplace-course-accounts/` | [`marketplace_course_accounts_list`](#marketplace-course-accounts-list) | List course accounts |
+| HEAD | `/api/marketplace-course-accounts/` | [`marketplace_course_accounts_count`](#marketplace-course-accounts-count) | List course accounts |
+| POST | `/api/marketplace-course-accounts/` | [`marketplace_course_accounts_create`](#marketplace-course-accounts-create) | Create a course account |
+| POST | `/api/marketplace-course-accounts/create_bulk/` | [`marketplace_course_accounts_create_bulk`](#marketplace-course-accounts-create-bulk) | Bulk create course accounts |
+| GET | `/api/marketplace-course-accounts/{uuid}/` | [`marketplace_course_accounts_retrieve`](#marketplace-course-accounts-retrieve) | Retrieve a course account |
+| DELETE | `/api/marketplace-course-accounts/{uuid}/` | [`marketplace_course_accounts_destroy`](#marketplace-course-accounts-destroy) | Delete (close) a course account |
+| GET | `/api/marketplace-customer-service-accounts/` | [`marketplace_customer_service_accounts_list`](#marketplace-customer-service-accounts-list) | List service accounts |
+| HEAD | `/api/marketplace-customer-service-accounts/` | [`marketplace_customer_service_accounts_count`](#marketplace-customer-service-accounts-count) | List service accounts |
+| POST | `/api/marketplace-customer-service-accounts/` | [`marketplace_customer_service_accounts_create`](#marketplace-customer-service-accounts-create) | Create a customer service account |
+| GET | `/api/marketplace-customer-service-accounts/{uuid}/` | [`marketplace_customer_service_accounts_retrieve`](#marketplace-customer-service-accounts-retrieve) | Retrieve a service account |
+| PUT | `/api/marketplace-customer-service-accounts/{uuid}/` | [`marketplace_customer_service_accounts_update`](#marketplace-customer-service-accounts-update) | Update a service account |
+| PATCH | `/api/marketplace-customer-service-accounts/{uuid}/` | [`marketplace_customer_service_accounts_partial_update`](#marketplace-customer-service-accounts-partial-update) | Partially update a service account |
+| DELETE | `/api/marketplace-customer-service-accounts/{uuid}/` | [`marketplace_customer_service_accounts_destroy`](#marketplace-customer-service-accounts-destroy) | Close a customer service account |
+| POST | `/api/marketplace-customer-service-accounts/{uuid}/rotate_api_key/` | [`marketplace_customer_service_accounts_rotate_api_key`](#marketplace-customer-service-accounts-rotate-api-key) | Rotate API key for a customer service account |
+| GET | `/api/marketplace-demo-presets/info/{name}/` | [`marketplace_demo_presets_info_retrieve`](#marketplace-demo-presets-info-retrieve) | Get demo preset details |
+| HEAD | `/api/marketplace-demo-presets/info/{name}/` | [`marketplace_demo_presets_info_count`](#marketplace-demo-presets-info-count) | Get demo preset details |
+| GET | `/api/marketplace-demo-presets/list/` | [`marketplace_demo_presets_list_list`](#marketplace-demo-presets-list-list) | List demo presets |
+| HEAD | `/api/marketplace-demo-presets/list/` | [`marketplace_demo_presets_list_count`](#marketplace-demo-presets-list-count) | List demo presets |
+| POST | `/api/marketplace-demo-presets/load/{name}/` | [`marketplace_demo_presets_load`](#marketplace-demo-presets-load) | Load demo preset |
+| GET | `/api/marketplace-project-service-accounts/` | [`marketplace_project_service_accounts_list`](#marketplace-project-service-accounts-list) | List service accounts |
+| HEAD | `/api/marketplace-project-service-accounts/` | [`marketplace_project_service_accounts_count`](#marketplace-project-service-accounts-count) | List service accounts |
+| POST | `/api/marketplace-project-service-accounts/` | [`marketplace_project_service_accounts_create`](#marketplace-project-service-accounts-create) | Create a project service account |
+| GET | `/api/marketplace-project-service-accounts/{uuid}/` | [`marketplace_project_service_accounts_retrieve`](#marketplace-project-service-accounts-retrieve) | Retrieve a service account |
+| PUT | `/api/marketplace-project-service-accounts/{uuid}/` | [`marketplace_project_service_accounts_update`](#marketplace-project-service-accounts-update) | Update a service account |
+| PATCH | `/api/marketplace-project-service-accounts/{uuid}/` | [`marketplace_project_service_accounts_partial_update`](#marketplace-project-service-accounts-partial-update) | Partially update a service account |
+| DELETE | `/api/marketplace-project-service-accounts/{uuid}/` | [`marketplace_project_service_accounts_destroy`](#marketplace-project-service-accounts-destroy) | Close a project service account |
+| POST | `/api/marketplace-project-service-accounts/{uuid}/rotate_api_key/` | [`marketplace_project_service_accounts_rotate_api_key`](#marketplace-project-service-accounts-rotate-api-key) | Rotate API key for a project service account |
+| GET | `/api/marketplace-project-update-requests/` | [`marketplace_project_update_requests_list`](#marketplace-project-update-requests-list) |  |
+| HEAD | `/api/marketplace-project-update-requests/` | [`marketplace_project_update_requests_count`](#marketplace-project-update-requests-count) |  |
+| GET | `/api/marketplace-project-update-requests/{uuid}/` | [`marketplace_project_update_requests_retrieve`](#marketplace-project-update-requests-retrieve) |  |
+| POST | `/api/marketplace-project-update-requests/{uuid}/approve/` | [`marketplace_project_update_requests_approve`](#marketplace-project-update-requests-approve) |  |
+| POST | `/api/marketplace-project-update-requests/{uuid}/reject/` | [`marketplace_project_update_requests_reject`](#marketplace-project-update-requests-reject) |  |
+| GET | `/api/marketplace-script-async-dry-run/` | [`marketplace_script_async_dry_run_list`](#marketplace-script-async-dry-run-list) |  |
+| HEAD | `/api/marketplace-script-async-dry-run/` | [`marketplace_script_async_dry_run_count`](#marketplace-script-async-dry-run-count) |  |
+| GET | `/api/marketplace-script-async-dry-run/{uuid}/` | [`marketplace_script_async_dry_run_retrieve`](#marketplace-script-async-dry-run-retrieve) |  |
+| POST | `/api/marketplace-script-dry-run/{uuid}/async_run/` | [`marketplace_script_dry_run_async_run`](#marketplace-script-dry-run-async-run) |  |
+| POST | `/api/marketplace-script-dry-run/{uuid}/run/` | [`marketplace_script_dry_run_run`](#marketplace-script-dry-run-run) |  |
+| POST | `/api/marketplace-script-sync-resource/` | [`marketplace_script_sync_resource`](#marketplace-script-sync-resource) | This view allows a user to trigger a pull operation for a ma |
+| GET | `/api/marketplace-site-agent-connection-stats/` | [`marketplace_site_agent_connection_stats_retrieve`](#marketplace-site-agent-connection-stats-retrieve) | Get agent connection statistics |
+| GET | `/api/marketplace-site-agent-identities/` | [`marketplace_site_agent_identities_list`](#marketplace-site-agent-identities-list) |  |
+| HEAD | `/api/marketplace-site-agent-identities/` | [`marketplace_site_agent_identities_count`](#marketplace-site-agent-identities-count) |  |
+| POST | `/api/marketplace-site-agent-identities/` | [`marketplace_site_agent_identities_create`](#marketplace-site-agent-identities-create) |  |
+| POST | `/api/marketplace-site-agent-identities/cleanup_orphaned/` | [`marketplace_site_agent_identities_cleanup_orphaned`](#marketplace-site-agent-identities-cleanup-orphaned) |  |
+| GET | `/api/marketplace-site-agent-identities/{uuid}/` | [`marketplace_site_agent_identities_retrieve`](#marketplace-site-agent-identities-retrieve) |  |
+| PUT | `/api/marketplace-site-agent-identities/{uuid}/` | [`marketplace_site_agent_identities_update`](#marketplace-site-agent-identities-update) |  |
+| DELETE | `/api/marketplace-site-agent-identities/{uuid}/` | [`marketplace_site_agent_identities_destroy`](#marketplace-site-agent-identities-destroy) |  |
+| POST | `/api/marketplace-site-agent-identities/{uuid}/register_event_subscription/` | [`marketplace_site_agent_identities_register_event_subscription`](#marketplace-site-agent-identities-register-event-subscription) |  |
+| POST | `/api/marketplace-site-agent-identities/{uuid}/register_service/` | [`marketplace_site_agent_identities_register_service`](#marketplace-site-agent-identities-register-service) |  |
+| GET | `/api/marketplace-site-agent-processors/` | [`marketplace_site_agent_processors_list`](#marketplace-site-agent-processors-list) |  |
+| HEAD | `/api/marketplace-site-agent-processors/` | [`marketplace_site_agent_processors_count`](#marketplace-site-agent-processors-count) |  |
+| GET | `/api/marketplace-site-agent-processors/{uuid}/` | [`marketplace_site_agent_processors_retrieve`](#marketplace-site-agent-processors-retrieve) |  |
+| DELETE | `/api/marketplace-site-agent-processors/{uuid}/` | [`marketplace_site_agent_processors_destroy`](#marketplace-site-agent-processors-destroy) |  |
+| GET | `/api/marketplace-site-agent-services/` | [`marketplace_site_agent_services_list`](#marketplace-site-agent-services-list) |  |
+| HEAD | `/api/marketplace-site-agent-services/` | [`marketplace_site_agent_services_count`](#marketplace-site-agent-services-count) |  |
+| POST | `/api/marketplace-site-agent-services/cleanup_stale/` | [`marketplace_site_agent_services_cleanup_stale`](#marketplace-site-agent-services-cleanup-stale) |  |
+| GET | `/api/marketplace-site-agent-services/{uuid}/` | [`marketplace_site_agent_services_retrieve`](#marketplace-site-agent-services-retrieve) |  |
+| DELETE | `/api/marketplace-site-agent-services/{uuid}/` | [`marketplace_site_agent_services_destroy`](#marketplace-site-agent-services-destroy) |  |
+| POST | `/api/marketplace-site-agent-services/{uuid}/register_processor/` | [`marketplace_site_agent_services_register_processor`](#marketplace-site-agent-services-register-processor) |  |
+| POST | `/api/marketplace-site-agent-services/{uuid}/set_statistics/` | [`marketplace_site_agent_services_set_statistics`](#marketplace-site-agent-services-set-statistics) |  |
+| GET | `/api/marketplace-site-agent-stats/` | [`marketplace_site_agent_stats_retrieve`](#marketplace-site-agent-stats-retrieve) |  |
+| GET | `/api/marketplace-site-agent-task-stats/` | [`marketplace_site_agent_task_stats_retrieve`](#marketplace-site-agent-task-stats-retrieve) |  |
+| GET | `/api/marketplace-software-catalogs/` | [`marketplace_software_catalogs_list`](#marketplace-software-catalogs-list) | List software catalogs |
+| HEAD | `/api/marketplace-software-catalogs/` | [`marketplace_software_catalogs_count`](#marketplace-software-catalogs-count) | List software catalogs |
+| POST | `/api/marketplace-software-catalogs/` | [`marketplace_software_catalogs_create`](#marketplace-software-catalogs-create) | Create a software catalog |
+| GET | `/api/marketplace-software-catalogs/discover/` | [`marketplace_software_catalogs_discover_list`](#marketplace-software-catalogs-discover-list) | Discover available software catalog versions |
+| HEAD | `/api/marketplace-software-catalogs/discover/` | [`marketplace_software_catalogs_discover_count`](#marketplace-software-catalogs-discover-count) | Discover available software catalog versions |
+| POST | `/api/marketplace-software-catalogs/import_catalog/` | [`marketplace_software_catalogs_import_catalog`](#marketplace-software-catalogs-import-catalog) | Import a new software catalog |
+| GET | `/api/marketplace-software-catalogs/{uuid}/` | [`marketplace_software_catalogs_retrieve`](#marketplace-software-catalogs-retrieve) | Retrieve a software catalog |
+| PUT | `/api/marketplace-software-catalogs/{uuid}/` | [`marketplace_software_catalogs_update`](#marketplace-software-catalogs-update) | Update a software catalog |
+| PATCH | `/api/marketplace-software-catalogs/{uuid}/` | [`marketplace_software_catalogs_partial_update`](#marketplace-software-catalogs-partial-update) | Partially update a software catalog |
+| DELETE | `/api/marketplace-software-catalogs/{uuid}/` | [`marketplace_software_catalogs_destroy`](#marketplace-software-catalogs-destroy) | Delete a software catalog |
+| POST | `/api/marketplace-software-catalogs/{uuid}/update_catalog/` | [`marketplace_software_catalogs_update_catalog`](#marketplace-software-catalogs-update-catalog) | Trigger async update for an existing catalog |
+| GET | `/api/marketplace-software-packages/` | [`marketplace_software_packages_list`](#marketplace-software-packages-list) | List software packages |
+| HEAD | `/api/marketplace-software-packages/` | [`marketplace_software_packages_count`](#marketplace-software-packages-count) | List software packages |
+| POST | `/api/marketplace-software-packages/` | [`marketplace_software_packages_create`](#marketplace-software-packages-create) | Create a software package |
+| GET | `/api/marketplace-software-packages/{uuid}/` | [`marketplace_software_packages_retrieve`](#marketplace-software-packages-retrieve) | Retrieve a software package |
+| PUT | `/api/marketplace-software-packages/{uuid}/` | [`marketplace_software_packages_update`](#marketplace-software-packages-update) | Update a software package |
+| PATCH | `/api/marketplace-software-packages/{uuid}/` | [`marketplace_software_packages_partial_update`](#marketplace-software-packages-partial-update) | Partially update a software package |
+| DELETE | `/api/marketplace-software-packages/{uuid}/` | [`marketplace_software_packages_destroy`](#marketplace-software-packages-destroy) | Delete a software package |
+| GET | `/api/marketplace-software-targets/` | [`marketplace_software_targets_list`](#marketplace-software-targets-list) | List software targets |
+| HEAD | `/api/marketplace-software-targets/` | [`marketplace_software_targets_count`](#marketplace-software-targets-count) | List software targets |
+| POST | `/api/marketplace-software-targets/` | [`marketplace_software_targets_create`](#marketplace-software-targets-create) | Create a software target |
+| GET | `/api/marketplace-software-targets/{uuid}/` | [`marketplace_software_targets_retrieve`](#marketplace-software-targets-retrieve) | Retrieve a software target |
+| PUT | `/api/marketplace-software-targets/{uuid}/` | [`marketplace_software_targets_update`](#marketplace-software-targets-update) | Update a software target |
+| PATCH | `/api/marketplace-software-targets/{uuid}/` | [`marketplace_software_targets_partial_update`](#marketplace-software-targets-partial-update) | Partially update a software target |
+| DELETE | `/api/marketplace-software-targets/{uuid}/` | [`marketplace_software_targets_destroy`](#marketplace-software-targets-destroy) | Delete a software target |
+| GET | `/api/marketplace-software-versions/` | [`marketplace_software_versions_list`](#marketplace-software-versions-list) | List software versions |
+| HEAD | `/api/marketplace-software-versions/` | [`marketplace_software_versions_count`](#marketplace-software-versions-count) | List software versions |
+| POST | `/api/marketplace-software-versions/` | [`marketplace_software_versions_create`](#marketplace-software-versions-create) | Create a software version |
+| GET | `/api/marketplace-software-versions/{uuid}/` | [`marketplace_software_versions_retrieve`](#marketplace-software-versions-retrieve) | Retrieve a software version |
+| PUT | `/api/marketplace-software-versions/{uuid}/` | [`marketplace_software_versions_update`](#marketplace-software-versions-update) | Update a software version |
+| PATCH | `/api/marketplace-software-versions/{uuid}/` | [`marketplace_software_versions_partial_update`](#marketplace-software-versions-partial-update) | Partially update a software version |
+| DELETE | `/api/marketplace-software-versions/{uuid}/` | [`marketplace_software_versions_destroy`](#marketplace-software-versions-destroy) | Delete a software version |
+| GET | `/api/marketplace-user-offering-consents/` | [`marketplace_user_offering_consents_list`](#marketplace-user-offering-consents-list) | List user offering consents |
+| HEAD | `/api/marketplace-user-offering-consents/` | [`marketplace_user_offering_consents_count`](#marketplace-user-offering-consents-count) | List user offering consents |
+| POST | `/api/marketplace-user-offering-consents/` | [`marketplace_user_offering_consents_create`](#marketplace-user-offering-consents-create) | Grant consent to an offering's Terms of Service |
+| GET | `/api/marketplace-user-offering-consents/{uuid}/` | [`marketplace_user_offering_consents_retrieve`](#marketplace-user-offering-consents-retrieve) | Retrieve a user offering consent |
+| PUT | `/api/marketplace-user-offering-consents/{uuid}/` | [`marketplace_user_offering_consents_update`](#marketplace-user-offering-consents-update) |  |
+| PATCH | `/api/marketplace-user-offering-consents/{uuid}/` | [`marketplace_user_offering_consents_partial_update`](#marketplace-user-offering-consents-partial-update) |  |
+| DELETE | `/api/marketplace-user-offering-consents/{uuid}/` | [`marketplace_user_offering_consents_destroy`](#marketplace-user-offering-consents-destroy) |  |
+| POST | `/api/marketplace-user-offering-consents/{uuid}/revoke/` | [`marketplace_user_offering_consents_revoke`](#marketplace-user-offering-consents-revoke) | Revoke consent to Terms of Service |
 
 ## Endpoint Details
 
-### List course accounts
+### marketplace_course_accounts_list
 
 **`GET`** `/api/marketplace-course-accounts/`
 
-**Operation ID:** `marketplace_course_accounts_list`
+**Summary:** List course accounts
 
 Returns a paginated list of course accounts accessible to the current user.
 
@@ -141,11 +141,11 @@ Returns a paginated list of course accounts accessible to the current user.
 
 ---
 
-### List course accounts
+### marketplace_course_accounts_count
 
 **`HEAD`** `/api/marketplace-course-accounts/`
 
-**Operation ID:** `marketplace_course_accounts_count`
+**Summary:** List course accounts
 
 Get number of items in the collection matching the request parameters.
 
@@ -171,11 +171,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a course account
+### marketplace_course_accounts_create
 
 **`POST`** `/api/marketplace-course-accounts/`
 
-**Operation ID:** `marketplace_course_accounts_create`
+**Summary:** Create a course account
 
 Creates a new temporary course account within a specified course project.
 
@@ -197,11 +197,11 @@ Schema: `CourseAccountRequest`
 
 ---
 
-### Bulk create course accounts
+### marketplace_course_accounts_create_bulk
 
 **`POST`** `/api/marketplace-course-accounts/create_bulk/`
 
-**Operation ID:** `marketplace_course_accounts_create_bulk`
+**Summary:** Bulk create course accounts
 
 Creates multiple course accounts within a specified course project in a single request.
 
@@ -236,11 +236,11 @@ Schema: `CourseAccountsBulkCreateRequest`
 
 ---
 
-### Retrieve a course account
+### marketplace_course_accounts_retrieve
 
 **`GET`** `/api/marketplace-course-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_course_accounts_retrieve`
+**Summary:** Retrieve a course account
 
 Returns the details of a specific course account.
 
@@ -258,11 +258,11 @@ Returns the details of a specific course account.
 
 ---
 
-### Delete (close) a course account
+### marketplace_course_accounts_destroy
 
 **`DELETE`** `/api/marketplace-course-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_course_accounts_destroy`
+**Summary:** Delete (close) a course account
 
 Deletes a course account, which triggers a 'close' operation in the backend.
 
@@ -280,11 +280,11 @@ Deletes a course account, which triggers a 'close' operation in the backend.
 
 ---
 
-### List service accounts
+### marketplace_customer_service_accounts_list
 
 **`GET`** `/api/marketplace-customer-service-accounts/`
 
-**Operation ID:** `marketplace_customer_service_accounts_list`
+**Summary:** List service accounts
 
 **Parameters:**
 
@@ -304,11 +304,11 @@ Deletes a course account, which triggers a 'close' operation in the backend.
 
 ---
 
-### List service accounts
+### marketplace_customer_service_accounts_count
 
 **`HEAD`** `/api/marketplace-customer-service-accounts/`
 
-**Operation ID:** `marketplace_customer_service_accounts_count`
+**Summary:** List service accounts
 
 Get number of items in the collection matching the request parameters.
 
@@ -330,11 +330,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a customer service account
+### marketplace_customer_service_accounts_create
 
 **`POST`** `/api/marketplace-customer-service-accounts/`
 
-**Operation ID:** `marketplace_customer_service_accounts_create`
+**Summary:** Create a customer service account
 
 Creates a new service account scoped to a specific customer (organization). This generates an API key that can be used for automated access to resources across all projects within that customer.
 
@@ -359,11 +359,11 @@ Schema: `CustomerServiceAccountRequest`
 
 ---
 
-### Retrieve a service account
+### marketplace_customer_service_accounts_retrieve
 
 **`GET`** `/api/marketplace-customer-service-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_customer_service_accounts_retrieve`
+**Summary:** Retrieve a service account
 
 **Parameters:**
 
@@ -379,11 +379,11 @@ Schema: `CustomerServiceAccountRequest`
 
 ---
 
-### Update a service account
+### marketplace_customer_service_accounts_update
 
 **`PUT`** `/api/marketplace-customer-service-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_customer_service_accounts_update`
+**Summary:** Update a service account
 
 **Parameters:**
 
@@ -412,11 +412,11 @@ Schema: `CustomerServiceAccountRequest`
 
 ---
 
-### Partially update a service account
+### marketplace_customer_service_accounts_partial_update
 
 **`PATCH`** `/api/marketplace-customer-service-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_customer_service_accounts_partial_update`
+**Summary:** Partially update a service account
 
 **Parameters:**
 
@@ -445,11 +445,11 @@ Schema: `PatchedCustomerServiceAccountRequest`
 
 ---
 
-### Close a customer service account
+### marketplace_customer_service_accounts_destroy
 
 **`DELETE`** `/api/marketplace-customer-service-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_customer_service_accounts_destroy`
+**Summary:** Close a customer service account
 
 Deactivates a customer service account and revokes its API key.
 
@@ -467,11 +467,11 @@ Deactivates a customer service account and revokes its API key.
 
 ---
 
-### Rotate API key for a customer service account
+### marketplace_customer_service_accounts_rotate_api_key
 
 **`POST`** `/api/marketplace-customer-service-accounts/{uuid}/rotate_api_key/`
 
-**Operation ID:** `marketplace_customer_service_accounts_rotate_api_key`
+**Summary:** Rotate API key for a customer service account
 
 Generates a new API key for the service account, immediately invalidating the old one. The new key is returned in the response.
 
@@ -489,11 +489,11 @@ Generates a new API key for the service account, immediately invalidating the ol
 
 ---
 
-### Get demo preset details
+### marketplace_demo_presets_info_retrieve
 
 **`GET`** `/api/marketplace-demo-presets/info/{name}/`
 
-**Operation ID:** `marketplace_demo_presets_info_retrieve`
+**Summary:** Get demo preset details
 
 Returns detailed information about a specific demo preset. Staff access only.
 
@@ -512,11 +512,11 @@ Returns detailed information about a specific demo preset. Staff access only.
 
 ---
 
-### Get demo preset details
+### marketplace_demo_presets_info_count
 
 **`HEAD`** `/api/marketplace-demo-presets/info/{name}/`
 
-**Operation ID:** `marketplace_demo_presets_info_count`
+**Summary:** Get demo preset details
 
 Get number of items in the collection matching the request parameters.
 
@@ -534,11 +534,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### List demo presets
+### marketplace_demo_presets_list_list
 
 **`GET`** `/api/marketplace-demo-presets/list/`
 
-**Operation ID:** `marketplace_demo_presets_list_list`
+**Summary:** List demo presets
 
 Returns a list of available demo data presets. Staff access only.
 
@@ -555,11 +555,11 @@ Returns a list of available demo data presets. Staff access only.
 
 ---
 
-### List demo presets
+### marketplace_demo_presets_list_count
 
 **`HEAD`** `/api/marketplace-demo-presets/list/`
 
-**Operation ID:** `marketplace_demo_presets_list_count`
+**Summary:** List demo presets
 
 Get number of items in the collection matching the request parameters.
 
@@ -576,11 +576,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Load demo preset
+### marketplace_demo_presets_load
 
 **`POST`** `/api/marketplace-demo-presets/load/{name}/`
 
-**Operation ID:** `marketplace_demo_presets_load`
+**Summary:** Load demo preset
 
 Load a demo preset into the database. This operation will optionally clean up existing data before loading. Staff access only.
 
@@ -611,11 +611,11 @@ Schema: `DemoPresetLoadRequestRequest`
 
 ---
 
-### List service accounts
+### marketplace_project_service_accounts_list
 
 **`GET`** `/api/marketplace-project-service-accounts/`
 
-**Operation ID:** `marketplace_project_service_accounts_list`
+**Summary:** List service accounts
 
 **Parameters:**
 
@@ -635,11 +635,11 @@ Schema: `DemoPresetLoadRequestRequest`
 
 ---
 
-### List service accounts
+### marketplace_project_service_accounts_count
 
 **`HEAD`** `/api/marketplace-project-service-accounts/`
 
-**Operation ID:** `marketplace_project_service_accounts_count`
+**Summary:** List service accounts
 
 Get number of items in the collection matching the request parameters.
 
@@ -661,11 +661,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a project service account
+### marketplace_project_service_accounts_create
 
 **`POST`** `/api/marketplace-project-service-accounts/`
 
-**Operation ID:** `marketplace_project_service_accounts_create`
+**Summary:** Create a project service account
 
 Creates a new service account scoped to a specific project. This generates an API key that can be used for automated access to resources within that project.
 
@@ -690,11 +690,11 @@ Schema: `ProjectServiceAccountRequest`
 
 ---
 
-### Retrieve a service account
+### marketplace_project_service_accounts_retrieve
 
 **`GET`** `/api/marketplace-project-service-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_project_service_accounts_retrieve`
+**Summary:** Retrieve a service account
 
 **Parameters:**
 
@@ -710,11 +710,11 @@ Schema: `ProjectServiceAccountRequest`
 
 ---
 
-### Update a service account
+### marketplace_project_service_accounts_update
 
 **`PUT`** `/api/marketplace-project-service-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_project_service_accounts_update`
+**Summary:** Update a service account
 
 **Parameters:**
 
@@ -743,11 +743,11 @@ Schema: `ProjectServiceAccountRequest`
 
 ---
 
-### Partially update a service account
+### marketplace_project_service_accounts_partial_update
 
 **`PATCH`** `/api/marketplace-project-service-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_project_service_accounts_partial_update`
+**Summary:** Partially update a service account
 
 **Parameters:**
 
@@ -776,11 +776,11 @@ Schema: `PatchedProjectServiceAccountRequest`
 
 ---
 
-### Close a project service account
+### marketplace_project_service_accounts_destroy
 
 **`DELETE`** `/api/marketplace-project-service-accounts/{uuid}/`
 
-**Operation ID:** `marketplace_project_service_accounts_destroy`
+**Summary:** Close a project service account
 
 Deactivates a project service account and revokes its API key.
 
@@ -798,11 +798,11 @@ Deactivates a project service account and revokes its API key.
 
 ---
 
-### Rotate API key for a project service account
+### marketplace_project_service_accounts_rotate_api_key
 
 **`POST`** `/api/marketplace-project-service-accounts/{uuid}/rotate_api_key/`
 
-**Operation ID:** `marketplace_project_service_accounts_rotate_api_key`
+**Summary:** Rotate API key for a project service account
 
 Generates a new API key for the service account, immediately invalidating the old one. The new key is returned in the response.
 
@@ -823,8 +823,6 @@ Generates a new API key for the service account, immediately invalidating the ol
 ### marketplace_project_update_requests_list
 
 **`GET`** `/api/marketplace-project-update-requests/`
-
-**Operation ID:** `marketplace_project_update_requests_list`
 
 **Parameters:**
 
@@ -847,8 +845,6 @@ Generates a new API key for the service account, immediately invalidating the ol
 ### marketplace_project_update_requests_count
 
 **`HEAD`** `/api/marketplace-project-update-requests/`
-
-**Operation ID:** `marketplace_project_update_requests_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -874,8 +870,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-project-update-requests/{uuid}/`
 
-**Operation ID:** `marketplace_project_update_requests_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -893,8 +887,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_project_update_requests_approve
 
 **`POST`** `/api/marketplace-project-update-requests/{uuid}/approve/`
-
-**Operation ID:** `marketplace_project_update_requests_approve`
 
 Approve project update request
 
@@ -924,8 +916,6 @@ Schema: `ReviewCommentRequest`
 
 **`POST`** `/api/marketplace-project-update-requests/{uuid}/reject/`
 
-**Operation ID:** `marketplace_project_update_requests_reject`
-
 Reject project update request
 
 **Parameters:**
@@ -954,8 +944,6 @@ Schema: `ReviewCommentRequest`
 
 **`GET`** `/api/marketplace-script-async-dry-run/`
 
-**Operation ID:** `marketplace_script_async_dry_run_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -972,8 +960,6 @@ Schema: `ReviewCommentRequest`
 ### marketplace_script_async_dry_run_count
 
 **`HEAD`** `/api/marketplace-script-async-dry-run/`
-
-**Operation ID:** `marketplace_script_async_dry_run_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -994,8 +980,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-script-async-dry-run/{uuid}/`
 
-**Operation ID:** `marketplace_script_async_dry_run_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1013,8 +997,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_script_dry_run_async_run
 
 **`POST`** `/api/marketplace-script-dry-run/{uuid}/async_run/`
-
-**Operation ID:** `marketplace_script_dry_run_async_run`
 
 **Parameters:**
 
@@ -1045,8 +1027,6 @@ Schema: `DryRunRequest`
 
 **`POST`** `/api/marketplace-script-dry-run/{uuid}/run/`
 
-**Operation ID:** `marketplace_script_dry_run_run`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1072,13 +1052,13 @@ Schema: `DryRunRequest`
 
 ---
 
-### This view allows a user to trigger a pull operation for a marketplace script resource.
-        The user must be a service consumer and have access to the resource.
-        The pull operation is performed asynchronously using Celery.
+### marketplace_script_sync_resource
 
 **`POST`** `/api/marketplace-script-sync-resource/`
 
-**Operation ID:** `marketplace_script_sync_resource`
+**Summary:** This view allows a user to trigger a pull operation for a marketplace script resource.
+        The user must be a service consumer and have access to the resource.
+        The pull operation is performed asynchronously using Celery.
 
 Pull a marketplace script resource.
 
@@ -1099,11 +1079,11 @@ Schema: `PullMarketplaceScriptResourceRequest`
 
 ---
 
-### Get agent connection statistics
+### marketplace_site_agent_connection_stats_retrieve
 
 **`GET`** `/api/marketplace-site-agent-connection-stats/`
 
-**Operation ID:** `marketplace_site_agent_connection_stats_retrieve`
+**Summary:** Get agent connection statistics
 
 Returns connection status for all registered agents.
 
@@ -1133,8 +1113,6 @@ Requires support user permissions.
 
 **`GET`** `/api/marketplace-site-agent-identities/`
 
-**Operation ID:** `marketplace_site_agent_identities_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1156,8 +1134,6 @@ Requires support user permissions.
 ### marketplace_site_agent_identities_count
 
 **`HEAD`** `/api/marketplace-site-agent-identities/`
-
-**Operation ID:** `marketplace_site_agent_identities_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1182,8 +1158,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_site_agent_identities_create
 
 **`POST`** `/api/marketplace-site-agent-identities/`
-
-**Operation ID:** `marketplace_site_agent_identities_create`
 
 **Request Body** (`application/json`, required):
 
@@ -1211,8 +1185,6 @@ Schema: `AgentIdentityRequest`
 
 **`POST`** `/api/marketplace-site-agent-identities/cleanup_orphaned/`
 
-**Operation ID:** `marketplace_site_agent_identities_cleanup_orphaned`
-
 Remove agent identities that have no active services. Staff only.
 
 **Request Body** (`application/json`, optional):
@@ -1236,8 +1208,6 @@ Schema: `CleanupRequestRequest`
 
 **`GET`** `/api/marketplace-site-agent-identities/{uuid}/`
 
-**Operation ID:** `marketplace_site_agent_identities_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1255,8 +1225,6 @@ Schema: `CleanupRequestRequest`
 ### marketplace_site_agent_identities_update
 
 **`PUT`** `/api/marketplace-site-agent-identities/{uuid}/`
-
-**Operation ID:** `marketplace_site_agent_identities_update`
 
 **Parameters:**
 
@@ -1290,8 +1258,6 @@ Schema: `AgentIdentityRequest`
 
 **`DELETE`** `/api/marketplace-site-agent-identities/{uuid}/`
 
-**Operation ID:** `marketplace_site_agent_identities_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1309,8 +1275,6 @@ Schema: `AgentIdentityRequest`
 ### marketplace_site_agent_identities_register_event_subscription
 
 **`POST`** `/api/marketplace-site-agent-identities/{uuid}/register_event_subscription/`
-
-**Operation ID:** `marketplace_site_agent_identities_register_event_subscription`
 
 Register an event subscription for the specified agent identity and observable object type. Returns existing subscription if already exists.
 
@@ -1342,8 +1306,6 @@ Schema: `AgentEventSubscriptionCreateRequest`
 
 **`POST`** `/api/marketplace-site-agent-identities/{uuid}/register_service/`
 
-**Operation ID:** `marketplace_site_agent_identities_register_service`
-
 Register a new processor or get the existing one for the agent service
 
 **Parameters:**
@@ -1374,8 +1336,6 @@ Schema: `AgentServiceCreateRequest`
 
 **`GET`** `/api/marketplace-site-agent-processors/`
 
-**Operation ID:** `marketplace_site_agent_processors_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1398,8 +1358,6 @@ Schema: `AgentServiceCreateRequest`
 ### marketplace_site_agent_processors_count
 
 **`HEAD`** `/api/marketplace-site-agent-processors/`
-
-**Operation ID:** `marketplace_site_agent_processors_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1426,8 +1384,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/marketplace-site-agent-processors/{uuid}/`
 
-**Operation ID:** `marketplace_site_agent_processors_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1446,8 +1402,6 @@ Get number of items in the collection matching the request parameters.
 
 **`DELETE`** `/api/marketplace-site-agent-processors/{uuid}/`
 
-**Operation ID:** `marketplace_site_agent_processors_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1465,8 +1419,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_site_agent_services_list
 
 **`GET`** `/api/marketplace-site-agent-services/`
-
-**Operation ID:** `marketplace_site_agent_services_list`
 
 **Parameters:**
 
@@ -1490,8 +1442,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_site_agent_services_count
 
 **`HEAD`** `/api/marketplace-site-agent-services/`
-
-**Operation ID:** `marketplace_site_agent_services_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1518,8 +1468,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/marketplace-site-agent-services/cleanup_stale/`
 
-**Operation ID:** `marketplace_site_agent_services_cleanup_stale`
-
 Remove agent services that have been inactive for a specified time. Staff only.
 
 **Request Body** (`application/json`, optional):
@@ -1543,8 +1491,6 @@ Schema: `CleanupRequestRequest`
 
 **`GET`** `/api/marketplace-site-agent-services/{uuid}/`
 
-**Operation ID:** `marketplace_site_agent_services_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1563,8 +1509,6 @@ Schema: `CleanupRequestRequest`
 
 **`DELETE`** `/api/marketplace-site-agent-services/{uuid}/`
 
-**Operation ID:** `marketplace_site_agent_services_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1582,8 +1526,6 @@ Schema: `CleanupRequestRequest`
 ### marketplace_site_agent_services_register_processor
 
 **`POST`** `/api/marketplace-site-agent-services/{uuid}/register_processor/`
-
-**Operation ID:** `marketplace_site_agent_services_register_processor`
 
 Register a new processor for the agent service
 
@@ -1616,8 +1558,6 @@ Schema: `AgentProcessorCreateRequest`
 
 **`POST`** `/api/marketplace-site-agent-services/{uuid}/set_statistics/`
 
-**Operation ID:** `marketplace_site_agent_services_set_statistics`
-
 Update statistics for the agent service
 
 **Parameters:**
@@ -1646,8 +1586,6 @@ Schema: `AgentServiceStatisticsRequest`
 
 **`GET`** `/api/marketplace-site-agent-stats/`
 
-**Operation ID:** `marketplace_site_agent_stats_retrieve`
-
 Get aggregated statistics about agent identities, services, and processors. Support users only.
 
 **Responses:**
@@ -1662,8 +1600,6 @@ Get aggregated statistics about agent identities, services, and processors. Supp
 
 **`GET`** `/api/marketplace-site-agent-task-stats/`
 
-**Operation ID:** `marketplace_site_agent_task_stats_retrieve`
-
 Get Celery task status for agent-related tasks. Support users only.
 
 **Responses:**
@@ -1674,11 +1610,11 @@ Get Celery task status for agent-related tasks. Support users only.
 
 ---
 
-### List software catalogs
+### marketplace_software_catalogs_list
 
 **`GET`** `/api/marketplace-software-catalogs/`
 
-**Operation ID:** `marketplace_software_catalogs_list`
+**Summary:** List software catalogs
 
 Returns a paginated list of available software catalogs, such as EESSI or Spack.
 
@@ -1698,11 +1634,11 @@ Returns a paginated list of available software catalogs, such as EESSI or Spack.
 
 ---
 
-### List software catalogs
+### marketplace_software_catalogs_count
 
 **`HEAD`** `/api/marketplace-software-catalogs/`
 
-**Operation ID:** `marketplace_software_catalogs_count`
+**Summary:** List software catalogs
 
 Get number of items in the collection matching the request parameters.
 
@@ -1722,11 +1658,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a software catalog
+### marketplace_software_catalogs_create
 
 **`POST`** `/api/marketplace-software-catalogs/`
 
-**Operation ID:** `marketplace_software_catalogs_create`
+**Summary:** Create a software catalog
 
 Creates a new software catalog. Requires staff permissions.
 
@@ -1753,11 +1689,11 @@ Schema: `SoftwareCatalogRequest`
 
 ---
 
-### Discover available software catalog versions
+### marketplace_software_catalogs_discover_list
 
 **`GET`** `/api/marketplace-software-catalogs/discover/`
 
-**Operation ID:** `marketplace_software_catalogs_discover_list`
+**Summary:** Discover available software catalog versions
 
 Queries upstream sources (EESSI, Spack) for available catalog versions without creating anything. Returns detected versions and whether an update is available compared to existing database records.
 
@@ -1777,11 +1713,11 @@ Queries upstream sources (EESSI, Spack) for available catalog versions without c
 
 ---
 
-### Discover available software catalog versions
+### marketplace_software_catalogs_discover_count
 
 **`HEAD`** `/api/marketplace-software-catalogs/discover/`
 
-**Operation ID:** `marketplace_software_catalogs_discover_count`
+**Summary:** Discover available software catalog versions
 
 Get number of items in the collection matching the request parameters.
 
@@ -1801,11 +1737,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Import a new software catalog
+### marketplace_software_catalogs_import_catalog
 
 **`POST`** `/api/marketplace-software-catalogs/import_catalog/`
 
-**Operation ID:** `marketplace_software_catalogs_import_catalog`
+**Summary:** Import a new software catalog
 
 Creates a new catalog record and triggers async data loading via Celery. Returns 202 Accepted immediately. Staff only.
 
@@ -1825,11 +1761,11 @@ Schema: `SoftwareCatalogImportRequest`
 
 ---
 
-### Retrieve a software catalog
+### marketplace_software_catalogs_retrieve
 
 **`GET`** `/api/marketplace-software-catalogs/{uuid}/`
 
-**Operation ID:** `marketplace_software_catalogs_retrieve`
+**Summary:** Retrieve a software catalog
 
 Returns the details of a specific software catalog, including its name, version, and the number of packages it contains.
 
@@ -1847,11 +1783,11 @@ Returns the details of a specific software catalog, including its name, version,
 
 ---
 
-### Update a software catalog
+### marketplace_software_catalogs_update
 
 **`PUT`** `/api/marketplace-software-catalogs/{uuid}/`
 
-**Operation ID:** `marketplace_software_catalogs_update`
+**Summary:** Update a software catalog
 
 Updates an existing software catalog. Requires staff permissions.
 
@@ -1884,11 +1820,11 @@ Schema: `SoftwareCatalogRequest`
 
 ---
 
-### Partially update a software catalog
+### marketplace_software_catalogs_partial_update
 
 **`PATCH`** `/api/marketplace-software-catalogs/{uuid}/`
 
-**Operation ID:** `marketplace_software_catalogs_partial_update`
+**Summary:** Partially update a software catalog
 
 Partially updates an existing software catalog. Requires staff permissions.
 
@@ -1921,11 +1857,11 @@ Schema: `PatchedSoftwareCatalogRequest`
 
 ---
 
-### Delete a software catalog
+### marketplace_software_catalogs_destroy
 
 **`DELETE`** `/api/marketplace-software-catalogs/{uuid}/`
 
-**Operation ID:** `marketplace_software_catalogs_destroy`
+**Summary:** Delete a software catalog
 
 Deletes a software catalog. Requires staff permissions.
 
@@ -1943,11 +1879,11 @@ Deletes a software catalog. Requires staff permissions.
 
 ---
 
-### Trigger async update for an existing catalog
+### marketplace_software_catalogs_update_catalog
 
 **`POST`** `/api/marketplace-software-catalogs/{uuid}/update_catalog/`
 
-**Operation ID:** `marketplace_software_catalogs_update_catalog`
+**Summary:** Trigger async update for an existing catalog
 
 Triggers a Celery task to update the given catalog from its upstream source. Returns 202 Accepted immediately. Staff only.
 
@@ -1980,11 +1916,11 @@ Schema: `SoftwareCatalogRequest`
 
 ---
 
-### List software packages
+### marketplace_software_packages_list
 
 **`GET`** `/api/marketplace-software-packages/`
 
-**Operation ID:** `marketplace_software_packages_list`
+**Summary:** List software packages
 
 Returns a paginated list of software packages available in the catalogs. Can be filtered by catalog, offering, or various package attributes.
 
@@ -2016,11 +1952,11 @@ Returns a paginated list of software packages available in the catalogs. Can be 
 
 ---
 
-### List software packages
+### marketplace_software_packages_count
 
 **`HEAD`** `/api/marketplace-software-packages/`
 
-**Operation ID:** `marketplace_software_packages_count`
+**Summary:** List software packages
 
 Get number of items in the collection matching the request parameters.
 
@@ -2052,11 +1988,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a software package
+### marketplace_software_packages_create
 
 **`POST`** `/api/marketplace-software-packages/`
 
-**Operation ID:** `marketplace_software_packages_create`
+**Summary:** Create a software package
 
 Creates a new software package within a catalog. Requires staff permissions.
 
@@ -2084,11 +2020,11 @@ Schema: `SoftwarePackageRequest`
 
 ---
 
-### Retrieve a software package
+### marketplace_software_packages_retrieve
 
 **`GET`** `/api/marketplace-software-packages/{uuid}/`
 
-**Operation ID:** `marketplace_software_packages_retrieve`
+**Summary:** Retrieve a software package
 
 Returns the details of a specific software package, including its description, homepage, and available versions.
 
@@ -2106,11 +2042,11 @@ Returns the details of a specific software package, including its description, h
 
 ---
 
-### Update a software package
+### marketplace_software_packages_update
 
 **`PUT`** `/api/marketplace-software-packages/{uuid}/`
 
-**Operation ID:** `marketplace_software_packages_update`
+**Summary:** Update a software package
 
 Updates an existing software package. Requires staff permissions.
 
@@ -2144,11 +2080,11 @@ Schema: `SoftwarePackageRequest`
 
 ---
 
-### Partially update a software package
+### marketplace_software_packages_partial_update
 
 **`PATCH`** `/api/marketplace-software-packages/{uuid}/`
 
-**Operation ID:** `marketplace_software_packages_partial_update`
+**Summary:** Partially update a software package
 
 Partially updates an existing software package. Requires staff permissions.
 
@@ -2182,11 +2118,11 @@ Schema: `PatchedSoftwarePackageRequest`
 
 ---
 
-### Delete a software package
+### marketplace_software_packages_destroy
 
 **`DELETE`** `/api/marketplace-software-packages/{uuid}/`
 
-**Operation ID:** `marketplace_software_packages_destroy`
+**Summary:** Delete a software package
 
 Deletes a software package. Requires staff permissions.
 
@@ -2204,11 +2140,11 @@ Deletes a software package. Requires staff permissions.
 
 ---
 
-### List software targets
+### marketplace_software_targets_list
 
 **`GET`** `/api/marketplace-software-targets/`
 
-**Operation ID:** `marketplace_software_targets_list`
+**Summary:** List software targets
 
 Returns a paginated list of software targets, which represent specific builds of a software version for a given CPU architecture.
 
@@ -2233,11 +2169,11 @@ Returns a paginated list of software targets, which represent specific builds of
 
 ---
 
-### List software targets
+### marketplace_software_targets_count
 
 **`HEAD`** `/api/marketplace-software-targets/`
 
-**Operation ID:** `marketplace_software_targets_count`
+**Summary:** List software targets
 
 Get number of items in the collection matching the request parameters.
 
@@ -2262,11 +2198,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a software target
+### marketplace_software_targets_create
 
 **`POST`** `/api/marketplace-software-targets/`
 
-**Operation ID:** `marketplace_software_targets_create`
+**Summary:** Create a software target
 
 Creates a new target for a software version. Requires staff permissions.
 
@@ -2278,11 +2214,11 @@ Creates a new target for a software version. Requires staff permissions.
 
 ---
 
-### Retrieve a software target
+### marketplace_software_targets_retrieve
 
 **`GET`** `/api/marketplace-software-targets/{uuid}/`
 
-**Operation ID:** `marketplace_software_targets_retrieve`
+**Summary:** Retrieve a software target
 
 Returns the details of a specific software target, including its CPU family, microarchitecture, and path.
 
@@ -2300,11 +2236,11 @@ Returns the details of a specific software target, including its CPU family, mic
 
 ---
 
-### Update a software target
+### marketplace_software_targets_update
 
 **`PUT`** `/api/marketplace-software-targets/{uuid}/`
 
-**Operation ID:** `marketplace_software_targets_update`
+**Summary:** Update a software target
 
 Updates an existing software target. Requires staff permissions.
 
@@ -2322,11 +2258,11 @@ Updates an existing software target. Requires staff permissions.
 
 ---
 
-### Partially update a software target
+### marketplace_software_targets_partial_update
 
 **`PATCH`** `/api/marketplace-software-targets/{uuid}/`
 
-**Operation ID:** `marketplace_software_targets_partial_update`
+**Summary:** Partially update a software target
 
 Partially updates an existing software target. Requires staff permissions.
 
@@ -2344,11 +2280,11 @@ Partially updates an existing software target. Requires staff permissions.
 
 ---
 
-### Delete a software target
+### marketplace_software_targets_destroy
 
 **`DELETE`** `/api/marketplace-software-targets/{uuid}/`
 
-**Operation ID:** `marketplace_software_targets_destroy`
+**Summary:** Delete a software target
 
 Deletes a software target. Requires staff permissions.
 
@@ -2366,11 +2302,11 @@ Deletes a software target. Requires staff permissions.
 
 ---
 
-### List software versions
+### marketplace_software_versions_list
 
 **`GET`** `/api/marketplace-software-versions/`
 
-**Operation ID:** `marketplace_software_versions_list`
+**Summary:** List software versions
 
 Returns a paginated list of software versions. Can be filtered by package, catalog, offering, or CPU architecture.
 
@@ -2395,11 +2331,11 @@ Returns a paginated list of software versions. Can be filtered by package, catal
 
 ---
 
-### List software versions
+### marketplace_software_versions_count
 
 **`HEAD`** `/api/marketplace-software-versions/`
 
-**Operation ID:** `marketplace_software_versions_count`
+**Summary:** List software versions
 
 Get number of items in the collection matching the request parameters.
 
@@ -2424,11 +2360,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a software version
+### marketplace_software_versions_create
 
 **`POST`** `/api/marketplace-software-versions/`
 
-**Operation ID:** `marketplace_software_versions_create`
+**Summary:** Create a software version
 
 Creates a new version for a software package. Requires staff permissions.
 
@@ -2440,11 +2376,11 @@ Creates a new version for a software package. Requires staff permissions.
 
 ---
 
-### Retrieve a software version
+### marketplace_software_versions_retrieve
 
 **`GET`** `/api/marketplace-software-versions/{uuid}/`
 
-**Operation ID:** `marketplace_software_versions_retrieve`
+**Summary:** Retrieve a software version
 
 Returns the details of a specific software version, including its release date and target count.
 
@@ -2462,11 +2398,11 @@ Returns the details of a specific software version, including its release date a
 
 ---
 
-### Update a software version
+### marketplace_software_versions_update
 
 **`PUT`** `/api/marketplace-software-versions/{uuid}/`
 
-**Operation ID:** `marketplace_software_versions_update`
+**Summary:** Update a software version
 
 Updates an existing software version. Requires staff permissions.
 
@@ -2484,11 +2420,11 @@ Updates an existing software version. Requires staff permissions.
 
 ---
 
-### Partially update a software version
+### marketplace_software_versions_partial_update
 
 **`PATCH`** `/api/marketplace-software-versions/{uuid}/`
 
-**Operation ID:** `marketplace_software_versions_partial_update`
+**Summary:** Partially update a software version
 
 Partially updates an existing software version. Requires staff permissions.
 
@@ -2506,11 +2442,11 @@ Partially updates an existing software version. Requires staff permissions.
 
 ---
 
-### Delete a software version
+### marketplace_software_versions_destroy
 
 **`DELETE`** `/api/marketplace-software-versions/{uuid}/`
 
-**Operation ID:** `marketplace_software_versions_destroy`
+**Summary:** Delete a software version
 
 Deletes a software version. Requires staff permissions.
 
@@ -2528,11 +2464,11 @@ Deletes a software version. Requires staff permissions.
 
 ---
 
-### List user offering consents
+### marketplace_user_offering_consents_list
 
 **`GET`** `/api/marketplace-user-offering-consents/`
 
-**Operation ID:** `marketplace_user_offering_consents_list`
+**Summary:** List user offering consents
 
 Returns a paginated list of Terms of Service consents for the current user. Staff and support users can see all consents.
 
@@ -2557,11 +2493,11 @@ Returns a paginated list of Terms of Service consents for the current user. Staf
 
 ---
 
-### List user offering consents
+### marketplace_user_offering_consents_count
 
 **`HEAD`** `/api/marketplace-user-offering-consents/`
 
-**Operation ID:** `marketplace_user_offering_consents_count`
+**Summary:** List user offering consents
 
 Get number of items in the collection matching the request parameters.
 
@@ -2586,11 +2522,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Grant consent to an offering's Terms of Service
+### marketplace_user_offering_consents_create
 
 **`POST`** `/api/marketplace-user-offering-consents/`
 
-**Operation ID:** `marketplace_user_offering_consents_create`
+**Summary:** Grant consent to an offering's Terms of Service
 
 Creates a consent record for the current user and a specific offering. This indicates that the user has accepted the active Terms of Service for that offering. If a consent already exists (even if revoked), it will be reactivated and updated with the current ToS version.
 
@@ -2610,11 +2546,11 @@ Schema: `UserOfferingConsentCreateRequest`
 
 ---
 
-### Retrieve a user offering consent
+### marketplace_user_offering_consents_retrieve
 
 **`GET`** `/api/marketplace-user-offering-consents/{uuid}/`
 
-**Operation ID:** `marketplace_user_offering_consents_retrieve`
+**Summary:** Retrieve a user offering consent
 
 Returns the details of a specific consent record.
 
@@ -2635,8 +2571,6 @@ Returns the details of a specific consent record.
 ### marketplace_user_offering_consents_update
 
 **`PUT`** `/api/marketplace-user-offering-consents/{uuid}/`
-
-**Operation ID:** `marketplace_user_offering_consents_update`
 
 **Parameters:**
 
@@ -2664,8 +2598,6 @@ Schema: `UserOfferingConsentRequest`
 
 **`PATCH`** `/api/marketplace-user-offering-consents/{uuid}/`
 
-**Operation ID:** `marketplace_user_offering_consents_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2692,8 +2624,6 @@ Schema: `PatchedUserOfferingConsentRequest`
 
 **`DELETE`** `/api/marketplace-user-offering-consents/{uuid}/`
 
-**Operation ID:** `marketplace_user_offering_consents_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2708,11 +2638,11 @@ Schema: `PatchedUserOfferingConsentRequest`
 
 ---
 
-### Revoke consent to Terms of Service
+### marketplace_user_offering_consents_revoke
 
 **`POST`** `/api/marketplace-user-offering-consents/{uuid}/revoke/`
 
-**Operation ID:** `marketplace_user_offering_consents_revoke`
+**Summary:** Revoke consent to Terms of Service
 
 Revokes a user's consent to the Terms of Service for an offering. The consent record is marked with a revocation date, and the user may lose access to related resources if consent is required.
 

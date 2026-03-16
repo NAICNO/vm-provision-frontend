@@ -7,58 +7,56 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/customer-credits/` | `customer_credits_list` |  |
-| HEAD | `/api/customer-credits/` | `customer_credits_count` |  |
-| POST | `/api/customer-credits/` | `customer_credits_create` |  |
-| GET | `/api/customer-credits/{uuid}/` | `customer_credits_retrieve` |  |
-| PUT | `/api/customer-credits/{uuid}/` | `customer_credits_update` |  |
-| PATCH | `/api/customer-credits/{uuid}/` | `customer_credits_partial_update` |  |
-| DELETE | `/api/customer-credits/{uuid}/` | `customer_credits_destroy` |  |
-| POST | `/api/customer-credits/{uuid}/apply_compensations/` | `customer_credits_apply_compensations` |  |
-| POST | `/api/customer-credits/{uuid}/clear_compensations/` | `customer_credits_clear_compensations` |  |
-| GET | `/api/customer-credits/{uuid}/consumptions/` | `customer_credits_consumptions_list` |  |
-| GET | `/api/customer-permissions-reviews/` | `customer_permissions_reviews_list` |  |
-| HEAD | `/api/customer-permissions-reviews/` | `customer_permissions_reviews_count` |  |
-| GET | `/api/customer-permissions-reviews/{uuid}/` | `customer_permissions_reviews_retrieve` |  |
-| POST | `/api/customer-permissions-reviews/{uuid}/close/` | `customer_permissions_reviews_close` | Close customer permission review |
-| GET | `/api/customer-quotas/` | `customer_quotas_list` |  |
-| HEAD | `/api/customer-quotas/` | `customer_quotas_count` |  |
-| GET | `/api/customers/` | `customers_list` | List customers |
-| HEAD | `/api/customers/` | `customers_count` | List customers |
-| POST | `/api/customers/` | `customers_create` | Create a new customer |
-| GET | `/api/customers/countries/` | `customers_countries_list` | Get list of available countries |
-| HEAD | `/api/customers/countries/` | `customers_countries_count` | Get list of available countries |
-| GET | `/api/customers/{customer_uuid}/project-metadata-compliance-details/` | `customers_project_metadata_compliance_details_list` | Get detailed project metadata compliance |
-| GET | `/api/customers/{customer_uuid}/project-metadata-compliance-overview/` | `customers_project_metadata_compliance_overview_list` | Get project metadata compliance overview |
-| GET | `/api/customers/{customer_uuid}/project-metadata-compliance-projects/` | `customers_project_metadata_compliance_projects_list` | List projects with compliance data |
-| GET | `/api/customers/{customer_uuid}/project-metadata-question-answers/` | `customers_project_metadata_question_answers_list` | List questions with project answers |
-| GET | `/api/customers/{customer_uuid}/users/` | `customers_users_list` | List users of a customer |
-| GET | `/api/customers/{uuid}/` | `customers_retrieve` | Retrieve customer details |
-| PUT | `/api/customers/{uuid}/` | `customers_update` | Update a customer |
-| PATCH | `/api/customers/{uuid}/` | `customers_partial_update` | Partially update a customer |
-| DELETE | `/api/customers/{uuid}/` | `customers_destroy` | Delete a customer |
-| POST | `/api/customers/{uuid}/add_user/` | `customers_add_user` | Grant a role to a user |
-| POST | `/api/customers/{uuid}/contact/` | `customers_contact` | Update customer contact details |
-| POST | `/api/customers/{uuid}/delete_user/` | `customers_delete_user` | Revoke a role from a user |
-| GET | `/api/customers/{uuid}/history/` | `customers_history_list` | Get version history |
-| GET | `/api/customers/{uuid}/history/at/` | `customers_history_at_retrieve` | Get object state at a specific timestamp |
-| GET | `/api/customers/{uuid}/list_users/` | `customers_list_users_list` | List users and their roles in a scope |
-| GET | `/api/customers/{uuid}/project-digest-config/` | `customers_project_digest_config_retrieve` | Get project digest configuration |
-| POST | `/api/customers/{uuid}/project-digest-config/preview/` | `customers_project_digest_config_preview` | Preview digest for a project |
-| POST | `/api/customers/{uuid}/project-digest-config/send-test/` | `customers_project_digest_config_send_test` | Send a test digest email |
-| GET | `/api/customers/{uuid}/stats/` | `customers_stats_retrieve` | Get customer resource usage statistics |
-| PUT | `/api/customers/{uuid}/update-project-digest-config/` | `customers_update_project_digest_config_update` | Update project digest configuration |
-| PATCH | `/api/customers/{uuid}/update-project-digest-config/` | `customers_update_project_digest_config_partial_update` | Update project digest configuration |
-| POST | `/api/customers/{uuid}/update_organization_groups/` | `customers_update_organization_groups` | Update organization groups for a customer |
-| POST | `/api/customers/{uuid}/update_user/` | `customers_update_user` | Update a user's role expiration |
+| GET | `/api/customer-credits/` | [`customer_credits_list`](#customer-credits-list) |  |
+| HEAD | `/api/customer-credits/` | [`customer_credits_count`](#customer-credits-count) |  |
+| POST | `/api/customer-credits/` | [`customer_credits_create`](#customer-credits-create) |  |
+| GET | `/api/customer-credits/{uuid}/` | [`customer_credits_retrieve`](#customer-credits-retrieve) |  |
+| PUT | `/api/customer-credits/{uuid}/` | [`customer_credits_update`](#customer-credits-update) |  |
+| PATCH | `/api/customer-credits/{uuid}/` | [`customer_credits_partial_update`](#customer-credits-partial-update) |  |
+| DELETE | `/api/customer-credits/{uuid}/` | [`customer_credits_destroy`](#customer-credits-destroy) |  |
+| POST | `/api/customer-credits/{uuid}/apply_compensations/` | [`customer_credits_apply_compensations`](#customer-credits-apply-compensations) |  |
+| POST | `/api/customer-credits/{uuid}/clear_compensations/` | [`customer_credits_clear_compensations`](#customer-credits-clear-compensations) |  |
+| GET | `/api/customer-credits/{uuid}/consumptions/` | [`customer_credits_consumptions_list`](#customer-credits-consumptions-list) |  |
+| GET | `/api/customer-permissions-reviews/` | [`customer_permissions_reviews_list`](#customer-permissions-reviews-list) |  |
+| HEAD | `/api/customer-permissions-reviews/` | [`customer_permissions_reviews_count`](#customer-permissions-reviews-count) |  |
+| GET | `/api/customer-permissions-reviews/{uuid}/` | [`customer_permissions_reviews_retrieve`](#customer-permissions-reviews-retrieve) |  |
+| POST | `/api/customer-permissions-reviews/{uuid}/close/` | [`customer_permissions_reviews_close`](#customer-permissions-reviews-close) | Close customer permission review |
+| GET | `/api/customer-quotas/` | [`customer_quotas_list`](#customer-quotas-list) |  |
+| HEAD | `/api/customer-quotas/` | [`customer_quotas_count`](#customer-quotas-count) |  |
+| GET | `/api/customers/` | [`customers_list`](#customers-list) | List customers |
+| HEAD | `/api/customers/` | [`customers_count`](#customers-count) | List customers |
+| POST | `/api/customers/` | [`customers_create`](#customers-create) | Create a new customer |
+| GET | `/api/customers/countries/` | [`customers_countries_list`](#customers-countries-list) | Get list of available countries |
+| HEAD | `/api/customers/countries/` | [`customers_countries_count`](#customers-countries-count) | Get list of available countries |
+| GET | `/api/customers/{customer_uuid}/project-metadata-compliance-details/` | [`customers_project_metadata_compliance_details_list`](#customers-project-metadata-compliance-details-list) | Get detailed project metadata compliance |
+| GET | `/api/customers/{customer_uuid}/project-metadata-compliance-overview/` | [`customers_project_metadata_compliance_overview_list`](#customers-project-metadata-compliance-overview-list) | Get project metadata compliance overview |
+| GET | `/api/customers/{customer_uuid}/project-metadata-compliance-projects/` | [`customers_project_metadata_compliance_projects_list`](#customers-project-metadata-compliance-projects-list) | List projects with compliance data |
+| GET | `/api/customers/{customer_uuid}/project-metadata-question-answers/` | [`customers_project_metadata_question_answers_list`](#customers-project-metadata-question-answers-list) | List questions with project answers |
+| GET | `/api/customers/{customer_uuid}/users/` | [`customers_users_list`](#customers-users-list) | List users of a customer |
+| GET | `/api/customers/{uuid}/` | [`customers_retrieve`](#customers-retrieve) | Retrieve customer details |
+| PUT | `/api/customers/{uuid}/` | [`customers_update`](#customers-update) | Update a customer |
+| PATCH | `/api/customers/{uuid}/` | [`customers_partial_update`](#customers-partial-update) | Partially update a customer |
+| DELETE | `/api/customers/{uuid}/` | [`customers_destroy`](#customers-destroy) | Delete a customer |
+| POST | `/api/customers/{uuid}/add_user/` | [`customers_add_user`](#customers-add-user) | Grant a role to a user |
+| POST | `/api/customers/{uuid}/contact/` | [`customers_contact`](#customers-contact) | Update customer contact details |
+| POST | `/api/customers/{uuid}/delete_user/` | [`customers_delete_user`](#customers-delete-user) | Revoke a role from a user |
+| GET | `/api/customers/{uuid}/history/` | [`customers_history_list`](#customers-history-list) | Get version history |
+| GET | `/api/customers/{uuid}/history/at/` | [`customers_history_at_retrieve`](#customers-history-at-retrieve) | Get object state at a specific timestamp |
+| GET | `/api/customers/{uuid}/list_users/` | [`customers_list_users_list`](#customers-list-users-list) | List users and their roles in a scope |
+| GET | `/api/customers/{uuid}/project-digest-config/` | [`customers_project_digest_config_retrieve`](#customers-project-digest-config-retrieve) | Get project digest configuration |
+| POST | `/api/customers/{uuid}/project-digest-config/preview/` | [`customers_project_digest_config_preview`](#customers-project-digest-config-preview) | Preview digest for a project |
+| POST | `/api/customers/{uuid}/project-digest-config/send-test/` | [`customers_project_digest_config_send_test`](#customers-project-digest-config-send-test) | Send a test digest email |
+| GET | `/api/customers/{uuid}/stats/` | [`customers_stats_retrieve`](#customers-stats-retrieve) | Get customer resource usage statistics |
+| PUT | `/api/customers/{uuid}/update-project-digest-config/` | [`customers_update_project_digest_config_update`](#customers-update-project-digest-config-update) | Update project digest configuration |
+| PATCH | `/api/customers/{uuid}/update-project-digest-config/` | [`customers_update_project_digest_config_partial_update`](#customers-update-project-digest-config-partial-update) | Update project digest configuration |
+| POST | `/api/customers/{uuid}/update_organization_groups/` | [`customers_update_organization_groups`](#customers-update-organization-groups) | Update organization groups for a customer |
+| POST | `/api/customers/{uuid}/update_user/` | [`customers_update_user`](#customers-update-user) | Update a user's role expiration |
 
 ## Endpoint Details
 
 ### customer_credits_list
 
 **`GET`** `/api/customer-credits/`
-
-**Operation ID:** `customer_credits_list`
 
 **Parameters:**
 
@@ -81,8 +79,6 @@
 ### customer_credits_count
 
 **`HEAD`** `/api/customer-credits/`
-
-**Operation ID:** `customer_credits_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -107,8 +103,6 @@ Get number of items in the collection matching the request parameters.
 ### customer_credits_create
 
 **`POST`** `/api/customer-credits/`
-
-**Operation ID:** `customer_credits_create`
 
 **Request Body** (`application/json`, required):
 
@@ -137,8 +131,6 @@ Schema: `CreateCustomerCreditRequest`
 
 **`GET`** `/api/customer-credits/{uuid}/`
 
-**Operation ID:** `customer_credits_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -156,8 +148,6 @@ Schema: `CreateCustomerCreditRequest`
 ### customer_credits_update
 
 **`PUT`** `/api/customer-credits/{uuid}/`
-
-**Operation ID:** `customer_credits_update`
 
 **Parameters:**
 
@@ -192,8 +182,6 @@ Schema: `CreateCustomerCreditRequest`
 
 **`PATCH`** `/api/customer-credits/{uuid}/`
 
-**Operation ID:** `customer_credits_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -227,8 +215,6 @@ Schema: `PatchedCreateCustomerCreditRequest`
 
 **`DELETE`** `/api/customer-credits/{uuid}/`
 
-**Operation ID:** `customer_credits_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -246,8 +232,6 @@ Schema: `PatchedCreateCustomerCreditRequest`
 ### customer_credits_apply_compensations
 
 **`POST`** `/api/customer-credits/{uuid}/apply_compensations/`
-
-**Operation ID:** `customer_credits_apply_compensations`
 
 **Parameters:**
 
@@ -281,8 +265,6 @@ Schema: `CustomerCreditRequest`
 
 **`POST`** `/api/customer-credits/{uuid}/clear_compensations/`
 
-**Operation ID:** `customer_credits_clear_compensations`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -315,8 +297,6 @@ Schema: `CustomerCreditRequest`
 
 **`GET`** `/api/customer-credits/{uuid}/consumptions/`
 
-**Operation ID:** `customer_credits_consumptions_list`
-
 Get credit consumption history grouped by month.
 
 **Parameters:**
@@ -342,8 +322,6 @@ Get credit consumption history grouped by month.
 
 **`GET`** `/api/customer-permissions-reviews/`
 
-**Operation ID:** `customer_permissions_reviews_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -365,8 +343,6 @@ Get credit consumption history grouped by month.
 ### customer_permissions_reviews_count
 
 **`HEAD`** `/api/customer-permissions-reviews/`
-
-**Operation ID:** `customer_permissions_reviews_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -392,8 +368,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/customer-permissions-reviews/{uuid}/`
 
-**Operation ID:** `customer_permissions_reviews_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -408,11 +382,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Close customer permission review
+### customer_permissions_reviews_close
 
 **`POST`** `/api/customer-permissions-reviews/{uuid}/close/`
 
-**Operation ID:** `customer_permissions_reviews_close`
+**Summary:** Close customer permission review
 
 **Parameters:**
 
@@ -431,8 +405,6 @@ Get number of items in the collection matching the request parameters.
 ### customer_quotas_list
 
 **`GET`** `/api/customer-quotas/`
-
-**Operation ID:** `customer_quotas_list`
 
 List customer quotas.
 
@@ -453,8 +425,6 @@ List customer quotas.
 
 **`HEAD`** `/api/customer-quotas/`
 
-**Operation ID:** `customer_quotas_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -470,11 +440,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### List customers
+### customers_list
 
 **`GET`** `/api/customers/`
 
-**Operation ID:** `customers_list`
+**Summary:** List customers
 
 Retrieve a list of customers. The list is filtered based on the user's permissions.
 
@@ -513,11 +483,11 @@ Retrieve a list of customers. The list is filtered based on the user's permissio
 
 ---
 
-### List customers
+### customers_count
 
 **`HEAD`** `/api/customers/`
 
-**Operation ID:** `customers_count`
+**Summary:** List customers
 
 Get number of items in the collection matching the request parameters.
 
@@ -555,11 +525,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a new customer
+### customers_create
 
 **`POST`** `/api/customers/`
 
-**Operation ID:** `customers_create`
+**Summary:** Create a new customer
 
 A new customer can only be created by users with staff privilege.
 
@@ -614,11 +584,11 @@ Schema: `CustomerRequest`
 
 ---
 
-### Get list of available countries
+### customers_countries_list
 
 **`GET`** `/api/customers/countries/`
 
-**Operation ID:** `customers_countries_list`
+**Summary:** Get list of available countries
 
 Returns a list of countries that can be used when creating or updating a customer. The list can be configured by the service provider.
 
@@ -656,11 +626,11 @@ Returns a list of countries that can be used when creating or updating a custome
 
 ---
 
-### Get list of available countries
+### customers_countries_count
 
 **`HEAD`** `/api/customers/countries/`
 
-**Operation ID:** `customers_countries_count`
+**Summary:** Get list of available countries
 
 Get number of items in the collection matching the request parameters.
 
@@ -698,11 +668,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get detailed project metadata compliance
+### customers_project_metadata_compliance_details_list
 
 **`GET`** `/api/customers/{customer_uuid}/project-metadata-compliance-details/`
 
-**Operation ID:** `customers_project_metadata_compliance_details_list`
+**Summary:** Get detailed project metadata compliance
 
 Provides detailed compliance status for all projects within a customer, including individual answers and completion status.
 
@@ -720,11 +690,11 @@ Provides detailed compliance status for all projects within a customer, includin
 
 ---
 
-### Get project metadata compliance overview
+### customers_project_metadata_compliance_overview_list
 
 **`GET`** `/api/customers/{customer_uuid}/project-metadata-compliance-overview/`
 
-**Operation ID:** `customers_project_metadata_compliance_overview_list`
+**Summary:** Get project metadata compliance overview
 
 Provides aggregated statistics about project metadata compliance for all projects within a customer.
 
@@ -742,11 +712,11 @@ Provides aggregated statistics about project metadata compliance for all project
 
 ---
 
-### List projects with compliance data
+### customers_project_metadata_compliance_projects_list
 
 **`GET`** `/api/customers/{customer_uuid}/project-metadata-compliance-projects/`
 
-**Operation ID:** `customers_project_metadata_compliance_projects_list`
+**Summary:** List projects with compliance data
 
 Provides a paginated list of projects with their checklist completion status and answer details.
 
@@ -764,11 +734,11 @@ Provides a paginated list of projects with their checklist completion status and
 
 ---
 
-### List questions with project answers
+### customers_project_metadata_question_answers_list
 
 **`GET`** `/api/customers/{customer_uuid}/project-metadata-question-answers/`
 
-**Operation ID:** `customers_project_metadata_question_answers_list`
+**Summary:** List questions with project answers
 
 Provides a paginated list of all questions from the customer's compliance checklist, including the answers given in each project.
 
@@ -786,11 +756,11 @@ Provides a paginated list of all questions from the customer's compliance checkl
 
 ---
 
-### List users of a customer
+### customers_users_list
 
 **`GET`** `/api/customers/{customer_uuid}/users/`
 
-**Operation ID:** `customers_users_list`
+**Summary:** List users of a customer
 
 Lists all users who have a role in the specified customer or any of its projects. Requires permissions to list customer users.
 
@@ -827,11 +797,11 @@ Lists all users who have a role in the specified customer or any of its projects
 
 ---
 
-### Retrieve customer details
+### customers_retrieve
 
 **`GET`** `/api/customers/{uuid}/`
 
-**Operation ID:** `customers_retrieve`
+**Summary:** Retrieve customer details
 
 Fetch the details of a specific customer by its UUID.
 
@@ -850,11 +820,11 @@ Fetch the details of a specific customer by its UUID.
 
 ---
 
-### Update a customer
+### customers_update
 
 **`PUT`** `/api/customers/{uuid}/`
 
-**Operation ID:** `customers_update`
+**Summary:** Update a customer
 
 Update the details of an existing customer. Requires customer owner or staff permissions.
 
@@ -915,11 +885,11 @@ Schema: `CustomerRequest`
 
 ---
 
-### Partially update a customer
+### customers_partial_update
 
 **`PATCH`** `/api/customers/{uuid}/`
 
-**Operation ID:** `customers_partial_update`
+**Summary:** Partially update a customer
 
 Partially update the details of an existing customer. Requires customer owner or staff permissions.
 
@@ -980,11 +950,11 @@ Schema: `PatchedCustomerRequest`
 
 ---
 
-### Delete a customer
+### customers_destroy
 
 **`DELETE`** `/api/customers/{uuid}/`
 
-**Operation ID:** `customers_destroy`
+**Summary:** Delete a customer
 
 Delete a customer. This action is only available to staff users. If a customer has any active projects, the deletion request will fail with a 409 Conflict response.
 
@@ -1002,11 +972,11 @@ Delete a customer. This action is only available to staff users. If a customer h
 
 ---
 
-### Grant a role to a user
+### customers_add_user
 
 **`POST`** `/api/customers/{uuid}/add_user/`
 
-**Operation ID:** `customers_add_user`
+**Summary:** Grant a role to a user
 
 Assigns a specific role to a user within the current scope. An optional expiration time for the role can be set.
 
@@ -1035,11 +1005,11 @@ Schema: `UserRoleCreateRequest`
 
 ---
 
-### Update customer contact details
+### customers_contact
 
 **`POST`** `/api/customers/{uuid}/contact/`
 
-**Operation ID:** `customers_contact`
+**Summary:** Update customer contact details
 
 Update organization contact information. Requires CUSTOMER_CONTACT_UPDATE or CUSTOMER.UPDATE permission.
 
@@ -1069,11 +1039,11 @@ Schema: `CustomerContactUpdateRequest`
 
 ---
 
-### Revoke a role from a user
+### customers_delete_user
 
 **`POST`** `/api/customers/{uuid}/delete_user/`
 
-**Operation ID:** `customers_delete_user`
+**Summary:** Revoke a role from a user
 
 Removes a specific role from a user within the current scope. This effectively revokes their permissions associated with that role.
 
@@ -1101,11 +1071,11 @@ Schema: `UserRoleDeleteRequest`
 
 ---
 
-### Get version history
+### customers_history_list
 
 **`GET`** `/api/customers/{uuid}/history/`
 
-**Operation ID:** `customers_history_list`
+**Summary:** Get version history
 
 Returns the version history for this object. Only accessible by staff and support users.
 
@@ -1146,11 +1116,11 @@ Returns the version history for this object. Only accessible by staff and suppor
 
 ---
 
-### Get object state at a specific timestamp
+### customers_history_at_retrieve
 
 **`GET`** `/api/customers/{uuid}/history/at/`
 
-**Operation ID:** `customers_history_at_retrieve`
+**Summary:** Get object state at a specific timestamp
 
 Returns the state of the object as it was at the specified timestamp. Only accessible by staff and support users.
 
@@ -1171,11 +1141,11 @@ Returns the state of the object as it was at the specified timestamp. Only acces
 
 ---
 
-### List users and their roles in a scope
+### customers_list_users_list
 
 **`GET`** `/api/customers/{uuid}/list_users/`
 
-**Operation ID:** `customers_list_users_list`
+**Summary:** List users and their roles in a scope
 
 Retrieves a list of users who have a role within a specific scope (e.g., a project or an organization). The list can be filtered by user details or role.
 
@@ -1203,11 +1173,11 @@ Retrieves a list of users who have a role within a specific scope (e.g., a proje
 
 ---
 
-### Get project digest configuration
+### customers_project_digest_config_retrieve
 
 **`GET`** `/api/customers/{uuid}/project-digest-config/`
 
-**Operation ID:** `customers_project_digest_config_retrieve`
+**Summary:** Get project digest configuration
 
 Retrieve the project digest email configuration for this organization.
 
@@ -1225,11 +1195,11 @@ Retrieve the project digest email configuration for this organization.
 
 ---
 
-### Preview digest for a project
+### customers_project_digest_config_preview
 
 **`POST`** `/api/customers/{uuid}/project-digest-config/preview/`
 
-**Operation ID:** `customers_project_digest_config_preview`
+**Summary:** Preview digest for a project
 
 Returns rendered HTML preview of the digest for a specific project.
 
@@ -1255,11 +1225,11 @@ Schema: `ProjectDigestPreviewRequest`
 
 ---
 
-### Send a test digest email
+### customers_project_digest_config_send_test
 
 **`POST`** `/api/customers/{uuid}/project-digest-config/send-test/`
 
-**Operation ID:** `customers_project_digest_config_send_test`
+**Summary:** Send a test digest email
 
 Send a test digest email to the requesting user.
 
@@ -1277,11 +1247,11 @@ Send a test digest email to the requesting user.
 
 ---
 
-### Get customer resource usage statistics
+### customers_stats_retrieve
 
 **`GET`** `/api/customers/{uuid}/stats/`
 
-**Operation ID:** `customers_stats_retrieve`
+**Summary:** Get customer resource usage statistics
 
 Provides statistics about the resource usage (e.g., CPU, RAM, storage) for all projects within a customer. Can be filtered to show usage for the current month only.
 
@@ -1300,11 +1270,11 @@ Provides statistics about the resource usage (e.g., CPU, RAM, storage) for all p
 
 ---
 
-### Update project digest configuration
+### customers_update_project_digest_config_update
 
 **`PUT`** `/api/customers/{uuid}/update-project-digest-config/`
 
-**Operation ID:** `customers_update_project_digest_config_update`
+**Summary:** Update project digest configuration
 
 Update the project digest email configuration for this organization.
 
@@ -1334,11 +1304,11 @@ Schema: `ProjectDigestConfigRequest`
 
 ---
 
-### Update project digest configuration
+### customers_update_project_digest_config_partial_update
 
 **`PATCH`** `/api/customers/{uuid}/update-project-digest-config/`
 
-**Operation ID:** `customers_update_project_digest_config_partial_update`
+**Summary:** Update project digest configuration
 
 Update the project digest email configuration for this organization.
 
@@ -1368,11 +1338,11 @@ Schema: `PatchedProjectDigestConfigRequest`
 
 ---
 
-### Update organization groups for a customer
+### customers_update_organization_groups
 
 **`POST`** `/api/customers/{uuid}/update_organization_groups/`
 
-**Operation ID:** `customers_update_organization_groups`
+**Summary:** Update organization groups for a customer
 
 Assigns a customer to one or more organization groups. This action is restricted to staff users.
 
@@ -1398,11 +1368,11 @@ Schema: `OrganizationGroupsRequest`
 
 ---
 
-### Update a user's role expiration
+### customers_update_user
 
 **`POST`** `/api/customers/{uuid}/update_user/`
 
-**Operation ID:** `customers_update_user`
+**Summary:** Update a user's role expiration
 
 Updates the expiration time for a user's existing role in the current scope. This is useful for extending or shortening the duration of a permission. To make a role permanent, set expiration_time to null.
 

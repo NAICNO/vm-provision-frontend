@@ -7,36 +7,36 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/marketplace-orders/` | `marketplace_orders_list` | List orders |
-| HEAD | `/api/marketplace-orders/` | `marketplace_orders_count` | List orders |
-| POST | `/api/marketplace-orders/` | `marketplace_orders_create` | Create an order |
-| GET | `/api/marketplace-orders/{uuid}/` | `marketplace_orders_retrieve` | Retrieve an order |
-| PUT | `/api/marketplace-orders/{uuid}/` | `marketplace_orders_update` |  |
-| PATCH | `/api/marketplace-orders/{uuid}/` | `marketplace_orders_partial_update` |  |
-| DELETE | `/api/marketplace-orders/{uuid}/` | `marketplace_orders_destroy` | Delete a pending order |
-| POST | `/api/marketplace-orders/{uuid}/approve_by_consumer/` | `marketplace_orders_approve_by_consumer` | Approve an order (consumer) |
-| POST | `/api/marketplace-orders/{uuid}/approve_by_provider/` | `marketplace_orders_approve_by_provider` | Approve an order (provider) |
-| POST | `/api/marketplace-orders/{uuid}/cancel/` | `marketplace_orders_cancel` | Cancel an order |
-| POST | `/api/marketplace-orders/{uuid}/delete_attachment/` | `marketplace_orders_delete_attachment` | Delete order attachment |
-| GET | `/api/marketplace-orders/{uuid}/offering/` | `marketplace_orders_offering_retrieve` | Get offering details |
-| POST | `/api/marketplace-orders/{uuid}/reject_by_consumer/` | `marketplace_orders_reject_by_consumer` | Reject an order (consumer) |
-| POST | `/api/marketplace-orders/{uuid}/reject_by_provider/` | `marketplace_orders_reject_by_provider` | Reject an order (provider) |
-| POST | `/api/marketplace-orders/{uuid}/set_backend_id/` | `marketplace_orders_set_backend_id` | Set order backend ID |
-| POST | `/api/marketplace-orders/{uuid}/set_consumer_info/` | `marketplace_orders_set_consumer_info` | Set consumer info on order |
-| POST | `/api/marketplace-orders/{uuid}/set_provider_info/` | `marketplace_orders_set_provider_info` | Set provider info on order |
-| POST | `/api/marketplace-orders/{uuid}/set_state_done/` | `marketplace_orders_set_state_done` | Set order state to done (agent) |
-| POST | `/api/marketplace-orders/{uuid}/set_state_erred/` | `marketplace_orders_set_state_erred` | Set order state to erred (agent) |
-| POST | `/api/marketplace-orders/{uuid}/set_state_executing/` | `marketplace_orders_set_state_executing` | Set order state to executing (agent) |
-| POST | `/api/marketplace-orders/{uuid}/unlink/` | `marketplace_orders_unlink` | Unlink an order (staff only) |
-| POST | `/api/marketplace-orders/{uuid}/update_attachment/` | `marketplace_orders_update_attachment` | Update order attachment |
+| GET | `/api/marketplace-orders/` | [`marketplace_orders_list`](#marketplace-orders-list) | List orders |
+| HEAD | `/api/marketplace-orders/` | [`marketplace_orders_count`](#marketplace-orders-count) | List orders |
+| POST | `/api/marketplace-orders/` | [`marketplace_orders_create`](#marketplace-orders-create) | Create an order |
+| GET | `/api/marketplace-orders/{uuid}/` | [`marketplace_orders_retrieve`](#marketplace-orders-retrieve) | Retrieve an order |
+| PUT | `/api/marketplace-orders/{uuid}/` | [`marketplace_orders_update`](#marketplace-orders-update) |  |
+| PATCH | `/api/marketplace-orders/{uuid}/` | [`marketplace_orders_partial_update`](#marketplace-orders-partial-update) |  |
+| DELETE | `/api/marketplace-orders/{uuid}/` | [`marketplace_orders_destroy`](#marketplace-orders-destroy) | Delete a pending order |
+| POST | `/api/marketplace-orders/{uuid}/approve_by_consumer/` | [`marketplace_orders_approve_by_consumer`](#marketplace-orders-approve-by-consumer) | Approve an order (consumer) |
+| POST | `/api/marketplace-orders/{uuid}/approve_by_provider/` | [`marketplace_orders_approve_by_provider`](#marketplace-orders-approve-by-provider) | Approve an order (provider) |
+| POST | `/api/marketplace-orders/{uuid}/cancel/` | [`marketplace_orders_cancel`](#marketplace-orders-cancel) | Cancel an order |
+| POST | `/api/marketplace-orders/{uuid}/delete_attachment/` | [`marketplace_orders_delete_attachment`](#marketplace-orders-delete-attachment) | Delete order attachment |
+| GET | `/api/marketplace-orders/{uuid}/offering/` | [`marketplace_orders_offering_retrieve`](#marketplace-orders-offering-retrieve) | Get offering details |
+| POST | `/api/marketplace-orders/{uuid}/reject_by_consumer/` | [`marketplace_orders_reject_by_consumer`](#marketplace-orders-reject-by-consumer) | Reject an order (consumer) |
+| POST | `/api/marketplace-orders/{uuid}/reject_by_provider/` | [`marketplace_orders_reject_by_provider`](#marketplace-orders-reject-by-provider) | Reject an order (provider) |
+| POST | `/api/marketplace-orders/{uuid}/set_backend_id/` | [`marketplace_orders_set_backend_id`](#marketplace-orders-set-backend-id) | Set order backend ID |
+| POST | `/api/marketplace-orders/{uuid}/set_consumer_info/` | [`marketplace_orders_set_consumer_info`](#marketplace-orders-set-consumer-info) | Set consumer info on order |
+| POST | `/api/marketplace-orders/{uuid}/set_provider_info/` | [`marketplace_orders_set_provider_info`](#marketplace-orders-set-provider-info) | Set provider info on order |
+| POST | `/api/marketplace-orders/{uuid}/set_state_done/` | [`marketplace_orders_set_state_done`](#marketplace-orders-set-state-done) | Set order state to done (agent) |
+| POST | `/api/marketplace-orders/{uuid}/set_state_erred/` | [`marketplace_orders_set_state_erred`](#marketplace-orders-set-state-erred) | Set order state to erred (agent) |
+| POST | `/api/marketplace-orders/{uuid}/set_state_executing/` | [`marketplace_orders_set_state_executing`](#marketplace-orders-set-state-executing) | Set order state to executing (agent) |
+| POST | `/api/marketplace-orders/{uuid}/unlink/` | [`marketplace_orders_unlink`](#marketplace-orders-unlink) | Unlink an order (staff only) |
+| POST | `/api/marketplace-orders/{uuid}/update_attachment/` | [`marketplace_orders_update_attachment`](#marketplace-orders-update-attachment) | Update order attachment |
 
 ## Endpoint Details
 
-### List orders
+### marketplace_orders_list
 
 **`GET`** `/api/marketplace-orders/`
 
-**Operation ID:** `marketplace_orders_list`
+**Summary:** List orders
 
 Returns a paginated list of orders accessible to the current user. Orders are visible to service consumers (project/customer members with appropriate permissions) and service providers.
 
@@ -75,11 +75,11 @@ Returns a paginated list of orders accessible to the current user. Orders are vi
 
 ---
 
-### List orders
+### marketplace_orders_count
 
 **`HEAD`** `/api/marketplace-orders/`
 
-**Operation ID:** `marketplace_orders_count`
+**Summary:** List orders
 
 Get number of items in the collection matching the request parameters.
 
@@ -117,11 +117,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create an order
+### marketplace_orders_create
 
 **`POST`** `/api/marketplace-orders/`
 
-**Operation ID:** `marketplace_orders_create`
+**Summary:** Create an order
 
 Creates a new order to provision a resource. The order will be placed in a pending state and may require approval depending on the offering and user permissions.
 
@@ -151,11 +151,11 @@ Schema: `OrderCreateRequest`
 
 ---
 
-### Retrieve an order
+### marketplace_orders_retrieve
 
 **`GET`** `/api/marketplace-orders/{uuid}/`
 
-**Operation ID:** `marketplace_orders_retrieve`
+**Summary:** Retrieve an order
 
 Returns the details of a specific order.
 
@@ -177,8 +177,6 @@ Returns the details of a specific order.
 ### marketplace_orders_update
 
 **`PUT`** `/api/marketplace-orders/{uuid}/`
-
-**Operation ID:** `marketplace_orders_update`
 
 **Parameters:**
 
@@ -208,8 +206,6 @@ Schema: `OrderUpdateRequest`
 
 **`PATCH`** `/api/marketplace-orders/{uuid}/`
 
-**Operation ID:** `marketplace_orders_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -234,11 +230,11 @@ Schema: `PatchedOrderUpdateRequest`
 
 ---
 
-### Delete a pending order
+### marketplace_orders_destroy
 
 **`DELETE`** `/api/marketplace-orders/{uuid}/`
 
-**Operation ID:** `marketplace_orders_destroy`
+**Summary:** Delete a pending order
 
 Deletes an order that is still in a pending state (e.g., `pending-consumer` or `pending-provider`). Executing or completed orders cannot be deleted.
 
@@ -256,11 +252,11 @@ Deletes an order that is still in a pending state (e.g., `pending-consumer` or `
 
 ---
 
-### Approve an order (consumer)
+### marketplace_orders_approve_by_consumer
 
 **`POST`** `/api/marketplace-orders/{uuid}/approve_by_consumer/`
 
-**Operation ID:** `marketplace_orders_approve_by_consumer`
+**Summary:** Approve an order (consumer)
 
 Approves a pending order from the consumer's side (e.g., project manager, customer owner). This transitions the order to the next state, which could be pending provider approval or executing.
 
@@ -278,11 +274,11 @@ Approves a pending order from the consumer's side (e.g., project manager, custom
 
 ---
 
-### Approve an order (provider)
+### marketplace_orders_approve_by_provider
 
 **`POST`** `/api/marketplace-orders/{uuid}/approve_by_provider/`
 
-**Operation ID:** `marketplace_orders_approve_by_provider`
+**Summary:** Approve an order (provider)
 
 Approves a pending order from the provider's side. This typically transitions the order to the executing state.
 
@@ -308,11 +304,11 @@ Schema: `OrderApproveByProviderRequest`
 
 ---
 
-### Cancel an order
+### marketplace_orders_cancel
 
 **`POST`** `/api/marketplace-orders/{uuid}/cancel/`
 
-**Operation ID:** `marketplace_orders_cancel`
+**Summary:** Cancel an order
 
 Cancels an order. This is typically only possible for certain offering types (e.g., basic support) and in specific states (pending or executing).
 
@@ -330,11 +326,11 @@ Cancels an order. This is typically only possible for certain offering types (e.
 
 ---
 
-### Delete order attachment
+### marketplace_orders_delete_attachment
 
 **`POST`** `/api/marketplace-orders/{uuid}/delete_attachment/`
 
-**Operation ID:** `marketplace_orders_delete_attachment`
+**Summary:** Delete order attachment
 
 Allows deleting an attachment from a pending order.
 
@@ -352,11 +348,11 @@ Allows deleting an attachment from a pending order.
 
 ---
 
-### Get offering details
+### marketplace_orders_offering_retrieve
 
 **`GET`** `/api/marketplace-orders/{uuid}/offering/`
 
-**Operation ID:** `marketplace_orders_offering_retrieve`
+**Summary:** Get offering details
 
 Returns details of the offering connected to the requested object.
 
@@ -374,11 +370,11 @@ Returns details of the offering connected to the requested object.
 
 ---
 
-### Reject an order (consumer)
+### marketplace_orders_reject_by_consumer
 
 **`POST`** `/api/marketplace-orders/{uuid}/reject_by_consumer/`
 
-**Operation ID:** `marketplace_orders_reject_by_consumer`
+**Summary:** Reject an order (consumer)
 
 Rejects a pending order from the consumer's side. This moves the order to the 'rejected' state.
 
@@ -406,11 +402,11 @@ Schema: `OrderErrorDetailsRequest`
 
 ---
 
-### Reject an order (provider)
+### marketplace_orders_reject_by_provider
 
 **`POST`** `/api/marketplace-orders/{uuid}/reject_by_provider/`
 
-**Operation ID:** `marketplace_orders_reject_by_provider`
+**Summary:** Reject an order (provider)
 
 Rejects a pending order from the provider's side. This moves the order to the 'rejected' state.
 
@@ -436,11 +432,11 @@ Schema: `OrderProviderRejectionRequest`
 
 ---
 
-### Set order backend ID
+### marketplace_orders_set_backend_id
 
 **`POST`** `/api/marketplace-orders/{uuid}/set_backend_id/`
 
-**Operation ID:** `marketplace_orders_set_backend_id`
+**Summary:** Set order backend ID
 
 Allows a service provider or staff to set or update the backend ID associated with an order. This is useful for linking the order to an external system's identifier.
 
@@ -466,11 +462,11 @@ Schema: `OrderBackendIDRequest`
 
 ---
 
-### Set consumer info on order
+### marketplace_orders_set_consumer_info
 
 **`POST`** `/api/marketplace-orders/{uuid}/set_consumer_info/`
 
-**Operation ID:** `marketplace_orders_set_consumer_info`
+**Summary:** Set consumer info on order
 
 Allows a consumer to respond to a provider's message with an optional message and file attachment on a pending order.
 
@@ -497,11 +493,11 @@ Schema: `OrderConsumerInfoRequest`
 
 ---
 
-### Set provider info on order
+### marketplace_orders_set_provider_info
 
 **`POST`** `/api/marketplace-orders/{uuid}/set_provider_info/`
 
-**Operation ID:** `marketplace_orders_set_provider_info`
+**Summary:** Set provider info on order
 
 Allows a service provider to send a message with an optional URL and file attachment to the consumer on a pending order.
 
@@ -529,11 +525,11 @@ Schema: `OrderProviderInfoRequest`
 
 ---
 
-### Set order state to done (agent)
+### marketplace_orders_set_state_done
 
 **`POST`** `/api/marketplace-orders/{uuid}/set_state_done/`
 
-**Operation ID:** `marketplace_orders_set_state_done`
+**Summary:** Set order state to done (agent)
 
 Used by external agents (e.g., site agent) to manually transition the order state to 'done'. This is only applicable for specific offering types.
 
@@ -551,11 +547,11 @@ Used by external agents (e.g., site agent) to manually transition the order stat
 
 ---
 
-### Set order state to erred (agent)
+### marketplace_orders_set_state_erred
 
 **`POST`** `/api/marketplace-orders/{uuid}/set_state_erred/`
 
-**Operation ID:** `marketplace_orders_set_state_erred`
+**Summary:** Set order state to erred (agent)
 
 Used by external agents to report a failure during order processing. An error message and traceback can be provided.
 
@@ -583,11 +579,11 @@ Schema: `OrderErrorDetailsRequest`
 
 ---
 
-### Set order state to executing (agent)
+### marketplace_orders_set_state_executing
 
 **`POST`** `/api/marketplace-orders/{uuid}/set_state_executing/`
 
-**Operation ID:** `marketplace_orders_set_state_executing`
+**Summary:** Set order state to executing (agent)
 
 Used by external agents (e.g., site agent) to manually transition the order state to 'executing'. This is only applicable for specific offering types.
 
@@ -605,11 +601,11 @@ Used by external agents (e.g., site agent) to manually transition the order stat
 
 ---
 
-### Unlink an order (staff only)
+### marketplace_orders_unlink
 
 **`POST`** `/api/marketplace-orders/{uuid}/unlink/`
 
-**Operation ID:** `marketplace_orders_unlink`
+**Summary:** Unlink an order (staff only)
 
 Forcefully deletes an order from the database without affecting the backend resource. This is a staff-only administrative action used to clean up stuck or invalid orders.
 
@@ -628,11 +624,11 @@ Forcefully deletes an order from the database without affecting the backend reso
 
 ---
 
-### Update order attachment
+### marketplace_orders_update_attachment
 
 **`POST`** `/api/marketplace-orders/{uuid}/update_attachment/`
 
-**Operation ID:** `marketplace_orders_update_attachment`
+**Summary:** Update order attachment
 
 Allows uploading or replacing a file attachment (e.g., a purchase order) for a pending order.
 

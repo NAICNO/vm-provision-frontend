@@ -7,51 +7,49 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/project-credits/` | `project_credits_list` |  |
-| HEAD | `/api/project-credits/` | `project_credits_count` |  |
-| POST | `/api/project-credits/` | `project_credits_create` |  |
-| GET | `/api/project-credits/{uuid}/` | `project_credits_retrieve` |  |
-| PUT | `/api/project-credits/{uuid}/` | `project_credits_update` |  |
-| PATCH | `/api/project-credits/{uuid}/` | `project_credits_partial_update` |  |
-| DELETE | `/api/project-credits/{uuid}/` | `project_credits_destroy` |  |
-| GET | `/api/project-permissions-reviews/` | `project_permissions_reviews_list` |  |
-| HEAD | `/api/project-permissions-reviews/` | `project_permissions_reviews_count` |  |
-| GET | `/api/project-permissions-reviews/{uuid}/` | `project_permissions_reviews_retrieve` |  |
-| POST | `/api/project-permissions-reviews/{uuid}/close/` | `project_permissions_reviews_close` | Close project permission review |
-| GET | `/api/project-quotas/` | `project_quotas_list` |  |
-| HEAD | `/api/project-quotas/` | `project_quotas_count` |  |
-| GET | `/api/project-types/` | `project_types_list` | List project types |
-| HEAD | `/api/project-types/` | `project_types_count` | List project types |
-| GET | `/api/project-types/{uuid}/` | `project_types_retrieve` | Retrieve project type details |
-| GET | `/api/projects/` | `projects_list` | List projects |
-| HEAD | `/api/projects/` | `projects_count` | List projects |
-| POST | `/api/projects/` | `projects_create` | Create a new project |
-| GET | `/api/projects/checklist-template/` | `projects_checklist_template_retrieve` |  |
-| HEAD | `/api/projects/checklist-template/` | `projects_checklist_template_count` |  |
-| GET | `/api/projects/{project_uuid}/other_users/` | `projects_other_users_list` |  |
-| GET | `/api/projects/{uuid}/` | `projects_retrieve` | Retrieve project details |
-| PUT | `/api/projects/{uuid}/` | `projects_update` | Update project details |
-| PATCH | `/api/projects/{uuid}/` | `projects_partial_update` | Partially update project details |
-| DELETE | `/api/projects/{uuid}/` | `projects_destroy` | Delete a project |
-| POST | `/api/projects/{uuid}/add_user/` | `projects_add_user` | Grant a role to a user |
-| GET | `/api/projects/{uuid}/checklist/` | `projects_checklist_retrieve` |  |
-| GET | `/api/projects/{uuid}/completion_status/` | `projects_completion_status_retrieve` |  |
-| POST | `/api/projects/{uuid}/delete_user/` | `projects_delete_user` | Revoke a role from a user |
-| GET | `/api/projects/{uuid}/list_users/` | `projects_list_users_list` | List users and their roles in a scope |
-| POST | `/api/projects/{uuid}/move_project/` | `projects_move_project` | Move project to another customer |
-| POST | `/api/projects/{uuid}/recover/` | `projects_recover` | Recover a soft-deleted project |
-| GET | `/api/projects/{uuid}/stats/` | `projects_stats_retrieve` | Get project resource usage statistics |
-| POST | `/api/projects/{uuid}/submit_answers/` | `projects_submit_answers` |  |
-| POST | `/api/projects/{uuid}/sync_user_roles/` | `projects_sync_user_roles` |  |
-| POST | `/api/projects/{uuid}/update_user/` | `projects_update_user` | Update a user's role expiration |
+| GET | `/api/project-credits/` | [`project_credits_list`](#project-credits-list) |  |
+| HEAD | `/api/project-credits/` | [`project_credits_count`](#project-credits-count) |  |
+| POST | `/api/project-credits/` | [`project_credits_create`](#project-credits-create) |  |
+| GET | `/api/project-credits/{uuid}/` | [`project_credits_retrieve`](#project-credits-retrieve) |  |
+| PUT | `/api/project-credits/{uuid}/` | [`project_credits_update`](#project-credits-update) |  |
+| PATCH | `/api/project-credits/{uuid}/` | [`project_credits_partial_update`](#project-credits-partial-update) |  |
+| DELETE | `/api/project-credits/{uuid}/` | [`project_credits_destroy`](#project-credits-destroy) |  |
+| GET | `/api/project-permissions-reviews/` | [`project_permissions_reviews_list`](#project-permissions-reviews-list) |  |
+| HEAD | `/api/project-permissions-reviews/` | [`project_permissions_reviews_count`](#project-permissions-reviews-count) |  |
+| GET | `/api/project-permissions-reviews/{uuid}/` | [`project_permissions_reviews_retrieve`](#project-permissions-reviews-retrieve) |  |
+| POST | `/api/project-permissions-reviews/{uuid}/close/` | [`project_permissions_reviews_close`](#project-permissions-reviews-close) | Close project permission review |
+| GET | `/api/project-quotas/` | [`project_quotas_list`](#project-quotas-list) |  |
+| HEAD | `/api/project-quotas/` | [`project_quotas_count`](#project-quotas-count) |  |
+| GET | `/api/project-types/` | [`project_types_list`](#project-types-list) | List project types |
+| HEAD | `/api/project-types/` | [`project_types_count`](#project-types-count) | List project types |
+| GET | `/api/project-types/{uuid}/` | [`project_types_retrieve`](#project-types-retrieve) | Retrieve project type details |
+| GET | `/api/projects/` | [`projects_list`](#projects-list) | List projects |
+| HEAD | `/api/projects/` | [`projects_count`](#projects-count) | List projects |
+| POST | `/api/projects/` | [`projects_create`](#projects-create) | Create a new project |
+| GET | `/api/projects/checklist-template/` | [`projects_checklist_template_retrieve`](#projects-checklist-template-retrieve) |  |
+| HEAD | `/api/projects/checklist-template/` | [`projects_checklist_template_count`](#projects-checklist-template-count) |  |
+| GET | `/api/projects/{project_uuid}/other_users/` | [`projects_other_users_list`](#projects-other-users-list) |  |
+| GET | `/api/projects/{uuid}/` | [`projects_retrieve`](#projects-retrieve) | Retrieve project details |
+| PUT | `/api/projects/{uuid}/` | [`projects_update`](#projects-update) | Update project details |
+| PATCH | `/api/projects/{uuid}/` | [`projects_partial_update`](#projects-partial-update) | Partially update project details |
+| DELETE | `/api/projects/{uuid}/` | [`projects_destroy`](#projects-destroy) | Delete a project |
+| POST | `/api/projects/{uuid}/add_user/` | [`projects_add_user`](#projects-add-user) | Grant a role to a user |
+| GET | `/api/projects/{uuid}/checklist/` | [`projects_checklist_retrieve`](#projects-checklist-retrieve) |  |
+| GET | `/api/projects/{uuid}/completion_status/` | [`projects_completion_status_retrieve`](#projects-completion-status-retrieve) |  |
+| POST | `/api/projects/{uuid}/delete_user/` | [`projects_delete_user`](#projects-delete-user) | Revoke a role from a user |
+| GET | `/api/projects/{uuid}/list_users/` | [`projects_list_users_list`](#projects-list-users-list) | List users and their roles in a scope |
+| POST | `/api/projects/{uuid}/move_project/` | [`projects_move_project`](#projects-move-project) | Move project to another customer |
+| POST | `/api/projects/{uuid}/recover/` | [`projects_recover`](#projects-recover) | Recover a soft-deleted project |
+| GET | `/api/projects/{uuid}/stats/` | [`projects_stats_retrieve`](#projects-stats-retrieve) | Get project resource usage statistics |
+| POST | `/api/projects/{uuid}/submit_answers/` | [`projects_submit_answers`](#projects-submit-answers) |  |
+| POST | `/api/projects/{uuid}/sync_user_roles/` | [`projects_sync_user_roles`](#projects-sync-user-roles) |  |
+| POST | `/api/projects/{uuid}/update_user/` | [`projects_update_user`](#projects-update-user) | Update a user's role expiration |
 
 ## Endpoint Details
 
 ### project_credits_list
 
 **`GET`** `/api/project-credits/`
-
-**Operation ID:** `project_credits_list`
 
 **Parameters:**
 
@@ -76,8 +74,6 @@
 ### project_credits_count
 
 **`HEAD`** `/api/project-credits/`
-
-**Operation ID:** `project_credits_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -104,8 +100,6 @@ Get number of items in the collection matching the request parameters.
 ### project_credits_create
 
 **`POST`** `/api/project-credits/`
-
-**Operation ID:** `project_credits_create`
 
 **Request Body** (`application/json`, required):
 
@@ -134,8 +128,6 @@ Schema: `ProjectCreditRequest`
 
 **`GET`** `/api/project-credits/{uuid}/`
 
-**Operation ID:** `project_credits_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -153,8 +145,6 @@ Schema: `ProjectCreditRequest`
 ### project_credits_update
 
 **`PUT`** `/api/project-credits/{uuid}/`
-
-**Operation ID:** `project_credits_update`
 
 **Parameters:**
 
@@ -189,8 +179,6 @@ Schema: `ProjectCreditRequest`
 
 **`PATCH`** `/api/project-credits/{uuid}/`
 
-**Operation ID:** `project_credits_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -224,8 +212,6 @@ Schema: `PatchedProjectCreditRequest`
 
 **`DELETE`** `/api/project-credits/{uuid}/`
 
-**Operation ID:** `project_credits_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -243,8 +229,6 @@ Schema: `PatchedProjectCreditRequest`
 ### project_permissions_reviews_list
 
 **`GET`** `/api/project-permissions-reviews/`
-
-**Operation ID:** `project_permissions_reviews_list`
 
 **Parameters:**
 
@@ -267,8 +251,6 @@ Schema: `PatchedProjectCreditRequest`
 ### project_permissions_reviews_count
 
 **`HEAD`** `/api/project-permissions-reviews/`
-
-**Operation ID:** `project_permissions_reviews_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -294,8 +276,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/project-permissions-reviews/{uuid}/`
 
-**Operation ID:** `project_permissions_reviews_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -310,11 +290,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Close project permission review
+### project_permissions_reviews_close
 
 **`POST`** `/api/project-permissions-reviews/{uuid}/close/`
 
-**Operation ID:** `project_permissions_reviews_close`
+**Summary:** Close project permission review
 
 Complete project permission review.
 
@@ -336,8 +316,6 @@ Complete project permission review.
 
 **`GET`** `/api/project-quotas/`
 
-**Operation ID:** `project_quotas_list`
-
 List project quotas.
 
 **Parameters:**
@@ -357,8 +335,6 @@ List project quotas.
 
 **`HEAD`** `/api/project-quotas/`
 
-**Operation ID:** `project_quotas_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -374,11 +350,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### List project types
+### project_types_list
 
 **`GET`** `/api/project-types/`
 
-**Operation ID:** `project_types_list`
+**Summary:** List project types
 
 Retrieve a list of available project types.
 
@@ -397,11 +373,11 @@ Retrieve a list of available project types.
 
 ---
 
-### List project types
+### project_types_count
 
 **`HEAD`** `/api/project-types/`
 
-**Operation ID:** `project_types_count`
+**Summary:** List project types
 
 Get number of items in the collection matching the request parameters.
 
@@ -420,11 +396,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve project type details
+### project_types_retrieve
 
 **`GET`** `/api/project-types/{uuid}/`
 
-**Operation ID:** `project_types_retrieve`
+**Summary:** Retrieve project type details
 
 Fetch details of a specific project type by its UUID.
 
@@ -442,11 +418,11 @@ Fetch details of a specific project type by its UUID.
 
 ---
 
-### List projects
+### projects_list
 
 **`GET`** `/api/projects/`
 
-**Operation ID:** `projects_list`
+**Summary:** List projects
 
 Retrieve a list of projects. The list is filtered based on the user's permissions. By default, only active projects are shown.
 
@@ -484,11 +460,11 @@ Retrieve a list of projects. The list is filtered based on the user's permission
 
 ---
 
-### List projects
+### projects_count
 
 **`HEAD`** `/api/projects/`
 
-**Operation ID:** `projects_count`
+**Summary:** List projects
 
 Get number of items in the collection matching the request parameters.
 
@@ -525,11 +501,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a new project
+### projects_create
 
 **`POST`** `/api/projects/`
 
-**Operation ID:** `projects_create`
+**Summary:** Create a new project
 
 A new project can be created by users with staff privilege (is_staff=True) or customer owners. Project resource quota is optional.
 
@@ -569,8 +545,6 @@ Schema: `ProjectRequest`
 
 **`GET`** `/api/projects/checklist-template/`
 
-**Operation ID:** `projects_checklist_template_retrieve`
-
 Get checklist template for creating new objects.
 
 **Parameters:**
@@ -593,8 +567,6 @@ Get checklist template for creating new objects.
 
 **`HEAD`** `/api/projects/checklist-template/`
 
-**Operation ID:** `projects_checklist_template_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -614,8 +586,6 @@ Get number of items in the collection matching the request parameters.
 ### projects_other_users_list
 
 **`GET`** `/api/projects/{project_uuid}/other_users/`
-
-**Operation ID:** `projects_other_users_list`
 
 A list of users which can be added to the current project from other projects of the same customer.
 
@@ -649,11 +619,11 @@ A list of users which can be added to the current project from other projects of
 
 ---
 
-### Retrieve project details
+### projects_retrieve
 
 **`GET`** `/api/projects/{uuid}/`
 
-**Operation ID:** `projects_retrieve`
+**Summary:** Retrieve project details
 
 Fetch the details of a specific project by its UUID. Users can access details of terminated projects they previously had access to.
 
@@ -672,11 +642,11 @@ Fetch the details of a specific project by its UUID. Users can access details of
 
 ---
 
-### Update project details
+### projects_update
 
 **`PUT`** `/api/projects/{uuid}/`
 
-**Operation ID:** `projects_update`
+**Summary:** Update project details
 
 Update the details of a project. Requires project administrator or customer owner permissions.
 
@@ -718,11 +688,11 @@ Schema: `ProjectRequest`
 
 ---
 
-### Partially update project details
+### projects_partial_update
 
 **`PATCH`** `/api/projects/{uuid}/`
 
-**Operation ID:** `projects_partial_update`
+**Summary:** Partially update project details
 
 Partially update the details of a project. Requires project administrator or customer owner permissions.
 
@@ -764,11 +734,11 @@ Schema: `PatchedProjectRequest`
 
 ---
 
-### Delete a project
+### projects_destroy
 
 **`DELETE`** `/api/projects/{uuid}/`
 
-**Operation ID:** `projects_destroy`
+**Summary:** Delete a project
 
 Delete a project. If the project has any active resources, the deletion request will fail with a 409 Conflict response. This action performs a soft-delete, and the project can be recovered later.
 
@@ -786,11 +756,11 @@ Delete a project. If the project has any active resources, the deletion request 
 
 ---
 
-### Grant a role to a user
+### projects_add_user
 
 **`POST`** `/api/projects/{uuid}/add_user/`
 
-**Operation ID:** `projects_add_user`
+**Summary:** Grant a role to a user
 
 Assigns a specific role to a user within the current scope. An optional expiration time for the role can be set.
 
@@ -823,8 +793,6 @@ Schema: `UserRoleCreateRequest`
 
 **`GET`** `/api/projects/{uuid}/checklist/`
 
-**Operation ID:** `projects_checklist_retrieve`
-
 Get checklist with questions and existing answers.
 
 **Parameters:**
@@ -848,8 +816,6 @@ Get checklist with questions and existing answers.
 
 **`GET`** `/api/projects/{uuid}/completion_status/`
 
-**Operation ID:** `projects_completion_status_retrieve`
-
 Get checklist completion status.
 
 **Parameters:**
@@ -868,11 +834,11 @@ Get checklist completion status.
 
 ---
 
-### Revoke a role from a user
+### projects_delete_user
 
 **`POST`** `/api/projects/{uuid}/delete_user/`
 
-**Operation ID:** `projects_delete_user`
+**Summary:** Revoke a role from a user
 
 Removes a specific role from a user within the current scope. This effectively revokes their permissions associated with that role.
 
@@ -900,11 +866,11 @@ Schema: `UserRoleDeleteRequest`
 
 ---
 
-### List users and their roles in a scope
+### projects_list_users_list
 
 **`GET`** `/api/projects/{uuid}/list_users/`
 
-**Operation ID:** `projects_list_users_list`
+**Summary:** List users and their roles in a scope
 
 Retrieves a list of users who have a role within a specific scope (e.g., a project or an organization). The list can be filtered by user details or role.
 
@@ -932,11 +898,11 @@ Retrieves a list of users who have a role within a specific scope (e.g., a proje
 
 ---
 
-### Move project to another customer
+### projects_move_project
 
 **`POST`** `/api/projects/{uuid}/move_project/`
 
-**Operation ID:** `projects_move_project`
+**Summary:** Move project to another customer
 
 Moves a project and its associated resources to a different customer. You can choose whether to preserve existing project permissions for users. Terminated projects can also be moved.
 
@@ -963,11 +929,11 @@ Schema: `MoveProjectRequest`
 
 ---
 
-### Recover a soft-deleted project
+### projects_recover
 
 **`POST`** `/api/projects/{uuid}/recover/`
 
-**Operation ID:** `projects_recover`
+**Summary:** Recover a soft-deleted project
 
 Recovers a soft-deleted (terminated) project, making it active again. Provides options to restore previous team members automatically (staff-only) or send them new invitations.
 
@@ -995,11 +961,11 @@ Schema: `ProjectRecoveryRequest`
 
 ---
 
-### Get project resource usage statistics
+### projects_stats_retrieve
 
 **`GET`** `/api/projects/{uuid}/stats/`
 
-**Operation ID:** `projects_stats_retrieve`
+**Summary:** Get project resource usage statistics
 
 Provides statistics about the resource usage (e.g., CPU, RAM, storage) for all resources within a project. Can be filtered to show usage for the current month only.
 
@@ -1021,8 +987,6 @@ Provides statistics about the resource usage (e.g., CPU, RAM, storage) for all r
 ### projects_submit_answers
 
 **`POST`** `/api/projects/{uuid}/submit_answers/`
-
-**Operation ID:** `projects_submit_answers`
 
 Submit checklist answers.
 
@@ -1048,8 +1012,6 @@ Submit checklist answers.
 
 **`POST`** `/api/projects/{uuid}/sync_user_roles/`
 
-**Operation ID:** `projects_sync_user_roles`
-
 Trigger user role sync for this project. Sends a notification to RabbitMQ that this project needs user role synchronization.
 
 **Parameters:**
@@ -1066,11 +1028,11 @@ Trigger user role sync for this project. Sends a notification to RabbitMQ that t
 
 ---
 
-### Update a user's role expiration
+### projects_update_user
 
 **`POST`** `/api/projects/{uuid}/update_user/`
 
-**Operation ID:** `projects_update_user`
+**Summary:** Update a user's role expiration
 
 Updates the expiration time for a user's existing role in the current scope. This is useful for extending or shortening the duration of a permission. To make a role permanent, set expiration_time to null.
 

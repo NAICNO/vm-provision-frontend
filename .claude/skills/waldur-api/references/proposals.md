@@ -7,262 +7,260 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/assignment-batches/` | `assignment_batches_list` |  |
-| HEAD | `/api/assignment-batches/` | `assignment_batches_count` |  |
-| POST | `/api/assignment-batches/` | `assignment_batches_create` |  |
-| GET | `/api/assignment-batches/{uuid}/` | `assignment_batches_retrieve` |  |
-| PUT | `/api/assignment-batches/{uuid}/` | `assignment_batches_update` |  |
-| PATCH | `/api/assignment-batches/{uuid}/` | `assignment_batches_partial_update` |  |
-| DELETE | `/api/assignment-batches/{uuid}/` | `assignment_batches_destroy` |  |
-| POST | `/api/assignment-batches/{uuid}/cancel/` | `assignment_batches_cancel` |  |
-| POST | `/api/assignment-batches/{uuid}/extend-deadline/` | `assignment_batches_extend_deadline` |  |
-| POST | `/api/assignment-batches/{uuid}/send/` | `assignment_batches_send` |  |
-| GET | `/api/assignment-items/` | `assignment_items_list` |  |
-| HEAD | `/api/assignment-items/` | `assignment_items_count` |  |
-| POST | `/api/assignment-items/` | `assignment_items_create` |  |
-| GET | `/api/assignment-items/{uuid}/` | `assignment_items_retrieve` |  |
-| PUT | `/api/assignment-items/{uuid}/` | `assignment_items_update` |  |
-| PATCH | `/api/assignment-items/{uuid}/` | `assignment_items_partial_update` |  |
-| DELETE | `/api/assignment-items/{uuid}/` | `assignment_items_destroy` |  |
-| POST | `/api/assignment-items/{uuid}/accept/` | `assignment_items_accept` |  |
-| POST | `/api/assignment-items/{uuid}/decline/` | `assignment_items_decline` |  |
-| POST | `/api/assignment-items/{uuid}/reassign/` | `assignment_items_reassign` |  |
-| GET | `/api/assignment-items/{uuid}/suggest_alternatives/` | `assignment_items_suggest_alternatives_retrieve` |  |
-| GET | `/api/call-assignment-configurations/` | `call_assignment_configurations_list` |  |
-| HEAD | `/api/call-assignment-configurations/` | `call_assignment_configurations_count` |  |
-| POST | `/api/call-assignment-configurations/` | `call_assignment_configurations_create` |  |
-| GET | `/api/call-assignment-configurations/{uuid}/` | `call_assignment_configurations_retrieve` |  |
-| PUT | `/api/call-assignment-configurations/{uuid}/` | `call_assignment_configurations_update` |  |
-| PATCH | `/api/call-assignment-configurations/{uuid}/` | `call_assignment_configurations_partial_update` |  |
-| DELETE | `/api/call-assignment-configurations/{uuid}/` | `call_assignment_configurations_destroy` |  |
-| GET | `/api/call-managing-organisations/` | `call_managing_organisations_list` |  |
-| HEAD | `/api/call-managing-organisations/` | `call_managing_organisations_count` |  |
-| POST | `/api/call-managing-organisations/` | `call_managing_organisations_create` |  |
-| GET | `/api/call-managing-organisations/{uuid}/` | `call_managing_organisations_retrieve` |  |
-| PUT | `/api/call-managing-organisations/{uuid}/` | `call_managing_organisations_update` |  |
-| PATCH | `/api/call-managing-organisations/{uuid}/` | `call_managing_organisations_partial_update` |  |
-| DELETE | `/api/call-managing-organisations/{uuid}/` | `call_managing_organisations_destroy` |  |
-| POST | `/api/call-managing-organisations/{uuid}/add_user/` | `call_managing_organisations_add_user` | Grant a role to a user |
-| POST | `/api/call-managing-organisations/{uuid}/delete_user/` | `call_managing_organisations_delete_user` | Revoke a role from a user |
-| GET | `/api/call-managing-organisations/{uuid}/list_users/` | `call_managing_organisations_list_users_list` | List users and their roles in a scope |
-| GET | `/api/call-managing-organisations/{uuid}/stats/` | `call_managing_organisations_stats_retrieve` |  |
-| POST | `/api/call-managing-organisations/{uuid}/update_user/` | `call_managing_organisations_update_user` | Update a user's role expiration |
-| GET | `/api/call-proposal-project-role-mappings/` | `call_proposal_project_role_mappings_list` |  |
-| HEAD | `/api/call-proposal-project-role-mappings/` | `call_proposal_project_role_mappings_count` |  |
-| POST | `/api/call-proposal-project-role-mappings/` | `call_proposal_project_role_mappings_create` |  |
-| GET | `/api/call-proposal-project-role-mappings/{uuid}/` | `call_proposal_project_role_mappings_retrieve` |  |
-| PUT | `/api/call-proposal-project-role-mappings/{uuid}/` | `call_proposal_project_role_mappings_update` |  |
-| PATCH | `/api/call-proposal-project-role-mappings/{uuid}/` | `call_proposal_project_role_mappings_partial_update` |  |
-| DELETE | `/api/call-proposal-project-role-mappings/{uuid}/` | `call_proposal_project_role_mappings_destroy` |  |
-| GET | `/api/call-reviewer-pools/` | `call_reviewer_pools_list` |  |
-| HEAD | `/api/call-reviewer-pools/` | `call_reviewer_pools_count` |  |
-| GET | `/api/call-reviewer-pools/{uuid}/` | `call_reviewer_pools_retrieve` |  |
-| PATCH | `/api/call-reviewer-pools/{uuid}/` | `call_reviewer_pools_partial_update` |  |
-| POST | `/api/call-reviewer-pools/{uuid}/accept/` | `call_reviewer_pools_accept` |  |
-| POST | `/api/call-reviewer-pools/{uuid}/decline/` | `call_reviewer_pools_decline` |  |
-| GET | `/api/call-rounds/` | `call_rounds_list` |  |
-| HEAD | `/api/call-rounds/` | `call_rounds_count` |  |
-| GET | `/api/call-rounds/{uuid}/` | `call_rounds_retrieve` |  |
-| GET | `/api/call-rounds/{uuid}/reviewers/` | `call_rounds_reviewers_list` |  |
-| GET | `/api/coi-detection-jobs/` | `coi_detection_jobs_list` |  |
-| HEAD | `/api/coi-detection-jobs/` | `coi_detection_jobs_count` |  |
-| GET | `/api/coi-detection-jobs/{uuid}/` | `coi_detection_jobs_retrieve` |  |
-| GET | `/api/coi-disclosures/` | `coi_disclosures_list` |  |
-| HEAD | `/api/coi-disclosures/` | `coi_disclosures_count` |  |
-| POST | `/api/coi-disclosures/` | `coi_disclosures_create` |  |
-| GET | `/api/coi-disclosures/{uuid}/` | `coi_disclosures_retrieve` |  |
-| GET | `/api/conflicts-of-interest/` | `conflicts_of_interest_list` |  |
-| HEAD | `/api/conflicts-of-interest/` | `conflicts_of_interest_count` |  |
-| GET | `/api/conflicts-of-interest/{uuid}/` | `conflicts_of_interest_retrieve` |  |
-| PUT | `/api/conflicts-of-interest/{uuid}/` | `conflicts_of_interest_update` |  |
-| PATCH | `/api/conflicts-of-interest/{uuid}/` | `conflicts_of_interest_partial_update` |  |
-| POST | `/api/conflicts-of-interest/{uuid}/dismiss/` | `conflicts_of_interest_dismiss` |  |
-| POST | `/api/conflicts-of-interest/{uuid}/recuse/` | `conflicts_of_interest_recuse` |  |
-| POST | `/api/conflicts-of-interest/{uuid}/waive/` | `conflicts_of_interest_waive` |  |
-| GET | `/api/my-assignment-batches/` | `my_assignment_batches_list` |  |
-| HEAD | `/api/my-assignment-batches/` | `my_assignment_batches_count` |  |
-| GET | `/api/my-assignment-batches/{uuid}/` | `my_assignment_batches_retrieve` |  |
-| GET | `/api/proposal-proposals/` | `proposal_proposals_list` |  |
-| HEAD | `/api/proposal-proposals/` | `proposal_proposals_count` |  |
-| POST | `/api/proposal-proposals/` | `proposal_proposals_create` |  |
-| GET | `/api/proposal-proposals/checklist-template/` | `proposal_proposals_checklist_template_retrieve` |  |
-| HEAD | `/api/proposal-proposals/checklist-template/` | `proposal_proposals_checklist_template_count` |  |
-| GET | `/api/proposal-proposals/{uuid}/` | `proposal_proposals_retrieve` |  |
-| DELETE | `/api/proposal-proposals/{uuid}/` | `proposal_proposals_destroy` |  |
-| POST | `/api/proposal-proposals/{uuid}/add_user/` | `proposal_proposals_add_user` | Grant a role to a user |
-| POST | `/api/proposal-proposals/{uuid}/approve/` | `proposal_proposals_approve` |  |
-| POST | `/api/proposal-proposals/{uuid}/attach_document/` | `proposal_proposals_attach_document` |  |
-| GET | `/api/proposal-proposals/{uuid}/checklist/` | `proposal_proposals_checklist_retrieve` |  |
-| GET | `/api/proposal-proposals/{uuid}/checklist_review/` | `proposal_proposals_checklist_review_retrieve` |  |
-| GET | `/api/proposal-proposals/{uuid}/completion_review_status/` | `proposal_proposals_completion_review_status_retrieve` |  |
-| GET | `/api/proposal-proposals/{uuid}/completion_status/` | `proposal_proposals_completion_status_retrieve` |  |
-| POST | `/api/proposal-proposals/{uuid}/delete_user/` | `proposal_proposals_delete_user` | Revoke a role from a user |
-| POST | `/api/proposal-proposals/{uuid}/detach_documents/` | `proposal_proposals_detach_documents` |  |
-| GET | `/api/proposal-proposals/{uuid}/list_users/` | `proposal_proposals_list_users_list` | List users and their roles in a scope |
-| POST | `/api/proposal-proposals/{uuid}/reject/` | `proposal_proposals_reject` |  |
-| GET | `/api/proposal-proposals/{uuid}/resources/` | `proposal_proposals_resources_list` |  |
-| POST | `/api/proposal-proposals/{uuid}/resources/` | `proposal_proposals_resources_set` |  |
-| GET | `/api/proposal-proposals/{uuid}/resources/{obj_uuid}/` | `proposal_proposals_resources_retrieve` |  |
-| PUT | `/api/proposal-proposals/{uuid}/resources/{obj_uuid}/` | `proposal_proposals_resources_update` |  |
-| PATCH | `/api/proposal-proposals/{uuid}/resources/{obj_uuid}/` | `proposal_proposals_resources_partial_update` |  |
-| DELETE | `/api/proposal-proposals/{uuid}/resources/{obj_uuid}/` | `proposal_proposals_resources_destroy` |  |
-| POST | `/api/proposal-proposals/{uuid}/submit/` | `proposal_proposals_submit` |  |
-| POST | `/api/proposal-proposals/{uuid}/submit_answers/` | `proposal_proposals_submit_answers` |  |
-| POST | `/api/proposal-proposals/{uuid}/update_project_details/` | `proposal_proposals_update_project_details` |  |
-| POST | `/api/proposal-proposals/{uuid}/update_user/` | `proposal_proposals_update_user` | Update a user's role expiration |
-| GET | `/api/proposal-protected-calls/` | `proposal_protected_calls_list` |  |
-| HEAD | `/api/proposal-protected-calls/` | `proposal_protected_calls_count` |  |
-| POST | `/api/proposal-protected-calls/` | `proposal_protected_calls_create` |  |
-| GET | `/api/proposal-protected-calls/available_compliance_checklists/` | `proposal_protected_calls_available_compliance_checklists_list` |  |
-| HEAD | `/api/proposal-protected-calls/available_compliance_checklists/` | `proposal_protected_calls_available_compliance_checklists_count` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/` | `proposal_protected_calls_retrieve` |  |
-| PUT | `/api/proposal-protected-calls/{uuid}/` | `proposal_protected_calls_update` |  |
-| PATCH | `/api/proposal-protected-calls/{uuid}/` | `proposal_protected_calls_partial_update` |  |
-| DELETE | `/api/proposal-protected-calls/{uuid}/` | `proposal_protected_calls_destroy` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/activate/` | `proposal_protected_calls_activate` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/add_user/` | `proposal_protected_calls_add_user` | Grant a role to a user |
-| GET | `/api/proposal-protected-calls/{uuid}/affinity-matrix/` | `proposal_protected_calls_affinity_matrix_retrieve` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/applicant_attribute_config/` | `proposal_protected_calls_applicant_attribute_config_retrieve` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/archive/` | `proposal_protected_calls_archive` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/attach_documents/` | `proposal_protected_calls_attach_documents` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/coi-configuration/` | `proposal_protected_calls_coi_configuration_retrieve` |  |
-| PATCH | `/api/proposal-protected-calls/{uuid}/coi-configuration/` | `proposal_protected_calls_coi_configuration_partial_update` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/compliance_overview/` | `proposal_protected_calls_compliance_overview_retrieve` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/compute-affinities/` | `proposal_protected_calls_compute_affinities` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/conflict-summary/` | `proposal_protected_calls_conflict_summary_retrieve` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/conflicts/` | `proposal_protected_calls_conflicts_list` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/create-manual-assignment/` | `proposal_protected_calls_create_manual_assignment` |  |
-| DELETE | `/api/proposal-protected-calls/{uuid}/delete_applicant_attribute_config/` | `proposal_protected_calls_delete_applicant_attribute_config_destroy` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/delete_user/` | `proposal_protected_calls_delete_user` | Revoke a role from a user |
-| POST | `/api/proposal-protected-calls/{uuid}/detach_documents/` | `proposal_protected_calls_detach_documents` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/detect-conflicts/` | `proposal_protected_calls_detect_conflicts` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/generate-assignments/` | `proposal_protected_calls_generate_assignments` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/generate-suggestions/` | `proposal_protected_calls_generate_suggestions` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/invite-by-email/` | `proposal_protected_calls_invite_by_email` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/list_users/` | `proposal_protected_calls_list_users_list` | List users and their roles in a scope |
-| GET | `/api/proposal-protected-calls/{uuid}/matching-configuration/` | `proposal_protected_calls_matching_configuration_retrieve` |  |
-| PATCH | `/api/proposal-protected-calls/{uuid}/matching-configuration/` | `proposal_protected_calls_matching_configuration_partial_update` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/offerings/` | `proposal_protected_calls_offerings_list` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/offerings/` | `proposal_protected_calls_offerings_set` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/offerings/{obj_uuid}/` | `proposal_protected_calls_offerings_retrieve` |  |
-| PUT | `/api/proposal-protected-calls/{uuid}/offerings/{obj_uuid}/` | `proposal_protected_calls_offerings_update` |  |
-| PATCH | `/api/proposal-protected-calls/{uuid}/offerings/{obj_uuid}/` | `proposal_protected_calls_offerings_partial_update` |  |
-| DELETE | `/api/proposal-protected-calls/{uuid}/offerings/{obj_uuid}/` | `proposal_protected_calls_offerings_destroy` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/proposals/{proposal_uuid}/compliance-answers/` | `proposal_protected_calls_proposals_compliance_answers_list` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/proposed-assignments/` | `proposal_protected_calls_proposed_assignments_list` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/resource_templates/` | `proposal_protected_calls_resource_templates_list` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/resource_templates/` | `proposal_protected_calls_resource_templates_set` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/resource_templates/{obj_uuid}/` | `proposal_protected_calls_resource_templates_retrieve` |  |
-| PUT | `/api/proposal-protected-calls/{uuid}/resource_templates/{obj_uuid}/` | `proposal_protected_calls_resource_templates_update` |  |
-| PATCH | `/api/proposal-protected-calls/{uuid}/resource_templates/{obj_uuid}/` | `proposal_protected_calls_resource_templates_partial_update` |  |
-| DELETE | `/api/proposal-protected-calls/{uuid}/resource_templates/{obj_uuid}/` | `proposal_protected_calls_resource_templates_destroy` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/review_proposal_compliance/` | `proposal_protected_calls_review_proposal_compliance` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/reviewer-pool/` | `proposal_protected_calls_reviewer_pool_list` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/reviewer-pool/` | `proposal_protected_calls_invite_reviewers` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/rounds/` | `proposal_protected_calls_rounds_list` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/rounds/` | `proposal_protected_calls_rounds_set` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/` | `proposal_protected_calls_rounds_retrieve` |  |
-| PUT | `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/` | `proposal_protected_calls_rounds_update` |  |
-| PATCH | `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/` | `proposal_protected_calls_rounds_partial_update` |  |
-| DELETE | `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/` | `proposal_protected_calls_rounds_destroy` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/close/` | `proposal_protected_calls_rounds_close` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/send-all-assignments/` | `proposal_protected_calls_send_all_assignments` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/send-invitations/` | `proposal_protected_calls_send_invitations` |  |
-| GET | `/api/proposal-protected-calls/{uuid}/suggestions/` | `proposal_protected_calls_suggestions_list` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/update_applicant_attribute_config/` | `proposal_protected_calls_update_applicant_attribute_config` |  |
-| PATCH | `/api/proposal-protected-calls/{uuid}/update_applicant_attribute_config/` | `proposal_protected_calls_update_applicant_attribute_config_partial_update` |  |
-| POST | `/api/proposal-protected-calls/{uuid}/update_user/` | `proposal_protected_calls_update_user` | Update a user's role expiration |
-| GET | `/api/proposal-public-calls/` | `proposal_public_calls_list` |  |
-| HEAD | `/api/proposal-public-calls/` | `proposal_public_calls_count` |  |
-| GET | `/api/proposal-public-calls/{uuid}/` | `proposal_public_calls_retrieve` |  |
-| GET | `/api/proposal-public-calls/{uuid}/check_eligibility/` | `proposal_public_calls_check_eligibility_retrieve` |  |
-| GET | `/api/proposal-requested-offerings/` | `proposal_requested_offerings_list` |  |
-| HEAD | `/api/proposal-requested-offerings/` | `proposal_requested_offerings_count` |  |
-| GET | `/api/proposal-requested-offerings/{uuid}/` | `proposal_requested_offerings_retrieve` |  |
-| POST | `/api/proposal-requested-offerings/{uuid}/accept/` | `proposal_requested_offerings_accept` |  |
-| POST | `/api/proposal-requested-offerings/{uuid}/cancel/` | `proposal_requested_offerings_cancel` |  |
-| GET | `/api/proposal-requested-resources/` | `proposal_requested_resources_list` |  |
-| HEAD | `/api/proposal-requested-resources/` | `proposal_requested_resources_count` |  |
-| GET | `/api/proposal-requested-resources/{uuid}/` | `proposal_requested_resources_retrieve` |  |
-| GET | `/api/proposal-reviews/` | `proposal_reviews_list` |  |
-| HEAD | `/api/proposal-reviews/` | `proposal_reviews_count` |  |
-| POST | `/api/proposal-reviews/` | `proposal_reviews_create` |  |
-| GET | `/api/proposal-reviews/{uuid}/` | `proposal_reviews_retrieve` |  |
-| PUT | `/api/proposal-reviews/{uuid}/` | `proposal_reviews_update` |  |
-| PATCH | `/api/proposal-reviews/{uuid}/` | `proposal_reviews_partial_update` |  |
-| DELETE | `/api/proposal-reviews/{uuid}/` | `proposal_reviews_destroy` |  |
-| POST | `/api/proposal-reviews/{uuid}/reject/` | `proposal_reviews_reject` |  |
-| POST | `/api/proposal-reviews/{uuid}/submit/` | `proposal_reviews_submit` |  |
-| GET | `/api/reviewer-bids/` | `reviewer_bids_list` |  |
-| HEAD | `/api/reviewer-bids/` | `reviewer_bids_count` |  |
-| POST | `/api/reviewer-bids/` | `reviewer_bids_create` |  |
-| POST | `/api/reviewer-bids/bulk-submit/` | `reviewer_bids_bulk_submit` |  |
-| GET | `/api/reviewer-bids/my-bids/` | `reviewer_bids_my_bids_list` |  |
-| HEAD | `/api/reviewer-bids/my-bids/` | `reviewer_bids_my_bids_count` |  |
-| POST | `/api/reviewer-bids/submit/` | `reviewer_bids_submit` |  |
-| GET | `/api/reviewer-bids/{uuid}/` | `reviewer_bids_retrieve` |  |
-| PUT | `/api/reviewer-bids/{uuid}/` | `reviewer_bids_update` |  |
-| PATCH | `/api/reviewer-bids/{uuid}/` | `reviewer_bids_partial_update` |  |
-| DELETE | `/api/reviewer-bids/{uuid}/` | `reviewer_bids_destroy` |  |
-| GET | `/api/reviewer-invitations/{token}/` | `reviewer_invitations_retrieve` |  |
-| POST | `/api/reviewer-invitations/{token}/accept/` | `reviewer_invitations_accept` |  |
-| POST | `/api/reviewer-invitations/{token}/decline/` | `reviewer_invitations_decline` |  |
-| GET | `/api/reviewer-profiles/` | `reviewer_profiles_list` |  |
-| HEAD | `/api/reviewer-profiles/` | `reviewer_profiles_count` |  |
-| POST | `/api/reviewer-profiles/` | `reviewer_profiles_create` |  |
-| GET | `/api/reviewer-profiles/me/` | `reviewer_profiles_me_retrieve` |  |
-| HEAD | `/api/reviewer-profiles/me/` | `reviewer_profiles_me_count` |  |
-| POST | `/api/reviewer-profiles/me/` | `reviewer_profiles_me` |  |
-| PATCH | `/api/reviewer-profiles/me/` | `reviewer_profiles_me_partial_update` |  |
-| POST | `/api/reviewer-profiles/publish/` | `reviewer_profiles_publish` |  |
-| POST | `/api/reviewer-profiles/unpublish/` | `reviewer_profiles_unpublish` |  |
-| GET | `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/` | `nested_reviewer_profile_affiliations_list` |  |
-| POST | `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/` | `nested_reviewer_profile_affiliations_create` |  |
-| GET | `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/{uuid}/` | `nested_reviewer_profile_affiliations_retrieve` |  |
-| PUT | `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/{uuid}/` | `nested_reviewer_profile_affiliations_update` |  |
-| PATCH | `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/{uuid}/` | `nested_reviewer_profile_affiliations_partial_update` |  |
-| DELETE | `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/{uuid}/` | `nested_reviewer_profile_affiliations_destroy` |  |
-| GET | `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/` | `nested_reviewer_profile_expertise_list` |  |
-| POST | `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/` | `nested_reviewer_profile_expertise_create` |  |
-| GET | `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/{uuid}/` | `nested_reviewer_profile_expertise_retrieve` |  |
-| PUT | `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/{uuid}/` | `nested_reviewer_profile_expertise_update` |  |
-| PATCH | `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/{uuid}/` | `nested_reviewer_profile_expertise_partial_update` |  |
-| DELETE | `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/{uuid}/` | `nested_reviewer_profile_expertise_destroy` |  |
-| GET | `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/` | `nested_reviewer_profile_publications_list` |  |
-| POST | `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/` | `nested_reviewer_profile_publications_create` |  |
-| GET | `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/{uuid}/` | `nested_reviewer_profile_publications_retrieve` |  |
-| PUT | `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/{uuid}/` | `nested_reviewer_profile_publications_update` |  |
-| PATCH | `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/{uuid}/` | `nested_reviewer_profile_publications_partial_update` |  |
-| DELETE | `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/{uuid}/` | `nested_reviewer_profile_publications_destroy` |  |
-| GET | `/api/reviewer-profiles/{uuid}/` | `reviewer_profiles_retrieve` |  |
-| PUT | `/api/reviewer-profiles/{uuid}/` | `reviewer_profiles_update` |  |
-| PATCH | `/api/reviewer-profiles/{uuid}/` | `reviewer_profiles_partial_update` |  |
-| DELETE | `/api/reviewer-profiles/{uuid}/` | `reviewer_profiles_destroy` |  |
-| GET | `/api/reviewer-profiles/{uuid}/affiliations/` | `reviewer_profiles_affiliations_list` |  |
-| POST | `/api/reviewer-profiles/{uuid}/affiliations/` | `reviewer_profiles_affiliations_create` |  |
-| GET | `/api/reviewer-profiles/{uuid}/connect-orcid/` | `reviewer_profiles_connect_orcid_retrieve` |  |
-| POST | `/api/reviewer-profiles/{uuid}/connect-orcid/callback/` | `reviewer_profiles_connect_orcid_callback` |  |
-| POST | `/api/reviewer-profiles/{uuid}/disconnect-orcid/` | `reviewer_profiles_disconnect_orcid` |  |
-| GET | `/api/reviewer-profiles/{uuid}/expertise/` | `reviewer_profiles_expertise_list` |  |
-| POST | `/api/reviewer-profiles/{uuid}/expertise/` | `reviewer_profiles_expertise_create` |  |
-| POST | `/api/reviewer-profiles/{uuid}/import-publications/` | `reviewer_profiles_import_publications` |  |
-| GET | `/api/reviewer-profiles/{uuid}/publications/` | `reviewer_profiles_publications_list` |  |
-| POST | `/api/reviewer-profiles/{uuid}/publications/` | `reviewer_profiles_publications_create` |  |
-| POST | `/api/reviewer-profiles/{uuid}/sync-orcid/` | `reviewer_profiles_sync_orcid` |  |
-| GET | `/api/reviewer-suggestions/` | `reviewer_suggestions_list` |  |
-| HEAD | `/api/reviewer-suggestions/` | `reviewer_suggestions_count` |  |
-| GET | `/api/reviewer-suggestions/{uuid}/` | `reviewer_suggestions_retrieve` |  |
-| DELETE | `/api/reviewer-suggestions/{uuid}/` | `reviewer_suggestions_destroy` |  |
-| POST | `/api/reviewer-suggestions/{uuid}/confirm/` | `reviewer_suggestions_confirm` |  |
-| POST | `/api/reviewer-suggestions/{uuid}/reject/` | `reviewer_suggestions_reject` |  |
+| GET | `/api/assignment-batches/` | [`assignment_batches_list`](#assignment-batches-list) |  |
+| HEAD | `/api/assignment-batches/` | [`assignment_batches_count`](#assignment-batches-count) |  |
+| POST | `/api/assignment-batches/` | [`assignment_batches_create`](#assignment-batches-create) |  |
+| GET | `/api/assignment-batches/{uuid}/` | [`assignment_batches_retrieve`](#assignment-batches-retrieve) |  |
+| PUT | `/api/assignment-batches/{uuid}/` | [`assignment_batches_update`](#assignment-batches-update) |  |
+| PATCH | `/api/assignment-batches/{uuid}/` | [`assignment_batches_partial_update`](#assignment-batches-partial-update) |  |
+| DELETE | `/api/assignment-batches/{uuid}/` | [`assignment_batches_destroy`](#assignment-batches-destroy) |  |
+| POST | `/api/assignment-batches/{uuid}/cancel/` | [`assignment_batches_cancel`](#assignment-batches-cancel) |  |
+| POST | `/api/assignment-batches/{uuid}/extend-deadline/` | [`assignment_batches_extend_deadline`](#assignment-batches-extend-deadline) |  |
+| POST | `/api/assignment-batches/{uuid}/send/` | [`assignment_batches_send`](#assignment-batches-send) |  |
+| GET | `/api/assignment-items/` | [`assignment_items_list`](#assignment-items-list) |  |
+| HEAD | `/api/assignment-items/` | [`assignment_items_count`](#assignment-items-count) |  |
+| POST | `/api/assignment-items/` | [`assignment_items_create`](#assignment-items-create) |  |
+| GET | `/api/assignment-items/{uuid}/` | [`assignment_items_retrieve`](#assignment-items-retrieve) |  |
+| PUT | `/api/assignment-items/{uuid}/` | [`assignment_items_update`](#assignment-items-update) |  |
+| PATCH | `/api/assignment-items/{uuid}/` | [`assignment_items_partial_update`](#assignment-items-partial-update) |  |
+| DELETE | `/api/assignment-items/{uuid}/` | [`assignment_items_destroy`](#assignment-items-destroy) |  |
+| POST | `/api/assignment-items/{uuid}/accept/` | [`assignment_items_accept`](#assignment-items-accept) |  |
+| POST | `/api/assignment-items/{uuid}/decline/` | [`assignment_items_decline`](#assignment-items-decline) |  |
+| POST | `/api/assignment-items/{uuid}/reassign/` | [`assignment_items_reassign`](#assignment-items-reassign) |  |
+| GET | `/api/assignment-items/{uuid}/suggest_alternatives/` | [`assignment_items_suggest_alternatives_retrieve`](#assignment-items-suggest-alternatives-retrieve) |  |
+| GET | `/api/call-assignment-configurations/` | [`call_assignment_configurations_list`](#call-assignment-configurations-list) |  |
+| HEAD | `/api/call-assignment-configurations/` | [`call_assignment_configurations_count`](#call-assignment-configurations-count) |  |
+| POST | `/api/call-assignment-configurations/` | [`call_assignment_configurations_create`](#call-assignment-configurations-create) |  |
+| GET | `/api/call-assignment-configurations/{uuid}/` | [`call_assignment_configurations_retrieve`](#call-assignment-configurations-retrieve) |  |
+| PUT | `/api/call-assignment-configurations/{uuid}/` | [`call_assignment_configurations_update`](#call-assignment-configurations-update) |  |
+| PATCH | `/api/call-assignment-configurations/{uuid}/` | [`call_assignment_configurations_partial_update`](#call-assignment-configurations-partial-update) |  |
+| DELETE | `/api/call-assignment-configurations/{uuid}/` | [`call_assignment_configurations_destroy`](#call-assignment-configurations-destroy) |  |
+| GET | `/api/call-managing-organisations/` | [`call_managing_organisations_list`](#call-managing-organisations-list) |  |
+| HEAD | `/api/call-managing-organisations/` | [`call_managing_organisations_count`](#call-managing-organisations-count) |  |
+| POST | `/api/call-managing-organisations/` | [`call_managing_organisations_create`](#call-managing-organisations-create) |  |
+| GET | `/api/call-managing-organisations/{uuid}/` | [`call_managing_organisations_retrieve`](#call-managing-organisations-retrieve) |  |
+| PUT | `/api/call-managing-organisations/{uuid}/` | [`call_managing_organisations_update`](#call-managing-organisations-update) |  |
+| PATCH | `/api/call-managing-organisations/{uuid}/` | [`call_managing_organisations_partial_update`](#call-managing-organisations-partial-update) |  |
+| DELETE | `/api/call-managing-organisations/{uuid}/` | [`call_managing_organisations_destroy`](#call-managing-organisations-destroy) |  |
+| POST | `/api/call-managing-organisations/{uuid}/add_user/` | [`call_managing_organisations_add_user`](#call-managing-organisations-add-user) | Grant a role to a user |
+| POST | `/api/call-managing-organisations/{uuid}/delete_user/` | [`call_managing_organisations_delete_user`](#call-managing-organisations-delete-user) | Revoke a role from a user |
+| GET | `/api/call-managing-organisations/{uuid}/list_users/` | [`call_managing_organisations_list_users_list`](#call-managing-organisations-list-users-list) | List users and their roles in a scope |
+| GET | `/api/call-managing-organisations/{uuid}/stats/` | [`call_managing_organisations_stats_retrieve`](#call-managing-organisations-stats-retrieve) |  |
+| POST | `/api/call-managing-organisations/{uuid}/update_user/` | [`call_managing_organisations_update_user`](#call-managing-organisations-update-user) | Update a user's role expiration |
+| GET | `/api/call-proposal-project-role-mappings/` | [`call_proposal_project_role_mappings_list`](#call-proposal-project-role-mappings-list) |  |
+| HEAD | `/api/call-proposal-project-role-mappings/` | [`call_proposal_project_role_mappings_count`](#call-proposal-project-role-mappings-count) |  |
+| POST | `/api/call-proposal-project-role-mappings/` | [`call_proposal_project_role_mappings_create`](#call-proposal-project-role-mappings-create) |  |
+| GET | `/api/call-proposal-project-role-mappings/{uuid}/` | [`call_proposal_project_role_mappings_retrieve`](#call-proposal-project-role-mappings-retrieve) |  |
+| PUT | `/api/call-proposal-project-role-mappings/{uuid}/` | [`call_proposal_project_role_mappings_update`](#call-proposal-project-role-mappings-update) |  |
+| PATCH | `/api/call-proposal-project-role-mappings/{uuid}/` | [`call_proposal_project_role_mappings_partial_update`](#call-proposal-project-role-mappings-partial-update) |  |
+| DELETE | `/api/call-proposal-project-role-mappings/{uuid}/` | [`call_proposal_project_role_mappings_destroy`](#call-proposal-project-role-mappings-destroy) |  |
+| GET | `/api/call-reviewer-pools/` | [`call_reviewer_pools_list`](#call-reviewer-pools-list) |  |
+| HEAD | `/api/call-reviewer-pools/` | [`call_reviewer_pools_count`](#call-reviewer-pools-count) |  |
+| GET | `/api/call-reviewer-pools/{uuid}/` | [`call_reviewer_pools_retrieve`](#call-reviewer-pools-retrieve) |  |
+| PATCH | `/api/call-reviewer-pools/{uuid}/` | [`call_reviewer_pools_partial_update`](#call-reviewer-pools-partial-update) |  |
+| POST | `/api/call-reviewer-pools/{uuid}/accept/` | [`call_reviewer_pools_accept`](#call-reviewer-pools-accept) |  |
+| POST | `/api/call-reviewer-pools/{uuid}/decline/` | [`call_reviewer_pools_decline`](#call-reviewer-pools-decline) |  |
+| GET | `/api/call-rounds/` | [`call_rounds_list`](#call-rounds-list) |  |
+| HEAD | `/api/call-rounds/` | [`call_rounds_count`](#call-rounds-count) |  |
+| GET | `/api/call-rounds/{uuid}/` | [`call_rounds_retrieve`](#call-rounds-retrieve) |  |
+| GET | `/api/call-rounds/{uuid}/reviewers/` | [`call_rounds_reviewers_list`](#call-rounds-reviewers-list) |  |
+| GET | `/api/coi-detection-jobs/` | [`coi_detection_jobs_list`](#coi-detection-jobs-list) |  |
+| HEAD | `/api/coi-detection-jobs/` | [`coi_detection_jobs_count`](#coi-detection-jobs-count) |  |
+| GET | `/api/coi-detection-jobs/{uuid}/` | [`coi_detection_jobs_retrieve`](#coi-detection-jobs-retrieve) |  |
+| GET | `/api/coi-disclosures/` | [`coi_disclosures_list`](#coi-disclosures-list) |  |
+| HEAD | `/api/coi-disclosures/` | [`coi_disclosures_count`](#coi-disclosures-count) |  |
+| POST | `/api/coi-disclosures/` | [`coi_disclosures_create`](#coi-disclosures-create) |  |
+| GET | `/api/coi-disclosures/{uuid}/` | [`coi_disclosures_retrieve`](#coi-disclosures-retrieve) |  |
+| GET | `/api/conflicts-of-interest/` | [`conflicts_of_interest_list`](#conflicts-of-interest-list) |  |
+| HEAD | `/api/conflicts-of-interest/` | [`conflicts_of_interest_count`](#conflicts-of-interest-count) |  |
+| GET | `/api/conflicts-of-interest/{uuid}/` | [`conflicts_of_interest_retrieve`](#conflicts-of-interest-retrieve) |  |
+| PUT | `/api/conflicts-of-interest/{uuid}/` | [`conflicts_of_interest_update`](#conflicts-of-interest-update) |  |
+| PATCH | `/api/conflicts-of-interest/{uuid}/` | [`conflicts_of_interest_partial_update`](#conflicts-of-interest-partial-update) |  |
+| POST | `/api/conflicts-of-interest/{uuid}/dismiss/` | [`conflicts_of_interest_dismiss`](#conflicts-of-interest-dismiss) |  |
+| POST | `/api/conflicts-of-interest/{uuid}/recuse/` | [`conflicts_of_interest_recuse`](#conflicts-of-interest-recuse) |  |
+| POST | `/api/conflicts-of-interest/{uuid}/waive/` | [`conflicts_of_interest_waive`](#conflicts-of-interest-waive) |  |
+| GET | `/api/my-assignment-batches/` | [`my_assignment_batches_list`](#my-assignment-batches-list) |  |
+| HEAD | `/api/my-assignment-batches/` | [`my_assignment_batches_count`](#my-assignment-batches-count) |  |
+| GET | `/api/my-assignment-batches/{uuid}/` | [`my_assignment_batches_retrieve`](#my-assignment-batches-retrieve) |  |
+| GET | `/api/proposal-proposals/` | [`proposal_proposals_list`](#proposal-proposals-list) |  |
+| HEAD | `/api/proposal-proposals/` | [`proposal_proposals_count`](#proposal-proposals-count) |  |
+| POST | `/api/proposal-proposals/` | [`proposal_proposals_create`](#proposal-proposals-create) |  |
+| GET | `/api/proposal-proposals/checklist-template/` | [`proposal_proposals_checklist_template_retrieve`](#proposal-proposals-checklist-template-retrieve) |  |
+| HEAD | `/api/proposal-proposals/checklist-template/` | [`proposal_proposals_checklist_template_count`](#proposal-proposals-checklist-template-count) |  |
+| GET | `/api/proposal-proposals/{uuid}/` | [`proposal_proposals_retrieve`](#proposal-proposals-retrieve) |  |
+| DELETE | `/api/proposal-proposals/{uuid}/` | [`proposal_proposals_destroy`](#proposal-proposals-destroy) |  |
+| POST | `/api/proposal-proposals/{uuid}/add_user/` | [`proposal_proposals_add_user`](#proposal-proposals-add-user) | Grant a role to a user |
+| POST | `/api/proposal-proposals/{uuid}/approve/` | [`proposal_proposals_approve`](#proposal-proposals-approve) |  |
+| POST | `/api/proposal-proposals/{uuid}/attach_document/` | [`proposal_proposals_attach_document`](#proposal-proposals-attach-document) |  |
+| GET | `/api/proposal-proposals/{uuid}/checklist/` | [`proposal_proposals_checklist_retrieve`](#proposal-proposals-checklist-retrieve) |  |
+| GET | `/api/proposal-proposals/{uuid}/checklist_review/` | [`proposal_proposals_checklist_review_retrieve`](#proposal-proposals-checklist-review-retrieve) |  |
+| GET | `/api/proposal-proposals/{uuid}/completion_review_status/` | [`proposal_proposals_completion_review_status_retrieve`](#proposal-proposals-completion-review-status-retrieve) |  |
+| GET | `/api/proposal-proposals/{uuid}/completion_status/` | [`proposal_proposals_completion_status_retrieve`](#proposal-proposals-completion-status-retrieve) |  |
+| POST | `/api/proposal-proposals/{uuid}/delete_user/` | [`proposal_proposals_delete_user`](#proposal-proposals-delete-user) | Revoke a role from a user |
+| POST | `/api/proposal-proposals/{uuid}/detach_documents/` | [`proposal_proposals_detach_documents`](#proposal-proposals-detach-documents) |  |
+| GET | `/api/proposal-proposals/{uuid}/list_users/` | [`proposal_proposals_list_users_list`](#proposal-proposals-list-users-list) | List users and their roles in a scope |
+| POST | `/api/proposal-proposals/{uuid}/reject/` | [`proposal_proposals_reject`](#proposal-proposals-reject) |  |
+| GET | `/api/proposal-proposals/{uuid}/resources/` | [`proposal_proposals_resources_list`](#proposal-proposals-resources-list) |  |
+| POST | `/api/proposal-proposals/{uuid}/resources/` | [`proposal_proposals_resources_set`](#proposal-proposals-resources-set) |  |
+| GET | `/api/proposal-proposals/{uuid}/resources/{obj_uuid}/` | [`proposal_proposals_resources_retrieve`](#proposal-proposals-resources-retrieve) |  |
+| PUT | `/api/proposal-proposals/{uuid}/resources/{obj_uuid}/` | [`proposal_proposals_resources_update`](#proposal-proposals-resources-update) |  |
+| PATCH | `/api/proposal-proposals/{uuid}/resources/{obj_uuid}/` | [`proposal_proposals_resources_partial_update`](#proposal-proposals-resources-partial-update) |  |
+| DELETE | `/api/proposal-proposals/{uuid}/resources/{obj_uuid}/` | [`proposal_proposals_resources_destroy`](#proposal-proposals-resources-destroy) |  |
+| POST | `/api/proposal-proposals/{uuid}/submit/` | [`proposal_proposals_submit`](#proposal-proposals-submit) |  |
+| POST | `/api/proposal-proposals/{uuid}/submit_answers/` | [`proposal_proposals_submit_answers`](#proposal-proposals-submit-answers) |  |
+| POST | `/api/proposal-proposals/{uuid}/update_project_details/` | [`proposal_proposals_update_project_details`](#proposal-proposals-update-project-details) |  |
+| POST | `/api/proposal-proposals/{uuid}/update_user/` | [`proposal_proposals_update_user`](#proposal-proposals-update-user) | Update a user's role expiration |
+| GET | `/api/proposal-protected-calls/` | [`proposal_protected_calls_list`](#proposal-protected-calls-list) |  |
+| HEAD | `/api/proposal-protected-calls/` | [`proposal_protected_calls_count`](#proposal-protected-calls-count) |  |
+| POST | `/api/proposal-protected-calls/` | [`proposal_protected_calls_create`](#proposal-protected-calls-create) |  |
+| GET | `/api/proposal-protected-calls/available_compliance_checklists/` | [`proposal_protected_calls_available_compliance_checklists_list`](#proposal-protected-calls-available-compliance-checklists-list) |  |
+| HEAD | `/api/proposal-protected-calls/available_compliance_checklists/` | [`proposal_protected_calls_available_compliance_checklists_count`](#proposal-protected-calls-available-compliance-checklists-count) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/` | [`proposal_protected_calls_retrieve`](#proposal-protected-calls-retrieve) |  |
+| PUT | `/api/proposal-protected-calls/{uuid}/` | [`proposal_protected_calls_update`](#proposal-protected-calls-update) |  |
+| PATCH | `/api/proposal-protected-calls/{uuid}/` | [`proposal_protected_calls_partial_update`](#proposal-protected-calls-partial-update) |  |
+| DELETE | `/api/proposal-protected-calls/{uuid}/` | [`proposal_protected_calls_destroy`](#proposal-protected-calls-destroy) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/activate/` | [`proposal_protected_calls_activate`](#proposal-protected-calls-activate) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/add_user/` | [`proposal_protected_calls_add_user`](#proposal-protected-calls-add-user) | Grant a role to a user |
+| GET | `/api/proposal-protected-calls/{uuid}/affinity-matrix/` | [`proposal_protected_calls_affinity_matrix_retrieve`](#proposal-protected-calls-affinity-matrix-retrieve) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/applicant_attribute_config/` | [`proposal_protected_calls_applicant_attribute_config_retrieve`](#proposal-protected-calls-applicant-attribute-config-retrieve) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/archive/` | [`proposal_protected_calls_archive`](#proposal-protected-calls-archive) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/attach_documents/` | [`proposal_protected_calls_attach_documents`](#proposal-protected-calls-attach-documents) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/coi-configuration/` | [`proposal_protected_calls_coi_configuration_retrieve`](#proposal-protected-calls-coi-configuration-retrieve) |  |
+| PATCH | `/api/proposal-protected-calls/{uuid}/coi-configuration/` | [`proposal_protected_calls_coi_configuration_partial_update`](#proposal-protected-calls-coi-configuration-partial-update) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/compliance_overview/` | [`proposal_protected_calls_compliance_overview_retrieve`](#proposal-protected-calls-compliance-overview-retrieve) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/compute-affinities/` | [`proposal_protected_calls_compute_affinities`](#proposal-protected-calls-compute-affinities) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/conflict-summary/` | [`proposal_protected_calls_conflict_summary_retrieve`](#proposal-protected-calls-conflict-summary-retrieve) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/conflicts/` | [`proposal_protected_calls_conflicts_list`](#proposal-protected-calls-conflicts-list) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/create-manual-assignment/` | [`proposal_protected_calls_create_manual_assignment`](#proposal-protected-calls-create-manual-assignment) |  |
+| DELETE | `/api/proposal-protected-calls/{uuid}/delete_applicant_attribute_config/` | [`proposal_protected_calls_delete_applicant_attribute_config_destroy`](#proposal-protected-calls-delete-applicant-attribute-config-destroy) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/delete_user/` | [`proposal_protected_calls_delete_user`](#proposal-protected-calls-delete-user) | Revoke a role from a user |
+| POST | `/api/proposal-protected-calls/{uuid}/detach_documents/` | [`proposal_protected_calls_detach_documents`](#proposal-protected-calls-detach-documents) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/detect-conflicts/` | [`proposal_protected_calls_detect_conflicts`](#proposal-protected-calls-detect-conflicts) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/generate-assignments/` | [`proposal_protected_calls_generate_assignments`](#proposal-protected-calls-generate-assignments) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/generate-suggestions/` | [`proposal_protected_calls_generate_suggestions`](#proposal-protected-calls-generate-suggestions) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/invite-by-email/` | [`proposal_protected_calls_invite_by_email`](#proposal-protected-calls-invite-by-email) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/list_users/` | [`proposal_protected_calls_list_users_list`](#proposal-protected-calls-list-users-list) | List users and their roles in a scope |
+| GET | `/api/proposal-protected-calls/{uuid}/matching-configuration/` | [`proposal_protected_calls_matching_configuration_retrieve`](#proposal-protected-calls-matching-configuration-retrieve) |  |
+| PATCH | `/api/proposal-protected-calls/{uuid}/matching-configuration/` | [`proposal_protected_calls_matching_configuration_partial_update`](#proposal-protected-calls-matching-configuration-partial-update) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/offerings/` | [`proposal_protected_calls_offerings_list`](#proposal-protected-calls-offerings-list) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/offerings/` | [`proposal_protected_calls_offerings_set`](#proposal-protected-calls-offerings-set) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/offerings/{obj_uuid}/` | [`proposal_protected_calls_offerings_retrieve`](#proposal-protected-calls-offerings-retrieve) |  |
+| PUT | `/api/proposal-protected-calls/{uuid}/offerings/{obj_uuid}/` | [`proposal_protected_calls_offerings_update`](#proposal-protected-calls-offerings-update) |  |
+| PATCH | `/api/proposal-protected-calls/{uuid}/offerings/{obj_uuid}/` | [`proposal_protected_calls_offerings_partial_update`](#proposal-protected-calls-offerings-partial-update) |  |
+| DELETE | `/api/proposal-protected-calls/{uuid}/offerings/{obj_uuid}/` | [`proposal_protected_calls_offerings_destroy`](#proposal-protected-calls-offerings-destroy) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/proposals/{proposal_uuid}/compliance-answers/` | [`proposal_protected_calls_proposals_compliance_answers_list`](#proposal-protected-calls-proposals-compliance-answers-list) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/proposed-assignments/` | [`proposal_protected_calls_proposed_assignments_list`](#proposal-protected-calls-proposed-assignments-list) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/resource_templates/` | [`proposal_protected_calls_resource_templates_list`](#proposal-protected-calls-resource-templates-list) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/resource_templates/` | [`proposal_protected_calls_resource_templates_set`](#proposal-protected-calls-resource-templates-set) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/resource_templates/{obj_uuid}/` | [`proposal_protected_calls_resource_templates_retrieve`](#proposal-protected-calls-resource-templates-retrieve) |  |
+| PUT | `/api/proposal-protected-calls/{uuid}/resource_templates/{obj_uuid}/` | [`proposal_protected_calls_resource_templates_update`](#proposal-protected-calls-resource-templates-update) |  |
+| PATCH | `/api/proposal-protected-calls/{uuid}/resource_templates/{obj_uuid}/` | [`proposal_protected_calls_resource_templates_partial_update`](#proposal-protected-calls-resource-templates-partial-update) |  |
+| DELETE | `/api/proposal-protected-calls/{uuid}/resource_templates/{obj_uuid}/` | [`proposal_protected_calls_resource_templates_destroy`](#proposal-protected-calls-resource-templates-destroy) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/review_proposal_compliance/` | [`proposal_protected_calls_review_proposal_compliance`](#proposal-protected-calls-review-proposal-compliance) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/reviewer-pool/` | [`proposal_protected_calls_reviewer_pool_list`](#proposal-protected-calls-reviewer-pool-list) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/reviewer-pool/` | [`proposal_protected_calls_invite_reviewers`](#proposal-protected-calls-invite-reviewers) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/rounds/` | [`proposal_protected_calls_rounds_list`](#proposal-protected-calls-rounds-list) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/rounds/` | [`proposal_protected_calls_rounds_set`](#proposal-protected-calls-rounds-set) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/` | [`proposal_protected_calls_rounds_retrieve`](#proposal-protected-calls-rounds-retrieve) |  |
+| PUT | `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/` | [`proposal_protected_calls_rounds_update`](#proposal-protected-calls-rounds-update) |  |
+| PATCH | `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/` | [`proposal_protected_calls_rounds_partial_update`](#proposal-protected-calls-rounds-partial-update) |  |
+| DELETE | `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/` | [`proposal_protected_calls_rounds_destroy`](#proposal-protected-calls-rounds-destroy) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/close/` | [`proposal_protected_calls_rounds_close`](#proposal-protected-calls-rounds-close) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/send-all-assignments/` | [`proposal_protected_calls_send_all_assignments`](#proposal-protected-calls-send-all-assignments) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/send-invitations/` | [`proposal_protected_calls_send_invitations`](#proposal-protected-calls-send-invitations) |  |
+| GET | `/api/proposal-protected-calls/{uuid}/suggestions/` | [`proposal_protected_calls_suggestions_list`](#proposal-protected-calls-suggestions-list) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/update_applicant_attribute_config/` | [`proposal_protected_calls_update_applicant_attribute_config`](#proposal-protected-calls-update-applicant-attribute-config) |  |
+| PATCH | `/api/proposal-protected-calls/{uuid}/update_applicant_attribute_config/` | [`proposal_protected_calls_update_applicant_attribute_config_partial_update`](#proposal-protected-calls-update-applicant-attribute-config-partial-update) |  |
+| POST | `/api/proposal-protected-calls/{uuid}/update_user/` | [`proposal_protected_calls_update_user`](#proposal-protected-calls-update-user) | Update a user's role expiration |
+| GET | `/api/proposal-public-calls/` | [`proposal_public_calls_list`](#proposal-public-calls-list) |  |
+| HEAD | `/api/proposal-public-calls/` | [`proposal_public_calls_count`](#proposal-public-calls-count) |  |
+| GET | `/api/proposal-public-calls/{uuid}/` | [`proposal_public_calls_retrieve`](#proposal-public-calls-retrieve) |  |
+| GET | `/api/proposal-public-calls/{uuid}/check_eligibility/` | [`proposal_public_calls_check_eligibility_retrieve`](#proposal-public-calls-check-eligibility-retrieve) |  |
+| GET | `/api/proposal-requested-offerings/` | [`proposal_requested_offerings_list`](#proposal-requested-offerings-list) |  |
+| HEAD | `/api/proposal-requested-offerings/` | [`proposal_requested_offerings_count`](#proposal-requested-offerings-count) |  |
+| GET | `/api/proposal-requested-offerings/{uuid}/` | [`proposal_requested_offerings_retrieve`](#proposal-requested-offerings-retrieve) |  |
+| POST | `/api/proposal-requested-offerings/{uuid}/accept/` | [`proposal_requested_offerings_accept`](#proposal-requested-offerings-accept) |  |
+| POST | `/api/proposal-requested-offerings/{uuid}/cancel/` | [`proposal_requested_offerings_cancel`](#proposal-requested-offerings-cancel) |  |
+| GET | `/api/proposal-requested-resources/` | [`proposal_requested_resources_list`](#proposal-requested-resources-list) |  |
+| HEAD | `/api/proposal-requested-resources/` | [`proposal_requested_resources_count`](#proposal-requested-resources-count) |  |
+| GET | `/api/proposal-requested-resources/{uuid}/` | [`proposal_requested_resources_retrieve`](#proposal-requested-resources-retrieve) |  |
+| GET | `/api/proposal-reviews/` | [`proposal_reviews_list`](#proposal-reviews-list) |  |
+| HEAD | `/api/proposal-reviews/` | [`proposal_reviews_count`](#proposal-reviews-count) |  |
+| POST | `/api/proposal-reviews/` | [`proposal_reviews_create`](#proposal-reviews-create) |  |
+| GET | `/api/proposal-reviews/{uuid}/` | [`proposal_reviews_retrieve`](#proposal-reviews-retrieve) |  |
+| PUT | `/api/proposal-reviews/{uuid}/` | [`proposal_reviews_update`](#proposal-reviews-update) |  |
+| PATCH | `/api/proposal-reviews/{uuid}/` | [`proposal_reviews_partial_update`](#proposal-reviews-partial-update) |  |
+| DELETE | `/api/proposal-reviews/{uuid}/` | [`proposal_reviews_destroy`](#proposal-reviews-destroy) |  |
+| POST | `/api/proposal-reviews/{uuid}/reject/` | [`proposal_reviews_reject`](#proposal-reviews-reject) |  |
+| POST | `/api/proposal-reviews/{uuid}/submit/` | [`proposal_reviews_submit`](#proposal-reviews-submit) |  |
+| GET | `/api/reviewer-bids/` | [`reviewer_bids_list`](#reviewer-bids-list) |  |
+| HEAD | `/api/reviewer-bids/` | [`reviewer_bids_count`](#reviewer-bids-count) |  |
+| POST | `/api/reviewer-bids/` | [`reviewer_bids_create`](#reviewer-bids-create) |  |
+| POST | `/api/reviewer-bids/bulk-submit/` | [`reviewer_bids_bulk_submit`](#reviewer-bids-bulk-submit) |  |
+| GET | `/api/reviewer-bids/my-bids/` | [`reviewer_bids_my_bids_list`](#reviewer-bids-my-bids-list) |  |
+| HEAD | `/api/reviewer-bids/my-bids/` | [`reviewer_bids_my_bids_count`](#reviewer-bids-my-bids-count) |  |
+| POST | `/api/reviewer-bids/submit/` | [`reviewer_bids_submit`](#reviewer-bids-submit) |  |
+| GET | `/api/reviewer-bids/{uuid}/` | [`reviewer_bids_retrieve`](#reviewer-bids-retrieve) |  |
+| PUT | `/api/reviewer-bids/{uuid}/` | [`reviewer_bids_update`](#reviewer-bids-update) |  |
+| PATCH | `/api/reviewer-bids/{uuid}/` | [`reviewer_bids_partial_update`](#reviewer-bids-partial-update) |  |
+| DELETE | `/api/reviewer-bids/{uuid}/` | [`reviewer_bids_destroy`](#reviewer-bids-destroy) |  |
+| GET | `/api/reviewer-invitations/{token}/` | [`reviewer_invitations_retrieve`](#reviewer-invitations-retrieve) |  |
+| POST | `/api/reviewer-invitations/{token}/accept/` | [`reviewer_invitations_accept`](#reviewer-invitations-accept) |  |
+| POST | `/api/reviewer-invitations/{token}/decline/` | [`reviewer_invitations_decline`](#reviewer-invitations-decline) |  |
+| GET | `/api/reviewer-profiles/` | [`reviewer_profiles_list`](#reviewer-profiles-list) |  |
+| HEAD | `/api/reviewer-profiles/` | [`reviewer_profiles_count`](#reviewer-profiles-count) |  |
+| POST | `/api/reviewer-profiles/` | [`reviewer_profiles_create`](#reviewer-profiles-create) |  |
+| GET | `/api/reviewer-profiles/me/` | [`reviewer_profiles_me_retrieve`](#reviewer-profiles-me-retrieve) |  |
+| HEAD | `/api/reviewer-profiles/me/` | [`reviewer_profiles_me_count`](#reviewer-profiles-me-count) |  |
+| POST | `/api/reviewer-profiles/me/` | [`reviewer_profiles_me`](#reviewer-profiles-me) |  |
+| PATCH | `/api/reviewer-profiles/me/` | [`reviewer_profiles_me_partial_update`](#reviewer-profiles-me-partial-update) |  |
+| POST | `/api/reviewer-profiles/publish/` | [`reviewer_profiles_publish`](#reviewer-profiles-publish) |  |
+| POST | `/api/reviewer-profiles/unpublish/` | [`reviewer_profiles_unpublish`](#reviewer-profiles-unpublish) |  |
+| GET | `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/` | [`nested_reviewer_profile_affiliations_list`](#nested-reviewer-profile-affiliations-list) |  |
+| POST | `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/` | [`nested_reviewer_profile_affiliations_create`](#nested-reviewer-profile-affiliations-create) |  |
+| GET | `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/{uuid}/` | [`nested_reviewer_profile_affiliations_retrieve`](#nested-reviewer-profile-affiliations-retrieve) |  |
+| PUT | `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/{uuid}/` | [`nested_reviewer_profile_affiliations_update`](#nested-reviewer-profile-affiliations-update) |  |
+| PATCH | `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/{uuid}/` | [`nested_reviewer_profile_affiliations_partial_update`](#nested-reviewer-profile-affiliations-partial-update) |  |
+| DELETE | `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/{uuid}/` | [`nested_reviewer_profile_affiliations_destroy`](#nested-reviewer-profile-affiliations-destroy) |  |
+| GET | `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/` | [`nested_reviewer_profile_expertise_list`](#nested-reviewer-profile-expertise-list) |  |
+| POST | `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/` | [`nested_reviewer_profile_expertise_create`](#nested-reviewer-profile-expertise-create) |  |
+| GET | `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/{uuid}/` | [`nested_reviewer_profile_expertise_retrieve`](#nested-reviewer-profile-expertise-retrieve) |  |
+| PUT | `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/{uuid}/` | [`nested_reviewer_profile_expertise_update`](#nested-reviewer-profile-expertise-update) |  |
+| PATCH | `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/{uuid}/` | [`nested_reviewer_profile_expertise_partial_update`](#nested-reviewer-profile-expertise-partial-update) |  |
+| DELETE | `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/{uuid}/` | [`nested_reviewer_profile_expertise_destroy`](#nested-reviewer-profile-expertise-destroy) |  |
+| GET | `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/` | [`nested_reviewer_profile_publications_list`](#nested-reviewer-profile-publications-list) |  |
+| POST | `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/` | [`nested_reviewer_profile_publications_create`](#nested-reviewer-profile-publications-create) |  |
+| GET | `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/{uuid}/` | [`nested_reviewer_profile_publications_retrieve`](#nested-reviewer-profile-publications-retrieve) |  |
+| PUT | `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/{uuid}/` | [`nested_reviewer_profile_publications_update`](#nested-reviewer-profile-publications-update) |  |
+| PATCH | `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/{uuid}/` | [`nested_reviewer_profile_publications_partial_update`](#nested-reviewer-profile-publications-partial-update) |  |
+| DELETE | `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/{uuid}/` | [`nested_reviewer_profile_publications_destroy`](#nested-reviewer-profile-publications-destroy) |  |
+| GET | `/api/reviewer-profiles/{uuid}/` | [`reviewer_profiles_retrieve`](#reviewer-profiles-retrieve) |  |
+| PUT | `/api/reviewer-profiles/{uuid}/` | [`reviewer_profiles_update`](#reviewer-profiles-update) |  |
+| PATCH | `/api/reviewer-profiles/{uuid}/` | [`reviewer_profiles_partial_update`](#reviewer-profiles-partial-update) |  |
+| DELETE | `/api/reviewer-profiles/{uuid}/` | [`reviewer_profiles_destroy`](#reviewer-profiles-destroy) |  |
+| GET | `/api/reviewer-profiles/{uuid}/affiliations/` | [`reviewer_profiles_affiliations_list`](#reviewer-profiles-affiliations-list) |  |
+| POST | `/api/reviewer-profiles/{uuid}/affiliations/` | [`reviewer_profiles_affiliations_create`](#reviewer-profiles-affiliations-create) |  |
+| GET | `/api/reviewer-profiles/{uuid}/connect-orcid/` | [`reviewer_profiles_connect_orcid_retrieve`](#reviewer-profiles-connect-orcid-retrieve) |  |
+| POST | `/api/reviewer-profiles/{uuid}/connect-orcid/callback/` | [`reviewer_profiles_connect_orcid_callback`](#reviewer-profiles-connect-orcid-callback) |  |
+| POST | `/api/reviewer-profiles/{uuid}/disconnect-orcid/` | [`reviewer_profiles_disconnect_orcid`](#reviewer-profiles-disconnect-orcid) |  |
+| GET | `/api/reviewer-profiles/{uuid}/expertise/` | [`reviewer_profiles_expertise_list`](#reviewer-profiles-expertise-list) |  |
+| POST | `/api/reviewer-profiles/{uuid}/expertise/` | [`reviewer_profiles_expertise_create`](#reviewer-profiles-expertise-create) |  |
+| POST | `/api/reviewer-profiles/{uuid}/import-publications/` | [`reviewer_profiles_import_publications`](#reviewer-profiles-import-publications) |  |
+| GET | `/api/reviewer-profiles/{uuid}/publications/` | [`reviewer_profiles_publications_list`](#reviewer-profiles-publications-list) |  |
+| POST | `/api/reviewer-profiles/{uuid}/publications/` | [`reviewer_profiles_publications_create`](#reviewer-profiles-publications-create) |  |
+| POST | `/api/reviewer-profiles/{uuid}/sync-orcid/` | [`reviewer_profiles_sync_orcid`](#reviewer-profiles-sync-orcid) |  |
+| GET | `/api/reviewer-suggestions/` | [`reviewer_suggestions_list`](#reviewer-suggestions-list) |  |
+| HEAD | `/api/reviewer-suggestions/` | [`reviewer_suggestions_count`](#reviewer-suggestions-count) |  |
+| GET | `/api/reviewer-suggestions/{uuid}/` | [`reviewer_suggestions_retrieve`](#reviewer-suggestions-retrieve) |  |
+| DELETE | `/api/reviewer-suggestions/{uuid}/` | [`reviewer_suggestions_destroy`](#reviewer-suggestions-destroy) |  |
+| POST | `/api/reviewer-suggestions/{uuid}/confirm/` | [`reviewer_suggestions_confirm`](#reviewer-suggestions-confirm) |  |
+| POST | `/api/reviewer-suggestions/{uuid}/reject/` | [`reviewer_suggestions_reject`](#reviewer-suggestions-reject) |  |
 
 ## Endpoint Details
 
 ### assignment_batches_list
 
 **`GET`** `/api/assignment-batches/`
-
-**Operation ID:** `assignment_batches_list`
 
 **Parameters:**
 
@@ -288,8 +286,6 @@
 ### assignment_batches_count
 
 **`HEAD`** `/api/assignment-batches/`
-
-**Operation ID:** `assignment_batches_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -318,8 +314,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/assignment-batches/`
 
-**Operation ID:** `assignment_batches_create`
-
 **Request Body** (`application/json`, optional):
 
 Schema: `AssignmentBatchRequest`
@@ -340,8 +334,6 @@ Schema: `AssignmentBatchRequest`
 
 **`GET`** `/api/assignment-batches/{uuid}/`
 
-**Operation ID:** `assignment_batches_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -359,8 +351,6 @@ Schema: `AssignmentBatchRequest`
 ### assignment_batches_update
 
 **`PUT`** `/api/assignment-batches/{uuid}/`
-
-**Operation ID:** `assignment_batches_update`
 
 **Parameters:**
 
@@ -388,8 +378,6 @@ Schema: `AssignmentBatchRequest`
 
 **`PATCH`** `/api/assignment-batches/{uuid}/`
 
-**Operation ID:** `assignment_batches_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -416,8 +404,6 @@ Schema: `PatchedAssignmentBatchRequest`
 
 **`DELETE`** `/api/assignment-batches/{uuid}/`
 
-**Operation ID:** `assignment_batches_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -435,8 +421,6 @@ Schema: `PatchedAssignmentBatchRequest`
 ### assignment_batches_cancel
 
 **`POST`** `/api/assignment-batches/{uuid}/cancel/`
-
-**Operation ID:** `assignment_batches_cancel`
 
 Cancel this assignment batch.
 
@@ -457,8 +441,6 @@ Cancel this assignment batch.
 ### assignment_batches_extend_deadline
 
 **`POST`** `/api/assignment-batches/{uuid}/extend-deadline/`
-
-**Operation ID:** `assignment_batches_extend_deadline`
 
 Extend or modify the expiration date for an assignment batch. Can reactivate expired batches by setting a future deadline.
 
@@ -488,8 +470,6 @@ Schema: `ExtendDeadlineRequestRequest`
 
 **`POST`** `/api/assignment-batches/{uuid}/send/`
 
-**Operation ID:** `assignment_batches_send`
-
 Send this assignment batch invitation to the reviewer.
 
 **Parameters:**
@@ -518,8 +498,6 @@ Schema: `SendAssignmentBatchRequest`
 
 **`GET`** `/api/assignment-items/`
 
-**Operation ID:** `assignment_items_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -544,8 +522,6 @@ Schema: `SendAssignmentBatchRequest`
 ### assignment_items_count
 
 **`HEAD`** `/api/assignment-items/`
-
-**Operation ID:** `assignment_items_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -574,8 +550,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/assignment-items/`
 
-**Operation ID:** `assignment_items_create`
-
 **Request Body** (`application/json`, optional):
 
 Schema: `AssignmentItemRequest`
@@ -596,8 +570,6 @@ Schema: `AssignmentItemRequest`
 
 **`GET`** `/api/assignment-items/{uuid}/`
 
-**Operation ID:** `assignment_items_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -615,8 +587,6 @@ Schema: `AssignmentItemRequest`
 ### assignment_items_update
 
 **`PUT`** `/api/assignment-items/{uuid}/`
-
-**Operation ID:** `assignment_items_update`
 
 **Parameters:**
 
@@ -644,8 +614,6 @@ Schema: `AssignmentItemRequest`
 
 **`PATCH`** `/api/assignment-items/{uuid}/`
 
-**Operation ID:** `assignment_items_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -672,8 +640,6 @@ Schema: `PatchedAssignmentItemRequest`
 
 **`DELETE`** `/api/assignment-items/{uuid}/`
 
-**Operation ID:** `assignment_items_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -691,8 +657,6 @@ Schema: `PatchedAssignmentItemRequest`
 ### assignment_items_accept
 
 **`POST`** `/api/assignment-items/{uuid}/accept/`
-
-**Operation ID:** `assignment_items_accept`
 
 Accept this assignment item. Creates a Review record.
 
@@ -713,8 +677,6 @@ Accept this assignment item. Creates a Review record.
 ### assignment_items_decline
 
 **`POST`** `/api/assignment-items/{uuid}/decline/`
-
-**Operation ID:** `assignment_items_decline`
 
 Decline this assignment item.
 
@@ -743,8 +705,6 @@ Schema: `AssignmentItemDeclineRequest`
 ### assignment_items_reassign
 
 **`POST`** `/api/assignment-items/{uuid}/reassign/`
-
-**Operation ID:** `assignment_items_reassign`
 
 Reassign this item to a different reviewer.
 
@@ -775,8 +735,6 @@ Schema: `ReassignItemRequest`
 
 **`GET`** `/api/assignment-items/{uuid}/suggest_alternatives/`
 
-**Operation ID:** `assignment_items_suggest_alternatives_retrieve`
-
 Suggest alternative reviewers for a declined assignment.
 
 **Parameters:**
@@ -797,8 +755,6 @@ Suggest alternative reviewers for a declined assignment.
 
 **`GET`** `/api/call-assignment-configurations/`
 
-**Operation ID:** `call_assignment_configurations_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -815,8 +771,6 @@ Suggest alternative reviewers for a declined assignment.
 ### call_assignment_configurations_count
 
 **`HEAD`** `/api/call-assignment-configurations/`
-
-**Operation ID:** `call_assignment_configurations_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -836,8 +790,6 @@ Get number of items in the collection matching the request parameters.
 ### call_assignment_configurations_create
 
 **`POST`** `/api/call-assignment-configurations/`
-
-**Operation ID:** `call_assignment_configurations_create`
 
 **Request Body** (`application/json`, optional):
 
@@ -862,8 +814,6 @@ Schema: `CallAssignmentConfigurationRequest`
 
 **`GET`** `/api/call-assignment-configurations/{uuid}/`
 
-**Operation ID:** `call_assignment_configurations_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -881,8 +831,6 @@ Schema: `CallAssignmentConfigurationRequest`
 ### call_assignment_configurations_update
 
 **`PUT`** `/api/call-assignment-configurations/{uuid}/`
-
-**Operation ID:** `call_assignment_configurations_update`
 
 **Parameters:**
 
@@ -913,8 +861,6 @@ Schema: `CallAssignmentConfigurationRequest`
 
 **`PATCH`** `/api/call-assignment-configurations/{uuid}/`
 
-**Operation ID:** `call_assignment_configurations_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -944,8 +890,6 @@ Schema: `PatchedCallAssignmentConfigurationRequest`
 
 **`DELETE`** `/api/call-assignment-configurations/{uuid}/`
 
-**Operation ID:** `call_assignment_configurations_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -963,8 +907,6 @@ Schema: `PatchedCallAssignmentConfigurationRequest`
 ### call_managing_organisations_list
 
 **`GET`** `/api/call-managing-organisations/`
-
-**Operation ID:** `call_managing_organisations_list`
 
 **Parameters:**
 
@@ -986,8 +928,6 @@ Schema: `PatchedCallAssignmentConfigurationRequest`
 ### call_managing_organisations_count
 
 **`HEAD`** `/api/call-managing-organisations/`
-
-**Operation ID:** `call_managing_organisations_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1012,8 +952,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/call-managing-organisations/`
 
-**Operation ID:** `call_managing_organisations_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `CallManagingOrganisationRequest`
@@ -1036,8 +974,6 @@ Schema: `CallManagingOrganisationRequest`
 
 **`GET`** `/api/call-managing-organisations/{uuid}/`
 
-**Operation ID:** `call_managing_organisations_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1055,8 +991,6 @@ Schema: `CallManagingOrganisationRequest`
 ### call_managing_organisations_update
 
 **`PUT`** `/api/call-managing-organisations/{uuid}/`
-
-**Operation ID:** `call_managing_organisations_update`
 
 **Parameters:**
 
@@ -1086,8 +1020,6 @@ Schema: `CallManagingOrganisationRequest`
 
 **`PATCH`** `/api/call-managing-organisations/{uuid}/`
 
-**Operation ID:** `call_managing_organisations_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1115,8 +1047,6 @@ Schema: `PatchedCallManagingOrganisationRequest`
 
 **`DELETE`** `/api/call-managing-organisations/{uuid}/`
 
-**Operation ID:** `call_managing_organisations_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1131,11 +1061,11 @@ Schema: `PatchedCallManagingOrganisationRequest`
 
 ---
 
-### Grant a role to a user
+### call_managing_organisations_add_user
 
 **`POST`** `/api/call-managing-organisations/{uuid}/add_user/`
 
-**Operation ID:** `call_managing_organisations_add_user`
+**Summary:** Grant a role to a user
 
 Assigns a specific role to a user within the current scope. An optional expiration time for the role can be set.
 
@@ -1164,11 +1094,11 @@ Schema: `UserRoleCreateRequest`
 
 ---
 
-### Revoke a role from a user
+### call_managing_organisations_delete_user
 
 **`POST`** `/api/call-managing-organisations/{uuid}/delete_user/`
 
-**Operation ID:** `call_managing_organisations_delete_user`
+**Summary:** Revoke a role from a user
 
 Removes a specific role from a user within the current scope. This effectively revokes their permissions associated with that role.
 
@@ -1196,11 +1126,11 @@ Schema: `UserRoleDeleteRequest`
 
 ---
 
-### List users and their roles in a scope
+### call_managing_organisations_list_users_list
 
 **`GET`** `/api/call-managing-organisations/{uuid}/list_users/`
 
-**Operation ID:** `call_managing_organisations_list_users_list`
+**Summary:** List users and their roles in a scope
 
 Retrieves a list of users who have a role within a specific scope (e.g., a project or an organization). The list can be filtered by user details or role.
 
@@ -1232,8 +1162,6 @@ Retrieves a list of users who have a role within a specific scope (e.g., a proje
 
 **`GET`** `/api/call-managing-organisations/{uuid}/stats/`
 
-**Operation ID:** `call_managing_organisations_stats_retrieve`
-
 Return statistics for call managing organisation.
 
 **Parameters:**
@@ -1250,11 +1178,11 @@ Return statistics for call managing organisation.
 
 ---
 
-### Update a user's role expiration
+### call_managing_organisations_update_user
 
 **`POST`** `/api/call-managing-organisations/{uuid}/update_user/`
 
-**Operation ID:** `call_managing_organisations_update_user`
+**Summary:** Update a user's role expiration
 
 Updates the expiration time for a user's existing role in the current scope. This is useful for extending or shortening the duration of a permission. To make a role permanent, set expiration_time to null.
 
@@ -1286,8 +1214,6 @@ Schema: `UserRoleUpdateRequest`
 
 **`GET`** `/api/call-proposal-project-role-mappings/`
 
-**Operation ID:** `call_proposal_project_role_mappings_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1305,8 +1231,6 @@ Schema: `UserRoleUpdateRequest`
 ### call_proposal_project_role_mappings_count
 
 **`HEAD`** `/api/call-proposal-project-role-mappings/`
-
-**Operation ID:** `call_proposal_project_role_mappings_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1327,8 +1251,6 @@ Get number of items in the collection matching the request parameters.
 ### call_proposal_project_role_mappings_create
 
 **`POST`** `/api/call-proposal-project-role-mappings/`
-
-**Operation ID:** `call_proposal_project_role_mappings_create`
 
 **Request Body** (`application/json`, required):
 
@@ -1352,8 +1274,6 @@ Schema: `ProposalProjectRoleMappingRequest`
 
 **`GET`** `/api/call-proposal-project-role-mappings/{uuid}/`
 
-**Operation ID:** `call_proposal_project_role_mappings_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1371,8 +1291,6 @@ Schema: `ProposalProjectRoleMappingRequest`
 ### call_proposal_project_role_mappings_update
 
 **`PUT`** `/api/call-proposal-project-role-mappings/{uuid}/`
-
-**Operation ID:** `call_proposal_project_role_mappings_update`
 
 **Parameters:**
 
@@ -1402,8 +1320,6 @@ Schema: `ProposalProjectRoleMappingRequest`
 
 **`PATCH`** `/api/call-proposal-project-role-mappings/{uuid}/`
 
-**Operation ID:** `call_proposal_project_role_mappings_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1432,8 +1348,6 @@ Schema: `PatchedProposalProjectRoleMappingRequest`
 
 **`DELETE`** `/api/call-proposal-project-role-mappings/{uuid}/`
 
-**Operation ID:** `call_proposal_project_role_mappings_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1451,8 +1365,6 @@ Schema: `PatchedProposalProjectRoleMappingRequest`
 ### call_reviewer_pools_list
 
 **`GET`** `/api/call-reviewer-pools/`
-
-**Operation ID:** `call_reviewer_pools_list`
 
 **Parameters:**
 
@@ -1475,8 +1387,6 @@ Schema: `PatchedProposalProjectRoleMappingRequest`
 ### call_reviewer_pools_count
 
 **`HEAD`** `/api/call-reviewer-pools/`
-
-**Operation ID:** `call_reviewer_pools_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1502,8 +1412,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/call-reviewer-pools/{uuid}/`
 
-**Operation ID:** `call_reviewer_pools_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1521,8 +1429,6 @@ Get number of items in the collection matching the request parameters.
 ### call_reviewer_pools_partial_update
 
 **`PATCH`** `/api/call-reviewer-pools/{uuid}/`
-
-**Operation ID:** `call_reviewer_pools_partial_update`
 
 **Parameters:**
 
@@ -1550,8 +1456,6 @@ Schema: `PatchedCallReviewerPoolUpdateRequest`
 
 **`POST`** `/api/call-reviewer-pools/{uuid}/accept/`
 
-**Operation ID:** `call_reviewer_pools_accept`
-
 Accept a pool invitation (authenticated users only).
 
 **Parameters:**
@@ -1574,8 +1478,6 @@ Accept a pool invitation (authenticated users only).
 ### call_reviewer_pools_decline
 
 **`POST`** `/api/call-reviewer-pools/{uuid}/decline/`
-
-**Operation ID:** `call_reviewer_pools_decline`
 
 Decline a pool invitation (authenticated users only).
 
@@ -1605,8 +1507,6 @@ Schema: `InvitationDeclineRequest`
 
 **`GET`** `/api/call-rounds/`
 
-**Operation ID:** `call_rounds_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1623,8 +1523,6 @@ Schema: `InvitationDeclineRequest`
 ### call_rounds_count
 
 **`HEAD`** `/api/call-rounds/`
-
-**Operation ID:** `call_rounds_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1645,8 +1543,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/call-rounds/{uuid}/`
 
-**Operation ID:** `call_rounds_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1664,8 +1560,6 @@ Get number of items in the collection matching the request parameters.
 ### call_rounds_reviewers_list
 
 **`GET`** `/api/call-rounds/{uuid}/reviewers/`
-
-**Operation ID:** `call_rounds_reviewers_list`
 
 Return list of reviewers for round.
 
@@ -1687,8 +1581,6 @@ Return list of reviewers for round.
 
 **`GET`** `/api/coi-detection-jobs/`
 
-**Operation ID:** `coi_detection_jobs_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1709,8 +1601,6 @@ Return list of reviewers for round.
 ### coi_detection_jobs_count
 
 **`HEAD`** `/api/coi-detection-jobs/`
-
-**Operation ID:** `coi_detection_jobs_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1735,8 +1625,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/coi-detection-jobs/{uuid}/`
 
-**Operation ID:** `coi_detection_jobs_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1754,8 +1642,6 @@ Get number of items in the collection matching the request parameters.
 ### coi_disclosures_list
 
 **`GET`** `/api/coi-disclosures/`
-
-**Operation ID:** `coi_disclosures_list`
 
 **Parameters:**
 
@@ -1778,8 +1664,6 @@ Get number of items in the collection matching the request parameters.
 ### coi_disclosures_count
 
 **`HEAD`** `/api/coi-disclosures/`
-
-**Operation ID:** `coi_disclosures_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1804,8 +1688,6 @@ Get number of items in the collection matching the request parameters.
 ### coi_disclosures_create
 
 **`POST`** `/api/coi-disclosures/`
-
-**Operation ID:** `coi_disclosures_create`
 
 **Request Body** (`application/json`, required):
 
@@ -1835,8 +1717,6 @@ Schema: `COIDisclosureFormRequest`
 
 **`GET`** `/api/coi-disclosures/{uuid}/`
 
-**Operation ID:** `coi_disclosures_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1854,8 +1734,6 @@ Schema: `COIDisclosureFormRequest`
 ### conflicts_of_interest_list
 
 **`GET`** `/api/conflicts-of-interest/`
-
-**Operation ID:** `conflicts_of_interest_list`
 
 **Parameters:**
 
@@ -1883,8 +1761,6 @@ Schema: `COIDisclosureFormRequest`
 ### conflicts_of_interest_count
 
 **`HEAD`** `/api/conflicts-of-interest/`
-
-**Operation ID:** `conflicts_of_interest_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1915,8 +1791,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/conflicts-of-interest/{uuid}/`
 
-**Operation ID:** `conflicts_of_interest_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1934,8 +1808,6 @@ Get number of items in the collection matching the request parameters.
 ### conflicts_of_interest_update
 
 **`PUT`** `/api/conflicts-of-interest/{uuid}/`
-
-**Operation ID:** `conflicts_of_interest_update`
 
 **Parameters:**
 
@@ -1965,8 +1837,6 @@ Schema: `ConflictOfInterestRequest`
 
 **`PATCH`** `/api/conflicts-of-interest/{uuid}/`
 
-**Operation ID:** `conflicts_of_interest_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1994,8 +1864,6 @@ Schema: `PatchedConflictOfInterestRequest`
 ### conflicts_of_interest_dismiss
 
 **`POST`** `/api/conflicts-of-interest/{uuid}/dismiss/`
-
-**Operation ID:** `conflicts_of_interest_dismiss`
 
 Dismiss a conflict of interest (not a real conflict).
 
@@ -2027,8 +1895,6 @@ Schema: `COIStatusUpdateRequest`
 
 **`POST`** `/api/conflicts-of-interest/{uuid}/recuse/`
 
-**Operation ID:** `conflicts_of_interest_recuse`
-
 Recuse reviewer from the proposal.
 
 **Parameters:**
@@ -2058,8 +1924,6 @@ Schema: `COIStatusUpdateRequest`
 ### conflicts_of_interest_waive
 
 **`POST`** `/api/conflicts-of-interest/{uuid}/waive/`
-
-**Operation ID:** `conflicts_of_interest_waive`
 
 Waive a conflict with a management plan.
 
@@ -2091,8 +1955,6 @@ Schema: `COIStatusUpdateRequest`
 
 **`GET`** `/api/my-assignment-batches/`
 
-**Operation ID:** `my_assignment_batches_list`
-
 List all pending assignment batches for the authenticated reviewer.
 
 **Responses:**
@@ -2107,8 +1969,6 @@ List all pending assignment batches for the authenticated reviewer.
 
 **`HEAD`** `/api/my-assignment-batches/`
 
-**Operation ID:** `my_assignment_batches_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Responses:**
@@ -2122,8 +1982,6 @@ Get number of items in the collection matching the request parameters.
 ### my_assignment_batches_retrieve
 
 **`GET`** `/api/my-assignment-batches/{uuid}/`
-
-**Operation ID:** `my_assignment_batches_retrieve`
 
 Get details of a specific assignment batch with items.
 
@@ -2144,8 +2002,6 @@ Get details of a specific assignment batch with items.
 ### proposal_proposals_list
 
 **`GET`** `/api/proposal-proposals/`
-
-**Operation ID:** `proposal_proposals_list`
 
 **Parameters:**
 
@@ -2172,8 +2028,6 @@ Get details of a specific assignment batch with items.
 ### proposal_proposals_count
 
 **`HEAD`** `/api/proposal-proposals/`
-
-**Operation ID:** `proposal_proposals_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2203,8 +2057,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/proposal-proposals/`
 
-**Operation ID:** `proposal_proposals_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `ProposalRequest`
@@ -2232,8 +2084,6 @@ Schema: `ProposalRequest`
 
 **`GET`** `/api/proposal-proposals/checklist-template/`
 
-**Operation ID:** `proposal_proposals_checklist_template_retrieve`
-
 Get checklist template for creating new objects.
 
 **Parameters:**
@@ -2256,8 +2106,6 @@ Get checklist template for creating new objects.
 
 **`HEAD`** `/api/proposal-proposals/checklist-template/`
 
-**Operation ID:** `proposal_proposals_checklist_template_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -2278,8 +2126,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/proposal-proposals/{uuid}/`
 
-**Operation ID:** `proposal_proposals_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2298,8 +2144,6 @@ Get number of items in the collection matching the request parameters.
 
 **`DELETE`** `/api/proposal-proposals/{uuid}/`
 
-**Operation ID:** `proposal_proposals_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2314,11 +2158,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Grant a role to a user
+### proposal_proposals_add_user
 
 **`POST`** `/api/proposal-proposals/{uuid}/add_user/`
 
-**Operation ID:** `proposal_proposals_add_user`
+**Summary:** Grant a role to a user
 
 Assigns a specific role to a user within the current scope. An optional expiration time for the role can be set.
 
@@ -2351,8 +2195,6 @@ Schema: `UserRoleCreateRequest`
 
 **`POST`** `/api/proposal-proposals/{uuid}/approve/`
 
-**Operation ID:** `proposal_proposals_approve`
-
 Approve a proposal.
 
 **Parameters:**
@@ -2380,8 +2222,6 @@ Schema: `ProposalApproveRequest`
 ### proposal_proposals_attach_document
 
 **`POST`** `/api/proposal-proposals/{uuid}/attach_document/`
-
-**Operation ID:** `proposal_proposals_attach_document`
 
 Attach document to proposal.
 
@@ -2411,8 +2251,6 @@ Schema: `ProposalDocumentationRequest`
 
 **`GET`** `/api/proposal-proposals/{uuid}/checklist/`
 
-**Operation ID:** `proposal_proposals_checklist_retrieve`
-
 Get checklist with questions and existing answers.
 
 **Parameters:**
@@ -2436,8 +2274,6 @@ Get checklist with questions and existing answers.
 
 **`GET`** `/api/proposal-proposals/{uuid}/checklist_review/`
 
-**Operation ID:** `proposal_proposals_checklist_review_retrieve`
-
 Get checklist with questions and existing answers including review logic (reviewers only).
 
 **Parameters:**
@@ -2459,8 +2295,6 @@ Get checklist with questions and existing answers including review logic (review
 ### proposal_proposals_completion_review_status_retrieve
 
 **`GET`** `/api/proposal-proposals/{uuid}/completion_review_status/`
-
-**Operation ID:** `proposal_proposals_completion_review_status_retrieve`
 
 Get checklist completion status with review triggers (reviewers only).
 
@@ -2484,8 +2318,6 @@ Get checklist completion status with review triggers (reviewers only).
 
 **`GET`** `/api/proposal-proposals/{uuid}/completion_status/`
 
-**Operation ID:** `proposal_proposals_completion_status_retrieve`
-
 Get checklist completion status.
 
 **Parameters:**
@@ -2504,11 +2336,11 @@ Get checklist completion status.
 
 ---
 
-### Revoke a role from a user
+### proposal_proposals_delete_user
 
 **`POST`** `/api/proposal-proposals/{uuid}/delete_user/`
 
-**Operation ID:** `proposal_proposals_delete_user`
+**Summary:** Revoke a role from a user
 
 Removes a specific role from a user within the current scope. This effectively revokes their permissions associated with that role.
 
@@ -2540,8 +2372,6 @@ Schema: `UserRoleDeleteRequest`
 
 **`POST`** `/api/proposal-proposals/{uuid}/detach_documents/`
 
-**Operation ID:** `proposal_proposals_detach_documents`
-
 Detach documents from proposal.
 
 **Parameters:**
@@ -2566,11 +2396,11 @@ Schema: `ProposalDetachDocumentsRequest`
 
 ---
 
-### List users and their roles in a scope
+### proposal_proposals_list_users_list
 
 **`GET`** `/api/proposal-proposals/{uuid}/list_users/`
 
-**Operation ID:** `proposal_proposals_list_users_list`
+**Summary:** List users and their roles in a scope
 
 Retrieves a list of users who have a role within a specific scope (e.g., a project or an organization). The list can be filtered by user details or role.
 
@@ -2602,8 +2432,6 @@ Retrieves a list of users who have a role within a specific scope (e.g., a proje
 
 **`POST`** `/api/proposal-proposals/{uuid}/reject/`
 
-**Operation ID:** `proposal_proposals_reject`
-
 Reject a proposal.
 
 **Parameters:**
@@ -2632,8 +2460,6 @@ Schema: `ProposalApproveRequest`
 
 **`GET`** `/api/proposal-proposals/{uuid}/resources/`
 
-**Operation ID:** `proposal_proposals_resources_list`
-
 List resources for a proposal.
 
 **Parameters:**
@@ -2653,8 +2479,6 @@ List resources for a proposal.
 ### proposal_proposals_resources_set
 
 **`POST`** `/api/proposal-proposals/{uuid}/resources/`
-
-**Operation ID:** `proposal_proposals_resources_set`
 
 Create resource for a proposal.
 
@@ -2688,8 +2512,6 @@ Schema: `RequestedResourceRequest`
 
 **`GET`** `/api/proposal-proposals/{uuid}/resources/{obj_uuid}/`
 
-**Operation ID:** `proposal_proposals_resources_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2708,8 +2530,6 @@ Schema: `RequestedResourceRequest`
 ### proposal_proposals_resources_update
 
 **`PUT`** `/api/proposal-proposals/{uuid}/resources/{obj_uuid}/`
-
-**Operation ID:** `proposal_proposals_resources_update`
 
 **Parameters:**
 
@@ -2742,8 +2562,6 @@ Schema: `RequestedResourceRequest`
 
 **`PATCH`** `/api/proposal-proposals/{uuid}/resources/{obj_uuid}/`
 
-**Operation ID:** `proposal_proposals_resources_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2775,8 +2593,6 @@ Schema: `PatchedRequestedResourceRequest`
 
 **`DELETE`** `/api/proposal-proposals/{uuid}/resources/{obj_uuid}/`
 
-**Operation ID:** `proposal_proposals_resources_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2795,8 +2611,6 @@ Schema: `PatchedRequestedResourceRequest`
 ### proposal_proposals_submit
 
 **`POST`** `/api/proposal-proposals/{uuid}/submit/`
-
-**Operation ID:** `proposal_proposals_submit`
 
 Submit a proposal.
 
@@ -2817,8 +2631,6 @@ Submit a proposal.
 ### proposal_proposals_submit_answers
 
 **`POST`** `/api/proposal-proposals/{uuid}/submit_answers/`
-
-**Operation ID:** `proposal_proposals_submit_answers`
 
 Submit checklist answers.
 
@@ -2843,8 +2655,6 @@ Submit checklist answers.
 ### proposal_proposals_update_project_details
 
 **`POST`** `/api/proposal-proposals/{uuid}/update_project_details/`
-
-**Operation ID:** `proposal_proposals_update_project_details`
 
 Update project details of a proposal.
 
@@ -2876,11 +2686,11 @@ Schema: `ProposalUpdateProjectDetailsRequest`
 
 ---
 
-### Update a user's role expiration
+### proposal_proposals_update_user
 
 **`POST`** `/api/proposal-proposals/{uuid}/update_user/`
 
-**Operation ID:** `proposal_proposals_update_user`
+**Summary:** Update a user's role expiration
 
 Updates the expiration time for a user's existing role in the current scope. This is useful for extending or shortening the duration of a permission. To make a role permanent, set expiration_time to null.
 
@@ -2912,8 +2722,6 @@ Schema: `UserRoleUpdateRequest`
 
 **`GET`** `/api/proposal-protected-calls/`
 
-**Operation ID:** `proposal_protected_calls_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2940,8 +2748,6 @@ Schema: `UserRoleUpdateRequest`
 ### proposal_protected_calls_count
 
 **`HEAD`** `/api/proposal-protected-calls/`
-
-**Operation ID:** `proposal_protected_calls_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2970,8 +2776,6 @@ Get number of items in the collection matching the request parameters.
 ### proposal_protected_calls_create
 
 **`POST`** `/api/proposal-protected-calls/`
-
-**Operation ID:** `proposal_protected_calls_create`
 
 **Request Body** (`application/json`, required):
 
@@ -3011,8 +2815,6 @@ Schema: `ProtectedCallRequest`
 
 **`GET`** `/api/proposal-protected-calls/available_compliance_checklists/`
 
-**Operation ID:** `proposal_protected_calls_available_compliance_checklists_list`
-
 Get available compliance checklists for call creation/editing.
 
 **Parameters:**
@@ -3041,8 +2843,6 @@ Get available compliance checklists for call creation/editing.
 ### proposal_protected_calls_available_compliance_checklists_count
 
 **`HEAD`** `/api/proposal-protected-calls/available_compliance_checklists/`
-
-**Operation ID:** `proposal_protected_calls_available_compliance_checklists_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -3073,8 +2873,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/`
 
-**Operation ID:** `proposal_protected_calls_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -3093,8 +2891,6 @@ Get number of items in the collection matching the request parameters.
 ### proposal_protected_calls_update
 
 **`PUT`** `/api/proposal-protected-calls/{uuid}/`
-
-**Operation ID:** `proposal_protected_calls_update`
 
 **Parameters:**
 
@@ -3140,8 +2936,6 @@ Schema: `ProtectedCallRequest`
 
 **`PATCH`** `/api/proposal-protected-calls/{uuid}/`
 
-**Operation ID:** `proposal_protected_calls_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -3185,8 +2979,6 @@ Schema: `PatchedProtectedCallRequest`
 
 **`DELETE`** `/api/proposal-protected-calls/{uuid}/`
 
-**Operation ID:** `proposal_protected_calls_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -3205,8 +2997,6 @@ Schema: `PatchedProtectedCallRequest`
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/activate/`
 
-**Operation ID:** `proposal_protected_calls_activate`
-
 Activate a call.
 
 **Parameters:**
@@ -3223,11 +3013,11 @@ Activate a call.
 
 ---
 
-### Grant a role to a user
+### proposal_protected_calls_add_user
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/add_user/`
 
-**Operation ID:** `proposal_protected_calls_add_user`
+**Summary:** Grant a role to a user
 
 Assigns a specific role to a user within the current scope. An optional expiration time for the role can be set.
 
@@ -3260,8 +3050,6 @@ Schema: `UserRoleCreateRequest`
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/affinity-matrix/`
 
-**Operation ID:** `proposal_protected_calls_affinity_matrix_retrieve`
-
 Get affinity matrix for reviewer-proposal matching.
 
 **Parameters:**
@@ -3283,8 +3071,6 @@ Get affinity matrix for reviewer-proposal matching.
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/applicant_attribute_config/`
 
-**Operation ID:** `proposal_protected_calls_applicant_attribute_config_retrieve`
-
 Get applicant attribute exposure configuration for this call.
 
 **Parameters:**
@@ -3305,8 +3091,6 @@ Get applicant attribute exposure configuration for this call.
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/archive/`
 
-**Operation ID:** `proposal_protected_calls_archive`
-
 Archive a call.
 
 **Parameters:**
@@ -3326,8 +3110,6 @@ Archive a call.
 ### proposal_protected_calls_attach_documents
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/attach_documents/`
-
-**Operation ID:** `proposal_protected_calls_attach_documents`
 
 Attach documents to call.
 
@@ -3358,8 +3140,6 @@ Schema: `CallAttachDocumentsRequest`
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/coi-configuration/`
 
-**Operation ID:** `proposal_protected_calls_coi_configuration_retrieve`
-
 Get COI configuration for this call.
 
 **Parameters:**
@@ -3379,8 +3159,6 @@ Get COI configuration for this call.
 ### proposal_protected_calls_coi_configuration_partial_update
 
 **`PATCH`** `/api/proposal-protected-calls/{uuid}/coi-configuration/`
-
-**Operation ID:** `proposal_protected_calls_coi_configuration_partial_update`
 
 Get COI configuration for this call.
 
@@ -3421,8 +3199,6 @@ Schema: `PatchedCallCOIConfigurationRequest`
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/compliance_overview/`
 
-**Operation ID:** `proposal_protected_calls_compliance_overview_retrieve`
-
 Get compliance overview for call manager showing all proposals and their compliance status.
 
 **Parameters:**
@@ -3442,8 +3218,6 @@ Get compliance overview for call manager showing all proposals and their complia
 ### proposal_protected_calls_compute_affinities
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/compute-affinities/`
-
-**Operation ID:** `proposal_protected_calls_compute_affinities`
 
 Compute affinity scores for all reviewer-proposal pairs.
 
@@ -3491,8 +3265,6 @@ Schema: `ProtectedCallRequest`
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/conflict-summary/`
 
-**Operation ID:** `proposal_protected_calls_conflict_summary_retrieve`
-
 Get summary statistics of conflicts for this call.
 
 **Parameters:**
@@ -3512,8 +3284,6 @@ Get summary statistics of conflicts for this call.
 ### proposal_protected_calls_conflicts_list
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/conflicts/`
-
-**Operation ID:** `proposal_protected_calls_conflicts_list`
 
 List all conflicts of interest detected for this call.
 
@@ -3543,8 +3313,6 @@ List all conflicts of interest detected for this call.
 ### proposal_protected_calls_create_manual_assignment
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/create-manual-assignment/`
-
-**Operation ID:** `proposal_protected_calls_create_manual_assignment`
 
 Create a manual assignment batch for a specific reviewer. This allows call managers to manually assign proposals to reviewers.
 
@@ -3576,8 +3344,6 @@ Schema: `CreateManualAssignmentRequest`
 
 **`DELETE`** `/api/proposal-protected-calls/{uuid}/delete_applicant_attribute_config/`
 
-**Operation ID:** `proposal_protected_calls_delete_applicant_attribute_config_destroy`
-
 Delete custom applicant attribute config, reverting to system defaults.
 
 **Parameters:**
@@ -3594,11 +3360,11 @@ Delete custom applicant attribute config, reverting to system defaults.
 
 ---
 
-### Revoke a role from a user
+### proposal_protected_calls_delete_user
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/delete_user/`
 
-**Operation ID:** `proposal_protected_calls_delete_user`
+**Summary:** Revoke a role from a user
 
 Removes a specific role from a user within the current scope. This effectively revokes their permissions associated with that role.
 
@@ -3630,8 +3396,6 @@ Schema: `UserRoleDeleteRequest`
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/detach_documents/`
 
-**Operation ID:** `proposal_protected_calls_detach_documents`
-
 Detach documents from call.
 
 **Parameters:**
@@ -3659,8 +3423,6 @@ Schema: `CallDetachDocumentsRequest`
 ### proposal_protected_calls_detect_conflicts
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/detect-conflicts/`
-
-**Operation ID:** `proposal_protected_calls_detect_conflicts`
 
 Trigger automated COI detection for all reviewer-proposal pairs.
 
@@ -3690,8 +3452,6 @@ Schema: `TriggerCOIDetectionRequest`
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/generate-assignments/`
 
-**Operation ID:** `proposal_protected_calls_generate_assignments`
-
 Generate assignment batches for reviewers. Uses the affinity matrix and COI records to assign reviewers to proposals.
 
 **Parameters:**
@@ -3720,8 +3480,6 @@ Schema: `GenerateAssignmentsRequest`
 ### proposal_protected_calls_generate_suggestions
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/generate-suggestions/`
-
-**Operation ID:** `proposal_protected_calls_generate_suggestions`
 
 Generate reviewer suggestions with configurable matching source.
 
@@ -3755,8 +3513,6 @@ Schema: `GenerateSuggestionsRequestRequest`
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/invite-by-email/`
 
-**Operation ID:** `proposal_protected_calls_invite_by_email`
-
 Invite a reviewer by email address. Creates an invitation that requires the reviewer to create and publish a profile before accepting.
 
 **Parameters:**
@@ -3783,11 +3539,11 @@ Schema: `EmailInvitationRequest`
 
 ---
 
-### List users and their roles in a scope
+### proposal_protected_calls_list_users_list
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/list_users/`
 
-**Operation ID:** `proposal_protected_calls_list_users_list`
+**Summary:** List users and their roles in a scope
 
 Retrieves a list of users who have a role within a specific scope (e.g., a project or an organization). The list can be filtered by user details or role.
 
@@ -3819,8 +3575,6 @@ Retrieves a list of users who have a role within a specific scope (e.g., a proje
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/matching-configuration/`
 
-**Operation ID:** `proposal_protected_calls_matching_configuration_retrieve`
-
 Get or update matching configuration for this call.
 
 **Parameters:**
@@ -3840,8 +3594,6 @@ Get or update matching configuration for this call.
 ### proposal_protected_calls_matching_configuration_partial_update
 
 **`PATCH`** `/api/proposal-protected-calls/{uuid}/matching-configuration/`
-
-**Operation ID:** `proposal_protected_calls_matching_configuration_partial_update`
 
 Get or update matching configuration for this call.
 
@@ -3881,8 +3633,6 @@ Schema: `PatchedMatchingConfigurationRequest`
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/offerings/`
 
-**Operation ID:** `proposal_protected_calls_offerings_list`
-
 List offerings for a call.
 
 **Parameters:**
@@ -3903,8 +3653,6 @@ List offerings for a call.
 ### proposal_protected_calls_offerings_set
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/offerings/`
-
-**Operation ID:** `proposal_protected_calls_offerings_set`
 
 Create offering for a call.
 
@@ -3937,8 +3685,6 @@ Schema: `RequestedOfferingRequest`
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/offerings/{obj_uuid}/`
 
-**Operation ID:** `proposal_protected_calls_offerings_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -3957,8 +3703,6 @@ Schema: `RequestedOfferingRequest`
 ### proposal_protected_calls_offerings_update
 
 **`PUT`** `/api/proposal-protected-calls/{uuid}/offerings/{obj_uuid}/`
-
-**Operation ID:** `proposal_protected_calls_offerings_update`
 
 **Parameters:**
 
@@ -3990,8 +3734,6 @@ Schema: `RequestedOfferingRequest`
 
 **`PATCH`** `/api/proposal-protected-calls/{uuid}/offerings/{obj_uuid}/`
 
-**Operation ID:** `proposal_protected_calls_offerings_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4021,8 +3763,6 @@ Schema: `PatchedRequestedOfferingRequest`
 
 **`DELETE`** `/api/proposal-protected-calls/{uuid}/offerings/{obj_uuid}/`
 
-**Operation ID:** `proposal_protected_calls_offerings_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4041,8 +3781,6 @@ Schema: `PatchedRequestedOfferingRequest`
 ### proposal_protected_calls_proposals_compliance_answers_list
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/proposals/{proposal_uuid}/compliance-answers/`
-
-**Operation ID:** `proposal_protected_calls_proposals_compliance_answers_list`
 
 Get detailed compliance answers for a specific proposal (call managers only).
 
@@ -4074,8 +3812,6 @@ Get detailed compliance answers for a specific proposal (call managers only).
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/proposed-assignments/`
 
-**Operation ID:** `proposal_protected_calls_proposed_assignments_list`
-
 Get proposed reviewer-proposal assignments.
 
 **Parameters:**
@@ -4105,8 +3841,6 @@ Get proposed reviewer-proposal assignments.
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/resource_templates/`
 
-**Operation ID:** `proposal_protected_calls_resource_templates_list`
-
 List resource templates for a call.
 
 **Parameters:**
@@ -4126,8 +3860,6 @@ List resource templates for a call.
 ### proposal_protected_calls_resource_templates_set
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/resource_templates/`
-
-**Operation ID:** `proposal_protected_calls_resource_templates_set`
 
 Create resource template for a call.
 
@@ -4162,8 +3894,6 @@ Schema: `CallResourceTemplateRequest`
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/resource_templates/{obj_uuid}/`
 
-**Operation ID:** `proposal_protected_calls_resource_templates_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4182,8 +3912,6 @@ Schema: `CallResourceTemplateRequest`
 ### proposal_protected_calls_resource_templates_update
 
 **`PUT`** `/api/proposal-protected-calls/{uuid}/resource_templates/{obj_uuid}/`
-
-**Operation ID:** `proposal_protected_calls_resource_templates_update`
 
 **Parameters:**
 
@@ -4217,8 +3945,6 @@ Schema: `CallResourceTemplateRequest`
 
 **`PATCH`** `/api/proposal-protected-calls/{uuid}/resource_templates/{obj_uuid}/`
 
-**Operation ID:** `proposal_protected_calls_resource_templates_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4251,8 +3977,6 @@ Schema: `PatchedCallResourceTemplateRequest`
 
 **`DELETE`** `/api/proposal-protected-calls/{uuid}/resource_templates/{obj_uuid}/`
 
-**Operation ID:** `proposal_protected_calls_resource_templates_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4271,8 +3995,6 @@ Schema: `PatchedCallResourceTemplateRequest`
 ### proposal_protected_calls_review_proposal_compliance
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/review_proposal_compliance/`
-
-**Operation ID:** `proposal_protected_calls_review_proposal_compliance`
 
 Mark proposal compliance as reviewed by call manager.
 
@@ -4303,8 +4025,6 @@ Schema: `CallComplianceReviewRequest`
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/reviewer-pool/`
 
-**Operation ID:** `proposal_protected_calls_reviewer_pool_list`
-
 List reviewer pool members for a call.
 
 **Parameters:**
@@ -4324,8 +4044,6 @@ List reviewer pool members for a call.
 ### proposal_protected_calls_invite_reviewers
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/reviewer-pool/`
-
-**Operation ID:** `proposal_protected_calls_invite_reviewers`
 
 Invite reviewers to join the call's reviewer pool.
 
@@ -4366,8 +4084,6 @@ Schema: `ReviewerInvitationRequest`
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/rounds/`
 
-**Operation ID:** `proposal_protected_calls_rounds_list`
-
 List rounds for a call.
 
 **Parameters:**
@@ -4387,8 +4103,6 @@ List rounds for a call.
 ### proposal_protected_calls_rounds_set
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/rounds/`
-
-**Operation ID:** `proposal_protected_calls_rounds_set`
 
 Create a round for a call.
 
@@ -4426,8 +4140,6 @@ Schema: `ProtectedRoundRequest`
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/`
 
-**Operation ID:** `proposal_protected_calls_rounds_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4446,8 +4158,6 @@ Schema: `ProtectedRoundRequest`
 ### proposal_protected_calls_rounds_update
 
 **`PUT`** `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/`
-
-**Operation ID:** `proposal_protected_calls_rounds_update`
 
 **Parameters:**
 
@@ -4484,8 +4194,6 @@ Schema: `ProtectedRoundRequest`
 
 **`PATCH`** `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/`
 
-**Operation ID:** `proposal_protected_calls_rounds_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4521,8 +4229,6 @@ Schema: `PatchedProtectedRoundRequest`
 
 **`DELETE`** `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/`
 
-**Operation ID:** `proposal_protected_calls_rounds_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4541,8 +4247,6 @@ Schema: `PatchedProtectedRoundRequest`
 ### proposal_protected_calls_rounds_close
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/close/`
-
-**Operation ID:** `proposal_protected_calls_rounds_close`
 
 **Parameters:**
 
@@ -4589,8 +4293,6 @@ Schema: `ProtectedCallRequest`
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/send-all-assignments/`
 
-**Operation ID:** `proposal_protected_calls_send_all_assignments`
-
 Send all draft assignment batches for this call.
 
 **Parameters:**
@@ -4619,8 +4321,6 @@ Schema: `SendAllAssignmentBatchesRequest`
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/send-invitations/`
 
-**Operation ID:** `proposal_protected_calls_send_invitations`
-
 Send invitations to all confirmed suggestions.
 
 **Parameters:**
@@ -4640,8 +4340,6 @@ Send invitations to all confirmed suggestions.
 ### proposal_protected_calls_suggestions_list
 
 **`GET`** `/api/proposal-protected-calls/{uuid}/suggestions/`
-
-**Operation ID:** `proposal_protected_calls_suggestions_list`
 
 List all reviewer suggestions for this call with affinity scores.
 
@@ -4671,8 +4369,6 @@ List all reviewer suggestions for this call with affinity scores.
 ### proposal_protected_calls_update_applicant_attribute_config
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/update_applicant_attribute_config/`
-
-**Operation ID:** `proposal_protected_calls_update_applicant_attribute_config`
 
 Create or update applicant attribute exposure configuration.
 
@@ -4714,8 +4410,6 @@ Schema: `CallApplicantAttributeConfigRequest`
 
 **`PATCH`** `/api/proposal-protected-calls/{uuid}/update_applicant_attribute_config/`
 
-**Operation ID:** `proposal_protected_calls_update_applicant_attribute_config_partial_update`
-
 Create or update applicant attribute exposure configuration.
 
 **Parameters:**
@@ -4752,11 +4446,11 @@ Schema: `PatchedCallApplicantAttributeConfigRequest`
 
 ---
 
-### Update a user's role expiration
+### proposal_protected_calls_update_user
 
 **`POST`** `/api/proposal-protected-calls/{uuid}/update_user/`
 
-**Operation ID:** `proposal_protected_calls_update_user`
+**Summary:** Update a user's role expiration
 
 Updates the expiration time for a user's existing role in the current scope. This is useful for extending or shortening the duration of a permission. To make a role permanent, set expiration_time to null.
 
@@ -4788,8 +4482,6 @@ Schema: `UserRoleUpdateRequest`
 
 **`GET`** `/api/proposal-public-calls/`
 
-**Operation ID:** `proposal_public_calls_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4816,8 +4508,6 @@ Schema: `UserRoleUpdateRequest`
 ### proposal_public_calls_count
 
 **`HEAD`** `/api/proposal-public-calls/`
-
-**Operation ID:** `proposal_public_calls_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -4847,8 +4537,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/proposal-public-calls/{uuid}/`
 
-**Operation ID:** `proposal_public_calls_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4867,8 +4555,6 @@ Get number of items in the collection matching the request parameters.
 ### proposal_public_calls_check_eligibility_retrieve
 
 **`GET`** `/api/proposal-public-calls/{uuid}/check_eligibility/`
-
-**Operation ID:** `proposal_public_calls_check_eligibility_retrieve`
 
 Check if the current user is eligible to submit proposals to this call.
 
@@ -4889,8 +4575,6 @@ Check if the current user is eligible to submit proposals to this call.
 ### proposal_requested_offerings_list
 
 **`GET`** `/api/proposal-requested-offerings/`
-
-**Operation ID:** `proposal_requested_offerings_list`
 
 **Parameters:**
 
@@ -4916,8 +4600,6 @@ Check if the current user is eligible to submit proposals to this call.
 ### proposal_requested_offerings_count
 
 **`HEAD`** `/api/proposal-requested-offerings/`
-
-**Operation ID:** `proposal_requested_offerings_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -4946,8 +4628,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/proposal-requested-offerings/{uuid}/`
 
-**Operation ID:** `proposal_requested_offerings_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4965,8 +4645,6 @@ Get number of items in the collection matching the request parameters.
 ### proposal_requested_offerings_accept
 
 **`POST`** `/api/proposal-requested-offerings/{uuid}/accept/`
-
-**Operation ID:** `proposal_requested_offerings_accept`
 
 Accept a requested offering.
 
@@ -4988,8 +4666,6 @@ Accept a requested offering.
 
 **`POST`** `/api/proposal-requested-offerings/{uuid}/cancel/`
 
-**Operation ID:** `proposal_requested_offerings_cancel`
-
 Cancel a requested offering.
 
 **Parameters:**
@@ -5009,8 +4685,6 @@ Cancel a requested offering.
 ### proposal_requested_resources_list
 
 **`GET`** `/api/proposal-requested-resources/`
-
-**Operation ID:** `proposal_requested_resources_list`
 
 **Parameters:**
 
@@ -5036,8 +4710,6 @@ Cancel a requested offering.
 ### proposal_requested_resources_count
 
 **`HEAD`** `/api/proposal-requested-resources/`
-
-**Operation ID:** `proposal_requested_resources_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -5066,8 +4738,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/proposal-requested-resources/{uuid}/`
 
-**Operation ID:** `proposal_requested_resources_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -5085,8 +4755,6 @@ Get number of items in the collection matching the request parameters.
 ### proposal_reviews_list
 
 **`GET`** `/api/proposal-reviews/`
-
-**Operation ID:** `proposal_reviews_list`
 
 **Parameters:**
 
@@ -5113,8 +4781,6 @@ Get number of items in the collection matching the request parameters.
 ### proposal_reviews_count
 
 **`HEAD`** `/api/proposal-reviews/`
-
-**Operation ID:** `proposal_reviews_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -5143,8 +4809,6 @@ Get number of items in the collection matching the request parameters.
 ### proposal_reviews_create
 
 **`POST`** `/api/proposal-reviews/`
-
-**Operation ID:** `proposal_reviews_create`
 
 **Request Body** (`application/json`, required):
 
@@ -5179,8 +4843,6 @@ Schema: `ProposalReviewRequest`
 
 **`GET`** `/api/proposal-reviews/{uuid}/`
 
-**Operation ID:** `proposal_reviews_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -5198,8 +4860,6 @@ Schema: `ProposalReviewRequest`
 ### proposal_reviews_update
 
 **`PUT`** `/api/proposal-reviews/{uuid}/`
-
-**Operation ID:** `proposal_reviews_update`
 
 **Parameters:**
 
@@ -5240,8 +4900,6 @@ Schema: `ProposalReviewRequest`
 
 **`PATCH`** `/api/proposal-reviews/{uuid}/`
 
-**Operation ID:** `proposal_reviews_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -5279,8 +4937,6 @@ Schema: `PatchedProposalReviewRequest`
 
 **`DELETE`** `/api/proposal-reviews/{uuid}/`
 
-**Operation ID:** `proposal_reviews_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -5298,8 +4954,6 @@ Schema: `PatchedProposalReviewRequest`
 ### proposal_reviews_reject
 
 **`POST`** `/api/proposal-reviews/{uuid}/reject/`
-
-**Operation ID:** `proposal_reviews_reject`
 
 Reject a review, changing its state to REJECTED.
 
@@ -5320,8 +4974,6 @@ Reject a review, changing its state to REJECTED.
 ### proposal_reviews_submit
 
 **`POST`** `/api/proposal-reviews/{uuid}/submit/`
-
-**Operation ID:** `proposal_reviews_submit`
 
 Submit a review, changing its state to SUBMITTED.
 
@@ -5353,8 +5005,6 @@ Schema: `ReviewSubmitRequest`
 
 **`GET`** `/api/reviewer-bids/`
 
-**Operation ID:** `reviewer_bids_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -5376,8 +5026,6 @@ Schema: `ReviewSubmitRequest`
 ### reviewer_bids_count
 
 **`HEAD`** `/api/reviewer-bids/`
-
-**Operation ID:** `reviewer_bids_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -5403,8 +5051,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/reviewer-bids/`
 
-**Operation ID:** `reviewer_bids_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `ReviewerBidRequest`
@@ -5427,8 +5073,6 @@ Schema: `ReviewerBidRequest`
 
 **`POST`** `/api/reviewer-bids/bulk-submit/`
 
-**Operation ID:** `reviewer_bids_bulk_submit`
-
 Submit multiple bids at once.
 
 **Request Body** (`application/json`, required):
@@ -5450,8 +5094,6 @@ Schema: `ReviewerBulkBidRequest`
 ### reviewer_bids_my_bids_list
 
 **`GET`** `/api/reviewer-bids/my-bids/`
-
-**Operation ID:** `reviewer_bids_my_bids_list`
 
 Get my bids for a specific call.
 
@@ -5477,8 +5119,6 @@ Get my bids for a specific call.
 
 **`HEAD`** `/api/reviewer-bids/my-bids/`
 
-**Operation ID:** `reviewer_bids_my_bids_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -5502,8 +5142,6 @@ Get number of items in the collection matching the request parameters.
 ### reviewer_bids_submit
 
 **`POST`** `/api/reviewer-bids/submit/`
-
-**Operation ID:** `reviewer_bids_submit`
 
 Submit a bid on a proposal.
 
@@ -5529,8 +5167,6 @@ Schema: `ReviewerBidSubmitRequest`
 
 **`GET`** `/api/reviewer-bids/{uuid}/`
 
-**Operation ID:** `reviewer_bids_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -5548,8 +5184,6 @@ Schema: `ReviewerBidSubmitRequest`
 ### reviewer_bids_update
 
 **`PUT`** `/api/reviewer-bids/{uuid}/`
-
-**Operation ID:** `reviewer_bids_update`
 
 **Parameters:**
 
@@ -5579,8 +5213,6 @@ Schema: `ReviewerBidRequest`
 
 **`PATCH`** `/api/reviewer-bids/{uuid}/`
 
-**Operation ID:** `reviewer_bids_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -5609,8 +5241,6 @@ Schema: `PatchedReviewerBidRequest`
 
 **`DELETE`** `/api/reviewer-bids/{uuid}/`
 
-**Operation ID:** `reviewer_bids_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -5628,8 +5258,6 @@ Schema: `PatchedReviewerBidRequest`
 ### reviewer_invitations_retrieve
 
 **`GET`** `/api/reviewer-invitations/{token}/`
-
-**Operation ID:** `reviewer_invitations_retrieve`
 
 Get invitation details by token.
 
@@ -5650,8 +5278,6 @@ Get invitation details by token.
 ### reviewer_invitations_accept
 
 **`POST`** `/api/reviewer-invitations/{token}/accept/`
-
-**Operation ID:** `reviewer_invitations_accept`
 
 Accept a reviewer invitation.
 
@@ -5683,8 +5309,6 @@ Schema: `InvitationAcceptRequest`
 
 **`POST`** `/api/reviewer-invitations/{token}/decline/`
 
-**Operation ID:** `reviewer_invitations_decline`
-
 Decline a reviewer invitation.
 
 **Parameters:**
@@ -5713,8 +5337,6 @@ Schema: `InvitationDeclineRequest`
 
 **`GET`** `/api/reviewer-profiles/`
 
-**Operation ID:** `reviewer_profiles_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -5739,8 +5361,6 @@ Schema: `InvitationDeclineRequest`
 ### reviewer_profiles_count
 
 **`HEAD`** `/api/reviewer-profiles/`
-
-**Operation ID:** `reviewer_profiles_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -5769,8 +5389,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/reviewer-profiles/`
 
-**Operation ID:** `reviewer_profiles_create`
-
 **Request Body** (`application/json`, optional):
 
 Schema: `ReviewerProfileRequest`
@@ -5794,8 +5412,6 @@ Schema: `ReviewerProfileRequest`
 
 **`GET`** `/api/reviewer-profiles/me/`
 
-**Operation ID:** `reviewer_profiles_me_retrieve`
-
 Get or create reviewer profile for the current user.
 
 **Responses:**
@@ -5810,8 +5426,6 @@ Get or create reviewer profile for the current user.
 
 **`HEAD`** `/api/reviewer-profiles/me/`
 
-**Operation ID:** `reviewer_profiles_me_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Responses:**
@@ -5825,8 +5439,6 @@ Get number of items in the collection matching the request parameters.
 ### reviewer_profiles_me
 
 **`POST`** `/api/reviewer-profiles/me/`
-
-**Operation ID:** `reviewer_profiles_me`
 
 Get or create reviewer profile for the current user.
 
@@ -5853,8 +5465,6 @@ Schema: `ReviewerProfileCreateRequest`
 
 **`PATCH`** `/api/reviewer-profiles/me/`
 
-**Operation ID:** `reviewer_profiles_me_partial_update`
-
 Get or create reviewer profile for the current user.
 
 **Request Body** (`application/json`, optional):
@@ -5879,8 +5489,6 @@ Schema: `PatchedReviewerProfileCreateRequest`
 ### reviewer_profiles_publish
 
 **`POST`** `/api/reviewer-profiles/publish/`
-
-**Operation ID:** `reviewer_profiles_publish`
 
 Publish reviewer profile for discovery by call managers. Warning: Publishing makes your full profile visible to call managers globally.
 
@@ -5907,8 +5515,6 @@ Schema: `ReviewerProfileRequest`
 
 **`POST`** `/api/reviewer-profiles/unpublish/`
 
-**Operation ID:** `reviewer_profiles_unpublish`
-
 Unpublish reviewer profile to remove it from discovery.
 
 **Request Body** (`application/json`, optional):
@@ -5934,8 +5540,6 @@ Schema: `ReviewerProfileRequest`
 
 **`GET`** `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/`
 
-**Operation ID:** `nested_reviewer_profile_affiliations_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -5953,8 +5557,6 @@ Schema: `ReviewerProfileRequest`
 ### nested_reviewer_profile_affiliations_create
 
 **`POST`** `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/`
-
-**Operation ID:** `nested_reviewer_profile_affiliations_create`
 
 **Parameters:**
 
@@ -5990,8 +5592,6 @@ Schema: `ReviewerAffiliationRequest`
 
 **`GET`** `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/{uuid}/`
 
-**Operation ID:** `nested_reviewer_profile_affiliations_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6010,8 +5610,6 @@ Schema: `ReviewerAffiliationRequest`
 ### nested_reviewer_profile_affiliations_update
 
 **`PUT`** `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/{uuid}/`
-
-**Operation ID:** `nested_reviewer_profile_affiliations_update`
 
 **Parameters:**
 
@@ -6048,8 +5646,6 @@ Schema: `ReviewerAffiliationRequest`
 
 **`PATCH`** `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/{uuid}/`
 
-**Operation ID:** `nested_reviewer_profile_affiliations_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6085,8 +5681,6 @@ Schema: `PatchedReviewerAffiliationRequest`
 
 **`DELETE`** `/api/reviewer-profiles/{reviewer_profile_uuid}/affiliations/{uuid}/`
 
-**Operation ID:** `nested_reviewer_profile_affiliations_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6106,8 +5700,6 @@ Schema: `PatchedReviewerAffiliationRequest`
 
 **`GET`** `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/`
 
-**Operation ID:** `nested_reviewer_profile_expertise_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6125,8 +5717,6 @@ Schema: `PatchedReviewerAffiliationRequest`
 ### nested_reviewer_profile_expertise_create
 
 **`POST`** `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/`
-
-**Operation ID:** `nested_reviewer_profile_expertise_create`
 
 **Parameters:**
 
@@ -6158,8 +5748,6 @@ Schema: `ReviewerExpertiseRequest`
 
 **`GET`** `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/{uuid}/`
 
-**Operation ID:** `nested_reviewer_profile_expertise_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6178,8 +5766,6 @@ Schema: `ReviewerExpertiseRequest`
 ### nested_reviewer_profile_expertise_update
 
 **`PUT`** `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/{uuid}/`
-
-**Operation ID:** `nested_reviewer_profile_expertise_update`
 
 **Parameters:**
 
@@ -6212,8 +5798,6 @@ Schema: `ReviewerExpertiseRequest`
 
 **`PATCH`** `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/{uuid}/`
 
-**Operation ID:** `nested_reviewer_profile_expertise_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6245,8 +5829,6 @@ Schema: `PatchedReviewerExpertiseRequest`
 
 **`DELETE`** `/api/reviewer-profiles/{reviewer_profile_uuid}/expertise/{uuid}/`
 
-**Operation ID:** `nested_reviewer_profile_expertise_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6266,8 +5848,6 @@ Schema: `PatchedReviewerExpertiseRequest`
 
 **`GET`** `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/`
 
-**Operation ID:** `nested_reviewer_profile_publications_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6285,8 +5865,6 @@ Schema: `PatchedReviewerExpertiseRequest`
 ### nested_reviewer_profile_publications_create
 
 **`POST`** `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/`
-
-**Operation ID:** `nested_reviewer_profile_publications_create`
 
 **Parameters:**
 
@@ -6322,8 +5900,6 @@ Schema: `ReviewerPublicationRequest`
 
 **`GET`** `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/{uuid}/`
 
-**Operation ID:** `nested_reviewer_profile_publications_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6342,8 +5918,6 @@ Schema: `ReviewerPublicationRequest`
 ### nested_reviewer_profile_publications_update
 
 **`PUT`** `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/{uuid}/`
-
-**Operation ID:** `nested_reviewer_profile_publications_update`
 
 **Parameters:**
 
@@ -6380,8 +5954,6 @@ Schema: `ReviewerPublicationRequest`
 
 **`PATCH`** `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/{uuid}/`
 
-**Operation ID:** `nested_reviewer_profile_publications_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6417,8 +5989,6 @@ Schema: `PatchedReviewerPublicationRequest`
 
 **`DELETE`** `/api/reviewer-profiles/{reviewer_profile_uuid}/publications/{uuid}/`
 
-**Operation ID:** `nested_reviewer_profile_publications_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6438,8 +6008,6 @@ Schema: `PatchedReviewerPublicationRequest`
 
 **`GET`** `/api/reviewer-profiles/{uuid}/`
 
-**Operation ID:** `reviewer_profiles_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6457,8 +6025,6 @@ Schema: `PatchedReviewerPublicationRequest`
 ### reviewer_profiles_update
 
 **`PUT`** `/api/reviewer-profiles/{uuid}/`
-
-**Operation ID:** `reviewer_profiles_update`
 
 **Parameters:**
 
@@ -6489,8 +6055,6 @@ Schema: `ReviewerProfileRequest`
 
 **`PATCH`** `/api/reviewer-profiles/{uuid}/`
 
-**Operation ID:** `reviewer_profiles_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6520,8 +6084,6 @@ Schema: `PatchedReviewerProfileRequest`
 
 **`DELETE`** `/api/reviewer-profiles/{uuid}/`
 
-**Operation ID:** `reviewer_profiles_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6539,8 +6101,6 @@ Schema: `PatchedReviewerProfileRequest`
 ### reviewer_profiles_affiliations_list
 
 **`GET`** `/api/reviewer-profiles/{uuid}/affiliations/`
-
-**Operation ID:** `reviewer_profiles_affiliations_list`
 
 List affiliations for a reviewer profile.
 
@@ -6561,8 +6121,6 @@ List affiliations for a reviewer profile.
 ### reviewer_profiles_affiliations_create
 
 **`POST`** `/api/reviewer-profiles/{uuid}/affiliations/`
-
-**Operation ID:** `reviewer_profiles_affiliations_create`
 
 Create affiliation for a reviewer profile.
 
@@ -6600,8 +6158,6 @@ Schema: `ReviewerAffiliationRequest`
 
 **`GET`** `/api/reviewer-profiles/{uuid}/connect-orcid/`
 
-**Operation ID:** `reviewer_profiles_connect_orcid_retrieve`
-
 Get ORCID OAuth authorization URL.
 
 **Parameters:**
@@ -6621,8 +6177,6 @@ Get ORCID OAuth authorization URL.
 ### reviewer_profiles_connect_orcid_callback
 
 **`POST`** `/api/reviewer-profiles/{uuid}/connect-orcid/callback/`
-
-**Operation ID:** `reviewer_profiles_connect_orcid_callback`
 
 Complete ORCID OAuth connection with authorization code.
 
@@ -6652,8 +6206,6 @@ Schema: `OrcidCallbackRequest`
 ### reviewer_profiles_disconnect_orcid
 
 **`POST`** `/api/reviewer-profiles/{uuid}/disconnect-orcid/`
-
-**Operation ID:** `reviewer_profiles_disconnect_orcid`
 
 Disconnect ORCID from profile.
 
@@ -6686,8 +6238,6 @@ Schema: `ReviewerProfileRequest`
 
 **`GET`** `/api/reviewer-profiles/{uuid}/expertise/`
 
-**Operation ID:** `reviewer_profiles_expertise_list`
-
 List expertise keywords for a reviewer profile.
 
 **Parameters:**
@@ -6707,8 +6257,6 @@ List expertise keywords for a reviewer profile.
 ### reviewer_profiles_expertise_create
 
 **`POST`** `/api/reviewer-profiles/{uuid}/expertise/`
-
-**Operation ID:** `reviewer_profiles_expertise_create`
 
 Create expertise entry for a reviewer profile.
 
@@ -6742,8 +6290,6 @@ Schema: `ReviewerExpertiseRequest`
 
 **`POST`** `/api/reviewer-profiles/{uuid}/import-publications/`
 
-**Operation ID:** `reviewer_profiles_import_publications`
-
 Import publications from ORCID or other sources.
 
 **Parameters:**
@@ -6773,8 +6319,6 @@ Schema: `ImportPublicationsRequest`
 
 **`GET`** `/api/reviewer-profiles/{uuid}/publications/`
 
-**Operation ID:** `reviewer_profiles_publications_list`
-
 List publications for a reviewer profile.
 
 **Parameters:**
@@ -6794,8 +6338,6 @@ List publications for a reviewer profile.
 ### reviewer_profiles_publications_create
 
 **`POST`** `/api/reviewer-profiles/{uuid}/publications/`
-
-**Operation ID:** `reviewer_profiles_publications_create`
 
 Create publication for a reviewer profile.
 
@@ -6833,8 +6375,6 @@ Schema: `ReviewerPublicationRequest`
 
 **`POST`** `/api/reviewer-profiles/{uuid}/sync-orcid/`
 
-**Operation ID:** `reviewer_profiles_sync_orcid`
-
 Sync profile data from ORCID.
 
 **Parameters:**
@@ -6866,8 +6406,6 @@ Schema: `ReviewerProfileRequest`
 
 **`GET`** `/api/reviewer-suggestions/`
 
-**Operation ID:** `reviewer_suggestions_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6889,8 +6427,6 @@ Schema: `ReviewerProfileRequest`
 ### reviewer_suggestions_count
 
 **`HEAD`** `/api/reviewer-suggestions/`
-
-**Operation ID:** `reviewer_suggestions_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -6916,8 +6452,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/reviewer-suggestions/{uuid}/`
 
-**Operation ID:** `reviewer_suggestions_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -6935,8 +6469,6 @@ Get number of items in the collection matching the request parameters.
 ### reviewer_suggestions_destroy
 
 **`DELETE`** `/api/reviewer-suggestions/{uuid}/`
-
-**Operation ID:** `reviewer_suggestions_destroy`
 
 Delete a reviewer suggestion.
 
@@ -6957,8 +6489,6 @@ Delete a reviewer suggestion.
 ### reviewer_suggestions_confirm
 
 **`POST`** `/api/reviewer-suggestions/{uuid}/confirm/`
-
-**Operation ID:** `reviewer_suggestions_confirm`
 
 Confirm a reviewer suggestion. The reviewer will be invited to the call.
 
@@ -6988,8 +6518,6 @@ Schema: `ReviewerSuggestionRequest`
 ### reviewer_suggestions_reject
 
 **`POST`** `/api/reviewer-suggestions/{uuid}/reject/`
-
-**Operation ID:** `reviewer_suggestions_reject`
 
 Reject a reviewer suggestion.
 

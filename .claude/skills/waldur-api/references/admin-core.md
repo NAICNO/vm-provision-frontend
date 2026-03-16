@@ -7,87 +7,85 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/admin-announcements/` | `admin_announcements_list` |  |
-| HEAD | `/api/admin-announcements/` | `admin_announcements_count` |  |
-| POST | `/api/admin-announcements/` | `admin_announcements_create` |  |
-| GET | `/api/admin-announcements/{uuid}/` | `admin_announcements_retrieve` |  |
-| PUT | `/api/admin-announcements/{uuid}/` | `admin_announcements_update` |  |
-| PATCH | `/api/admin-announcements/{uuid}/` | `admin_announcements_partial_update` |  |
-| DELETE | `/api/admin-announcements/{uuid}/` | `admin_announcements_destroy` |  |
-| GET | `/api/admin/arrow/billing-sync-items/` | `admin_arrow_billing_sync_items_list` |  |
-| HEAD | `/api/admin/arrow/billing-sync-items/` | `admin_arrow_billing_sync_items_count` |  |
-| GET | `/api/admin/arrow/billing-sync-items/{uuid}/` | `admin_arrow_billing_sync_items_retrieve` |  |
-| GET | `/api/admin/arrow/billing-syncs/` | `admin_arrow_billing_syncs_list` |  |
-| HEAD | `/api/admin/arrow/billing-syncs/` | `admin_arrow_billing_syncs_count` |  |
-| POST | `/api/admin/arrow/billing-syncs/cleanup_consumption/` | `admin_arrow_billing_syncs_cleanup_consumption` |  |
-| GET | `/api/admin/arrow/billing-syncs/consumption_statistics/` | `admin_arrow_billing_syncs_consumption_statistics_retrieve` |  |
-| HEAD | `/api/admin/arrow/billing-syncs/consumption_statistics/` | `admin_arrow_billing_syncs_consumption_statistics_count` |  |
-| GET | `/api/admin/arrow/billing-syncs/consumption_status/` | `admin_arrow_billing_syncs_consumption_status_retrieve` |  |
-| HEAD | `/api/admin/arrow/billing-syncs/consumption_status/` | `admin_arrow_billing_syncs_consumption_status_count` |  |
-| POST | `/api/admin/arrow/billing-syncs/fetch_billing_export/` | `admin_arrow_billing_syncs_fetch_billing_export` |  |
-| POST | `/api/admin/arrow/billing-syncs/fetch_consumption/` | `admin_arrow_billing_syncs_fetch_consumption` |  |
-| POST | `/api/admin/arrow/billing-syncs/fetch_license_info/` | `admin_arrow_billing_syncs_fetch_license_info` |  |
-| POST | `/api/admin/arrow/billing-syncs/pause_sync/` | `admin_arrow_billing_syncs_pause_sync` |  |
-| GET | `/api/admin/arrow/billing-syncs/pending_records/` | `admin_arrow_billing_syncs_pending_records_list` |  |
-| HEAD | `/api/admin/arrow/billing-syncs/pending_records/` | `admin_arrow_billing_syncs_pending_records_count` |  |
-| POST | `/api/admin/arrow/billing-syncs/reconcile/` | `admin_arrow_billing_syncs_reconcile` |  |
-| POST | `/api/admin/arrow/billing-syncs/resume_sync/` | `admin_arrow_billing_syncs_resume_sync` |  |
-| POST | `/api/admin/arrow/billing-syncs/sync_resource_historical_consumption/` | `admin_arrow_billing_syncs_sync_resource_historical_consumption` |  |
-| POST | `/api/admin/arrow/billing-syncs/sync_resources/` | `admin_arrow_billing_syncs_sync_resources` |  |
-| POST | `/api/admin/arrow/billing-syncs/trigger_consumption_sync/` | `admin_arrow_billing_syncs_trigger_consumption_sync` |  |
-| POST | `/api/admin/arrow/billing-syncs/trigger_reconciliation/` | `admin_arrow_billing_syncs_trigger_reconciliation` |  |
-| POST | `/api/admin/arrow/billing-syncs/trigger_sync/` | `admin_arrow_billing_syncs_trigger_sync` |  |
-| GET | `/api/admin/arrow/billing-syncs/{uuid}/` | `admin_arrow_billing_syncs_retrieve` |  |
-| GET | `/api/admin/arrow/consumption-records/` | `admin_arrow_consumption_records_list` |  |
-| HEAD | `/api/admin/arrow/consumption-records/` | `admin_arrow_consumption_records_count` |  |
-| GET | `/api/admin/arrow/consumption-records/{uuid}/` | `admin_arrow_consumption_records_retrieve` |  |
-| GET | `/api/admin/arrow/customer-mappings/` | `admin_arrow_customer_mappings_list` |  |
-| HEAD | `/api/admin/arrow/customer-mappings/` | `admin_arrow_customer_mappings_count` |  |
-| POST | `/api/admin/arrow/customer-mappings/` | `admin_arrow_customer_mappings_create` |  |
-| GET | `/api/admin/arrow/customer-mappings/available_customers/` | `admin_arrow_customer_mappings_available_customers_retrieve` |  |
-| HEAD | `/api/admin/arrow/customer-mappings/available_customers/` | `admin_arrow_customer_mappings_available_customers_count` |  |
-| POST | `/api/admin/arrow/customer-mappings/sync_from_arrow/` | `admin_arrow_customer_mappings_sync_from_arrow` |  |
-| GET | `/api/admin/arrow/customer-mappings/{uuid}/` | `admin_arrow_customer_mappings_retrieve` |  |
-| PUT | `/api/admin/arrow/customer-mappings/{uuid}/` | `admin_arrow_customer_mappings_update` |  |
-| PATCH | `/api/admin/arrow/customer-mappings/{uuid}/` | `admin_arrow_customer_mappings_partial_update` |  |
-| DELETE | `/api/admin/arrow/customer-mappings/{uuid}/` | `admin_arrow_customer_mappings_destroy` |  |
-| GET | `/api/admin/arrow/customer-mappings/{uuid}/billing_summary/` | `admin_arrow_customer_mappings_billing_summary_retrieve` |  |
-| GET | `/api/admin/arrow/customer-mappings/{uuid}/discover_licenses/` | `admin_arrow_customer_mappings_discover_licenses_retrieve` |  |
-| GET | `/api/admin/arrow/customer-mappings/{uuid}/fetch_arrow_data/` | `admin_arrow_customer_mappings_fetch_arrow_data_retrieve` |  |
-| POST | `/api/admin/arrow/customer-mappings/{uuid}/import_license/` | `admin_arrow_customer_mappings_import_license` |  |
-| POST | `/api/admin/arrow/customer-mappings/{uuid}/link_resource/` | `admin_arrow_customer_mappings_link_resource` |  |
-| GET | `/api/admin/arrow/settings/` | `admin_arrow_settings_list` |  |
-| HEAD | `/api/admin/arrow/settings/` | `admin_arrow_settings_count` |  |
-| POST | `/api/admin/arrow/settings/` | `admin_arrow_settings_create` |  |
-| POST | `/api/admin/arrow/settings/discover_customers/` | `admin_arrow_settings_discover_customers` |  |
-| POST | `/api/admin/arrow/settings/preview_settings/` | `admin_arrow_settings_preview_settings` |  |
-| POST | `/api/admin/arrow/settings/save_settings/` | `admin_arrow_settings_save_settings` |  |
-| POST | `/api/admin/arrow/settings/validate_credentials/` | `admin_arrow_settings_validate_credentials` |  |
-| GET | `/api/admin/arrow/settings/{uuid}/` | `admin_arrow_settings_retrieve` |  |
-| PUT | `/api/admin/arrow/settings/{uuid}/` | `admin_arrow_settings_update` |  |
-| PATCH | `/api/admin/arrow/settings/{uuid}/` | `admin_arrow_settings_partial_update` |  |
-| DELETE | `/api/admin/arrow/settings/{uuid}/` | `admin_arrow_settings_destroy` |  |
-| GET | `/api/admin/arrow/vendor-offering-mappings/` | `admin_arrow_vendor_offering_mappings_list` |  |
-| HEAD | `/api/admin/arrow/vendor-offering-mappings/` | `admin_arrow_vendor_offering_mappings_count` |  |
-| POST | `/api/admin/arrow/vendor-offering-mappings/` | `admin_arrow_vendor_offering_mappings_create` |  |
-| GET | `/api/admin/arrow/vendor-offering-mappings/vendor_choices/` | `admin_arrow_vendor_offering_mappings_vendor_choices_list` |  |
-| HEAD | `/api/admin/arrow/vendor-offering-mappings/vendor_choices/` | `admin_arrow_vendor_offering_mappings_vendor_choices_count` |  |
-| GET | `/api/admin/arrow/vendor-offering-mappings/{uuid}/` | `admin_arrow_vendor_offering_mappings_retrieve` |  |
-| PUT | `/api/admin/arrow/vendor-offering-mappings/{uuid}/` | `admin_arrow_vendor_offering_mappings_update` |  |
-| PATCH | `/api/admin/arrow/vendor-offering-mappings/{uuid}/` | `admin_arrow_vendor_offering_mappings_partial_update` |  |
-| DELETE | `/api/admin/arrow/vendor-offering-mappings/{uuid}/` | `admin_arrow_vendor_offering_mappings_destroy` |  |
-| GET | `/api/configuration/` | `configuration_retrieve` | Get public configuration |
-| POST | `/api/feature-values/` | `feature_values` | Update feature flags |
-| GET | `/api/override-settings/` | `override_settings_retrieve` | Get all overridable settings |
-| POST | `/api/override-settings/` | `override_settings` | Update overridable settings |
+| GET | `/api/admin-announcements/` | [`admin_announcements_list`](#admin-announcements-list) |  |
+| HEAD | `/api/admin-announcements/` | [`admin_announcements_count`](#admin-announcements-count) |  |
+| POST | `/api/admin-announcements/` | [`admin_announcements_create`](#admin-announcements-create) |  |
+| GET | `/api/admin-announcements/{uuid}/` | [`admin_announcements_retrieve`](#admin-announcements-retrieve) |  |
+| PUT | `/api/admin-announcements/{uuid}/` | [`admin_announcements_update`](#admin-announcements-update) |  |
+| PATCH | `/api/admin-announcements/{uuid}/` | [`admin_announcements_partial_update`](#admin-announcements-partial-update) |  |
+| DELETE | `/api/admin-announcements/{uuid}/` | [`admin_announcements_destroy`](#admin-announcements-destroy) |  |
+| GET | `/api/admin/arrow/billing-sync-items/` | [`admin_arrow_billing_sync_items_list`](#admin-arrow-billing-sync-items-list) |  |
+| HEAD | `/api/admin/arrow/billing-sync-items/` | [`admin_arrow_billing_sync_items_count`](#admin-arrow-billing-sync-items-count) |  |
+| GET | `/api/admin/arrow/billing-sync-items/{uuid}/` | [`admin_arrow_billing_sync_items_retrieve`](#admin-arrow-billing-sync-items-retrieve) |  |
+| GET | `/api/admin/arrow/billing-syncs/` | [`admin_arrow_billing_syncs_list`](#admin-arrow-billing-syncs-list) |  |
+| HEAD | `/api/admin/arrow/billing-syncs/` | [`admin_arrow_billing_syncs_count`](#admin-arrow-billing-syncs-count) |  |
+| POST | `/api/admin/arrow/billing-syncs/cleanup_consumption/` | [`admin_arrow_billing_syncs_cleanup_consumption`](#admin-arrow-billing-syncs-cleanup-consumption) |  |
+| GET | `/api/admin/arrow/billing-syncs/consumption_statistics/` | [`admin_arrow_billing_syncs_consumption_statistics_retrieve`](#admin-arrow-billing-syncs-consumption-statistics-retrieve) |  |
+| HEAD | `/api/admin/arrow/billing-syncs/consumption_statistics/` | [`admin_arrow_billing_syncs_consumption_statistics_count`](#admin-arrow-billing-syncs-consumption-statistics-count) |  |
+| GET | `/api/admin/arrow/billing-syncs/consumption_status/` | [`admin_arrow_billing_syncs_consumption_status_retrieve`](#admin-arrow-billing-syncs-consumption-status-retrieve) |  |
+| HEAD | `/api/admin/arrow/billing-syncs/consumption_status/` | [`admin_arrow_billing_syncs_consumption_status_count`](#admin-arrow-billing-syncs-consumption-status-count) |  |
+| POST | `/api/admin/arrow/billing-syncs/fetch_billing_export/` | [`admin_arrow_billing_syncs_fetch_billing_export`](#admin-arrow-billing-syncs-fetch-billing-export) |  |
+| POST | `/api/admin/arrow/billing-syncs/fetch_consumption/` | [`admin_arrow_billing_syncs_fetch_consumption`](#admin-arrow-billing-syncs-fetch-consumption) |  |
+| POST | `/api/admin/arrow/billing-syncs/fetch_license_info/` | [`admin_arrow_billing_syncs_fetch_license_info`](#admin-arrow-billing-syncs-fetch-license-info) |  |
+| POST | `/api/admin/arrow/billing-syncs/pause_sync/` | [`admin_arrow_billing_syncs_pause_sync`](#admin-arrow-billing-syncs-pause-sync) |  |
+| GET | `/api/admin/arrow/billing-syncs/pending_records/` | [`admin_arrow_billing_syncs_pending_records_list`](#admin-arrow-billing-syncs-pending-records-list) |  |
+| HEAD | `/api/admin/arrow/billing-syncs/pending_records/` | [`admin_arrow_billing_syncs_pending_records_count`](#admin-arrow-billing-syncs-pending-records-count) |  |
+| POST | `/api/admin/arrow/billing-syncs/reconcile/` | [`admin_arrow_billing_syncs_reconcile`](#admin-arrow-billing-syncs-reconcile) |  |
+| POST | `/api/admin/arrow/billing-syncs/resume_sync/` | [`admin_arrow_billing_syncs_resume_sync`](#admin-arrow-billing-syncs-resume-sync) |  |
+| POST | `/api/admin/arrow/billing-syncs/sync_resource_historical_consumption/` | [`admin_arrow_billing_syncs_sync_resource_historical_consumption`](#admin-arrow-billing-syncs-sync-resource-historical-consumption) |  |
+| POST | `/api/admin/arrow/billing-syncs/sync_resources/` | [`admin_arrow_billing_syncs_sync_resources`](#admin-arrow-billing-syncs-sync-resources) |  |
+| POST | `/api/admin/arrow/billing-syncs/trigger_consumption_sync/` | [`admin_arrow_billing_syncs_trigger_consumption_sync`](#admin-arrow-billing-syncs-trigger-consumption-sync) |  |
+| POST | `/api/admin/arrow/billing-syncs/trigger_reconciliation/` | [`admin_arrow_billing_syncs_trigger_reconciliation`](#admin-arrow-billing-syncs-trigger-reconciliation) |  |
+| POST | `/api/admin/arrow/billing-syncs/trigger_sync/` | [`admin_arrow_billing_syncs_trigger_sync`](#admin-arrow-billing-syncs-trigger-sync) |  |
+| GET | `/api/admin/arrow/billing-syncs/{uuid}/` | [`admin_arrow_billing_syncs_retrieve`](#admin-arrow-billing-syncs-retrieve) |  |
+| GET | `/api/admin/arrow/consumption-records/` | [`admin_arrow_consumption_records_list`](#admin-arrow-consumption-records-list) |  |
+| HEAD | `/api/admin/arrow/consumption-records/` | [`admin_arrow_consumption_records_count`](#admin-arrow-consumption-records-count) |  |
+| GET | `/api/admin/arrow/consumption-records/{uuid}/` | [`admin_arrow_consumption_records_retrieve`](#admin-arrow-consumption-records-retrieve) |  |
+| GET | `/api/admin/arrow/customer-mappings/` | [`admin_arrow_customer_mappings_list`](#admin-arrow-customer-mappings-list) |  |
+| HEAD | `/api/admin/arrow/customer-mappings/` | [`admin_arrow_customer_mappings_count`](#admin-arrow-customer-mappings-count) |  |
+| POST | `/api/admin/arrow/customer-mappings/` | [`admin_arrow_customer_mappings_create`](#admin-arrow-customer-mappings-create) |  |
+| GET | `/api/admin/arrow/customer-mappings/available_customers/` | [`admin_arrow_customer_mappings_available_customers_retrieve`](#admin-arrow-customer-mappings-available-customers-retrieve) |  |
+| HEAD | `/api/admin/arrow/customer-mappings/available_customers/` | [`admin_arrow_customer_mappings_available_customers_count`](#admin-arrow-customer-mappings-available-customers-count) |  |
+| POST | `/api/admin/arrow/customer-mappings/sync_from_arrow/` | [`admin_arrow_customer_mappings_sync_from_arrow`](#admin-arrow-customer-mappings-sync-from-arrow) |  |
+| GET | `/api/admin/arrow/customer-mappings/{uuid}/` | [`admin_arrow_customer_mappings_retrieve`](#admin-arrow-customer-mappings-retrieve) |  |
+| PUT | `/api/admin/arrow/customer-mappings/{uuid}/` | [`admin_arrow_customer_mappings_update`](#admin-arrow-customer-mappings-update) |  |
+| PATCH | `/api/admin/arrow/customer-mappings/{uuid}/` | [`admin_arrow_customer_mappings_partial_update`](#admin-arrow-customer-mappings-partial-update) |  |
+| DELETE | `/api/admin/arrow/customer-mappings/{uuid}/` | [`admin_arrow_customer_mappings_destroy`](#admin-arrow-customer-mappings-destroy) |  |
+| GET | `/api/admin/arrow/customer-mappings/{uuid}/billing_summary/` | [`admin_arrow_customer_mappings_billing_summary_retrieve`](#admin-arrow-customer-mappings-billing-summary-retrieve) |  |
+| GET | `/api/admin/arrow/customer-mappings/{uuid}/discover_licenses/` | [`admin_arrow_customer_mappings_discover_licenses_retrieve`](#admin-arrow-customer-mappings-discover-licenses-retrieve) |  |
+| GET | `/api/admin/arrow/customer-mappings/{uuid}/fetch_arrow_data/` | [`admin_arrow_customer_mappings_fetch_arrow_data_retrieve`](#admin-arrow-customer-mappings-fetch-arrow-data-retrieve) |  |
+| POST | `/api/admin/arrow/customer-mappings/{uuid}/import_license/` | [`admin_arrow_customer_mappings_import_license`](#admin-arrow-customer-mappings-import-license) |  |
+| POST | `/api/admin/arrow/customer-mappings/{uuid}/link_resource/` | [`admin_arrow_customer_mappings_link_resource`](#admin-arrow-customer-mappings-link-resource) |  |
+| GET | `/api/admin/arrow/settings/` | [`admin_arrow_settings_list`](#admin-arrow-settings-list) |  |
+| HEAD | `/api/admin/arrow/settings/` | [`admin_arrow_settings_count`](#admin-arrow-settings-count) |  |
+| POST | `/api/admin/arrow/settings/` | [`admin_arrow_settings_create`](#admin-arrow-settings-create) |  |
+| POST | `/api/admin/arrow/settings/discover_customers/` | [`admin_arrow_settings_discover_customers`](#admin-arrow-settings-discover-customers) |  |
+| POST | `/api/admin/arrow/settings/preview_settings/` | [`admin_arrow_settings_preview_settings`](#admin-arrow-settings-preview-settings) |  |
+| POST | `/api/admin/arrow/settings/save_settings/` | [`admin_arrow_settings_save_settings`](#admin-arrow-settings-save-settings) |  |
+| POST | `/api/admin/arrow/settings/validate_credentials/` | [`admin_arrow_settings_validate_credentials`](#admin-arrow-settings-validate-credentials) |  |
+| GET | `/api/admin/arrow/settings/{uuid}/` | [`admin_arrow_settings_retrieve`](#admin-arrow-settings-retrieve) |  |
+| PUT | `/api/admin/arrow/settings/{uuid}/` | [`admin_arrow_settings_update`](#admin-arrow-settings-update) |  |
+| PATCH | `/api/admin/arrow/settings/{uuid}/` | [`admin_arrow_settings_partial_update`](#admin-arrow-settings-partial-update) |  |
+| DELETE | `/api/admin/arrow/settings/{uuid}/` | [`admin_arrow_settings_destroy`](#admin-arrow-settings-destroy) |  |
+| GET | `/api/admin/arrow/vendor-offering-mappings/` | [`admin_arrow_vendor_offering_mappings_list`](#admin-arrow-vendor-offering-mappings-list) |  |
+| HEAD | `/api/admin/arrow/vendor-offering-mappings/` | [`admin_arrow_vendor_offering_mappings_count`](#admin-arrow-vendor-offering-mappings-count) |  |
+| POST | `/api/admin/arrow/vendor-offering-mappings/` | [`admin_arrow_vendor_offering_mappings_create`](#admin-arrow-vendor-offering-mappings-create) |  |
+| GET | `/api/admin/arrow/vendor-offering-mappings/vendor_choices/` | [`admin_arrow_vendor_offering_mappings_vendor_choices_list`](#admin-arrow-vendor-offering-mappings-vendor-choices-list) |  |
+| HEAD | `/api/admin/arrow/vendor-offering-mappings/vendor_choices/` | [`admin_arrow_vendor_offering_mappings_vendor_choices_count`](#admin-arrow-vendor-offering-mappings-vendor-choices-count) |  |
+| GET | `/api/admin/arrow/vendor-offering-mappings/{uuid}/` | [`admin_arrow_vendor_offering_mappings_retrieve`](#admin-arrow-vendor-offering-mappings-retrieve) |  |
+| PUT | `/api/admin/arrow/vendor-offering-mappings/{uuid}/` | [`admin_arrow_vendor_offering_mappings_update`](#admin-arrow-vendor-offering-mappings-update) |  |
+| PATCH | `/api/admin/arrow/vendor-offering-mappings/{uuid}/` | [`admin_arrow_vendor_offering_mappings_partial_update`](#admin-arrow-vendor-offering-mappings-partial-update) |  |
+| DELETE | `/api/admin/arrow/vendor-offering-mappings/{uuid}/` | [`admin_arrow_vendor_offering_mappings_destroy`](#admin-arrow-vendor-offering-mappings-destroy) |  |
+| GET | `/api/configuration/` | [`configuration_retrieve`](#configuration-retrieve) | Get public configuration |
+| POST | `/api/feature-values/` | [`feature_values`](#feature-values) | Update feature flags |
+| GET | `/api/override-settings/` | [`override_settings_retrieve`](#override-settings-retrieve) | Get all overridable settings |
+| POST | `/api/override-settings/` | [`override_settings`](#override-settings) | Update overridable settings |
 
 ## Endpoint Details
 
 ### admin_announcements_list
 
 **`GET`** `/api/admin-announcements/`
-
-**Operation ID:** `admin_announcements_list`
 
 **Parameters:**
 
@@ -110,8 +108,6 @@
 ### admin_announcements_count
 
 **`HEAD`** `/api/admin-announcements/`
-
-**Operation ID:** `admin_announcements_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -136,8 +132,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/admin-announcements/`
 
-**Operation ID:** `admin_announcements_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `AdminAnnouncementRequest`
@@ -161,8 +155,6 @@ Schema: `AdminAnnouncementRequest`
 
 **`GET`** `/api/admin-announcements/{uuid}/`
 
-**Operation ID:** `admin_announcements_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -181,8 +173,6 @@ Schema: `AdminAnnouncementRequest`
 ### admin_announcements_update
 
 **`PUT`** `/api/admin-announcements/{uuid}/`
-
-**Operation ID:** `admin_announcements_update`
 
 **Parameters:**
 
@@ -213,8 +203,6 @@ Schema: `AdminAnnouncementRequest`
 
 **`PATCH`** `/api/admin-announcements/{uuid}/`
 
-**Operation ID:** `admin_announcements_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -244,8 +232,6 @@ Schema: `PatchedAdminAnnouncementRequest`
 
 **`DELETE`** `/api/admin-announcements/{uuid}/`
 
-**Operation ID:** `admin_announcements_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -263,8 +249,6 @@ Schema: `PatchedAdminAnnouncementRequest`
 ### admin_arrow_billing_sync_items_list
 
 **`GET`** `/api/admin/arrow/billing-sync-items/`
-
-**Operation ID:** `admin_arrow_billing_sync_items_list`
 
 **Parameters:**
 
@@ -290,8 +274,6 @@ Schema: `PatchedAdminAnnouncementRequest`
 ### admin_arrow_billing_sync_items_count
 
 **`HEAD`** `/api/admin/arrow/billing-sync-items/`
-
-**Operation ID:** `admin_arrow_billing_sync_items_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -320,8 +302,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/admin/arrow/billing-sync-items/{uuid}/`
 
-**Operation ID:** `admin_arrow_billing_sync_items_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -339,8 +319,6 @@ Get number of items in the collection matching the request parameters.
 ### admin_arrow_billing_syncs_list
 
 **`GET`** `/api/admin/arrow/billing-syncs/`
-
-**Operation ID:** `admin_arrow_billing_syncs_list`
 
 **Parameters:**
 
@@ -367,8 +345,6 @@ Get number of items in the collection matching the request parameters.
 ### admin_arrow_billing_syncs_count
 
 **`HEAD`** `/api/admin/arrow/billing-syncs/`
-
-**Operation ID:** `admin_arrow_billing_syncs_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -398,8 +374,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/admin/arrow/billing-syncs/cleanup_consumption/`
 
-**Operation ID:** `admin_arrow_billing_syncs_cleanup_consumption`
-
 Delete consumption records with optional dry-run preview.
 
 **Request Body** (`application/json`, optional):
@@ -427,8 +401,6 @@ Schema: `CleanupConsumptionRequestRequest`
 
 **`GET`** `/api/admin/arrow/billing-syncs/consumption_statistics/`
 
-**Operation ID:** `admin_arrow_billing_syncs_consumption_statistics_retrieve`
-
 Get consumption statistics.
 
 **Responses:**
@@ -442,8 +414,6 @@ Get consumption statistics.
 ### admin_arrow_billing_syncs_consumption_statistics_count
 
 **`HEAD`** `/api/admin/arrow/billing-syncs/consumption_statistics/`
-
-**Operation ID:** `admin_arrow_billing_syncs_consumption_statistics_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -459,8 +429,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/admin/arrow/billing-syncs/consumption_status/`
 
-**Operation ID:** `admin_arrow_billing_syncs_consumption_status_retrieve`
-
 Get current consumption sync status.
 
 **Responses:**
@@ -475,8 +443,6 @@ Get current consumption sync status.
 
 **`HEAD`** `/api/admin/arrow/billing-syncs/consumption_status/`
 
-**Operation ID:** `admin_arrow_billing_syncs_consumption_status_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Responses:**
@@ -490,8 +456,6 @@ Get number of items in the collection matching the request parameters.
 ### admin_arrow_billing_syncs_fetch_billing_export
 
 **`POST`** `/api/admin/arrow/billing-syncs/fetch_billing_export/`
-
-**Operation ID:** `admin_arrow_billing_syncs_fetch_billing_export`
 
 Fetch raw billing export from Arrow API.
 
@@ -517,8 +481,6 @@ Schema: `FetchBillingExportRequestRequest`
 
 **`POST`** `/api/admin/arrow/billing-syncs/fetch_consumption/`
 
-**Operation ID:** `admin_arrow_billing_syncs_fetch_consumption`
-
 Fetch raw consumption data from Arrow API.
 
 **Request Body** (`application/json`, required):
@@ -542,8 +504,6 @@ Schema: `FetchConsumptionRequestRequest`
 
 **`POST`** `/api/admin/arrow/billing-syncs/fetch_license_info/`
 
-**Operation ID:** `admin_arrow_billing_syncs_fetch_license_info`
-
 Fetch license details from Arrow API.
 
 **Request Body** (`application/json`, required):
@@ -565,8 +525,6 @@ Schema: `FetchLicenseInfoRequestRequest`
 ### admin_arrow_billing_syncs_pause_sync
 
 **`POST`** `/api/admin/arrow/billing-syncs/pause_sync/`
-
-**Operation ID:** `admin_arrow_billing_syncs_pause_sync`
 
 Pause consumption sync operations.
 
@@ -590,8 +548,6 @@ Schema: `SyncPauseRequestRequest`
 ### admin_arrow_billing_syncs_pending_records_list
 
 **`GET`** `/api/admin/arrow/billing-syncs/pending_records/`
-
-**Operation ID:** `admin_arrow_billing_syncs_pending_records_list`
 
 List pending consumption records (not yet finalized).
 
@@ -621,8 +577,6 @@ List pending consumption records (not yet finalized).
 
 **`HEAD`** `/api/admin/arrow/billing-syncs/pending_records/`
 
-**Operation ID:** `admin_arrow_billing_syncs_pending_records_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -651,8 +605,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/admin/arrow/billing-syncs/reconcile/`
 
-**Operation ID:** `admin_arrow_billing_syncs_reconcile`
-
 Trigger reconciliation for a specific period.
 
 **Request Body** (`application/json`, required):
@@ -678,8 +630,6 @@ Schema: `ReconcileRequestRequest`
 
 **`POST`** `/api/admin/arrow/billing-syncs/resume_sync/`
 
-**Operation ID:** `admin_arrow_billing_syncs_resume_sync`
-
 Resume consumption sync operations.
 
 **Request Body** (`application/json`, optional):
@@ -702,8 +652,6 @@ Schema: `SyncPauseRequestRequest`
 ### admin_arrow_billing_syncs_sync_resource_historical_consumption
 
 **`POST`** `/api/admin/arrow/billing-syncs/sync_resource_historical_consumption/`
-
-**Operation ID:** `admin_arrow_billing_syncs_sync_resource_historical_consumption`
 
 Sync historical consumption for a specific resource from Arrow.
 
@@ -730,8 +678,6 @@ Schema: `SyncResourceHistoricalConsumptionRequestRequest`
 ### admin_arrow_billing_syncs_sync_resources
 
 **`POST`** `/api/admin/arrow/billing-syncs/sync_resources/`
-
-**Operation ID:** `admin_arrow_billing_syncs_sync_resources`
 
 Sync Arrow IAAS subscriptions to Waldur Resources. Matches subscriptions by Vendor Subscription ID to resource backend_id. Updates resource report and current_usages fields. With force_import=True, auto-creates Customers and Projects from Arrow data.
 
@@ -760,8 +706,6 @@ Schema: `SyncResourcesRequestRequest`
 
 **`POST`** `/api/admin/arrow/billing-syncs/trigger_consumption_sync/`
 
-**Operation ID:** `admin_arrow_billing_syncs_trigger_consumption_sync`
-
 Trigger consumption sync for a specific period.
 
 **Request Body** (`application/json`, required):
@@ -786,8 +730,6 @@ Schema: `TriggerConsumptionSyncRequestRequest`
 ### admin_arrow_billing_syncs_trigger_reconciliation
 
 **`POST`** `/api/admin/arrow/billing-syncs/trigger_reconciliation/`
-
-**Operation ID:** `admin_arrow_billing_syncs_trigger_reconciliation`
 
 Trigger reconciliation (check billing export and apply adjustments).
 
@@ -814,8 +756,6 @@ Schema: `ReconcileRequestRequest`
 
 **`POST`** `/api/admin/arrow/billing-syncs/trigger_sync/`
 
-**Operation ID:** `admin_arrow_billing_syncs_trigger_sync`
-
 Trigger billing sync for a specific period.
 
 **Request Body** (`application/json`, required):
@@ -841,8 +781,6 @@ Schema: `TriggerSyncRequestRequest`
 
 **`GET`** `/api/admin/arrow/billing-syncs/{uuid}/`
 
-**Operation ID:** `admin_arrow_billing_syncs_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -860,8 +798,6 @@ Schema: `TriggerSyncRequestRequest`
 ### admin_arrow_consumption_records_list
 
 **`GET`** `/api/admin/arrow/consumption-records/`
-
-**Operation ID:** `admin_arrow_consumption_records_list`
 
 **Parameters:**
 
@@ -889,8 +825,6 @@ Schema: `TriggerSyncRequestRequest`
 ### admin_arrow_consumption_records_count
 
 **`HEAD`** `/api/admin/arrow/consumption-records/`
-
-**Operation ID:** `admin_arrow_consumption_records_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -921,8 +855,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/admin/arrow/consumption-records/{uuid}/`
 
-**Operation ID:** `admin_arrow_consumption_records_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -940,8 +872,6 @@ Get number of items in the collection matching the request parameters.
 ### admin_arrow_customer_mappings_list
 
 **`GET`** `/api/admin/arrow/customer-mappings/`
-
-**Operation ID:** `admin_arrow_customer_mappings_list`
 
 **Parameters:**
 
@@ -966,8 +896,6 @@ Get number of items in the collection matching the request parameters.
 ### admin_arrow_customer_mappings_count
 
 **`HEAD`** `/api/admin/arrow/customer-mappings/`
-
-**Operation ID:** `admin_arrow_customer_mappings_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -995,8 +923,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/admin/arrow/customer-mappings/`
 
-**Operation ID:** `admin_arrow_customer_mappings_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `ArrowCustomerMappingCreateRequest`
@@ -1021,8 +947,6 @@ Schema: `ArrowCustomerMappingCreateRequest`
 
 **`GET`** `/api/admin/arrow/customer-mappings/available_customers/`
 
-**Operation ID:** `admin_arrow_customer_mappings_available_customers_retrieve`
-
 Get available Arrow customers that are not yet mapped, with suggestions for Waldur organization matches.
 
 **Responses:**
@@ -1037,8 +961,6 @@ Get available Arrow customers that are not yet mapped, with suggestions for Wald
 
 **`HEAD`** `/api/admin/arrow/customer-mappings/available_customers/`
 
-**Operation ID:** `admin_arrow_customer_mappings_available_customers_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Responses:**
@@ -1052,8 +974,6 @@ Get number of items in the collection matching the request parameters.
 ### admin_arrow_customer_mappings_sync_from_arrow
 
 **`POST`** `/api/admin/arrow/customer-mappings/sync_from_arrow/`
-
-**Operation ID:** `admin_arrow_customer_mappings_sync_from_arrow`
 
 Sync customer list from Arrow and update arrow_company_name.
 
@@ -1077,8 +997,6 @@ Schema: `SyncFromArrowRequestRequest`
 
 **`GET`** `/api/admin/arrow/customer-mappings/{uuid}/`
 
-**Operation ID:** `admin_arrow_customer_mappings_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1096,8 +1014,6 @@ Schema: `SyncFromArrowRequestRequest`
 ### admin_arrow_customer_mappings_update
 
 **`PUT`** `/api/admin/arrow/customer-mappings/{uuid}/`
-
-**Operation ID:** `admin_arrow_customer_mappings_update`
 
 **Parameters:**
 
@@ -1129,8 +1045,6 @@ Schema: `ArrowCustomerMappingRequest`
 
 **`PATCH`** `/api/admin/arrow/customer-mappings/{uuid}/`
 
-**Operation ID:** `admin_arrow_customer_mappings_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1161,8 +1075,6 @@ Schema: `PatchedArrowCustomerMappingRequest`
 
 **`DELETE`** `/api/admin/arrow/customer-mappings/{uuid}/`
 
-**Operation ID:** `admin_arrow_customer_mappings_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1180,8 +1092,6 @@ Schema: `PatchedArrowCustomerMappingRequest`
 ### admin_arrow_customer_mappings_billing_summary_retrieve
 
 **`GET`** `/api/admin/arrow/customer-mappings/{uuid}/billing_summary/`
-
-**Operation ID:** `admin_arrow_customer_mappings_billing_summary_retrieve`
 
 Get billing and consumption summary for this customer mapping.
 
@@ -1203,8 +1113,6 @@ Get billing and consumption summary for this customer mapping.
 
 **`GET`** `/api/admin/arrow/customer-mappings/{uuid}/discover_licenses/`
 
-**Operation ID:** `admin_arrow_customer_mappings_discover_licenses_retrieve`
-
 Discover Arrow licenses for this customer and show linkable Waldur resources.
 
 **Parameters:**
@@ -1225,8 +1133,6 @@ Discover Arrow licenses for this customer and show linkable Waldur resources.
 
 **`GET`** `/api/admin/arrow/customer-mappings/{uuid}/fetch_arrow_data/`
 
-**Operation ID:** `admin_arrow_customer_mappings_fetch_arrow_data_retrieve`
-
 Fetch fresh consumption and billing data from Arrow API for this customer.
 
 **Parameters:**
@@ -1246,8 +1152,6 @@ Fetch fresh consumption and billing data from Arrow API for this customer.
 ### admin_arrow_customer_mappings_import_license
 
 **`POST`** `/api/admin/arrow/customer-mappings/{uuid}/import_license/`
-
-**Operation ID:** `admin_arrow_customer_mappings_import_license`
 
 Import an Arrow license as a new Waldur resource.
 
@@ -1280,8 +1184,6 @@ Schema: `ImportLicenseRequestRequest`
 
 **`POST`** `/api/admin/arrow/customer-mappings/{uuid}/link_resource/`
 
-**Operation ID:** `admin_arrow_customer_mappings_link_resource`
-
 Link a Waldur resource to an Arrow license by setting its backend_id.
 
 **Parameters:**
@@ -1311,8 +1213,6 @@ Schema: `LinkResourceRequestRequest`
 
 **`GET`** `/api/admin/arrow/settings/`
 
-**Operation ID:** `admin_arrow_settings_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1331,8 +1231,6 @@ Schema: `LinkResourceRequestRequest`
 ### admin_arrow_settings_count
 
 **`HEAD`** `/api/admin/arrow/settings/`
-
-**Operation ID:** `admin_arrow_settings_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1354,8 +1252,6 @@ Get number of items in the collection matching the request parameters.
 ### admin_arrow_settings_create
 
 **`POST`** `/api/admin/arrow/settings/`
-
-**Operation ID:** `admin_arrow_settings_create`
 
 **Request Body** (`application/json`, required):
 
@@ -1384,8 +1280,6 @@ Schema: `ArrowSettingsCreateRequest`
 
 **`POST`** `/api/admin/arrow/settings/discover_customers/`
 
-**Operation ID:** `admin_arrow_settings_discover_customers`
-
 Discover Arrow customers and suggest mappings to Waldur customers.
 
 **Request Body** (`application/json`, required):
@@ -1408,8 +1302,6 @@ Schema: `DiscoverCustomersRequestRequest`
 ### admin_arrow_settings_preview_settings
 
 **`POST`** `/api/admin/arrow/settings/preview_settings/`
-
-**Operation ID:** `admin_arrow_settings_preview_settings`
 
 Preview settings configuration before saving.
 
@@ -1436,8 +1328,6 @@ Schema: `PreviewSettingsRequestRequest`
 ### admin_arrow_settings_save_settings
 
 **`POST`** `/api/admin/arrow/settings/save_settings/`
-
-**Operation ID:** `admin_arrow_settings_save_settings`
 
 Save Arrow settings and customer mappings.
 
@@ -1466,8 +1356,6 @@ Schema: `SaveSettingsRequestRequest`
 
 **`POST`** `/api/admin/arrow/settings/validate_credentials/`
 
-**Operation ID:** `admin_arrow_settings_validate_credentials`
-
 Validate Arrow API credentials without saving them.
 
 **Request Body** (`application/json`, required):
@@ -1491,8 +1379,6 @@ Schema: `ArrowCredentialsRequest`
 
 **`GET`** `/api/admin/arrow/settings/{uuid}/`
 
-**Operation ID:** `admin_arrow_settings_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1510,8 +1396,6 @@ Schema: `ArrowCredentialsRequest`
 ### admin_arrow_settings_update
 
 **`PUT`** `/api/admin/arrow/settings/{uuid}/`
-
-**Operation ID:** `admin_arrow_settings_update`
 
 **Parameters:**
 
@@ -1546,8 +1430,6 @@ Schema: `ArrowSettingsRequest`
 
 **`PATCH`** `/api/admin/arrow/settings/{uuid}/`
 
-**Operation ID:** `admin_arrow_settings_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1581,8 +1463,6 @@ Schema: `PatchedArrowSettingsRequest`
 
 **`DELETE`** `/api/admin/arrow/settings/{uuid}/`
 
-**Operation ID:** `admin_arrow_settings_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1600,8 +1480,6 @@ Schema: `PatchedArrowSettingsRequest`
 ### admin_arrow_vendor_offering_mappings_list
 
 **`GET`** `/api/admin/arrow/vendor-offering-mappings/`
-
-**Operation ID:** `admin_arrow_vendor_offering_mappings_list`
 
 **Parameters:**
 
@@ -1625,8 +1503,6 @@ Schema: `PatchedArrowSettingsRequest`
 ### admin_arrow_vendor_offering_mappings_count
 
 **`HEAD`** `/api/admin/arrow/vendor-offering-mappings/`
-
-**Operation ID:** `admin_arrow_vendor_offering_mappings_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1653,8 +1529,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/admin/arrow/vendor-offering-mappings/`
 
-**Operation ID:** `admin_arrow_vendor_offering_mappings_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `ArrowVendorOfferingMappingCreateRequest`
@@ -1678,8 +1552,6 @@ Schema: `ArrowVendorOfferingMappingCreateRequest`
 ### admin_arrow_vendor_offering_mappings_vendor_choices_list
 
 **`GET`** `/api/admin/arrow/vendor-offering-mappings/vendor_choices/`
-
-**Operation ID:** `admin_arrow_vendor_offering_mappings_vendor_choices_list`
 
 Get vendor names from Arrow catalog API (IAAS category).
 
@@ -1706,8 +1578,6 @@ Get vendor names from Arrow catalog API (IAAS category).
 
 **`HEAD`** `/api/admin/arrow/vendor-offering-mappings/vendor_choices/`
 
-**Operation ID:** `admin_arrow_vendor_offering_mappings_vendor_choices_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -1733,8 +1603,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/admin/arrow/vendor-offering-mappings/{uuid}/`
 
-**Operation ID:** `admin_arrow_vendor_offering_mappings_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1752,8 +1620,6 @@ Get number of items in the collection matching the request parameters.
 ### admin_arrow_vendor_offering_mappings_update
 
 **`PUT`** `/api/admin/arrow/vendor-offering-mappings/{uuid}/`
-
-**Operation ID:** `admin_arrow_vendor_offering_mappings_update`
 
 **Parameters:**
 
@@ -1785,8 +1651,6 @@ Schema: `ArrowVendorOfferingMappingRequest`
 
 **`PATCH`** `/api/admin/arrow/vendor-offering-mappings/{uuid}/`
 
-**Operation ID:** `admin_arrow_vendor_offering_mappings_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1817,8 +1681,6 @@ Schema: `PatchedArrowVendorOfferingMappingRequest`
 
 **`DELETE`** `/api/admin/arrow/vendor-offering-mappings/{uuid}/`
 
-**Operation ID:** `admin_arrow_vendor_offering_mappings_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1833,11 +1695,11 @@ Schema: `PatchedArrowVendorOfferingMappingRequest`
 
 ---
 
-### Get public configuration
+### configuration_retrieve
 
 **`GET`** `/api/configuration/`
 
-**Operation ID:** `configuration_retrieve`
+**Summary:** Get public configuration
 
 Returns a dictionary of public settings for the Waldur deployment. This includes feature flags, authentication methods, and other configuration details that are safe to expose to any user.
 
@@ -1849,11 +1711,11 @@ Returns a dictionary of public settings for the Waldur deployment. This includes
 
 ---
 
-### Update feature flags
+### feature_values
 
 **`POST`** `/api/feature-values/`
 
-**Operation ID:** `feature_values`
+**Summary:** Update feature flags
 
 Allows administrators to enable or disable specific feature flags in the system. The request should be a dictionary where keys are feature sections and values are dictionaries of feature keys and their boolean state.
 
@@ -1869,11 +1731,11 @@ Free-form object.
 
 ---
 
-### Get all overridable settings
+### override_settings_retrieve
 
 **`GET`** `/api/override-settings/`
 
-**Operation ID:** `override_settings_retrieve`
+**Summary:** Get all overridable settings
 
 Returns all settings that can be overridden in the database via the Constance backend. Requires admin permissions.
 
@@ -1885,11 +1747,11 @@ Returns all settings that can be overridden in the database via the Constance ba
 
 ---
 
-### Update overridable settings
+### override_settings
 
 **`POST`** `/api/override-settings/`
 
-**Operation ID:** `override_settings`
+**Summary:** Update overridable settings
 
 Updates one or more settings in the database via the Constance backend. Requires admin permissions.
 

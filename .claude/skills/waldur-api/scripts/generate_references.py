@@ -182,14 +182,14 @@ def format_endpoint(path, method, details, spec):
     summary = details.get("summary", "")
     description = (details.get("description", "") or "").strip()
 
-    # Title
-    title = summary or op_id
-    lines = [f"### {title}", ""]
+    # Title — use operation ID as heading for reliable anchor linking
+    heading = op_id or summary or f"{method.upper()} {path}"
+    lines = [f"### {heading}", ""]
     lines.append(f"**`{method.upper()}`** `{path}`")
     lines.append("")
 
-    if op_id:
-        lines.append(f"**Operation ID:** `{op_id}`")
+    if summary:
+        lines.append(f"**Summary:** {summary}")
         lines.append("")
 
     if description and description != summary:
@@ -594,7 +594,7 @@ def generate_file(spec, filename, title, tags, output_dir):
     lines.append(f"**Endpoints:** {len(endpoints)}")
     lines.append("")
 
-    # Table of contents
+    # Table of contents with anchor links
     lines.append("## Endpoints Overview")
     lines.append("")
     lines.append("| Method | Path | Operation ID | Summary |")
@@ -602,7 +602,9 @@ def generate_file(spec, filename, title, tags, output_dir):
     for path, method, details in endpoints:
         op_id = details.get("operationId", "")
         summary = (details.get("summary", "") or "")[:60].replace("|", "\\|")
-        lines.append(f"| {method.upper()} | `{path}` | `{op_id}` | {summary} |")
+        anchor = op_id.lower().replace("_", "-") if op_id else ""
+        op_link = f"[`{op_id}`](#{anchor})" if anchor else f"`{op_id}`"
+        lines.append(f"| {method.upper()} | `{path}` | {op_link} | {summary} |")
     lines.append("")
 
     # Detailed endpoint docs

@@ -7,81 +7,81 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/component-user-usage-limits/` | `component_user_usage_limits_list` | List component usage limits for users |
-| HEAD | `/api/component-user-usage-limits/` | `component_user_usage_limits_count` | List component usage limits for users |
-| POST | `/api/component-user-usage-limits/` | `component_user_usage_limits_create` | Create a component usage limit for a user |
-| GET | `/api/component-user-usage-limits/{uuid}/` | `component_user_usage_limits_retrieve` | Retrieve a component usage limit |
-| PUT | `/api/component-user-usage-limits/{uuid}/` | `component_user_usage_limits_update` | Update a component usage limit |
-| PATCH | `/api/component-user-usage-limits/{uuid}/` | `component_user_usage_limits_partial_update` | Partially update a component usage limit |
-| DELETE | `/api/component-user-usage-limits/{uuid}/` | `component_user_usage_limits_destroy` | Delete a component usage limit |
-| GET | `/api/marketplace-customer-component-usage-policies/` | `marketplace_customer_component_usage_policies_list` |  |
-| HEAD | `/api/marketplace-customer-component-usage-policies/` | `marketplace_customer_component_usage_policies_count` |  |
-| POST | `/api/marketplace-customer-component-usage-policies/` | `marketplace_customer_component_usage_policies_create` |  |
-| GET | `/api/marketplace-customer-component-usage-policies/actions/` | `marketplace_customer_component_usage_policies_actions_retrieve` |  |
-| HEAD | `/api/marketplace-customer-component-usage-policies/actions/` | `marketplace_customer_component_usage_policies_actions_count` |  |
-| GET | `/api/marketplace-customer-component-usage-policies/{uuid}/` | `marketplace_customer_component_usage_policies_retrieve` |  |
-| PUT | `/api/marketplace-customer-component-usage-policies/{uuid}/` | `marketplace_customer_component_usage_policies_update` |  |
-| PATCH | `/api/marketplace-customer-component-usage-policies/{uuid}/` | `marketplace_customer_component_usage_policies_partial_update` |  |
-| DELETE | `/api/marketplace-customer-component-usage-policies/{uuid}/` | `marketplace_customer_component_usage_policies_destroy` |  |
-| GET | `/api/marketplace-customer-estimated-cost-policies/` | `marketplace_customer_estimated_cost_policies_list` |  |
-| HEAD | `/api/marketplace-customer-estimated-cost-policies/` | `marketplace_customer_estimated_cost_policies_count` |  |
-| POST | `/api/marketplace-customer-estimated-cost-policies/` | `marketplace_customer_estimated_cost_policies_create` |  |
-| GET | `/api/marketplace-customer-estimated-cost-policies/actions/` | `marketplace_customer_estimated_cost_policies_actions_retrieve` |  |
-| HEAD | `/api/marketplace-customer-estimated-cost-policies/actions/` | `marketplace_customer_estimated_cost_policies_actions_count` |  |
-| GET | `/api/marketplace-customer-estimated-cost-policies/{uuid}/` | `marketplace_customer_estimated_cost_policies_retrieve` |  |
-| PUT | `/api/marketplace-customer-estimated-cost-policies/{uuid}/` | `marketplace_customer_estimated_cost_policies_update` |  |
-| PATCH | `/api/marketplace-customer-estimated-cost-policies/{uuid}/` | `marketplace_customer_estimated_cost_policies_partial_update` |  |
-| DELETE | `/api/marketplace-customer-estimated-cost-policies/{uuid}/` | `marketplace_customer_estimated_cost_policies_destroy` |  |
-| GET | `/api/marketplace-offering-estimated-cost-policies/` | `marketplace_offering_estimated_cost_policies_list` |  |
-| HEAD | `/api/marketplace-offering-estimated-cost-policies/` | `marketplace_offering_estimated_cost_policies_count` |  |
-| POST | `/api/marketplace-offering-estimated-cost-policies/` | `marketplace_offering_estimated_cost_policies_create` |  |
-| GET | `/api/marketplace-offering-estimated-cost-policies/actions/` | `marketplace_offering_estimated_cost_policies_actions_retrieve` |  |
-| HEAD | `/api/marketplace-offering-estimated-cost-policies/actions/` | `marketplace_offering_estimated_cost_policies_actions_count` |  |
-| GET | `/api/marketplace-offering-estimated-cost-policies/{uuid}/` | `marketplace_offering_estimated_cost_policies_retrieve` |  |
-| PUT | `/api/marketplace-offering-estimated-cost-policies/{uuid}/` | `marketplace_offering_estimated_cost_policies_update` |  |
-| PATCH | `/api/marketplace-offering-estimated-cost-policies/{uuid}/` | `marketplace_offering_estimated_cost_policies_partial_update` |  |
-| DELETE | `/api/marketplace-offering-estimated-cost-policies/{uuid}/` | `marketplace_offering_estimated_cost_policies_destroy` |  |
-| GET | `/api/marketplace-offering-usage-policies/` | `marketplace_offering_usage_policies_list` |  |
-| HEAD | `/api/marketplace-offering-usage-policies/` | `marketplace_offering_usage_policies_count` |  |
-| POST | `/api/marketplace-offering-usage-policies/` | `marketplace_offering_usage_policies_create` |  |
-| GET | `/api/marketplace-offering-usage-policies/actions/` | `marketplace_offering_usage_policies_actions_retrieve` |  |
-| HEAD | `/api/marketplace-offering-usage-policies/actions/` | `marketplace_offering_usage_policies_actions_count` |  |
-| GET | `/api/marketplace-offering-usage-policies/{uuid}/` | `marketplace_offering_usage_policies_retrieve` |  |
-| PUT | `/api/marketplace-offering-usage-policies/{uuid}/` | `marketplace_offering_usage_policies_update` |  |
-| PATCH | `/api/marketplace-offering-usage-policies/{uuid}/` | `marketplace_offering_usage_policies_partial_update` |  |
-| DELETE | `/api/marketplace-offering-usage-policies/{uuid}/` | `marketplace_offering_usage_policies_destroy` |  |
-| GET | `/api/marketplace-project-estimated-cost-policies/` | `marketplace_project_estimated_cost_policies_list` |  |
-| HEAD | `/api/marketplace-project-estimated-cost-policies/` | `marketplace_project_estimated_cost_policies_count` |  |
-| POST | `/api/marketplace-project-estimated-cost-policies/` | `marketplace_project_estimated_cost_policies_create` |  |
-| GET | `/api/marketplace-project-estimated-cost-policies/actions/` | `marketplace_project_estimated_cost_policies_actions_retrieve` |  |
-| HEAD | `/api/marketplace-project-estimated-cost-policies/actions/` | `marketplace_project_estimated_cost_policies_actions_count` |  |
-| GET | `/api/marketplace-project-estimated-cost-policies/{uuid}/` | `marketplace_project_estimated_cost_policies_retrieve` |  |
-| PUT | `/api/marketplace-project-estimated-cost-policies/{uuid}/` | `marketplace_project_estimated_cost_policies_update` |  |
-| PATCH | `/api/marketplace-project-estimated-cost-policies/{uuid}/` | `marketplace_project_estimated_cost_policies_partial_update` |  |
-| DELETE | `/api/marketplace-project-estimated-cost-policies/{uuid}/` | `marketplace_project_estimated_cost_policies_destroy` |  |
-| GET | `/api/marketplace-slurm-periodic-usage-policies/` | `marketplace_slurm_periodic_usage_policies_list` |  |
-| HEAD | `/api/marketplace-slurm-periodic-usage-policies/` | `marketplace_slurm_periodic_usage_policies_count` |  |
-| POST | `/api/marketplace-slurm-periodic-usage-policies/` | `marketplace_slurm_periodic_usage_policies_create` |  |
-| GET | `/api/marketplace-slurm-periodic-usage-policies/actions/` | `marketplace_slurm_periodic_usage_policies_actions_retrieve` |  |
-| HEAD | `/api/marketplace-slurm-periodic-usage-policies/actions/` | `marketplace_slurm_periodic_usage_policies_actions_count` |  |
-| POST | `/api/marketplace-slurm-periodic-usage-policies/preview_impact/` | `marketplace_slurm_periodic_usage_policies_preview_impact` |  |
-| GET | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/` | `marketplace_slurm_periodic_usage_policies_retrieve` |  |
-| PUT | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/` | `marketplace_slurm_periodic_usage_policies_update` |  |
-| PATCH | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/` | `marketplace_slurm_periodic_usage_policies_partial_update` |  |
-| DELETE | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/` | `marketplace_slurm_periodic_usage_policies_destroy` |  |
-| GET | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/command-history/` | `marketplace_slurm_periodic_usage_policies_command_history_list` |  |
-| POST | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/dry-run/` | `marketplace_slurm_periodic_usage_policies_dry_run` |  |
-| POST | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/evaluate/` | `marketplace_slurm_periodic_usage_policies_evaluate` |  |
-| GET | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/evaluation-logs/` | `marketplace_slurm_periodic_usage_policies_evaluation_logs_list` |  |
-| POST | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/report-command-result/` | `marketplace_slurm_periodic_usage_policies_report_command_result` |  |
+| GET | `/api/component-user-usage-limits/` | [`component_user_usage_limits_list`](#component-user-usage-limits-list) | List component usage limits for users |
+| HEAD | `/api/component-user-usage-limits/` | [`component_user_usage_limits_count`](#component-user-usage-limits-count) | List component usage limits for users |
+| POST | `/api/component-user-usage-limits/` | [`component_user_usage_limits_create`](#component-user-usage-limits-create) | Create a component usage limit for a user |
+| GET | `/api/component-user-usage-limits/{uuid}/` | [`component_user_usage_limits_retrieve`](#component-user-usage-limits-retrieve) | Retrieve a component usage limit |
+| PUT | `/api/component-user-usage-limits/{uuid}/` | [`component_user_usage_limits_update`](#component-user-usage-limits-update) | Update a component usage limit |
+| PATCH | `/api/component-user-usage-limits/{uuid}/` | [`component_user_usage_limits_partial_update`](#component-user-usage-limits-partial-update) | Partially update a component usage limit |
+| DELETE | `/api/component-user-usage-limits/{uuid}/` | [`component_user_usage_limits_destroy`](#component-user-usage-limits-destroy) | Delete a component usage limit |
+| GET | `/api/marketplace-customer-component-usage-policies/` | [`marketplace_customer_component_usage_policies_list`](#marketplace-customer-component-usage-policies-list) |  |
+| HEAD | `/api/marketplace-customer-component-usage-policies/` | [`marketplace_customer_component_usage_policies_count`](#marketplace-customer-component-usage-policies-count) |  |
+| POST | `/api/marketplace-customer-component-usage-policies/` | [`marketplace_customer_component_usage_policies_create`](#marketplace-customer-component-usage-policies-create) |  |
+| GET | `/api/marketplace-customer-component-usage-policies/actions/` | [`marketplace_customer_component_usage_policies_actions_retrieve`](#marketplace-customer-component-usage-policies-actions-retrieve) |  |
+| HEAD | `/api/marketplace-customer-component-usage-policies/actions/` | [`marketplace_customer_component_usage_policies_actions_count`](#marketplace-customer-component-usage-policies-actions-count) |  |
+| GET | `/api/marketplace-customer-component-usage-policies/{uuid}/` | [`marketplace_customer_component_usage_policies_retrieve`](#marketplace-customer-component-usage-policies-retrieve) |  |
+| PUT | `/api/marketplace-customer-component-usage-policies/{uuid}/` | [`marketplace_customer_component_usage_policies_update`](#marketplace-customer-component-usage-policies-update) |  |
+| PATCH | `/api/marketplace-customer-component-usage-policies/{uuid}/` | [`marketplace_customer_component_usage_policies_partial_update`](#marketplace-customer-component-usage-policies-partial-update) |  |
+| DELETE | `/api/marketplace-customer-component-usage-policies/{uuid}/` | [`marketplace_customer_component_usage_policies_destroy`](#marketplace-customer-component-usage-policies-destroy) |  |
+| GET | `/api/marketplace-customer-estimated-cost-policies/` | [`marketplace_customer_estimated_cost_policies_list`](#marketplace-customer-estimated-cost-policies-list) |  |
+| HEAD | `/api/marketplace-customer-estimated-cost-policies/` | [`marketplace_customer_estimated_cost_policies_count`](#marketplace-customer-estimated-cost-policies-count) |  |
+| POST | `/api/marketplace-customer-estimated-cost-policies/` | [`marketplace_customer_estimated_cost_policies_create`](#marketplace-customer-estimated-cost-policies-create) |  |
+| GET | `/api/marketplace-customer-estimated-cost-policies/actions/` | [`marketplace_customer_estimated_cost_policies_actions_retrieve`](#marketplace-customer-estimated-cost-policies-actions-retrieve) |  |
+| HEAD | `/api/marketplace-customer-estimated-cost-policies/actions/` | [`marketplace_customer_estimated_cost_policies_actions_count`](#marketplace-customer-estimated-cost-policies-actions-count) |  |
+| GET | `/api/marketplace-customer-estimated-cost-policies/{uuid}/` | [`marketplace_customer_estimated_cost_policies_retrieve`](#marketplace-customer-estimated-cost-policies-retrieve) |  |
+| PUT | `/api/marketplace-customer-estimated-cost-policies/{uuid}/` | [`marketplace_customer_estimated_cost_policies_update`](#marketplace-customer-estimated-cost-policies-update) |  |
+| PATCH | `/api/marketplace-customer-estimated-cost-policies/{uuid}/` | [`marketplace_customer_estimated_cost_policies_partial_update`](#marketplace-customer-estimated-cost-policies-partial-update) |  |
+| DELETE | `/api/marketplace-customer-estimated-cost-policies/{uuid}/` | [`marketplace_customer_estimated_cost_policies_destroy`](#marketplace-customer-estimated-cost-policies-destroy) |  |
+| GET | `/api/marketplace-offering-estimated-cost-policies/` | [`marketplace_offering_estimated_cost_policies_list`](#marketplace-offering-estimated-cost-policies-list) |  |
+| HEAD | `/api/marketplace-offering-estimated-cost-policies/` | [`marketplace_offering_estimated_cost_policies_count`](#marketplace-offering-estimated-cost-policies-count) |  |
+| POST | `/api/marketplace-offering-estimated-cost-policies/` | [`marketplace_offering_estimated_cost_policies_create`](#marketplace-offering-estimated-cost-policies-create) |  |
+| GET | `/api/marketplace-offering-estimated-cost-policies/actions/` | [`marketplace_offering_estimated_cost_policies_actions_retrieve`](#marketplace-offering-estimated-cost-policies-actions-retrieve) |  |
+| HEAD | `/api/marketplace-offering-estimated-cost-policies/actions/` | [`marketplace_offering_estimated_cost_policies_actions_count`](#marketplace-offering-estimated-cost-policies-actions-count) |  |
+| GET | `/api/marketplace-offering-estimated-cost-policies/{uuid}/` | [`marketplace_offering_estimated_cost_policies_retrieve`](#marketplace-offering-estimated-cost-policies-retrieve) |  |
+| PUT | `/api/marketplace-offering-estimated-cost-policies/{uuid}/` | [`marketplace_offering_estimated_cost_policies_update`](#marketplace-offering-estimated-cost-policies-update) |  |
+| PATCH | `/api/marketplace-offering-estimated-cost-policies/{uuid}/` | [`marketplace_offering_estimated_cost_policies_partial_update`](#marketplace-offering-estimated-cost-policies-partial-update) |  |
+| DELETE | `/api/marketplace-offering-estimated-cost-policies/{uuid}/` | [`marketplace_offering_estimated_cost_policies_destroy`](#marketplace-offering-estimated-cost-policies-destroy) |  |
+| GET | `/api/marketplace-offering-usage-policies/` | [`marketplace_offering_usage_policies_list`](#marketplace-offering-usage-policies-list) |  |
+| HEAD | `/api/marketplace-offering-usage-policies/` | [`marketplace_offering_usage_policies_count`](#marketplace-offering-usage-policies-count) |  |
+| POST | `/api/marketplace-offering-usage-policies/` | [`marketplace_offering_usage_policies_create`](#marketplace-offering-usage-policies-create) |  |
+| GET | `/api/marketplace-offering-usage-policies/actions/` | [`marketplace_offering_usage_policies_actions_retrieve`](#marketplace-offering-usage-policies-actions-retrieve) |  |
+| HEAD | `/api/marketplace-offering-usage-policies/actions/` | [`marketplace_offering_usage_policies_actions_count`](#marketplace-offering-usage-policies-actions-count) |  |
+| GET | `/api/marketplace-offering-usage-policies/{uuid}/` | [`marketplace_offering_usage_policies_retrieve`](#marketplace-offering-usage-policies-retrieve) |  |
+| PUT | `/api/marketplace-offering-usage-policies/{uuid}/` | [`marketplace_offering_usage_policies_update`](#marketplace-offering-usage-policies-update) |  |
+| PATCH | `/api/marketplace-offering-usage-policies/{uuid}/` | [`marketplace_offering_usage_policies_partial_update`](#marketplace-offering-usage-policies-partial-update) |  |
+| DELETE | `/api/marketplace-offering-usage-policies/{uuid}/` | [`marketplace_offering_usage_policies_destroy`](#marketplace-offering-usage-policies-destroy) |  |
+| GET | `/api/marketplace-project-estimated-cost-policies/` | [`marketplace_project_estimated_cost_policies_list`](#marketplace-project-estimated-cost-policies-list) |  |
+| HEAD | `/api/marketplace-project-estimated-cost-policies/` | [`marketplace_project_estimated_cost_policies_count`](#marketplace-project-estimated-cost-policies-count) |  |
+| POST | `/api/marketplace-project-estimated-cost-policies/` | [`marketplace_project_estimated_cost_policies_create`](#marketplace-project-estimated-cost-policies-create) |  |
+| GET | `/api/marketplace-project-estimated-cost-policies/actions/` | [`marketplace_project_estimated_cost_policies_actions_retrieve`](#marketplace-project-estimated-cost-policies-actions-retrieve) |  |
+| HEAD | `/api/marketplace-project-estimated-cost-policies/actions/` | [`marketplace_project_estimated_cost_policies_actions_count`](#marketplace-project-estimated-cost-policies-actions-count) |  |
+| GET | `/api/marketplace-project-estimated-cost-policies/{uuid}/` | [`marketplace_project_estimated_cost_policies_retrieve`](#marketplace-project-estimated-cost-policies-retrieve) |  |
+| PUT | `/api/marketplace-project-estimated-cost-policies/{uuid}/` | [`marketplace_project_estimated_cost_policies_update`](#marketplace-project-estimated-cost-policies-update) |  |
+| PATCH | `/api/marketplace-project-estimated-cost-policies/{uuid}/` | [`marketplace_project_estimated_cost_policies_partial_update`](#marketplace-project-estimated-cost-policies-partial-update) |  |
+| DELETE | `/api/marketplace-project-estimated-cost-policies/{uuid}/` | [`marketplace_project_estimated_cost_policies_destroy`](#marketplace-project-estimated-cost-policies-destroy) |  |
+| GET | `/api/marketplace-slurm-periodic-usage-policies/` | [`marketplace_slurm_periodic_usage_policies_list`](#marketplace-slurm-periodic-usage-policies-list) |  |
+| HEAD | `/api/marketplace-slurm-periodic-usage-policies/` | [`marketplace_slurm_periodic_usage_policies_count`](#marketplace-slurm-periodic-usage-policies-count) |  |
+| POST | `/api/marketplace-slurm-periodic-usage-policies/` | [`marketplace_slurm_periodic_usage_policies_create`](#marketplace-slurm-periodic-usage-policies-create) |  |
+| GET | `/api/marketplace-slurm-periodic-usage-policies/actions/` | [`marketplace_slurm_periodic_usage_policies_actions_retrieve`](#marketplace-slurm-periodic-usage-policies-actions-retrieve) |  |
+| HEAD | `/api/marketplace-slurm-periodic-usage-policies/actions/` | [`marketplace_slurm_periodic_usage_policies_actions_count`](#marketplace-slurm-periodic-usage-policies-actions-count) |  |
+| POST | `/api/marketplace-slurm-periodic-usage-policies/preview_impact/` | [`marketplace_slurm_periodic_usage_policies_preview_impact`](#marketplace-slurm-periodic-usage-policies-preview-impact) |  |
+| GET | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/` | [`marketplace_slurm_periodic_usage_policies_retrieve`](#marketplace-slurm-periodic-usage-policies-retrieve) |  |
+| PUT | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/` | [`marketplace_slurm_periodic_usage_policies_update`](#marketplace-slurm-periodic-usage-policies-update) |  |
+| PATCH | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/` | [`marketplace_slurm_periodic_usage_policies_partial_update`](#marketplace-slurm-periodic-usage-policies-partial-update) |  |
+| DELETE | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/` | [`marketplace_slurm_periodic_usage_policies_destroy`](#marketplace-slurm-periodic-usage-policies-destroy) |  |
+| GET | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/command-history/` | [`marketplace_slurm_periodic_usage_policies_command_history_list`](#marketplace-slurm-periodic-usage-policies-command-history-list) |  |
+| POST | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/dry-run/` | [`marketplace_slurm_periodic_usage_policies_dry_run`](#marketplace-slurm-periodic-usage-policies-dry-run) |  |
+| POST | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/evaluate/` | [`marketplace_slurm_periodic_usage_policies_evaluate`](#marketplace-slurm-periodic-usage-policies-evaluate) |  |
+| GET | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/evaluation-logs/` | [`marketplace_slurm_periodic_usage_policies_evaluation_logs_list`](#marketplace-slurm-periodic-usage-policies-evaluation-logs-list) |  |
+| POST | `/api/marketplace-slurm-periodic-usage-policies/{uuid}/report-command-result/` | [`marketplace_slurm_periodic_usage_policies_report_command_result`](#marketplace-slurm-periodic-usage-policies-report-command-result) |  |
 
 ## Endpoint Details
 
-### List component usage limits for users
+### component_user_usage_limits_list
 
 **`GET`** `/api/component-user-usage-limits/`
 
-**Operation ID:** `component_user_usage_limits_list`
+**Summary:** List component usage limits for users
 
 Returns a paginated list of usage limits set for specific users on resource components.
 
@@ -103,11 +103,11 @@ Returns a paginated list of usage limits set for specific users on resource comp
 
 ---
 
-### List component usage limits for users
+### component_user_usage_limits_count
 
 **`HEAD`** `/api/component-user-usage-limits/`
 
-**Operation ID:** `component_user_usage_limits_count`
+**Summary:** List component usage limits for users
 
 Get number of items in the collection matching the request parameters.
 
@@ -129,11 +129,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a component usage limit for a user
+### component_user_usage_limits_create
 
 **`POST`** `/api/component-user-usage-limits/`
 
-**Operation ID:** `component_user_usage_limits_create`
+**Summary:** Create a component usage limit for a user
 
 Sets a usage limit for a specific user on a resource's component. This is only applicable for offerings that support per-user consumption limitation.
 
@@ -156,11 +156,11 @@ Schema: `ComponentUserUsageLimitRequest`
 
 ---
 
-### Retrieve a component usage limit
+### component_user_usage_limits_retrieve
 
 **`GET`** `/api/component-user-usage-limits/{uuid}/`
 
-**Operation ID:** `component_user_usage_limits_retrieve`
+**Summary:** Retrieve a component usage limit
 
 Returns the details of a specific user's usage limit for a component.
 
@@ -178,11 +178,11 @@ Returns the details of a specific user's usage limit for a component.
 
 ---
 
-### Update a component usage limit
+### component_user_usage_limits_update
 
 **`PUT`** `/api/component-user-usage-limits/{uuid}/`
 
-**Operation ID:** `component_user_usage_limits_update`
+**Summary:** Update a component usage limit
 
 Updates an existing usage limit for a user on a component.
 
@@ -211,11 +211,11 @@ Schema: `ComponentUserUsageLimitRequest`
 
 ---
 
-### Partially update a component usage limit
+### component_user_usage_limits_partial_update
 
 **`PATCH`** `/api/component-user-usage-limits/{uuid}/`
 
-**Operation ID:** `component_user_usage_limits_partial_update`
+**Summary:** Partially update a component usage limit
 
 Partially updates an existing usage limit for a user on a component.
 
@@ -244,11 +244,11 @@ Schema: `PatchedComponentUserUsageLimitRequest`
 
 ---
 
-### Delete a component usage limit
+### component_user_usage_limits_destroy
 
 **`DELETE`** `/api/component-user-usage-limits/{uuid}/`
 
-**Operation ID:** `component_user_usage_limits_destroy`
+**Summary:** Delete a component usage limit
 
 Removes a usage limit for a user on a component.
 
@@ -270,8 +270,6 @@ Removes a usage limit for a user on a component.
 
 **`GET`** `/api/marketplace-customer-component-usage-policies/`
 
-**Operation ID:** `marketplace_customer_component_usage_policies_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -292,8 +290,6 @@ Removes a usage limit for a user on a component.
 ### marketplace_customer_component_usage_policies_count
 
 **`HEAD`** `/api/marketplace-customer-component-usage-policies/`
-
-**Operation ID:** `marketplace_customer_component_usage_policies_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -318,8 +314,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/marketplace-customer-component-usage-policies/`
 
-**Operation ID:** `marketplace_customer_component_usage_policies_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `CustomerComponentUsagePolicyRequest`
@@ -343,8 +337,6 @@ Schema: `CustomerComponentUsagePolicyRequest`
 
 **`GET`** `/api/marketplace-customer-component-usage-policies/actions/`
 
-**Operation ID:** `marketplace_customer_component_usage_policies_actions_retrieve`
-
 **Responses:**
 
 | Status | Description |
@@ -356,8 +348,6 @@ Schema: `CustomerComponentUsagePolicyRequest`
 ### marketplace_customer_component_usage_policies_actions_count
 
 **`HEAD`** `/api/marketplace-customer-component-usage-policies/actions/`
-
-**Operation ID:** `marketplace_customer_component_usage_policies_actions_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -372,8 +362,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_customer_component_usage_policies_retrieve
 
 **`GET`** `/api/marketplace-customer-component-usage-policies/{uuid}/`
-
-**Operation ID:** `marketplace_customer_component_usage_policies_retrieve`
 
 **Parameters:**
 
@@ -392,8 +380,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_customer_component_usage_policies_update
 
 **`PUT`** `/api/marketplace-customer-component-usage-policies/{uuid}/`
-
-**Operation ID:** `marketplace_customer_component_usage_policies_update`
 
 **Parameters:**
 
@@ -424,8 +410,6 @@ Schema: `CustomerComponentUsagePolicyRequest`
 
 **`PATCH`** `/api/marketplace-customer-component-usage-policies/{uuid}/`
 
-**Operation ID:** `marketplace_customer_component_usage_policies_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -455,8 +439,6 @@ Schema: `PatchedCustomerComponentUsagePolicyRequest`
 
 **`DELETE`** `/api/marketplace-customer-component-usage-policies/{uuid}/`
 
-**Operation ID:** `marketplace_customer_component_usage_policies_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -474,8 +456,6 @@ Schema: `PatchedCustomerComponentUsagePolicyRequest`
 ### marketplace_customer_estimated_cost_policies_list
 
 **`GET`** `/api/marketplace-customer-estimated-cost-policies/`
-
-**Operation ID:** `marketplace_customer_estimated_cost_policies_list`
 
 **Parameters:**
 
@@ -497,8 +477,6 @@ Schema: `PatchedCustomerComponentUsagePolicyRequest`
 ### marketplace_customer_estimated_cost_policies_count
 
 **`HEAD`** `/api/marketplace-customer-estimated-cost-policies/`
-
-**Operation ID:** `marketplace_customer_estimated_cost_policies_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -522,8 +500,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_customer_estimated_cost_policies_create
 
 **`POST`** `/api/marketplace-customer-estimated-cost-policies/`
-
-**Operation ID:** `marketplace_customer_estimated_cost_policies_create`
 
 **Request Body** (`application/json`, required):
 
@@ -549,8 +525,6 @@ Schema: `CustomerEstimatedCostPolicyRequest`
 
 **`GET`** `/api/marketplace-customer-estimated-cost-policies/actions/`
 
-**Operation ID:** `marketplace_customer_estimated_cost_policies_actions_retrieve`
-
 **Responses:**
 
 | Status | Description |
@@ -562,8 +536,6 @@ Schema: `CustomerEstimatedCostPolicyRequest`
 ### marketplace_customer_estimated_cost_policies_actions_count
 
 **`HEAD`** `/api/marketplace-customer-estimated-cost-policies/actions/`
-
-**Operation ID:** `marketplace_customer_estimated_cost_policies_actions_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -578,8 +550,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_customer_estimated_cost_policies_retrieve
 
 **`GET`** `/api/marketplace-customer-estimated-cost-policies/{uuid}/`
-
-**Operation ID:** `marketplace_customer_estimated_cost_policies_retrieve`
 
 **Parameters:**
 
@@ -598,8 +568,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_customer_estimated_cost_policies_update
 
 **`PUT`** `/api/marketplace-customer-estimated-cost-policies/{uuid}/`
-
-**Operation ID:** `marketplace_customer_estimated_cost_policies_update`
 
 **Parameters:**
 
@@ -631,8 +599,6 @@ Schema: `CustomerEstimatedCostPolicyRequest`
 
 **`PATCH`** `/api/marketplace-customer-estimated-cost-policies/{uuid}/`
 
-**Operation ID:** `marketplace_customer_estimated_cost_policies_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -663,8 +629,6 @@ Schema: `PatchedCustomerEstimatedCostPolicyRequest`
 
 **`DELETE`** `/api/marketplace-customer-estimated-cost-policies/{uuid}/`
 
-**Operation ID:** `marketplace_customer_estimated_cost_policies_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -682,8 +646,6 @@ Schema: `PatchedCustomerEstimatedCostPolicyRequest`
 ### marketplace_offering_estimated_cost_policies_list
 
 **`GET`** `/api/marketplace-offering-estimated-cost-policies/`
-
-**Operation ID:** `marketplace_offering_estimated_cost_policies_list`
 
 **Parameters:**
 
@@ -703,8 +665,6 @@ Schema: `PatchedCustomerEstimatedCostPolicyRequest`
 ### marketplace_offering_estimated_cost_policies_count
 
 **`HEAD`** `/api/marketplace-offering-estimated-cost-policies/`
-
-**Operation ID:** `marketplace_offering_estimated_cost_policies_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -726,8 +686,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_offering_estimated_cost_policies_create
 
 **`POST`** `/api/marketplace-offering-estimated-cost-policies/`
-
-**Operation ID:** `marketplace_offering_estimated_cost_policies_create`
 
 **Request Body** (`application/json`, required):
 
@@ -755,8 +713,6 @@ Schema: `OfferingEstimatedCostPolicyRequest`
 
 **`GET`** `/api/marketplace-offering-estimated-cost-policies/actions/`
 
-**Operation ID:** `marketplace_offering_estimated_cost_policies_actions_retrieve`
-
 List available actions for OfferingEstimatedCostPolicy
 
 **Responses:**
@@ -771,8 +727,6 @@ List available actions for OfferingEstimatedCostPolicy
 
 **`HEAD`** `/api/marketplace-offering-estimated-cost-policies/actions/`
 
-**Operation ID:** `marketplace_offering_estimated_cost_policies_actions_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Responses:**
@@ -786,8 +740,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_offering_estimated_cost_policies_retrieve
 
 **`GET`** `/api/marketplace-offering-estimated-cost-policies/{uuid}/`
-
-**Operation ID:** `marketplace_offering_estimated_cost_policies_retrieve`
 
 **Parameters:**
 
@@ -806,8 +758,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_offering_estimated_cost_policies_update
 
 **`PUT`** `/api/marketplace-offering-estimated-cost-policies/{uuid}/`
-
-**Operation ID:** `marketplace_offering_estimated_cost_policies_update`
 
 **Parameters:**
 
@@ -841,8 +791,6 @@ Schema: `OfferingEstimatedCostPolicyRequest`
 
 **`PATCH`** `/api/marketplace-offering-estimated-cost-policies/{uuid}/`
 
-**Operation ID:** `marketplace_offering_estimated_cost_policies_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -875,8 +823,6 @@ Schema: `PatchedOfferingEstimatedCostPolicyRequest`
 
 **`DELETE`** `/api/marketplace-offering-estimated-cost-policies/{uuid}/`
 
-**Operation ID:** `marketplace_offering_estimated_cost_policies_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -894,8 +840,6 @@ Schema: `PatchedOfferingEstimatedCostPolicyRequest`
 ### marketplace_offering_usage_policies_list
 
 **`GET`** `/api/marketplace-offering-usage-policies/`
-
-**Operation ID:** `marketplace_offering_usage_policies_list`
 
 **Parameters:**
 
@@ -915,8 +859,6 @@ Schema: `PatchedOfferingEstimatedCostPolicyRequest`
 ### marketplace_offering_usage_policies_count
 
 **`HEAD`** `/api/marketplace-offering-usage-policies/`
-
-**Operation ID:** `marketplace_offering_usage_policies_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -938,8 +880,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_offering_usage_policies_create
 
 **`POST`** `/api/marketplace-offering-usage-policies/`
-
-**Operation ID:** `marketplace_offering_usage_policies_create`
 
 **Request Body** (`application/json`, required):
 
@@ -967,8 +907,6 @@ Schema: `OfferingUsagePolicyRequest`
 
 **`GET`** `/api/marketplace-offering-usage-policies/actions/`
 
-**Operation ID:** `marketplace_offering_usage_policies_actions_retrieve`
-
 **Responses:**
 
 | Status | Description |
@@ -980,8 +918,6 @@ Schema: `OfferingUsagePolicyRequest`
 ### marketplace_offering_usage_policies_actions_count
 
 **`HEAD`** `/api/marketplace-offering-usage-policies/actions/`
-
-**Operation ID:** `marketplace_offering_usage_policies_actions_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -996,8 +932,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_offering_usage_policies_retrieve
 
 **`GET`** `/api/marketplace-offering-usage-policies/{uuid}/`
-
-**Operation ID:** `marketplace_offering_usage_policies_retrieve`
 
 **Parameters:**
 
@@ -1016,8 +950,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_offering_usage_policies_update
 
 **`PUT`** `/api/marketplace-offering-usage-policies/{uuid}/`
-
-**Operation ID:** `marketplace_offering_usage_policies_update`
 
 **Parameters:**
 
@@ -1051,8 +983,6 @@ Schema: `OfferingUsagePolicyRequest`
 
 **`PATCH`** `/api/marketplace-offering-usage-policies/{uuid}/`
 
-**Operation ID:** `marketplace_offering_usage_policies_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1085,8 +1015,6 @@ Schema: `PatchedOfferingUsagePolicyRequest`
 
 **`DELETE`** `/api/marketplace-offering-usage-policies/{uuid}/`
 
-**Operation ID:** `marketplace_offering_usage_policies_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1104,8 +1032,6 @@ Schema: `PatchedOfferingUsagePolicyRequest`
 ### marketplace_project_estimated_cost_policies_list
 
 **`GET`** `/api/marketplace-project-estimated-cost-policies/`
-
-**Operation ID:** `marketplace_project_estimated_cost_policies_list`
 
 **Parameters:**
 
@@ -1129,8 +1055,6 @@ Schema: `PatchedOfferingUsagePolicyRequest`
 ### marketplace_project_estimated_cost_policies_count
 
 **`HEAD`** `/api/marketplace-project-estimated-cost-policies/`
-
-**Operation ID:** `marketplace_project_estimated_cost_policies_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1157,8 +1081,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/marketplace-project-estimated-cost-policies/`
 
-**Operation ID:** `marketplace_project_estimated_cost_policies_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `ProjectEstimatedCostPolicyRequest`
@@ -1183,8 +1105,6 @@ Schema: `ProjectEstimatedCostPolicyRequest`
 
 **`GET`** `/api/marketplace-project-estimated-cost-policies/actions/`
 
-**Operation ID:** `marketplace_project_estimated_cost_policies_actions_retrieve`
-
 **Responses:**
 
 | Status | Description |
@@ -1196,8 +1116,6 @@ Schema: `ProjectEstimatedCostPolicyRequest`
 ### marketplace_project_estimated_cost_policies_actions_count
 
 **`HEAD`** `/api/marketplace-project-estimated-cost-policies/actions/`
-
-**Operation ID:** `marketplace_project_estimated_cost_policies_actions_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1212,8 +1130,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_project_estimated_cost_policies_retrieve
 
 **`GET`** `/api/marketplace-project-estimated-cost-policies/{uuid}/`
-
-**Operation ID:** `marketplace_project_estimated_cost_policies_retrieve`
 
 **Parameters:**
 
@@ -1232,8 +1148,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_project_estimated_cost_policies_update
 
 **`PUT`** `/api/marketplace-project-estimated-cost-policies/{uuid}/`
-
-**Operation ID:** `marketplace_project_estimated_cost_policies_update`
 
 **Parameters:**
 
@@ -1265,8 +1179,6 @@ Schema: `ProjectEstimatedCostPolicyRequest`
 
 **`PATCH`** `/api/marketplace-project-estimated-cost-policies/{uuid}/`
 
-**Operation ID:** `marketplace_project_estimated_cost_policies_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1297,8 +1209,6 @@ Schema: `PatchedProjectEstimatedCostPolicyRequest`
 
 **`DELETE`** `/api/marketplace-project-estimated-cost-policies/{uuid}/`
 
-**Operation ID:** `marketplace_project_estimated_cost_policies_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1316,8 +1226,6 @@ Schema: `PatchedProjectEstimatedCostPolicyRequest`
 ### marketplace_slurm_periodic_usage_policies_list
 
 **`GET`** `/api/marketplace-slurm-periodic-usage-policies/`
-
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_list`
 
 **Parameters:**
 
@@ -1337,8 +1245,6 @@ Schema: `PatchedProjectEstimatedCostPolicyRequest`
 ### marketplace_slurm_periodic_usage_policies_count
 
 **`HEAD`** `/api/marketplace-slurm-periodic-usage-policies/`
-
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1360,8 +1266,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_slurm_periodic_usage_policies_create
 
 **`POST`** `/api/marketplace-slurm-periodic-usage-policies/`
-
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_create`
 
 **Request Body** (`application/json`, required):
 
@@ -1397,8 +1301,6 @@ Schema: `SlurmPeriodicUsagePolicyRequest`
 
 **`GET`** `/api/marketplace-slurm-periodic-usage-policies/actions/`
 
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_actions_retrieve`
-
 **Responses:**
 
 | Status | Description |
@@ -1410,8 +1312,6 @@ Schema: `SlurmPeriodicUsagePolicyRequest`
 ### marketplace_slurm_periodic_usage_policies_actions_count
 
 **`HEAD`** `/api/marketplace-slurm-periodic-usage-policies/actions/`
-
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_actions_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1426,8 +1326,6 @@ Get number of items in the collection matching the request parameters.
 ### marketplace_slurm_periodic_usage_policies_preview_impact
 
 **`POST`** `/api/marketplace-slurm-periodic-usage-policies/preview_impact/`
-
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_preview_impact`
 
 Preview policy impact without saving. Returns threshold calculations, carryover projections, and QoS trigger points.
 
@@ -1458,8 +1356,6 @@ Schema: `SlurmPolicyPreviewRequestRequest`
 
 **`GET`** `/api/marketplace-slurm-periodic-usage-policies/{uuid}/`
 
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1477,8 +1373,6 @@ Schema: `SlurmPolicyPreviewRequestRequest`
 ### marketplace_slurm_periodic_usage_policies_update
 
 **`PUT`** `/api/marketplace-slurm-periodic-usage-policies/{uuid}/`
-
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_update`
 
 **Parameters:**
 
@@ -1520,8 +1414,6 @@ Schema: `SlurmPeriodicUsagePolicyRequest`
 
 **`PATCH`** `/api/marketplace-slurm-periodic-usage-policies/{uuid}/`
 
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1562,8 +1454,6 @@ Schema: `PatchedSlurmPeriodicUsagePolicyRequest`
 
 **`DELETE`** `/api/marketplace-slurm-periodic-usage-policies/{uuid}/`
 
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1581,8 +1471,6 @@ Schema: `PatchedSlurmPeriodicUsagePolicyRequest`
 ### marketplace_slurm_periodic_usage_policies_command_history_list
 
 **`GET`** `/api/marketplace-slurm-periodic-usage-policies/{uuid}/command-history/`
-
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_command_history_list`
 
 List command history for this policy.
 
@@ -1605,8 +1493,6 @@ List command history for this policy.
 ### marketplace_slurm_periodic_usage_policies_dry_run
 
 **`POST`** `/api/marketplace-slurm-periodic-usage-policies/{uuid}/dry-run/`
-
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_dry_run`
 
 Staff-only. Dry-run evaluation: calculates usage percentages and shows what actions would be triggered, without applying any changes.
 
@@ -1636,8 +1522,6 @@ Schema: `SlurmPolicyEvaluateRequestRequest`
 
 **`POST`** `/api/marketplace-slurm-periodic-usage-policies/{uuid}/evaluate/`
 
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_evaluate`
-
 Staff-only. Run synchronous policy evaluation: calculates usage, applies actions (pause/downscale/notify), and creates evaluation logs.
 
 **Parameters:**
@@ -1666,8 +1550,6 @@ Schema: `SlurmPolicyEvaluateRequestRequest`
 
 **`GET`** `/api/marketplace-slurm-periodic-usage-policies/{uuid}/evaluation-logs/`
 
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_evaluation_logs_list`
-
 List evaluation logs for this policy.
 
 **Parameters:**
@@ -1689,8 +1571,6 @@ List evaluation logs for this policy.
 ### marketplace_slurm_periodic_usage_policies_report_command_result
 
 **`POST`** `/api/marketplace-slurm-periodic-usage-policies/{uuid}/report-command-result/`
-
-**Operation ID:** `marketplace_slurm_periodic_usage_policies_report_command_result`
 
 Report command execution result from site agent.
 

@@ -7,210 +7,210 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/access-subnets/` | `access_subnets_list` | List access subnets |
-| HEAD | `/api/access-subnets/` | `access_subnets_count` | List access subnets |
-| POST | `/api/access-subnets/` | `access_subnets_create` | Create an access subnet |
-| GET | `/api/access-subnets/{uuid}/` | `access_subnets_retrieve` | Retrieve access subnet |
-| PUT | `/api/access-subnets/{uuid}/` | `access_subnets_update` | Update an access subnet |
-| PATCH | `/api/access-subnets/{uuid}/` | `access_subnets_partial_update` | Partially update an access subnet |
-| DELETE | `/api/access-subnets/{uuid}/` | `access_subnets_destroy` | Delete an access subnet |
-| GET | `/api/autoprovisioning-rules/` | `autoprovisioning_rules_list` |  |
-| HEAD | `/api/autoprovisioning-rules/` | `autoprovisioning_rules_count` |  |
-| POST | `/api/autoprovisioning-rules/` | `autoprovisioning_rules_create` |  |
-| GET | `/api/autoprovisioning-rules/{uuid}/` | `autoprovisioning_rules_retrieve` |  |
-| PUT | `/api/autoprovisioning-rules/{uuid}/` | `autoprovisioning_rules_update` |  |
-| PATCH | `/api/autoprovisioning-rules/{uuid}/` | `autoprovisioning_rules_partial_update` |  |
-| DELETE | `/api/autoprovisioning-rules/{uuid}/` | `autoprovisioning_rules_destroy` |  |
-| GET | `/api/backend-resource-requests/` | `backend_resource_requests_list` | List backend resource requests |
-| HEAD | `/api/backend-resource-requests/` | `backend_resource_requests_count` | List backend resource requests |
-| POST | `/api/backend-resource-requests/` | `backend_resource_requests_create` | Create a backend resource request |
-| GET | `/api/backend-resource-requests/{uuid}/` | `backend_resource_requests_retrieve` | Retrieve a backend resource request |
-| POST | `/api/backend-resource-requests/{uuid}/set_done/` | `backend_resource_requests_set_done` | Mark a request as done |
-| POST | `/api/backend-resource-requests/{uuid}/set_erred/` | `backend_resource_requests_set_erred` | Mark a request as erred |
-| POST | `/api/backend-resource-requests/{uuid}/start_processing/` | `backend_resource_requests_start_processing` | Start processing a request |
-| GET | `/api/backend-resources/` | `backend_resources_list` | List backend resources |
-| HEAD | `/api/backend-resources/` | `backend_resources_count` | List backend resources |
-| POST | `/api/backend-resources/` | `backend_resources_create` | Create a backend resource |
-| GET | `/api/backend-resources/{uuid}/` | `backend_resources_retrieve` | Retrieve a backend resource |
-| DELETE | `/api/backend-resources/{uuid}/` | `backend_resources_destroy` | Delete a backend resource |
-| POST | `/api/backend-resources/{uuid}/import_resource/` | `backend_resources_import_resource` | Import a backend resource (staff only) |
-| GET | `/api/booking-offerings/` | `booking_offerings_list` |  |
-| HEAD | `/api/booking-offerings/` | `booking_offerings_count` |  |
-| GET | `/api/booking-offerings/{uuid}/` | `booking_offerings_retrieve` |  |
-| POST | `/api/booking-offerings/{uuid}/google_calendar_sync/` | `booking_offerings_google_calendar_sync` |  |
-| POST | `/api/booking-offerings/{uuid}/share_google_calendar/` | `booking_offerings_share_google_calendar` |  |
-| POST | `/api/booking-offerings/{uuid}/unshare_google_calendar/` | `booking_offerings_unshare_google_calendar` |  |
-| GET | `/api/booking-resources/` | `booking_resources_list` |  |
-| HEAD | `/api/booking-resources/` | `booking_resources_count` |  |
-| GET | `/api/booking-resources/{uuid}/` | `booking_resources_retrieve` |  |
-| POST | `/api/booking-resources/{uuid}/accept/` | `booking_resources_accept` |  |
-| POST | `/api/booking-resources/{uuid}/reject/` | `booking_resources_reject` |  |
-| GET | `/api/chat-messages/` | `chat_messages_list` |  |
-| POST | `/api/chat-quota/set_quota/` | `chat_quota_set_quota` | Set token quota for user |
-| GET | `/api/chat-quota/usage/` | `chat_quota_usage_retrieve` |  |
-| GET | `/api/chat-sessions/` | `chat_sessions_list` |  |
-| GET | `/api/chat-sessions/current/` | `chat_sessions_current_retrieve` | Get or create current user's chat session |
-| GET | `/api/chat-sessions/{uuid}/` | `chat_sessions_retrieve` |  |
-| GET | `/api/chat-threads/` | `chat_threads_list` |  |
-| GET | `/api/chat-threads/{uuid}/` | `chat_threads_retrieve` |  |
-| POST | `/api/chat-threads/{uuid}/archive/` | `chat_threads_archive` | Archive thread |
-| POST | `/api/chat-threads/{uuid}/unarchive/` | `chat_threads_unarchive` | Unarchive thread |
-| POST | `/api/chat-tools/execute/` | `chat_tools_execute` |  |
-| POST | `/api/chat/stream/` | `chat_stream` |  |
-| GET | `/api/expertise-categories/` | `expertise_categories_list` |  |
-| HEAD | `/api/expertise-categories/` | `expertise_categories_count` |  |
-| GET | `/api/expertise-categories/{uuid}/` | `expertise_categories_retrieve` |  |
-| GET | `/api/external-links/` | `external_links_list` | List external links |
-| HEAD | `/api/external-links/` | `external_links_count` | List external links |
-| POST | `/api/external-links/` | `external_links_create` | Create an external link |
-| GET | `/api/external-links/{uuid}/` | `external_links_retrieve` | Retrieve external link |
-| PUT | `/api/external-links/{uuid}/` | `external_links_update` | Update an external link |
-| PATCH | `/api/external-links/{uuid}/` | `external_links_partial_update` | Partially update an external link |
-| DELETE | `/api/external-links/{uuid}/` | `external_links_destroy` | Delete an external link |
-| GET | `/api/freeipa-profiles/` | `freeipa_profiles_list` |  |
-| HEAD | `/api/freeipa-profiles/` | `freeipa_profiles_count` |  |
-| POST | `/api/freeipa-profiles/` | `freeipa_profiles_create` |  |
-| GET | `/api/freeipa-profiles/{uuid}/` | `freeipa_profiles_retrieve` |  |
-| PUT | `/api/freeipa-profiles/{uuid}/` | `freeipa_profiles_update` |  |
-| PATCH | `/api/freeipa-profiles/{uuid}/` | `freeipa_profiles_partial_update` |  |
-| POST | `/api/freeipa-profiles/{uuid}/update_ssh_keys/` | `freeipa_profiles_update_ssh_keys` |  |
-| GET | `/api/hooks-email/` | `hooks_email_list` |  |
-| HEAD | `/api/hooks-email/` | `hooks_email_count` |  |
-| POST | `/api/hooks-email/` | `hooks_email_create` |  |
-| GET | `/api/hooks-email/{uuid}/` | `hooks_email_retrieve` |  |
-| PUT | `/api/hooks-email/{uuid}/` | `hooks_email_update` |  |
-| PATCH | `/api/hooks-email/{uuid}/` | `hooks_email_partial_update` |  |
-| DELETE | `/api/hooks-email/{uuid}/` | `hooks_email_destroy` |  |
-| GET | `/api/hooks-web/` | `hooks_web_list` |  |
-| HEAD | `/api/hooks-web/` | `hooks_web_count` |  |
-| POST | `/api/hooks-web/` | `hooks_web_create` |  |
-| GET | `/api/hooks-web/{uuid}/` | `hooks_web_retrieve` |  |
-| PUT | `/api/hooks-web/{uuid}/` | `hooks_web_update` |  |
-| PATCH | `/api/hooks-web/{uuid}/` | `hooks_web_partial_update` |  |
-| DELETE | `/api/hooks-web/{uuid}/` | `hooks_web_destroy` |  |
-| GET | `/api/hooks/` | `hooks_list` |  |
-| HEAD | `/api/hooks/` | `hooks_count` |  |
-| GET | `/api/keys/` | `keys_list` |  |
-| HEAD | `/api/keys/` | `keys_count` |  |
-| POST | `/api/keys/` | `keys_create` |  |
-| GET | `/api/keys/{uuid}/` | `keys_retrieve` |  |
-| DELETE | `/api/keys/{uuid}/` | `keys_destroy` |  |
-| GET | `/api/keys/{uuid}/history/` | `keys_history_list` | Get version history |
-| GET | `/api/keys/{uuid}/history/at/` | `keys_history_at_retrieve` | Get object state at a specific timestamp |
-| GET | `/api/lexis-links/` | `lexis_links_list` |  |
-| HEAD | `/api/lexis-links/` | `lexis_links_count` |  |
-| POST | `/api/lexis-links/` | `lexis_links_create` |  |
-| GET | `/api/lexis-links/{uuid}/` | `lexis_links_retrieve` |  |
-| PUT | `/api/lexis-links/{uuid}/` | `lexis_links_update` |  |
-| PATCH | `/api/lexis-links/{uuid}/` | `lexis_links_partial_update` |  |
-| DELETE | `/api/lexis-links/{uuid}/` | `lexis_links_destroy` |  |
-| GET | `/api/maintenance-announcement-offerings/` | `maintenance_announcement_offerings_list` | List affected offerings for maintenance |
-| HEAD | `/api/maintenance-announcement-offerings/` | `maintenance_announcement_offerings_count` | List affected offerings for maintenance |
-| POST | `/api/maintenance-announcement-offerings/` | `maintenance_announcement_offerings_create` | Link an offering to a maintenance announcement |
-| GET | `/api/maintenance-announcement-offerings/{uuid}/` | `maintenance_announcement_offerings_retrieve` | Retrieve an affected offering link |
-| PUT | `/api/maintenance-announcement-offerings/{uuid}/` | `maintenance_announcement_offerings_update` | Update an affected offering link |
-| PATCH | `/api/maintenance-announcement-offerings/{uuid}/` | `maintenance_announcement_offerings_partial_update` | Partially update an affected offering link |
-| DELETE | `/api/maintenance-announcement-offerings/{uuid}/` | `maintenance_announcement_offerings_destroy` | Unlink an offering from a maintenance announcement |
-| GET | `/api/maintenance-announcement-template-offerings/` | `maintenance_announcement_template_offerings_list` | List affected offering templates |
-| HEAD | `/api/maintenance-announcement-template-offerings/` | `maintenance_announcement_template_offerings_count` | List affected offering templates |
-| POST | `/api/maintenance-announcement-template-offerings/` | `maintenance_announcement_template_offerings_create` | Link an offering to a maintenance template |
-| GET | `/api/maintenance-announcement-template-offerings/{uuid}/` | `maintenance_announcement_template_offerings_retrieve` | Retrieve an affected offering template link |
-| PUT | `/api/maintenance-announcement-template-offerings/{uuid}/` | `maintenance_announcement_template_offerings_update` | Update an affected offering template link |
-| PATCH | `/api/maintenance-announcement-template-offerings/{uuid}/` | `maintenance_announcement_template_offerings_partial_update` | Partially update an affected offering template link |
-| DELETE | `/api/maintenance-announcement-template-offerings/{uuid}/` | `maintenance_announcement_template_offerings_destroy` | Unlink an offering from a maintenance template |
-| GET | `/api/maintenance-announcements-template/` | `maintenance_announcements_template_list` | List maintenance announcement templates |
-| HEAD | `/api/maintenance-announcements-template/` | `maintenance_announcements_template_count` | List maintenance announcement templates |
-| POST | `/api/maintenance-announcements-template/` | `maintenance_announcements_template_create` | Create a maintenance announcement template |
-| GET | `/api/maintenance-announcements-template/{uuid}/` | `maintenance_announcements_template_retrieve` | Retrieve a maintenance announcement template |
-| PUT | `/api/maintenance-announcements-template/{uuid}/` | `maintenance_announcements_template_update` | Update a maintenance announcement template |
-| PATCH | `/api/maintenance-announcements-template/{uuid}/` | `maintenance_announcements_template_partial_update` | Partially update a maintenance announcement template |
-| DELETE | `/api/maintenance-announcements-template/{uuid}/` | `maintenance_announcements_template_destroy` | Delete a maintenance announcement template |
-| GET | `/api/maintenance-announcements/` | `maintenance_announcements_list` | List maintenance announcements |
-| HEAD | `/api/maintenance-announcements/` | `maintenance_announcements_count` | List maintenance announcements |
-| POST | `/api/maintenance-announcements/` | `maintenance_announcements_create` | Create a maintenance announcement |
-| GET | `/api/maintenance-announcements/maintenance_stats/` | `maintenance_announcements_maintenance_stats_retrieve` | Get maintenance announcement statistics |
-| HEAD | `/api/maintenance-announcements/maintenance_stats/` | `maintenance_announcements_maintenance_stats_count` | Get maintenance announcement statistics |
-| GET | `/api/maintenance-announcements/{uuid}/` | `maintenance_announcements_retrieve` | Retrieve a maintenance announcement |
-| PUT | `/api/maintenance-announcements/{uuid}/` | `maintenance_announcements_update` | Update a maintenance announcement |
-| PATCH | `/api/maintenance-announcements/{uuid}/` | `maintenance_announcements_partial_update` | Partially update a maintenance announcement |
-| DELETE | `/api/maintenance-announcements/{uuid}/` | `maintenance_announcements_destroy` | Delete a maintenance announcement |
-| POST | `/api/maintenance-announcements/{uuid}/cancel_maintenance/` | `maintenance_announcements_cancel_maintenance` | Cancel the maintenance announcement |
-| POST | `/api/maintenance-announcements/{uuid}/complete_maintenance/` | `maintenance_announcements_complete_maintenance` | Complete the maintenance announcement |
-| POST | `/api/maintenance-announcements/{uuid}/schedule/` | `maintenance_announcements_schedule` | Schedule/publish the maintenance announcement |
-| POST | `/api/maintenance-announcements/{uuid}/start_maintenance/` | `maintenance_announcements_start_maintenance` | Start the maintenance announcement |
-| POST | `/api/maintenance-announcements/{uuid}/unschedule/` | `maintenance_announcements_unschedule` | Unschedule/unpublish the maintenance announcement |
-| GET | `/api/media/{uuid}/` | `media_retrieve` |  |
-| GET | `/api/metadata/events/` | `metadata_events_retrieve` | Get event metadata |
-| GET | `/api/metadata/features/` | `metadata_features_retrieve` | Get feature flag metadata |
-| GET | `/api/metadata/permissions/` | `metadata_permissions_retrieve` | Get permission metadata |
-| GET | `/api/metadata/settings/` | `metadata_settings_retrieve` | Get overridable settings metadata |
-| GET | `/api/offering-keycloak-groups/` | `offering_keycloak_groups_list` |  |
-| HEAD | `/api/offering-keycloak-groups/` | `offering_keycloak_groups_count` |  |
-| POST | `/api/offering-keycloak-groups/import_remote/` | `offering_keycloak_groups_import_remote` | Import a remote Keycloak group as a local OfferingKeycloakGr |
-| GET | `/api/offering-keycloak-groups/remote_group_members/` | `offering_keycloak_groups_remote_group_members_list` | List members of a remote Keycloak group |
-| HEAD | `/api/offering-keycloak-groups/remote_group_members/` | `offering_keycloak_groups_remote_group_members_count` | List members of a remote Keycloak group |
-| GET | `/api/offering-keycloak-groups/remote_groups/` | `offering_keycloak_groups_remote_groups_list` | List remote Keycloak groups for an offering |
-| HEAD | `/api/offering-keycloak-groups/remote_groups/` | `offering_keycloak_groups_remote_groups_count` | List remote Keycloak groups for an offering |
-| GET | `/api/offering-keycloak-groups/search_remote_users/` | `offering_keycloak_groups_search_remote_users_list` | Search for users in remote Keycloak instance |
-| HEAD | `/api/offering-keycloak-groups/search_remote_users/` | `offering_keycloak_groups_search_remote_users_count` | Search for users in remote Keycloak instance |
-| GET | `/api/offering-keycloak-groups/sync_status/` | `offering_keycloak_groups_sync_status_retrieve` | Compare local and remote Keycloak group state |
-| HEAD | `/api/offering-keycloak-groups/sync_status/` | `offering_keycloak_groups_sync_status_count` | Compare local and remote Keycloak group state |
-| POST | `/api/offering-keycloak-groups/test_connection/` | `offering_keycloak_groups_test_connection` | Test Keycloak connection for an offering |
-| GET | `/api/offering-keycloak-groups/{uuid}/` | `offering_keycloak_groups_retrieve` |  |
-| DELETE | `/api/offering-keycloak-groups/{uuid}/` | `offering_keycloak_groups_destroy` |  |
-| POST | `/api/offering-keycloak-groups/{uuid}/pull_members/` | `offering_keycloak_groups_pull_members` | Pull members from Keycloak for a group |
-| POST | `/api/offering-keycloak-groups/{uuid}/set_backend_id/` | `offering_keycloak_groups_set_backend_id` | Set or unlink the backend_id (remote Keycloak group ID) for  |
-| GET | `/api/offering-keycloak-memberships/` | `offering_keycloak_memberships_list` |  |
-| HEAD | `/api/offering-keycloak-memberships/` | `offering_keycloak_memberships_count` |  |
-| POST | `/api/offering-keycloak-memberships/` | `offering_keycloak_memberships_create` |  |
-| GET | `/api/offering-keycloak-memberships/{uuid}/` | `offering_keycloak_memberships_retrieve` |  |
-| DELETE | `/api/offering-keycloak-memberships/{uuid}/` | `offering_keycloak_memberships_destroy` |  |
-| GET | `/api/promotions-campaigns/` | `promotions_campaigns_list` |  |
-| HEAD | `/api/promotions-campaigns/` | `promotions_campaigns_count` |  |
-| POST | `/api/promotions-campaigns/` | `promotions_campaigns_create` |  |
-| GET | `/api/promotions-campaigns/{uuid}/` | `promotions_campaigns_retrieve` |  |
-| PUT | `/api/promotions-campaigns/{uuid}/` | `promotions_campaigns_update` |  |
-| DELETE | `/api/promotions-campaigns/{uuid}/` | `promotions_campaigns_destroy` |  |
-| POST | `/api/promotions-campaigns/{uuid}/activate/` | `promotions_campaigns_activate` |  |
-| GET | `/api/promotions-campaigns/{uuid}/orders/` | `promotions_campaigns_orders_list` |  |
-| GET | `/api/promotions-campaigns/{uuid}/resources/` | `promotions_campaigns_resources_list` |  |
-| POST | `/api/promotions-campaigns/{uuid}/terminate/` | `promotions_campaigns_terminate` |  |
-| GET | `/api/public-maintenance-announcements/` | `public_maintenance_announcements_list` | List public maintenance announcements |
-| HEAD | `/api/public-maintenance-announcements/` | `public_maintenance_announcements_count` | List public maintenance announcements |
-| GET | `/api/public-maintenance-announcements/{uuid}/` | `public_maintenance_announcements_retrieve` | Retrieve a public maintenance announcement |
-| POST | `/api/query/` | `query` | Execute read-only SQL query |
-| POST | `/api/remote-eduteams/` | `remote_eduteams` |  |
-| POST | `/api/remote-waldur-api/cancel_termination/{uuid}` | `remote_waldur_api_cancel_termination` |  |
-| POST | `/api/remote-waldur-api/import_offering/` | `remote_waldur_api_import_offering` |  |
-| POST | `/api/remote-waldur-api/pull_offering_details/{uuid}/` | `remote_waldur_api_pull_offering_details` |  |
-| POST | `/api/remote-waldur-api/pull_offering_invoices/{uuid}/` | `remote_waldur_api_pull_offering_invoices` |  |
-| POST | `/api/remote-waldur-api/pull_offering_orders/{uuid}/` | `remote_waldur_api_pull_offering_orders` |  |
-| POST | `/api/remote-waldur-api/pull_offering_resources/{uuid}/` | `remote_waldur_api_pull_offering_resources` |  |
-| POST | `/api/remote-waldur-api/pull_offering_robot_accounts/{uuid}/` | `remote_waldur_api_pull_offering_robot_accounts` |  |
-| POST | `/api/remote-waldur-api/pull_offering_usage/{uuid}/` | `remote_waldur_api_pull_offering_usage` |  |
-| POST | `/api/remote-waldur-api/pull_offering_users/{uuid}/` | `remote_waldur_api_pull_offering_users` |  |
-| POST | `/api/remote-waldur-api/pull_order/{uuid}` | `remote_waldur_api_pull_order` |  |
-| POST | `/api/remote-waldur-api/pull_resource_robot_accounts/{uuid}/` | `remote_waldur_api_pull_resource_robot_accounts` |  |
-| POST | `/api/remote-waldur-api/push_project_data/{uuid}/` | `remote_waldur_api_push_project_data` |  |
-| POST | `/api/remote-waldur-api/remote_categories/` | `remote_waldur_api_remote_categories` |  |
-| POST | `/api/remote-waldur-api/remote_customers/` | `remote_waldur_api_remote_customers` |  |
-| GET | `/api/remote-waldur-api/remote_resource_order_status/{resource_uuid}/` | `remote_waldur_api_remote_resource_order_status_retrieve` |  |
-| GET | `/api/remote-waldur-api/remote_resource_status/{resource_uuid}/` | `remote_waldur_api_remote_resource_status_retrieve` |  |
-| GET | `/api/remote-waldur-api/remote_resource_team_status/{resource_uuid}/` | `remote_waldur_api_remote_resource_team_status_list` |  |
-| POST | `/api/remote-waldur-api/shared_offerings/` | `remote_waldur_api_shared_offerings` |  |
-| POST | `/api/remote-waldur-api/sync_resource/{uuid}/` | `remote_waldur_api_sync_resource` |  |
-| POST | `/api/remote-waldur-api/sync_resource_project_permissions/{uuid}/` | `remote_waldur_api_sync_resource_project_permissions` |  |
-| GET | `/api/service-settings/` | `service_settings_list` |  |
-| HEAD | `/api/service-settings/` | `service_settings_count` |  |
-| GET | `/api/service-settings/{uuid}/` | `service_settings_retrieve` |  |
+| GET | `/api/access-subnets/` | [`access_subnets_list`](#access-subnets-list) | List access subnets |
+| HEAD | `/api/access-subnets/` | [`access_subnets_count`](#access-subnets-count) | List access subnets |
+| POST | `/api/access-subnets/` | [`access_subnets_create`](#access-subnets-create) | Create an access subnet |
+| GET | `/api/access-subnets/{uuid}/` | [`access_subnets_retrieve`](#access-subnets-retrieve) | Retrieve access subnet |
+| PUT | `/api/access-subnets/{uuid}/` | [`access_subnets_update`](#access-subnets-update) | Update an access subnet |
+| PATCH | `/api/access-subnets/{uuid}/` | [`access_subnets_partial_update`](#access-subnets-partial-update) | Partially update an access subnet |
+| DELETE | `/api/access-subnets/{uuid}/` | [`access_subnets_destroy`](#access-subnets-destroy) | Delete an access subnet |
+| GET | `/api/autoprovisioning-rules/` | [`autoprovisioning_rules_list`](#autoprovisioning-rules-list) |  |
+| HEAD | `/api/autoprovisioning-rules/` | [`autoprovisioning_rules_count`](#autoprovisioning-rules-count) |  |
+| POST | `/api/autoprovisioning-rules/` | [`autoprovisioning_rules_create`](#autoprovisioning-rules-create) |  |
+| GET | `/api/autoprovisioning-rules/{uuid}/` | [`autoprovisioning_rules_retrieve`](#autoprovisioning-rules-retrieve) |  |
+| PUT | `/api/autoprovisioning-rules/{uuid}/` | [`autoprovisioning_rules_update`](#autoprovisioning-rules-update) |  |
+| PATCH | `/api/autoprovisioning-rules/{uuid}/` | [`autoprovisioning_rules_partial_update`](#autoprovisioning-rules-partial-update) |  |
+| DELETE | `/api/autoprovisioning-rules/{uuid}/` | [`autoprovisioning_rules_destroy`](#autoprovisioning-rules-destroy) |  |
+| GET | `/api/backend-resource-requests/` | [`backend_resource_requests_list`](#backend-resource-requests-list) | List backend resource requests |
+| HEAD | `/api/backend-resource-requests/` | [`backend_resource_requests_count`](#backend-resource-requests-count) | List backend resource requests |
+| POST | `/api/backend-resource-requests/` | [`backend_resource_requests_create`](#backend-resource-requests-create) | Create a backend resource request |
+| GET | `/api/backend-resource-requests/{uuid}/` | [`backend_resource_requests_retrieve`](#backend-resource-requests-retrieve) | Retrieve a backend resource request |
+| POST | `/api/backend-resource-requests/{uuid}/set_done/` | [`backend_resource_requests_set_done`](#backend-resource-requests-set-done) | Mark a request as done |
+| POST | `/api/backend-resource-requests/{uuid}/set_erred/` | [`backend_resource_requests_set_erred`](#backend-resource-requests-set-erred) | Mark a request as erred |
+| POST | `/api/backend-resource-requests/{uuid}/start_processing/` | [`backend_resource_requests_start_processing`](#backend-resource-requests-start-processing) | Start processing a request |
+| GET | `/api/backend-resources/` | [`backend_resources_list`](#backend-resources-list) | List backend resources |
+| HEAD | `/api/backend-resources/` | [`backend_resources_count`](#backend-resources-count) | List backend resources |
+| POST | `/api/backend-resources/` | [`backend_resources_create`](#backend-resources-create) | Create a backend resource |
+| GET | `/api/backend-resources/{uuid}/` | [`backend_resources_retrieve`](#backend-resources-retrieve) | Retrieve a backend resource |
+| DELETE | `/api/backend-resources/{uuid}/` | [`backend_resources_destroy`](#backend-resources-destroy) | Delete a backend resource |
+| POST | `/api/backend-resources/{uuid}/import_resource/` | [`backend_resources_import_resource`](#backend-resources-import-resource) | Import a backend resource (staff only) |
+| GET | `/api/booking-offerings/` | [`booking_offerings_list`](#booking-offerings-list) |  |
+| HEAD | `/api/booking-offerings/` | [`booking_offerings_count`](#booking-offerings-count) |  |
+| GET | `/api/booking-offerings/{uuid}/` | [`booking_offerings_retrieve`](#booking-offerings-retrieve) |  |
+| POST | `/api/booking-offerings/{uuid}/google_calendar_sync/` | [`booking_offerings_google_calendar_sync`](#booking-offerings-google-calendar-sync) |  |
+| POST | `/api/booking-offerings/{uuid}/share_google_calendar/` | [`booking_offerings_share_google_calendar`](#booking-offerings-share-google-calendar) |  |
+| POST | `/api/booking-offerings/{uuid}/unshare_google_calendar/` | [`booking_offerings_unshare_google_calendar`](#booking-offerings-unshare-google-calendar) |  |
+| GET | `/api/booking-resources/` | [`booking_resources_list`](#booking-resources-list) |  |
+| HEAD | `/api/booking-resources/` | [`booking_resources_count`](#booking-resources-count) |  |
+| GET | `/api/booking-resources/{uuid}/` | [`booking_resources_retrieve`](#booking-resources-retrieve) |  |
+| POST | `/api/booking-resources/{uuid}/accept/` | [`booking_resources_accept`](#booking-resources-accept) |  |
+| POST | `/api/booking-resources/{uuid}/reject/` | [`booking_resources_reject`](#booking-resources-reject) |  |
+| GET | `/api/chat-messages/` | [`chat_messages_list`](#chat-messages-list) |  |
+| POST | `/api/chat-quota/set_quota/` | [`chat_quota_set_quota`](#chat-quota-set-quota) | Set token quota for user |
+| GET | `/api/chat-quota/usage/` | [`chat_quota_usage_retrieve`](#chat-quota-usage-retrieve) |  |
+| GET | `/api/chat-sessions/` | [`chat_sessions_list`](#chat-sessions-list) |  |
+| GET | `/api/chat-sessions/current/` | [`chat_sessions_current_retrieve`](#chat-sessions-current-retrieve) | Get or create current user's chat session |
+| GET | `/api/chat-sessions/{uuid}/` | [`chat_sessions_retrieve`](#chat-sessions-retrieve) |  |
+| GET | `/api/chat-threads/` | [`chat_threads_list`](#chat-threads-list) |  |
+| GET | `/api/chat-threads/{uuid}/` | [`chat_threads_retrieve`](#chat-threads-retrieve) |  |
+| POST | `/api/chat-threads/{uuid}/archive/` | [`chat_threads_archive`](#chat-threads-archive) | Archive thread |
+| POST | `/api/chat-threads/{uuid}/unarchive/` | [`chat_threads_unarchive`](#chat-threads-unarchive) | Unarchive thread |
+| POST | `/api/chat-tools/execute/` | [`chat_tools_execute`](#chat-tools-execute) |  |
+| POST | `/api/chat/stream/` | [`chat_stream`](#chat-stream) |  |
+| GET | `/api/expertise-categories/` | [`expertise_categories_list`](#expertise-categories-list) |  |
+| HEAD | `/api/expertise-categories/` | [`expertise_categories_count`](#expertise-categories-count) |  |
+| GET | `/api/expertise-categories/{uuid}/` | [`expertise_categories_retrieve`](#expertise-categories-retrieve) |  |
+| GET | `/api/external-links/` | [`external_links_list`](#external-links-list) | List external links |
+| HEAD | `/api/external-links/` | [`external_links_count`](#external-links-count) | List external links |
+| POST | `/api/external-links/` | [`external_links_create`](#external-links-create) | Create an external link |
+| GET | `/api/external-links/{uuid}/` | [`external_links_retrieve`](#external-links-retrieve) | Retrieve external link |
+| PUT | `/api/external-links/{uuid}/` | [`external_links_update`](#external-links-update) | Update an external link |
+| PATCH | `/api/external-links/{uuid}/` | [`external_links_partial_update`](#external-links-partial-update) | Partially update an external link |
+| DELETE | `/api/external-links/{uuid}/` | [`external_links_destroy`](#external-links-destroy) | Delete an external link |
+| GET | `/api/freeipa-profiles/` | [`freeipa_profiles_list`](#freeipa-profiles-list) |  |
+| HEAD | `/api/freeipa-profiles/` | [`freeipa_profiles_count`](#freeipa-profiles-count) |  |
+| POST | `/api/freeipa-profiles/` | [`freeipa_profiles_create`](#freeipa-profiles-create) |  |
+| GET | `/api/freeipa-profiles/{uuid}/` | [`freeipa_profiles_retrieve`](#freeipa-profiles-retrieve) |  |
+| PUT | `/api/freeipa-profiles/{uuid}/` | [`freeipa_profiles_update`](#freeipa-profiles-update) |  |
+| PATCH | `/api/freeipa-profiles/{uuid}/` | [`freeipa_profiles_partial_update`](#freeipa-profiles-partial-update) |  |
+| POST | `/api/freeipa-profiles/{uuid}/update_ssh_keys/` | [`freeipa_profiles_update_ssh_keys`](#freeipa-profiles-update-ssh-keys) |  |
+| GET | `/api/hooks-email/` | [`hooks_email_list`](#hooks-email-list) |  |
+| HEAD | `/api/hooks-email/` | [`hooks_email_count`](#hooks-email-count) |  |
+| POST | `/api/hooks-email/` | [`hooks_email_create`](#hooks-email-create) |  |
+| GET | `/api/hooks-email/{uuid}/` | [`hooks_email_retrieve`](#hooks-email-retrieve) |  |
+| PUT | `/api/hooks-email/{uuid}/` | [`hooks_email_update`](#hooks-email-update) |  |
+| PATCH | `/api/hooks-email/{uuid}/` | [`hooks_email_partial_update`](#hooks-email-partial-update) |  |
+| DELETE | `/api/hooks-email/{uuid}/` | [`hooks_email_destroy`](#hooks-email-destroy) |  |
+| GET | `/api/hooks-web/` | [`hooks_web_list`](#hooks-web-list) |  |
+| HEAD | `/api/hooks-web/` | [`hooks_web_count`](#hooks-web-count) |  |
+| POST | `/api/hooks-web/` | [`hooks_web_create`](#hooks-web-create) |  |
+| GET | `/api/hooks-web/{uuid}/` | [`hooks_web_retrieve`](#hooks-web-retrieve) |  |
+| PUT | `/api/hooks-web/{uuid}/` | [`hooks_web_update`](#hooks-web-update) |  |
+| PATCH | `/api/hooks-web/{uuid}/` | [`hooks_web_partial_update`](#hooks-web-partial-update) |  |
+| DELETE | `/api/hooks-web/{uuid}/` | [`hooks_web_destroy`](#hooks-web-destroy) |  |
+| GET | `/api/hooks/` | [`hooks_list`](#hooks-list) |  |
+| HEAD | `/api/hooks/` | [`hooks_count`](#hooks-count) |  |
+| GET | `/api/keys/` | [`keys_list`](#keys-list) |  |
+| HEAD | `/api/keys/` | [`keys_count`](#keys-count) |  |
+| POST | `/api/keys/` | [`keys_create`](#keys-create) |  |
+| GET | `/api/keys/{uuid}/` | [`keys_retrieve`](#keys-retrieve) |  |
+| DELETE | `/api/keys/{uuid}/` | [`keys_destroy`](#keys-destroy) |  |
+| GET | `/api/keys/{uuid}/history/` | [`keys_history_list`](#keys-history-list) | Get version history |
+| GET | `/api/keys/{uuid}/history/at/` | [`keys_history_at_retrieve`](#keys-history-at-retrieve) | Get object state at a specific timestamp |
+| GET | `/api/lexis-links/` | [`lexis_links_list`](#lexis-links-list) |  |
+| HEAD | `/api/lexis-links/` | [`lexis_links_count`](#lexis-links-count) |  |
+| POST | `/api/lexis-links/` | [`lexis_links_create`](#lexis-links-create) |  |
+| GET | `/api/lexis-links/{uuid}/` | [`lexis_links_retrieve`](#lexis-links-retrieve) |  |
+| PUT | `/api/lexis-links/{uuid}/` | [`lexis_links_update`](#lexis-links-update) |  |
+| PATCH | `/api/lexis-links/{uuid}/` | [`lexis_links_partial_update`](#lexis-links-partial-update) |  |
+| DELETE | `/api/lexis-links/{uuid}/` | [`lexis_links_destroy`](#lexis-links-destroy) |  |
+| GET | `/api/maintenance-announcement-offerings/` | [`maintenance_announcement_offerings_list`](#maintenance-announcement-offerings-list) | List affected offerings for maintenance |
+| HEAD | `/api/maintenance-announcement-offerings/` | [`maintenance_announcement_offerings_count`](#maintenance-announcement-offerings-count) | List affected offerings for maintenance |
+| POST | `/api/maintenance-announcement-offerings/` | [`maintenance_announcement_offerings_create`](#maintenance-announcement-offerings-create) | Link an offering to a maintenance announcement |
+| GET | `/api/maintenance-announcement-offerings/{uuid}/` | [`maintenance_announcement_offerings_retrieve`](#maintenance-announcement-offerings-retrieve) | Retrieve an affected offering link |
+| PUT | `/api/maintenance-announcement-offerings/{uuid}/` | [`maintenance_announcement_offerings_update`](#maintenance-announcement-offerings-update) | Update an affected offering link |
+| PATCH | `/api/maintenance-announcement-offerings/{uuid}/` | [`maintenance_announcement_offerings_partial_update`](#maintenance-announcement-offerings-partial-update) | Partially update an affected offering link |
+| DELETE | `/api/maintenance-announcement-offerings/{uuid}/` | [`maintenance_announcement_offerings_destroy`](#maintenance-announcement-offerings-destroy) | Unlink an offering from a maintenance announcement |
+| GET | `/api/maintenance-announcement-template-offerings/` | [`maintenance_announcement_template_offerings_list`](#maintenance-announcement-template-offerings-list) | List affected offering templates |
+| HEAD | `/api/maintenance-announcement-template-offerings/` | [`maintenance_announcement_template_offerings_count`](#maintenance-announcement-template-offerings-count) | List affected offering templates |
+| POST | `/api/maintenance-announcement-template-offerings/` | [`maintenance_announcement_template_offerings_create`](#maintenance-announcement-template-offerings-create) | Link an offering to a maintenance template |
+| GET | `/api/maintenance-announcement-template-offerings/{uuid}/` | [`maintenance_announcement_template_offerings_retrieve`](#maintenance-announcement-template-offerings-retrieve) | Retrieve an affected offering template link |
+| PUT | `/api/maintenance-announcement-template-offerings/{uuid}/` | [`maintenance_announcement_template_offerings_update`](#maintenance-announcement-template-offerings-update) | Update an affected offering template link |
+| PATCH | `/api/maintenance-announcement-template-offerings/{uuid}/` | [`maintenance_announcement_template_offerings_partial_update`](#maintenance-announcement-template-offerings-partial-update) | Partially update an affected offering template link |
+| DELETE | `/api/maintenance-announcement-template-offerings/{uuid}/` | [`maintenance_announcement_template_offerings_destroy`](#maintenance-announcement-template-offerings-destroy) | Unlink an offering from a maintenance template |
+| GET | `/api/maintenance-announcements-template/` | [`maintenance_announcements_template_list`](#maintenance-announcements-template-list) | List maintenance announcement templates |
+| HEAD | `/api/maintenance-announcements-template/` | [`maintenance_announcements_template_count`](#maintenance-announcements-template-count) | List maintenance announcement templates |
+| POST | `/api/maintenance-announcements-template/` | [`maintenance_announcements_template_create`](#maintenance-announcements-template-create) | Create a maintenance announcement template |
+| GET | `/api/maintenance-announcements-template/{uuid}/` | [`maintenance_announcements_template_retrieve`](#maintenance-announcements-template-retrieve) | Retrieve a maintenance announcement template |
+| PUT | `/api/maintenance-announcements-template/{uuid}/` | [`maintenance_announcements_template_update`](#maintenance-announcements-template-update) | Update a maintenance announcement template |
+| PATCH | `/api/maintenance-announcements-template/{uuid}/` | [`maintenance_announcements_template_partial_update`](#maintenance-announcements-template-partial-update) | Partially update a maintenance announcement template |
+| DELETE | `/api/maintenance-announcements-template/{uuid}/` | [`maintenance_announcements_template_destroy`](#maintenance-announcements-template-destroy) | Delete a maintenance announcement template |
+| GET | `/api/maintenance-announcements/` | [`maintenance_announcements_list`](#maintenance-announcements-list) | List maintenance announcements |
+| HEAD | `/api/maintenance-announcements/` | [`maintenance_announcements_count`](#maintenance-announcements-count) | List maintenance announcements |
+| POST | `/api/maintenance-announcements/` | [`maintenance_announcements_create`](#maintenance-announcements-create) | Create a maintenance announcement |
+| GET | `/api/maintenance-announcements/maintenance_stats/` | [`maintenance_announcements_maintenance_stats_retrieve`](#maintenance-announcements-maintenance-stats-retrieve) | Get maintenance announcement statistics |
+| HEAD | `/api/maintenance-announcements/maintenance_stats/` | [`maintenance_announcements_maintenance_stats_count`](#maintenance-announcements-maintenance-stats-count) | Get maintenance announcement statistics |
+| GET | `/api/maintenance-announcements/{uuid}/` | [`maintenance_announcements_retrieve`](#maintenance-announcements-retrieve) | Retrieve a maintenance announcement |
+| PUT | `/api/maintenance-announcements/{uuid}/` | [`maintenance_announcements_update`](#maintenance-announcements-update) | Update a maintenance announcement |
+| PATCH | `/api/maintenance-announcements/{uuid}/` | [`maintenance_announcements_partial_update`](#maintenance-announcements-partial-update) | Partially update a maintenance announcement |
+| DELETE | `/api/maintenance-announcements/{uuid}/` | [`maintenance_announcements_destroy`](#maintenance-announcements-destroy) | Delete a maintenance announcement |
+| POST | `/api/maintenance-announcements/{uuid}/cancel_maintenance/` | [`maintenance_announcements_cancel_maintenance`](#maintenance-announcements-cancel-maintenance) | Cancel the maintenance announcement |
+| POST | `/api/maintenance-announcements/{uuid}/complete_maintenance/` | [`maintenance_announcements_complete_maintenance`](#maintenance-announcements-complete-maintenance) | Complete the maintenance announcement |
+| POST | `/api/maintenance-announcements/{uuid}/schedule/` | [`maintenance_announcements_schedule`](#maintenance-announcements-schedule) | Schedule/publish the maintenance announcement |
+| POST | `/api/maintenance-announcements/{uuid}/start_maintenance/` | [`maintenance_announcements_start_maintenance`](#maintenance-announcements-start-maintenance) | Start the maintenance announcement |
+| POST | `/api/maintenance-announcements/{uuid}/unschedule/` | [`maintenance_announcements_unschedule`](#maintenance-announcements-unschedule) | Unschedule/unpublish the maintenance announcement |
+| GET | `/api/media/{uuid}/` | [`media_retrieve`](#media-retrieve) |  |
+| GET | `/api/metadata/events/` | [`metadata_events_retrieve`](#metadata-events-retrieve) | Get event metadata |
+| GET | `/api/metadata/features/` | [`metadata_features_retrieve`](#metadata-features-retrieve) | Get feature flag metadata |
+| GET | `/api/metadata/permissions/` | [`metadata_permissions_retrieve`](#metadata-permissions-retrieve) | Get permission metadata |
+| GET | `/api/metadata/settings/` | [`metadata_settings_retrieve`](#metadata-settings-retrieve) | Get overridable settings metadata |
+| GET | `/api/offering-keycloak-groups/` | [`offering_keycloak_groups_list`](#offering-keycloak-groups-list) |  |
+| HEAD | `/api/offering-keycloak-groups/` | [`offering_keycloak_groups_count`](#offering-keycloak-groups-count) |  |
+| POST | `/api/offering-keycloak-groups/import_remote/` | [`offering_keycloak_groups_import_remote`](#offering-keycloak-groups-import-remote) | Import a remote Keycloak group as a local OfferingKeycloakGr |
+| GET | `/api/offering-keycloak-groups/remote_group_members/` | [`offering_keycloak_groups_remote_group_members_list`](#offering-keycloak-groups-remote-group-members-list) | List members of a remote Keycloak group |
+| HEAD | `/api/offering-keycloak-groups/remote_group_members/` | [`offering_keycloak_groups_remote_group_members_count`](#offering-keycloak-groups-remote-group-members-count) | List members of a remote Keycloak group |
+| GET | `/api/offering-keycloak-groups/remote_groups/` | [`offering_keycloak_groups_remote_groups_list`](#offering-keycloak-groups-remote-groups-list) | List remote Keycloak groups for an offering |
+| HEAD | `/api/offering-keycloak-groups/remote_groups/` | [`offering_keycloak_groups_remote_groups_count`](#offering-keycloak-groups-remote-groups-count) | List remote Keycloak groups for an offering |
+| GET | `/api/offering-keycloak-groups/search_remote_users/` | [`offering_keycloak_groups_search_remote_users_list`](#offering-keycloak-groups-search-remote-users-list) | Search for users in remote Keycloak instance |
+| HEAD | `/api/offering-keycloak-groups/search_remote_users/` | [`offering_keycloak_groups_search_remote_users_count`](#offering-keycloak-groups-search-remote-users-count) | Search for users in remote Keycloak instance |
+| GET | `/api/offering-keycloak-groups/sync_status/` | [`offering_keycloak_groups_sync_status_retrieve`](#offering-keycloak-groups-sync-status-retrieve) | Compare local and remote Keycloak group state |
+| HEAD | `/api/offering-keycloak-groups/sync_status/` | [`offering_keycloak_groups_sync_status_count`](#offering-keycloak-groups-sync-status-count) | Compare local and remote Keycloak group state |
+| POST | `/api/offering-keycloak-groups/test_connection/` | [`offering_keycloak_groups_test_connection`](#offering-keycloak-groups-test-connection) | Test Keycloak connection for an offering |
+| GET | `/api/offering-keycloak-groups/{uuid}/` | [`offering_keycloak_groups_retrieve`](#offering-keycloak-groups-retrieve) |  |
+| DELETE | `/api/offering-keycloak-groups/{uuid}/` | [`offering_keycloak_groups_destroy`](#offering-keycloak-groups-destroy) |  |
+| POST | `/api/offering-keycloak-groups/{uuid}/pull_members/` | [`offering_keycloak_groups_pull_members`](#offering-keycloak-groups-pull-members) | Pull members from Keycloak for a group |
+| POST | `/api/offering-keycloak-groups/{uuid}/set_backend_id/` | [`offering_keycloak_groups_set_backend_id`](#offering-keycloak-groups-set-backend-id) | Set or unlink the backend_id (remote Keycloak group ID) for  |
+| GET | `/api/offering-keycloak-memberships/` | [`offering_keycloak_memberships_list`](#offering-keycloak-memberships-list) |  |
+| HEAD | `/api/offering-keycloak-memberships/` | [`offering_keycloak_memberships_count`](#offering-keycloak-memberships-count) |  |
+| POST | `/api/offering-keycloak-memberships/` | [`offering_keycloak_memberships_create`](#offering-keycloak-memberships-create) |  |
+| GET | `/api/offering-keycloak-memberships/{uuid}/` | [`offering_keycloak_memberships_retrieve`](#offering-keycloak-memberships-retrieve) |  |
+| DELETE | `/api/offering-keycloak-memberships/{uuid}/` | [`offering_keycloak_memberships_destroy`](#offering-keycloak-memberships-destroy) |  |
+| GET | `/api/promotions-campaigns/` | [`promotions_campaigns_list`](#promotions-campaigns-list) |  |
+| HEAD | `/api/promotions-campaigns/` | [`promotions_campaigns_count`](#promotions-campaigns-count) |  |
+| POST | `/api/promotions-campaigns/` | [`promotions_campaigns_create`](#promotions-campaigns-create) |  |
+| GET | `/api/promotions-campaigns/{uuid}/` | [`promotions_campaigns_retrieve`](#promotions-campaigns-retrieve) |  |
+| PUT | `/api/promotions-campaigns/{uuid}/` | [`promotions_campaigns_update`](#promotions-campaigns-update) |  |
+| DELETE | `/api/promotions-campaigns/{uuid}/` | [`promotions_campaigns_destroy`](#promotions-campaigns-destroy) |  |
+| POST | `/api/promotions-campaigns/{uuid}/activate/` | [`promotions_campaigns_activate`](#promotions-campaigns-activate) |  |
+| GET | `/api/promotions-campaigns/{uuid}/orders/` | [`promotions_campaigns_orders_list`](#promotions-campaigns-orders-list) |  |
+| GET | `/api/promotions-campaigns/{uuid}/resources/` | [`promotions_campaigns_resources_list`](#promotions-campaigns-resources-list) |  |
+| POST | `/api/promotions-campaigns/{uuid}/terminate/` | [`promotions_campaigns_terminate`](#promotions-campaigns-terminate) |  |
+| GET | `/api/public-maintenance-announcements/` | [`public_maintenance_announcements_list`](#public-maintenance-announcements-list) | List public maintenance announcements |
+| HEAD | `/api/public-maintenance-announcements/` | [`public_maintenance_announcements_count`](#public-maintenance-announcements-count) | List public maintenance announcements |
+| GET | `/api/public-maintenance-announcements/{uuid}/` | [`public_maintenance_announcements_retrieve`](#public-maintenance-announcements-retrieve) | Retrieve a public maintenance announcement |
+| POST | `/api/query/` | [`query`](#query) | Execute read-only SQL query |
+| POST | `/api/remote-eduteams/` | [`remote_eduteams`](#remote-eduteams) |  |
+| POST | `/api/remote-waldur-api/cancel_termination/{uuid}` | [`remote_waldur_api_cancel_termination`](#remote-waldur-api-cancel-termination) |  |
+| POST | `/api/remote-waldur-api/import_offering/` | [`remote_waldur_api_import_offering`](#remote-waldur-api-import-offering) |  |
+| POST | `/api/remote-waldur-api/pull_offering_details/{uuid}/` | [`remote_waldur_api_pull_offering_details`](#remote-waldur-api-pull-offering-details) |  |
+| POST | `/api/remote-waldur-api/pull_offering_invoices/{uuid}/` | [`remote_waldur_api_pull_offering_invoices`](#remote-waldur-api-pull-offering-invoices) |  |
+| POST | `/api/remote-waldur-api/pull_offering_orders/{uuid}/` | [`remote_waldur_api_pull_offering_orders`](#remote-waldur-api-pull-offering-orders) |  |
+| POST | `/api/remote-waldur-api/pull_offering_resources/{uuid}/` | [`remote_waldur_api_pull_offering_resources`](#remote-waldur-api-pull-offering-resources) |  |
+| POST | `/api/remote-waldur-api/pull_offering_robot_accounts/{uuid}/` | [`remote_waldur_api_pull_offering_robot_accounts`](#remote-waldur-api-pull-offering-robot-accounts) |  |
+| POST | `/api/remote-waldur-api/pull_offering_usage/{uuid}/` | [`remote_waldur_api_pull_offering_usage`](#remote-waldur-api-pull-offering-usage) |  |
+| POST | `/api/remote-waldur-api/pull_offering_users/{uuid}/` | [`remote_waldur_api_pull_offering_users`](#remote-waldur-api-pull-offering-users) |  |
+| POST | `/api/remote-waldur-api/pull_order/{uuid}` | [`remote_waldur_api_pull_order`](#remote-waldur-api-pull-order) |  |
+| POST | `/api/remote-waldur-api/pull_resource_robot_accounts/{uuid}/` | [`remote_waldur_api_pull_resource_robot_accounts`](#remote-waldur-api-pull-resource-robot-accounts) |  |
+| POST | `/api/remote-waldur-api/push_project_data/{uuid}/` | [`remote_waldur_api_push_project_data`](#remote-waldur-api-push-project-data) |  |
+| POST | `/api/remote-waldur-api/remote_categories/` | [`remote_waldur_api_remote_categories`](#remote-waldur-api-remote-categories) |  |
+| POST | `/api/remote-waldur-api/remote_customers/` | [`remote_waldur_api_remote_customers`](#remote-waldur-api-remote-customers) |  |
+| GET | `/api/remote-waldur-api/remote_resource_order_status/{resource_uuid}/` | [`remote_waldur_api_remote_resource_order_status_retrieve`](#remote-waldur-api-remote-resource-order-status-retrieve) |  |
+| GET | `/api/remote-waldur-api/remote_resource_status/{resource_uuid}/` | [`remote_waldur_api_remote_resource_status_retrieve`](#remote-waldur-api-remote-resource-status-retrieve) |  |
+| GET | `/api/remote-waldur-api/remote_resource_team_status/{resource_uuid}/` | [`remote_waldur_api_remote_resource_team_status_list`](#remote-waldur-api-remote-resource-team-status-list) |  |
+| POST | `/api/remote-waldur-api/shared_offerings/` | [`remote_waldur_api_shared_offerings`](#remote-waldur-api-shared-offerings) |  |
+| POST | `/api/remote-waldur-api/sync_resource/{uuid}/` | [`remote_waldur_api_sync_resource`](#remote-waldur-api-sync-resource) |  |
+| POST | `/api/remote-waldur-api/sync_resource_project_permissions/{uuid}/` | [`remote_waldur_api_sync_resource_project_permissions`](#remote-waldur-api-sync-resource-project-permissions) |  |
+| GET | `/api/service-settings/` | [`service_settings_list`](#service-settings-list) |  |
+| HEAD | `/api/service-settings/` | [`service_settings_count`](#service-settings-count) |  |
+| GET | `/api/service-settings/{uuid}/` | [`service_settings_retrieve`](#service-settings-retrieve) |  |
 
 ## Endpoint Details
 
-### List access subnets
+### access_subnets_list
 
 **`GET`** `/api/access-subnets/`
 
-**Operation ID:** `access_subnets_list`
+**Summary:** List access subnets
 
 Retrieve a list of access subnets. Staff and support users can see all subnets, while other users can only see subnets associated with customers they have a role in.
 
@@ -231,11 +231,11 @@ Retrieve a list of access subnets. Staff and support users can see all subnets, 
 
 ---
 
-### List access subnets
+### access_subnets_count
 
 **`HEAD`** `/api/access-subnets/`
 
-**Operation ID:** `access_subnets_count`
+**Summary:** List access subnets
 
 Get number of items in the collection matching the request parameters.
 
@@ -256,11 +256,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create an access subnet
+### access_subnets_create
 
 **`POST`** `/api/access-subnets/`
 
-**Operation ID:** `access_subnets_create`
+**Summary:** Create an access subnet
 
 Create a new access subnet for a customer.
 
@@ -282,11 +282,11 @@ Schema: `AccessSubnetRequest`
 
 ---
 
-### Retrieve access subnet
+### access_subnets_retrieve
 
 **`GET`** `/api/access-subnets/{uuid}/`
 
-**Operation ID:** `access_subnets_retrieve`
+**Summary:** Retrieve access subnet
 
 Fetch the details of a specific access subnet by its UUID.
 
@@ -304,11 +304,11 @@ Fetch the details of a specific access subnet by its UUID.
 
 ---
 
-### Update an access subnet
+### access_subnets_update
 
 **`PUT`** `/api/access-subnets/{uuid}/`
 
-**Operation ID:** `access_subnets_update`
+**Summary:** Update an access subnet
 
 Update an existing access subnet.
 
@@ -336,11 +336,11 @@ Schema: `AccessSubnetRequest`
 
 ---
 
-### Partially update an access subnet
+### access_subnets_partial_update
 
 **`PATCH`** `/api/access-subnets/{uuid}/`
 
-**Operation ID:** `access_subnets_partial_update`
+**Summary:** Partially update an access subnet
 
 Partially update an existing access subnet.
 
@@ -367,11 +367,11 @@ Schema: `PatchedAccessSubnetRequest`
 
 ---
 
-### Delete an access subnet
+### access_subnets_destroy
 
 **`DELETE`** `/api/access-subnets/{uuid}/`
 
-**Operation ID:** `access_subnets_destroy`
+**Summary:** Delete an access subnet
 
 Delete an existing access subnet.
 
@@ -393,8 +393,6 @@ Delete an existing access subnet.
 
 **`GET`** `/api/autoprovisioning-rules/`
 
-**Operation ID:** `autoprovisioning_rules_list`
-
 Manage autoprovisioning rules.
 
 **Parameters:**
@@ -414,8 +412,6 @@ Manage autoprovisioning rules.
 
 **`HEAD`** `/api/autoprovisioning-rules/`
 
-**Operation ID:** `autoprovisioning_rules_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -434,8 +430,6 @@ Get number of items in the collection matching the request parameters.
 ### autoprovisioning_rules_create
 
 **`POST`** `/api/autoprovisioning-rules/`
-
-**Operation ID:** `autoprovisioning_rules_create`
 
 Manage autoprovisioning rules.
 
@@ -468,8 +462,6 @@ Schema: `RuleRequest`
 
 **`GET`** `/api/autoprovisioning-rules/{uuid}/`
 
-**Operation ID:** `autoprovisioning_rules_retrieve`
-
 Manage autoprovisioning rules.
 
 **Parameters:**
@@ -489,8 +481,6 @@ Manage autoprovisioning rules.
 ### autoprovisioning_rules_update
 
 **`PUT`** `/api/autoprovisioning-rules/{uuid}/`
-
-**Operation ID:** `autoprovisioning_rules_update`
 
 Manage autoprovisioning rules.
 
@@ -529,8 +519,6 @@ Schema: `RuleRequest`
 
 **`PATCH`** `/api/autoprovisioning-rules/{uuid}/`
 
-**Operation ID:** `autoprovisioning_rules_partial_update`
-
 Manage autoprovisioning rules.
 
 **Parameters:**
@@ -568,8 +556,6 @@ Schema: `PatchedRuleRequest`
 
 **`DELETE`** `/api/autoprovisioning-rules/{uuid}/`
 
-**Operation ID:** `autoprovisioning_rules_destroy`
-
 Manage autoprovisioning rules.
 
 **Parameters:**
@@ -586,11 +572,11 @@ Manage autoprovisioning rules.
 
 ---
 
-### List backend resource requests
+### backend_resource_requests_list
 
 **`GET`** `/api/backend-resource-requests/`
 
-**Operation ID:** `backend_resource_requests_list`
+**Summary:** List backend resource requests
 
 Returns a paginated list of requests for backend resources.
 
@@ -614,11 +600,11 @@ Returns a paginated list of requests for backend resources.
 
 ---
 
-### List backend resource requests
+### backend_resource_requests_count
 
 **`HEAD`** `/api/backend-resource-requests/`
 
-**Operation ID:** `backend_resource_requests_count`
+**Summary:** List backend resource requests
 
 Get number of items in the collection matching the request parameters.
 
@@ -642,11 +628,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a backend resource request
+### backend_resource_requests_create
 
 **`POST`** `/api/backend-resource-requests/`
 
-**Operation ID:** `backend_resource_requests_create`
+**Summary:** Create a backend resource request
 
 Creates a new request to fetch a list of importable resources from a backend. This is typically used by staff to trigger a site agent to report available resources.
 
@@ -666,11 +652,11 @@ Schema: `BackendResourceReqRequest`
 
 ---
 
-### Retrieve a backend resource request
+### backend_resource_requests_retrieve
 
 **`GET`** `/api/backend-resource-requests/{uuid}/`
 
-**Operation ID:** `backend_resource_requests_retrieve`
+**Summary:** Retrieve a backend resource request
 
 Returns the details of a specific backend resource request.
 
@@ -688,11 +674,11 @@ Returns the details of a specific backend resource request.
 
 ---
 
-### Mark a request as done
+### backend_resource_requests_set_done
 
 **`POST`** `/api/backend-resource-requests/{uuid}/set_done/`
 
-**Operation ID:** `backend_resource_requests_set_done`
+**Summary:** Mark a request as done
 
 Transitions the request state from 'Processing' to 'Done'. This is used by a site agent to signal that it has successfully reported all available resources.
 
@@ -710,11 +696,11 @@ Transitions the request state from 'Processing' to 'Done'. This is used by a sit
 
 ---
 
-### Mark a request as erred
+### backend_resource_requests_set_erred
 
 **`POST`** `/api/backend-resource-requests/{uuid}/set_erred/`
 
-**Operation ID:** `backend_resource_requests_set_erred`
+**Summary:** Mark a request as erred
 
 Transitions the request state to 'Erred'. This is used by a site agent to report a failure during the resource fetching process. An error message and traceback should be provided.
 
@@ -741,11 +727,11 @@ Schema: `BackendResourceRequestSetErredRequest`
 
 ---
 
-### Start processing a request
+### backend_resource_requests_start_processing
 
 **`POST`** `/api/backend-resource-requests/{uuid}/start_processing/`
 
-**Operation ID:** `backend_resource_requests_start_processing`
+**Summary:** Start processing a request
 
 Transitions the request state from 'Sent' to 'Processing'. This is used by a site agent to acknowledge that it has started fetching the resource list.
 
@@ -763,11 +749,11 @@ Transitions the request state from 'Sent' to 'Processing'. This is used by a sit
 
 ---
 
-### List backend resources
+### backend_resources_list
 
 **`GET`** `/api/backend-resources/`
 
-**Operation ID:** `backend_resources_list`
+**Summary:** List backend resources
 
 Returns a paginated list of backend resources that are available for import. This endpoint is typically used by site agents to see which resources they have reported.
 
@@ -792,11 +778,11 @@ Returns a paginated list of backend resources that are available for import. Thi
 
 ---
 
-### List backend resources
+### backend_resources_count
 
 **`HEAD`** `/api/backend-resources/`
 
-**Operation ID:** `backend_resources_count`
+**Summary:** List backend resources
 
 Get number of items in the collection matching the request parameters.
 
@@ -821,11 +807,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a backend resource
+### backend_resources_create
 
 **`POST`** `/api/backend-resources/`
 
-**Operation ID:** `backend_resources_create`
+**Summary:** Create a backend resource
 
 Creates a new backend resource record. This is typically done by a site agent to report a resource that is available for import into the marketplace.
 
@@ -849,11 +835,11 @@ Schema: `BackendResourceRequest`
 
 ---
 
-### Retrieve a backend resource
+### backend_resources_retrieve
 
 **`GET`** `/api/backend-resources/{uuid}/`
 
-**Operation ID:** `backend_resources_retrieve`
+**Summary:** Retrieve a backend resource
 
 Returns the details of a specific backend resource.
 
@@ -871,11 +857,11 @@ Returns the details of a specific backend resource.
 
 ---
 
-### Delete a backend resource
+### backend_resources_destroy
 
 **`DELETE`** `/api/backend-resources/{uuid}/`
 
-**Operation ID:** `backend_resources_destroy`
+**Summary:** Delete a backend resource
 
 Deletes a backend resource record. This is typically done when the resource is no longer available for import.
 
@@ -893,11 +879,11 @@ Deletes a backend resource record. This is typically done when the resource is n
 
 ---
 
-### Import a backend resource (staff only)
+### backend_resources_import_resource
 
 **`POST`** `/api/backend-resources/{uuid}/import_resource/`
 
-**Operation ID:** `backend_resources_import_resource`
+**Summary:** Import a backend resource (staff only)
 
 Converts a backend resource into a full marketplace resource. This action is restricted to staff users.
         Upon successful import, the original backend resource record is deleted. A fake order in the 'done'
@@ -929,8 +915,6 @@ Schema: `BackendResourceImportRequest`
 
 **`GET`** `/api/booking-offerings/`
 
-**Operation ID:** `booking_offerings_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -948,8 +932,6 @@ Schema: `BackendResourceImportRequest`
 ### booking_offerings_count
 
 **`HEAD`** `/api/booking-offerings/`
-
-**Operation ID:** `booking_offerings_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -970,8 +952,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/booking-offerings/{uuid}/`
 
-**Operation ID:** `booking_offerings_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -991,8 +971,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/booking-offerings/{uuid}/google_calendar_sync/`
 
-**Operation ID:** `booking_offerings_google_calendar_sync`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1010,8 +988,6 @@ Get number of items in the collection matching the request parameters.
 ### booking_offerings_share_google_calendar
 
 **`POST`** `/api/booking-offerings/{uuid}/share_google_calendar/`
-
-**Operation ID:** `booking_offerings_share_google_calendar`
 
 **Parameters:**
 
@@ -1031,8 +1007,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/booking-offerings/{uuid}/unshare_google_calendar/`
 
-**Operation ID:** `booking_offerings_unshare_google_calendar`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1050,8 +1024,6 @@ Get number of items in the collection matching the request parameters.
 ### booking_resources_list
 
 **`GET`** `/api/booking-resources/`
-
-**Operation ID:** `booking_resources_list`
 
 **Parameters:**
 
@@ -1110,8 +1082,6 @@ Get number of items in the collection matching the request parameters.
 ### booking_resources_count
 
 **`HEAD`** `/api/booking-resources/`
-
-**Operation ID:** `booking_resources_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1172,8 +1142,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/booking-resources/{uuid}/`
 
-**Operation ID:** `booking_resources_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1193,8 +1161,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/booking-resources/{uuid}/accept/`
 
-**Operation ID:** `booking_resources_accept`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1212,8 +1178,6 @@ Get number of items in the collection matching the request parameters.
 ### booking_resources_reject
 
 **`POST`** `/api/booking-resources/{uuid}/reject/`
-
-**Operation ID:** `booking_resources_reject`
 
 **Parameters:**
 
@@ -1233,8 +1197,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/chat-messages/`
 
-**Operation ID:** `chat_messages_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1251,11 +1213,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Set token quota for user
+### chat_quota_set_quota
 
 **`POST`** `/api/chat-quota/set_quota/`
 
-**Operation ID:** `chat_quota_set_quota`
+**Summary:** Set token quota for user
 
 Allows staff/support to set token quota limits for a specific user. Configure daily, weekly, and monthly limits:
 - Omit field or send `null`: Use system default
@@ -1285,8 +1247,6 @@ Schema: `SetTokenQuotaRequest`
 
 **`GET`** `/api/chat-quota/usage/`
 
-**Operation ID:** `chat_quota_usage_retrieve`
-
 Get current token quota and usage for the requesting user.
 
         Returns token quota for all periods (daily, weekly, monthly):
@@ -1314,8 +1274,6 @@ Get current token quota and usage for the requesting user.
 
 **`GET`** `/api/chat-sessions/`
 
-**Operation ID:** `chat_sessions_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1330,11 +1288,11 @@ Get current token quota and usage for the requesting user.
 
 ---
 
-### Get or create current user's chat session
+### chat_sessions_current_retrieve
 
 **`GET`** `/api/chat-sessions/current/`
 
-**Operation ID:** `chat_sessions_current_retrieve`
+**Summary:** Get or create current user's chat session
 
 Returns the current user's chat session, creating it if it doesn't exist.
 
@@ -1349,8 +1307,6 @@ Returns the current user's chat session, creating it if it doesn't exist.
 ### chat_sessions_retrieve
 
 **`GET`** `/api/chat-sessions/{uuid}/`
-
-**Operation ID:** `chat_sessions_retrieve`
 
 **Parameters:**
 
@@ -1370,8 +1326,6 @@ Returns the current user's chat session, creating it if it doesn't exist.
 ### chat_threads_list
 
 **`GET`** `/api/chat-threads/`
-
-**Operation ID:** `chat_threads_list`
 
 **Parameters:**
 
@@ -1399,8 +1353,6 @@ Returns the current user's chat session, creating it if it doesn't exist.
 
 **`GET`** `/api/chat-threads/{uuid}/`
 
-**Operation ID:** `chat_threads_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1416,11 +1368,11 @@ Returns the current user's chat session, creating it if it doesn't exist.
 
 ---
 
-### Archive thread
+### chat_threads_archive
 
 **`POST`** `/api/chat-threads/{uuid}/archive/`
 
-**Operation ID:** `chat_threads_archive`
+**Summary:** Archive thread
 
 Archive a thread (soft delete).
 
@@ -1447,11 +1399,11 @@ Schema: `ThreadSessionRequest`
 
 ---
 
-### Unarchive thread
+### chat_threads_unarchive
 
 **`POST`** `/api/chat-threads/{uuid}/unarchive/`
 
-**Operation ID:** `chat_threads_unarchive`
+**Summary:** Unarchive thread
 
 Restore an archived thread.
 
@@ -1482,8 +1434,6 @@ Schema: `ThreadSessionRequest`
 
 **`POST`** `/api/chat-tools/execute/`
 
-**Operation ID:** `chat_tools_execute`
-
 Execute a tool and return the result.
 
 **Request Body** (`application/json`, required):
@@ -1506,8 +1456,6 @@ Schema: `ToolExecuteRequest`
 ### chat_stream
 
 **`POST`** `/api/chat/stream/`
-
-**Operation ID:** `chat_stream`
 
 **Request Body** (`application/json`, required):
 
@@ -1533,8 +1481,6 @@ Schema: `ChatRequestRequest`
 
 **`GET`** `/api/expertise-categories/`
 
-**Operation ID:** `expertise_categories_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1556,8 +1502,6 @@ Schema: `ChatRequestRequest`
 ### expertise_categories_count
 
 **`HEAD`** `/api/expertise-categories/`
-
-**Operation ID:** `expertise_categories_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1583,8 +1527,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/expertise-categories/{uuid}/`
 
-**Operation ID:** `expertise_categories_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1599,11 +1541,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### List external links
+### external_links_list
 
 **`GET`** `/api/external-links/`
 
-**Operation ID:** `external_links_list`
+**Summary:** List external links
 
 Retrieve a list of external links available in the system.
 
@@ -1622,11 +1564,11 @@ Retrieve a list of external links available in the system.
 
 ---
 
-### List external links
+### external_links_count
 
 **`HEAD`** `/api/external-links/`
 
-**Operation ID:** `external_links_count`
+**Summary:** List external links
 
 Get number of items in the collection matching the request parameters.
 
@@ -1645,11 +1587,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create an external link
+### external_links_create
 
 **`POST`** `/api/external-links/`
 
-**Operation ID:** `external_links_create`
+**Summary:** Create an external link
 
 Create a new external link. This action is restricted to staff users.
 
@@ -1672,11 +1614,11 @@ Schema: `ExternalLinkRequest`
 
 ---
 
-### Retrieve external link
+### external_links_retrieve
 
 **`GET`** `/api/external-links/{uuid}/`
 
-**Operation ID:** `external_links_retrieve`
+**Summary:** Retrieve external link
 
 Fetch the details of a specific external link by its UUID.
 
@@ -1694,11 +1636,11 @@ Fetch the details of a specific external link by its UUID.
 
 ---
 
-### Update an external link
+### external_links_update
 
 **`PUT`** `/api/external-links/{uuid}/`
 
-**Operation ID:** `external_links_update`
+**Summary:** Update an external link
 
 Update an existing external link. This action is restricted to staff users.
 
@@ -1727,11 +1669,11 @@ Schema: `ExternalLinkRequest`
 
 ---
 
-### Partially update an external link
+### external_links_partial_update
 
 **`PATCH`** `/api/external-links/{uuid}/`
 
-**Operation ID:** `external_links_partial_update`
+**Summary:** Partially update an external link
 
 Partially update an existing external link. This action is restricted to staff users.
 
@@ -1760,11 +1702,11 @@ Schema: `PatchedExternalLinkRequest`
 
 ---
 
-### Delete an external link
+### external_links_destroy
 
 **`DELETE`** `/api/external-links/{uuid}/`
 
-**Operation ID:** `external_links_destroy`
+**Summary:** Delete an external link
 
 Delete an existing external link. This action is restricted to staff users.
 
@@ -1786,8 +1728,6 @@ Delete an existing external link. This action is restricted to staff users.
 
 **`GET`** `/api/freeipa-profiles/`
 
-**Operation ID:** `freeipa_profiles_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1806,8 +1746,6 @@ Delete an existing external link. This action is restricted to staff users.
 ### freeipa_profiles_count
 
 **`HEAD`** `/api/freeipa-profiles/`
-
-**Operation ID:** `freeipa_profiles_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1830,8 +1768,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/freeipa-profiles/`
 
-**Operation ID:** `freeipa_profiles_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `FreeipaProfileRequest`
@@ -1853,8 +1789,6 @@ Schema: `FreeipaProfileRequest`
 
 **`GET`** `/api/freeipa-profiles/{uuid}/`
 
-**Operation ID:** `freeipa_profiles_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1872,8 +1806,6 @@ Schema: `FreeipaProfileRequest`
 ### freeipa_profiles_update
 
 **`PUT`** `/api/freeipa-profiles/{uuid}/`
-
-**Operation ID:** `freeipa_profiles_update`
 
 **Parameters:**
 
@@ -1902,8 +1834,6 @@ Schema: `FreeipaProfileRequest`
 
 **`PATCH`** `/api/freeipa-profiles/{uuid}/`
 
-**Operation ID:** `freeipa_profiles_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1921,8 +1851,6 @@ Schema: `FreeipaProfileRequest`
 ### freeipa_profiles_update_ssh_keys
 
 **`POST`** `/api/freeipa-profiles/{uuid}/update_ssh_keys/`
-
-**Operation ID:** `freeipa_profiles_update_ssh_keys`
 
 Update SSH keys for profile.
 
@@ -1943,8 +1871,6 @@ Update SSH keys for profile.
 ### hooks_email_list
 
 **`GET`** `/api/hooks-email/`
-
-**Operation ID:** `hooks_email_list`
 
 **Parameters:**
 
@@ -1970,8 +1896,6 @@ Update SSH keys for profile.
 ### hooks_email_count
 
 **`HEAD`** `/api/hooks-email/`
-
-**Operation ID:** `hooks_email_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2000,8 +1924,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/hooks-email/`
 
-**Operation ID:** `hooks_email_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `EmailHookRequest`
@@ -2025,8 +1947,6 @@ Schema: `EmailHookRequest`
 
 **`GET`** `/api/hooks-email/{uuid}/`
 
-**Operation ID:** `hooks_email_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2044,8 +1964,6 @@ Schema: `EmailHookRequest`
 ### hooks_email_update
 
 **`PUT`** `/api/hooks-email/{uuid}/`
-
-**Operation ID:** `hooks_email_update`
 
 **Parameters:**
 
@@ -2076,8 +1994,6 @@ Schema: `EmailHookRequest`
 
 **`PATCH`** `/api/hooks-email/{uuid}/`
 
-**Operation ID:** `hooks_email_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2107,8 +2023,6 @@ Schema: `PatchedEmailHookRequest`
 
 **`DELETE`** `/api/hooks-email/{uuid}/`
 
-**Operation ID:** `hooks_email_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2126,8 +2040,6 @@ Schema: `PatchedEmailHookRequest`
 ### hooks_web_list
 
 **`GET`** `/api/hooks-web/`
-
-**Operation ID:** `hooks_web_list`
 
 **Parameters:**
 
@@ -2154,8 +2066,6 @@ Schema: `PatchedEmailHookRequest`
 ### hooks_web_count
 
 **`HEAD`** `/api/hooks-web/`
-
-**Operation ID:** `hooks_web_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2184,8 +2094,6 @@ Get number of items in the collection matching the request parameters.
 ### hooks_web_create
 
 **`POST`** `/api/hooks-web/`
-
-**Operation ID:** `hooks_web_create`
 
 When hook is activated, POST request is issued against destination URL with the following data:
 
@@ -2225,8 +2133,6 @@ Schema: `WebHookRequest`
 
 **`GET`** `/api/hooks-web/{uuid}/`
 
-**Operation ID:** `hooks_web_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2244,8 +2150,6 @@ Schema: `WebHookRequest`
 ### hooks_web_update
 
 **`PUT`** `/api/hooks-web/{uuid}/`
-
-**Operation ID:** `hooks_web_update`
 
 **Parameters:**
 
@@ -2277,8 +2181,6 @@ Schema: `WebHookRequest`
 
 **`PATCH`** `/api/hooks-web/{uuid}/`
 
-**Operation ID:** `hooks_web_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2309,8 +2211,6 @@ Schema: `PatchedWebHookRequest`
 
 **`DELETE`** `/api/hooks-web/{uuid}/`
 
-**Operation ID:** `hooks_web_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2328,8 +2228,6 @@ Schema: `PatchedWebHookRequest`
 ### hooks_list
 
 **`GET`** `/api/hooks/`
-
-**Operation ID:** `hooks_list`
 
 **Parameters:**
 
@@ -2349,8 +2247,6 @@ Schema: `PatchedWebHookRequest`
 ### hooks_count
 
 **`HEAD`** `/api/hooks/`
-
-**Operation ID:** `hooks_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2372,8 +2268,6 @@ Get number of items in the collection matching the request parameters.
 ### keys_list
 
 **`GET`** `/api/keys/`
-
-**Operation ID:** `keys_list`
 
 **Parameters:**
 
@@ -2403,8 +2297,6 @@ Get number of items in the collection matching the request parameters.
 ### keys_count
 
 **`HEAD`** `/api/keys/`
-
-**Operation ID:** `keys_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2436,8 +2328,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/keys/`
 
-**Operation ID:** `keys_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `SshKeyRequest`
@@ -2459,8 +2349,6 @@ Schema: `SshKeyRequest`
 
 **`GET`** `/api/keys/{uuid}/`
 
-**Operation ID:** `keys_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2480,8 +2368,6 @@ Schema: `SshKeyRequest`
 
 **`DELETE`** `/api/keys/{uuid}/`
 
-**Operation ID:** `keys_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2496,11 +2382,11 @@ Schema: `SshKeyRequest`
 
 ---
 
-### Get version history
+### keys_history_list
 
 **`GET`** `/api/keys/{uuid}/history/`
 
-**Operation ID:** `keys_history_list`
+**Summary:** Get version history
 
 Returns the version history for this object. Only accessible by staff and support users.
 
@@ -2531,11 +2417,11 @@ Returns the version history for this object. Only accessible by staff and suppor
 
 ---
 
-### Get object state at a specific timestamp
+### keys_history_at_retrieve
 
 **`GET`** `/api/keys/{uuid}/history/at/`
 
-**Operation ID:** `keys_history_at_retrieve`
+**Summary:** Get object state at a specific timestamp
 
 Returns the state of the object as it was at the specified timestamp. Only accessible by staff and support users.
 
@@ -2560,8 +2446,6 @@ Returns the state of the object as it was at the specified timestamp. Only acces
 
 **`GET`** `/api/lexis-links/`
 
-**Operation ID:** `lexis_links_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2583,8 +2467,6 @@ Returns the state of the object as it was at the specified timestamp. Only acces
 ### lexis_links_count
 
 **`HEAD`** `/api/lexis-links/`
-
-**Operation ID:** `lexis_links_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2610,8 +2492,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/lexis-links/`
 
-**Operation ID:** `lexis_links_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `LexisLinkCreateRequest`
@@ -2632,8 +2512,6 @@ Schema: `LexisLinkCreateRequest`
 
 **`GET`** `/api/lexis-links/{uuid}/`
 
-**Operation ID:** `lexis_links_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2651,8 +2529,6 @@ Schema: `LexisLinkCreateRequest`
 ### lexis_links_update
 
 **`PUT`** `/api/lexis-links/{uuid}/`
-
-**Operation ID:** `lexis_links_update`
 
 **Parameters:**
 
@@ -2680,8 +2556,6 @@ Schema: `LexisLinkRequest`
 
 **`PATCH`** `/api/lexis-links/{uuid}/`
 
-**Operation ID:** `lexis_links_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2708,8 +2582,6 @@ Schema: `PatchedLexisLinkRequest`
 
 **`DELETE`** `/api/lexis-links/{uuid}/`
 
-**Operation ID:** `lexis_links_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2724,11 +2596,11 @@ Schema: `PatchedLexisLinkRequest`
 
 ---
 
-### List affected offerings for maintenance
+### maintenance_announcement_offerings_list
 
 **`GET`** `/api/maintenance-announcement-offerings/`
 
-**Operation ID:** `maintenance_announcement_offerings_list`
+**Summary:** List affected offerings for maintenance
 
 Returns a paginated list of offerings affected by maintenance announcements.
 
@@ -2745,11 +2617,11 @@ Returns a paginated list of offerings affected by maintenance announcements.
 
 ---
 
-### List affected offerings for maintenance
+### maintenance_announcement_offerings_count
 
 **`HEAD`** `/api/maintenance-announcement-offerings/`
 
-**Operation ID:** `maintenance_announcement_offerings_count`
+**Summary:** List affected offerings for maintenance
 
 Get number of items in the collection matching the request parameters.
 
@@ -2766,11 +2638,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Link an offering to a maintenance announcement
+### maintenance_announcement_offerings_create
 
 **`POST`** `/api/maintenance-announcement-offerings/`
 
-**Operation ID:** `maintenance_announcement_offerings_create`
+**Summary:** Link an offering to a maintenance announcement
 
 Creates a new association between an offering and a maintenance announcement, specifying the expected impact.
 
@@ -2793,11 +2665,11 @@ Schema: `MaintenanceAnnouncementOfferingRequest`
 
 ---
 
-### Retrieve an affected offering link
+### maintenance_announcement_offerings_retrieve
 
 **`GET`** `/api/maintenance-announcement-offerings/{uuid}/`
 
-**Operation ID:** `maintenance_announcement_offerings_retrieve`
+**Summary:** Retrieve an affected offering link
 
 Returns the details of a specific link between a maintenance announcement and an offering, including the impact level and description.
 
@@ -2815,11 +2687,11 @@ Returns the details of a specific link between a maintenance announcement and an
 
 ---
 
-### Update an affected offering link
+### maintenance_announcement_offerings_update
 
 **`PUT`** `/api/maintenance-announcement-offerings/{uuid}/`
 
-**Operation ID:** `maintenance_announcement_offerings_update`
+**Summary:** Update an affected offering link
 
 Updates the impact level or description for an offering linked to a maintenance announcement.
 
@@ -2848,11 +2720,11 @@ Schema: `MaintenanceAnnouncementOfferingRequest`
 
 ---
 
-### Partially update an affected offering link
+### maintenance_announcement_offerings_partial_update
 
 **`PATCH`** `/api/maintenance-announcement-offerings/{uuid}/`
 
-**Operation ID:** `maintenance_announcement_offerings_partial_update`
+**Summary:** Partially update an affected offering link
 
 Partially updates the impact level or description for an offering linked to a maintenance announcement.
 
@@ -2881,11 +2753,11 @@ Schema: `PatchedMaintenanceAnnouncementOfferingRequest`
 
 ---
 
-### Unlink an offering from a maintenance announcement
+### maintenance_announcement_offerings_destroy
 
 **`DELETE`** `/api/maintenance-announcement-offerings/{uuid}/`
 
-**Operation ID:** `maintenance_announcement_offerings_destroy`
+**Summary:** Unlink an offering from a maintenance announcement
 
 Removes the association between an offering and a maintenance announcement.
 
@@ -2903,11 +2775,11 @@ Removes the association between an offering and a maintenance announcement.
 
 ---
 
-### List affected offering templates
+### maintenance_announcement_template_offerings_list
 
 **`GET`** `/api/maintenance-announcement-template-offerings/`
 
-**Operation ID:** `maintenance_announcement_template_offerings_list`
+**Summary:** List affected offering templates
 
 Returns a paginated list of associations between maintenance announcement templates and offerings.
 
@@ -2929,11 +2801,11 @@ Returns a paginated list of associations between maintenance announcement templa
 
 ---
 
-### List affected offering templates
+### maintenance_announcement_template_offerings_count
 
 **`HEAD`** `/api/maintenance-announcement-template-offerings/`
 
-**Operation ID:** `maintenance_announcement_template_offerings_count`
+**Summary:** List affected offering templates
 
 Get number of items in the collection matching the request parameters.
 
@@ -2955,11 +2827,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Link an offering to a maintenance template
+### maintenance_announcement_template_offerings_create
 
 **`POST`** `/api/maintenance-announcement-template-offerings/`
 
-**Operation ID:** `maintenance_announcement_template_offerings_create`
+**Summary:** Link an offering to a maintenance template
 
 Creates a reusable association between an offering and a maintenance announcement template, specifying a default impact level and description.
 
@@ -2982,11 +2854,11 @@ Schema: `MaintenanceAnnouncementOfferingTemplateRequest`
 
 ---
 
-### Retrieve an affected offering template link
+### maintenance_announcement_template_offerings_retrieve
 
 **`GET`** `/api/maintenance-announcement-template-offerings/{uuid}/`
 
-**Operation ID:** `maintenance_announcement_template_offerings_retrieve`
+**Summary:** Retrieve an affected offering template link
 
 Returns the details of a specific link between a maintenance announcement template and an offering.
 
@@ -3004,11 +2876,11 @@ Returns the details of a specific link between a maintenance announcement templa
 
 ---
 
-### Update an affected offering template link
+### maintenance_announcement_template_offerings_update
 
 **`PUT`** `/api/maintenance-announcement-template-offerings/{uuid}/`
 
-**Operation ID:** `maintenance_announcement_template_offerings_update`
+**Summary:** Update an affected offering template link
 
 Updates the default impact level or description for an offering linked to a maintenance template.
 
@@ -3037,11 +2909,11 @@ Schema: `MaintenanceAnnouncementOfferingTemplateRequest`
 
 ---
 
-### Partially update an affected offering template link
+### maintenance_announcement_template_offerings_partial_update
 
 **`PATCH`** `/api/maintenance-announcement-template-offerings/{uuid}/`
 
-**Operation ID:** `maintenance_announcement_template_offerings_partial_update`
+**Summary:** Partially update an affected offering template link
 
 Partially updates the default impact level or description for an offering linked to a maintenance template.
 
@@ -3070,11 +2942,11 @@ Schema: `PatchedMaintenanceAnnouncementOfferingTemplateRequest`
 
 ---
 
-### Unlink an offering from a maintenance template
+### maintenance_announcement_template_offerings_destroy
 
 **`DELETE`** `/api/maintenance-announcement-template-offerings/{uuid}/`
 
-**Operation ID:** `maintenance_announcement_template_offerings_destroy`
+**Summary:** Unlink an offering from a maintenance template
 
 Removes the association between an offering and a maintenance announcement template.
 
@@ -3092,11 +2964,11 @@ Removes the association between an offering and a maintenance announcement templ
 
 ---
 
-### List maintenance announcement templates
+### maintenance_announcements_template_list
 
 **`GET`** `/api/maintenance-announcements-template/`
 
-**Operation ID:** `maintenance_announcements_template_list`
+**Summary:** List maintenance announcement templates
 
 Returns a paginated list of reusable templates for maintenance announcements.
 
@@ -3116,11 +2988,11 @@ Returns a paginated list of reusable templates for maintenance announcements.
 
 ---
 
-### List maintenance announcement templates
+### maintenance_announcements_template_count
 
 **`HEAD`** `/api/maintenance-announcements-template/`
 
-**Operation ID:** `maintenance_announcements_template_count`
+**Summary:** List maintenance announcement templates
 
 Get number of items in the collection matching the request parameters.
 
@@ -3140,11 +3012,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a maintenance announcement template
+### maintenance_announcements_template_create
 
 **`POST`** `/api/maintenance-announcements-template/`
 
-**Operation ID:** `maintenance_announcements_template_create`
+**Summary:** Create a maintenance announcement template
 
 Creates a new reusable template for maintenance announcements, including a default message and type.
 
@@ -3167,11 +3039,11 @@ Schema: `MaintenanceAnnouncementTemplateRequest`
 
 ---
 
-### Retrieve a maintenance announcement template
+### maintenance_announcements_template_retrieve
 
 **`GET`** `/api/maintenance-announcements-template/{uuid}/`
 
-**Operation ID:** `maintenance_announcements_template_retrieve`
+**Summary:** Retrieve a maintenance announcement template
 
 Returns the details of a specific maintenance announcement template.
 
@@ -3189,11 +3061,11 @@ Returns the details of a specific maintenance announcement template.
 
 ---
 
-### Update a maintenance announcement template
+### maintenance_announcements_template_update
 
 **`PUT`** `/api/maintenance-announcements-template/{uuid}/`
 
-**Operation ID:** `maintenance_announcements_template_update`
+**Summary:** Update a maintenance announcement template
 
 Updates an existing maintenance announcement template.
 
@@ -3222,11 +3094,11 @@ Schema: `MaintenanceAnnouncementTemplateRequest`
 
 ---
 
-### Partially update a maintenance announcement template
+### maintenance_announcements_template_partial_update
 
 **`PATCH`** `/api/maintenance-announcements-template/{uuid}/`
 
-**Operation ID:** `maintenance_announcements_template_partial_update`
+**Summary:** Partially update a maintenance announcement template
 
 Partially updates an existing maintenance announcement template.
 
@@ -3255,11 +3127,11 @@ Schema: `PatchedMaintenanceAnnouncementTemplateRequest`
 
 ---
 
-### Delete a maintenance announcement template
+### maintenance_announcements_template_destroy
 
 **`DELETE`** `/api/maintenance-announcements-template/{uuid}/`
 
-**Operation ID:** `maintenance_announcements_template_destroy`
+**Summary:** Delete a maintenance announcement template
 
 Deletes a maintenance announcement template.
 
@@ -3277,11 +3149,11 @@ Deletes a maintenance announcement template.
 
 ---
 
-### List maintenance announcements
+### maintenance_announcements_list
 
 **`GET`** `/api/maintenance-announcements/`
 
-**Operation ID:** `maintenance_announcements_list`
+**Summary:** List maintenance announcements
 
 Returns a paginated list of maintenance announcements.
 
@@ -3306,11 +3178,11 @@ Returns a paginated list of maintenance announcements.
 
 ---
 
-### List maintenance announcements
+### maintenance_announcements_count
 
 **`HEAD`** `/api/maintenance-announcements/`
 
-**Operation ID:** `maintenance_announcements_count`
+**Summary:** List maintenance announcements
 
 Get number of items in the collection matching the request parameters.
 
@@ -3335,11 +3207,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a maintenance announcement
+### maintenance_announcements_create
 
 **`POST`** `/api/maintenance-announcements/`
 
-**Operation ID:** `maintenance_announcements_create`
+**Summary:** Create a maintenance announcement
 
 Creates a new maintenance announcement in the 'Draft' state.
 
@@ -3366,11 +3238,11 @@ Schema: `MaintenanceAnnouncementRequest`
 
 ---
 
-### Get maintenance announcement statistics
+### maintenance_announcements_maintenance_stats_retrieve
 
 **`GET`** `/api/maintenance-announcements/maintenance_stats/`
 
-**Operation ID:** `maintenance_announcements_maintenance_stats_retrieve`
+**Summary:** Get maintenance announcement statistics
 
 Returns comprehensive statistics for maintenance announcements including counts by state, type, impact level, and daily breakdown.
 
@@ -3390,11 +3262,11 @@ Returns comprehensive statistics for maintenance announcements including counts 
 
 ---
 
-### Get maintenance announcement statistics
+### maintenance_announcements_maintenance_stats_count
 
 **`HEAD`** `/api/maintenance-announcements/maintenance_stats/`
 
-**Operation ID:** `maintenance_announcements_maintenance_stats_count`
+**Summary:** Get maintenance announcement statistics
 
 Get number of items in the collection matching the request parameters.
 
@@ -3414,11 +3286,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve a maintenance announcement
+### maintenance_announcements_retrieve
 
 **`GET`** `/api/maintenance-announcements/{uuid}/`
 
-**Operation ID:** `maintenance_announcements_retrieve`
+**Summary:** Retrieve a maintenance announcement
 
 Returns the details of a specific maintenance announcement.
 
@@ -3436,11 +3308,11 @@ Returns the details of a specific maintenance announcement.
 
 ---
 
-### Update a maintenance announcement
+### maintenance_announcements_update
 
 **`PUT`** `/api/maintenance-announcements/{uuid}/`
 
-**Operation ID:** `maintenance_announcements_update`
+**Summary:** Update a maintenance announcement
 
 Updates an existing maintenance announcement.
 
@@ -3473,11 +3345,11 @@ Schema: `MaintenanceAnnouncementRequest`
 
 ---
 
-### Partially update a maintenance announcement
+### maintenance_announcements_partial_update
 
 **`PATCH`** `/api/maintenance-announcements/{uuid}/`
 
-**Operation ID:** `maintenance_announcements_partial_update`
+**Summary:** Partially update a maintenance announcement
 
 Partially updates an existing maintenance announcement.
 
@@ -3510,11 +3382,11 @@ Schema: `PatchedMaintenanceAnnouncementRequest`
 
 ---
 
-### Delete a maintenance announcement
+### maintenance_announcements_destroy
 
 **`DELETE`** `/api/maintenance-announcements/{uuid}/`
 
-**Operation ID:** `maintenance_announcements_destroy`
+**Summary:** Delete a maintenance announcement
 
 Deletes a maintenance announcement.
 
@@ -3532,11 +3404,11 @@ Deletes a maintenance announcement.
 
 ---
 
-### Cancel the maintenance announcement
+### maintenance_announcements_cancel_maintenance
 
 **`POST`** `/api/maintenance-announcements/{uuid}/cancel_maintenance/`
 
-**Operation ID:** `maintenance_announcements_cancel_maintenance`
+**Summary:** Cancel the maintenance announcement
 
 Transitions a 'Draft' or 'Scheduled' maintenance announcement to 'Cancelled'.
 
@@ -3554,11 +3426,11 @@ Transitions a 'Draft' or 'Scheduled' maintenance announcement to 'Cancelled'.
 
 ---
 
-### Complete the maintenance announcement
+### maintenance_announcements_complete_maintenance
 
 **`POST`** `/api/maintenance-announcements/{uuid}/complete_maintenance/`
 
-**Operation ID:** `maintenance_announcements_complete_maintenance`
+**Summary:** Complete the maintenance announcement
 
 Transitions an 'In progress' maintenance announcement to 'Completed', indicating that the maintenance work has finished.
 
@@ -3576,11 +3448,11 @@ Transitions an 'In progress' maintenance announcement to 'Completed', indicating
 
 ---
 
-### Schedule/publish the maintenance announcement
+### maintenance_announcements_schedule
 
 **`POST`** `/api/maintenance-announcements/{uuid}/schedule/`
 
-**Operation ID:** `maintenance_announcements_schedule`
+**Summary:** Schedule/publish the maintenance announcement
 
 Transitions a 'Draft' maintenance announcement to the 'Scheduled' state, making it publicly visible.
 
@@ -3598,11 +3470,11 @@ Transitions a 'Draft' maintenance announcement to the 'Scheduled' state, making 
 
 ---
 
-### Start the maintenance announcement
+### maintenance_announcements_start_maintenance
 
 **`POST`** `/api/maintenance-announcements/{uuid}/start_maintenance/`
 
-**Operation ID:** `maintenance_announcements_start_maintenance`
+**Summary:** Start the maintenance announcement
 
 Transitions a 'Scheduled' maintenance announcement to 'In progress', indicating that the maintenance work has begun.
 
@@ -3620,11 +3492,11 @@ Transitions a 'Scheduled' maintenance announcement to 'In progress', indicating 
 
 ---
 
-### Unschedule/unpublish the maintenance announcement
+### maintenance_announcements_unschedule
 
 **`POST`** `/api/maintenance-announcements/{uuid}/unschedule/`
 
-**Operation ID:** `maintenance_announcements_unschedule`
+**Summary:** Unschedule/unpublish the maintenance announcement
 
 Transitions a 'Scheduled' maintenance announcement back to the 'Draft' state, hiding it from public view.
 
@@ -3646,8 +3518,6 @@ Transitions a 'Scheduled' maintenance announcement back to the 'Draft' state, hi
 
 **`GET`** `/api/media/{uuid}/`
 
-**Operation ID:** `media_retrieve`
-
 Get media file
 
 **Parameters:**
@@ -3664,11 +3534,11 @@ Get media file
 
 ---
 
-### Get event metadata
+### metadata_events_retrieve
 
 **`GET`** `/api/metadata/events/`
 
-**Operation ID:** `metadata_events_retrieve`
+**Summary:** Get event metadata
 
 Retrieves metadata for all available event types, grouped by categories. This endpoint is publicly accessible and is useful for building UIs for event filtering or webhook configuration.
 
@@ -3680,11 +3550,11 @@ Retrieves metadata for all available event types, grouped by categories. This en
 
 ---
 
-### Get feature flag metadata
+### metadata_features_retrieve
 
 **`GET`** `/api/metadata/features/`
 
-**Operation ID:** `metadata_features_retrieve`
+**Summary:** Get feature flag metadata
 
 Retrieves metadata for all available feature flags, including their keys, descriptions, and grouping sections. This endpoint is publicly accessible and helps UIs to dynamically render feature-related settings.
 
@@ -3696,11 +3566,11 @@ Retrieves metadata for all available feature flags, including their keys, descri
 
 ---
 
-### Get permission metadata
+### metadata_permissions_retrieve
 
 **`GET`** `/api/metadata/permissions/`
 
-**Operation ID:** `metadata_permissions_retrieve`
+**Summary:** Get permission metadata
 
 Retrieves metadata about roles, permissions, and their descriptions. This endpoint is publicly accessible and provides data needed for UI components, such as role selection dropdowns and permission management interfaces.
 
@@ -3712,11 +3582,11 @@ Retrieves metadata about roles, permissions, and their descriptions. This endpoi
 
 ---
 
-### Get overridable settings metadata
+### metadata_settings_retrieve
 
 **`GET`** `/api/metadata/settings/`
 
-**Operation ID:** `metadata_settings_retrieve`
+**Summary:** Get overridable settings metadata
 
 Retrieves metadata for all settings that can be configured via the Constance backend. This includes setting keys, human-readable descriptions, default values, and types. This endpoint is publicly accessible.
 
@@ -3731,8 +3601,6 @@ Retrieves metadata for all settings that can be configured via the Constance bac
 ### offering_keycloak_groups_list
 
 **`GET`** `/api/offering-keycloak-groups/`
-
-**Operation ID:** `offering_keycloak_groups_list`
 
 **Parameters:**
 
@@ -3754,8 +3622,6 @@ Retrieves metadata for all settings that can be configured via the Constance bac
 
 **`HEAD`** `/api/offering-keycloak-groups/`
 
-**Operation ID:** `offering_keycloak_groups_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -3774,11 +3640,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Import a remote Keycloak group as a local OfferingKeycloakGroup
+### offering_keycloak_groups_import_remote
 
 **`POST`** `/api/offering-keycloak-groups/import_remote/`
 
-**Operation ID:** `offering_keycloak_groups_import_remote`
+**Summary:** Import a remote Keycloak group as a local OfferingKeycloakGroup
 
 **Request Body** (`application/json`, required):
 
@@ -3800,11 +3666,11 @@ Schema: `ImportRemoteGroupRequest`
 
 ---
 
-### List members of a remote Keycloak group
+### offering_keycloak_groups_remote_group_members_list
 
 **`GET`** `/api/offering-keycloak-groups/remote_group_members/`
 
-**Operation ID:** `offering_keycloak_groups_remote_group_members_list`
+**Summary:** List members of a remote Keycloak group
 
 **Parameters:**
 
@@ -3823,11 +3689,11 @@ Schema: `ImportRemoteGroupRequest`
 
 ---
 
-### List members of a remote Keycloak group
+### offering_keycloak_groups_remote_group_members_count
 
 **`HEAD`** `/api/offering-keycloak-groups/remote_group_members/`
 
-**Operation ID:** `offering_keycloak_groups_remote_group_members_count`
+**Summary:** List members of a remote Keycloak group
 
 Get number of items in the collection matching the request parameters.
 
@@ -3848,11 +3714,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### List remote Keycloak groups for an offering
+### offering_keycloak_groups_remote_groups_list
 
 **`GET`** `/api/offering-keycloak-groups/remote_groups/`
 
-**Operation ID:** `offering_keycloak_groups_remote_groups_list`
+**Summary:** List remote Keycloak groups for an offering
 
 **Parameters:**
 
@@ -3870,11 +3736,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### List remote Keycloak groups for an offering
+### offering_keycloak_groups_remote_groups_count
 
 **`HEAD`** `/api/offering-keycloak-groups/remote_groups/`
 
-**Operation ID:** `offering_keycloak_groups_remote_groups_count`
+**Summary:** List remote Keycloak groups for an offering
 
 Get number of items in the collection matching the request parameters.
 
@@ -3894,11 +3760,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Search for users in remote Keycloak instance
+### offering_keycloak_groups_search_remote_users_list
 
 **`GET`** `/api/offering-keycloak-groups/search_remote_users/`
 
-**Operation ID:** `offering_keycloak_groups_search_remote_users_list`
+**Summary:** Search for users in remote Keycloak instance
 
 **Parameters:**
 
@@ -3917,11 +3783,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Search for users in remote Keycloak instance
+### offering_keycloak_groups_search_remote_users_count
 
 **`HEAD`** `/api/offering-keycloak-groups/search_remote_users/`
 
-**Operation ID:** `offering_keycloak_groups_search_remote_users_count`
+**Summary:** Search for users in remote Keycloak instance
 
 Get number of items in the collection matching the request parameters.
 
@@ -3942,11 +3808,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Compare local and remote Keycloak group state
+### offering_keycloak_groups_sync_status_retrieve
 
 **`GET`** `/api/offering-keycloak-groups/sync_status/`
 
-**Operation ID:** `offering_keycloak_groups_sync_status_retrieve`
+**Summary:** Compare local and remote Keycloak group state
 
 **Parameters:**
 
@@ -3962,11 +3828,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Compare local and remote Keycloak group state
+### offering_keycloak_groups_sync_status_count
 
 **`HEAD`** `/api/offering-keycloak-groups/sync_status/`
 
-**Operation ID:** `offering_keycloak_groups_sync_status_count`
+**Summary:** Compare local and remote Keycloak group state
 
 Get number of items in the collection matching the request parameters.
 
@@ -3984,11 +3850,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Test Keycloak connection for an offering
+### offering_keycloak_groups_test_connection
 
 **`POST`** `/api/offering-keycloak-groups/test_connection/`
 
-**Operation ID:** `offering_keycloak_groups_test_connection`
+**Summary:** Test Keycloak connection for an offering
 
 **Request Body** (`application/json`, required):
 
@@ -4010,8 +3876,6 @@ Schema: `OfferingUUIDRequest`
 
 **`GET`** `/api/offering-keycloak-groups/{uuid}/`
 
-**Operation ID:** `offering_keycloak_groups_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4030,8 +3894,6 @@ Schema: `OfferingUUIDRequest`
 
 **`DELETE`** `/api/offering-keycloak-groups/{uuid}/`
 
-**Operation ID:** `offering_keycloak_groups_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4046,11 +3908,11 @@ Schema: `OfferingUUIDRequest`
 
 ---
 
-### Pull members from Keycloak for a group
+### offering_keycloak_groups_pull_members
 
 **`POST`** `/api/offering-keycloak-groups/{uuid}/pull_members/`
 
-**Operation ID:** `offering_keycloak_groups_pull_members`
+**Summary:** Pull members from Keycloak for a group
 
 **Parameters:**
 
@@ -4066,11 +3928,11 @@ Schema: `OfferingUUIDRequest`
 
 ---
 
-### Set or unlink the backend_id (remote Keycloak group ID) for a local group
+### offering_keycloak_groups_set_backend_id
 
 **`POST`** `/api/offering-keycloak-groups/{uuid}/set_backend_id/`
 
-**Operation ID:** `offering_keycloak_groups_set_backend_id`
+**Summary:** Set or unlink the backend_id (remote Keycloak group ID) for a local group
 
 **Parameters:**
 
@@ -4100,8 +3962,6 @@ Schema: `SetBackendIdRequest`
 
 **`GET`** `/api/offering-keycloak-memberships/`
 
-**Operation ID:** `offering_keycloak_memberships_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4127,8 +3987,6 @@ Schema: `SetBackendIdRequest`
 ### offering_keycloak_memberships_count
 
 **`HEAD`** `/api/offering-keycloak-memberships/`
-
-**Operation ID:** `offering_keycloak_memberships_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -4158,8 +4016,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/offering-keycloak-memberships/`
 
-**Operation ID:** `offering_keycloak_memberships_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `OfferingKeycloakMembershipRequest`
@@ -4186,8 +4042,6 @@ Schema: `OfferingKeycloakMembershipRequest`
 
 **`GET`** `/api/offering-keycloak-memberships/{uuid}/`
 
-**Operation ID:** `offering_keycloak_memberships_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4206,8 +4060,6 @@ Schema: `OfferingKeycloakMembershipRequest`
 
 **`DELETE`** `/api/offering-keycloak-memberships/{uuid}/`
 
-**Operation ID:** `offering_keycloak_memberships_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4225,8 +4077,6 @@ Schema: `OfferingKeycloakMembershipRequest`
 ### promotions_campaigns_list
 
 **`GET`** `/api/promotions-campaigns/`
-
-**Operation ID:** `promotions_campaigns_list`
 
 **Parameters:**
 
@@ -4253,8 +4103,6 @@ Schema: `OfferingKeycloakMembershipRequest`
 ### promotions_campaigns_count
 
 **`HEAD`** `/api/promotions-campaigns/`
-
-**Operation ID:** `promotions_campaigns_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -4283,8 +4131,6 @@ Get number of items in the collection matching the request parameters.
 ### promotions_campaigns_create
 
 **`POST`** `/api/promotions-campaigns/`
-
-**Operation ID:** `promotions_campaigns_create`
 
 **Request Body** (`application/json`, required):
 
@@ -4318,8 +4164,6 @@ Schema: `CampaignRequest`
 
 **`GET`** `/api/promotions-campaigns/{uuid}/`
 
-**Operation ID:** `promotions_campaigns_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4337,8 +4181,6 @@ Schema: `CampaignRequest`
 ### promotions_campaigns_update
 
 **`PUT`** `/api/promotions-campaigns/{uuid}/`
-
-**Operation ID:** `promotions_campaigns_update`
 
 **Parameters:**
 
@@ -4378,8 +4220,6 @@ Schema: `CampaignRequest`
 
 **`DELETE`** `/api/promotions-campaigns/{uuid}/`
 
-**Operation ID:** `promotions_campaigns_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4397,8 +4237,6 @@ Schema: `CampaignRequest`
 ### promotions_campaigns_activate
 
 **`POST`** `/api/promotions-campaigns/{uuid}/activate/`
-
-**Operation ID:** `promotions_campaigns_activate`
 
 Activate campaign.
 
@@ -4421,8 +4259,6 @@ Activate campaign.
 
 **`GET`** `/api/promotions-campaigns/{uuid}/orders/`
 
-**Operation ID:** `promotions_campaigns_orders_list`
-
 Return a list of orders for which the campaign is applied.
 
 **Parameters:**
@@ -4443,8 +4279,6 @@ Return a list of orders for which the campaign is applied.
 ### promotions_campaigns_resources_list
 
 **`GET`** `/api/promotions-campaigns/{uuid}/resources/`
-
-**Operation ID:** `promotions_campaigns_resources_list`
 
 Return a list of resources for which the campaign is applied.
 
@@ -4467,8 +4301,6 @@ Return a list of resources for which the campaign is applied.
 
 **`POST`** `/api/promotions-campaigns/{uuid}/terminate/`
 
-**Operation ID:** `promotions_campaigns_terminate`
-
 Terminate campaign.
 
 **Parameters:**
@@ -4486,11 +4318,11 @@ Terminate campaign.
 
 ---
 
-### List public maintenance announcements
+### public_maintenance_announcements_list
 
 **`GET`** `/api/public-maintenance-announcements/`
 
-**Operation ID:** `public_maintenance_announcements_list`
+**Summary:** List public maintenance announcements
 
 Returns a paginated list of public maintenance announcements. Only announcements that are 'Scheduled', 'In progress', or 'Completed' are visible. This endpoint is accessible to unauthenticated users.
 
@@ -4515,11 +4347,11 @@ Returns a paginated list of public maintenance announcements. Only announcements
 
 ---
 
-### List public maintenance announcements
+### public_maintenance_announcements_count
 
 **`HEAD`** `/api/public-maintenance-announcements/`
 
-**Operation ID:** `public_maintenance_announcements_count`
+**Summary:** List public maintenance announcements
 
 Get number of items in the collection matching the request parameters.
 
@@ -4544,11 +4376,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve a public maintenance announcement
+### public_maintenance_announcements_retrieve
 
 **`GET`** `/api/public-maintenance-announcements/{uuid}/`
 
-**Operation ID:** `public_maintenance_announcements_retrieve`
+**Summary:** Retrieve a public maintenance announcement
 
 Returns the details of a specific public maintenance announcement.
 
@@ -4566,11 +4398,11 @@ Returns the details of a specific public maintenance announcement.
 
 ---
 
-### Execute read-only SQL query
+### query
 
 **`POST`** `/api/query/`
 
-**Operation ID:** `query`
+**Summary:** Execute read-only SQL query
 
 Execute a given SQL query against a read-only database replica. This is a powerful tool for diagnostics and reporting, but should be used with caution. Requires support user permissions.
 
@@ -4595,8 +4427,6 @@ Schema: `QueryRequest`
 
 **`POST`** `/api/remote-eduteams/`
 
-**Operation ID:** `remote_eduteams`
-
 Allows to pull user details from remote eduTEAMS instance.
 
 **Request Body** (`application/json`, required):
@@ -4619,8 +4449,6 @@ Schema: `RemoteEduteamsRequestRequest`
 
 **`POST`** `/api/remote-waldur-api/cancel_termination/{uuid}`
 
-**Operation ID:** `remote_waldur_api_cancel_termination`
-
 Cancel termination order
 
 **Parameters:**
@@ -4640,8 +4468,6 @@ Cancel termination order
 ### remote_waldur_api_import_offering
 
 **`POST`** `/api/remote-waldur-api/import_offering/`
-
-**Operation ID:** `remote_waldur_api_import_offering`
 
 Create local offering from remote
 
@@ -4670,8 +4496,6 @@ Schema: `RemoteOfferingCreateRequest`
 
 **`POST`** `/api/remote-waldur-api/pull_offering_details/{uuid}/`
 
-**Operation ID:** `remote_waldur_api_pull_offering_details`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4689,8 +4513,6 @@ Schema: `RemoteOfferingCreateRequest`
 ### remote_waldur_api_pull_offering_invoices
 
 **`POST`** `/api/remote-waldur-api/pull_offering_invoices/{uuid}/`
-
-**Operation ID:** `remote_waldur_api_pull_offering_invoices`
 
 **Parameters:**
 
@@ -4710,8 +4532,6 @@ Schema: `RemoteOfferingCreateRequest`
 
 **`POST`** `/api/remote-waldur-api/pull_offering_orders/{uuid}/`
 
-**Operation ID:** `remote_waldur_api_pull_offering_orders`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4729,8 +4549,6 @@ Schema: `RemoteOfferingCreateRequest`
 ### remote_waldur_api_pull_offering_resources
 
 **`POST`** `/api/remote-waldur-api/pull_offering_resources/{uuid}/`
-
-**Operation ID:** `remote_waldur_api_pull_offering_resources`
 
 **Parameters:**
 
@@ -4750,8 +4568,6 @@ Schema: `RemoteOfferingCreateRequest`
 
 **`POST`** `/api/remote-waldur-api/pull_offering_robot_accounts/{uuid}/`
 
-**Operation ID:** `remote_waldur_api_pull_offering_robot_accounts`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4769,8 +4585,6 @@ Schema: `RemoteOfferingCreateRequest`
 ### remote_waldur_api_pull_offering_usage
 
 **`POST`** `/api/remote-waldur-api/pull_offering_usage/{uuid}/`
-
-**Operation ID:** `remote_waldur_api_pull_offering_usage`
 
 **Parameters:**
 
@@ -4790,8 +4604,6 @@ Schema: `RemoteOfferingCreateRequest`
 
 **`POST`** `/api/remote-waldur-api/pull_offering_users/{uuid}/`
 
-**Operation ID:** `remote_waldur_api_pull_offering_users`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4809,8 +4621,6 @@ Schema: `RemoteOfferingCreateRequest`
 ### remote_waldur_api_pull_order
 
 **`POST`** `/api/remote-waldur-api/pull_order/{uuid}`
-
-**Operation ID:** `remote_waldur_api_pull_order`
 
 Schedule order pull task
 
@@ -4832,8 +4642,6 @@ Schedule order pull task
 
 **`POST`** `/api/remote-waldur-api/pull_resource_robot_accounts/{uuid}/`
 
-**Operation ID:** `remote_waldur_api_pull_resource_robot_accounts`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4852,8 +4660,6 @@ Schedule order pull task
 
 **`POST`** `/api/remote-waldur-api/push_project_data/{uuid}/`
 
-**Operation ID:** `remote_waldur_api_push_project_data`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -4871,8 +4677,6 @@ Schedule order pull task
 ### remote_waldur_api_remote_categories
 
 **`POST`** `/api/remote-waldur-api/remote_categories/`
-
-**Operation ID:** `remote_waldur_api_remote_categories`
 
 List remote marketplace categories
 
@@ -4902,8 +4706,6 @@ Schema: `RemoteCredentialsRequest`
 
 **`POST`** `/api/remote-waldur-api/remote_customers/`
 
-**Operation ID:** `remote_waldur_api_remote_customers`
-
 List remote customers owned by current user
 
 **Parameters:**
@@ -4932,8 +4734,6 @@ Schema: `RemoteCredentialsRequest`
 
 **`GET`** `/api/remote-waldur-api/remote_resource_order_status/{resource_uuid}/`
 
-**Operation ID:** `remote_waldur_api_remote_resource_order_status_retrieve`
-
 Get remote order details
 
 **Parameters:**
@@ -4953,8 +4753,6 @@ Get remote order details
 ### remote_waldur_api_remote_resource_status_retrieve
 
 **`GET`** `/api/remote-waldur-api/remote_resource_status/{resource_uuid}/`
-
-**Operation ID:** `remote_waldur_api_remote_resource_status_retrieve`
 
 Get remote resource sync status
 
@@ -4976,8 +4774,6 @@ Get remote resource sync status
 
 **`GET`** `/api/remote-waldur-api/remote_resource_team_status/{resource_uuid}/`
 
-**Operation ID:** `remote_waldur_api_remote_resource_team_status_list`
-
 Get remote resource team members
 
 **Parameters:**
@@ -4997,8 +4793,6 @@ Get remote resource team members
 ### remote_waldur_api_shared_offerings
 
 **`POST`** `/api/remote-waldur-api/shared_offerings/`
-
-**Operation ID:** `remote_waldur_api_shared_offerings`
 
 List remote importable offerings for particular customer
 
@@ -5029,8 +4823,6 @@ Schema: `RemoteCredentialsRequest`
 
 **`POST`** `/api/remote-waldur-api/sync_resource/{uuid}/`
 
-**Operation ID:** `remote_waldur_api_sync_resource`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -5049,8 +4841,6 @@ Schema: `RemoteCredentialsRequest`
 
 **`POST`** `/api/remote-waldur-api/sync_resource_project_permissions/{uuid}/`
 
-**Operation ID:** `remote_waldur_api_sync_resource_project_permissions`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -5068,8 +4858,6 @@ Schema: `RemoteCredentialsRequest`
 ### service_settings_list
 
 **`GET`** `/api/service-settings/`
-
-**Operation ID:** `service_settings_list`
 
 **Parameters:**
 
@@ -5099,8 +4887,6 @@ Schema: `RemoteCredentialsRequest`
 
 **`HEAD`** `/api/service-settings/`
 
-**Operation ID:** `service_settings_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -5129,8 +4915,6 @@ Get number of items in the collection matching the request parameters.
 ### service_settings_retrieve
 
 **`GET`** `/api/service-settings/{uuid}/`
-
-**Operation ID:** `service_settings_retrieve`
 
 **Parameters:**
 

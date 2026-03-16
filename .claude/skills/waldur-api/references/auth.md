@@ -7,62 +7,60 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api-auth/eduteams/complete/` | `api_auth_eduteams_complete_retrieve` |  |
-| GET | `/api-auth/eduteams/init/` | `api_auth_eduteams_init_retrieve` |  |
-| GET | `/api-auth/keycloak/complete/` | `api_auth_keycloak_complete_retrieve` |  |
-| GET | `/api-auth/keycloak/init/` | `api_auth_keycloak_init_retrieve` |  |
-| POST | `/api-auth/logout/` | `api_auth_logout` | Log out |
-| POST | `/api-auth/password/` | `api_auth_password` | Obtain authentication token |
-| POST | `/api-auth/saml2/login/` | `api_auth_saml2_login` |  |
-| POST | `/api-auth/saml2/login/complete/` | `api_auth_saml2_login_complete` |  |
-| GET | `/api-auth/saml2/logout/` | `api_auth_saml2_logout_retrieve` |  |
-| GET | `/api-auth/saml2/logout/complete/` | `api_auth_saml2_logout_complete_retrieve` |  |
-| POST | `/api-auth/saml2/logout/complete/` | `api_auth_saml2_logout_complete` |  |
-| GET | `/api-auth/saml2/providers/` | `api_auth_saml2_providers_list` |  |
-| GET | `/api-auth/tara/complete/` | `api_auth_tara_complete_retrieve` |  |
-| GET | `/api-auth/tara/init/` | `api_auth_tara_init_retrieve` |  |
-| GET | `/api/auth-tokens/` | `auth_tokens_list` |  |
-| HEAD | `/api/auth-tokens/` | `auth_tokens_count` |  |
-| GET | `/api/auth-tokens/{user_id}/` | `auth_tokens_retrieve` |  |
-| DELETE | `/api/auth-tokens/{user_id}/` | `auth_tokens_destroy` |  |
-| POST | `/api/auth-valimo/` | `auth_valimo_create` |  |
-| POST | `/api/auth-valimo/result/` | `auth_valimo_result` |  |
-| GET | `/api/google-auth/` | `google_auth_list` |  |
-| HEAD | `/api/google-auth/` | `google_auth_count` |  |
-| GET | `/api/google-auth/callback/` | `google_auth_callback_retrieve` |  |
-| HEAD | `/api/google-auth/callback/` | `google_auth_callback_count` |  |
-| GET | `/api/google-auth/{uuid}/` | `google_auth_retrieve` |  |
-| GET | `/api/google-auth/{uuid}/authorize/` | `google_auth_authorize_retrieve` |  |
-| POST | `/api/identity-bridge/` | `identity_bridge` | Push user attributes from an ISD |
-| POST | `/api/identity-bridge/remove/` | `identity_bridge_remove` | Remove a user from an ISD |
-| GET | `/api/identity-bridge/stats/` | `identity_bridge_stats_retrieve` | Get Identity Bridge statistics |
-| GET | `/api/identity-providers/` | `identity_providers_list` |  |
-| HEAD | `/api/identity-providers/` | `identity_providers_count` |  |
-| POST | `/api/identity-providers/` | `identity_providers_create` |  |
-| POST | `/api/identity-providers/discover_metadata/` | `identity_providers_discover_metadata` | Discover OIDC provider metadata |
-| POST | `/api/identity-providers/generate-mapping/` | `identity_providers_generate_mapping` | Generate default attribute mapping |
-| GET | `/api/identity-providers/{provider}/` | `identity_providers_retrieve` |  |
-| PUT | `/api/identity-providers/{provider}/` | `identity_providers_update` |  |
-| PATCH | `/api/identity-providers/{provider}/` | `identity_providers_partial_update` |  |
-| DELETE | `/api/identity-providers/{provider}/` | `identity_providers_destroy` |  |
-| GET | `/api/keycloak-groups/` | `keycloak_groups_list` |  |
-| HEAD | `/api/keycloak-groups/` | `keycloak_groups_count` |  |
-| GET | `/api/keycloak-groups/{uuid}/` | `keycloak_groups_retrieve` |  |
-| GET | `/api/keycloak-user-group-memberships/` | `keycloak_user_group_memberships_list` |  |
-| HEAD | `/api/keycloak-user-group-memberships/` | `keycloak_user_group_memberships_count` |  |
-| POST | `/api/keycloak-user-group-memberships/` | `keycloak_user_group_memberships_create` |  |
-| GET | `/api/keycloak-user-group-memberships/{uuid}/` | `keycloak_user_group_memberships_retrieve` |  |
-| PUT | `/api/keycloak-user-group-memberships/{uuid}/` | `keycloak_user_group_memberships_update` |  |
-| PATCH | `/api/keycloak-user-group-memberships/{uuid}/` | `keycloak_user_group_memberships_partial_update` |  |
-| DELETE | `/api/keycloak-user-group-memberships/{uuid}/` | `keycloak_user_group_memberships_destroy` |  |
+| GET | `/api-auth/eduteams/complete/` | [`api_auth_eduteams_complete_retrieve`](#api-auth-eduteams-complete-retrieve) |  |
+| GET | `/api-auth/eduteams/init/` | [`api_auth_eduteams_init_retrieve`](#api-auth-eduteams-init-retrieve) |  |
+| GET | `/api-auth/keycloak/complete/` | [`api_auth_keycloak_complete_retrieve`](#api-auth-keycloak-complete-retrieve) |  |
+| GET | `/api-auth/keycloak/init/` | [`api_auth_keycloak_init_retrieve`](#api-auth-keycloak-init-retrieve) |  |
+| POST | `/api-auth/logout/` | [`api_auth_logout`](#api-auth-logout) | Log out |
+| POST | `/api-auth/password/` | [`api_auth_password`](#api-auth-password) | Obtain authentication token |
+| POST | `/api-auth/saml2/login/` | [`api_auth_saml2_login`](#api-auth-saml2-login) |  |
+| POST | `/api-auth/saml2/login/complete/` | [`api_auth_saml2_login_complete`](#api-auth-saml2-login-complete) |  |
+| GET | `/api-auth/saml2/logout/` | [`api_auth_saml2_logout_retrieve`](#api-auth-saml2-logout-retrieve) |  |
+| GET | `/api-auth/saml2/logout/complete/` | [`api_auth_saml2_logout_complete_retrieve`](#api-auth-saml2-logout-complete-retrieve) |  |
+| POST | `/api-auth/saml2/logout/complete/` | [`api_auth_saml2_logout_complete`](#api-auth-saml2-logout-complete) |  |
+| GET | `/api-auth/saml2/providers/` | [`api_auth_saml2_providers_list`](#api-auth-saml2-providers-list) |  |
+| GET | `/api-auth/tara/complete/` | [`api_auth_tara_complete_retrieve`](#api-auth-tara-complete-retrieve) |  |
+| GET | `/api-auth/tara/init/` | [`api_auth_tara_init_retrieve`](#api-auth-tara-init-retrieve) |  |
+| GET | `/api/auth-tokens/` | [`auth_tokens_list`](#auth-tokens-list) |  |
+| HEAD | `/api/auth-tokens/` | [`auth_tokens_count`](#auth-tokens-count) |  |
+| GET | `/api/auth-tokens/{user_id}/` | [`auth_tokens_retrieve`](#auth-tokens-retrieve) |  |
+| DELETE | `/api/auth-tokens/{user_id}/` | [`auth_tokens_destroy`](#auth-tokens-destroy) |  |
+| POST | `/api/auth-valimo/` | [`auth_valimo_create`](#auth-valimo-create) |  |
+| POST | `/api/auth-valimo/result/` | [`auth_valimo_result`](#auth-valimo-result) |  |
+| GET | `/api/google-auth/` | [`google_auth_list`](#google-auth-list) |  |
+| HEAD | `/api/google-auth/` | [`google_auth_count`](#google-auth-count) |  |
+| GET | `/api/google-auth/callback/` | [`google_auth_callback_retrieve`](#google-auth-callback-retrieve) |  |
+| HEAD | `/api/google-auth/callback/` | [`google_auth_callback_count`](#google-auth-callback-count) |  |
+| GET | `/api/google-auth/{uuid}/` | [`google_auth_retrieve`](#google-auth-retrieve) |  |
+| GET | `/api/google-auth/{uuid}/authorize/` | [`google_auth_authorize_retrieve`](#google-auth-authorize-retrieve) |  |
+| POST | `/api/identity-bridge/` | [`identity_bridge`](#identity-bridge) | Push user attributes from an ISD |
+| POST | `/api/identity-bridge/remove/` | [`identity_bridge_remove`](#identity-bridge-remove) | Remove a user from an ISD |
+| GET | `/api/identity-bridge/stats/` | [`identity_bridge_stats_retrieve`](#identity-bridge-stats-retrieve) | Get Identity Bridge statistics |
+| GET | `/api/identity-providers/` | [`identity_providers_list`](#identity-providers-list) |  |
+| HEAD | `/api/identity-providers/` | [`identity_providers_count`](#identity-providers-count) |  |
+| POST | `/api/identity-providers/` | [`identity_providers_create`](#identity-providers-create) |  |
+| POST | `/api/identity-providers/discover_metadata/` | [`identity_providers_discover_metadata`](#identity-providers-discover-metadata) | Discover OIDC provider metadata |
+| POST | `/api/identity-providers/generate-mapping/` | [`identity_providers_generate_mapping`](#identity-providers-generate-mapping) | Generate default attribute mapping |
+| GET | `/api/identity-providers/{provider}/` | [`identity_providers_retrieve`](#identity-providers-retrieve) |  |
+| PUT | `/api/identity-providers/{provider}/` | [`identity_providers_update`](#identity-providers-update) |  |
+| PATCH | `/api/identity-providers/{provider}/` | [`identity_providers_partial_update`](#identity-providers-partial-update) |  |
+| DELETE | `/api/identity-providers/{provider}/` | [`identity_providers_destroy`](#identity-providers-destroy) |  |
+| GET | `/api/keycloak-groups/` | [`keycloak_groups_list`](#keycloak-groups-list) |  |
+| HEAD | `/api/keycloak-groups/` | [`keycloak_groups_count`](#keycloak-groups-count) |  |
+| GET | `/api/keycloak-groups/{uuid}/` | [`keycloak_groups_retrieve`](#keycloak-groups-retrieve) |  |
+| GET | `/api/keycloak-user-group-memberships/` | [`keycloak_user_group_memberships_list`](#keycloak-user-group-memberships-list) |  |
+| HEAD | `/api/keycloak-user-group-memberships/` | [`keycloak_user_group_memberships_count`](#keycloak-user-group-memberships-count) |  |
+| POST | `/api/keycloak-user-group-memberships/` | [`keycloak_user_group_memberships_create`](#keycloak-user-group-memberships-create) |  |
+| GET | `/api/keycloak-user-group-memberships/{uuid}/` | [`keycloak_user_group_memberships_retrieve`](#keycloak-user-group-memberships-retrieve) |  |
+| PUT | `/api/keycloak-user-group-memberships/{uuid}/` | [`keycloak_user_group_memberships_update`](#keycloak-user-group-memberships-update) |  |
+| PATCH | `/api/keycloak-user-group-memberships/{uuid}/` | [`keycloak_user_group_memberships_partial_update`](#keycloak-user-group-memberships-partial-update) |  |
+| DELETE | `/api/keycloak-user-group-memberships/{uuid}/` | [`keycloak_user_group_memberships_destroy`](#keycloak-user-group-memberships-destroy) |  |
 
 ## Endpoint Details
 
 ### api_auth_eduteams_complete_retrieve
 
 **`GET`** `/api-auth/eduteams/complete/`
-
-**Operation ID:** `api_auth_eduteams_complete_retrieve`
 
 **Parameters:**
 
@@ -83,8 +81,6 @@
 
 **`GET`** `/api-auth/eduteams/init/`
 
-**Operation ID:** `api_auth_eduteams_init_retrieve`
-
 Redirect user to OIDC authorization endpoint
 
 **Responses:**
@@ -98,8 +94,6 @@ Redirect user to OIDC authorization endpoint
 ### api_auth_keycloak_complete_retrieve
 
 **`GET`** `/api-auth/keycloak/complete/`
-
-**Operation ID:** `api_auth_keycloak_complete_retrieve`
 
 **Parameters:**
 
@@ -120,8 +114,6 @@ Redirect user to OIDC authorization endpoint
 
 **`GET`** `/api-auth/keycloak/init/`
 
-**Operation ID:** `api_auth_keycloak_init_retrieve`
-
 Redirect user to OIDC authorization endpoint
 
 **Responses:**
@@ -132,11 +124,11 @@ Redirect user to OIDC authorization endpoint
 
 ---
 
-### Log out
+### api_auth_logout
 
 **`POST`** `/api-auth/logout/`
 
-**Operation ID:** `api_auth_logout`
+**Summary:** Log out
 
 Logs out the current user by deleting their authentication token. If single logout (SLO) is supported for the current authentication method (e.g., SAML2 or OIDC), this endpoint may return a logout URL to which the user should be redirected to complete the logout process on the identity provider side.
 
@@ -149,11 +141,11 @@ Logs out the current user by deleting their authentication token. If single logo
 
 ---
 
-### Obtain authentication token
+### api_auth_password
 
 **`POST`** `/api-auth/password/`
 
-**Operation ID:** `api_auth_password`
+**Summary:** Obtain authentication token
 
 Authenticates a user with username and password and returns an authentication token.
 
@@ -179,8 +171,6 @@ Schema: `ObtainAuthTokenRequest`
 
 **`POST`** `/api-auth/saml2/login/`
 
-**Operation ID:** `api_auth_saml2_login`
-
 **Request Body** (`application/json`, required):
 
 Schema: `Saml2LoginRequest`
@@ -200,8 +190,6 @@ Schema: `Saml2LoginRequest`
 ### api_auth_saml2_login_complete
 
 **`POST`** `/api-auth/saml2/login/complete/`
-
-**Operation ID:** `api_auth_saml2_login_complete`
 
 **Request Body** (`application/json`, required):
 
@@ -223,8 +211,6 @@ Schema: `Saml2LoginCompleteRequest`
 
 **`GET`** `/api-auth/saml2/logout/`
 
-**Operation ID:** `api_auth_saml2_logout_retrieve`
-
 **Responses:**
 
 | Status | Description |
@@ -236,8 +222,6 @@ Schema: `Saml2LoginCompleteRequest`
 ### api_auth_saml2_logout_complete_retrieve
 
 **`GET`** `/api-auth/saml2/logout/complete/`
-
-**Operation ID:** `api_auth_saml2_logout_complete_retrieve`
 
 For IdPs which send GET requests
 
@@ -252,8 +236,6 @@ For IdPs which send GET requests
 ### api_auth_saml2_logout_complete
 
 **`POST`** `/api-auth/saml2/logout/complete/`
-
-**Operation ID:** `api_auth_saml2_logout_complete`
 
 For IdPs which send POST requests
 
@@ -278,8 +260,6 @@ Schema: `Saml2LogoutCompleteRequest`
 
 **`GET`** `/api-auth/saml2/providers/`
 
-**Operation ID:** `api_auth_saml2_providers_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -297,8 +277,6 @@ Schema: `Saml2LogoutCompleteRequest`
 ### api_auth_tara_complete_retrieve
 
 **`GET`** `/api-auth/tara/complete/`
-
-**Operation ID:** `api_auth_tara_complete_retrieve`
 
 **Parameters:**
 
@@ -319,8 +297,6 @@ Schema: `Saml2LogoutCompleteRequest`
 
 **`GET`** `/api-auth/tara/init/`
 
-**Operation ID:** `api_auth_tara_init_retrieve`
-
 Redirect user to OIDC authorization endpoint
 
 **Responses:**
@@ -334,8 +310,6 @@ Redirect user to OIDC authorization endpoint
 ### auth_tokens_list
 
 **`GET`** `/api/auth-tokens/`
-
-**Operation ID:** `auth_tokens_list`
 
 **Parameters:**
 
@@ -353,8 +327,6 @@ Redirect user to OIDC authorization endpoint
 ### auth_tokens_count
 
 **`HEAD`** `/api/auth-tokens/`
-
-**Operation ID:** `auth_tokens_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -375,8 +347,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/auth-tokens/{user_id}/`
 
-**Operation ID:** `auth_tokens_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -395,8 +365,6 @@ Get number of items in the collection matching the request parameters.
 
 **`DELETE`** `/api/auth-tokens/{user_id}/`
 
-**Operation ID:** `auth_tokens_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -414,8 +382,6 @@ Get number of items in the collection matching the request parameters.
 ### auth_valimo_create
 
 **`POST`** `/api/auth-valimo/`
-
-**Operation ID:** `auth_valimo_create`
 
 **Request Body** (`application/json`, required):
 
@@ -436,8 +402,6 @@ Schema: `AuthResultRequest`
 ### auth_valimo_result
 
 **`POST`** `/api/auth-valimo/result/`
-
-**Operation ID:** `auth_valimo_result`
 
 To get PKI login status and details - issue post request against /api/auth-valimo/result/
         with uuid in parameters.
@@ -469,8 +433,6 @@ Schema: `AuthResultUUIDRequest`
 
 **`GET`** `/api/google-auth/`
 
-**Operation ID:** `google_auth_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -489,8 +451,6 @@ Schema: `AuthResultUUIDRequest`
 ### google_auth_count
 
 **`HEAD`** `/api/google-auth/`
-
-**Operation ID:** `google_auth_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -511,8 +471,6 @@ Get number of items in the collection matching the request parameters.
 ### google_auth_callback_retrieve
 
 **`GET`** `/api/google-auth/callback/`
-
-**Operation ID:** `google_auth_callback_retrieve`
 
 Callback endpoint for Google authorization.
 
@@ -535,8 +493,6 @@ Callback endpoint for Google authorization.
 
 **`HEAD`** `/api/google-auth/callback/`
 
-**Operation ID:** `google_auth_callback_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -558,8 +514,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/google-auth/{uuid}/`
 
-**Operation ID:** `google_auth_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -579,8 +533,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/google-auth/{uuid}/authorize/`
 
-**Operation ID:** `google_auth_authorize_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -596,11 +548,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Push user attributes from an ISD
+### identity_bridge
 
 **`POST`** `/api/identity-bridge/`
 
-**Operation ID:** `identity_bridge`
+**Summary:** Push user attributes from an ISD
 
 Allows Identity Service Domains (ISDs) to push user attributes to Waldur. Creates or updates a user based on username (CUID). Requires FEDERATED_IDENTITY_SYNC_ENABLED to be True. Caller must be staff or an identity manager with the declared source in managed_isds.
 
@@ -639,11 +591,11 @@ Schema: `IdentityBridgeRequestRequest`
 
 ---
 
-### Remove a user from an ISD
+### identity_bridge_remove
 
 **`POST`** `/api/identity-bridge/remove/`
 
-**Operation ID:** `identity_bridge_remove`
+**Summary:** Remove a user from an ISD
 
 Signals that a user has been removed from an ISD. Removes the source from active_isds, clears attributes owned by that source, and deactivates the user if no ISDs remain (configurable via FEDERATED_IDENTITY_DEACTIVATION_POLICY). Requires FEDERATED_IDENTITY_SYNC_ENABLED to be True. Caller must be staff or an identity manager with the declared source in managed_isds.
 
@@ -664,11 +616,11 @@ Schema: `IdentityBridgeRemoveRequest`
 
 ---
 
-### Get Identity Bridge statistics
+### identity_bridge_stats_retrieve
 
 **`GET`** `/api/identity-bridge/stats/`
 
-**Operation ID:** `identity_bridge_stats_retrieve`
+**Summary:** Get Identity Bridge statistics
 
 Returns system-wide statistics about the Identity Bridge: feature configuration, per-ISD user counts, stale attribute detection, and total federated user counts. Staff only.
 
@@ -683,8 +635,6 @@ Returns system-wide statistics about the Identity Bridge: feature configuration,
 ### identity_providers_list
 
 **`GET`** `/api/identity-providers/`
-
-**Operation ID:** `identity_providers_list`
 
 **Parameters:**
 
@@ -702,8 +652,6 @@ Returns system-wide statistics about the Identity Bridge: feature configuration,
 ### identity_providers_count
 
 **`HEAD`** `/api/identity-providers/`
-
-**Operation ID:** `identity_providers_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -723,8 +671,6 @@ Get number of items in the collection matching the request parameters.
 ### identity_providers_create
 
 **`POST`** `/api/identity-providers/`
-
-**Operation ID:** `identity_providers_create`
 
 **Request Body** (`application/json`, required):
 
@@ -758,11 +704,11 @@ Schema: `IdentityProviderRequest`
 
 ---
 
-### Discover OIDC provider metadata
+### identity_providers_discover_metadata
 
 **`POST`** `/api/identity-providers/discover_metadata/`
 
-**Operation ID:** `identity_providers_discover_metadata`
+**Summary:** Discover OIDC provider metadata
 
 Fetches OIDC discovery metadata from the provider and returns supported claims, scopes, and suggested mappings to Waldur User fields. Use this to configure attribute_mapping when setting up a new identity provider.
 
@@ -783,11 +729,11 @@ Schema: `DiscoverMetadataRequestRequest`
 
 ---
 
-### Generate default attribute mapping
+### identity_providers_generate_mapping
 
 **`POST`** `/api/identity-providers/generate-mapping/`
 
-**Operation ID:** `identity_providers_generate_mapping`
+**Summary:** Generate default attribute mapping
 
 Generates a suggested attribute_mapping configuration based on the claims supported by an OIDC provider. This can be used as a starting point when creating a new identity provider.
 
@@ -812,8 +758,6 @@ Schema: `DiscoverMetadataRequestRequest`
 
 **`GET`** `/api/identity-providers/{provider}/`
 
-**Operation ID:** `identity_providers_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -831,8 +775,6 @@ Schema: `DiscoverMetadataRequestRequest`
 ### identity_providers_update
 
 **`PUT`** `/api/identity-providers/{provider}/`
-
-**Operation ID:** `identity_providers_update`
 
 **Parameters:**
 
@@ -876,8 +818,6 @@ Schema: `IdentityProviderRequest`
 
 **`PATCH`** `/api/identity-providers/{provider}/`
 
-**Operation ID:** `identity_providers_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -920,8 +860,6 @@ Schema: `PatchedIdentityProviderRequest`
 
 **`DELETE`** `/api/identity-providers/{provider}/`
 
-**Operation ID:** `identity_providers_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -939,8 +877,6 @@ Schema: `PatchedIdentityProviderRequest`
 ### keycloak_groups_list
 
 **`GET`** `/api/keycloak-groups/`
-
-**Operation ID:** `keycloak_groups_list`
 
 **Parameters:**
 
@@ -961,8 +897,6 @@ Schema: `PatchedIdentityProviderRequest`
 ### keycloak_groups_count
 
 **`HEAD`** `/api/keycloak-groups/`
-
-**Operation ID:** `keycloak_groups_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -986,8 +920,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/keycloak-groups/{uuid}/`
 
-**Operation ID:** `keycloak_groups_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1005,8 +937,6 @@ Get number of items in the collection matching the request parameters.
 ### keycloak_user_group_memberships_list
 
 **`GET`** `/api/keycloak-user-group-memberships/`
-
-**Operation ID:** `keycloak_user_group_memberships_list`
 
 **Parameters:**
 
@@ -1033,8 +963,6 @@ Get number of items in the collection matching the request parameters.
 ### keycloak_user_group_memberships_count
 
 **`HEAD`** `/api/keycloak-user-group-memberships/`
-
-**Operation ID:** `keycloak_user_group_memberships_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1064,8 +992,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/keycloak-user-group-memberships/`
 
-**Operation ID:** `keycloak_user_group_memberships_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `KeycloakUserGroupMembershipRequest`
@@ -1089,8 +1015,6 @@ Schema: `KeycloakUserGroupMembershipRequest`
 
 **`GET`** `/api/keycloak-user-group-memberships/{uuid}/`
 
-**Operation ID:** `keycloak_user_group_memberships_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1108,8 +1032,6 @@ Schema: `KeycloakUserGroupMembershipRequest`
 ### keycloak_user_group_memberships_update
 
 **`PUT`** `/api/keycloak-user-group-memberships/{uuid}/`
-
-**Operation ID:** `keycloak_user_group_memberships_update`
 
 **Parameters:**
 
@@ -1140,8 +1062,6 @@ Schema: `KeycloakUserGroupMembershipRequest`
 
 **`PATCH`** `/api/keycloak-user-group-memberships/{uuid}/`
 
-**Operation ID:** `keycloak_user_group_memberships_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1170,8 +1090,6 @@ Schema: `PatchedKeycloakUserGroupMembershipRequest`
 ### keycloak_user_group_memberships_destroy
 
 **`DELETE`** `/api/keycloak-user-group-memberships/{uuid}/`
-
-**Operation ID:** `keycloak_user_group_memberships_destroy`
 
 **Parameters:**
 

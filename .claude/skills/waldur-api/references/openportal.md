@@ -7,102 +7,100 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/openportal-allocation-user-usage/` | `openportal_allocation_user_usage_list` |  |
-| HEAD | `/api/openportal-allocation-user-usage/` | `openportal_allocation_user_usage_count` |  |
-| GET | `/api/openportal-allocation-user-usage/{id}/` | `openportal_allocation_user_usage_retrieve` |  |
-| GET | `/api/openportal-allocations/` | `openportal_allocations_list` |  |
-| HEAD | `/api/openportal-allocations/` | `openportal_allocations_count` |  |
-| POST | `/api/openportal-allocations/` | `openportal_allocations_create` |  |
-| GET | `/api/openportal-allocations/{uuid}/` | `openportal_allocations_retrieve` |  |
-| PUT | `/api/openportal-allocations/{uuid}/` | `openportal_allocations_update` |  |
-| PATCH | `/api/openportal-allocations/{uuid}/` | `openportal_allocations_partial_update` |  |
-| DELETE | `/api/openportal-allocations/{uuid}/` | `openportal_allocations_destroy` |  |
-| POST | `/api/openportal-allocations/{uuid}/pull/` | `openportal_allocations_pull` | Synchronize resource state |
-| POST | `/api/openportal-allocations/{uuid}/set_erred/` | `openportal_allocations_set_erred` | Mark resource as ERRED |
-| POST | `/api/openportal-allocations/{uuid}/set_limits/` | `openportal_allocations_set_limits` |  |
-| POST | `/api/openportal-allocations/{uuid}/set_ok/` | `openportal_allocations_set_ok` | Mark resource as OK |
-| POST | `/api/openportal-allocations/{uuid}/unlink/` | `openportal_allocations_unlink` | Unlink resource |
-| GET | `/api/openportal-associations/` | `openportal_associations_list` |  |
-| HEAD | `/api/openportal-associations/` | `openportal_associations_count` |  |
-| GET | `/api/openportal-associations/{uuid}/` | `openportal_associations_retrieve` |  |
-| GET | `/api/openportal-managed-projects/` | `openportal_managed_projects_list` |  |
-| HEAD | `/api/openportal-managed-projects/` | `openportal_managed_projects_count` |  |
-| GET | `/api/openportal-managed-projects/{identifier}/{destination}/` | `openportal_managed_projects_retrieve_get` |  |
-| HEAD | `/api/openportal-managed-projects/{identifier}/{destination}/` | `openportal_managed_projects_retrieve_head` |  |
-| POST | `/api/openportal-managed-projects/{identifier}/{destination}/approve/` | `openportal_managed_projects_approve` |  |
-| POST | `/api/openportal-managed-projects/{identifier}/{destination}/attach/` | `openportal_managed_projects_attach` |  |
-| DELETE | `/api/openportal-managed-projects/{identifier}/{destination}/delete/` | `openportal_managed_projects_delete_destroy` |  |
-| POST | `/api/openportal-managed-projects/{identifier}/{destination}/detach/` | `openportal_managed_projects_detach` |  |
-| POST | `/api/openportal-managed-projects/{identifier}/{destination}/reject/` | `openportal_managed_projects_reject` |  |
-| GET | `/api/openportal-project-template/` | `openportal_project_template_list` |  |
-| HEAD | `/api/openportal-project-template/` | `openportal_project_template_count` |  |
-| POST | `/api/openportal-project-template/` | `openportal_project_template_create` |  |
-| GET | `/api/openportal-project-template/{uuid}/` | `openportal_project_template_retrieve` |  |
-| PUT | `/api/openportal-project-template/{uuid}/` | `openportal_project_template_update` |  |
-| PATCH | `/api/openportal-project-template/{uuid}/` | `openportal_project_template_partial_update` |  |
-| DELETE | `/api/openportal-project-template/{uuid}/` | `openportal_project_template_destroy` |  |
-| DELETE | `/api/openportal-project-template/{uuid}/delete/` | `openportal_project_template_delete_destroy` |  |
-| GET | `/api/openportal-projectinfo/` | `openportal_projectinfo_list` |  |
-| HEAD | `/api/openportal-projectinfo/` | `openportal_projectinfo_count` |  |
-| POST | `/api/openportal-projectinfo/` | `openportal_projectinfo_create` |  |
-| GET | `/api/openportal-projectinfo/{project}/` | `openportal_projectinfo_retrieve` |  |
-| PUT | `/api/openportal-projectinfo/{project}/` | `openportal_projectinfo_update` |  |
-| PATCH | `/api/openportal-projectinfo/{project}/` | `openportal_projectinfo_partial_update` |  |
-| DELETE | `/api/openportal-projectinfo/{project}/` | `openportal_projectinfo_destroy` |  |
-| PUT | `/api/openportal-projectinfo/{project}/set_allowed_destinations/` | `openportal_projectinfo_set_allowed_destinations_update` |  |
-| PUT | `/api/openportal-projectinfo/{project}/set_shortname/` | `openportal_projectinfo_set_shortname_update` |  |
-| GET | `/api/openportal-remote-allocations/` | `openportal_remote_allocations_list` |  |
-| HEAD | `/api/openportal-remote-allocations/` | `openportal_remote_allocations_count` |  |
-| POST | `/api/openportal-remote-allocations/` | `openportal_remote_allocations_create` |  |
-| GET | `/api/openportal-remote-allocations/{uuid}/` | `openportal_remote_allocations_retrieve` |  |
-| PUT | `/api/openportal-remote-allocations/{uuid}/` | `openportal_remote_allocations_update` |  |
-| PATCH | `/api/openportal-remote-allocations/{uuid}/` | `openportal_remote_allocations_partial_update` |  |
-| DELETE | `/api/openportal-remote-allocations/{uuid}/` | `openportal_remote_allocations_destroy` |  |
-| POST | `/api/openportal-remote-allocations/{uuid}/pull/` | `openportal_remote_allocations_pull` | Synchronize resource state |
-| POST | `/api/openportal-remote-allocations/{uuid}/set_erred/` | `openportal_remote_allocations_set_erred` | Mark resource as ERRED |
-| POST | `/api/openportal-remote-allocations/{uuid}/set_limits/` | `openportal_remote_allocations_set_limits` |  |
-| POST | `/api/openportal-remote-allocations/{uuid}/set_ok/` | `openportal_remote_allocations_set_ok` | Mark resource as OK |
-| POST | `/api/openportal-remote-allocations/{uuid}/unlink/` | `openportal_remote_allocations_unlink` | Unlink resource |
-| GET | `/api/openportal-remote-associations/` | `openportal_remote_associations_list` |  |
-| HEAD | `/api/openportal-remote-associations/` | `openportal_remote_associations_count` |  |
-| GET | `/api/openportal-remote-associations/{uuid}/` | `openportal_remote_associations_retrieve` |  |
-| GET | `/api/openportal-unmanaged-projects/` | `openportal_unmanaged_projects_list` | List projects |
-| HEAD | `/api/openportal-unmanaged-projects/` | `openportal_unmanaged_projects_count` | List projects |
-| POST | `/api/openportal-unmanaged-projects/` | `openportal_unmanaged_projects_create` | Create a new project |
-| GET | `/api/openportal-unmanaged-projects/checklist-template/` | `openportal_unmanaged_projects_checklist_template_retrieve` |  |
-| HEAD | `/api/openportal-unmanaged-projects/checklist-template/` | `openportal_unmanaged_projects_checklist_template_count` |  |
-| GET | `/api/openportal-unmanaged-projects/{uuid}/` | `openportal_unmanaged_projects_retrieve` | Retrieve project details |
-| PUT | `/api/openportal-unmanaged-projects/{uuid}/` | `openportal_unmanaged_projects_update` | Update project details |
-| PATCH | `/api/openportal-unmanaged-projects/{uuid}/` | `openportal_unmanaged_projects_partial_update` | Partially update project details |
-| DELETE | `/api/openportal-unmanaged-projects/{uuid}/` | `openportal_unmanaged_projects_destroy` | Delete a project |
-| POST | `/api/openportal-unmanaged-projects/{uuid}/add_user/` | `openportal_unmanaged_projects_add_user` | Grant a role to a user |
-| GET | `/api/openportal-unmanaged-projects/{uuid}/checklist/` | `openportal_unmanaged_projects_checklist_retrieve` |  |
-| GET | `/api/openportal-unmanaged-projects/{uuid}/completion_status/` | `openportal_unmanaged_projects_completion_status_retrieve` |  |
-| POST | `/api/openportal-unmanaged-projects/{uuid}/delete_user/` | `openportal_unmanaged_projects_delete_user` | Revoke a role from a user |
-| GET | `/api/openportal-unmanaged-projects/{uuid}/list_users/` | `openportal_unmanaged_projects_list_users_list` | List users and their roles in a scope |
-| POST | `/api/openportal-unmanaged-projects/{uuid}/move_project/` | `openportal_unmanaged_projects_move_project` | Move project to another customer |
-| POST | `/api/openportal-unmanaged-projects/{uuid}/recover/` | `openportal_unmanaged_projects_recover` | Recover a soft-deleted project |
-| GET | `/api/openportal-unmanaged-projects/{uuid}/stats/` | `openportal_unmanaged_projects_stats_retrieve` | Get project resource usage statistics |
-| POST | `/api/openportal-unmanaged-projects/{uuid}/submit_answers/` | `openportal_unmanaged_projects_submit_answers` |  |
-| POST | `/api/openportal-unmanaged-projects/{uuid}/update_user/` | `openportal_unmanaged_projects_update_user` | Update a user's role expiration |
-| GET | `/api/openportal-userinfo/` | `openportal_userinfo_list` |  |
-| HEAD | `/api/openportal-userinfo/` | `openportal_userinfo_count` |  |
-| POST | `/api/openportal-userinfo/` | `openportal_userinfo_create` |  |
-| GET | `/api/openportal-userinfo/me/` | `openportal_userinfo_me_retrieve` |  |
-| HEAD | `/api/openportal-userinfo/me/` | `openportal_userinfo_me_count` |  |
-| GET | `/api/openportal-userinfo/{user}/` | `openportal_userinfo_retrieve` |  |
-| PUT | `/api/openportal-userinfo/{user}/` | `openportal_userinfo_update` |  |
-| PATCH | `/api/openportal-userinfo/{user}/` | `openportal_userinfo_partial_update` |  |
-| DELETE | `/api/openportal-userinfo/{user}/` | `openportal_userinfo_destroy` |  |
-| PUT | `/api/openportal-userinfo/{user}/set_shortname/` | `openportal_userinfo_set_shortname_update` |  |
+| GET | `/api/openportal-allocation-user-usage/` | [`openportal_allocation_user_usage_list`](#openportal-allocation-user-usage-list) |  |
+| HEAD | `/api/openportal-allocation-user-usage/` | [`openportal_allocation_user_usage_count`](#openportal-allocation-user-usage-count) |  |
+| GET | `/api/openportal-allocation-user-usage/{id}/` | [`openportal_allocation_user_usage_retrieve`](#openportal-allocation-user-usage-retrieve) |  |
+| GET | `/api/openportal-allocations/` | [`openportal_allocations_list`](#openportal-allocations-list) |  |
+| HEAD | `/api/openportal-allocations/` | [`openportal_allocations_count`](#openportal-allocations-count) |  |
+| POST | `/api/openportal-allocations/` | [`openportal_allocations_create`](#openportal-allocations-create) |  |
+| GET | `/api/openportal-allocations/{uuid}/` | [`openportal_allocations_retrieve`](#openportal-allocations-retrieve) |  |
+| PUT | `/api/openportal-allocations/{uuid}/` | [`openportal_allocations_update`](#openportal-allocations-update) |  |
+| PATCH | `/api/openportal-allocations/{uuid}/` | [`openportal_allocations_partial_update`](#openportal-allocations-partial-update) |  |
+| DELETE | `/api/openportal-allocations/{uuid}/` | [`openportal_allocations_destroy`](#openportal-allocations-destroy) |  |
+| POST | `/api/openportal-allocations/{uuid}/pull/` | [`openportal_allocations_pull`](#openportal-allocations-pull) | Synchronize resource state |
+| POST | `/api/openportal-allocations/{uuid}/set_erred/` | [`openportal_allocations_set_erred`](#openportal-allocations-set-erred) | Mark resource as ERRED |
+| POST | `/api/openportal-allocations/{uuid}/set_limits/` | [`openportal_allocations_set_limits`](#openportal-allocations-set-limits) |  |
+| POST | `/api/openportal-allocations/{uuid}/set_ok/` | [`openportal_allocations_set_ok`](#openportal-allocations-set-ok) | Mark resource as OK |
+| POST | `/api/openportal-allocations/{uuid}/unlink/` | [`openportal_allocations_unlink`](#openportal-allocations-unlink) | Unlink resource |
+| GET | `/api/openportal-associations/` | [`openportal_associations_list`](#openportal-associations-list) |  |
+| HEAD | `/api/openportal-associations/` | [`openportal_associations_count`](#openportal-associations-count) |  |
+| GET | `/api/openportal-associations/{uuid}/` | [`openportal_associations_retrieve`](#openportal-associations-retrieve) |  |
+| GET | `/api/openportal-managed-projects/` | [`openportal_managed_projects_list`](#openportal-managed-projects-list) |  |
+| HEAD | `/api/openportal-managed-projects/` | [`openportal_managed_projects_count`](#openportal-managed-projects-count) |  |
+| GET | `/api/openportal-managed-projects/{identifier}/{destination}/` | [`openportal_managed_projects_retrieve_get`](#openportal-managed-projects-retrieve-get) |  |
+| HEAD | `/api/openportal-managed-projects/{identifier}/{destination}/` | [`openportal_managed_projects_retrieve_head`](#openportal-managed-projects-retrieve-head) |  |
+| POST | `/api/openportal-managed-projects/{identifier}/{destination}/approve/` | [`openportal_managed_projects_approve`](#openportal-managed-projects-approve) |  |
+| POST | `/api/openportal-managed-projects/{identifier}/{destination}/attach/` | [`openportal_managed_projects_attach`](#openportal-managed-projects-attach) |  |
+| DELETE | `/api/openportal-managed-projects/{identifier}/{destination}/delete/` | [`openportal_managed_projects_delete_destroy`](#openportal-managed-projects-delete-destroy) |  |
+| POST | `/api/openportal-managed-projects/{identifier}/{destination}/detach/` | [`openportal_managed_projects_detach`](#openportal-managed-projects-detach) |  |
+| POST | `/api/openportal-managed-projects/{identifier}/{destination}/reject/` | [`openportal_managed_projects_reject`](#openportal-managed-projects-reject) |  |
+| GET | `/api/openportal-project-template/` | [`openportal_project_template_list`](#openportal-project-template-list) |  |
+| HEAD | `/api/openportal-project-template/` | [`openportal_project_template_count`](#openportal-project-template-count) |  |
+| POST | `/api/openportal-project-template/` | [`openportal_project_template_create`](#openportal-project-template-create) |  |
+| GET | `/api/openportal-project-template/{uuid}/` | [`openportal_project_template_retrieve`](#openportal-project-template-retrieve) |  |
+| PUT | `/api/openportal-project-template/{uuid}/` | [`openportal_project_template_update`](#openportal-project-template-update) |  |
+| PATCH | `/api/openportal-project-template/{uuid}/` | [`openportal_project_template_partial_update`](#openportal-project-template-partial-update) |  |
+| DELETE | `/api/openportal-project-template/{uuid}/` | [`openportal_project_template_destroy`](#openportal-project-template-destroy) |  |
+| DELETE | `/api/openportal-project-template/{uuid}/delete/` | [`openportal_project_template_delete_destroy`](#openportal-project-template-delete-destroy) |  |
+| GET | `/api/openportal-projectinfo/` | [`openportal_projectinfo_list`](#openportal-projectinfo-list) |  |
+| HEAD | `/api/openportal-projectinfo/` | [`openportal_projectinfo_count`](#openportal-projectinfo-count) |  |
+| POST | `/api/openportal-projectinfo/` | [`openportal_projectinfo_create`](#openportal-projectinfo-create) |  |
+| GET | `/api/openportal-projectinfo/{project}/` | [`openportal_projectinfo_retrieve`](#openportal-projectinfo-retrieve) |  |
+| PUT | `/api/openportal-projectinfo/{project}/` | [`openportal_projectinfo_update`](#openportal-projectinfo-update) |  |
+| PATCH | `/api/openportal-projectinfo/{project}/` | [`openportal_projectinfo_partial_update`](#openportal-projectinfo-partial-update) |  |
+| DELETE | `/api/openportal-projectinfo/{project}/` | [`openportal_projectinfo_destroy`](#openportal-projectinfo-destroy) |  |
+| PUT | `/api/openportal-projectinfo/{project}/set_allowed_destinations/` | [`openportal_projectinfo_set_allowed_destinations_update`](#openportal-projectinfo-set-allowed-destinations-update) |  |
+| PUT | `/api/openportal-projectinfo/{project}/set_shortname/` | [`openportal_projectinfo_set_shortname_update`](#openportal-projectinfo-set-shortname-update) |  |
+| GET | `/api/openportal-remote-allocations/` | [`openportal_remote_allocations_list`](#openportal-remote-allocations-list) |  |
+| HEAD | `/api/openportal-remote-allocations/` | [`openportal_remote_allocations_count`](#openportal-remote-allocations-count) |  |
+| POST | `/api/openportal-remote-allocations/` | [`openportal_remote_allocations_create`](#openportal-remote-allocations-create) |  |
+| GET | `/api/openportal-remote-allocations/{uuid}/` | [`openportal_remote_allocations_retrieve`](#openportal-remote-allocations-retrieve) |  |
+| PUT | `/api/openportal-remote-allocations/{uuid}/` | [`openportal_remote_allocations_update`](#openportal-remote-allocations-update) |  |
+| PATCH | `/api/openportal-remote-allocations/{uuid}/` | [`openportal_remote_allocations_partial_update`](#openportal-remote-allocations-partial-update) |  |
+| DELETE | `/api/openportal-remote-allocations/{uuid}/` | [`openportal_remote_allocations_destroy`](#openportal-remote-allocations-destroy) |  |
+| POST | `/api/openportal-remote-allocations/{uuid}/pull/` | [`openportal_remote_allocations_pull`](#openportal-remote-allocations-pull) | Synchronize resource state |
+| POST | `/api/openportal-remote-allocations/{uuid}/set_erred/` | [`openportal_remote_allocations_set_erred`](#openportal-remote-allocations-set-erred) | Mark resource as ERRED |
+| POST | `/api/openportal-remote-allocations/{uuid}/set_limits/` | [`openportal_remote_allocations_set_limits`](#openportal-remote-allocations-set-limits) |  |
+| POST | `/api/openportal-remote-allocations/{uuid}/set_ok/` | [`openportal_remote_allocations_set_ok`](#openportal-remote-allocations-set-ok) | Mark resource as OK |
+| POST | `/api/openportal-remote-allocations/{uuid}/unlink/` | [`openportal_remote_allocations_unlink`](#openportal-remote-allocations-unlink) | Unlink resource |
+| GET | `/api/openportal-remote-associations/` | [`openportal_remote_associations_list`](#openportal-remote-associations-list) |  |
+| HEAD | `/api/openportal-remote-associations/` | [`openportal_remote_associations_count`](#openportal-remote-associations-count) |  |
+| GET | `/api/openportal-remote-associations/{uuid}/` | [`openportal_remote_associations_retrieve`](#openportal-remote-associations-retrieve) |  |
+| GET | `/api/openportal-unmanaged-projects/` | [`openportal_unmanaged_projects_list`](#openportal-unmanaged-projects-list) | List projects |
+| HEAD | `/api/openportal-unmanaged-projects/` | [`openportal_unmanaged_projects_count`](#openportal-unmanaged-projects-count) | List projects |
+| POST | `/api/openportal-unmanaged-projects/` | [`openportal_unmanaged_projects_create`](#openportal-unmanaged-projects-create) | Create a new project |
+| GET | `/api/openportal-unmanaged-projects/checklist-template/` | [`openportal_unmanaged_projects_checklist_template_retrieve`](#openportal-unmanaged-projects-checklist-template-retrieve) |  |
+| HEAD | `/api/openportal-unmanaged-projects/checklist-template/` | [`openportal_unmanaged_projects_checklist_template_count`](#openportal-unmanaged-projects-checklist-template-count) |  |
+| GET | `/api/openportal-unmanaged-projects/{uuid}/` | [`openportal_unmanaged_projects_retrieve`](#openportal-unmanaged-projects-retrieve) | Retrieve project details |
+| PUT | `/api/openportal-unmanaged-projects/{uuid}/` | [`openportal_unmanaged_projects_update`](#openportal-unmanaged-projects-update) | Update project details |
+| PATCH | `/api/openportal-unmanaged-projects/{uuid}/` | [`openportal_unmanaged_projects_partial_update`](#openportal-unmanaged-projects-partial-update) | Partially update project details |
+| DELETE | `/api/openportal-unmanaged-projects/{uuid}/` | [`openportal_unmanaged_projects_destroy`](#openportal-unmanaged-projects-destroy) | Delete a project |
+| POST | `/api/openportal-unmanaged-projects/{uuid}/add_user/` | [`openportal_unmanaged_projects_add_user`](#openportal-unmanaged-projects-add-user) | Grant a role to a user |
+| GET | `/api/openportal-unmanaged-projects/{uuid}/checklist/` | [`openportal_unmanaged_projects_checklist_retrieve`](#openportal-unmanaged-projects-checklist-retrieve) |  |
+| GET | `/api/openportal-unmanaged-projects/{uuid}/completion_status/` | [`openportal_unmanaged_projects_completion_status_retrieve`](#openportal-unmanaged-projects-completion-status-retrieve) |  |
+| POST | `/api/openportal-unmanaged-projects/{uuid}/delete_user/` | [`openportal_unmanaged_projects_delete_user`](#openportal-unmanaged-projects-delete-user) | Revoke a role from a user |
+| GET | `/api/openportal-unmanaged-projects/{uuid}/list_users/` | [`openportal_unmanaged_projects_list_users_list`](#openportal-unmanaged-projects-list-users-list) | List users and their roles in a scope |
+| POST | `/api/openportal-unmanaged-projects/{uuid}/move_project/` | [`openportal_unmanaged_projects_move_project`](#openportal-unmanaged-projects-move-project) | Move project to another customer |
+| POST | `/api/openportal-unmanaged-projects/{uuid}/recover/` | [`openportal_unmanaged_projects_recover`](#openportal-unmanaged-projects-recover) | Recover a soft-deleted project |
+| GET | `/api/openportal-unmanaged-projects/{uuid}/stats/` | [`openportal_unmanaged_projects_stats_retrieve`](#openportal-unmanaged-projects-stats-retrieve) | Get project resource usage statistics |
+| POST | `/api/openportal-unmanaged-projects/{uuid}/submit_answers/` | [`openportal_unmanaged_projects_submit_answers`](#openportal-unmanaged-projects-submit-answers) |  |
+| POST | `/api/openportal-unmanaged-projects/{uuid}/update_user/` | [`openportal_unmanaged_projects_update_user`](#openportal-unmanaged-projects-update-user) | Update a user's role expiration |
+| GET | `/api/openportal-userinfo/` | [`openportal_userinfo_list`](#openportal-userinfo-list) |  |
+| HEAD | `/api/openportal-userinfo/` | [`openportal_userinfo_count`](#openportal-userinfo-count) |  |
+| POST | `/api/openportal-userinfo/` | [`openportal_userinfo_create`](#openportal-userinfo-create) |  |
+| GET | `/api/openportal-userinfo/me/` | [`openportal_userinfo_me_retrieve`](#openportal-userinfo-me-retrieve) |  |
+| HEAD | `/api/openportal-userinfo/me/` | [`openportal_userinfo_me_count`](#openportal-userinfo-me-count) |  |
+| GET | `/api/openportal-userinfo/{user}/` | [`openportal_userinfo_retrieve`](#openportal-userinfo-retrieve) |  |
+| PUT | `/api/openportal-userinfo/{user}/` | [`openportal_userinfo_update`](#openportal-userinfo-update) |  |
+| PATCH | `/api/openportal-userinfo/{user}/` | [`openportal_userinfo_partial_update`](#openportal-userinfo-partial-update) |  |
+| DELETE | `/api/openportal-userinfo/{user}/` | [`openportal_userinfo_destroy`](#openportal-userinfo-destroy) |  |
+| PUT | `/api/openportal-userinfo/{user}/set_shortname/` | [`openportal_userinfo_set_shortname_update`](#openportal-userinfo-set-shortname-update) |  |
 
 ## Endpoint Details
 
 ### openportal_allocation_user_usage_list
 
 **`GET`** `/api/openportal-allocation-user-usage/`
-
-**Operation ID:** `openportal_allocation_user_usage_list`
 
 **Parameters:**
 
@@ -126,8 +124,6 @@
 ### openportal_allocation_user_usage_count
 
 **`HEAD`** `/api/openportal-allocation-user-usage/`
-
-**Operation ID:** `openportal_allocation_user_usage_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -154,8 +150,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/openportal-allocation-user-usage/{id}/`
 
-**Operation ID:** `openportal_allocation_user_usage_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -173,8 +167,6 @@ Get number of items in the collection matching the request parameters.
 ### openportal_allocations_list
 
 **`GET`** `/api/openportal-allocations/`
-
-**Operation ID:** `openportal_allocations_list`
 
 **Parameters:**
 
@@ -212,8 +204,6 @@ Get number of items in the collection matching the request parameters.
 ### openportal_allocations_count
 
 **`HEAD`** `/api/openportal-allocations/`
-
-**Operation ID:** `openportal_allocations_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -253,8 +243,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/openportal-allocations/`
 
-**Operation ID:** `openportal_allocations_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `AllocationRequest`
@@ -280,8 +268,6 @@ Schema: `AllocationRequest`
 
 **`GET`** `/api/openportal-allocations/{uuid}/`
 
-**Operation ID:** `openportal_allocations_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -300,8 +286,6 @@ Schema: `AllocationRequest`
 ### openportal_allocations_update
 
 **`PUT`** `/api/openportal-allocations/{uuid}/`
-
-**Operation ID:** `openportal_allocations_update`
 
 **Parameters:**
 
@@ -334,8 +318,6 @@ Schema: `AllocationRequest`
 
 **`PATCH`** `/api/openportal-allocations/{uuid}/`
 
-**Operation ID:** `openportal_allocations_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -365,8 +347,6 @@ Schema: `PatchedAllocationRequest`
 
 **`DELETE`** `/api/openportal-allocations/{uuid}/`
 
-**Operation ID:** `openportal_allocations_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -381,11 +361,11 @@ Schema: `PatchedAllocationRequest`
 
 ---
 
-### Synchronize resource state
+### openportal_allocations_pull
 
 **`POST`** `/api/openportal-allocations/{uuid}/pull/`
 
-**Operation ID:** `openportal_allocations_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -404,11 +384,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### openportal_allocations_set_erred
 
 **`POST`** `/api/openportal-allocations/{uuid}/set_erred/`
 
-**Operation ID:** `openportal_allocations_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -439,8 +419,6 @@ Schema: `SetErredRequest`
 
 **`POST`** `/api/openportal-allocations/{uuid}/set_limits/`
 
-**Operation ID:** `openportal_allocations_set_limits`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -463,11 +441,11 @@ Schema: `AllocationSetLimitsRequest`
 
 ---
 
-### Mark resource as OK
+### openportal_allocations_set_ok
 
 **`POST`** `/api/openportal-allocations/{uuid}/set_ok/`
 
-**Operation ID:** `openportal_allocations_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -485,11 +463,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### openportal_allocations_unlink
 
 **`POST`** `/api/openportal-allocations/{uuid}/unlink/`
 
-**Operation ID:** `openportal_allocations_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -513,8 +491,6 @@ Delete resource from the database without scheduling operations on backend
 
 **`GET`** `/api/openportal-associations/`
 
-**Operation ID:** `openportal_associations_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -533,8 +509,6 @@ Delete resource from the database without scheduling operations on backend
 ### openportal_associations_count
 
 **`HEAD`** `/api/openportal-associations/`
-
-**Operation ID:** `openportal_associations_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -557,8 +531,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/openportal-associations/{uuid}/`
 
-**Operation ID:** `openportal_associations_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -576,8 +548,6 @@ Get number of items in the collection matching the request parameters.
 ### openportal_managed_projects_list
 
 **`GET`** `/api/openportal-managed-projects/`
-
-**Operation ID:** `openportal_managed_projects_list`
 
 List all managed projects
 
@@ -605,8 +575,6 @@ List all managed projects
 
 **`HEAD`** `/api/openportal-managed-projects/`
 
-**Operation ID:** `openportal_managed_projects_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -633,8 +601,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/openportal-managed-projects/{identifier}/{destination}/`
 
-**Operation ID:** `openportal_managed_projects_retrieve_get`
-
 Retrieve a managed project
 
 **Parameters:**
@@ -656,8 +622,6 @@ Retrieve a managed project
 
 **`HEAD`** `/api/openportal-managed-projects/{identifier}/{destination}/`
 
-**Operation ID:** `openportal_managed_projects_retrieve_head`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -678,8 +642,6 @@ Get number of items in the collection matching the request parameters.
 ### openportal_managed_projects_approve
 
 **`POST`** `/api/openportal-managed-projects/{identifier}/{destination}/approve/`
-
-**Operation ID:** `openportal_managed_projects_approve`
 
 Approve managed project request
 
@@ -710,8 +672,6 @@ Schema: `ReviewCommentRequest`
 
 **`POST`** `/api/openportal-managed-projects/{identifier}/{destination}/attach/`
 
-**Operation ID:** `openportal_managed_projects_attach`
-
 Attach a project to this managed project
 
 **Parameters:**
@@ -741,8 +701,6 @@ Schema: `ProjectAttachRequest`
 
 **`DELETE`** `/api/openportal-managed-projects/{identifier}/{destination}/delete/`
 
-**Operation ID:** `openportal_managed_projects_delete_destroy`
-
 Delete ManagedProject object
 
 **Parameters:**
@@ -764,8 +722,6 @@ Delete ManagedProject object
 
 **`POST`** `/api/openportal-managed-projects/{identifier}/{destination}/detach/`
 
-**Operation ID:** `openportal_managed_projects_detach`
-
 Detach the project from this managed project
 
 **Parameters:**
@@ -786,8 +742,6 @@ Detach the project from this managed project
 ### openportal_managed_projects_reject
 
 **`POST`** `/api/openportal-managed-projects/{identifier}/{destination}/reject/`
-
-**Operation ID:** `openportal_managed_projects_reject`
 
 Reject managed project request
 
@@ -818,8 +772,6 @@ Schema: `ReviewCommentRequest`
 
 **`GET`** `/api/openportal-project-template/`
 
-**Operation ID:** `openportal_project_template_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -839,8 +791,6 @@ Schema: `ReviewCommentRequest`
 ### openportal_project_template_count
 
 **`HEAD`** `/api/openportal-project-template/`
-
-**Operation ID:** `openportal_project_template_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -863,8 +813,6 @@ Get number of items in the collection matching the request parameters.
 ### openportal_project_template_create
 
 **`POST`** `/api/openportal-project-template/`
-
-**Operation ID:** `openportal_project_template_create`
 
 Create ProjectTemplate object
 
@@ -899,8 +847,6 @@ Schema: `ProjectTemplateRequest`
 
 **`GET`** `/api/openportal-project-template/{uuid}/`
 
-**Operation ID:** `openportal_project_template_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -918,8 +864,6 @@ Schema: `ProjectTemplateRequest`
 ### openportal_project_template_update
 
 **`PUT`** `/api/openportal-project-template/{uuid}/`
-
-**Operation ID:** `openportal_project_template_update`
 
 Update ProjectTemplate object (full update)
 
@@ -960,8 +904,6 @@ Schema: `ProjectTemplateRequest`
 
 **`PATCH`** `/api/openportal-project-template/{uuid}/`
 
-**Operation ID:** `openportal_project_template_partial_update`
-
 Partially update ProjectTemplate object
 
 **Parameters:**
@@ -1001,8 +943,6 @@ Schema: `PatchedProjectTemplateRequest`
 
 **`DELETE`** `/api/openportal-project-template/{uuid}/`
 
-**Operation ID:** `openportal_project_template_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1020,8 +960,6 @@ Schema: `PatchedProjectTemplateRequest`
 ### openportal_project_template_delete_destroy
 
 **`DELETE`** `/api/openportal-project-template/{uuid}/delete/`
-
-**Operation ID:** `openportal_project_template_delete_destroy`
 
 Delete ProjectTemplate object
 
@@ -1043,8 +981,6 @@ Delete ProjectTemplate object
 
 **`GET`** `/api/openportal-projectinfo/`
 
-**Operation ID:** `openportal_projectinfo_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1063,8 +999,6 @@ Delete ProjectTemplate object
 ### openportal_projectinfo_count
 
 **`HEAD`** `/api/openportal-projectinfo/`
-
-**Operation ID:** `openportal_projectinfo_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1086,8 +1020,6 @@ Get number of items in the collection matching the request parameters.
 ### openportal_projectinfo_create
 
 **`POST`** `/api/openportal-projectinfo/`
-
-**Operation ID:** `openportal_projectinfo_create`
 
 **Request Body** (`application/json`, required):
 
@@ -1111,8 +1043,6 @@ Schema: `ProjectInfoRequest`
 
 **`GET`** `/api/openportal-projectinfo/{project}/`
 
-**Operation ID:** `openportal_projectinfo_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1130,8 +1060,6 @@ Schema: `ProjectInfoRequest`
 ### openportal_projectinfo_update
 
 **`PUT`** `/api/openportal-projectinfo/{project}/`
-
-**Operation ID:** `openportal_projectinfo_update`
 
 **Parameters:**
 
@@ -1161,8 +1089,6 @@ Schema: `ProjectInfoRequest`
 
 **`PATCH`** `/api/openportal-projectinfo/{project}/`
 
-**Operation ID:** `openportal_projectinfo_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1191,8 +1117,6 @@ Schema: `PatchedProjectInfoRequest`
 
 **`DELETE`** `/api/openportal-projectinfo/{project}/`
 
-**Operation ID:** `openportal_projectinfo_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1210,8 +1134,6 @@ Schema: `PatchedProjectInfoRequest`
 ### openportal_projectinfo_set_allowed_destinations_update
 
 **`PUT`** `/api/openportal-projectinfo/{project}/set_allowed_destinations/`
-
-**Operation ID:** `openportal_projectinfo_set_allowed_destinations_update`
 
 **Parameters:**
 
@@ -1241,8 +1163,6 @@ Schema: `ProjectInfoRequest`
 
 **`PUT`** `/api/openportal-projectinfo/{project}/set_shortname/`
 
-**Operation ID:** `openportal_projectinfo_set_shortname_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1270,8 +1190,6 @@ Schema: `ProjectInfoRequest`
 ### openportal_remote_allocations_list
 
 **`GET`** `/api/openportal-remote-allocations/`
-
-**Operation ID:** `openportal_remote_allocations_list`
 
 **Parameters:**
 
@@ -1309,8 +1227,6 @@ Schema: `ProjectInfoRequest`
 ### openportal_remote_allocations_count
 
 **`HEAD`** `/api/openportal-remote-allocations/`
-
-**Operation ID:** `openportal_remote_allocations_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1350,8 +1266,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/openportal-remote-allocations/`
 
-**Operation ID:** `openportal_remote_allocations_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `RemoteAllocationRequest`
@@ -1377,8 +1291,6 @@ Schema: `RemoteAllocationRequest`
 
 **`GET`** `/api/openportal-remote-allocations/{uuid}/`
 
-**Operation ID:** `openportal_remote_allocations_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1397,8 +1309,6 @@ Schema: `RemoteAllocationRequest`
 ### openportal_remote_allocations_update
 
 **`PUT`** `/api/openportal-remote-allocations/{uuid}/`
-
-**Operation ID:** `openportal_remote_allocations_update`
 
 **Parameters:**
 
@@ -1431,8 +1341,6 @@ Schema: `RemoteAllocationRequest`
 
 **`PATCH`** `/api/openportal-remote-allocations/{uuid}/`
 
-**Operation ID:** `openportal_remote_allocations_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1462,8 +1370,6 @@ Schema: `PatchedRemoteAllocationRequest`
 
 **`DELETE`** `/api/openportal-remote-allocations/{uuid}/`
 
-**Operation ID:** `openportal_remote_allocations_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1478,11 +1384,11 @@ Schema: `PatchedRemoteAllocationRequest`
 
 ---
 
-### Synchronize resource state
+### openportal_remote_allocations_pull
 
 **`POST`** `/api/openportal-remote-allocations/{uuid}/pull/`
 
-**Operation ID:** `openportal_remote_allocations_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -1501,11 +1407,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### openportal_remote_allocations_set_erred
 
 **`POST`** `/api/openportal-remote-allocations/{uuid}/set_erred/`
 
-**Operation ID:** `openportal_remote_allocations_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -1536,8 +1442,6 @@ Schema: `SetErredRequest`
 
 **`POST`** `/api/openportal-remote-allocations/{uuid}/set_limits/`
 
-**Operation ID:** `openportal_remote_allocations_set_limits`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1560,11 +1464,11 @@ Schema: `RemoteAllocationSetLimitsRequest`
 
 ---
 
-### Mark resource as OK
+### openportal_remote_allocations_set_ok
 
 **`POST`** `/api/openportal-remote-allocations/{uuid}/set_ok/`
 
-**Operation ID:** `openportal_remote_allocations_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -1582,11 +1486,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### openportal_remote_allocations_unlink
 
 **`POST`** `/api/openportal-remote-allocations/{uuid}/unlink/`
 
-**Operation ID:** `openportal_remote_allocations_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -1610,8 +1514,6 @@ Delete resource from the database without scheduling operations on backend
 
 **`GET`** `/api/openportal-remote-associations/`
 
-**Operation ID:** `openportal_remote_associations_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1630,8 +1532,6 @@ Delete resource from the database without scheduling operations on backend
 ### openportal_remote_associations_count
 
 **`HEAD`** `/api/openportal-remote-associations/`
-
-**Operation ID:** `openportal_remote_associations_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1654,8 +1554,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/openportal-remote-associations/{uuid}/`
 
-**Operation ID:** `openportal_remote_associations_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1670,11 +1568,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### List projects
+### openportal_unmanaged_projects_list
 
 **`GET`** `/api/openportal-unmanaged-projects/`
 
-**Operation ID:** `openportal_unmanaged_projects_list`
+**Summary:** List projects
 
 Retrieve a list of projects. The list is filtered based on the user's permissions. By default, only active projects are shown.
 
@@ -1712,11 +1610,11 @@ Retrieve a list of projects. The list is filtered based on the user's permission
 
 ---
 
-### List projects
+### openportal_unmanaged_projects_count
 
 **`HEAD`** `/api/openportal-unmanaged-projects/`
 
-**Operation ID:** `openportal_unmanaged_projects_count`
+**Summary:** List projects
 
 Get number of items in the collection matching the request parameters.
 
@@ -1753,11 +1651,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a new project
+### openportal_unmanaged_projects_create
 
 **`POST`** `/api/openportal-unmanaged-projects/`
 
-**Operation ID:** `openportal_unmanaged_projects_create`
+**Summary:** Create a new project
 
 A new project can be created by users with staff privilege (is_staff=True) or customer owners. Project resource quota is optional.
 
@@ -1797,8 +1695,6 @@ Schema: `ProjectRequest`
 
 **`GET`** `/api/openportal-unmanaged-projects/checklist-template/`
 
-**Operation ID:** `openportal_unmanaged_projects_checklist_template_retrieve`
-
 Get checklist template for creating new objects.
 
 **Parameters:**
@@ -1821,8 +1717,6 @@ Get checklist template for creating new objects.
 
 **`HEAD`** `/api/openportal-unmanaged-projects/checklist-template/`
 
-**Operation ID:** `openportal_unmanaged_projects_checklist_template_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -1839,11 +1733,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve project details
+### openportal_unmanaged_projects_retrieve
 
 **`GET`** `/api/openportal-unmanaged-projects/{uuid}/`
 
-**Operation ID:** `openportal_unmanaged_projects_retrieve`
+**Summary:** Retrieve project details
 
 Fetch the details of a specific project by its UUID. Users can access details of terminated projects they previously had access to.
 
@@ -1862,11 +1756,11 @@ Fetch the details of a specific project by its UUID. Users can access details of
 
 ---
 
-### Update project details
+### openportal_unmanaged_projects_update
 
 **`PUT`** `/api/openportal-unmanaged-projects/{uuid}/`
 
-**Operation ID:** `openportal_unmanaged_projects_update`
+**Summary:** Update project details
 
 Update the details of a project. Requires project administrator or customer owner permissions.
 
@@ -1908,11 +1802,11 @@ Schema: `ProjectRequest`
 
 ---
 
-### Partially update project details
+### openportal_unmanaged_projects_partial_update
 
 **`PATCH`** `/api/openportal-unmanaged-projects/{uuid}/`
 
-**Operation ID:** `openportal_unmanaged_projects_partial_update`
+**Summary:** Partially update project details
 
 Partially update the details of a project. Requires project administrator or customer owner permissions.
 
@@ -1954,11 +1848,11 @@ Schema: `PatchedProjectRequest`
 
 ---
 
-### Delete a project
+### openportal_unmanaged_projects_destroy
 
 **`DELETE`** `/api/openportal-unmanaged-projects/{uuid}/`
 
-**Operation ID:** `openportal_unmanaged_projects_destroy`
+**Summary:** Delete a project
 
 Delete a project. If the project has any active resources, the deletion request will fail with a 409 Conflict response. This action performs a soft-delete, and the project can be recovered later.
 
@@ -1976,11 +1870,11 @@ Delete a project. If the project has any active resources, the deletion request 
 
 ---
 
-### Grant a role to a user
+### openportal_unmanaged_projects_add_user
 
 **`POST`** `/api/openportal-unmanaged-projects/{uuid}/add_user/`
 
-**Operation ID:** `openportal_unmanaged_projects_add_user`
+**Summary:** Grant a role to a user
 
 Assigns a specific role to a user within the current scope. An optional expiration time for the role can be set.
 
@@ -2013,8 +1907,6 @@ Schema: `UserRoleCreateRequest`
 
 **`GET`** `/api/openportal-unmanaged-projects/{uuid}/checklist/`
 
-**Operation ID:** `openportal_unmanaged_projects_checklist_retrieve`
-
 Get checklist with questions and existing answers.
 
 **Parameters:**
@@ -2038,8 +1930,6 @@ Get checklist with questions and existing answers.
 
 **`GET`** `/api/openportal-unmanaged-projects/{uuid}/completion_status/`
 
-**Operation ID:** `openportal_unmanaged_projects_completion_status_retrieve`
-
 Get checklist completion status.
 
 **Parameters:**
@@ -2058,11 +1948,11 @@ Get checklist completion status.
 
 ---
 
-### Revoke a role from a user
+### openportal_unmanaged_projects_delete_user
 
 **`POST`** `/api/openportal-unmanaged-projects/{uuid}/delete_user/`
 
-**Operation ID:** `openportal_unmanaged_projects_delete_user`
+**Summary:** Revoke a role from a user
 
 Removes a specific role from a user within the current scope. This effectively revokes their permissions associated with that role.
 
@@ -2090,11 +1980,11 @@ Schema: `UserRoleDeleteRequest`
 
 ---
 
-### List users and their roles in a scope
+### openportal_unmanaged_projects_list_users_list
 
 **`GET`** `/api/openportal-unmanaged-projects/{uuid}/list_users/`
 
-**Operation ID:** `openportal_unmanaged_projects_list_users_list`
+**Summary:** List users and their roles in a scope
 
 Retrieves a list of users who have a role within a specific scope (e.g., a project or an organization). The list can be filtered by user details or role.
 
@@ -2122,11 +2012,11 @@ Retrieves a list of users who have a role within a specific scope (e.g., a proje
 
 ---
 
-### Move project to another customer
+### openportal_unmanaged_projects_move_project
 
 **`POST`** `/api/openportal-unmanaged-projects/{uuid}/move_project/`
 
-**Operation ID:** `openportal_unmanaged_projects_move_project`
+**Summary:** Move project to another customer
 
 Moves a project and its associated resources to a different customer. You can choose whether to preserve existing project permissions for users. Terminated projects can also be moved.
 
@@ -2153,11 +2043,11 @@ Schema: `MoveProjectRequest`
 
 ---
 
-### Recover a soft-deleted project
+### openportal_unmanaged_projects_recover
 
 **`POST`** `/api/openportal-unmanaged-projects/{uuid}/recover/`
 
-**Operation ID:** `openportal_unmanaged_projects_recover`
+**Summary:** Recover a soft-deleted project
 
 Recovers a soft-deleted (terminated) project, making it active again. Provides options to restore previous team members automatically (staff-only) or send them new invitations.
 
@@ -2185,11 +2075,11 @@ Schema: `ProjectRecoveryRequest`
 
 ---
 
-### Get project resource usage statistics
+### openportal_unmanaged_projects_stats_retrieve
 
 **`GET`** `/api/openportal-unmanaged-projects/{uuid}/stats/`
 
-**Operation ID:** `openportal_unmanaged_projects_stats_retrieve`
+**Summary:** Get project resource usage statistics
 
 Provides statistics about the resource usage (e.g., CPU, RAM, storage) for all resources within a project. Can be filtered to show usage for the current month only.
 
@@ -2212,8 +2102,6 @@ Provides statistics about the resource usage (e.g., CPU, RAM, storage) for all r
 
 **`POST`** `/api/openportal-unmanaged-projects/{uuid}/submit_answers/`
 
-**Operation ID:** `openportal_unmanaged_projects_submit_answers`
-
 Submit checklist answers.
 
 **Parameters:**
@@ -2234,11 +2122,11 @@ Submit checklist answers.
 
 ---
 
-### Update a user's role expiration
+### openportal_unmanaged_projects_update_user
 
 **`POST`** `/api/openportal-unmanaged-projects/{uuid}/update_user/`
 
-**Operation ID:** `openportal_unmanaged_projects_update_user`
+**Summary:** Update a user's role expiration
 
 Updates the expiration time for a user's existing role in the current scope. This is useful for extending or shortening the duration of a permission. To make a role permanent, set expiration_time to null.
 
@@ -2270,8 +2158,6 @@ Schema: `UserRoleUpdateRequest`
 
 **`GET`** `/api/openportal-userinfo/`
 
-**Operation ID:** `openportal_userinfo_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2290,8 +2176,6 @@ Schema: `UserRoleUpdateRequest`
 ### openportal_userinfo_count
 
 **`HEAD`** `/api/openportal-userinfo/`
-
-**Operation ID:** `openportal_userinfo_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2314,8 +2198,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/openportal-userinfo/`
 
-**Operation ID:** `openportal_userinfo_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `UserInfoRequest`
@@ -2337,8 +2219,6 @@ Schema: `UserInfoRequest`
 
 **`GET`** `/api/openportal-userinfo/me/`
 
-**Operation ID:** `openportal_userinfo_me_retrieve`
-
 **Responses:**
 
 | Status | Description |
@@ -2350,8 +2230,6 @@ Schema: `UserInfoRequest`
 ### openportal_userinfo_me_count
 
 **`HEAD`** `/api/openportal-userinfo/me/`
-
-**Operation ID:** `openportal_userinfo_me_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -2366,8 +2244,6 @@ Get number of items in the collection matching the request parameters.
 ### openportal_userinfo_retrieve
 
 **`GET`** `/api/openportal-userinfo/{user}/`
-
-**Operation ID:** `openportal_userinfo_retrieve`
 
 **Parameters:**
 
@@ -2386,8 +2262,6 @@ Get number of items in the collection matching the request parameters.
 ### openportal_userinfo_update
 
 **`PUT`** `/api/openportal-userinfo/{user}/`
-
-**Operation ID:** `openportal_userinfo_update`
 
 **Parameters:**
 
@@ -2416,8 +2290,6 @@ Schema: `UserInfoRequest`
 
 **`PATCH`** `/api/openportal-userinfo/{user}/`
 
-**Operation ID:** `openportal_userinfo_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2445,8 +2317,6 @@ Schema: `PatchedUserInfoRequest`
 
 **`DELETE`** `/api/openportal-userinfo/{user}/`
 
-**Operation ID:** `openportal_userinfo_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -2464,8 +2334,6 @@ Schema: `PatchedUserInfoRequest`
 ### openportal_userinfo_set_shortname_update
 
 **`PUT`** `/api/openportal-userinfo/{user}/set_shortname/`
-
-**Operation ID:** `openportal_userinfo_set_shortname_update`
 
 **Parameters:**
 

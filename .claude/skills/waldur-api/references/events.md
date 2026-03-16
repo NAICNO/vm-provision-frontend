@@ -7,70 +7,68 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/broadcast-message-templates/` | `broadcast_message_templates_list` |  |
-| HEAD | `/api/broadcast-message-templates/` | `broadcast_message_templates_count` |  |
-| POST | `/api/broadcast-message-templates/` | `broadcast_message_templates_create` |  |
-| GET | `/api/broadcast-message-templates/{uuid}/` | `broadcast_message_templates_retrieve` |  |
-| PUT | `/api/broadcast-message-templates/{uuid}/` | `broadcast_message_templates_update` |  |
-| PATCH | `/api/broadcast-message-templates/{uuid}/` | `broadcast_message_templates_partial_update` |  |
-| DELETE | `/api/broadcast-message-templates/{uuid}/` | `broadcast_message_templates_destroy` |  |
-| GET | `/api/broadcast-messages/` | `broadcast_messages_list` |  |
-| HEAD | `/api/broadcast-messages/` | `broadcast_messages_count` |  |
-| POST | `/api/broadcast-messages/` | `broadcast_messages_create` |  |
-| GET | `/api/broadcast-messages/recipients/` | `broadcast_messages_recipients_retrieve` |  |
-| HEAD | `/api/broadcast-messages/recipients/` | `broadcast_messages_recipients_count` |  |
-| GET | `/api/broadcast-messages/{uuid}/` | `broadcast_messages_retrieve` |  |
-| PUT | `/api/broadcast-messages/{uuid}/` | `broadcast_messages_update` |  |
-| PATCH | `/api/broadcast-messages/{uuid}/` | `broadcast_messages_partial_update` |  |
-| DELETE | `/api/broadcast-messages/{uuid}/` | `broadcast_messages_destroy` |  |
-| POST | `/api/broadcast-messages/{uuid}/schedule/` | `broadcast_messages_schedule` |  |
-| POST | `/api/broadcast-messages/{uuid}/send/` | `broadcast_messages_send` |  |
-| GET | `/api/event-subscription-queues/` | `event_subscription_queues_list` |  |
-| HEAD | `/api/event-subscription-queues/` | `event_subscription_queues_count` |  |
-| GET | `/api/event-subscription-queues/{uuid}/` | `event_subscription_queues_retrieve` |  |
-| DELETE | `/api/event-subscription-queues/{uuid}/` | `event_subscription_queues_destroy` |  |
-| GET | `/api/event-subscriptions/` | `event_subscriptions_list` |  |
-| HEAD | `/api/event-subscriptions/` | `event_subscriptions_count` |  |
-| POST | `/api/event-subscriptions/` | `event_subscriptions_create` |  |
-| GET | `/api/event-subscriptions/{uuid}/` | `event_subscriptions_retrieve` |  |
-| DELETE | `/api/event-subscriptions/{uuid}/` | `event_subscriptions_destroy` |  |
-| POST | `/api/event-subscriptions/{uuid}/create_queue/` | `event_subscriptions_create_queue` |  |
-| GET | `/api/events-stats/` | `events_stats_list` |  |
-| HEAD | `/api/events-stats/` | `events_stats_count` |  |
-| GET | `/api/events/` | `events_list` |  |
-| HEAD | `/api/events/` | `events_count` |  |
-| GET | `/api/events/count/` | `events_count_retrieve` |  |
-| HEAD | `/api/events/count/` | `events_count_count` |  |
-| GET | `/api/events/event_groups/` | `events_event_groups_retrieve` |  |
-| HEAD | `/api/events/event_groups/` | `events_event_groups_count` |  |
-| GET | `/api/events/scope_types/` | `events_scope_types_retrieve` |  |
-| HEAD | `/api/events/scope_types/` | `events_scope_types_count` |  |
-| GET | `/api/events/{id}/` | `events_retrieve` |  |
-| GET | `/api/notification-messages-templates/` | `notification_messages_templates_list` |  |
-| HEAD | `/api/notification-messages-templates/` | `notification_messages_templates_count` |  |
-| POST | `/api/notification-messages-templates/` | `notification_messages_templates_create` |  |
-| GET | `/api/notification-messages-templates/{uuid}/` | `notification_messages_templates_retrieve` |  |
-| PUT | `/api/notification-messages-templates/{uuid}/` | `notification_messages_templates_update` |  |
-| PATCH | `/api/notification-messages-templates/{uuid}/` | `notification_messages_templates_partial_update` |  |
-| DELETE | `/api/notification-messages-templates/{uuid}/` | `notification_messages_templates_destroy` |  |
-| POST | `/api/notification-messages-templates/{uuid}/override/` | `notification_messages_templates_override` | Override notification template content |
-| GET | `/api/notification-messages/` | `notification_messages_list` |  |
-| HEAD | `/api/notification-messages/` | `notification_messages_count` |  |
-| POST | `/api/notification-messages/` | `notification_messages_create` |  |
-| GET | `/api/notification-messages/{uuid}/` | `notification_messages_retrieve` |  |
-| PUT | `/api/notification-messages/{uuid}/` | `notification_messages_update` |  |
-| PATCH | `/api/notification-messages/{uuid}/` | `notification_messages_partial_update` |  |
-| DELETE | `/api/notification-messages/{uuid}/` | `notification_messages_destroy` |  |
-| POST | `/api/notification-messages/{uuid}/disable/` | `notification_messages_disable` | Disable a notification |
-| POST | `/api/notification-messages/{uuid}/enable/` | `notification_messages_enable` | Enable a notification |
+| GET | `/api/broadcast-message-templates/` | [`broadcast_message_templates_list`](#broadcast-message-templates-list) |  |
+| HEAD | `/api/broadcast-message-templates/` | [`broadcast_message_templates_count`](#broadcast-message-templates-count) |  |
+| POST | `/api/broadcast-message-templates/` | [`broadcast_message_templates_create`](#broadcast-message-templates-create) |  |
+| GET | `/api/broadcast-message-templates/{uuid}/` | [`broadcast_message_templates_retrieve`](#broadcast-message-templates-retrieve) |  |
+| PUT | `/api/broadcast-message-templates/{uuid}/` | [`broadcast_message_templates_update`](#broadcast-message-templates-update) |  |
+| PATCH | `/api/broadcast-message-templates/{uuid}/` | [`broadcast_message_templates_partial_update`](#broadcast-message-templates-partial-update) |  |
+| DELETE | `/api/broadcast-message-templates/{uuid}/` | [`broadcast_message_templates_destroy`](#broadcast-message-templates-destroy) |  |
+| GET | `/api/broadcast-messages/` | [`broadcast_messages_list`](#broadcast-messages-list) |  |
+| HEAD | `/api/broadcast-messages/` | [`broadcast_messages_count`](#broadcast-messages-count) |  |
+| POST | `/api/broadcast-messages/` | [`broadcast_messages_create`](#broadcast-messages-create) |  |
+| GET | `/api/broadcast-messages/recipients/` | [`broadcast_messages_recipients_retrieve`](#broadcast-messages-recipients-retrieve) |  |
+| HEAD | `/api/broadcast-messages/recipients/` | [`broadcast_messages_recipients_count`](#broadcast-messages-recipients-count) |  |
+| GET | `/api/broadcast-messages/{uuid}/` | [`broadcast_messages_retrieve`](#broadcast-messages-retrieve) |  |
+| PUT | `/api/broadcast-messages/{uuid}/` | [`broadcast_messages_update`](#broadcast-messages-update) |  |
+| PATCH | `/api/broadcast-messages/{uuid}/` | [`broadcast_messages_partial_update`](#broadcast-messages-partial-update) |  |
+| DELETE | `/api/broadcast-messages/{uuid}/` | [`broadcast_messages_destroy`](#broadcast-messages-destroy) |  |
+| POST | `/api/broadcast-messages/{uuid}/schedule/` | [`broadcast_messages_schedule`](#broadcast-messages-schedule) |  |
+| POST | `/api/broadcast-messages/{uuid}/send/` | [`broadcast_messages_send`](#broadcast-messages-send) |  |
+| GET | `/api/event-subscription-queues/` | [`event_subscription_queues_list`](#event-subscription-queues-list) |  |
+| HEAD | `/api/event-subscription-queues/` | [`event_subscription_queues_count`](#event-subscription-queues-count) |  |
+| GET | `/api/event-subscription-queues/{uuid}/` | [`event_subscription_queues_retrieve`](#event-subscription-queues-retrieve) |  |
+| DELETE | `/api/event-subscription-queues/{uuid}/` | [`event_subscription_queues_destroy`](#event-subscription-queues-destroy) |  |
+| GET | `/api/event-subscriptions/` | [`event_subscriptions_list`](#event-subscriptions-list) |  |
+| HEAD | `/api/event-subscriptions/` | [`event_subscriptions_count`](#event-subscriptions-count) |  |
+| POST | `/api/event-subscriptions/` | [`event_subscriptions_create`](#event-subscriptions-create) |  |
+| GET | `/api/event-subscriptions/{uuid}/` | [`event_subscriptions_retrieve`](#event-subscriptions-retrieve) |  |
+| DELETE | `/api/event-subscriptions/{uuid}/` | [`event_subscriptions_destroy`](#event-subscriptions-destroy) |  |
+| POST | `/api/event-subscriptions/{uuid}/create_queue/` | [`event_subscriptions_create_queue`](#event-subscriptions-create-queue) |  |
+| GET | `/api/events-stats/` | [`events_stats_list`](#events-stats-list) |  |
+| HEAD | `/api/events-stats/` | [`events_stats_count`](#events-stats-count) |  |
+| GET | `/api/events/` | [`events_list`](#events-list) |  |
+| HEAD | `/api/events/` | [`events_count`](#events-count) |  |
+| GET | `/api/events/count/` | [`events_count_retrieve`](#events-count-retrieve) |  |
+| HEAD | `/api/events/count/` | [`events_count_count`](#events-count-count) |  |
+| GET | `/api/events/event_groups/` | [`events_event_groups_retrieve`](#events-event-groups-retrieve) |  |
+| HEAD | `/api/events/event_groups/` | [`events_event_groups_count`](#events-event-groups-count) |  |
+| GET | `/api/events/scope_types/` | [`events_scope_types_retrieve`](#events-scope-types-retrieve) |  |
+| HEAD | `/api/events/scope_types/` | [`events_scope_types_count`](#events-scope-types-count) |  |
+| GET | `/api/events/{id}/` | [`events_retrieve`](#events-retrieve) |  |
+| GET | `/api/notification-messages-templates/` | [`notification_messages_templates_list`](#notification-messages-templates-list) |  |
+| HEAD | `/api/notification-messages-templates/` | [`notification_messages_templates_count`](#notification-messages-templates-count) |  |
+| POST | `/api/notification-messages-templates/` | [`notification_messages_templates_create`](#notification-messages-templates-create) |  |
+| GET | `/api/notification-messages-templates/{uuid}/` | [`notification_messages_templates_retrieve`](#notification-messages-templates-retrieve) |  |
+| PUT | `/api/notification-messages-templates/{uuid}/` | [`notification_messages_templates_update`](#notification-messages-templates-update) |  |
+| PATCH | `/api/notification-messages-templates/{uuid}/` | [`notification_messages_templates_partial_update`](#notification-messages-templates-partial-update) |  |
+| DELETE | `/api/notification-messages-templates/{uuid}/` | [`notification_messages_templates_destroy`](#notification-messages-templates-destroy) |  |
+| POST | `/api/notification-messages-templates/{uuid}/override/` | [`notification_messages_templates_override`](#notification-messages-templates-override) | Override notification template content |
+| GET | `/api/notification-messages/` | [`notification_messages_list`](#notification-messages-list) |  |
+| HEAD | `/api/notification-messages/` | [`notification_messages_count`](#notification-messages-count) |  |
+| POST | `/api/notification-messages/` | [`notification_messages_create`](#notification-messages-create) |  |
+| GET | `/api/notification-messages/{uuid}/` | [`notification_messages_retrieve`](#notification-messages-retrieve) |  |
+| PUT | `/api/notification-messages/{uuid}/` | [`notification_messages_update`](#notification-messages-update) |  |
+| PATCH | `/api/notification-messages/{uuid}/` | [`notification_messages_partial_update`](#notification-messages-partial-update) |  |
+| DELETE | `/api/notification-messages/{uuid}/` | [`notification_messages_destroy`](#notification-messages-destroy) |  |
+| POST | `/api/notification-messages/{uuid}/disable/` | [`notification_messages_disable`](#notification-messages-disable) | Disable a notification |
+| POST | `/api/notification-messages/{uuid}/enable/` | [`notification_messages_enable`](#notification-messages-enable) | Enable a notification |
 
 ## Endpoint Details
 
 ### broadcast_message_templates_list
 
 **`GET`** `/api/broadcast-message-templates/`
-
-**Operation ID:** `broadcast_message_templates_list`
 
 **Parameters:**
 
@@ -89,8 +87,6 @@
 ### broadcast_message_templates_count
 
 **`HEAD`** `/api/broadcast-message-templates/`
-
-**Operation ID:** `broadcast_message_templates_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -111,8 +107,6 @@ Get number of items in the collection matching the request parameters.
 ### broadcast_message_templates_create
 
 **`POST`** `/api/broadcast-message-templates/`
-
-**Operation ID:** `broadcast_message_templates_create`
 
 **Request Body** (`application/json`, required):
 
@@ -136,8 +130,6 @@ Schema: `MessageTemplateRequest`
 
 **`GET`** `/api/broadcast-message-templates/{uuid}/`
 
-**Operation ID:** `broadcast_message_templates_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -155,8 +147,6 @@ Schema: `MessageTemplateRequest`
 ### broadcast_message_templates_update
 
 **`PUT`** `/api/broadcast-message-templates/{uuid}/`
-
-**Operation ID:** `broadcast_message_templates_update`
 
 **Parameters:**
 
@@ -186,8 +176,6 @@ Schema: `MessageTemplateRequest`
 
 **`PATCH`** `/api/broadcast-message-templates/{uuid}/`
 
-**Operation ID:** `broadcast_message_templates_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -216,8 +204,6 @@ Schema: `PatchedMessageTemplateRequest`
 
 **`DELETE`** `/api/broadcast-message-templates/{uuid}/`
 
-**Operation ID:** `broadcast_message_templates_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -235,8 +221,6 @@ Schema: `PatchedMessageTemplateRequest`
 ### broadcast_messages_list
 
 **`GET`** `/api/broadcast-messages/`
-
-**Operation ID:** `broadcast_messages_list`
 
 **Parameters:**
 
@@ -259,8 +243,6 @@ Schema: `PatchedMessageTemplateRequest`
 
 **`HEAD`** `/api/broadcast-messages/`
 
-**Operation ID:** `broadcast_messages_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Parameters:**
@@ -282,8 +264,6 @@ Get number of items in the collection matching the request parameters.
 ### broadcast_messages_create
 
 **`POST`** `/api/broadcast-messages/`
-
-**Operation ID:** `broadcast_messages_create`
 
 **Request Body** (`application/json`, required):
 
@@ -308,8 +288,6 @@ Schema: `BroadcastMessageRequest`
 
 **`GET`** `/api/broadcast-messages/recipients/`
 
-**Operation ID:** `broadcast_messages_recipients_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -328,8 +306,6 @@ Schema: `BroadcastMessageRequest`
 
 **`HEAD`** `/api/broadcast-messages/recipients/`
 
-**Operation ID:** `broadcast_messages_recipients_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Responses:**
@@ -343,8 +319,6 @@ Get number of items in the collection matching the request parameters.
 ### broadcast_messages_retrieve
 
 **`GET`** `/api/broadcast-messages/{uuid}/`
-
-**Operation ID:** `broadcast_messages_retrieve`
 
 **Parameters:**
 
@@ -364,8 +338,6 @@ Get number of items in the collection matching the request parameters.
 ### broadcast_messages_update
 
 **`PUT`** `/api/broadcast-messages/{uuid}/`
-
-**Operation ID:** `broadcast_messages_update`
 
 **Parameters:**
 
@@ -396,8 +368,6 @@ Schema: `BroadcastMessageRequest`
 
 **`PATCH`** `/api/broadcast-messages/{uuid}/`
 
-**Operation ID:** `broadcast_messages_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -427,8 +397,6 @@ Schema: `PatchedBroadcastMessageRequest`
 
 **`DELETE`** `/api/broadcast-messages/{uuid}/`
 
-**Operation ID:** `broadcast_messages_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -446,8 +414,6 @@ Schema: `PatchedBroadcastMessageRequest`
 ### broadcast_messages_schedule
 
 **`POST`** `/api/broadcast-messages/{uuid}/schedule/`
-
-**Operation ID:** `broadcast_messages_schedule`
 
 **Parameters:**
 
@@ -467,8 +433,6 @@ Schema: `PatchedBroadcastMessageRequest`
 
 **`POST`** `/api/broadcast-messages/{uuid}/send/`
 
-**Operation ID:** `broadcast_messages_send`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -486,8 +450,6 @@ Schema: `PatchedBroadcastMessageRequest`
 ### event_subscription_queues_list
 
 **`GET`** `/api/event-subscription-queues/`
-
-**Operation ID:** `event_subscription_queues_list`
 
 **Parameters:**
 
@@ -509,8 +471,6 @@ Schema: `PatchedBroadcastMessageRequest`
 ### event_subscription_queues_count
 
 **`HEAD`** `/api/event-subscription-queues/`
-
-**Operation ID:** `event_subscription_queues_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -535,8 +495,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/event-subscription-queues/{uuid}/`
 
-**Operation ID:** `event_subscription_queues_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -555,8 +513,6 @@ Get number of items in the collection matching the request parameters.
 
 **`DELETE`** `/api/event-subscription-queues/{uuid}/`
 
-**Operation ID:** `event_subscription_queues_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -574,8 +530,6 @@ Get number of items in the collection matching the request parameters.
 ### event_subscriptions_list
 
 **`GET`** `/api/event-subscriptions/`
-
-**Operation ID:** `event_subscriptions_list`
 
 **Parameters:**
 
@@ -596,8 +550,6 @@ Get number of items in the collection matching the request parameters.
 ### event_subscriptions_count
 
 **`HEAD`** `/api/event-subscriptions/`
-
-**Operation ID:** `event_subscriptions_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -621,8 +573,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/event-subscriptions/`
 
-**Operation ID:** `event_subscriptions_create`
-
 **Request Body** (`application/json`, optional):
 
 Schema: `EventSubscriptionRequest`
@@ -644,8 +594,6 @@ Schema: `EventSubscriptionRequest`
 
 **`GET`** `/api/event-subscriptions/{uuid}/`
 
-**Operation ID:** `event_subscriptions_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -664,8 +612,6 @@ Schema: `EventSubscriptionRequest`
 
 **`DELETE`** `/api/event-subscriptions/{uuid}/`
 
-**Operation ID:** `event_subscriptions_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -683,8 +629,6 @@ Schema: `EventSubscriptionRequest`
 ### event_subscriptions_create_queue
 
 **`POST`** `/api/event-subscriptions/{uuid}/create_queue/`
-
-**Operation ID:** `event_subscriptions_create_queue`
 
 Create a RabbitMQ queue for receiving events for a specific offering and object type. The receiver must call this endpoint before subscribing via STOMP to ensure the queue is created with correct arguments (DLX, max-length, etc.).
 
@@ -716,8 +660,6 @@ Schema: `EventSubscriptionQueueCreateRequest`
 
 **`GET`** `/api/events-stats/`
 
-**Operation ID:** `events_stats_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -737,8 +679,6 @@ Schema: `EventSubscriptionQueueCreateRequest`
 ### events_stats_count
 
 **`HEAD`** `/api/events-stats/`
-
-**Operation ID:** `events_stats_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -761,8 +701,6 @@ Get number of items in the collection matching the request parameters.
 ### events_list
 
 **`GET`** `/api/events/`
-
-**Operation ID:** `events_list`
 
 **Parameters:**
 
@@ -791,8 +729,6 @@ Get number of items in the collection matching the request parameters.
 ### events_count
 
 **`HEAD`** `/api/events/`
-
-**Operation ID:** `events_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -823,8 +759,6 @@ Get number of items in the collection matching the request parameters.
 
 **`GET`** `/api/events/count/`
 
-**Operation ID:** `events_count_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -843,8 +777,6 @@ Get number of items in the collection matching the request parameters.
 
 **`HEAD`** `/api/events/count/`
 
-**Operation ID:** `events_count_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Responses:**
@@ -858,8 +790,6 @@ Get number of items in the collection matching the request parameters.
 ### events_event_groups_retrieve
 
 **`GET`** `/api/events/event_groups/`
-
-**Operation ID:** `events_event_groups_retrieve`
 
 Returns a list of groups with event types.
 Group is used in exclude_features query param.
@@ -882,8 +812,6 @@ Group is used in exclude_features query param.
 
 **`HEAD`** `/api/events/event_groups/`
 
-**Operation ID:** `events_event_groups_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Responses:**
@@ -897,8 +825,6 @@ Get number of items in the collection matching the request parameters.
 ### events_scope_types_retrieve
 
 **`GET`** `/api/events/scope_types/`
-
-**Operation ID:** `events_scope_types_retrieve`
 
 Returns a list of scope types acceptable by events filter.
 
@@ -920,8 +846,6 @@ Returns a list of scope types acceptable by events filter.
 
 **`HEAD`** `/api/events/scope_types/`
 
-**Operation ID:** `events_scope_types_count`
-
 Get number of items in the collection matching the request parameters.
 
 **Responses:**
@@ -935,8 +859,6 @@ Get number of items in the collection matching the request parameters.
 ### events_retrieve
 
 **`GET`** `/api/events/{id}/`
-
-**Operation ID:** `events_retrieve`
 
 **Parameters:**
 
@@ -956,8 +878,6 @@ Get number of items in the collection matching the request parameters.
 ### notification_messages_templates_list
 
 **`GET`** `/api/notification-messages-templates/`
-
-**Operation ID:** `notification_messages_templates_list`
 
 **Parameters:**
 
@@ -980,8 +900,6 @@ Get number of items in the collection matching the request parameters.
 ### notification_messages_templates_count
 
 **`HEAD`** `/api/notification-messages-templates/`
-
-**Operation ID:** `notification_messages_templates_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1007,8 +925,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/notification-messages-templates/`
 
-**Operation ID:** `notification_messages_templates_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `NotificationTemplateDetailSerializersRequest`
@@ -1030,8 +946,6 @@ Schema: `NotificationTemplateDetailSerializersRequest`
 
 **`GET`** `/api/notification-messages-templates/{uuid}/`
 
-**Operation ID:** `notification_messages_templates_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1049,8 +963,6 @@ Schema: `NotificationTemplateDetailSerializersRequest`
 ### notification_messages_templates_update
 
 **`PUT`** `/api/notification-messages-templates/{uuid}/`
-
-**Operation ID:** `notification_messages_templates_update`
 
 **Parameters:**
 
@@ -1079,8 +991,6 @@ Schema: `NotificationTemplateDetailSerializersRequest`
 
 **`PATCH`** `/api/notification-messages-templates/{uuid}/`
 
-**Operation ID:** `notification_messages_templates_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1108,8 +1018,6 @@ Schema: `PatchedNotificationTemplateDetailSerializersRequest`
 
 **`DELETE`** `/api/notification-messages-templates/{uuid}/`
 
-**Operation ID:** `notification_messages_templates_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1124,11 +1032,11 @@ Schema: `PatchedNotificationTemplateDetailSerializersRequest`
 
 ---
 
-### Override notification template content
+### notification_messages_templates_override
 
 **`POST`** `/api/notification-messages-templates/{uuid}/override/`
 
-**Operation ID:** `notification_messages_templates_override`
+**Summary:** Override notification template content
 
 **Parameters:**
 
@@ -1156,8 +1064,6 @@ Schema: `NotificationTemplateUpdateSerializersRequest`
 
 **`GET`** `/api/notification-messages/`
 
-**Operation ID:** `notification_messages_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1180,8 +1086,6 @@ Schema: `NotificationTemplateUpdateSerializersRequest`
 ### notification_messages_count
 
 **`HEAD`** `/api/notification-messages/`
-
-**Operation ID:** `notification_messages_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -1208,8 +1112,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/notification-messages/`
 
-**Operation ID:** `notification_messages_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `NotificationRequest`
@@ -1231,8 +1133,6 @@ Schema: `NotificationRequest`
 
 **`GET`** `/api/notification-messages/{uuid}/`
 
-**Operation ID:** `notification_messages_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1250,8 +1150,6 @@ Schema: `NotificationRequest`
 ### notification_messages_update
 
 **`PUT`** `/api/notification-messages/{uuid}/`
-
-**Operation ID:** `notification_messages_update`
 
 **Parameters:**
 
@@ -1280,8 +1178,6 @@ Schema: `NotificationRequest`
 
 **`PATCH`** `/api/notification-messages/{uuid}/`
 
-**Operation ID:** `notification_messages_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1309,8 +1205,6 @@ Schema: `PatchedNotificationRequest`
 
 **`DELETE`** `/api/notification-messages/{uuid}/`
 
-**Operation ID:** `notification_messages_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -1325,11 +1219,11 @@ Schema: `PatchedNotificationRequest`
 
 ---
 
-### Disable a notification
+### notification_messages_disable
 
 **`POST`** `/api/notification-messages/{uuid}/disable/`
 
-**Operation ID:** `notification_messages_disable`
+**Summary:** Disable a notification
 
 **Parameters:**
 
@@ -1345,11 +1239,11 @@ Schema: `PatchedNotificationRequest`
 
 ---
 
-### Enable a notification
+### notification_messages_enable
 
 **`POST`** `/api/notification-messages/{uuid}/enable/`
 
-**Operation ID:** `notification_messages_enable`
+**Summary:** Enable a notification
 
 **Parameters:**
 

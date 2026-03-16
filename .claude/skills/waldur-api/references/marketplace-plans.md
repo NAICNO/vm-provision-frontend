@@ -7,34 +7,34 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/marketplace-plan-components/` | `marketplace_plan_components_list` | List plan components |
-| HEAD | `/api/marketplace-plan-components/` | `marketplace_plan_components_count` | List plan components |
-| GET | `/api/marketplace-plan-components/{id}/` | `marketplace_plan_components_retrieve` | Retrieve a plan component |
-| GET | `/api/marketplace-plans/` | `marketplace_plans_list` | List provider plans |
-| HEAD | `/api/marketplace-plans/` | `marketplace_plans_count` | List provider plans |
-| POST | `/api/marketplace-plans/` | `marketplace_plans_create` | Create a provider plan |
-| GET | `/api/marketplace-plans/usage_stats/` | `marketplace_plans_usage_stats_list` | Get plan usage statistics |
-| HEAD | `/api/marketplace-plans/usage_stats/` | `marketplace_plans_usage_stats_count` | Get plan usage statistics |
-| GET | `/api/marketplace-plans/{uuid}/` | `marketplace_plans_retrieve` | Retrieve a provider plan |
-| PUT | `/api/marketplace-plans/{uuid}/` | `marketplace_plans_update` | Update a provider plan |
-| PATCH | `/api/marketplace-plans/{uuid}/` | `marketplace_plans_partial_update` | Partially update a provider plan |
-| DELETE | `/api/marketplace-plans/{uuid}/` | `marketplace_plans_destroy` | Delete a provider plan |
-| POST | `/api/marketplace-plans/{uuid}/archive/` | `marketplace_plans_archive` | Archive a plan |
-| POST | `/api/marketplace-plans/{uuid}/delete_organization_groups/` | `marketplace_plans_delete_organization_groups` | Remove all organization groups from a plan |
-| GET | `/api/marketplace-plans/{uuid}/history/` | `marketplace_plans_history_list` | Get version history |
-| GET | `/api/marketplace-plans/{uuid}/history/at/` | `marketplace_plans_history_at_retrieve` | Get object state at a specific timestamp |
-| POST | `/api/marketplace-plans/{uuid}/update_discounts/` | `marketplace_plans_update_discounts` | Update plan component discounts |
-| POST | `/api/marketplace-plans/{uuid}/update_organization_groups/` | `marketplace_plans_update_organization_groups` | Update organization groups for a plan |
-| POST | `/api/marketplace-plans/{uuid}/update_prices/` | `marketplace_plans_update_prices` | Update plan component prices |
-| POST | `/api/marketplace-plans/{uuid}/update_quotas/` | `marketplace_plans_update_quotas` | Update plan component quotas |
+| GET | `/api/marketplace-plan-components/` | [`marketplace_plan_components_list`](#marketplace-plan-components-list) | List plan components |
+| HEAD | `/api/marketplace-plan-components/` | [`marketplace_plan_components_count`](#marketplace-plan-components-count) | List plan components |
+| GET | `/api/marketplace-plan-components/{id}/` | [`marketplace_plan_components_retrieve`](#marketplace-plan-components-retrieve) | Retrieve a plan component |
+| GET | `/api/marketplace-plans/` | [`marketplace_plans_list`](#marketplace-plans-list) | List provider plans |
+| HEAD | `/api/marketplace-plans/` | [`marketplace_plans_count`](#marketplace-plans-count) | List provider plans |
+| POST | `/api/marketplace-plans/` | [`marketplace_plans_create`](#marketplace-plans-create) | Create a provider plan |
+| GET | `/api/marketplace-plans/usage_stats/` | [`marketplace_plans_usage_stats_list`](#marketplace-plans-usage-stats-list) | Get plan usage statistics |
+| HEAD | `/api/marketplace-plans/usage_stats/` | [`marketplace_plans_usage_stats_count`](#marketplace-plans-usage-stats-count) | Get plan usage statistics |
+| GET | `/api/marketplace-plans/{uuid}/` | [`marketplace_plans_retrieve`](#marketplace-plans-retrieve) | Retrieve a provider plan |
+| PUT | `/api/marketplace-plans/{uuid}/` | [`marketplace_plans_update`](#marketplace-plans-update) | Update a provider plan |
+| PATCH | `/api/marketplace-plans/{uuid}/` | [`marketplace_plans_partial_update`](#marketplace-plans-partial-update) | Partially update a provider plan |
+| DELETE | `/api/marketplace-plans/{uuid}/` | [`marketplace_plans_destroy`](#marketplace-plans-destroy) | Delete a provider plan |
+| POST | `/api/marketplace-plans/{uuid}/archive/` | [`marketplace_plans_archive`](#marketplace-plans-archive) | Archive a plan |
+| POST | `/api/marketplace-plans/{uuid}/delete_organization_groups/` | [`marketplace_plans_delete_organization_groups`](#marketplace-plans-delete-organization-groups) | Remove all organization groups from a plan |
+| GET | `/api/marketplace-plans/{uuid}/history/` | [`marketplace_plans_history_list`](#marketplace-plans-history-list) | Get version history |
+| GET | `/api/marketplace-plans/{uuid}/history/at/` | [`marketplace_plans_history_at_retrieve`](#marketplace-plans-history-at-retrieve) | Get object state at a specific timestamp |
+| POST | `/api/marketplace-plans/{uuid}/update_discounts/` | [`marketplace_plans_update_discounts`](#marketplace-plans-update-discounts) | Update plan component discounts |
+| POST | `/api/marketplace-plans/{uuid}/update_organization_groups/` | [`marketplace_plans_update_organization_groups`](#marketplace-plans-update-organization-groups) | Update organization groups for a plan |
+| POST | `/api/marketplace-plans/{uuid}/update_prices/` | [`marketplace_plans_update_prices`](#marketplace-plans-update-prices) | Update plan component prices |
+| POST | `/api/marketplace-plans/{uuid}/update_quotas/` | [`marketplace_plans_update_quotas`](#marketplace-plans-update-quotas) | Update plan component quotas |
 
 ## Endpoint Details
 
-### List plan components
+### marketplace_plan_components_list
 
 **`GET`** `/api/marketplace-plan-components/`
 
-**Operation ID:** `marketplace_plan_components_list`
+**Summary:** List plan components
 
 Returns a paginated list of all plan components. A plan component defines the pricing and quotas for an offering component within a billing plan. The list is filtered based on the current user's access permissions and organization group memberships.
 
@@ -55,11 +55,11 @@ Returns a paginated list of all plan components. A plan component defines the pr
 
 ---
 
-### List plan components
+### marketplace_plan_components_count
 
 **`HEAD`** `/api/marketplace-plan-components/`
 
-**Operation ID:** `marketplace_plan_components_count`
+**Summary:** List plan components
 
 Get number of items in the collection matching the request parameters.
 
@@ -80,11 +80,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve a plan component
+### marketplace_plan_components_retrieve
 
 **`GET`** `/api/marketplace-plan-components/{id}/`
 
-**Operation ID:** `marketplace_plan_components_retrieve`
+**Summary:** Retrieve a plan component
 
 Returns the details of a specific plan component, including its pricing, quotas, and associated offering and plan information.
 
@@ -102,11 +102,11 @@ Returns the details of a specific plan component, including its pricing, quotas,
 
 ---
 
-### List provider plans
+### marketplace_plans_list
 
 **`GET`** `/api/marketplace-plans/`
 
-**Operation ID:** `marketplace_plans_list`
+**Summary:** List provider plans
 
 Returns a paginated list of plans managed by the provider. The list is filtered based on the current user's access to the offering's customer.
 
@@ -127,11 +127,11 @@ Returns a paginated list of plans managed by the provider. The list is filtered 
 
 ---
 
-### List provider plans
+### marketplace_plans_count
 
 **`HEAD`** `/api/marketplace-plans/`
 
-**Operation ID:** `marketplace_plans_count`
+**Summary:** List provider plans
 
 Get number of items in the collection matching the request parameters.
 
@@ -152,11 +152,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a provider plan
+### marketplace_plans_create
 
 **`POST`** `/api/marketplace-plans/`
 
-**Operation ID:** `marketplace_plans_create`
+**Summary:** Create a provider plan
 
 Creates a new billing plan for an offering.
 
@@ -184,11 +184,11 @@ Schema: `ProviderPlanDetailsRequest`
 
 ---
 
-### Get plan usage statistics
+### marketplace_plans_usage_stats_list
 
 **`GET`** `/api/marketplace-plans/usage_stats/`
 
-**Operation ID:** `marketplace_plans_usage_stats_list`
+**Summary:** Get plan usage statistics
 
 Returns aggregated statistics on how many resources are currently using each plan. Can be filtered by offering or service provider.
 
@@ -211,11 +211,11 @@ Returns aggregated statistics on how many resources are currently using each pla
 
 ---
 
-### Get plan usage statistics
+### marketplace_plans_usage_stats_count
 
 **`HEAD`** `/api/marketplace-plans/usage_stats/`
 
-**Operation ID:** `marketplace_plans_usage_stats_count`
+**Summary:** Get plan usage statistics
 
 Get number of items in the collection matching the request parameters.
 
@@ -238,11 +238,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve a provider plan
+### marketplace_plans_retrieve
 
 **`GET`** `/api/marketplace-plans/{uuid}/`
 
-**Operation ID:** `marketplace_plans_retrieve`
+**Summary:** Retrieve a provider plan
 
 Returns details of a specific plan.
 
@@ -260,11 +260,11 @@ Returns details of a specific plan.
 
 ---
 
-### Update a provider plan
+### marketplace_plans_update
 
 **`PUT`** `/api/marketplace-plans/{uuid}/`
 
-**Operation ID:** `marketplace_plans_update`
+**Summary:** Update a provider plan
 
 Updates an existing plan. Note: A plan cannot be updated if it is already used by resources.
 
@@ -298,11 +298,11 @@ Schema: `ProviderPlanDetailsRequest`
 
 ---
 
-### Partially update a provider plan
+### marketplace_plans_partial_update
 
 **`PATCH`** `/api/marketplace-plans/{uuid}/`
 
-**Operation ID:** `marketplace_plans_partial_update`
+**Summary:** Partially update a provider plan
 
 Partially updates an existing plan. Note: A plan cannot be updated if it is already used by resources.
 
@@ -335,11 +335,11 @@ Schema: `PatchedProviderPlanDetailsRequest`
 
 ---
 
-### Delete a provider plan
+### marketplace_plans_destroy
 
 **`DELETE`** `/api/marketplace-plans/{uuid}/`
 
-**Operation ID:** `marketplace_plans_destroy`
+**Summary:** Delete a provider plan
 
 Deletes a plan. This is a hard delete and should be used with caution.
 
@@ -357,11 +357,11 @@ Deletes a plan. This is a hard delete and should be used with caution.
 
 ---
 
-### Archive a plan
+### marketplace_plans_archive
 
 **`POST`** `/api/marketplace-plans/{uuid}/archive/`
 
-**Operation ID:** `marketplace_plans_archive`
+**Summary:** Archive a plan
 
 Marks a plan as archived. Archived plans cannot be used for provisioning new resources, but existing resources will continue to be billed according to this plan.
 
@@ -379,11 +379,11 @@ Marks a plan as archived. Archived plans cannot be used for provisioning new res
 
 ---
 
-### Remove all organization groups from a plan
+### marketplace_plans_delete_organization_groups
 
 **`POST`** `/api/marketplace-plans/{uuid}/delete_organization_groups/`
 
-**Operation ID:** `marketplace_plans_delete_organization_groups`
+**Summary:** Remove all organization groups from a plan
 
 Removes all organization group associations from this plan, making it accessible to all users (subject to offering-level restrictions).
 
@@ -401,11 +401,11 @@ Removes all organization group associations from this plan, making it accessible
 
 ---
 
-### Get version history
+### marketplace_plans_history_list
 
 **`GET`** `/api/marketplace-plans/{uuid}/history/`
 
-**Operation ID:** `marketplace_plans_history_list`
+**Summary:** Get version history
 
 Returns the version history for this object. Only accessible by staff and support users.
 
@@ -429,11 +429,11 @@ Returns the version history for this object. Only accessible by staff and suppor
 
 ---
 
-### Get object state at a specific timestamp
+### marketplace_plans_history_at_retrieve
 
 **`GET`** `/api/marketplace-plans/{uuid}/history/at/`
 
-**Operation ID:** `marketplace_plans_history_at_retrieve`
+**Summary:** Get object state at a specific timestamp
 
 Returns the state of the object as it was at the specified timestamp. Only accessible by staff and support users.
 
@@ -454,11 +454,11 @@ Returns the state of the object as it was at the specified timestamp. Only acces
 
 ---
 
-### Update plan component discounts
+### marketplace_plans_update_discounts
 
 **`POST`** `/api/marketplace-plans/{uuid}/update_discounts/`
 
-**Operation ID:** `marketplace_plans_update_discounts`
+**Summary:** Update plan component discounts
 
 Update volume discount configuration for plan components.
 
@@ -492,11 +492,11 @@ Schema: `DiscountsUpdateRequest`
 
 ---
 
-### Update organization groups for a plan
+### marketplace_plans_update_organization_groups
 
 **`POST`** `/api/marketplace-plans/{uuid}/update_organization_groups/`
 
-**Operation ID:** `marketplace_plans_update_organization_groups`
+**Summary:** Update organization groups for a plan
 
 Sets the list of organization groups that are allowed to access this plan. If the list is empty, the plan is accessible to all.
 
@@ -522,11 +522,11 @@ Schema: `OrganizationGroupsRequest`
 
 ---
 
-### Update plan component prices
+### marketplace_plans_update_prices
 
 **`POST`** `/api/marketplace-plans/{uuid}/update_prices/`
 
-**Operation ID:** `marketplace_plans_update_prices`
+**Summary:** Update plan component prices
 
 Updates the prices for one or more components of a specific plan. If the plan is already in use by resources, this action updates the `future_price`, which will be applied from the next billing period. Otherwise, the current `price` is updated directly.
 
@@ -552,11 +552,11 @@ Schema: `PricesUpdateRequest`
 
 ---
 
-### Update plan component quotas
+### marketplace_plans_update_quotas
 
 **`POST`** `/api/marketplace-plans/{uuid}/update_quotas/`
 
-**Operation ID:** `marketplace_plans_update_quotas`
+**Summary:** Update plan component quotas
 
 Updates the quotas (fixed amounts) for one or more components of a specific plan. This is only applicable for components with a 'fixed-price' billing type.
 

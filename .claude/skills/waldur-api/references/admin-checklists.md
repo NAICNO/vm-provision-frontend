@@ -7,43 +7,41 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/checklists-admin-question-dependencies/` | `checklists_admin_question_dependencies_list` |  |
-| HEAD | `/api/checklists-admin-question-dependencies/` | `checklists_admin_question_dependencies_count` |  |
-| POST | `/api/checklists-admin-question-dependencies/` | `checklists_admin_question_dependencies_create` |  |
-| GET | `/api/checklists-admin-question-dependencies/{uuid}/` | `checklists_admin_question_dependencies_retrieve` |  |
-| PUT | `/api/checklists-admin-question-dependencies/{uuid}/` | `checklists_admin_question_dependencies_update` |  |
-| PATCH | `/api/checklists-admin-question-dependencies/{uuid}/` | `checklists_admin_question_dependencies_partial_update` |  |
-| DELETE | `/api/checklists-admin-question-dependencies/{uuid}/` | `checklists_admin_question_dependencies_destroy` |  |
-| GET | `/api/checklists-admin-question-options/` | `checklists_admin_question_options_list` |  |
-| HEAD | `/api/checklists-admin-question-options/` | `checklists_admin_question_options_count` |  |
-| POST | `/api/checklists-admin-question-options/` | `checklists_admin_question_options_create` |  |
-| GET | `/api/checklists-admin-question-options/{uuid}/` | `checklists_admin_question_options_retrieve` |  |
-| PUT | `/api/checklists-admin-question-options/{uuid}/` | `checklists_admin_question_options_update` |  |
-| PATCH | `/api/checklists-admin-question-options/{uuid}/` | `checklists_admin_question_options_partial_update` |  |
-| DELETE | `/api/checklists-admin-question-options/{uuid}/` | `checklists_admin_question_options_destroy` |  |
-| GET | `/api/checklists-admin-questions/` | `checklists_admin_questions_list` |  |
-| HEAD | `/api/checklists-admin-questions/` | `checklists_admin_questions_count` |  |
-| POST | `/api/checklists-admin-questions/` | `checklists_admin_questions_create` |  |
-| GET | `/api/checklists-admin-questions/{uuid}/` | `checklists_admin_questions_retrieve` |  |
-| PUT | `/api/checklists-admin-questions/{uuid}/` | `checklists_admin_questions_update` |  |
-| PATCH | `/api/checklists-admin-questions/{uuid}/` | `checklists_admin_questions_partial_update` |  |
-| DELETE | `/api/checklists-admin-questions/{uuid}/` | `checklists_admin_questions_destroy` |  |
-| GET | `/api/checklists-admin/` | `checklists_admin_list` |  |
-| HEAD | `/api/checklists-admin/` | `checklists_admin_count` |  |
-| POST | `/api/checklists-admin/` | `checklists_admin_create` |  |
-| GET | `/api/checklists-admin/{uuid}/` | `checklists_admin_retrieve` |  |
-| PUT | `/api/checklists-admin/{uuid}/` | `checklists_admin_update` |  |
-| PATCH | `/api/checklists-admin/{uuid}/` | `checklists_admin_partial_update` |  |
-| DELETE | `/api/checklists-admin/{uuid}/` | `checklists_admin_destroy` |  |
-| GET | `/api/checklists-admin/{uuid}/questions/` | `checklists_admin_checklist_questions` |  |
+| GET | `/api/checklists-admin-question-dependencies/` | [`checklists_admin_question_dependencies_list`](#checklists-admin-question-dependencies-list) |  |
+| HEAD | `/api/checklists-admin-question-dependencies/` | [`checklists_admin_question_dependencies_count`](#checklists-admin-question-dependencies-count) |  |
+| POST | `/api/checklists-admin-question-dependencies/` | [`checklists_admin_question_dependencies_create`](#checklists-admin-question-dependencies-create) |  |
+| GET | `/api/checklists-admin-question-dependencies/{uuid}/` | [`checklists_admin_question_dependencies_retrieve`](#checklists-admin-question-dependencies-retrieve) |  |
+| PUT | `/api/checklists-admin-question-dependencies/{uuid}/` | [`checklists_admin_question_dependencies_update`](#checklists-admin-question-dependencies-update) |  |
+| PATCH | `/api/checklists-admin-question-dependencies/{uuid}/` | [`checklists_admin_question_dependencies_partial_update`](#checklists-admin-question-dependencies-partial-update) |  |
+| DELETE | `/api/checklists-admin-question-dependencies/{uuid}/` | [`checklists_admin_question_dependencies_destroy`](#checklists-admin-question-dependencies-destroy) |  |
+| GET | `/api/checklists-admin-question-options/` | [`checklists_admin_question_options_list`](#checklists-admin-question-options-list) |  |
+| HEAD | `/api/checklists-admin-question-options/` | [`checklists_admin_question_options_count`](#checklists-admin-question-options-count) |  |
+| POST | `/api/checklists-admin-question-options/` | [`checklists_admin_question_options_create`](#checklists-admin-question-options-create) |  |
+| GET | `/api/checklists-admin-question-options/{uuid}/` | [`checklists_admin_question_options_retrieve`](#checklists-admin-question-options-retrieve) |  |
+| PUT | `/api/checklists-admin-question-options/{uuid}/` | [`checklists_admin_question_options_update`](#checklists-admin-question-options-update) |  |
+| PATCH | `/api/checklists-admin-question-options/{uuid}/` | [`checklists_admin_question_options_partial_update`](#checklists-admin-question-options-partial-update) |  |
+| DELETE | `/api/checklists-admin-question-options/{uuid}/` | [`checklists_admin_question_options_destroy`](#checklists-admin-question-options-destroy) |  |
+| GET | `/api/checklists-admin-questions/` | [`checklists_admin_questions_list`](#checklists-admin-questions-list) |  |
+| HEAD | `/api/checklists-admin-questions/` | [`checklists_admin_questions_count`](#checklists-admin-questions-count) |  |
+| POST | `/api/checklists-admin-questions/` | [`checklists_admin_questions_create`](#checklists-admin-questions-create) |  |
+| GET | `/api/checklists-admin-questions/{uuid}/` | [`checklists_admin_questions_retrieve`](#checklists-admin-questions-retrieve) |  |
+| PUT | `/api/checklists-admin-questions/{uuid}/` | [`checklists_admin_questions_update`](#checklists-admin-questions-update) |  |
+| PATCH | `/api/checklists-admin-questions/{uuid}/` | [`checklists_admin_questions_partial_update`](#checklists-admin-questions-partial-update) |  |
+| DELETE | `/api/checklists-admin-questions/{uuid}/` | [`checklists_admin_questions_destroy`](#checklists-admin-questions-destroy) |  |
+| GET | `/api/checklists-admin/` | [`checklists_admin_list`](#checklists-admin-list) |  |
+| HEAD | `/api/checklists-admin/` | [`checklists_admin_count`](#checklists-admin-count) |  |
+| POST | `/api/checklists-admin/` | [`checklists_admin_create`](#checklists-admin-create) |  |
+| GET | `/api/checklists-admin/{uuid}/` | [`checklists_admin_retrieve`](#checklists-admin-retrieve) |  |
+| PUT | `/api/checklists-admin/{uuid}/` | [`checklists_admin_update`](#checklists-admin-update) |  |
+| PATCH | `/api/checklists-admin/{uuid}/` | [`checklists_admin_partial_update`](#checklists-admin-partial-update) |  |
+| DELETE | `/api/checklists-admin/{uuid}/` | [`checklists_admin_destroy`](#checklists-admin-destroy) |  |
+| GET | `/api/checklists-admin/{uuid}/questions/` | [`checklists_admin_checklist_questions`](#checklists-admin-checklist-questions) |  |
 
 ## Endpoint Details
 
 ### checklists_admin_question_dependencies_list
 
 **`GET`** `/api/checklists-admin-question-dependencies/`
-
-**Operation ID:** `checklists_admin_question_dependencies_list`
 
 **Parameters:**
 
@@ -63,8 +61,6 @@
 ### checklists_admin_question_dependencies_count
 
 **`HEAD`** `/api/checklists-admin-question-dependencies/`
-
-**Operation ID:** `checklists_admin_question_dependencies_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -86,8 +82,6 @@ Get number of items in the collection matching the request parameters.
 ### checklists_admin_question_dependencies_create
 
 **`POST`** `/api/checklists-admin-question-dependencies/`
-
-**Operation ID:** `checklists_admin_question_dependencies_create`
 
 **Request Body** (`application/json`, required):
 
@@ -112,8 +106,6 @@ Schema: `QuestionDependencyRequest`
 
 **`GET`** `/api/checklists-admin-question-dependencies/{uuid}/`
 
-**Operation ID:** `checklists_admin_question_dependencies_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -131,8 +123,6 @@ Schema: `QuestionDependencyRequest`
 ### checklists_admin_question_dependencies_update
 
 **`PUT`** `/api/checklists-admin-question-dependencies/{uuid}/`
-
-**Operation ID:** `checklists_admin_question_dependencies_update`
 
 **Parameters:**
 
@@ -163,8 +153,6 @@ Schema: `QuestionDependencyRequest`
 
 **`PATCH`** `/api/checklists-admin-question-dependencies/{uuid}/`
 
-**Operation ID:** `checklists_admin_question_dependencies_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -194,8 +182,6 @@ Schema: `PatchedQuestionDependencyRequest`
 
 **`DELETE`** `/api/checklists-admin-question-dependencies/{uuid}/`
 
-**Operation ID:** `checklists_admin_question_dependencies_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -214,8 +200,6 @@ Schema: `PatchedQuestionDependencyRequest`
 
 **`GET`** `/api/checklists-admin-question-options/`
 
-**Operation ID:** `checklists_admin_question_options_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -233,8 +217,6 @@ Schema: `PatchedQuestionDependencyRequest`
 ### checklists_admin_question_options_count
 
 **`HEAD`** `/api/checklists-admin-question-options/`
-
-**Operation ID:** `checklists_admin_question_options_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -255,8 +237,6 @@ Get number of items in the collection matching the request parameters.
 ### checklists_admin_question_options_create
 
 **`POST`** `/api/checklists-admin-question-options/`
-
-**Operation ID:** `checklists_admin_question_options_create`
 
 **Request Body** (`application/json`, required):
 
@@ -280,8 +260,6 @@ Schema: `QuestionOptionsAdminRequest`
 
 **`GET`** `/api/checklists-admin-question-options/{uuid}/`
 
-**Operation ID:** `checklists_admin_question_options_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -299,8 +277,6 @@ Schema: `QuestionOptionsAdminRequest`
 ### checklists_admin_question_options_update
 
 **`PUT`** `/api/checklists-admin-question-options/{uuid}/`
-
-**Operation ID:** `checklists_admin_question_options_update`
 
 **Parameters:**
 
@@ -330,8 +306,6 @@ Schema: `QuestionOptionsAdminRequest`
 
 **`PATCH`** `/api/checklists-admin-question-options/{uuid}/`
 
-**Operation ID:** `checklists_admin_question_options_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -359,8 +333,6 @@ Schema: `PatchedQuestionOptionsAdminRequest`
 
 **`DELETE`** `/api/checklists-admin-question-options/{uuid}/`
 
-**Operation ID:** `checklists_admin_question_options_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -378,8 +350,6 @@ Schema: `PatchedQuestionOptionsAdminRequest`
 ### checklists_admin_questions_list
 
 **`GET`** `/api/checklists-admin-questions/`
-
-**Operation ID:** `checklists_admin_questions_list`
 
 **Parameters:**
 
@@ -400,8 +370,6 @@ Schema: `PatchedQuestionOptionsAdminRequest`
 ### checklists_admin_questions_count
 
 **`HEAD`** `/api/checklists-admin-questions/`
-
-**Operation ID:** `checklists_admin_questions_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -424,8 +392,6 @@ Get number of items in the collection matching the request parameters.
 ### checklists_admin_questions_create
 
 **`POST`** `/api/checklists-admin-questions/`
-
-**Operation ID:** `checklists_admin_questions_create`
 
 **Request Body** (`application/json`, required):
 
@@ -465,8 +431,6 @@ Schema: `QuestionAdminRequest`
 
 **`GET`** `/api/checklists-admin-questions/{uuid}/`
 
-**Operation ID:** `checklists_admin_questions_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -484,8 +448,6 @@ Schema: `QuestionAdminRequest`
 ### checklists_admin_questions_update
 
 **`PUT`** `/api/checklists-admin-questions/{uuid}/`
-
-**Operation ID:** `checklists_admin_questions_update`
 
 **Parameters:**
 
@@ -531,8 +493,6 @@ Schema: `QuestionAdminRequest`
 
 **`PATCH`** `/api/checklists-admin-questions/{uuid}/`
 
-**Operation ID:** `checklists_admin_questions_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -577,8 +537,6 @@ Schema: `PatchedQuestionAdminRequest`
 
 **`DELETE`** `/api/checklists-admin-questions/{uuid}/`
 
-**Operation ID:** `checklists_admin_questions_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -596,8 +554,6 @@ Schema: `PatchedQuestionAdminRequest`
 ### checklists_admin_list
 
 **`GET`** `/api/checklists-admin/`
-
-**Operation ID:** `checklists_admin_list`
 
 **Parameters:**
 
@@ -617,8 +573,6 @@ Schema: `PatchedQuestionAdminRequest`
 ### checklists_admin_count
 
 **`HEAD`** `/api/checklists-admin/`
-
-**Operation ID:** `checklists_admin_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -640,8 +594,6 @@ Get number of items in the collection matching the request parameters.
 ### checklists_admin_create
 
 **`POST`** `/api/checklists-admin/`
-
-**Operation ID:** `checklists_admin_create`
 
 **Request Body** (`application/json`, required):
 
@@ -665,8 +617,6 @@ Schema: `ChecklistRequest`
 
 **`GET`** `/api/checklists-admin/{uuid}/`
 
-**Operation ID:** `checklists_admin_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -684,8 +634,6 @@ Schema: `ChecklistRequest`
 ### checklists_admin_update
 
 **`PUT`** `/api/checklists-admin/{uuid}/`
-
-**Operation ID:** `checklists_admin_update`
 
 **Parameters:**
 
@@ -715,8 +663,6 @@ Schema: `ChecklistRequest`
 
 **`PATCH`** `/api/checklists-admin/{uuid}/`
 
-**Operation ID:** `checklists_admin_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -745,8 +691,6 @@ Schema: `PatchedChecklistRequest`
 
 **`DELETE`** `/api/checklists-admin/{uuid}/`
 
-**Operation ID:** `checklists_admin_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -764,8 +708,6 @@ Schema: `PatchedChecklistRequest`
 ### checklists_admin_checklist_questions
 
 **`GET`** `/api/checklists-admin/{uuid}/questions/`
-
-**Operation ID:** `checklists_admin_checklist_questions`
 
 Return checklist questions.
 

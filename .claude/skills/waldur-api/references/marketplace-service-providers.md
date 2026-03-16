@@ -7,50 +7,50 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/marketplace-integration-statuses/` | `marketplace_integration_statuses_list` | List integration statuses |
-| HEAD | `/api/marketplace-integration-statuses/` | `marketplace_integration_statuses_count` | List integration statuses |
-| GET | `/api/marketplace-integration-statuses/{uuid}/` | `marketplace_integration_statuses_retrieve` | Retrieve an integration status |
-| GET | `/api/marketplace-related-customers/{customer_uuid}/` | `marketplace_related_customers_list` |  |
-| GET | `/api/marketplace-service-providers/` | `marketplace_service_providers_list` | List service providers |
-| HEAD | `/api/marketplace-service-providers/` | `marketplace_service_providers_count` | List service providers |
-| POST | `/api/marketplace-service-providers/` | `marketplace_service_providers_create` | Create a service provider |
-| GET | `/api/marketplace-service-providers/{service_provider_uuid}/compliance/checklists_summary/` | `service_provider_checklists_summary` | Get summary of compliance checklists |
-| GET | `/api/marketplace-service-providers/{service_provider_uuid}/compliance/compliance_overview/` | `service_provider_compliance_overview` | Get compliance overview for a service provider |
-| GET | `/api/marketplace-service-providers/{service_provider_uuid}/compliance/offering_users/` | `service_provider_offering_users_compliance` | List offering users' compliance status |
-| GET | `/api/marketplace-service-providers/{service_provider_uuid}/course_accounts/` | `marketplace_service_providers_course_accounts_list` | List course project accounts for a service provider |
-| GET | `/api/marketplace-service-providers/{service_provider_uuid}/customer_projects/` | `marketplace_service_providers_customer_projects_list` | List customer projects of a service provider |
-| GET | `/api/marketplace-service-providers/{service_provider_uuid}/customers/` | `marketplace_service_providers_customers_list` | List customers of a service provider |
-| GET | `/api/marketplace-service-providers/{service_provider_uuid}/keys/` | `marketplace_service_providers_keys_list` | List SSH keys of a service provider |
-| GET | `/api/marketplace-service-providers/{service_provider_uuid}/offerings/` | `marketplace_service_providers_offerings_list` | List offerings of a service provider |
-| GET | `/api/marketplace-service-providers/{service_provider_uuid}/project_permissions/` | `marketplace_service_providers_project_permissions_list` | List project permissions of a service provider |
-| GET | `/api/marketplace-service-providers/{service_provider_uuid}/project_service_accounts/` | `marketplace_service_providers_project_service_accounts_list` | List project service accounts for a service provider |
-| GET | `/api/marketplace-service-providers/{service_provider_uuid}/projects/` | `marketplace_service_providers_projects_list` | List projects of a service provider |
-| GET | `/api/marketplace-service-providers/{service_provider_uuid}/user_customers/` | `marketplace_service_providers_user_customers_list` | List customers of a specific user within a service provider' |
-| GET | `/api/marketplace-service-providers/{service_provider_uuid}/users/` | `marketplace_service_providers_users_list` | List users of a service provider |
-| GET | `/api/marketplace-service-providers/{uuid}/` | `marketplace_service_providers_retrieve` | Retrieve a service provider |
-| PUT | `/api/marketplace-service-providers/{uuid}/` | `marketplace_service_providers_update` | Update a service provider |
-| PATCH | `/api/marketplace-service-providers/{uuid}/` | `marketplace_service_providers_partial_update` | Partially update a service provider |
-| DELETE | `/api/marketplace-service-providers/{uuid}/` | `marketplace_service_providers_destroy` | Delete a service provider |
-| POST | `/api/marketplace-service-providers/{uuid}/add_user/` | `marketplace_service_providers_add_user` | Grant a role to a user |
-| GET | `/api/marketplace-service-providers/{uuid}/api_secret_code/` | `service_provider_api_secret_code_retrieve` | Get service provider API secret code |
-| POST | `/api/marketplace-service-providers/{uuid}/api_secret_code/` | `service_provider_api_secret_code_generate` | Generate new service provider API secret code |
-| POST | `/api/marketplace-service-providers/{uuid}/delete_user/` | `marketplace_service_providers_delete_user` | Revoke a role from a user |
-| POST | `/api/marketplace-service-providers/{uuid}/generate_site_agent_config/` | `marketplace_service_providers_generate_site_agent_config` | Generate site agent configuration |
-| GET | `/api/marketplace-service-providers/{uuid}/list_users/` | `marketplace_service_providers_list_users_list` | List users and their roles in a scope |
-| GET | `/api/marketplace-service-providers/{uuid}/revenue/` | `marketplace_service_providers_revenue_list` | Get service provider revenue |
-| GET | `/api/marketplace-service-providers/{uuid}/robot_account_customers/` | `marketplace_service_providers_robot_account_customers_list` | List customers with robot accounts |
-| GET | `/api/marketplace-service-providers/{uuid}/robot_account_projects/` | `marketplace_service_providers_robot_account_projects_list` | List projects with robot accounts |
-| POST | `/api/marketplace-service-providers/{uuid}/set_offerings_username/` | `marketplace_service_providers_set_offerings_username` | Set offering username for a user |
-| GET | `/api/marketplace-service-providers/{uuid}/stat/` | `marketplace_service_providers_stat_retrieve` | Get service provider statistics |
-| POST | `/api/marketplace-service-providers/{uuid}/update_user/` | `marketplace_service_providers_update_user` | Update a user's role expiration |
+| GET | `/api/marketplace-integration-statuses/` | [`marketplace_integration_statuses_list`](#marketplace-integration-statuses-list) | List integration statuses |
+| HEAD | `/api/marketplace-integration-statuses/` | [`marketplace_integration_statuses_count`](#marketplace-integration-statuses-count) | List integration statuses |
+| GET | `/api/marketplace-integration-statuses/{uuid}/` | [`marketplace_integration_statuses_retrieve`](#marketplace-integration-statuses-retrieve) | Retrieve an integration status |
+| GET | `/api/marketplace-related-customers/{customer_uuid}/` | [`marketplace_related_customers_list`](#marketplace-related-customers-list) |  |
+| GET | `/api/marketplace-service-providers/` | [`marketplace_service_providers_list`](#marketplace-service-providers-list) | List service providers |
+| HEAD | `/api/marketplace-service-providers/` | [`marketplace_service_providers_count`](#marketplace-service-providers-count) | List service providers |
+| POST | `/api/marketplace-service-providers/` | [`marketplace_service_providers_create`](#marketplace-service-providers-create) | Create a service provider |
+| GET | `/api/marketplace-service-providers/{service_provider_uuid}/compliance/checklists_summary/` | [`service_provider_checklists_summary`](#service-provider-checklists-summary) | Get summary of compliance checklists |
+| GET | `/api/marketplace-service-providers/{service_provider_uuid}/compliance/compliance_overview/` | [`service_provider_compliance_overview`](#service-provider-compliance-overview) | Get compliance overview for a service provider |
+| GET | `/api/marketplace-service-providers/{service_provider_uuid}/compliance/offering_users/` | [`service_provider_offering_users_compliance`](#service-provider-offering-users-compliance) | List offering users' compliance status |
+| GET | `/api/marketplace-service-providers/{service_provider_uuid}/course_accounts/` | [`marketplace_service_providers_course_accounts_list`](#marketplace-service-providers-course-accounts-list) | List course project accounts for a service provider |
+| GET | `/api/marketplace-service-providers/{service_provider_uuid}/customer_projects/` | [`marketplace_service_providers_customer_projects_list`](#marketplace-service-providers-customer-projects-list) | List customer projects of a service provider |
+| GET | `/api/marketplace-service-providers/{service_provider_uuid}/customers/` | [`marketplace_service_providers_customers_list`](#marketplace-service-providers-customers-list) | List customers of a service provider |
+| GET | `/api/marketplace-service-providers/{service_provider_uuid}/keys/` | [`marketplace_service_providers_keys_list`](#marketplace-service-providers-keys-list) | List SSH keys of a service provider |
+| GET | `/api/marketplace-service-providers/{service_provider_uuid}/offerings/` | [`marketplace_service_providers_offerings_list`](#marketplace-service-providers-offerings-list) | List offerings of a service provider |
+| GET | `/api/marketplace-service-providers/{service_provider_uuid}/project_permissions/` | [`marketplace_service_providers_project_permissions_list`](#marketplace-service-providers-project-permissions-list) | List project permissions of a service provider |
+| GET | `/api/marketplace-service-providers/{service_provider_uuid}/project_service_accounts/` | [`marketplace_service_providers_project_service_accounts_list`](#marketplace-service-providers-project-service-accounts-list) | List project service accounts for a service provider |
+| GET | `/api/marketplace-service-providers/{service_provider_uuid}/projects/` | [`marketplace_service_providers_projects_list`](#marketplace-service-providers-projects-list) | List projects of a service provider |
+| GET | `/api/marketplace-service-providers/{service_provider_uuid}/user_customers/` | [`marketplace_service_providers_user_customers_list`](#marketplace-service-providers-user-customers-list) | List customers of a specific user within a service provider' |
+| GET | `/api/marketplace-service-providers/{service_provider_uuid}/users/` | [`marketplace_service_providers_users_list`](#marketplace-service-providers-users-list) | List users of a service provider |
+| GET | `/api/marketplace-service-providers/{uuid}/` | [`marketplace_service_providers_retrieve`](#marketplace-service-providers-retrieve) | Retrieve a service provider |
+| PUT | `/api/marketplace-service-providers/{uuid}/` | [`marketplace_service_providers_update`](#marketplace-service-providers-update) | Update a service provider |
+| PATCH | `/api/marketplace-service-providers/{uuid}/` | [`marketplace_service_providers_partial_update`](#marketplace-service-providers-partial-update) | Partially update a service provider |
+| DELETE | `/api/marketplace-service-providers/{uuid}/` | [`marketplace_service_providers_destroy`](#marketplace-service-providers-destroy) | Delete a service provider |
+| POST | `/api/marketplace-service-providers/{uuid}/add_user/` | [`marketplace_service_providers_add_user`](#marketplace-service-providers-add-user) | Grant a role to a user |
+| GET | `/api/marketplace-service-providers/{uuid}/api_secret_code/` | [`service_provider_api_secret_code_retrieve`](#service-provider-api-secret-code-retrieve) | Get service provider API secret code |
+| POST | `/api/marketplace-service-providers/{uuid}/api_secret_code/` | [`service_provider_api_secret_code_generate`](#service-provider-api-secret-code-generate) | Generate new service provider API secret code |
+| POST | `/api/marketplace-service-providers/{uuid}/delete_user/` | [`marketplace_service_providers_delete_user`](#marketplace-service-providers-delete-user) | Revoke a role from a user |
+| POST | `/api/marketplace-service-providers/{uuid}/generate_site_agent_config/` | [`marketplace_service_providers_generate_site_agent_config`](#marketplace-service-providers-generate-site-agent-config) | Generate site agent configuration |
+| GET | `/api/marketplace-service-providers/{uuid}/list_users/` | [`marketplace_service_providers_list_users_list`](#marketplace-service-providers-list-users-list) | List users and their roles in a scope |
+| GET | `/api/marketplace-service-providers/{uuid}/revenue/` | [`marketplace_service_providers_revenue_list`](#marketplace-service-providers-revenue-list) | Get service provider revenue |
+| GET | `/api/marketplace-service-providers/{uuid}/robot_account_customers/` | [`marketplace_service_providers_robot_account_customers_list`](#marketplace-service-providers-robot-account-customers-list) | List customers with robot accounts |
+| GET | `/api/marketplace-service-providers/{uuid}/robot_account_projects/` | [`marketplace_service_providers_robot_account_projects_list`](#marketplace-service-providers-robot-account-projects-list) | List projects with robot accounts |
+| POST | `/api/marketplace-service-providers/{uuid}/set_offerings_username/` | [`marketplace_service_providers_set_offerings_username`](#marketplace-service-providers-set-offerings-username) | Set offering username for a user |
+| GET | `/api/marketplace-service-providers/{uuid}/stat/` | [`marketplace_service_providers_stat_retrieve`](#marketplace-service-providers-stat-retrieve) | Get service provider statistics |
+| POST | `/api/marketplace-service-providers/{uuid}/update_user/` | [`marketplace_service_providers_update_user`](#marketplace-service-providers-update-user) | Update a user's role expiration |
 
 ## Endpoint Details
 
-### List integration statuses
+### marketplace_integration_statuses_list
 
 **`GET`** `/api/marketplace-integration-statuses/`
 
-**Operation ID:** `marketplace_integration_statuses_list`
+**Summary:** List integration statuses
 
 Returns a paginated list of integration statuses for offerings. This is used to monitor the connectivity and health of backend agents (e.g., site agents) associated with offerings.
 
@@ -75,11 +75,11 @@ Returns a paginated list of integration statuses for offerings. This is used to 
 
 ---
 
-### List integration statuses
+### marketplace_integration_statuses_count
 
 **`HEAD`** `/api/marketplace-integration-statuses/`
 
-**Operation ID:** `marketplace_integration_statuses_count`
+**Summary:** List integration statuses
 
 Get number of items in the collection matching the request parameters.
 
@@ -104,11 +104,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Retrieve an integration status
+### marketplace_integration_statuses_retrieve
 
 **`GET`** `/api/marketplace-integration-statuses/{uuid}/`
 
-**Operation ID:** `marketplace_integration_statuses_retrieve`
+**Summary:** Retrieve an integration status
 
 Returns the details of a specific integration status, including the agent type, status, and last request timestamp.
 
@@ -130,8 +130,6 @@ Returns the details of a specific integration status, including the agent type, 
 
 **`GET`** `/api/marketplace-related-customers/{customer_uuid}/`
 
-**Operation ID:** `marketplace_related_customers_list`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -148,11 +146,11 @@ Returns the details of a specific integration status, including the agent type, 
 
 ---
 
-### List service providers
+### marketplace_service_providers_list
 
 **`GET`** `/api/marketplace-service-providers/`
 
-**Operation ID:** `marketplace_service_providers_list`
+**Summary:** List service providers
 
 Returns a paginated list of service providers.
 
@@ -174,11 +172,11 @@ Returns a paginated list of service providers.
 
 ---
 
-### List service providers
+### marketplace_service_providers_count
 
 **`HEAD`** `/api/marketplace-service-providers/`
 
-**Operation ID:** `marketplace_service_providers_count`
+**Summary:** List service providers
 
 Get number of items in the collection matching the request parameters.
 
@@ -199,11 +197,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a service provider
+### marketplace_service_providers_create
 
 **`POST`** `/api/marketplace-service-providers/`
 
-**Operation ID:** `marketplace_service_providers_create`
+**Summary:** Create a service provider
 
 Creates a new service provider profile for a customer.
 
@@ -226,11 +224,11 @@ Schema: `ServiceProviderRequest`
 
 ---
 
-### Get summary of compliance checklists
+### service_provider_checklists_summary
 
 **`GET`** `/api/marketplace-service-providers/{service_provider_uuid}/compliance/checklists_summary/`
 
-**Operation ID:** `service_provider_checklists_summary`
+**Summary:** Get summary of compliance checklists
 
 Returns a summary of all compliance checklists used by this service provider with usage counts.
 
@@ -248,11 +246,11 @@ Returns a summary of all compliance checklists used by this service provider wit
 
 ---
 
-### Get compliance overview for a service provider
+### service_provider_compliance_overview
 
 **`GET`** `/api/marketplace-service-providers/{service_provider_uuid}/compliance/compliance_overview/`
 
-**Operation ID:** `service_provider_compliance_overview`
+**Summary:** Get compliance overview for a service provider
 
 Returns compliance overview statistics for all offerings managed by this service provider.
 
@@ -270,11 +268,11 @@ Returns compliance overview statistics for all offerings managed by this service
 
 ---
 
-### List offering users' compliance status
+### service_provider_offering_users_compliance
 
 **`GET`** `/api/marketplace-service-providers/{service_provider_uuid}/compliance/offering_users/`
 
-**Operation ID:** `service_provider_offering_users_compliance`
+**Summary:** List offering users' compliance status
 
 Returns a list of offering users with their compliance status for this service provider. Can be filtered by offering and compliance status.
 
@@ -294,11 +292,11 @@ Returns a list of offering users with their compliance status for this service p
 
 ---
 
-### List course project accounts for a service provider
+### marketplace_service_providers_course_accounts_list
 
 **`GET`** `/api/marketplace-service-providers/{service_provider_uuid}/course_accounts/`
 
-**Operation ID:** `marketplace_service_providers_course_accounts_list`
+**Summary:** List course project accounts for a service provider
 
 Returns a paginated list of course project accounts that have access to resources managed by the provider.
 
@@ -329,11 +327,11 @@ Returns a paginated list of course project accounts that have access to resource
 
 ---
 
-### List customer projects of a service provider
+### marketplace_service_providers_customer_projects_list
 
 **`GET`** `/api/marketplace-service-providers/{service_provider_uuid}/customer_projects/`
 
-**Operation ID:** `marketplace_service_providers_customer_projects_list`
+**Summary:** List customer projects of a service provider
 
 Returns a paginated list of projects belonging to a specific customer that have consumed resources from the specified service provider.
 
@@ -370,11 +368,11 @@ Returns a paginated list of projects belonging to a specific customer that have 
 
 ---
 
-### List customers of a service provider
+### marketplace_service_providers_customers_list
 
 **`GET`** `/api/marketplace-service-providers/{service_provider_uuid}/customers/`
 
-**Operation ID:** `marketplace_service_providers_customers_list`
+**Summary:** List customers of a service provider
 
 Returns a paginated list of customers who have consumed resources from the specified service provider.
 
@@ -407,11 +405,11 @@ Returns a paginated list of customers who have consumed resources from the speci
 
 ---
 
-### List SSH keys of a service provider
+### marketplace_service_providers_keys_list
 
 **`GET`** `/api/marketplace-service-providers/{service_provider_uuid}/keys/`
 
-**Operation ID:** `marketplace_service_providers_keys_list`
+**Summary:** List SSH keys of a service provider
 
 Returns a paginated list of SSH public keys for all users who have consumed resources from the specified service provider.
 
@@ -441,11 +439,11 @@ Returns a paginated list of SSH public keys for all users who have consumed reso
 
 ---
 
-### List offerings of a service provider
+### marketplace_service_providers_offerings_list
 
 **`GET`** `/api/marketplace-service-providers/{service_provider_uuid}/offerings/`
 
-**Operation ID:** `marketplace_service_providers_offerings_list`
+**Summary:** List offerings of a service provider
 
 Returns a paginated list of all billable, shared offerings provided by the specified service provider.
 
@@ -500,11 +498,11 @@ Returns a paginated list of all billable, shared offerings provided by the speci
 
 ---
 
-### List project permissions of a service provider
+### marketplace_service_providers_project_permissions_list
 
 **`GET`** `/api/marketplace-service-providers/{service_provider_uuid}/project_permissions/`
 
-**Operation ID:** `marketplace_service_providers_project_permissions_list`
+**Summary:** List project permissions of a service provider
 
 Returns a paginated list of project permissions for all projects that have consumed resources from the specified service provider.
 
@@ -538,11 +536,11 @@ Returns a paginated list of project permissions for all projects that have consu
 
 ---
 
-### List project service accounts for a service provider
+### marketplace_service_providers_project_service_accounts_list
 
 **`GET`** `/api/marketplace-service-providers/{service_provider_uuid}/project_service_accounts/`
 
-**Operation ID:** `marketplace_service_providers_project_service_accounts_list`
+**Summary:** List project service accounts for a service provider
 
 Returns a paginated list of project service accounts that have access to resources managed by the provider.
 
@@ -569,11 +567,11 @@ Returns a paginated list of project service accounts that have access to resourc
 
 ---
 
-### List projects of a service provider
+### marketplace_service_providers_projects_list
 
 **`GET`** `/api/marketplace-service-providers/{service_provider_uuid}/projects/`
 
-**Operation ID:** `marketplace_service_providers_projects_list`
+**Summary:** List projects of a service provider
 
 Returns a paginated list of all projects that have consumed resources from the specified service provider.
 
@@ -609,11 +607,11 @@ Returns a paginated list of all projects that have consumed resources from the s
 
 ---
 
-### List customers of a specific user within a service provider's scope
+### marketplace_service_providers_user_customers_list
 
 **`GET`** `/api/marketplace-service-providers/{service_provider_uuid}/user_customers/`
 
-**Operation ID:** `marketplace_service_providers_user_customers_list`
+**Summary:** List customers of a specific user within a service provider's scope
 
 Returns a paginated list of customers that a specified user has access to within the scope of a service provider.
 
@@ -652,11 +650,11 @@ Returns a paginated list of customers that a specified user has access to within
 
 ---
 
-### List users of a service provider
+### marketplace_service_providers_users_list
 
 **`GET`** `/api/marketplace-service-providers/{service_provider_uuid}/users/`
 
-**Operation ID:** `marketplace_service_providers_users_list`
+**Summary:** List users of a service provider
 
 Returns a paginated list of all users who have consumed resources from the specified service provider.
 
@@ -699,11 +697,11 @@ Returns a paginated list of all users who have consumed resources from the speci
 
 ---
 
-### Retrieve a service provider
+### marketplace_service_providers_retrieve
 
 **`GET`** `/api/marketplace-service-providers/{uuid}/`
 
-**Operation ID:** `marketplace_service_providers_retrieve`
+**Summary:** Retrieve a service provider
 
 Returns details of a specific service provider.
 
@@ -722,11 +720,11 @@ Returns details of a specific service provider.
 
 ---
 
-### Update a service provider
+### marketplace_service_providers_update
 
 **`PUT`** `/api/marketplace-service-providers/{uuid}/`
 
-**Operation ID:** `marketplace_service_providers_update`
+**Summary:** Update a service provider
 
 Updates an existing service provider profile.
 
@@ -755,11 +753,11 @@ Schema: `ServiceProviderRequest`
 
 ---
 
-### Partially update a service provider
+### marketplace_service_providers_partial_update
 
 **`PATCH`** `/api/marketplace-service-providers/{uuid}/`
 
-**Operation ID:** `marketplace_service_providers_partial_update`
+**Summary:** Partially update a service provider
 
 Partially updates an existing service provider profile.
 
@@ -787,11 +785,11 @@ Schema: `PatchedServiceProviderRequest`
 
 ---
 
-### Delete a service provider
+### marketplace_service_providers_destroy
 
 **`DELETE`** `/api/marketplace-service-providers/{uuid}/`
 
-**Operation ID:** `marketplace_service_providers_destroy`
+**Summary:** Delete a service provider
 
 Deletes a service provider profile. Only possible if there are no active offerings.
 
@@ -809,11 +807,11 @@ Deletes a service provider profile. Only possible if there are no active offerin
 
 ---
 
-### Grant a role to a user
+### marketplace_service_providers_add_user
 
 **`POST`** `/api/marketplace-service-providers/{uuid}/add_user/`
 
-**Operation ID:** `marketplace_service_providers_add_user`
+**Summary:** Grant a role to a user
 
 Assigns a specific role to a user within the current scope. An optional expiration time for the role can be set.
 
@@ -842,11 +840,11 @@ Schema: `UserRoleCreateRequest`
 
 ---
 
-### Get service provider API secret code
+### service_provider_api_secret_code_retrieve
 
 **`GET`** `/api/marketplace-service-providers/{uuid}/api_secret_code/`
 
-**Operation ID:** `service_provider_api_secret_code_retrieve`
+**Summary:** Get service provider API secret code
 
 Returns the API secret code for a service provider. Requires service provider owner permission.
 
@@ -864,11 +862,11 @@ Returns the API secret code for a service provider. Requires service provider ow
 
 ---
 
-### Generate new service provider API secret code
+### service_provider_api_secret_code_generate
 
 **`POST`** `/api/marketplace-service-providers/{uuid}/api_secret_code/`
 
-**Operation ID:** `service_provider_api_secret_code_generate`
+**Summary:** Generate new service provider API secret code
 
 Generates a new API secret code for a service provider, invalidating the old one. Requires service provider owner permission.
 
@@ -886,11 +884,11 @@ Generates a new API secret code for a service provider, invalidating the old one
 
 ---
 
-### Revoke a role from a user
+### marketplace_service_providers_delete_user
 
 **`POST`** `/api/marketplace-service-providers/{uuid}/delete_user/`
 
-**Operation ID:** `marketplace_service_providers_delete_user`
+**Summary:** Revoke a role from a user
 
 Removes a specific role from a user within the current scope. This effectively revokes their permissions associated with that role.
 
@@ -918,11 +916,11 @@ Schema: `UserRoleDeleteRequest`
 
 ---
 
-### Generate site agent configuration
+### marketplace_service_providers_generate_site_agent_config
 
 **`POST`** `/api/marketplace-service-providers/{uuid}/generate_site_agent_config/`
 
-**Operation ID:** `marketplace_service_providers_generate_site_agent_config`
+**Summary:** Generate site agent configuration
 
 Generates a YAML configuration file for waldur-site-agent based on selected SLURM offerings. The configuration includes offering details, components, backend settings, and optionally SLURM periodic usage policy settings. Secrets are shown as placeholders that need to be filled in.
 
@@ -951,11 +949,11 @@ Schema: `SiteAgentConfigGenerationRequest`
 
 ---
 
-### List users and their roles in a scope
+### marketplace_service_providers_list_users_list
 
 **`GET`** `/api/marketplace-service-providers/{uuid}/list_users/`
 
-**Operation ID:** `marketplace_service_providers_list_users_list`
+**Summary:** List users and their roles in a scope
 
 Retrieves a list of users who have a role within a specific scope (e.g., a project or an organization). The list can be filtered by user details or role.
 
@@ -983,11 +981,11 @@ Retrieves a list of users who have a role within a specific scope (e.g., a proje
 
 ---
 
-### Get service provider revenue
+### marketplace_service_providers_revenue_list
 
 **`GET`** `/api/marketplace-service-providers/{uuid}/revenue/`
 
-**Operation ID:** `marketplace_service_providers_revenue_list`
+**Summary:** Get service provider revenue
 
 Returns monthly revenue data for the last year for the service provider.
 
@@ -1005,11 +1003,11 @@ Returns monthly revenue data for the last year for the service provider.
 
 ---
 
-### List customers with robot accounts
+### marketplace_service_providers_robot_account_customers_list
 
 **`GET`** `/api/marketplace-service-providers/{uuid}/robot_account_customers/`
 
-**Operation ID:** `marketplace_service_providers_robot_account_customers_list`
+**Summary:** List customers with robot accounts
 
 Returns a paginated list of customers who have robot accounts for resources managed by this service provider.
 
@@ -1028,11 +1026,11 @@ Returns a paginated list of customers who have robot accounts for resources mana
 
 ---
 
-### List projects with robot accounts
+### marketplace_service_providers_robot_account_projects_list
 
 **`GET`** `/api/marketplace-service-providers/{uuid}/robot_account_projects/`
 
-**Operation ID:** `marketplace_service_providers_robot_account_projects_list`
+**Summary:** List projects with robot accounts
 
 Returns a paginated list of projects which have robot accounts for resources managed by this service provider.
 
@@ -1051,11 +1049,11 @@ Returns a paginated list of projects which have robot accounts for resources man
 
 ---
 
-### Set offering username for a user
+### marketplace_service_providers_set_offerings_username
 
 **`POST`** `/api/marketplace-service-providers/{uuid}/set_offerings_username/`
 
-**Operation ID:** `marketplace_service_providers_set_offerings_username`
+**Summary:** Set offering username for a user
 
 Sets or updates the offering-specific username for a user across all offerings managed by the service provider that the user has access to.
 
@@ -1082,11 +1080,11 @@ Schema: `SetOfferingsUsernameRequest`
 
 ---
 
-### Get service provider statistics
+### marketplace_service_providers_stat_retrieve
 
 **`GET`** `/api/marketplace-service-providers/{uuid}/stat/`
 
-**Operation ID:** `marketplace_service_providers_stat_retrieve`
+**Summary:** Get service provider statistics
 
 Returns various statistics for the service provider, such as number of active campaigns, customers, and resources.
 
@@ -1104,11 +1102,11 @@ Returns various statistics for the service provider, such as number of active ca
 
 ---
 
-### Update a user's role expiration
+### marketplace_service_providers_update_user
 
 **`POST`** `/api/marketplace-service-providers/{uuid}/update_user/`
 
-**Operation ID:** `marketplace_service_providers_update_user`
+**Summary:** Update a user's role expiration
 
 Updates the expiration time for a user's existing role in the current scope. This is useful for extending or shortening the duration of a permission. To make a role permanent, set expiration_time to null.
 

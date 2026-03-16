@@ -7,31 +7,29 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/organization-groups/` | `organization_groups_list` |  |
-| HEAD | `/api/organization-groups/` | `organization_groups_count` |  |
-| POST | `/api/organization-groups/` | `organization_groups_create` |  |
-| GET | `/api/organization-groups/{uuid}/` | `organization_groups_retrieve` |  |
-| PUT | `/api/organization-groups/{uuid}/` | `organization_groups_update` |  |
-| PATCH | `/api/organization-groups/{uuid}/` | `organization_groups_partial_update` |  |
-| DELETE | `/api/organization-groups/{uuid}/` | `organization_groups_destroy` |  |
-| GET | `/api/roles/` | `roles_list` | List roles |
-| HEAD | `/api/roles/` | `roles_count` | List roles |
-| POST | `/api/roles/` | `roles_create` | Create a new role |
-| GET | `/api/roles/{uuid}/` | `roles_retrieve` | Get role details |
-| PUT | `/api/roles/{uuid}/` | `roles_update` | Update a role |
-| PATCH | `/api/roles/{uuid}/` | `roles_partial_update` |  |
-| DELETE | `/api/roles/{uuid}/` | `roles_destroy` | Delete a role |
-| POST | `/api/roles/{uuid}/disable/` | `roles_disable` | Disable a role |
-| POST | `/api/roles/{uuid}/enable/` | `roles_enable` | Enable a role |
-| PUT | `/api/roles/{uuid}/update_descriptions/` | `roles_update_descriptions_update` | Update role descriptions |
+| GET | `/api/organization-groups/` | [`organization_groups_list`](#organization-groups-list) |  |
+| HEAD | `/api/organization-groups/` | [`organization_groups_count`](#organization-groups-count) |  |
+| POST | `/api/organization-groups/` | [`organization_groups_create`](#organization-groups-create) |  |
+| GET | `/api/organization-groups/{uuid}/` | [`organization_groups_retrieve`](#organization-groups-retrieve) |  |
+| PUT | `/api/organization-groups/{uuid}/` | [`organization_groups_update`](#organization-groups-update) |  |
+| PATCH | `/api/organization-groups/{uuid}/` | [`organization_groups_partial_update`](#organization-groups-partial-update) |  |
+| DELETE | `/api/organization-groups/{uuid}/` | [`organization_groups_destroy`](#organization-groups-destroy) |  |
+| GET | `/api/roles/` | [`roles_list`](#roles-list) | List roles |
+| HEAD | `/api/roles/` | [`roles_count`](#roles-count) | List roles |
+| POST | `/api/roles/` | [`roles_create`](#roles-create) | Create a new role |
+| GET | `/api/roles/{uuid}/` | [`roles_retrieve`](#roles-retrieve) | Get role details |
+| PUT | `/api/roles/{uuid}/` | [`roles_update`](#roles-update) | Update a role |
+| PATCH | `/api/roles/{uuid}/` | [`roles_partial_update`](#roles-partial-update) |  |
+| DELETE | `/api/roles/{uuid}/` | [`roles_destroy`](#roles-destroy) | Delete a role |
+| POST | `/api/roles/{uuid}/disable/` | [`roles_disable`](#roles-disable) | Disable a role |
+| POST | `/api/roles/{uuid}/enable/` | [`roles_enable`](#roles-enable) | Enable a role |
+| PUT | `/api/roles/{uuid}/update_descriptions/` | [`roles_update_descriptions_update`](#roles-update-descriptions-update) | Update role descriptions |
 
 ## Endpoint Details
 
 ### organization_groups_list
 
 **`GET`** `/api/organization-groups/`
-
-**Operation ID:** `organization_groups_list`
 
 **Parameters:**
 
@@ -53,8 +51,6 @@
 ### organization_groups_count
 
 **`HEAD`** `/api/organization-groups/`
-
-**Operation ID:** `organization_groups_count`
 
 Get number of items in the collection matching the request parameters.
 
@@ -79,8 +75,6 @@ Get number of items in the collection matching the request parameters.
 
 **`POST`** `/api/organization-groups/`
 
-**Operation ID:** `organization_groups_create`
-
 **Request Body** (`application/json`, required):
 
 Schema: `OrganizationGroupRequest`
@@ -102,8 +96,6 @@ Schema: `OrganizationGroupRequest`
 
 **`GET`** `/api/organization-groups/{uuid}/`
 
-**Operation ID:** `organization_groups_retrieve`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -121,8 +113,6 @@ Schema: `OrganizationGroupRequest`
 ### organization_groups_update
 
 **`PUT`** `/api/organization-groups/{uuid}/`
-
-**Operation ID:** `organization_groups_update`
 
 **Parameters:**
 
@@ -151,8 +141,6 @@ Schema: `OrganizationGroupRequest`
 
 **`PATCH`** `/api/organization-groups/{uuid}/`
 
-**Operation ID:** `organization_groups_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -180,8 +168,6 @@ Schema: `PatchedOrganizationGroupRequest`
 
 **`DELETE`** `/api/organization-groups/{uuid}/`
 
-**Operation ID:** `organization_groups_destroy`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -196,11 +182,11 @@ Schema: `PatchedOrganizationGroupRequest`
 
 ---
 
-### List roles
+### roles_list
 
 **`GET`** `/api/roles/`
 
-**Operation ID:** `roles_list`
+**Summary:** List roles
 
 Get a list of all available roles.
 
@@ -221,11 +207,11 @@ Get a list of all available roles.
 
 ---
 
-### List roles
+### roles_count
 
 **`HEAD`** `/api/roles/`
 
-**Operation ID:** `roles_count`
+**Summary:** List roles
 
 Get number of items in the collection matching the request parameters.
 
@@ -245,11 +231,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create a new role
+### roles_create
 
 **`POST`** `/api/roles/`
 
-**Operation ID:** `roles_create`
+**Summary:** Create a new role
 
 Allows staff users to create a new custom role with a specific set of permissions.
 
@@ -287,11 +273,11 @@ Schema: `RoleModifyRequest`
 
 ---
 
-### Get role details
+### roles_retrieve
 
 **`GET`** `/api/roles/{uuid}/`
 
-**Operation ID:** `roles_retrieve`
+**Summary:** Get role details
 
 Retrieve the details of a specific role by its UUID.
 
@@ -310,11 +296,11 @@ Retrieve the details of a specific role by its UUID.
 
 ---
 
-### Update a role
+### roles_update
 
 **`PUT`** `/api/roles/{uuid}/`
 
-**Operation ID:** `roles_update`
+**Summary:** Update a role
 
 Allows staff users to update an existing role's name, description, content type, and permissions. The name of a system role cannot be changed.
 
@@ -362,8 +348,6 @@ Schema: `RoleModifyRequest`
 
 **`PATCH`** `/api/roles/{uuid}/`
 
-**Operation ID:** `roles_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -402,11 +386,11 @@ Schema: `PatchedRoleDetailsRequest`
 
 ---
 
-### Delete a role
+### roles_destroy
 
 **`DELETE`** `/api/roles/{uuid}/`
 
-**Operation ID:** `roles_destroy`
+**Summary:** Delete a role
 
 Allows staff users to delete a custom role. System roles and roles that are currently in use cannot be deleted.
 
@@ -424,11 +408,11 @@ Allows staff users to delete a custom role. System roles and roles that are curr
 
 ---
 
-### Disable a role
+### roles_disable
 
 **`POST`** `/api/roles/{uuid}/disable/`
 
-**Operation ID:** `roles_disable`
+**Summary:** Disable a role
 
 Allows staff users to disable a role, preventing it from being assigned further. Existing assignments are not affected.
 
@@ -446,11 +430,11 @@ Allows staff users to disable a role, preventing it from being assigned further.
 
 ---
 
-### Enable a role
+### roles_enable
 
 **`POST`** `/api/roles/{uuid}/enable/`
 
-**Operation ID:** `roles_enable`
+**Summary:** Enable a role
 
 Allows staff users to enable a role, making it available for assignment.
 
@@ -468,11 +452,11 @@ Allows staff users to enable a role, making it available for assignment.
 
 ---
 
-### Update role descriptions
+### roles_update_descriptions_update
 
 **`PUT`** `/api/roles/{uuid}/update_descriptions/`
 
-**Operation ID:** `roles_update_descriptions_update`
+**Summary:** Update role descriptions
 
 Allows staff users to update the multilingual descriptions of a role.
 

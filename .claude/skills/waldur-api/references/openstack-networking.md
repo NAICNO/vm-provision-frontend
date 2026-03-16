@@ -7,99 +7,99 @@
 
 | Method | Path | Operation ID | Summary |
 |--------|------|--------------|---------|
-| GET | `/api/openstack-external-networks/` | `openstack_external_networks_list` | List external networks |
-| HEAD | `/api/openstack-external-networks/` | `openstack_external_networks_count` | List external networks |
-| GET | `/api/openstack-external-networks/{uuid}/` | `openstack_external_networks_retrieve` | Get external network details |
-| GET | `/api/openstack-floating-ips/` | `openstack_floating_ips_list` | List floating IPs |
-| HEAD | `/api/openstack-floating-ips/` | `openstack_floating_ips_count` | List floating IPs |
-| GET | `/api/openstack-floating-ips/{uuid}/` | `openstack_floating_ips_retrieve` | Get floating IP details |
-| DELETE | `/api/openstack-floating-ips/{uuid}/` | `openstack_floating_ips_destroy` | Delete floating IP |
-| POST | `/api/openstack-floating-ips/{uuid}/attach_to_port/` | `openstack_floating_ips_attach_to_port` | Attach floating IP to a port |
-| POST | `/api/openstack-floating-ips/{uuid}/detach_from_port/` | `openstack_floating_ips_detach_from_port` | Detach floating IP from port |
-| POST | `/api/openstack-floating-ips/{uuid}/pull/` | `openstack_floating_ips_pull` | Synchronize resource state |
-| POST | `/api/openstack-floating-ips/{uuid}/set_erred/` | `openstack_floating_ips_set_erred` | Mark resource as ERRED |
-| POST | `/api/openstack-floating-ips/{uuid}/set_ok/` | `openstack_floating_ips_set_ok` | Mark resource as OK |
-| POST | `/api/openstack-floating-ips/{uuid}/unlink/` | `openstack_floating_ips_unlink` | Unlink resource |
-| POST | `/api/openstack-floating-ips/{uuid}/update_description/` | `openstack_floating_ips_update_description` | Update floating IP description |
-| GET | `/api/openstack-network-rbac-policies/` | `openstack_network_rbac_policies_list` | List network RBAC policies |
-| HEAD | `/api/openstack-network-rbac-policies/` | `openstack_network_rbac_policies_count` | List network RBAC policies |
-| POST | `/api/openstack-network-rbac-policies/` | `openstack_network_rbac_policies_create` | Create RBAC policy |
-| GET | `/api/openstack-network-rbac-policies/{uuid}/` | `openstack_network_rbac_policies_retrieve` | Get network RBAC policy details |
-| PUT | `/api/openstack-network-rbac-policies/{uuid}/` | `openstack_network_rbac_policies_update` |  |
-| PATCH | `/api/openstack-network-rbac-policies/{uuid}/` | `openstack_network_rbac_policies_partial_update` |  |
-| DELETE | `/api/openstack-network-rbac-policies/{uuid}/` | `openstack_network_rbac_policies_destroy` | Delete RBAC policy |
-| GET | `/api/openstack-networks/` | `openstack_networks_list` | List networks |
-| HEAD | `/api/openstack-networks/` | `openstack_networks_count` | List networks |
-| GET | `/api/openstack-networks/{uuid}/` | `openstack_networks_retrieve` | Get network details |
-| PUT | `/api/openstack-networks/{uuid}/` | `openstack_networks_update` | Update network |
-| PATCH | `/api/openstack-networks/{uuid}/` | `openstack_networks_partial_update` | Partially update network |
-| DELETE | `/api/openstack-networks/{uuid}/` | `openstack_networks_destroy` | Delete network |
-| POST | `/api/openstack-networks/{uuid}/create_subnet/` | `openstack_networks_create_subnet` | Create subnet |
-| POST | `/api/openstack-networks/{uuid}/pull/` | `openstack_networks_pull` | Synchronize resource state |
-| POST | `/api/openstack-networks/{uuid}/rbac_policy_create/` | `openstack_networks_rbac_policy_create` | Create RBAC policy |
-| DELETE | `/api/openstack-networks/{uuid}/rbac_policy_delete/{rbac_policy_uuid}/` | `openstack_networks_rbac_policy_delete_destroy` | Delete RBAC policy |
-| POST | `/api/openstack-networks/{uuid}/set_erred/` | `openstack_networks_set_erred` | Mark resource as ERRED |
-| POST | `/api/openstack-networks/{uuid}/set_mtu/` | `openstack_networks_set_mtu` | Set network MTU |
-| POST | `/api/openstack-networks/{uuid}/set_ok/` | `openstack_networks_set_ok` | Mark resource as OK |
-| POST | `/api/openstack-networks/{uuid}/unlink/` | `openstack_networks_unlink` | Unlink resource |
-| GET | `/api/openstack-ports/` | `openstack_ports_list` | List ports |
-| HEAD | `/api/openstack-ports/` | `openstack_ports_count` | List ports |
-| POST | `/api/openstack-ports/` | `openstack_ports_create` | Create port |
-| GET | `/api/openstack-ports/{uuid}/` | `openstack_ports_retrieve` | Get port details |
-| PUT | `/api/openstack-ports/{uuid}/` | `openstack_ports_update` | Update port |
-| PATCH | `/api/openstack-ports/{uuid}/` | `openstack_ports_partial_update` | Partially update port |
-| DELETE | `/api/openstack-ports/{uuid}/` | `openstack_ports_destroy` | Delete port |
-| POST | `/api/openstack-ports/{uuid}/disable_port/` | `openstack_ports_disable_port` | Disable port |
-| POST | `/api/openstack-ports/{uuid}/disable_port_security/` | `openstack_ports_disable_port_security` | Disable port security |
-| POST | `/api/openstack-ports/{uuid}/enable_port/` | `openstack_ports_enable_port` | Enable port |
-| POST | `/api/openstack-ports/{uuid}/enable_port_security/` | `openstack_ports_enable_port_security` | Enable port security |
-| POST | `/api/openstack-ports/{uuid}/pull/` | `openstack_ports_pull` | Synchronize resource state |
-| POST | `/api/openstack-ports/{uuid}/set_erred/` | `openstack_ports_set_erred` | Mark resource as ERRED |
-| POST | `/api/openstack-ports/{uuid}/set_ok/` | `openstack_ports_set_ok` | Mark resource as OK |
-| POST | `/api/openstack-ports/{uuid}/unlink/` | `openstack_ports_unlink` | Unlink resource |
-| POST | `/api/openstack-ports/{uuid}/update_port_ip/` | `openstack_ports_update_port_ip` | Update port IP address |
-| POST | `/api/openstack-ports/{uuid}/update_security_groups/` | `openstack_ports_update_security_groups` | Update port security groups |
-| GET | `/api/openstack-routers/` | `openstack_routers_list` | List routers |
-| HEAD | `/api/openstack-routers/` | `openstack_routers_count` | List routers |
-| POST | `/api/openstack-routers/` | `openstack_routers_create` | Create router |
-| GET | `/api/openstack-routers/{uuid}/` | `openstack_routers_retrieve` | Get router details |
-| DELETE | `/api/openstack-routers/{uuid}/` | `openstack_routers_destroy` | Delete router |
-| POST | `/api/openstack-routers/{uuid}/add_router_interface/` | `openstack_routers_add_router_interface` | Add router interface |
-| POST | `/api/openstack-routers/{uuid}/remove_router_interface/` | `openstack_routers_remove_router_interface` | Remove router interface |
-| POST | `/api/openstack-routers/{uuid}/set_erred/` | `openstack_routers_set_erred` | Mark router as ERRED |
-| POST | `/api/openstack-routers/{uuid}/set_ok/` | `openstack_routers_set_ok` | Mark router as OK |
-| POST | `/api/openstack-routers/{uuid}/set_routes/` | `openstack_routers_set_routes` | Set static routes |
-| GET | `/api/openstack-security-groups/` | `openstack_security_groups_list` | List security groups |
-| HEAD | `/api/openstack-security-groups/` | `openstack_security_groups_count` | List security groups |
-| GET | `/api/openstack-security-groups/{uuid}/` | `openstack_security_groups_retrieve` | Get security group details |
-| PUT | `/api/openstack-security-groups/{uuid}/` | `openstack_security_groups_update` |  |
-| PATCH | `/api/openstack-security-groups/{uuid}/` | `openstack_security_groups_partial_update` | Partially update security group |
-| DELETE | `/api/openstack-security-groups/{uuid}/` | `openstack_security_groups_destroy` | Delete security group |
-| POST | `/api/openstack-security-groups/{uuid}/pull/` | `openstack_security_groups_pull` | Synchronize resource state |
-| POST | `/api/openstack-security-groups/{uuid}/set_erred/` | `openstack_security_groups_set_erred` | Mark resource as ERRED |
-| POST | `/api/openstack-security-groups/{uuid}/set_ok/` | `openstack_security_groups_set_ok` | Mark resource as OK |
-| POST | `/api/openstack-security-groups/{uuid}/set_rules/` | `openstack_security_groups_set_rules` | Set security group rules |
-| POST | `/api/openstack-security-groups/{uuid}/unlink/` | `openstack_security_groups_unlink` | Unlink resource |
-| GET | `/api/openstack-subnets/` | `openstack_subnets_list` | List subnets |
-| HEAD | `/api/openstack-subnets/` | `openstack_subnets_count` | List subnets |
-| GET | `/api/openstack-subnets/{uuid}/` | `openstack_subnets_retrieve` | Get subnet details |
-| PUT | `/api/openstack-subnets/{uuid}/` | `openstack_subnets_update` | Update subnet |
-| PATCH | `/api/openstack-subnets/{uuid}/` | `openstack_subnets_partial_update` | Partially update subnet |
-| DELETE | `/api/openstack-subnets/{uuid}/` | `openstack_subnets_destroy` | Delete subnet |
-| POST | `/api/openstack-subnets/{uuid}/connect/` | `openstack_subnets_connect` | Connect subnet to router |
-| POST | `/api/openstack-subnets/{uuid}/disconnect/` | `openstack_subnets_disconnect` | Disconnect subnet from router |
-| POST | `/api/openstack-subnets/{uuid}/pull/` | `openstack_subnets_pull` | Synchronize resource state |
-| POST | `/api/openstack-subnets/{uuid}/set_erred/` | `openstack_subnets_set_erred` | Mark resource as ERRED |
-| POST | `/api/openstack-subnets/{uuid}/set_ok/` | `openstack_subnets_set_ok` | Mark resource as OK |
-| POST | `/api/openstack-subnets/{uuid}/unlink/` | `openstack_subnets_unlink` | Unlink resource |
+| GET | `/api/openstack-external-networks/` | [`openstack_external_networks_list`](#openstack-external-networks-list) | List external networks |
+| HEAD | `/api/openstack-external-networks/` | [`openstack_external_networks_count`](#openstack-external-networks-count) | List external networks |
+| GET | `/api/openstack-external-networks/{uuid}/` | [`openstack_external_networks_retrieve`](#openstack-external-networks-retrieve) | Get external network details |
+| GET | `/api/openstack-floating-ips/` | [`openstack_floating_ips_list`](#openstack-floating-ips-list) | List floating IPs |
+| HEAD | `/api/openstack-floating-ips/` | [`openstack_floating_ips_count`](#openstack-floating-ips-count) | List floating IPs |
+| GET | `/api/openstack-floating-ips/{uuid}/` | [`openstack_floating_ips_retrieve`](#openstack-floating-ips-retrieve) | Get floating IP details |
+| DELETE | `/api/openstack-floating-ips/{uuid}/` | [`openstack_floating_ips_destroy`](#openstack-floating-ips-destroy) | Delete floating IP |
+| POST | `/api/openstack-floating-ips/{uuid}/attach_to_port/` | [`openstack_floating_ips_attach_to_port`](#openstack-floating-ips-attach-to-port) | Attach floating IP to a port |
+| POST | `/api/openstack-floating-ips/{uuid}/detach_from_port/` | [`openstack_floating_ips_detach_from_port`](#openstack-floating-ips-detach-from-port) | Detach floating IP from port |
+| POST | `/api/openstack-floating-ips/{uuid}/pull/` | [`openstack_floating_ips_pull`](#openstack-floating-ips-pull) | Synchronize resource state |
+| POST | `/api/openstack-floating-ips/{uuid}/set_erred/` | [`openstack_floating_ips_set_erred`](#openstack-floating-ips-set-erred) | Mark resource as ERRED |
+| POST | `/api/openstack-floating-ips/{uuid}/set_ok/` | [`openstack_floating_ips_set_ok`](#openstack-floating-ips-set-ok) | Mark resource as OK |
+| POST | `/api/openstack-floating-ips/{uuid}/unlink/` | [`openstack_floating_ips_unlink`](#openstack-floating-ips-unlink) | Unlink resource |
+| POST | `/api/openstack-floating-ips/{uuid}/update_description/` | [`openstack_floating_ips_update_description`](#openstack-floating-ips-update-description) | Update floating IP description |
+| GET | `/api/openstack-network-rbac-policies/` | [`openstack_network_rbac_policies_list`](#openstack-network-rbac-policies-list) | List network RBAC policies |
+| HEAD | `/api/openstack-network-rbac-policies/` | [`openstack_network_rbac_policies_count`](#openstack-network-rbac-policies-count) | List network RBAC policies |
+| POST | `/api/openstack-network-rbac-policies/` | [`openstack_network_rbac_policies_create`](#openstack-network-rbac-policies-create) | Create RBAC policy |
+| GET | `/api/openstack-network-rbac-policies/{uuid}/` | [`openstack_network_rbac_policies_retrieve`](#openstack-network-rbac-policies-retrieve) | Get network RBAC policy details |
+| PUT | `/api/openstack-network-rbac-policies/{uuid}/` | [`openstack_network_rbac_policies_update`](#openstack-network-rbac-policies-update) |  |
+| PATCH | `/api/openstack-network-rbac-policies/{uuid}/` | [`openstack_network_rbac_policies_partial_update`](#openstack-network-rbac-policies-partial-update) |  |
+| DELETE | `/api/openstack-network-rbac-policies/{uuid}/` | [`openstack_network_rbac_policies_destroy`](#openstack-network-rbac-policies-destroy) | Delete RBAC policy |
+| GET | `/api/openstack-networks/` | [`openstack_networks_list`](#openstack-networks-list) | List networks |
+| HEAD | `/api/openstack-networks/` | [`openstack_networks_count`](#openstack-networks-count) | List networks |
+| GET | `/api/openstack-networks/{uuid}/` | [`openstack_networks_retrieve`](#openstack-networks-retrieve) | Get network details |
+| PUT | `/api/openstack-networks/{uuid}/` | [`openstack_networks_update`](#openstack-networks-update) | Update network |
+| PATCH | `/api/openstack-networks/{uuid}/` | [`openstack_networks_partial_update`](#openstack-networks-partial-update) | Partially update network |
+| DELETE | `/api/openstack-networks/{uuid}/` | [`openstack_networks_destroy`](#openstack-networks-destroy) | Delete network |
+| POST | `/api/openstack-networks/{uuid}/create_subnet/` | [`openstack_networks_create_subnet`](#openstack-networks-create-subnet) | Create subnet |
+| POST | `/api/openstack-networks/{uuid}/pull/` | [`openstack_networks_pull`](#openstack-networks-pull) | Synchronize resource state |
+| POST | `/api/openstack-networks/{uuid}/rbac_policy_create/` | [`openstack_networks_rbac_policy_create`](#openstack-networks-rbac-policy-create) | Create RBAC policy |
+| DELETE | `/api/openstack-networks/{uuid}/rbac_policy_delete/{rbac_policy_uuid}/` | [`openstack_networks_rbac_policy_delete_destroy`](#openstack-networks-rbac-policy-delete-destroy) | Delete RBAC policy |
+| POST | `/api/openstack-networks/{uuid}/set_erred/` | [`openstack_networks_set_erred`](#openstack-networks-set-erred) | Mark resource as ERRED |
+| POST | `/api/openstack-networks/{uuid}/set_mtu/` | [`openstack_networks_set_mtu`](#openstack-networks-set-mtu) | Set network MTU |
+| POST | `/api/openstack-networks/{uuid}/set_ok/` | [`openstack_networks_set_ok`](#openstack-networks-set-ok) | Mark resource as OK |
+| POST | `/api/openstack-networks/{uuid}/unlink/` | [`openstack_networks_unlink`](#openstack-networks-unlink) | Unlink resource |
+| GET | `/api/openstack-ports/` | [`openstack_ports_list`](#openstack-ports-list) | List ports |
+| HEAD | `/api/openstack-ports/` | [`openstack_ports_count`](#openstack-ports-count) | List ports |
+| POST | `/api/openstack-ports/` | [`openstack_ports_create`](#openstack-ports-create) | Create port |
+| GET | `/api/openstack-ports/{uuid}/` | [`openstack_ports_retrieve`](#openstack-ports-retrieve) | Get port details |
+| PUT | `/api/openstack-ports/{uuid}/` | [`openstack_ports_update`](#openstack-ports-update) | Update port |
+| PATCH | `/api/openstack-ports/{uuid}/` | [`openstack_ports_partial_update`](#openstack-ports-partial-update) | Partially update port |
+| DELETE | `/api/openstack-ports/{uuid}/` | [`openstack_ports_destroy`](#openstack-ports-destroy) | Delete port |
+| POST | `/api/openstack-ports/{uuid}/disable_port/` | [`openstack_ports_disable_port`](#openstack-ports-disable-port) | Disable port |
+| POST | `/api/openstack-ports/{uuid}/disable_port_security/` | [`openstack_ports_disable_port_security`](#openstack-ports-disable-port-security) | Disable port security |
+| POST | `/api/openstack-ports/{uuid}/enable_port/` | [`openstack_ports_enable_port`](#openstack-ports-enable-port) | Enable port |
+| POST | `/api/openstack-ports/{uuid}/enable_port_security/` | [`openstack_ports_enable_port_security`](#openstack-ports-enable-port-security) | Enable port security |
+| POST | `/api/openstack-ports/{uuid}/pull/` | [`openstack_ports_pull`](#openstack-ports-pull) | Synchronize resource state |
+| POST | `/api/openstack-ports/{uuid}/set_erred/` | [`openstack_ports_set_erred`](#openstack-ports-set-erred) | Mark resource as ERRED |
+| POST | `/api/openstack-ports/{uuid}/set_ok/` | [`openstack_ports_set_ok`](#openstack-ports-set-ok) | Mark resource as OK |
+| POST | `/api/openstack-ports/{uuid}/unlink/` | [`openstack_ports_unlink`](#openstack-ports-unlink) | Unlink resource |
+| POST | `/api/openstack-ports/{uuid}/update_port_ip/` | [`openstack_ports_update_port_ip`](#openstack-ports-update-port-ip) | Update port IP address |
+| POST | `/api/openstack-ports/{uuid}/update_security_groups/` | [`openstack_ports_update_security_groups`](#openstack-ports-update-security-groups) | Update port security groups |
+| GET | `/api/openstack-routers/` | [`openstack_routers_list`](#openstack-routers-list) | List routers |
+| HEAD | `/api/openstack-routers/` | [`openstack_routers_count`](#openstack-routers-count) | List routers |
+| POST | `/api/openstack-routers/` | [`openstack_routers_create`](#openstack-routers-create) | Create router |
+| GET | `/api/openstack-routers/{uuid}/` | [`openstack_routers_retrieve`](#openstack-routers-retrieve) | Get router details |
+| DELETE | `/api/openstack-routers/{uuid}/` | [`openstack_routers_destroy`](#openstack-routers-destroy) | Delete router |
+| POST | `/api/openstack-routers/{uuid}/add_router_interface/` | [`openstack_routers_add_router_interface`](#openstack-routers-add-router-interface) | Add router interface |
+| POST | `/api/openstack-routers/{uuid}/remove_router_interface/` | [`openstack_routers_remove_router_interface`](#openstack-routers-remove-router-interface) | Remove router interface |
+| POST | `/api/openstack-routers/{uuid}/set_erred/` | [`openstack_routers_set_erred`](#openstack-routers-set-erred) | Mark router as ERRED |
+| POST | `/api/openstack-routers/{uuid}/set_ok/` | [`openstack_routers_set_ok`](#openstack-routers-set-ok) | Mark router as OK |
+| POST | `/api/openstack-routers/{uuid}/set_routes/` | [`openstack_routers_set_routes`](#openstack-routers-set-routes) | Set static routes |
+| GET | `/api/openstack-security-groups/` | [`openstack_security_groups_list`](#openstack-security-groups-list) | List security groups |
+| HEAD | `/api/openstack-security-groups/` | [`openstack_security_groups_count`](#openstack-security-groups-count) | List security groups |
+| GET | `/api/openstack-security-groups/{uuid}/` | [`openstack_security_groups_retrieve`](#openstack-security-groups-retrieve) | Get security group details |
+| PUT | `/api/openstack-security-groups/{uuid}/` | [`openstack_security_groups_update`](#openstack-security-groups-update) |  |
+| PATCH | `/api/openstack-security-groups/{uuid}/` | [`openstack_security_groups_partial_update`](#openstack-security-groups-partial-update) | Partially update security group |
+| DELETE | `/api/openstack-security-groups/{uuid}/` | [`openstack_security_groups_destroy`](#openstack-security-groups-destroy) | Delete security group |
+| POST | `/api/openstack-security-groups/{uuid}/pull/` | [`openstack_security_groups_pull`](#openstack-security-groups-pull) | Synchronize resource state |
+| POST | `/api/openstack-security-groups/{uuid}/set_erred/` | [`openstack_security_groups_set_erred`](#openstack-security-groups-set-erred) | Mark resource as ERRED |
+| POST | `/api/openstack-security-groups/{uuid}/set_ok/` | [`openstack_security_groups_set_ok`](#openstack-security-groups-set-ok) | Mark resource as OK |
+| POST | `/api/openstack-security-groups/{uuid}/set_rules/` | [`openstack_security_groups_set_rules`](#openstack-security-groups-set-rules) | Set security group rules |
+| POST | `/api/openstack-security-groups/{uuid}/unlink/` | [`openstack_security_groups_unlink`](#openstack-security-groups-unlink) | Unlink resource |
+| GET | `/api/openstack-subnets/` | [`openstack_subnets_list`](#openstack-subnets-list) | List subnets |
+| HEAD | `/api/openstack-subnets/` | [`openstack_subnets_count`](#openstack-subnets-count) | List subnets |
+| GET | `/api/openstack-subnets/{uuid}/` | [`openstack_subnets_retrieve`](#openstack-subnets-retrieve) | Get subnet details |
+| PUT | `/api/openstack-subnets/{uuid}/` | [`openstack_subnets_update`](#openstack-subnets-update) | Update subnet |
+| PATCH | `/api/openstack-subnets/{uuid}/` | [`openstack_subnets_partial_update`](#openstack-subnets-partial-update) | Partially update subnet |
+| DELETE | `/api/openstack-subnets/{uuid}/` | [`openstack_subnets_destroy`](#openstack-subnets-destroy) | Delete subnet |
+| POST | `/api/openstack-subnets/{uuid}/connect/` | [`openstack_subnets_connect`](#openstack-subnets-connect) | Connect subnet to router |
+| POST | `/api/openstack-subnets/{uuid}/disconnect/` | [`openstack_subnets_disconnect`](#openstack-subnets-disconnect) | Disconnect subnet from router |
+| POST | `/api/openstack-subnets/{uuid}/pull/` | [`openstack_subnets_pull`](#openstack-subnets-pull) | Synchronize resource state |
+| POST | `/api/openstack-subnets/{uuid}/set_erred/` | [`openstack_subnets_set_erred`](#openstack-subnets-set-erred) | Mark resource as ERRED |
+| POST | `/api/openstack-subnets/{uuid}/set_ok/` | [`openstack_subnets_set_ok`](#openstack-subnets-set-ok) | Mark resource as OK |
+| POST | `/api/openstack-subnets/{uuid}/unlink/` | [`openstack_subnets_unlink`](#openstack-subnets-unlink) | Unlink resource |
 
 ## Endpoint Details
 
-### List external networks
+### openstack_external_networks_list
 
 **`GET`** `/api/openstack-external-networks/`
 
-**Operation ID:** `openstack_external_networks_list`
+**Summary:** List external networks
 
 Get a list of provider-level external networks discovered from OpenStack.
 
@@ -121,11 +121,11 @@ Get a list of provider-level external networks discovered from OpenStack.
 
 ---
 
-### List external networks
+### openstack_external_networks_count
 
 **`HEAD`** `/api/openstack-external-networks/`
 
-**Operation ID:** `openstack_external_networks_count`
+**Summary:** List external networks
 
 Get number of items in the collection matching the request parameters.
 
@@ -146,11 +146,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get external network details
+### openstack_external_networks_retrieve
 
 **`GET`** `/api/openstack-external-networks/{uuid}/`
 
-**Operation ID:** `openstack_external_networks_retrieve`
+**Summary:** Get external network details
 
 Retrieve details of a specific external network, including its subnets.
 
@@ -169,11 +169,11 @@ Retrieve details of a specific external network, including its subnets.
 
 ---
 
-### List floating IPs
+### openstack_floating_ips_list
 
 **`GET`** `/api/openstack-floating-ips/`
 
-**Operation ID:** `openstack_floating_ips_list`
+**Summary:** List floating IPs
 
 Get a list of floating IP addresses. Status *DOWN* means that floating IP is not linked to a VM, status *ACTIVE* means that it is in use.
 
@@ -214,11 +214,11 @@ Get a list of floating IP addresses. Status *DOWN* means that floating IP is not
 
 ---
 
-### List floating IPs
+### openstack_floating_ips_count
 
 **`HEAD`** `/api/openstack-floating-ips/`
 
-**Operation ID:** `openstack_floating_ips_count`
+**Summary:** List floating IPs
 
 Get number of items in the collection matching the request parameters.
 
@@ -258,11 +258,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get floating IP details
+### openstack_floating_ips_retrieve
 
 **`GET`** `/api/openstack-floating-ips/{uuid}/`
 
-**Operation ID:** `openstack_floating_ips_retrieve`
+**Summary:** Get floating IP details
 
 Retrieve details of a specific floating IP address.
 
@@ -281,11 +281,11 @@ Retrieve details of a specific floating IP address.
 
 ---
 
-### Delete floating IP
+### openstack_floating_ips_destroy
 
 **`DELETE`** `/api/openstack-floating-ips/{uuid}/`
 
-**Operation ID:** `openstack_floating_ips_destroy`
+**Summary:** Delete floating IP
 
 Delete a floating IP address.
 
@@ -303,11 +303,11 @@ Delete a floating IP address.
 
 ---
 
-### Attach floating IP to a port
+### openstack_floating_ips_attach_to_port
 
 **`POST`** `/api/openstack-floating-ips/{uuid}/attach_to_port/`
 
-**Operation ID:** `openstack_floating_ips_attach_to_port`
+**Summary:** Attach floating IP to a port
 
 Attach floating IP to port
 
@@ -333,11 +333,11 @@ Schema: `OpenStackFloatingIPAttachRequest`
 
 ---
 
-### Detach floating IP from port
+### openstack_floating_ips_detach_from_port
 
 **`POST`** `/api/openstack-floating-ips/{uuid}/detach_from_port/`
 
-**Operation ID:** `openstack_floating_ips_detach_from_port`
+**Summary:** Detach floating IP from port
 
 **Parameters:**
 
@@ -353,11 +353,11 @@ Schema: `OpenStackFloatingIPAttachRequest`
 
 ---
 
-### Synchronize resource state
+### openstack_floating_ips_pull
 
 **`POST`** `/api/openstack-floating-ips/{uuid}/pull/`
 
-**Operation ID:** `openstack_floating_ips_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -376,11 +376,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### openstack_floating_ips_set_erred
 
 **`POST`** `/api/openstack-floating-ips/{uuid}/set_erred/`
 
-**Operation ID:** `openstack_floating_ips_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -407,11 +407,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### openstack_floating_ips_set_ok
 
 **`POST`** `/api/openstack-floating-ips/{uuid}/set_ok/`
 
-**Operation ID:** `openstack_floating_ips_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -429,11 +429,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### openstack_floating_ips_unlink
 
 **`POST`** `/api/openstack-floating-ips/{uuid}/unlink/`
 
-**Operation ID:** `openstack_floating_ips_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -453,11 +453,11 @@ Delete resource from the database without scheduling operations on backend
 
 ---
 
-### Update floating IP description
+### openstack_floating_ips_update_description
 
 **`POST`** `/api/openstack-floating-ips/{uuid}/update_description/`
 
-**Operation ID:** `openstack_floating_ips_update_description`
+**Summary:** Update floating IP description
 
 Update description of the floating IP
 
@@ -483,11 +483,11 @@ Schema: `OpenStackFloatingIPDescriptionUpdateRequest`
 
 ---
 
-### List network RBAC policies
+### openstack_network_rbac_policies_list
 
 **`GET`** `/api/openstack-network-rbac-policies/`
 
-**Operation ID:** `openstack_network_rbac_policies_list`
+**Summary:** List network RBAC policies
 
 Get a list of network RBAC policies.
 
@@ -511,11 +511,11 @@ Get a list of network RBAC policies.
 
 ---
 
-### List network RBAC policies
+### openstack_network_rbac_policies_count
 
 **`HEAD`** `/api/openstack-network-rbac-policies/`
 
-**Operation ID:** `openstack_network_rbac_policies_count`
+**Summary:** List network RBAC policies
 
 Get number of items in the collection matching the request parameters.
 
@@ -539,11 +539,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create RBAC policy
+### openstack_network_rbac_policies_create
 
 **`POST`** `/api/openstack-network-rbac-policies/`
 
-**Operation ID:** `openstack_network_rbac_policies_create`
+**Summary:** Create RBAC policy
 
 Create RBAC policy for the network
 
@@ -565,11 +565,11 @@ Schema: `NetworkRBACPolicyRequest`
 
 ---
 
-### Get network RBAC policy details
+### openstack_network_rbac_policies_retrieve
 
 **`GET`** `/api/openstack-network-rbac-policies/{uuid}/`
 
-**Operation ID:** `openstack_network_rbac_policies_retrieve`
+**Summary:** Get network RBAC policy details
 
 Retrieve details of a specific network RBAC policy.
 
@@ -590,8 +590,6 @@ Retrieve details of a specific network RBAC policy.
 ### openstack_network_rbac_policies_update
 
 **`PUT`** `/api/openstack-network-rbac-policies/{uuid}/`
-
-**Operation ID:** `openstack_network_rbac_policies_update`
 
 **Parameters:**
 
@@ -621,8 +619,6 @@ Schema: `NetworkRBACPolicyRequest`
 
 **`PATCH`** `/api/openstack-network-rbac-policies/{uuid}/`
 
-**Operation ID:** `openstack_network_rbac_policies_partial_update`
-
 **Parameters:**
 
 | Name | In | Type | Required | Description |
@@ -647,11 +643,11 @@ Schema: `PatchedNetworkRBACPolicyRequest`
 
 ---
 
-### Delete RBAC policy
+### openstack_network_rbac_policies_destroy
 
 **`DELETE`** `/api/openstack-network-rbac-policies/{uuid}/`
 
-**Operation ID:** `openstack_network_rbac_policies_destroy`
+**Summary:** Delete RBAC policy
 
 Delete RBAC policy for the network
 
@@ -669,11 +665,11 @@ Delete RBAC policy for the network
 
 ---
 
-### List networks
+### openstack_networks_list
 
 **`GET`** `/api/openstack-networks/`
 
-**Operation ID:** `openstack_networks_list`
+**Summary:** List networks
 
 Get a list of networks.
 
@@ -715,11 +711,11 @@ Get a list of networks.
 
 ---
 
-### List networks
+### openstack_networks_count
 
 **`HEAD`** `/api/openstack-networks/`
 
-**Operation ID:** `openstack_networks_count`
+**Summary:** List networks
 
 Get number of items in the collection matching the request parameters.
 
@@ -760,11 +756,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get network details
+### openstack_networks_retrieve
 
 **`GET`** `/api/openstack-networks/{uuid}/`
 
-**Operation ID:** `openstack_networks_retrieve`
+**Summary:** Get network details
 
 Retrieve details of a specific network.
 
@@ -783,11 +779,11 @@ Retrieve details of a specific network.
 
 ---
 
-### Update network
+### openstack_networks_update
 
 **`PUT`** `/api/openstack-networks/{uuid}/`
 
-**Operation ID:** `openstack_networks_update`
+**Summary:** Update network
 
 Update an existing network.
 
@@ -814,11 +810,11 @@ Schema: `OpenStackNetworkRequest`
 
 ---
 
-### Partially update network
+### openstack_networks_partial_update
 
 **`PATCH`** `/api/openstack-networks/{uuid}/`
 
-**Operation ID:** `openstack_networks_partial_update`
+**Summary:** Partially update network
 
 Update specific fields of a network.
 
@@ -845,11 +841,11 @@ Schema: `PatchedOpenStackNetworkRequest`
 
 ---
 
-### Delete network
+### openstack_networks_destroy
 
 **`DELETE`** `/api/openstack-networks/{uuid}/`
 
-**Operation ID:** `openstack_networks_destroy`
+**Summary:** Delete network
 
 Delete a network.
 
@@ -867,11 +863,11 @@ Delete a network.
 
 ---
 
-### Create subnet
+### openstack_networks_create_subnet
 
 **`POST`** `/api/openstack-networks/{uuid}/create_subnet/`
 
-**Operation ID:** `openstack_networks_create_subnet`
+**Summary:** Create subnet
 
 Create a new subnet within the network.
 
@@ -904,11 +900,11 @@ Schema: `OpenStackSubNetRequest`
 
 ---
 
-### Synchronize resource state
+### openstack_networks_pull
 
 **`POST`** `/api/openstack-networks/{uuid}/pull/`
 
-**Operation ID:** `openstack_networks_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -927,11 +923,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Create RBAC policy
+### openstack_networks_rbac_policy_create
 
 **`POST`** `/api/openstack-networks/{uuid}/rbac_policy_create/`
 
-**Operation ID:** `openstack_networks_rbac_policy_create`
+**Summary:** Create RBAC policy
 
 Create RBAC policy for the network. DEPRECATED: please use the dedicated /api/openstack-network-rbac-policies/ endpoint.
 
@@ -958,11 +954,11 @@ Schema: `DeprecatedNetworkRBACPolicyRequest`
 
 ---
 
-### Delete RBAC policy
+### openstack_networks_rbac_policy_delete_destroy
 
 **`DELETE`** `/api/openstack-networks/{uuid}/rbac_policy_delete/{rbac_policy_uuid}/`
 
-**Operation ID:** `openstack_networks_rbac_policy_delete_destroy`
+**Summary:** Delete RBAC policy
 
 Delete RBAC policy for the network. DEPRECATED: please use the dedicated /api/openstack-network-rbac-policies/ endpoint.
 
@@ -981,11 +977,11 @@ Delete RBAC policy for the network. DEPRECATED: please use the dedicated /api/op
 
 ---
 
-### Mark resource as ERRED
+### openstack_networks_set_erred
 
 **`POST`** `/api/openstack-networks/{uuid}/set_erred/`
 
-**Operation ID:** `openstack_networks_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -1012,11 +1008,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Set network MTU
+### openstack_networks_set_mtu
 
 **`POST`** `/api/openstack-networks/{uuid}/set_mtu/`
 
-**Operation ID:** `openstack_networks_set_mtu`
+**Summary:** Set network MTU
 
 Update the Maximum Transmission Unit (MTU) for the network.
 
@@ -1042,11 +1038,11 @@ Schema: `SetMtuRequest`
 
 ---
 
-### Mark resource as OK
+### openstack_networks_set_ok
 
 **`POST`** `/api/openstack-networks/{uuid}/set_ok/`
 
-**Operation ID:** `openstack_networks_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -1064,11 +1060,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### openstack_networks_unlink
 
 **`POST`** `/api/openstack-networks/{uuid}/unlink/`
 
-**Operation ID:** `openstack_networks_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -1088,11 +1084,11 @@ Delete resource from the database without scheduling operations on backend
 
 ---
 
-### List ports
+### openstack_ports_list
 
 **`GET`** `/api/openstack-ports/`
 
-**Operation ID:** `openstack_ports_list`
+**Summary:** List ports
 
 Get a list of network ports.
 
@@ -1127,11 +1123,11 @@ Get a list of network ports.
 
 ---
 
-### List ports
+### openstack_ports_count
 
 **`HEAD`** `/api/openstack-ports/`
 
-**Operation ID:** `openstack_ports_count`
+**Summary:** List ports
 
 Get number of items in the collection matching the request parameters.
 
@@ -1165,11 +1161,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create port
+### openstack_ports_create
 
 **`POST`** `/api/openstack-ports/`
 
-**Operation ID:** `openstack_ports_create`
+**Summary:** Create port
 
 Create a new network port.
 
@@ -1197,11 +1193,11 @@ Schema: `OpenStackPortRequest`
 
 ---
 
-### Get port details
+### openstack_ports_retrieve
 
 **`GET`** `/api/openstack-ports/{uuid}/`
 
-**Operation ID:** `openstack_ports_retrieve`
+**Summary:** Get port details
 
 Retrieve details of a specific network port.
 
@@ -1220,11 +1216,11 @@ Retrieve details of a specific network port.
 
 ---
 
-### Update port
+### openstack_ports_update
 
 **`PUT`** `/api/openstack-ports/{uuid}/`
 
-**Operation ID:** `openstack_ports_update`
+**Summary:** Update port
 
 Update an existing network port.
 
@@ -1258,11 +1254,11 @@ Schema: `OpenStackPortRequest`
 
 ---
 
-### Partially update port
+### openstack_ports_partial_update
 
 **`PATCH`** `/api/openstack-ports/{uuid}/`
 
-**Operation ID:** `openstack_ports_partial_update`
+**Summary:** Partially update port
 
 Update specific fields of a network port.
 
@@ -1291,11 +1287,11 @@ Schema: `PatchedOpenStackPortRequest`
 
 ---
 
-### Delete port
+### openstack_ports_destroy
 
 **`DELETE`** `/api/openstack-ports/{uuid}/`
 
-**Operation ID:** `openstack_ports_destroy`
+**Summary:** Delete port
 
 Delete a network port.
 
@@ -1313,11 +1309,11 @@ Delete a network port.
 
 ---
 
-### Disable port
+### openstack_ports_disable_port
 
 **`POST`** `/api/openstack-ports/{uuid}/disable_port/`
 
-**Operation ID:** `openstack_ports_disable_port`
+**Summary:** Disable port
 
 Disable port.
 
@@ -1335,11 +1331,11 @@ Disable port.
 
 ---
 
-### Disable port security
+### openstack_ports_disable_port_security
 
 **`POST`** `/api/openstack-ports/{uuid}/disable_port_security/`
 
-**Operation ID:** `openstack_ports_disable_port_security`
+**Summary:** Disable port security
 
 Disable port security for the port
 
@@ -1357,11 +1353,11 @@ Disable port security for the port
 
 ---
 
-### Enable port
+### openstack_ports_enable_port
 
 **`POST`** `/api/openstack-ports/{uuid}/enable_port/`
 
-**Operation ID:** `openstack_ports_enable_port`
+**Summary:** Enable port
 
 Enable port.
 
@@ -1379,11 +1375,11 @@ Enable port.
 
 ---
 
-### Enable port security
+### openstack_ports_enable_port_security
 
 **`POST`** `/api/openstack-ports/{uuid}/enable_port_security/`
 
-**Operation ID:** `openstack_ports_enable_port_security`
+**Summary:** Enable port security
 
 Enable port security for the port
 
@@ -1401,11 +1397,11 @@ Enable port security for the port
 
 ---
 
-### Synchronize resource state
+### openstack_ports_pull
 
 **`POST`** `/api/openstack-ports/{uuid}/pull/`
 
-**Operation ID:** `openstack_ports_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -1424,11 +1420,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### openstack_ports_set_erred
 
 **`POST`** `/api/openstack-ports/{uuid}/set_erred/`
 
-**Operation ID:** `openstack_ports_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -1455,11 +1451,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### openstack_ports_set_ok
 
 **`POST`** `/api/openstack-ports/{uuid}/set_ok/`
 
-**Operation ID:** `openstack_ports_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -1477,11 +1473,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### openstack_ports_unlink
 
 **`POST`** `/api/openstack-ports/{uuid}/unlink/`
 
-**Operation ID:** `openstack_ports_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -1501,11 +1497,11 @@ Delete resource from the database without scheduling operations on backend
 
 ---
 
-### Update port IP address
+### openstack_ports_update_port_ip
 
 **`POST`** `/api/openstack-ports/{uuid}/update_port_ip/`
 
-**Operation ID:** `openstack_ports_update_port_ip`
+**Summary:** Update port IP address
 
 Update port IP address.
 
@@ -1532,11 +1528,11 @@ Schema: `OpenStackPortIPUpdateRequest`
 
 ---
 
-### Update port security groups
+### openstack_ports_update_security_groups
 
 **`POST`** `/api/openstack-ports/{uuid}/update_security_groups/`
 
-**Operation ID:** `openstack_ports_update_security_groups`
+**Summary:** Update port security groups
 
 Update security groups of the port
 
@@ -1562,11 +1558,11 @@ Schema: `OpenStackInstanceSecurityGroupsUpdateRequest`
 
 ---
 
-### List routers
+### openstack_routers_list
 
 **`GET`** `/api/openstack-routers/`
 
-**Operation ID:** `openstack_routers_list`
+**Summary:** List routers
 
 Get a list of routers.
 
@@ -1589,11 +1585,11 @@ Get a list of routers.
 
 ---
 
-### List routers
+### openstack_routers_count
 
 **`HEAD`** `/api/openstack-routers/`
 
-**Operation ID:** `openstack_routers_count`
+**Summary:** List routers
 
 Get number of items in the collection matching the request parameters.
 
@@ -1615,11 +1611,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Create router
+### openstack_routers_create
 
 **`POST`** `/api/openstack-routers/`
 
-**Operation ID:** `openstack_routers_create`
+**Summary:** Create router
 
 Create a new router.
 
@@ -1640,11 +1636,11 @@ Schema: `CreateRouterRequest`
 
 ---
 
-### Get router details
+### openstack_routers_retrieve
 
 **`GET`** `/api/openstack-routers/{uuid}/`
 
-**Operation ID:** `openstack_routers_retrieve`
+**Summary:** Get router details
 
 Retrieve details of a specific router.
 
@@ -1663,11 +1659,11 @@ Retrieve details of a specific router.
 
 ---
 
-### Delete router
+### openstack_routers_destroy
 
 **`DELETE`** `/api/openstack-routers/{uuid}/`
 
-**Operation ID:** `openstack_routers_destroy`
+**Summary:** Delete router
 
 Delete a router.
 
@@ -1685,11 +1681,11 @@ Delete a router.
 
 ---
 
-### Add router interface
+### openstack_routers_add_router_interface
 
 **`POST`** `/api/openstack-routers/{uuid}/add_router_interface/`
 
-**Operation ID:** `openstack_routers_add_router_interface`
+**Summary:** Add router interface
 
 Add interface to router. Either subnet or port must be provided.
 
@@ -1716,11 +1712,11 @@ Schema: `OpenStackRouterInterfaceRequest`
 
 ---
 
-### Remove router interface
+### openstack_routers_remove_router_interface
 
 **`POST`** `/api/openstack-routers/{uuid}/remove_router_interface/`
 
-**Operation ID:** `openstack_routers_remove_router_interface`
+**Summary:** Remove router interface
 
 Remove interface from router. Either subnet or port must be provided.
 
@@ -1747,11 +1743,11 @@ Schema: `OpenStackRouterInterfaceRequest`
 
 ---
 
-### Mark router as ERRED
+### openstack_routers_set_erred
 
 **`POST`** `/api/openstack-routers/{uuid}/set_erred/`
 
-**Operation ID:** `openstack_routers_set_erred`
+**Summary:** Mark router as ERRED
 
 Manually transition the router to ERRED state. This is useful for routers stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -1778,11 +1774,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark router as OK
+### openstack_routers_set_ok
 
 **`POST`** `/api/openstack-routers/{uuid}/set_ok/`
 
-**Operation ID:** `openstack_routers_set_ok`
+**Summary:** Mark router as OK
 
 Manually transition the router to OK state and clear error fields. Staff-only operation.
 
@@ -1800,11 +1796,11 @@ Manually transition the router to OK state and clear error fields. Staff-only op
 
 ---
 
-### Set static routes
+### openstack_routers_set_routes
 
 **`POST`** `/api/openstack-routers/{uuid}/set_routes/`
 
-**Operation ID:** `openstack_routers_set_routes`
+**Summary:** Set static routes
 
 Define or overwrite the static routes for the router.
 
@@ -1830,11 +1826,11 @@ Schema: `OpenStackRouterSetRoutesRequest`
 
 ---
 
-### List security groups
+### openstack_security_groups_list
 
 **`GET`** `/api/openstack-security-groups/`
 
-**Operation ID:** `openstack_security_groups_list`
+**Summary:** List security groups
 
 Get a list of security groups.
 
@@ -1873,11 +1869,11 @@ Get a list of security groups.
 
 ---
 
-### List security groups
+### openstack_security_groups_count
 
 **`HEAD`** `/api/openstack-security-groups/`
 
-**Operation ID:** `openstack_security_groups_count`
+**Summary:** List security groups
 
 Get number of items in the collection matching the request parameters.
 
@@ -1915,11 +1911,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get security group details
+### openstack_security_groups_retrieve
 
 **`GET`** `/api/openstack-security-groups/{uuid}/`
 
-**Operation ID:** `openstack_security_groups_retrieve`
+**Summary:** Get security group details
 
 Retrieve details of a specific security group.
 
@@ -1941,8 +1937,6 @@ Retrieve details of a specific security group.
 ### openstack_security_groups_update
 
 **`PUT`** `/api/openstack-security-groups/{uuid}/`
-
-**Operation ID:** `openstack_security_groups_update`
 
 **Parameters:**
 
@@ -1967,11 +1961,11 @@ Schema: `OpenStackSecurityGroupUpdateRequest`
 
 ---
 
-### Partially update security group
+### openstack_security_groups_partial_update
 
 **`PATCH`** `/api/openstack-security-groups/{uuid}/`
 
-**Operation ID:** `openstack_security_groups_partial_update`
+**Summary:** Partially update security group
 
 Update specific fields of a security group.
 
@@ -1998,11 +1992,11 @@ Schema: `PatchedOpenStackSecurityGroupUpdateRequest`
 
 ---
 
-### Delete security group
+### openstack_security_groups_destroy
 
 **`DELETE`** `/api/openstack-security-groups/{uuid}/`
 
-**Operation ID:** `openstack_security_groups_destroy`
+**Summary:** Delete security group
 
 Delete a security group.
 
@@ -2020,11 +2014,11 @@ Delete a security group.
 
 ---
 
-### Synchronize resource state
+### openstack_security_groups_pull
 
 **`POST`** `/api/openstack-security-groups/{uuid}/pull/`
 
-**Operation ID:** `openstack_security_groups_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -2043,11 +2037,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### openstack_security_groups_set_erred
 
 **`POST`** `/api/openstack-security-groups/{uuid}/set_erred/`
 
-**Operation ID:** `openstack_security_groups_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -2074,11 +2068,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### openstack_security_groups_set_ok
 
 **`POST`** `/api/openstack-security-groups/{uuid}/set_ok/`
 
-**Operation ID:** `openstack_security_groups_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -2096,11 +2090,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Set security group rules
+### openstack_security_groups_set_rules
 
 **`POST`** `/api/openstack-security-groups/{uuid}/set_rules/`
 
-**Operation ID:** `openstack_security_groups_set_rules`
+**Summary:** Set security group rules
 
 Update the rules for a specific security group. This overwrites all existing rules.
 
@@ -2120,11 +2114,11 @@ Update the rules for a specific security group. This overwrites all existing rul
 
 ---
 
-### Unlink resource
+### openstack_security_groups_unlink
 
 **`POST`** `/api/openstack-security-groups/{uuid}/unlink/`
 
-**Operation ID:** `openstack_security_groups_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
@@ -2144,11 +2138,11 @@ Delete resource from the database without scheduling operations on backend
 
 ---
 
-### List subnets
+### openstack_subnets_list
 
 **`GET`** `/api/openstack-subnets/`
 
-**Operation ID:** `openstack_subnets_list`
+**Summary:** List subnets
 
 Get a list of subnets.
 
@@ -2192,11 +2186,11 @@ Get a list of subnets.
 
 ---
 
-### List subnets
+### openstack_subnets_count
 
 **`HEAD`** `/api/openstack-subnets/`
 
-**Operation ID:** `openstack_subnets_count`
+**Summary:** List subnets
 
 Get number of items in the collection matching the request parameters.
 
@@ -2239,11 +2233,11 @@ Get number of items in the collection matching the request parameters.
 
 ---
 
-### Get subnet details
+### openstack_subnets_retrieve
 
 **`GET`** `/api/openstack-subnets/{uuid}/`
 
-**Operation ID:** `openstack_subnets_retrieve`
+**Summary:** Get subnet details
 
 Retrieve details of a specific subnet.
 
@@ -2262,11 +2256,11 @@ Retrieve details of a specific subnet.
 
 ---
 
-### Update subnet
+### openstack_subnets_update
 
 **`PUT`** `/api/openstack-subnets/{uuid}/`
 
-**Operation ID:** `openstack_subnets_update`
+**Summary:** Update subnet
 
 Update an existing subnet.
 
@@ -2299,11 +2293,11 @@ Schema: `OpenStackSubNetRequest`
 
 ---
 
-### Partially update subnet
+### openstack_subnets_partial_update
 
 **`PATCH`** `/api/openstack-subnets/{uuid}/`
 
-**Operation ID:** `openstack_subnets_partial_update`
+**Summary:** Partially update subnet
 
 Update specific fields of a subnet.
 
@@ -2336,11 +2330,11 @@ Schema: `PatchedOpenStackSubNetRequest`
 
 ---
 
-### Delete subnet
+### openstack_subnets_destroy
 
 **`DELETE`** `/api/openstack-subnets/{uuid}/`
 
-**Operation ID:** `openstack_subnets_destroy`
+**Summary:** Delete subnet
 
 Delete a subnet.
 
@@ -2358,11 +2352,11 @@ Delete a subnet.
 
 ---
 
-### Connect subnet to router
+### openstack_subnets_connect
 
 **`POST`** `/api/openstack-subnets/{uuid}/connect/`
 
-**Operation ID:** `openstack_subnets_connect`
+**Summary:** Connect subnet to router
 
 Connect the subnet to the default tenant router.
 
@@ -2380,11 +2374,11 @@ Connect the subnet to the default tenant router.
 
 ---
 
-### Disconnect subnet from router
+### openstack_subnets_disconnect
 
 **`POST`** `/api/openstack-subnets/{uuid}/disconnect/`
 
-**Operation ID:** `openstack_subnets_disconnect`
+**Summary:** Disconnect subnet from router
 
 Disconnect the subnet from the default tenant router.
 
@@ -2402,11 +2396,11 @@ Disconnect the subnet from the default tenant router.
 
 ---
 
-### Synchronize resource state
+### openstack_subnets_pull
 
 **`POST`** `/api/openstack-subnets/{uuid}/pull/`
 
-**Operation ID:** `openstack_subnets_pull`
+**Summary:** Synchronize resource state
 
 Schedule an asynchronous pull operation to synchronize resource state from the backend. Returns 202 if the pull was scheduled successfully, or 409 if the pull operation is not implemented for this resource type.
 
@@ -2425,11 +2419,11 @@ Schedule an asynchronous pull operation to synchronize resource state from the b
 
 ---
 
-### Mark resource as ERRED
+### openstack_subnets_set_erred
 
 **`POST`** `/api/openstack-subnets/{uuid}/set_erred/`
 
-**Operation ID:** `openstack_subnets_set_erred`
+**Summary:** Mark resource as ERRED
 
 Manually transition the resource to ERRED state. This is useful for resources stuck in transitional states (CREATING, UPDATING, DELETING) that cannot be synced via pull. Staff-only operation.
 
@@ -2456,11 +2450,11 @@ Schema: `SetErredRequest`
 
 ---
 
-### Mark resource as OK
+### openstack_subnets_set_ok
 
 **`POST`** `/api/openstack-subnets/{uuid}/set_ok/`
 
-**Operation ID:** `openstack_subnets_set_ok`
+**Summary:** Mark resource as OK
 
 Manually transition the resource to OK state and clear error fields. Staff-only operation.
 
@@ -2478,11 +2472,11 @@ Manually transition the resource to OK state and clear error fields. Staff-only 
 
 ---
 
-### Unlink resource
+### openstack_subnets_unlink
 
 **`POST`** `/api/openstack-subnets/{uuid}/unlink/`
 
-**Operation ID:** `openstack_subnets_unlink`
+**Summary:** Unlink resource
 
 Delete resource from the database without scheduling operations on backend
         and without checking current state of the resource. It is intended to be used
