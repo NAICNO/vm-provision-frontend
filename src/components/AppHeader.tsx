@@ -2,6 +2,7 @@ import {
   Avatar,
   Badge,
   Box,
+  Button,
   Flex,
   Heading,
   HStack, Image, Show,
@@ -9,15 +10,16 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { NavLink } from 'react-router'
+import { LuCloud } from 'react-icons/lu'
+import { useV2Auth } from '../context/V2AuthContext.tsx'
 
 import { useColorMode } from './ui/color-mode.tsx'
 import { APP_NAME } from '../constants/Constants.ts'
 import { LogOutButton } from './LogOutButton.tsx'
 import { LightDarkModeButton } from './LightDarkModeButton.tsx'
 import { HamburgerButton } from './HamburgerButton.tsx'
-import { AuthContext } from '../context/AuthContext.tsx'
-import { useContext } from 'react'
-import { getUserTypeText } from '../util'
+import { useV1Auth } from '../context/V1AuthContext.tsx'
+import { isUserAdmin } from '../util'
 
 interface AppHeaderProps {
   onOpenSidebarDrawer: () => void
@@ -26,13 +28,12 @@ interface AppHeaderProps {
 
 export default function AppHeader({onOpenSidebarDrawer, onClickAvatar}: AppHeaderProps) {
 
-  const {user} = useContext(AuthContext)
+  const {user, logout} = useV1Auth()
+  const v2Auth = useV2Auth()
 
   const {colorMode} = useColorMode()
 
   const naicLogo = colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'
-
-  const userType = getUserTypeText(user)
 
   return (
     <Flex
@@ -64,6 +65,15 @@ export default function AppHeader({onOpenSidebarDrawer, onClickAvatar}: AppHeade
           display={{base: 'none', md: 'flex'}}
           alignItems={'center'}
         >
+          <Button
+            variant="outline"
+            size="sm"
+            colorPalette="blue"
+            onClick={v2Auth.login}
+          >
+            <LuCloud />
+            OpenStack Management
+          </Button>
           <LightDarkModeButton/>
           <Avatar.Root
             size={{base: 'sm', md: 'md'}}
@@ -72,20 +82,20 @@ export default function AppHeader({onOpenSidebarDrawer, onClickAvatar}: AppHeade
             variant={'solid'}
             colorPalette={'blue'}
           >
-            <Avatar.Fallback name={user?.full_name}/>
+            <Avatar.Fallback name={user?.firstName}/>
           </Avatar.Root>
           <Box>
             <Text fontWeight="bold" fontSize={{md: 'sm', lg: 'md'}}>
-              {user?.full_name}
+              {user?.firstName} {user?.lastName}
             </Text>
             <Text fontSize={{md: 'xs', lg: 'md'}}>
               {user?.email}
             </Text>
           </Box>
-          {
-            <Badge mt={'4px'} alignSelf={'start'} colorPalette="orange">{userType}</Badge>
+          {isUserAdmin(user?.userType) &&
+            <Badge mt={'4px'} alignSelf={'start'} colorPalette="orange">{user?.userType}</Badge>
           }
-          <LogOutButton/>
+          <LogOutButton onLogout={logout}/>
         </HStack>
       </Show>
     </Flex>

@@ -20,7 +20,7 @@ import type { ColDef } from 'ag-grid-community'
 import { useParams, Link as ReactRouterLink } from 'react-router'
 import { useFetchProject, useFetchProjectMembers } from '../hooks/useProject'
 import { useCreateInvitation, useRemoveUserFromProject } from '../hooks/useUserInvitations'
-import { useAuth } from '../../context/AuthContext'
+import { useV2Auth } from '../../context/V2AuthContext'
 import { toaster } from '../../components/ui/toaster'
 import { NativeSelectRoot, NativeSelectField } from '../../components/ui/native-select'
 import type { UserRoleDetails, InvitationRequestWritable } from '../../client/types.gen'
@@ -33,7 +33,7 @@ const ROLE_DISPLAY: Record<string, string> = {
 
 export default function ProjectMembers() {
   const { orgId, projectId } = useParams<{ orgId: string; projectId: string }>()
-  const { getCustomerCapabilities, getProjectCapabilities } = useAuth()
+  const { getCustomerCapabilities, getProjectCapabilities } = useV2Auth()
 
   const { data: project, isLoading: loadingProject } = useFetchProject(projectId)
   const { data: members, isLoading: loadingMembers } = useFetchProjectMembers(projectId)

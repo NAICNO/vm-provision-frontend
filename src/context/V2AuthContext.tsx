@@ -67,7 +67,7 @@ interface AuthContextProps {
   getProjectPermissions: () => Permission[];
 }
 
-export const AuthContext = createContext<AuthContextProps>({
+export const V2AuthContext = createContext<AuthContextProps>({
   token: null,
   setToken: () => {},
   isAuthenticated: false,
@@ -101,7 +101,7 @@ interface AuthProviderProps {
   children: React.ReactNode;
 }
 
-export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
+export const V2AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   const [token, setToken] = useState<string | null>(null)
   const [isAuthenticated, setAuthenticated] = useState<boolean>(false)
   const [user, setUser] = useState<User | null>(null)
@@ -158,13 +158,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     setToken(null)
     setAuthenticated(false)
     setUser(null)
+    // Also logout from V1 backend to clear cookies, then redirect
     axiosInstance
       .post(`${API_ENDPOINT}/auth/logout`)
       .then((response) => {
         window.location.href = response.data.logoutUrl
       })
-      .catch((error) => {
-        console.error('Logout error:', error)
+      .catch(() => {
+        window.location.href = '/'
       })
   }
 
@@ -262,7 +263,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   )
 
   return (
-    <AuthContext.Provider
+    <V2AuthContext.Provider
       value={{
         token,
         setToken,
@@ -282,13 +283,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
       }}
     >
       {children}
-    </AuthContext.Provider>
+    </V2AuthContext.Provider>
   )
 }
-export const useAuth = () => {
-  const context = useContext(AuthContext)
+export const useV2Auth = () => {
+  const context = useContext(V2AuthContext)
   if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider')
+    throw new Error('useV2Auth must be used within a V2AuthProvider')
   }
   return context
 }

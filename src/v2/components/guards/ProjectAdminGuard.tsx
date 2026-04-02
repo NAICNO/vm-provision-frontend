@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Navigate, Outlet, useParams } from 'react-router'
-import { useAuth } from '../../../context/AuthContext'
+import { useV2Auth } from '../../../context/V2AuthContext'
 import { toaster } from '../../../components/ui/toaster.tsx'
 
 /**
@@ -10,7 +10,7 @@ import { toaster } from '../../../components/ui/toaster.tsx'
  */
 export const ProjectAdminGuard = () => {
   const { orgId, projectId } = useParams<{ orgId: string; projectId: string }>()
-  const { getProjectCapabilities, getCustomerCapabilities, loading } = useAuth()
+  const { getProjectCapabilities, getCustomerCapabilities, loading } = useV2Auth()
 
   const isAuthorized = useMemo(() => {
     // Org owners/staff can access all project admin pages

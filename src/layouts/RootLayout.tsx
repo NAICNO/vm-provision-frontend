@@ -2,14 +2,14 @@ import { Navigate, Outlet, useLocation, useNavigate } from 'react-router'
 import AppHeader from '../components/AppHeader.tsx'
 import { Grid, GridItem, useDisclosure } from '@chakra-ui/react'
 import Sidebar from '../components/Sidebar.tsx'
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import * as WebSocketUtils from '../util/WebSoketUtil.ts'
-import { AuthContext } from '../context/AuthContext.tsx'
+import { useV1Auth } from '../context/V1AuthContext.tsx'
 import { useColorMode } from '../components/ui/color-mode.tsx'
 
 export default function RootLayout() {
 
-  const { isAuthenticated } = useContext(AuthContext)
+  const { isAuthenticated, user } = useV1Auth()
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -29,18 +29,17 @@ export default function RootLayout() {
   const mainGridItemBackgroundColor = colorMode.colorMode === 'light' ? 'white' : 'gray.800'
   const sidebarBackgroundColor = colorMode.colorMode === 'light' ? 'blue.50' : 'blue.900'
 
-  // useEffect(() => {
-  //   if (isAuthenticated) {
-  //     const userId = user?.userId
-  //     if (userId) {
-  //       WebSocketUtils.initializeSocket(userId)
-  //     }
-  //   }
-  //   return () => {
-  //     WebSocketUtils.closeSocket()
-  //   }
-  //
-  // }, [])
+  useEffect(() => {
+    if (isAuthenticated) {
+      const userId = user?.userId
+      if (userId) {
+        WebSocketUtils.initializeSocket(userId)
+      }
+    }
+    return () => {
+      WebSocketUtils.closeSocket()
+    }
+  }, [isAuthenticated, user])
 
   return (
     <Grid

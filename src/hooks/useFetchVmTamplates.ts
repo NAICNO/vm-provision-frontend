@@ -20,7 +20,6 @@ export const useFetchVmTemplates = () => {
     {
       queryKey: [QueryKeys.VM_TEMPLATES],
       queryFn: () => fetchVmTemplates(),
-      enabled: false,
     }
   )
 }
@@ -38,7 +37,7 @@ export const userFetchVmTemplatesByProvider = (providerId: string, enabled: bool
     {
       queryKey: [QueryKeys.VM_TEMPLATES, providerId],
       queryFn: () => fetchVmTemplatesByProvider(providerId),
-      enabled: false,
+      enabled,
     }
   )
 }

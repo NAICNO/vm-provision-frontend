@@ -143,3 +143,5 @@ dist
 .npmrc
 .yarnrc.yml
 .yarn
+
+docs2

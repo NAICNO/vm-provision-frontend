@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { Container, For, Tabs } from '@chakra-ui/react'
 import { useNavigate, useParams } from 'react-router'
 
-import { AuthContext } from '../../context/AuthContext'
+import { V2AuthContext } from '../../context/V2AuthContext'
 import UserAuditLogs from '../../components/profile/UserAuditLogs'
 import SSHKeys from '../../components/profile/SSHKeys'
 import AccountInfo from '../../components/profile/AccountInfo'
@@ -21,7 +21,7 @@ const tabs = [
  * Uses the same components as V1 profile page
  */
 export default function Profile() {
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(V2AuthContext)
   const { tab } = useParams<{ tab?: string }>()
   const navigate = useNavigate()
 

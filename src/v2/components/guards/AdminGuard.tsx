@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Navigate, Outlet, useParams } from 'react-router'
-import { useAuth } from '../../../context/AuthContext'
+import { useV2Auth } from '../../../context/V2AuthContext'
 import { toaster } from '../../../components/ui/toaster.tsx'
 
 /**
@@ -10,7 +10,7 @@ import { toaster } from '../../../components/ui/toaster.tsx'
  */
 export const AdminGuard = () => {
   const { orgId } = useParams<{ orgId: string }>()
-  const { getCustomerCapabilities, loading } = useAuth()
+  const { getCustomerCapabilities, loading } = useV2Auth()
 
   const capabilities = useMemo(
     () => getCustomerCapabilities(orgId || ''),

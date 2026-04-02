@@ -2,6 +2,7 @@ import {
   Avatar,
   Badge,
   Box,
+  Button,
   Container,
   Flex,
   Heading,
@@ -13,9 +14,10 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { useContext } from 'react'
-import { LuChevronDown, LuLogOut, LuUser } from 'react-icons/lu'
+import { LuChevronDown, LuLogOut, LuMonitor, LuUser } from 'react-icons/lu'
 import { Link, useNavigate } from 'react-router'
-import { AuthContext } from '../../context/AuthContext'
+import { V2AuthContext } from '../../context/V2AuthContext'
+import { useV1Auth } from '../../context/V1AuthContext'
 import { useColorMode } from '../../components/ui/color-mode'
 import { ColorModeButton } from '../../components/ui/color-mode'
 import { getUserTypeText } from '../../util'
@@ -24,7 +26,8 @@ import Breadcrumbs from './Breadcrumbs'
 import OrganizationSelector from './OrganizationSelector'
 
 export default function OrganizationHeader() {
-  const { user, logout } = useContext(AuthContext)
+  const { user, logout } = useContext(V2AuthContext)
+  const v1Auth = useV1Auth()
   const { colorMode } = useColorMode()
   const navigate = useNavigate()
 
@@ -66,6 +69,17 @@ export default function OrganizationHeader() {
 
             {/* Right: Organization selector + Color mode + User info */}
             <HStack gap={3}>
+              {/* Switch to V1 Multi-Cloud */}
+              <Button
+                variant="outline"
+                size="sm"
+                colorPalette="blue"
+                onClick={v1Auth.login}
+              >
+                <LuMonitor />
+                Multi-Cloud VMs
+              </Button>
+
               {/* Organization Selector */}
               <OrganizationSelector />
 

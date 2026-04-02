@@ -38,7 +38,7 @@ import {
 import CustomerOfferings from '../components/organization/CustomerOfferingList.tsx'
 import { ValueChangeDetails } from '@zag-js/tabs'
 import { useOrganizationContext } from '../context/OrganizationContext'
-import { useAuth } from '../../context/AuthContext'
+import { useV2Auth } from '../../context/V2AuthContext'
 import { useEffect, useMemo } from 'react'
 import { useOrgInvitations } from '../hooks/useUserInvitations'
 import { useOrgPermissionRequests } from '../hooks/useGroupInvitations'
@@ -47,7 +47,7 @@ export const ViewOrganization = () => {
   const { orgId, tab } = useParams<{ orgId: string; tab?: string }>()
   const navigate = useNavigate()
   const { selectOrganization } = useOrganizationContext()
-  const { getCustomerCapabilities } = useAuth()
+  const { getCustomerCapabilities } = useV2Auth()
 
   const { data: customer, isPending } = useFetchCustomer(orgId!)
   const { data: serviceProvider } = useFetchCustomerServiceProvider(orgId!)

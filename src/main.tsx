@@ -12,7 +12,8 @@ import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community'
 import { system } from './theme.ts'
 
 import App from './App.tsx'
-import { AuthProvider } from './context/AuthContext.tsx'
+import { V1AuthProvider } from './context/V1AuthContext.tsx'
+import { V2AuthProvider } from './context/V2AuthContext.tsx'
 import { ColorModeProvider, useColorMode } from './components/ui/color-mode.tsx'
 
 
@@ -38,9 +39,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <ColorModeProvider>
         <AgGridThemeSync/>
         <QueryClientProvider client={queryClient}>
-          <AuthProvider>
-            <App/>
-          </AuthProvider>
+          <V1AuthProvider>
+            <V2AuthProvider>
+              <App/>
+            </V2AuthProvider>
+          </V1AuthProvider>
           <ReactQueryDevtools initialIsOpen={false}/>
         </QueryClientProvider>
       </ColorModeProvider>

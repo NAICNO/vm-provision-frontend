@@ -11,6 +11,7 @@ import {
   Profile,
   Home,
   AuthRedirect,
+  V1AuthRedirect,
   VirtualMachineInfo,
   LogoutRedirect,
   ProfileStatus,
@@ -76,6 +77,8 @@ const routes: RouteObject[] = [
     errorElement: <DefaultErrorPage/>,
     children: [
       {path: '/oauth_login_completed/keycloak', element: <AuthRedirect/>},
+      {path: '/auth/callback', element: <V1AuthRedirect/>},
+      {path: '/kcauth/callback', element: <V1AuthRedirect/>},
 
 
       {path: '/profile-status', element: <ProfileStatus/>},

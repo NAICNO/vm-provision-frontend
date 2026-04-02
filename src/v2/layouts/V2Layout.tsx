@@ -1,11 +1,11 @@
 import { Box, Stack } from '@chakra-ui/react'
 import { useContext, useEffect } from 'react'
 import { Navigate, Outlet } from 'react-router'
-import { AuthContext } from '../../context/AuthContext'
+import { V2AuthContext } from '../../context/V2AuthContext'
 import OrganizationHeader from '../components/OrganizationHeader'
 
 export default function V2Layout() {
-  const { isAuthenticated, loading } = useContext(AuthContext)
+  const { isAuthenticated, loading } = useContext(V2AuthContext)
 
   useEffect(() => {
     document.title = `${import.meta.env.VITE_APP_NAME} - VM Provisioning`

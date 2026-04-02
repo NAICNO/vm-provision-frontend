@@ -10,12 +10,12 @@ import { useNavigate } from 'react-router'
 import { usersMeRetrieve } from '../client/sdk.gen'
 import type { User } from '../client/types.gen'
 
-import { useAuth } from '../context/AuthContext.tsx'
+import { useV2Auth } from '../context/V2AuthContext.tsx'
 import { setWaldurApiConfig } from '../api/ApiUtils.ts'
 
 export default function AuthRedirect() {
 
-  const {setToken, setUser, setAuthenticated} = useAuth()
+  const {setToken, setUser, setAuthenticated} = useV2Auth()
 
   const navigate = useNavigate()
 

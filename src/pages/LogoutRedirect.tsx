@@ -8,11 +8,11 @@ import {
 
 import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router'
-import { AuthContext } from '../context/AuthContext.tsx'
+import { V2AuthContext } from '../context/V2AuthContext.tsx'
 
 export default function LogoutRedirect() {
 
-  const { setAuthenticated, setUser } = useContext(AuthContext)
+  const { setAuthenticated, setUser } = useContext(V2AuthContext)
 
   const navigation = useNavigate()
 

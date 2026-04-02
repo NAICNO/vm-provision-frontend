@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 import { useOrganizationContext } from '../context/OrganizationContext'
 import { useOrganization } from '../hooks/useOrganization'
-import { useAuth } from '../../context/AuthContext'
+import { useV2Auth } from '../../context/V2AuthContext'
 import { LuPlus, LuSearch, LuShieldCheck } from 'react-icons/lu'
 import { MdComputer } from 'react-icons/md'
 import { useOrgVmResources, groupResourcesByProject } from '../hooks/useOrgVmResources'
@@ -44,7 +44,7 @@ export default function UserVmDashboard() {
   const { data: resources = [], isLoading: isLoadingResources } = useOrgVmResources(selectedOrg?.uuid)
   const { data: projectPolicies } = useOrgProjectCostPolicies(selectedOrg?.uuid)
   const { data: projectCosts } = useOrgProjectCosts(selectedOrg?.uuid)
-  const { getCustomerCapabilities } = useAuth()
+  const { getCustomerCapabilities } = useV2Auth()
   const { orgId } = useParams<{ orgId: string }>()
   const navigate = useNavigate()
 

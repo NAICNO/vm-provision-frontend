@@ -25,14 +25,14 @@ import { useEffect } from 'react'
 
 import { useFetchCustomers } from '../hooks/useCustomer.ts'
 import { useOrganizationContext } from '../context/OrganizationContext'
-import { useAuth } from '../../context/AuthContext'
+import { useV2Auth } from '../../context/V2AuthContext'
 import { formatToDate } from '../../util'
 
 const SelectOrganization = () => {
 
   const {data, isPending} = useFetchCustomers()
   const { selectOrganization } = useOrganizationContext()
-  const { user } = useAuth()
+  const { user } = useV2Auth()
   const navigate = useNavigate()
 
   const customers: Customer[] = data || []

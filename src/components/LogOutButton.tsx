@@ -1,15 +1,15 @@
 import { Button } from '@chakra-ui/react'
-import { AuthContext } from '../context/AuthContext.tsx'
-import { useContext } from 'react'
 
-export const LogOutButton = () => {
-  const { logout } = useContext(AuthContext)
+interface LogOutButtonProps {
+  onLogout: () => void
+}
 
+export const LogOutButton = ({ onLogout }: LogOutButtonProps) => {
   return(
     <Button
       colorPalette={'red'}
       size={{ base: 'sm',  md: 'sm', lg: 'md'}}
-      onClick={logout}
+      onClick={onLogout}
     >
       Log out
     </Button>
