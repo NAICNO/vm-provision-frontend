@@ -24,8 +24,11 @@ import { useColorMode } from '../components/ui/color-mode.tsx'
 
 export default function Home() {
 
+  //TODO : Enable later when login is available
   const v1Auth = useV1Auth()
   const v2Auth = useV2Auth()
+
+
   const {colorMode, toggleColorMode} = useColorMode()
 
   const naicLogo = colorMode === 'light'
@@ -81,16 +84,15 @@ export default function Home() {
                 <Button
                   width="full"
                   colorPalette="blue"
-                  onClick={v1Auth.login}
                   variant={'outline'}
                   size={{base: 'md', md: 'lg'}}
+                  disabled
                 >
                   <FeideIcon boxSize="20px" color="#1f4698"/> Multi-Cloud VMs
                 </Button>
                 <Button
                   width="full"
                   colorPalette="gray"
-                  onClick={v2Auth.login}
                   variant={'outline'}
                   size={{base: 'md', md: 'lg'}}
                   disabled
