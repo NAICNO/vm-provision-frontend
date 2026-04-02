@@ -1,6 +1,6 @@
 # Waldur API Reference
 
-Auto-generated from `openapi.json`. Regenerate with:
+Auto-generated from `waldur-openapi.json`. Regenerate with:
 ```bash
 python3 .claude/skills/waldur-api/scripts/generate_references.py
 ```

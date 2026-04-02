@@ -12,7 +12,7 @@ description: |
 
 # Waldur API Reference Skill
 
-The source of truth for the Waldur API is `openapi.json` in the project root. Never read `src/client/` (the auto-generated SDK) for API reference — it is generated output, not the source of truth.
+The source of truth for the Waldur API is `waldur-openapi.json` in the project root. Never read `src/client/` (the auto-generated SDK) for API reference — it is generated output, not the source of truth.
 
 ## How to use
 
@@ -23,7 +23,7 @@ The source of truth for the Waldur API is `openapi.json` in the project root. Ne
 
 This two-step approach keeps token usage low — read the overview table to discover endpoints, then pull only the details you need via the script.
 
-> **Prerequisite:** `openapi.json` must exist in the project root. The search script and doc generator both read from it. If missing, fetch it from the Waldur instance or backend repo.
+> **Prerequisite:** `waldur-openapi.json` must exist in the project root. The search script and doc generator both read from it. If missing, fetch it from the Waldur instance or backend repo.
 
 ## Reference file map
 
@@ -90,7 +90,7 @@ python3 .claude/skills/waldur-api/scripts/waldur_api_search.py <command> [args]
 
 ## Regenerating docs
 
-When `openapi.json` changes, regenerate the reference files:
+When `waldur-openapi.json` changes, regenerate the reference files:
 ```bash
 python3 .claude/skills/waldur-api/scripts/generate_references.py
 ```

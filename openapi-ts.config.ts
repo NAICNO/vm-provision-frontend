@@ -1,7 +1,7 @@
 import { defineConfig } from '@hey-api/openapi-ts'
 
 export default defineConfig({
-  input: 'openapi.json',
+  input: 'waldur-openapi.json',
   output: {
     postProcess: ['eslint'],
     path: 'src/client',

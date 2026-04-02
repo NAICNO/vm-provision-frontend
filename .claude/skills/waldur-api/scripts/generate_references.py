@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Generate markdown reference files from the Waldur OpenAPI specification.
 
-Processes openapi.json and produces organized, human-readable markdown files
+Processes waldur-openapi.json and produces organized, human-readable markdown files
 grouped by API domain (customers, projects, marketplace, etc.).
 
 Usage:
-    python3 generate_references.py [--spec openapi.json] [--output docs/waldur-api]
+    python3 generate_references.py [--spec waldur-openapi.json] [--output docs/waldur-api]
 """
 
 import json
@@ -626,7 +626,7 @@ def generate_index(entries, output_dir):
     lines = [
         "# Waldur API Reference",
         "",
-        "Auto-generated from `openapi.json`. Regenerate with:",
+        "Auto-generated from `waldur-openapi.json`. Regenerate with:",
         "```bash",
         "python3 .claude/skills/waldur-api/scripts/generate_references.py",
         "```",
@@ -657,7 +657,7 @@ def generate_index(entries, output_dir):
 
 
 def main():
-    spec_path = "openapi.json"
+    spec_path = "waldur-openapi.json"
     output_dir = ".claude/skills/waldur-api/references"
 
     # Parse args

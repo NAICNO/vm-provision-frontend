@@ -34,7 +34,7 @@ The app uses **two backends with separate auth systems**. Never mix them in a si
 - **Query keys:** `W_` prefix (`W_CUSTOMERS`, `W_PROJECTS`, `W_RESOURCES`)
 - **Types:** Auto-generated in `src/client/types.gen.ts`
 - **Layout:** `V2Layout` (header with org selector)
-- **API reference:** Use the `waldur-api` skill for endpoint/schema lookups from `openapi.json`.
+- **API reference:** Use the `waldur-api` skill for endpoint/schema lookups from `waldur-openapi.json`.
 
 ### Auth Architecture
 - **Two independent auth contexts:** `V1AuthContext` (cookie-based) and `V2AuthContext` (token-based). Both providers wrap the app in `main.tsx`.
@@ -44,7 +44,7 @@ The app uses **two backends with separate auth systems**. Never mix them in a si
 - **Logout clears both backends** — removes localStorage token and calls V1 backend `/auth/logout` for Keycloak session cleanup.
 - **401 interceptor:** `axiosInstance` skips redirect for `/auth/status` calls to prevent redirect loops.
 
-**After `openapi.json` changes:** `yarn openapi-ts` (regenerate SDK) then `python3 .claude/skills/waldur-api/scripts/generate_references.py` (regenerate API docs)
+**After `waldur-openapi.json` changes:** `yarn openapi-ts` (regenerate SDK) then `python3 .claude/skills/waldur-api/scripts/generate_references.py` (regenerate API docs)
 
 ---
 

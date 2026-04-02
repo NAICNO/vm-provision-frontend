@@ -320,7 +320,7 @@ def main():
     args = sys.argv[1:]
 
     # Parse --spec flag
-    spec_path = "openapi.json"
+    spec_path = "waldur-openapi.json"
     if "--spec" in args:
         idx = args.index("--spec")
         if idx + 1 < len(args):
