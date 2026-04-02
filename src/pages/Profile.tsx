@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import {
   Link,
   List,
@@ -6,11 +5,11 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { MdAlternateEmail, MdPerson } from 'react-icons/md'
-import { AuthContext } from '../context/AuthContext.tsx'
+import { useV1Auth } from '../context/V1AuthContext.tsx'
 
 export default function Profile() {
 
-  const {user} = useContext(AuthContext)
+  const {user} = useV1Auth()
 
   const items = [
     {icon: MdPerson, text: `${user?.firstName} ${user?.lastName}`},

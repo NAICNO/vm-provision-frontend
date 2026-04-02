@@ -18,7 +18,7 @@ const compat = new FlatCompat({
 })
 
 export default defineConfig({
-  ignores: ['**/dist/**'],
+  ignores: ['**/dist/**', 'src/client/**'],
 
   extends: compat.extends(
     'eslint:recommended',

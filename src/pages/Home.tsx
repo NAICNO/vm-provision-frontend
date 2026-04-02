@@ -15,12 +15,20 @@ import {
   HStack
 } from '@chakra-ui/react'
 import { APP_NAME } from '../constants/Constants.ts'
+import { useV1Auth } from '../context/V1AuthContext.tsx'
+import { useV2Auth } from '../context/V2AuthContext.tsx'
 import FeideIcon from '../components/FeideIcon.tsx'
 import { FiMoon, FiSun } from 'react-icons/fi'
 
 import { useColorMode } from '../components/ui/color-mode.tsx'
 
 export default function Home() {
+
+  //TODO : Enable later when login is available
+  const v1Auth = useV1Auth()
+  const v2Auth = useV2Auth()
+
+
   const {colorMode, toggleColorMode} = useColorMode()
 
   const naicLogo = colorMode === 'light'
@@ -75,12 +83,21 @@ export default function Home() {
                 </Text>
                 <Button
                   width="full"
+                  colorPalette="blue"
+                  variant={'outline'}
+                  size={{base: 'md', md: 'lg'}}
+                  disabled
+                >
+                  <FeideIcon boxSize="20px" color="#1f4698"/> Multi-Cloud VMs
+                </Button>
+                <Button
+                  width="full"
                   colorPalette="gray"
                   variant={'outline'}
                   size={{base: 'md', md: 'lg'}}
                   disabled
                 >
-                  <FeideIcon boxSize="20px" color="#1f4698"/> Continue with Feide
+                  <FeideIcon boxSize="20px" color="#1f4698"/> OpenStack Management
                 </Button>
                 <Text color={'gray.500'} as="i" fontSize={'sm'}>Please click the <Text as="b">MyAccessID /
                   Feide</Text> link on the next page</Text>

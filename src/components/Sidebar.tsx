@@ -15,8 +15,8 @@ import { NavLink, useLocation } from 'react-router'
 import { useColorMode } from './ui/color-mode.tsx'
 import { LogOutButton } from './LogOutButton.tsx'
 import { LightDarkModeButton } from './LightDarkModeButton.tsx'
-import React, { useContext } from 'react'
-import { AuthContext } from '../context/AuthContext.tsx'
+import React from 'react'
+import { useV1Auth } from '../context/V1AuthContext.tsx'
 import { ADMIN_SIDEBAR_ITEMS, DEFAULT_SIDEBAR_BOTTOM_ITEMS, DEFAULT_SIDEBAR_TOP_ITEMS } from '../constants/Constants.ts'
 import { isUserAdmin } from '../util'
 import { SidebarItem } from '../types/SIdebarItem.ts'
@@ -28,7 +28,7 @@ interface SidebarProps {
 
 export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
 
-  const {user} = useContext(AuthContext)
+  const {user, logout} = useV1Auth()
   const {colorMode} = useColorMode()
 
   const isAdmin = isUserAdmin(user?.userType)
@@ -134,7 +134,7 @@ export default function Sidebar({onCloseDrawer, isDrawerOpen}: SidebarProps) {
                   }
                 </HStack>
                 <HStack w={'100%'} pt="10px">
-                  <LogOutButton/>
+                  <LogOutButton onLogout={logout}/>
                   <Spacer/>
                   <LightDarkModeButton/>
                 </HStack>

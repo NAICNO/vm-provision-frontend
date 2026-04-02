@@ -1,12 +1,11 @@
-import { useContext } from 'react'
 import { Navigate, Outlet } from 'react-router'
 
-import { AuthContext } from '../context/AuthContext.tsx'
+import { useV1Auth } from '../context/V1AuthContext.tsx'
 import { isUserAdmin } from '../util'
 
 const AdminLayoutWrapper = () => {
 
-  const {user} = useContext(AuthContext)
+  const {user} = useV1Auth()
 
   if (!isUserAdmin(user?.userType)) {
     return <Navigate to="/" state={{from: location}} replace/>

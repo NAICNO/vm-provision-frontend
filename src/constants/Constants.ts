@@ -8,11 +8,15 @@ export const APP_NAME = import.meta.env.VITE_APP_NAME
 export const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT
 export const SOCKET_ENDPOINT = import.meta.env.VITE_SOCKET_ENDPOINT
 export const AUTH_URL = import.meta.env.VITE_AUTH_URL
-export const SENTRY_DSN = import.meta.env.VITE_SENTRY_DSN
+export const V1_AUTH_URL = import.meta.env.VITE_V1_AUTH_URL
+
+export const WALDUR_API_ENDPOINT = import.meta.env.VITE_WALDUR_API_ENDPOINT
 
 export const VM_NAME_VALIDATION_REGEX = /^[A-Za-z0-9\-._]+$/ // alphanumeric, underscore, hyphen, dot
 
 export const FILE_NAME_VALIDATION_REGEX = /^[a-zA-Z0-9_-]{2,}(\.[a-zA-Z0-9]+)?$/ // 2 or more characters, alphanumeric, underscore, hyphen, dot, optional extension
+
+export const OPENSTACK_TENANT_TYPE = 'OpenStack.Tenant'
 
 export const ALLOWED_IP_RANGES = [
   {name: 'UiO Network', ipRange: '129.240.0.0/16'},

@@ -2,6 +2,7 @@ import {
   Avatar,
   Badge,
   Box,
+  Button,
   Flex,
   Heading,
   HStack, Image, Show,
@@ -9,14 +10,16 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { NavLink } from 'react-router'
+import { LuCloud } from 'react-icons/lu'
+import { useV2Auth } from '../context/V2AuthContext.tsx'
 
 import { useColorMode } from './ui/color-mode.tsx'
 import { APP_NAME } from '../constants/Constants.ts'
 import { LogOutButton } from './LogOutButton.tsx'
 import { LightDarkModeButton } from './LightDarkModeButton.tsx'
 import { HamburgerButton } from './HamburgerButton.tsx'
-import { AuthContext } from '../context/AuthContext.tsx'
-import { useContext } from 'react'
+import { useV1Auth } from '../context/V1AuthContext.tsx'
+import { isUserAdmin } from '../util'
 
 interface AppHeaderProps {
   onOpenSidebarDrawer: () => void
@@ -25,7 +28,8 @@ interface AppHeaderProps {
 
 export default function AppHeader({onOpenSidebarDrawer, onClickAvatar}: AppHeaderProps) {
 
-  const {user} = useContext(AuthContext)
+  const {user, logout} = useV1Auth()
+  const v2Auth = useV2Auth()
 
   const {colorMode} = useColorMode()
 
@@ -61,6 +65,15 @@ export default function AppHeader({onOpenSidebarDrawer, onClickAvatar}: AppHeade
           display={{base: 'none', md: 'flex'}}
           alignItems={'center'}
         >
+          <Button
+            variant="outline"
+            size="sm"
+            colorPalette="blue"
+            onClick={v2Auth.login}
+          >
+            <LuCloud />
+            OpenStack Management
+          </Button>
           <LightDarkModeButton/>
           <Avatar.Root
             size={{base: 'sm', md: 'md'}}
@@ -79,11 +92,10 @@ export default function AppHeader({onOpenSidebarDrawer, onClickAvatar}: AppHeade
               {user?.email}
             </Text>
           </Box>
-          {
-            (user?.userType === 'ADMIN' || user?.userType == 'SUPER_ADMIN') &&
+          {isUserAdmin(user?.userType) &&
             <Badge mt={'4px'} alignSelf={'start'} colorPalette="orange">{user?.userType}</Badge>
           }
-          <LogOutButton/>
+          <LogOutButton onLogout={logout}/>
         </HStack>
       </Show>
     </Flex>

@@ -4,6 +4,7 @@ import { VmStatusType } from '../types/VmStatusType.ts'
 import { Vm } from '../types/Vm.ts'
 import providerLogos from './providerLogos.json'
 import { ColorMode } from '../components/ui/color-mode.tsx'
+import type { User } from '../client/types.gen'
 
 export function getNaicLogo(colorMode: ColorMode): string {
   return colorMode === 'light' ? '/images/naic/naic_dark.svg' : '/images/naic/naic_light.svg'
@@ -21,6 +22,35 @@ export function generateRandomString(): string {
   window.crypto.getRandomValues(array)
   array = array.map(x => validChars.charCodeAt(x % validChars.length))
   return String.fromCharCode.apply(null, array as unknown as number[])
+}
+
+export function generateVmName(): string {
+  const adjectives = ['swift', 'bright', 'calm', 'bold', 'wise', 'keen', 'pure', 'warm', 'cool', 'quick']
+  const nouns = ['cloud', 'server', 'node', 'host', 'worker', 'compute', 'instance', 'vm', 'box', 'engine']
+  const randomNum = Math.floor(Math.random() * 9999) + 1
+  const adjective = adjectives[Math.floor(Math.random() * adjectives.length)]
+  const noun = nouns[Math.floor(Math.random() * nouns.length)]
+  return `${adjective}-${noun}-${randomNum}`
+}
+
+export function getOsIconName(osName: string): string {
+  const lowerName = osName.toLowerCase()
+  
+  if (lowerName.includes('ubuntu')) return 'ubuntu'
+  if (lowerName.includes('debian')) return 'debian'
+  if (lowerName.includes('centos')) return 'centos'
+  if (lowerName.includes('fedora')) return 'fedora'
+  if (lowerName.includes('rhel') || lowerName.includes('red hat')) return 'redhat'
+  if (lowerName.includes('rocky')) return 'rocky'
+  if (lowerName.includes('alma')) return 'alma'
+  if (lowerName.includes('arch')) return 'arch'
+  if (lowerName.includes('suse') || lowerName.includes('opensuse')) return 'suse'
+  if (lowerName.includes('windows') || lowerName.includes('win')) return 'windows'
+  if (lowerName.includes('alpine')) return 'alpine'
+  if (lowerName.includes('talos')) return 'talos'
+  if (lowerName.includes('vyos')) return 'vyos'
+  
+  return 'linux' // default
 }
 
 const statusTextMap = {
@@ -141,4 +171,15 @@ export const isUserAdmin = (userType?: string): boolean => {
     return false
   }
   return userType === 'ADMIN' || userType === 'SUPER_ADMIN'
+}
+
+export const getUserTypeText = (user?: User): string => {
+  if (!user) {
+    return 'Unknown'
+  }
+  return user?.is_staff ? 'Staff' : user?.is_support ? 'Support' : 'User'
+}
+
+export const formatToDate = (date: Date | string): string => {
+  return moment(date).locale('en').format('DD-MMM-YYYY')
 }
