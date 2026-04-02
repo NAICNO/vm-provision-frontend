@@ -1,4 +1,5 @@
 import {
+  Alert,
   Button,
   Container,
   Heading,
@@ -14,16 +15,12 @@ import {
   HStack
 } from '@chakra-ui/react'
 import { APP_NAME } from '../constants/Constants.ts'
-import { useContext } from 'react'
-import { AuthContext } from '../context/AuthContext.tsx'
 import FeideIcon from '../components/FeideIcon.tsx'
 import { FiMoon, FiSun } from 'react-icons/fi'
 
 import { useColorMode } from '../components/ui/color-mode.tsx'
 
 export default function Home() {
-
-  const {login} = useContext(AuthContext)
   const {colorMode, toggleColorMode} = useColorMode()
 
   const naicLogo = colorMode === 'light'
@@ -40,6 +37,19 @@ export default function Home() {
         py={{base: '18', md: '24', lg: '24'}}
         px={{base: '4', sm: '6', lg: '6'}}
       >
+        <Alert.Root status="warning" mb={4}>
+          <Alert.Indicator/>
+          <Box>
+            <Alert.Title>Hibernate Mode</Alert.Title>
+            <Alert.Description>
+              The NAIC Orchestrator is currently in hibernate mode while Sigma2 finalizes infrastructure procurement. Login is disabled until further notice.
+              For questions, please visit the{' '}
+              <Link href="https://www.naic.no/english/naic-support-desk/" target="_blank" color="blue.500">
+                NAIC Support Desk
+              </Link>.
+            </Alert.Description>
+          </Box>
+        </Alert.Root>
         <Card.Root>
           <Card.Body>
             <Center>
@@ -66,9 +76,9 @@ export default function Home() {
                 <Button
                   width="full"
                   colorPalette="gray"
-                  onClick={login}
                   variant={'outline'}
                   size={{base: 'md', md: 'lg'}}
+                  disabled
                 >
                   <FeideIcon boxSize="20px" color="#1f4698"/> Continue with Feide
                 </Button>

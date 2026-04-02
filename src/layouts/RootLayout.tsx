@@ -6,7 +6,6 @@ import { useContext, useEffect } from 'react'
 import * as WebSocketUtils from '../util/WebSoketUtil.ts'
 import { AuthContext } from '../context/AuthContext.tsx'
 import { useColorMode } from '../components/ui/color-mode.tsx'
-import RemoteConfigBanner from '../components/RemoteConfigBanner.tsx'
 
 export default function RootLayout() {
 
@@ -46,12 +45,12 @@ export default function RootLayout() {
   return (
     <Grid
       templateAreas={{
-        base: '"banner" "header" "main"',
-        md: '"banner banner" "header header" "nav main"',
+        base: '"header" "main"',
+        md: '"header header" "nav main"',
       }}
       gridTemplateRows={{
-        base: 'auto 60px 1fr',
-        md: 'auto 100px 1fr',
+        base: '60px 1fr',
+        md: '100px 1fr',
       }}
       gridTemplateColumns={{
         base: '1fr',
@@ -60,9 +59,6 @@ export default function RootLayout() {
       gap="1"
       h="100vh"
     >
-      <GridItem area={'banner'}>
-        <RemoteConfigBanner />
-      </GridItem>
       <GridItem
         px={{base: '20px', md: '40px'}}
         py={{base: '10px', md: '20px'}}

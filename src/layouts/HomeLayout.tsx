@@ -2,7 +2,6 @@ import { Navigate, Outlet } from 'react-router'
 import { Box, Center, Spinner } from '@chakra-ui/react'
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext.tsx'
-import RemoteConfigBanner from '../components/RemoteConfigBanner.tsx'
 
 export default function HomeLayout() {
 
@@ -22,7 +21,6 @@ export default function HomeLayout() {
 
   return (
     <Box>
-      <RemoteConfigBanner />
       <Outlet/> {/* This will render the child routes */}
     </Box>
   )
