@@ -137,6 +137,7 @@ sketch
 .env.sentry-build-plugin
 
 .env*
+!.env.example
 
 dist
 .vercel
