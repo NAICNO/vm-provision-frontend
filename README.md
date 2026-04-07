@@ -1,5 +1,7 @@
 # NAIC Orchestrator - Frontend
 
+[![DOI](https://zenodo.org/badge/706219018.svg)](https://doi.org/10.5281/zenodo.19454587)
+
 [![Build](https://github.com/NAICNO/vm-provision-frontend/actions/workflows/deploy.yml/badge.svg)](https://github.com/NAICNO/vm-provision-frontend/actions/workflows/deploy.yml)
 
 > Self-service web portal for the Norwegian AI Cloud (NAIC) — a unified interface for provisioning and managing compute resources across institutional and commercial cloud providers.
